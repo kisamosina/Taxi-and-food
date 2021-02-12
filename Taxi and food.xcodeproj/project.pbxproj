@@ -21,6 +21,8 @@
 		04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */; };
 		04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */; };
 		04B5655B25D65BA200E0EC25 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */; };
+		04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656A25D6824400E0EC25 /* ServiceViewController.swift */; };
+		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
+		04B5656A25D6824400E0EC25 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		04B5651025D6591200E0EC25 /* Taxi and food */ = {
 			isa = PBXGroup;
 			children = (
+				04B5656725D681BC00E0EC25 /* Menu modul */,
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				04B5654525D659D800E0EC25 /* Auth module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
@@ -208,6 +213,31 @@
 				04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		04B5656725D681BC00E0EC25 /* Menu modul */ = {
+			isa = PBXGroup;
+			children = (
+				04B5656925D6823200E0EC25 /* View */,
+				04B5656825D6822700E0EC25 /* Interactor */,
+			);
+			path = "Menu modul";
+			sourceTree = "<group>";
+		};
+		04B5656825D6822700E0EC25 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		04B5656925D6823200E0EC25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B5656A25D6824400E0EC25 /* ServiceViewController.swift */,
+				04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
+				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
@@ -349,6 +380,7 @@
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,
 				04B5655B25D65BA200E0EC25 /* PhoneFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
