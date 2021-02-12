@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
-		04B5651625D6591200E0EC25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651525D6591200E0EC25 /* ViewController.swift */; };
 		04B5651925D6591200E0EC25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* Main.storyboard */; };
 		04B5651C25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651A25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld */; };
 		04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651D25D6591700E0EC25 /* Assets.xcassets */; };
 		04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */; };
 		04B5652C25D6591800E0EC25 /* Taxi_and_foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5652B25D6591800E0EC25 /* Taxi_and_foodTests.swift */; };
 		04B5653725D6591800E0EC25 /* Taxi_and_foodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5653625D6591800E0EC25 /* Taxi_and_foodUITests.swift */; };
+		04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5654825D65A2600E0EC25 /* AuthViewController.swift */; };
+		04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5654A25D65A5400E0EC25 /* ConfirmAuthViewController.swift */; };
+		04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655025D65AF200E0EC25 /* NetworkService.swift */; };
+		04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655225D65B1D00E0EC25 /* Resource.swift */; };
+		04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */; };
+		04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */; };
+		04B5655B25D65BA200E0EC25 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +45,6 @@
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04B5651525D6591200E0EC25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04B5651825D6591200E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04B5651B25D6591200E0EC25 /* Taxi_and_food.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taxi_and_food.xcdatamodel; sourceTree = "<group>"; };
 		04B5651D25D6591700E0EC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +56,13 @@
 		04B5653225D6591800E0EC25 /* Taxi and foodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Taxi and foodUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5653625D6591800E0EC25 /* Taxi_and_foodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxi_and_foodUITests.swift; sourceTree = "<group>"; };
 		04B5653825D6591800E0EC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B5654825D65A2600E0EC25 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		04B5654A25D65A5400E0EC25 /* ConfirmAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAuthViewController.swift; sourceTree = "<group>"; };
+		04B5655025D65AF200E0EC25 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		04B5655225D65B1D00E0EC25 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +113,16 @@
 		04B5651025D6591200E0EC25 /* Taxi and food */ = {
 			isa = PBXGroup;
 			children = (
-				04B5651125D6591200E0EC25 /* AppDelegate.swift */,
-				04B5651325D6591200E0EC25 /* SceneDelegate.swift */,
-				04B5651525D6591200E0EC25 /* ViewController.swift */,
+				04B5654425D6596900E0EC25 /* App lifecycle */,
+				04B5654525D659D800E0EC25 /* Auth module */,
 				04B5651725D6591200E0EC25 /* Main.storyboard */,
 				04B5651D25D6591700E0EC25 /* Assets.xcassets */,
 				04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */,
 				04B5652225D6591700E0EC25 /* Info.plist */,
 				04B5651A25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld */,
+				04B5654C25D65A9800E0EC25 /* Services */,
+				04B5655425D65B3900E0EC25 /* Extensions */,
+				04B5655925D65B8F00E0EC25 /* Helpers */,
 			);
 			path = "Taxi and food";
 			sourceTree = "<group>";
@@ -129,6 +143,74 @@
 				04B5653825D6591800E0EC25 /* Info.plist */,
 			);
 			path = "Taxi and foodUITests";
+			sourceTree = "<group>";
+		};
+		04B5654425D6596900E0EC25 /* App lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				04B5651125D6591200E0EC25 /* AppDelegate.swift */,
+				04B5651325D6591200E0EC25 /* SceneDelegate.swift */,
+			);
+			path = "App lifecycle";
+			sourceTree = "<group>";
+		};
+		04B5654525D659D800E0EC25 /* Auth module */ = {
+			isa = PBXGroup;
+			children = (
+				04B5654725D65A0B00E0EC25 /* View */,
+				04B5654625D659E900E0EC25 /* Interactor */,
+			);
+			path = "Auth module";
+			sourceTree = "<group>";
+		};
+		04B5654625D659E900E0EC25 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		04B5654725D65A0B00E0EC25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B5654825D65A2600E0EC25 /* AuthViewController.swift */,
+				04B5654A25D65A5400E0EC25 /* ConfirmAuthViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04B5654C25D65A9800E0EC25 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04B5654D25D65AAC00E0EC25 /* NetworkServie */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04B5654D25D65AAC00E0EC25 /* NetworkServie */ = {
+			isa = PBXGroup;
+			children = (
+				04B5655025D65AF200E0EC25 /* NetworkService.swift */,
+				04B5655225D65B1D00E0EC25 /* Resource.swift */,
+			);
+			path = NetworkServie;
+			sourceTree = "<group>";
+		};
+		04B5655425D65B3900E0EC25 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */,
+				04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04B5655925D65B8F00E0EC25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +344,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B5651625D6591200E0EC25 /* ViewController.swift in Sources */,
+				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				04B5651C25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld in Sources */,
+				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
+				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
+				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
+				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
+				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				04B5655B25D65BA200E0EC25 /* PhoneFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
