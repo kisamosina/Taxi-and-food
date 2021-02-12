@@ -10,7 +10,6 @@
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
 		04B5651925D6591200E0EC25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* Main.storyboard */; };
-		04B5651C25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651A25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld */; };
 		04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651D25D6591700E0EC25 /* Assets.xcassets */; };
 		04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */; };
 		04B5652C25D6591800E0EC25 /* Taxi_and_foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5652B25D6591800E0EC25 /* Taxi_and_foodTests.swift */; };
@@ -46,7 +45,6 @@
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04B5651825D6591200E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		04B5651B25D6591200E0EC25 /* Taxi_and_food.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taxi_and_food.xcdatamodel; sourceTree = "<group>"; };
 		04B5651D25D6591700E0EC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B5652025D6591700E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B5652225D6591700E0EC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,14 +113,12 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				04B5654525D659D800E0EC25 /* Auth module */,
-				04B5651725D6591200E0EC25 /* Main.storyboard */,
-				04B5651D25D6591700E0EC25 /* Assets.xcassets */,
-				04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */,
-				04B5652225D6591700E0EC25 /* Info.plist */,
-				04B5651A25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
 				04B5655925D65B8F00E0EC25 /* Helpers */,
+				04B5651D25D6591700E0EC25 /* Assets.xcassets */,
+				04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */,
+				04B5652225D6591700E0EC25 /* Info.plist */,
 			);
 			path = "Taxi and food";
 			sourceTree = "<group>";
@@ -175,6 +171,7 @@
 			children = (
 				04B5654825D65A2600E0EC25 /* AuthViewController.swift */,
 				04B5654A25D65A5400E0EC25 /* ConfirmAuthViewController.swift */,
+				04B5651725D6591200E0EC25 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,7 +273,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = kisamosina;
 				TargetAttributes = {
 					04B5650D25D6591200E0EC25 = {
@@ -345,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
-				04B5651C25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
@@ -434,6 +430,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -494,6 +491,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -676,19 +674,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		04B5651A25D6591200E0EC25 /* Taxi_and_food.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				04B5651B25D6591200E0EC25 /* Taxi_and_food.xcdatamodel */,
-			);
-			currentVersion = 04B5651B25D6591200E0EC25 /* Taxi_and_food.xcdatamodel */;
-			path = Taxi_and_food.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 04B5650625D6591200E0EC25 /* Project object */;
 }
