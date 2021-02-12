@@ -1,9 +1,8 @@
 //
-//  AuthViewController.swift
-//  Taxi and food
+//  ViewController.swift
+//  Ride and food
 //
-//  Created by mac on 12/02/2021.
-//  Copyright © 2021 kisamosina. All rights reserved.
+//  Created by Maxim Alekseev on 09.02.2021.
 //
 
 import UIKit
@@ -13,15 +12,25 @@ class AuthViewController: UIViewController {
     //MARK: - Properties
     
     private var isUserAgreementReceived = false
-    private var phoneFormatter = PhoneFormatter(maxNumberCount: 11)
-//    internal var interactor: AuthInteractorProtocol!
+    private var phoneFormatter = PhoneFormatter()
+    private var userAgreementText: String {
+        switch AppSettings.shared.language {
+        
+        case .rus:
+            return "пользовательским соглашением"
+        case .en:
+            return "user agreement"
+        }
+    }
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var userAgreementButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     //MARK: - Life Cycle
@@ -30,7 +39,10 @@ class AuthViewController: UIViewController {
         
         addKeyboardWillShowObserver()
         enableNextButton()
+        setLabelsAndButtonsText()
+        addBottomLabelGestureRecognizer()
         phoneNumberTextField.delegate = self
+        notificationRequest()
     }
     
     
@@ -45,9 +57,6 @@ class AuthViewController: UIViewController {
     }
     
     //MARK: - IBAction
-    
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-    }
     
     @IBAction func userAgreementButtonTapped(_ sender: UIButton) {
         isUserAgreementReceived = !isUserAgreementReceived
@@ -92,10 +101,54 @@ class AuthViewController: UIViewController {
         }
     }
     
+    private func setLabelsAndButtonsText() {
+        
+        switch AppSettings.shared.language {
+        
+        case .rus:
+            topLabel.text = "Укажите номер телефона"
+            bottomLabel.text = "Даю согласие на обработку персональных данных, с пользовательским соглашением ознакомлен"
+            bottomLabel.setAttributedText(userAgreementText)
+            nextButton.setTitle("Далее", for: .normal)
+        case .en:
+            topLabel.text = "Set telephone number"
+            bottomLabel.text = "I agree to the personal data processing, I have read the user agreement"
+            bottomLabel.setAttributedText(userAgreementText)
+            nextButton.setTitle("Next", for: .normal)
+        }
+        
+    }
+    
+    private func addBottomLabelGestureRecognizer() {
+        bottomLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBottomLabel(gesture:))))
+    }
+    
+    private func notificationRequest() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        notificationCenter.requestAuthorization(options: options) {
+            (didAllow, error) in
+            if !didAllow {
+                print("User has declined notifications")
+            }
+        }
+    }
+    
     @objc private func keyBoardWillAppear(notification: NSNotification) {
         keyboardWillShow(constraint: bottomViewConstraint, notification: notification)
     }
     
+    @objc func tapBottomLabel(gesture: UITapGestureRecognizer) {
+        guard let text = bottomLabel.text else { return }
+        
+        let termsRange = (text as NSString).range(of: userAgreementText)
+        
+        if gesture.didTapAttributedTextInLabel(label: bottomLabel, inRange: termsRange) {
+            guard let uaVC = storyboard?.instantiateViewController(identifier: String(describing: UserAgreementViewController.self))
+            else { return }
+            self.present(uaVC, animated: true, completion: nil)
+        }
+    }
 }
 
 //MARK: - UITextFieldDelegate
@@ -103,14 +156,14 @@ class AuthViewController: UIViewController {
 extension AuthViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let fullString = (textField.text ?? "") + string
-        textField.text = phoneFormatter.format(phoneNumber: fullString, shouldRemoveLastDigit: range.length == 1)
+        guard let text = textField.text else { return false }
+        let newString = (text as NSString).replacingCharacters(in: range, with: string)
+        textField.text = phoneFormatter.format(phone: newString)
         phoneFormatter.setRawText(string)
         enableNextButton()
         return false
     }
 }
-
 
 
 
