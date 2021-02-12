@@ -26,6 +26,7 @@
 		7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66525D66F9500C35652 /* UILabel+Extension.swift */; };
 		7BFFA66B25D66FA100C35652 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66A25D66FA100C35652 /* UIButton+Extension.swift */; };
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
+		7BFFA68325D67F0300C35652 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		7BFFA66525D66F9500C35652 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA66A25D66FA100C35652 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		7BFFA68225D67F0300C35652 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,16 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				04B5654725D65A0B00E0EC25 /* View */,
-				04B5654625D659E900E0EC25 /* Interactor */,
 			);
 			path = "AuthAndMain module";
-			sourceTree = "<group>";
-		};
-		04B5654625D659E900E0EC25 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		04B5654725D65A0B00E0EC25 /* View */ = {
@@ -237,6 +231,7 @@
 		7BFFA64E25D66D6000C35652 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7BFFA68225D67F0300C35652 /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -389,6 +384,7 @@
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
+				7BFFA68325D67F0300C35652 /* MainViewController.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7BFFA65925D66F5400C35652 /* AppSettings.swift in Sources */,
