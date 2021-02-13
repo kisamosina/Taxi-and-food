@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zux-rs-o3I">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,7 +12,7 @@
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AuthViewController" customModule="Ride_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AuthViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +136,7 @@
         <!--Confirm Auth View Controller-->
         <scene sceneID="xTi-c5-YIQ">
             <objects>
-                <viewController storyboardIdentifier="ConfirmAuthViewController" id="qF3-Cq-Ld7" customClass="ConfirmAuthViewController" customModule="Ride_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmAuthViewController" id="qF3-Cq-Ld7" customClass="ConfirmAuthViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BXj-cP-n8E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,7 +299,7 @@
         <!--Main View Controller-->
         <scene sceneID="xI6-6f-zqo">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="o8O-ca-Uob" customClass="MainViewController" customModule="Ride_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="o8O-ca-Uob" customClass="MainViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ON2-d4-7L9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -338,7 +339,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-SJ-IIw">
                                 <rect key="frame" x="0.0" y="696" width="414" height="200"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Yef-tU-SCu">
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Yef-tU-SCu">
                                         <rect key="frame" x="25" y="23" width="364" height="112"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pk7-qk-2cB">
@@ -430,6 +431,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="SGh-SJ-IIw" id="A0f-Y2-Z73"/>
                         <outlet property="foodButton" destination="FrK-be-7iC" id="6UJ-Pi-gIk"/>
                         <outlet property="lkButton" destination="b9C-Im-UHs" id="gLy-AZ-cmt"/>
                         <outlet property="mapCenterButton" destination="yKH-JN-0i3" id="ki0-HY-E8C"/>
@@ -445,7 +447,7 @@
         <!--User Agreement View Controller-->
         <scene sceneID="Jpq-ge-sk9">
             <objects>
-                <viewController storyboardIdentifier="UserAgreementViewController" id="uRi-3o-ro4" customClass="UserAgreementViewController" customModule="Ride_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserAgreementViewController" id="uRi-3o-ro4" customClass="UserAgreementViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jxr-GO-m8X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

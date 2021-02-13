@@ -80,6 +80,7 @@ final class NetworkService {
         
         case .success(let httpBody):
             request.httpBody = httpBody
+            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
         case .failure(let error):
             print("CATCHED ERROR WHILE ENCODING DATA: \(error.localizedDescription)" )
             return
