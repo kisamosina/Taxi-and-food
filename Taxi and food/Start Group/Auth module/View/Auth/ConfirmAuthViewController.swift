@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol ConfirmAuthViewProtocol: class {
+    var interactor: ConfirmAuthInteractorProtocol! { get set }
+}
+
 class ConfirmAuthViewController: UIViewController {
     
     //MARK: - Properties
     
+    internal var interactor: ConfirmAuthInteractorProtocol!
     private var phoneNumber: String?
     private var rawPhoneNumber: String?
     private var remainedSeconds = 30
@@ -39,6 +44,8 @@ class ConfirmAuthViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.interactor = ConfirmAuthInteractor(view: self, phoneNumber: self.rawPhoneNumber!)
+        self.interactor.sendRegistrationRequest()
         addTextfieldsTargets()
         addKeyboardWillShowObserver()
         setupTopLabelTextAndNextButtonText()
@@ -236,3 +243,6 @@ class ConfirmAuthViewController: UIViewController {
         }
     }
 }
+
+//MARK: - ConfirmAuthViewProtocol
+extension ConfirmAuthViewController: ConfirmAuthViewProtocol {}

@@ -17,16 +17,15 @@ final class NetworkService {
     typealias FetchResult<T:Decodable> = (Result<T, Error>) -> Void
     
     //Make networking requests
-    func makeRequest<T,U>(for resource: Resource<T>, data: U? = nil, completion: FetchResult<T>?) where U: Codable {
+    func makeRequest<T,U>(for resource: Resource<T>, data: U? = nil, completion: @escaping FetchResult<T>) where U: Codable {
         
         switch resource.requestMethod {
             
         case .GET:
-            guard let completion = completion else { return }
             self.getData(from: resource, completion: completion)
         case .POST:
             guard let data = data else { return }
-            self.postData(to: resource, data: data)
+            self.postData(to: resource, data: data, completion: completion)
         }
         
     }
@@ -56,15 +55,9 @@ final class NetworkService {
             
             case .success(let data):
                 
-                do {
-                    let items = try JSONDecoder().decode(T.self, from: data)
-                    completion(.success(items))
-                    
-                } catch let jsonError {
-                    completion(.failure(jsonError))
-                    
-                }
-                
+                let decodeResult = self.decode(for: resource, data: data)
+                completion(decodeResult)
+                                
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -74,8 +67,8 @@ final class NetworkService {
     }
     
     //WHEN POST REQUEST
-    private func postData <T,U> (to resource: Resource<T>, data: U) where U:Codable {
-        
+    private func postData <T,U> (to resource: Resource<T>, data: U, completion: @escaping FetchResult<T>) where U: Codable {
+    
         guard let url = resource.urlComponents.url else { return }
         
         var request = URLRequest (url: url)
@@ -106,9 +99,10 @@ final class NetworkService {
                 print(error!)
                 return
             }
-            guard let httpResponse = response as? HTTPURLResponse,
-                  (200...299).contains(httpResponse.statusCode) else {
-                print("Server error")
+            
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("Server error code: \(httpResponse.statusCode)")
                 return
             }
             // Success response
@@ -116,6 +110,9 @@ final class NetworkService {
             if let mimeType = httpResponse.mimeType /*, mimeType == "application/json"*/ {
                 print("MimeType: " + mimeType)
             }
+            guard let data = data else { return }
+            let result = self.decode(for: resource, data: data)
+            completion(result)
         }
         
         task.resume()
@@ -131,6 +128,23 @@ final class NetworkService {
             return .success(jsonData)
         } catch {
             return .failure(error)
+        }
+    }
+    
+    //DECODING DATA
+    
+    private func decode<T: Decodable>(for resource: Resource<T>, data: Data) -> Result<T, Error> {
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        do {
+            let result = try decoder.decode(T.self, from: data)
+            return .success(result)
+            
+        } catch {
+            return .failure(error)
+            
         }
     }
     
