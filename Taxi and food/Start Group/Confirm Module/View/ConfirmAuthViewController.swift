@@ -20,15 +20,6 @@ class ConfirmAuthViewController: UIViewController {
     private var rawPhoneNumber: String?
     private var remainedSeconds = 30
     private var timer: Timer?
-    private var resendText: String {
-        switch AppSettings.shared.language {
-        
-        case .rus:
-            return "Повторить отправку."
-        case .en:
-            return "Resend code."
-        }
-    }
     
     //MARK: - IBOutlets
     
@@ -49,7 +40,7 @@ class ConfirmAuthViewController: UIViewController {
         addTextfieldsTargets()
         addKeyboardWillShowObserver()
         setupTopLabelTextAndNextButtonText()
-        setupDescLabelText(seconds: 30)
+        setupDescLabelText(seconds: remainedSeconds)
         startTimer()
         addDescriptionLabelGestureRecognizer()
     }
@@ -87,17 +78,8 @@ class ConfirmAuthViewController: UIViewController {
     }
     
     private func setupTopLabelTextAndNextButtonText() {
-        
-        switch AppSettings.shared.language {
-        
-        case .rus:
-            topLabel.text = "Код подтверждения"
-            nextButton.setTitle("Далее", for: .normal)
-        case .en:
-            topLabel.text = "Approval code"
-            nextButton.setTitle("Next", for: .normal)
-        }
-        
+        topLabel.text = interactor.topLabelText
+        nextButton.setTitle(interactor.nextButtonTitle, for: .normal)
     }
     
     private func setupDescLabelText(seconds: Int) {
@@ -118,16 +100,16 @@ class ConfirmAuthViewController: UIViewController {
         case .rus:
             
             if seconds == 0 {
-                self.descriptionLabel.text = "На номер \(phoneNumber ?? "") отправлено СМС с кодом. \(resendText)"
-                self.descriptionLabel.setAttributedText(resendText)
+                self.descriptionLabel.text = "На номер \(phoneNumber ?? "") отправлено СМС с кодом. \(interactor.resendText)"
+                self.descriptionLabel.setAttributedText(interactor.resendText)
             } else {
                 self.descriptionLabel.text = "На номер \(phoneNumber ?? "") отправлено СМС с кодом. Повторная отправка будет доступна через \(seconds) \(ruSeconds)."
                 self.descriptionLabel.setAttributedText("\(seconds) \(ruSeconds).")
             }
         case .en:
             if seconds == 0 {
-                self.descriptionLabel.text = "On number \(phoneNumber ?? "") sended SMS with code. \(resendText)"
-                self.descriptionLabel.setAttributedText(resendText)
+                self.descriptionLabel.text = "On number \(phoneNumber ?? "") sended SMS with code. \(interactor.resendText)"
+                self.descriptionLabel.setAttributedText(interactor.resendText)
             } else {
                 self.descriptionLabel.text =
                     "On number \(phoneNumber ?? "") sended SMS with code. Resend will be available after \(seconds) seconds."
@@ -235,7 +217,7 @@ class ConfirmAuthViewController: UIViewController {
     @objc func tapDescriptionLabel(gesture: UITapGestureRecognizer) {
         guard let text = descriptionLabel.text else { return }
         
-        let range = (text as NSString).range(of: resendText)
+        let range = (text as NSString).range(of: interactor.resendText)
         
         if gesture.didTapAttributedTextInLabel(label: descriptionLabel, inRange: range) {
             remainedSeconds = 30

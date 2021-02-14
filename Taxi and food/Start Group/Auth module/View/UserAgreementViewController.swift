@@ -20,9 +20,9 @@ class UserAgreementViewController: UIViewController {
         switch AppSettings.shared.language {
             
         case .rus:
-            titleLabel.text = "Пользовательское соглашение"
+            self.titleLabel.text = "Пользовательское соглашение"
         case .en:
-            titleLabel.text = "User agreement"
+            self.titleLabel.text = "User agreement"
         }
     }
     

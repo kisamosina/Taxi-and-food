@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PhoneFormatter {
+class PhoneFormatter {
     
     var rawText: String = ""
     
-    mutating func setRawText(_ text: String) {
+    func setRawText(_ text: String) {
         
         if text == "" {
             self.rawText = String(self.rawText.dropLast())

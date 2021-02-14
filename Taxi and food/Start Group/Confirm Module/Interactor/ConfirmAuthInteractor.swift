@@ -10,6 +10,9 @@ import Foundation
 
 protocol ConfirmAuthInteractorProtocol: class {
     var view: ConfirmAuthViewProtocol! { get }
+    var topLabelText: String { get }
+    var nextButtonTitle: String { get }
+    var resendText: String { get }
     
     init(view: ConfirmAuthViewProtocol, phoneNumber: String)
     
@@ -20,6 +23,36 @@ protocol ConfirmAuthInteractorProtocol: class {
 class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
     
     internal weak var view: ConfirmAuthViewProtocol!
+    
+    var topLabelText: String {
+        switch AppSettings.shared.language {
+        
+        case .rus:
+            return ConfirmAuthVCLabelsTexts.topLabelRus.rawValue
+        case .en:
+            return ConfirmAuthVCLabelsTexts.topLabelEn.rawValue
+        }
+    }
+    
+    var nextButtonTitle: String {
+        switch AppSettings.shared.language {
+        
+        case .rus:
+            return AuthVCButtonsTexts.nextButtonTitleRus.rawValue
+        case .en:
+            return AuthVCButtonsTexts.nextButtonTitleEn.rawValue
+        }
+    }
+    
+    var resendText: String {
+        switch AppSettings.shared.language {
+        
+        case .rus:
+            return ConfirmAuthVCLabelsTexts.resendTextRus.rawValue
+        case .en:
+            return ConfirmAuthVCLabelsTexts.resendTextRus.rawValue
+        }
+    }
     
     var regResource: Resource<RegistrationResponse>
     var confirmResource: Resource<ConfirmResponse>
@@ -37,7 +70,7 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
         NetworkService.shared.makeRequest(for: regResource, data: regRequest) { result in
             
             switch result {
-                    
+            
             case .success(let regResponse):
                 print(regResponse)
             case .failure(let error):
@@ -51,7 +84,7 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
         NetworkService.shared.makeRequest(for: confirmResource, data: confirmRequest) { result in
             
             switch result {
-                    
+            
             case .success(let confirmResponse):
                 print(confirmResponse)
             case .failure(let error):
