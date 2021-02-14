@@ -15,29 +15,34 @@ class ServiceViewController: UIViewController {
     
     @IBOutlet var nextButton: UIButton!
     
-    @IBOutlet var buttonTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet var nextButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fillInTextView.delegate = self
         
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-
-        
+        addKeyboardWillShowObserver()
+        addKeyboardWillHideObserver()
+   
     }
     
-    @objc func keyboardWillShow(sender: NSNotification) {
-        self.keyboardWillShow(constraint: buttonTopConstraint, notification: sender)
+    @objc private func keyboardWillAppear(notification: NSNotification) {
+        keyboardWillShow(constraint: nextButtonBottomConstraint, notification: notification)
+
+    }
+
+    @objc private func keyboardWillDisappear(notification: NSNotification) {
+        keyboardWillHide(constraint: nextButtonBottomConstraint, notification: notification)
 
     }
     
-    @objc func keyboardWillHide(sender: NSNotification) {
-        self.keyboardWillHide(constraint: buttonTopConstraint, notification: sender)
-        
+    private func addKeyboardWillShowObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    private func addKeyboardWillHideObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
 }
