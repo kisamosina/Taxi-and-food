@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
+		0465F51625DA39BA008CA6D0 /* ServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* ServiceInteractor.swift */; };
+		0465F51825DA3BE2008CA6D0 /* ServiceVCUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51725DA3BE2008CA6D0 /* ServiceVCUISettings.swift */; };
+		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
+		0465F51C25DA576A008CA6D0 /* SentVCUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */; };
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
 		04B5651925D6591200E0EC25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		0465F51525DA39BA008CA6D0 /* ServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInteractor.swift; sourceTree = "<group>"; };
+		0465F51725DA3BE2008CA6D0 /* ServiceVCUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceVCUISettings.swift; sourceTree = "<group>"; };
+		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
+		0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentVCUISettings.swift; sourceTree = "<group>"; };
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +242,7 @@
 		04B5656825D6822700E0EC25 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				0465F51525DA39BA008CA6D0 /* ServiceInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -243,7 +252,10 @@
 			children = (
 				04B5656A25D6824400E0EC25 /* ServiceViewController.swift */,
 				04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */,
+				0465F51925DA561D008CA6D0 /* SentViewController.swift */,
 				04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */,
+				0465F51725DA3BE2008CA6D0 /* ServiceVCUISettings.swift */,
+				0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */,
 				04FFA9E425D91DCB0066032E /* Service.storyboard */,
 			);
 			path = View;
@@ -383,14 +395,18 @@
 			files = (
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
+				0465F51825DA3BE2008CA6D0 /* ServiceVCUISettings.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
+				0465F51625DA39BA008CA6D0 /* ServiceInteractor.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
+				0465F51C25DA576A008CA6D0 /* SentVCUISettings.swift in Sources */,
+				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
 				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,
 				04B5655B25D65BA200E0EC25 /* PhoneFormatter.swift in Sources */,

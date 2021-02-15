@@ -10,6 +10,10 @@ import UIKit
 import AVFoundation
 import MobileCoreServices
 
+protocol PhotosViewProtocol {
+    var interactor: PhotosInteractorProtocol! { get set }
+}
+
 
 class PhotosViewController: UIViewController {
     
@@ -21,7 +25,12 @@ class PhotosViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var selectImgeLabel: UILabel!
+    @IBOutlet var selectImageButton: UIButton!
+    @IBOutlet var sendButton: UIButton!
     
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
