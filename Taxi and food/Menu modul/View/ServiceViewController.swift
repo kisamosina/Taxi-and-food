@@ -52,6 +52,7 @@ extension ServiceViewController: UITextViewDelegate {
         if text == "\n" {
             textView.resignFirstResponder()
             return false
+            
         }
 
         return true

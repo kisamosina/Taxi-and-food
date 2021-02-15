@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4sO-zh-HAx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -140,168 +139,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.7971014492755" y="93.75"/>
-        </scene>
-        <!--Service View Controller-->
-        <scene sceneID="v1K-TH-nxP">
-            <objects>
-                <viewController id="uRi-qs-wWZ" customClass="ServiceViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Sly-RM-mbg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="95E-zy-EFH">
-                                <rect key="frame" x="25" y="113" width="364" height="536"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xY-q0-zzi">
-                                <rect key="frame" x="25" y="812" width="364" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="P6I-7f-CTX"/>
-                                </constraints>
-                                <state key="normal" title="Далее"/>
-                                <connections>
-                                    <segue destination="ga4-8x-Z0n" kind="show" id="JZ3-C0-VtM"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="95E-zy-EFH" firstAttribute="top" secondItem="WEh-SQ-Ebu" secondAttribute="top" constant="25" id="BVg-nF-uFI"/>
-                            <constraint firstItem="WEh-SQ-Ebu" firstAttribute="trailing" secondItem="1xY-q0-zzi" secondAttribute="trailing" constant="25" id="MfF-nc-dIp"/>
-                            <constraint firstItem="1xY-q0-zzi" firstAttribute="top" secondItem="95E-zy-EFH" secondAttribute="bottom" constant="163" id="N1u-Zp-YoK"/>
-                            <constraint firstItem="1xY-q0-zzi" firstAttribute="leading" secondItem="WEh-SQ-Ebu" secondAttribute="leading" constant="25" id="YcF-oN-nkZ"/>
-                            <constraint firstItem="WEh-SQ-Ebu" firstAttribute="trailing" secondItem="95E-zy-EFH" secondAttribute="trailing" constant="25" id="acR-ht-5vT"/>
-                            <constraint firstItem="1xY-q0-zzi" firstAttribute="bottom" secondItem="WEh-SQ-Ebu" secondAttribute="bottom" id="gcb-xo-n0F"/>
-                            <constraint firstItem="95E-zy-EFH" firstAttribute="leading" secondItem="WEh-SQ-Ebu" secondAttribute="leading" constant="25" id="tsp-7V-eiZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="WEh-SQ-Ebu"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="NNe-70-HmD"/>
-                    <connections>
-                        <outlet property="fillInTextView" destination="95E-zy-EFH" id="A1q-BI-rL0"/>
-                        <outlet property="nextButton" destination="1xY-q0-zzi" id="goH-c6-oyl"/>
-                        <outlet property="nextButtonBottomConstraint" destination="gcb-xo-n0F" id="T2T-ia-pMd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MXo-b4-uVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1005.7971014492755" y="780.80357142857144"/>
-        </scene>
-        <!--Служба поддержки-->
-        <scene sceneID="kaZ-7D-UdZ">
-            <objects>
-                <viewController id="ga4-8x-Z0n" customClass="PhotosViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Iqg-qK-bjQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ia-Qi-GOu">
-                                <rect key="frame" x="25" y="832" width="364" height="30"/>
-                                <state key="normal" title="Отправить"/>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NDB-Me-XzS">
-                                <rect key="frame" x="61" y="576" width="292" height="213"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mt6-aI-iQS">
-                                    <size key="itemSize" width="70" height="70"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photosCell" id="SLW-ea-5ko" customClass="PhotosCell" customModule="Taxi_and_food" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FFN-z4-RfU">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O0K-yk-7Ts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="O0K-yk-7Ts" secondAttribute="bottom" id="84N-Iz-4SQ"/>
-                                                <constraint firstItem="O0K-yk-7Ts" firstAttribute="leading" secondItem="FFN-z4-RfU" secondAttribute="leading" id="9Bu-M7-jXh"/>
-                                                <constraint firstItem="O0K-yk-7Ts" firstAttribute="top" secondItem="FFN-z4-RfU" secondAttribute="top" id="I8Z-eM-vIE"/>
-                                                <constraint firstItem="O0K-yk-7Ts" firstAttribute="top" secondItem="FFN-z4-RfU" secondAttribute="top" id="OfZ-aw-EIn"/>
-                                                <constraint firstItem="O0K-yk-7Ts" firstAttribute="leading" secondItem="FFN-z4-RfU" secondAttribute="leading" id="Tau-AQ-Wwc"/>
-                                                <constraint firstAttribute="trailing" secondItem="O0K-yk-7Ts" secondAttribute="trailing" id="Tzw-As-nKZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="O0K-yk-7Ts" secondAttribute="bottom" id="WgE-o0-v5N"/>
-                                                <constraint firstAttribute="trailing" secondItem="O0K-yk-7Ts" secondAttribute="trailing" id="fTE-dL-chT"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="70" height="70"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="O0K-yk-7Ts" id="Jxv-A2-fwv"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="ga4-8x-Z0n" id="7yf-i2-pKO"/>
-                                    <outlet property="delegate" destination="ga4-8x-Z0n" id="wnm-p9-ome"/>
-                                </connections>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cc-xF-yQe">
-                                <rect key="frame" x="61" y="237" width="292" height="319"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При необходимости прикрепите изображения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W91-Aa-OeK">
-                                        <rect key="frame" x="8" y="197" width="276" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3Y-nH-cAk">
-                                        <rect key="frame" x="121" y="100" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="JgI-WK-wFb"/>
-                                            <constraint firstAttribute="height" constant="50" id="W87-hS-wCw"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="Group 1221"/>
-                                        <connections>
-                                            <action selector="addButtonTapped:" destination="ga4-8x-Z0n" eventType="touchUpInside" id="jzW-Jh-AO1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="X3Y-nH-cAk" secondAttribute="trailing" constant="121" id="EMI-ae-9dr"/>
-                                    <constraint firstItem="W91-Aa-OeK" firstAttribute="top" secondItem="X3Y-nH-cAk" secondAttribute="bottom" constant="47" id="LtR-7b-4Gg"/>
-                                    <constraint firstAttribute="trailing" secondItem="W91-Aa-OeK" secondAttribute="trailing" constant="8" id="P82-yu-ZbC"/>
-                                    <constraint firstAttribute="bottom" secondItem="W91-Aa-OeK" secondAttribute="bottom" constant="86" id="QvO-sW-pZQ"/>
-                                    <constraint firstItem="X3Y-nH-cAk" firstAttribute="top" secondItem="6cc-xF-yQe" secondAttribute="top" constant="100" id="Tkm-6F-axo"/>
-                                    <constraint firstItem="W91-Aa-OeK" firstAttribute="leading" secondItem="6cc-xF-yQe" secondAttribute="leading" constant="8" id="evx-JH-xsE"/>
-                                    <constraint firstItem="X3Y-nH-cAk" firstAttribute="leading" secondItem="6cc-xF-yQe" secondAttribute="leading" constant="121" id="vUe-gb-xiY"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="9ia-Qi-GOu" firstAttribute="top" secondItem="NDB-Me-XzS" secondAttribute="bottom" constant="43" id="5fi-WH-QAJ"/>
-                            <constraint firstItem="NDB-Me-XzS" firstAttribute="top" secondItem="6cc-xF-yQe" secondAttribute="bottom" constant="20" id="LrZ-Ke-bVN"/>
-                            <constraint firstItem="9ia-Qi-GOu" firstAttribute="bottom" secondItem="cW3-RF-zea" secondAttribute="bottom" id="Ubh-9y-Lkx"/>
-                            <constraint firstItem="NDB-Me-XzS" firstAttribute="leading" secondItem="cW3-RF-zea" secondAttribute="leading" constant="61" id="WAs-IX-1F2"/>
-                            <constraint firstItem="6cc-xF-yQe" firstAttribute="top" secondItem="cW3-RF-zea" secondAttribute="top" constant="149" id="Y43-HL-1Zf"/>
-                            <constraint firstItem="cW3-RF-zea" firstAttribute="trailing" secondItem="NDB-Me-XzS" secondAttribute="trailing" constant="61" id="esf-ot-PoR"/>
-                            <constraint firstItem="cW3-RF-zea" firstAttribute="trailing" secondItem="9ia-Qi-GOu" secondAttribute="trailing" constant="25" id="kOf-Ee-1MZ"/>
-                            <constraint firstItem="6cc-xF-yQe" firstAttribute="leading" secondItem="cW3-RF-zea" secondAttribute="leading" constant="61" id="mg4-fm-b7r"/>
-                            <constraint firstItem="9ia-Qi-GOu" firstAttribute="leading" secondItem="cW3-RF-zea" secondAttribute="leading" constant="25" id="qo4-Ix-7kA"/>
-                            <constraint firstItem="6cc-xF-yQe" firstAttribute="centerX" secondItem="cW3-RF-zea" secondAttribute="centerX" id="zyn-fQ-r28"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="cW3-RF-zea"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Служба поддержки" id="ofs-Y9-rQ4"/>
-                    <connections>
-                        <outlet property="collectionView" destination="NDB-Me-XzS" id="pin-mF-hsa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3PD-BT-maH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1940.5797101449277" y="780.80357142857144"/>
         </scene>
         <!--Confirm Auth View Controller-->
         <scene sceneID="xTi-c5-YIQ">
@@ -496,27 +333,8 @@
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wu1-FG-jUi">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4sO-zh-HAx" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yci-AL-Efq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uRi-qs-wWZ" kind="relationship" relationship="rootViewController" id="A26-Wc-OfD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bJN-qm-Nbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="96" y="782"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="Group 1221" width="50" height="50"/>
         <image name="authBackgroundImage" width="187.5" height="105"/>
         <image name="authCloseButton" width="15" height="15"/>
     </resources>

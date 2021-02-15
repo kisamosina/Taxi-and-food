@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
 		04B5651925D6591200E0EC25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656A25D6824400E0EC25 /* ServiceViewController.swift */; };
 		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
 		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
+		04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FFA9E425D91DCB0066032E /* Service.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		04B5656A25D6824400E0EC25 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		04FFA9E425D91DCB0066032E /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				04B5655A25D65BA200E0EC25 /* PhoneFormatter.swift */,
+				0465F51325DA30CD008CA6D0 /* AlertController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				04B5656A25D6824400E0EC25 /* ServiceViewController.swift */,
 				04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */,
 				04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */,
+				04FFA9E425D91DCB0066032E /* Service.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 			files = (
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
+				04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */,
 				04B5651925D6591200E0EC25 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
