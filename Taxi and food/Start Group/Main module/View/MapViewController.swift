@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class MainViewController: UIViewController {
+class MapViewController: UIViewController {
     
     //MARK: - Properties
     

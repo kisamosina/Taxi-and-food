@@ -12,7 +12,7 @@
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AuthViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="BYZ-38-t0r" customClass="AuthViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="1874" y="94"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="xI6-6f-zqo">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="o8O-ca-Uob" customClass="MainViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="o8O-ca-Uob" customClass="MapViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ON2-d4-7L9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -496,7 +496,7 @@
     <resources>
         <image name="authBackgroundImage" width="187.5" height="105"/>
         <image name="centerMapButton" width="15" height="15"/>
-        <image name="foodButton" width="316" height="162"/>
+        <image name="foodButton" width="158" height="81"/>
         <image name="lkButton" width="15" height="15"/>
         <image name="menuButton" width="20" height="10"/>
         <image name="taxiButton" width="158" height="80"/>

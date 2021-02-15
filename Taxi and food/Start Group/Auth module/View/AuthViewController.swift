@@ -64,8 +64,8 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let confirmAuthVC = storyboard.instantiateViewController(identifier: String(describing: ConfirmAuthViewController.self)) as! ConfirmAuthViewController
+        let storyboard = UIStoryboard(name: StoryBoards.AuthAndMap.rawValue, bundle: nil)
+        let confirmAuthVC = storyboard.instantiateViewController(identifier: ViewControllers.ConfirmAuthViewController.rawValue) as! ConfirmAuthViewController
         confirmAuthVC.setup(phoneNumber: phoneNumberTextField.text ?? "", rawPhoneNumber: interactor.phoneFormatter.rawText )
         self.navigationController?.pushViewController(confirmAuthVC, animated: true)
     }
@@ -128,7 +128,7 @@ class AuthViewController: UIViewController {
         let termsRange = (text as NSString).range(of: interactor.userAgreementText)
         
         if gesture.didTapAttributedTextInLabel(label: bottomLabel, inRange: termsRange) {
-            guard let uaVC = storyboard?.instantiateViewController(identifier: String(describing: UserAgreementViewController.self))
+            guard let uaVC = storyboard?.instantiateViewController(identifier: ViewControllers.UserAgreementViewController.rawValue)
             else { return }
             self.present(uaVC, animated: true, completion: nil)
         }

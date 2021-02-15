@@ -30,3 +30,14 @@ enum Colors {
 enum CustomImagesNames: String {
     case checkMark
 }
+
+enum StoryBoards: String {
+    case AuthAndMap
+}
+
+enum ViewControllers: String {
+    case AuthViewController
+    case UserAgreementViewController
+    case ConfirmAuthViewController
+    case MapViewController
+}
