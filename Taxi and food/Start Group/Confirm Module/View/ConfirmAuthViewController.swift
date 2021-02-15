@@ -24,12 +24,12 @@ class ConfirmAuthViewController: UIViewController {
     //MARK: - IBOutlets
     
     @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var tfOne: UITextField!
-    @IBOutlet weak var tfTwo: UITextField!
-    @IBOutlet weak var tfThree: UITextField!
-    @IBOutlet weak var tfFour: UITextField!
+    @IBOutlet weak var tfOne: DigitTextField!
+    @IBOutlet weak var tfTwo: DigitTextField!
+    @IBOutlet weak var tfThree: DigitTextField!
+    @IBOutlet weak var tfFour: DigitTextField!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextButton: NextButton!
     @IBOutlet weak var nextButtonBottomConstraint: NSLayoutConstraint!
     
     //MARK: - Lifecycle
@@ -51,13 +51,7 @@ class ConfirmAuthViewController: UIViewController {
         tfOne.becomeFirstResponder()
     }
     
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setUpUIAppears()
         
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopTimer()
@@ -78,45 +72,13 @@ class ConfirmAuthViewController: UIViewController {
     }
     
     private func setupTopLabelTextAndNextButtonText() {
-        topLabel.text = interactor.topLabelText
-        nextButton.setTitle(interactor.nextButtonTitle, for: .normal)
+        topLabel.text = ConfirmAuthViewControllerTexts.topLabelText
+        nextButton.setTitle(CustomButtonsTitles.nextButtonTitle, for: .normal)
     }
     
     private func setupDescLabelText(seconds: Int) {
-        
-        var ruSeconds: String {
-            switch seconds {
-            case 1, 21:
-                return "секунду"
-            case 2, 3, 4, 22, 23, 24:
-                return "секунды"
-            default:
-                return "секунд"
-            }
-        }
-        
-        switch AppSettings.shared.language {
-        
-        case .rus:
-            
-            if seconds == 0 {
-                self.descriptionLabel.text = "На номер \(phoneNumber ?? "") отправлено СМС с кодом. \(interactor.resendText)"
-                self.descriptionLabel.setAttributedText(interactor.resendText)
-            } else {
-                self.descriptionLabel.text = "На номер \(phoneNumber ?? "") отправлено СМС с кодом. Повторная отправка будет доступна через \(seconds) \(ruSeconds)."
-                self.descriptionLabel.setAttributedText("\(seconds) \(ruSeconds).")
-            }
-        case .en:
-            if seconds == 0 {
-                self.descriptionLabel.text = "On number \(phoneNumber ?? "") sended SMS with code. \(interactor.resendText)"
-                self.descriptionLabel.setAttributedText(interactor.resendText)
-            } else {
-                self.descriptionLabel.text =
-                    "On number \(phoneNumber ?? "") sended SMS with code. Resend will be available after \(seconds) seconds."
-                self.descriptionLabel.setAttributedText("\(seconds) seconds.")
-            }
-        }
-        
+        self.descriptionLabel.text = ConfirmAuthViewControllerTexts.descriptionLabelText.setDescription(for: seconds, and: self.phoneNumber ?? "")
+        self.descriptionLabel.setAttributedText(ConfirmAuthViewControllerTexts.attributedText(for: seconds))
     }
     
     private func addKeyboardWillShowObserver() {
@@ -130,14 +92,7 @@ class ConfirmAuthViewController: UIViewController {
         tfThree.addTarget(self, action: #selector(self.textDidChange(textField:)), for: .editingChanged)
         tfFour.addTarget(self, action: #selector(self.textDidChange(textField:)), for: .editingChanged)
     }
-    
-    private func setUpUIAppears() {
-        nextButton.layer.cornerRadius = 15
-        tfOne.layer.cornerRadius = 4
-        tfTwo.layer.cornerRadius = 4
-        tfThree.layer.cornerRadius = 4
-        tfFour.layer.cornerRadius = 4
-    }
+
     
     private func addDescriptionLabelGestureRecognizer() {
         descriptionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDescriptionLabel(gesture:))))
@@ -217,7 +172,7 @@ class ConfirmAuthViewController: UIViewController {
     @objc func tapDescriptionLabel(gesture: UITapGestureRecognizer) {
         guard let text = descriptionLabel.text else { return }
         
-        let range = (text as NSString).range(of: interactor.resendText)
+        let range = (text as NSString).range(of: ConfirmAuthViewControllerTexts.resendText)
         
         if gesture.didTapAttributedTextInLabel(label: descriptionLabel, inRange: range) {
             remainedSeconds = 30

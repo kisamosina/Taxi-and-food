@@ -72,7 +72,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-7W-z48">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-7W-z48" customClass="NextButton" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="100" width="364" height="50"/>
                                                 <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -82,7 +82,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="scS-gg-uak"/>
+                                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6wb-Qq-Rbq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -123,7 +123,7 @@
                         <outlet property="bottomLabel" destination="WF8-pC-aga" id="QR5-le-AGg"/>
                         <outlet property="bottomView" destination="kNN-I8-7Oi" id="igE-2c-X7U"/>
                         <outlet property="bottomViewConstraint" destination="BPq-Ia-Wvy" id="7FN-1I-gE9"/>
-                        <outlet property="nextButton" destination="ROV-7W-z48" id="Yvx-ei-zlp"/>
+                        <outlet property="nextButton" destination="ROV-7W-z48" id="hu9-ER-VZ5"/>
                         <outlet property="phoneNumberTextField" destination="5Os-YR-r1n" id="Fv6-tD-aEG"/>
                         <outlet property="topLabel" destination="NKW-hm-dzl" id="yeN-Rq-u51"/>
                         <outlet property="userAgreementButton" destination="A0I-h0-470" id="GGw-hu-q12"/>
@@ -141,20 +141,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-83-JSe">
-                                <rect key="frame" x="25" y="812" width="364" height="50"/>
-                                <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1jd-Gw-ppb"/>
-                                </constraints>
-                                <state key="normal" title="Далее">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonTapped:" destination="qF3-Cq-Ld7" eventType="touchUpInside" id="gpv-mh-3Nv"/>
-                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yGo-Lv-Lam"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="JeR-Ot-lxg">
                                 <rect key="frame" x="39" y="250" width="336" height="126.5"/>
                                 <subviews>
@@ -167,7 +153,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="H8f-5t-VbR">
                                         <rect key="frame" x="75.5" y="41.5" width="185" height="35"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7U-A5-Veo">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7U-A5-Veo" customClass="DigitTextField" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <color key="backgroundColor" red="0.93717283009999997" green="0.93730747699999994" blue="0.9410645366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -189,7 +175,7 @@
                                                     <outlet property="delegate" destination="qF3-Cq-Ld7" id="PoY-Iu-1J4"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PbY-M9-eiu">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PbY-M9-eiu" customClass="DigitTextField" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="50" y="0.0" width="35" height="35"/>
                                                 <color key="backgroundColor" red="0.93717283009999997" green="0.93730747699999994" blue="0.9410645366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -208,7 +194,7 @@
                                                     <outlet property="delegate" destination="qF3-Cq-Ld7" id="IH2-BV-ld9"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-EJ-LDY">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-EJ-LDY" customClass="DigitTextField" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="100" y="0.0" width="35" height="35"/>
                                                 <color key="backgroundColor" red="0.93717283009999997" green="0.93730747699999994" blue="0.9410645366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -227,7 +213,7 @@
                                                     <outlet property="delegate" destination="qF3-Cq-Ld7" id="gfy-Fc-04I"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9JF-1R-qzG">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="●" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9JF-1R-qzG" customClass="DigitTextField" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="150" y="0.0" width="35" height="35"/>
                                                 <color key="backgroundColor" red="0.93717283009999997" green="0.93730747699999994" blue="0.9410645366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -261,7 +247,7 @@
                                             <constraint firstAttribute="trailing" secondItem="9JF-1R-qzG" secondAttribute="trailing" id="qXo-qa-ix3"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На номер +7 (944) 534-43-53 отправлено смс с кодом. Повторная отправка через 29 секунд" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTz-Bm-bJq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На номер +7 (944) 534-43-53 отправлено смс с кодом. Повторная отправка через 29 секунд" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTz-Bm-bJq">
                                         <rect key="frame" x="1" y="97.5" width="334" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -269,22 +255,47 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWj-jf-3qp">
+                                <rect key="frame" x="0.0" y="787" width="414" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-83-JSe" customClass="NextButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="0.0" width="364" height="50"/>
+                                        <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="yWQ-80-RoA"/>
+                                        </constraints>
+                                        <state key="normal" title="Далее">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="qF3-Cq-Ld7" eventType="touchUpInside" id="gpv-mh-3Nv"/>
+                                            <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yGo-Lv-Lam"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="43u-nF-Eyy"/>
+                                    <constraint firstAttribute="bottom" secondItem="vEl-83-JSe" secondAttribute="bottom" constant="25" id="5xE-YJ-WE6"/>
+                                    <constraint firstItem="vEl-83-JSe" firstAttribute="leading" secondItem="DWj-jf-3qp" secondAttribute="leading" constant="25" id="ec4-hM-Vr2"/>
+                                    <constraint firstAttribute="trailing" secondItem="vEl-83-JSe" secondAttribute="trailing" constant="25" id="zxi-JN-hqL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EsN-sW-Xq8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DWj-jf-3qp" firstAttribute="bottom" secondItem="EsN-sW-Xq8" secondAttribute="bottom" id="26O-Tv-NgW"/>
                             <constraint firstItem="JeR-Ot-lxg" firstAttribute="top" secondItem="EsN-sW-Xq8" secondAttribute="top" constant="206" id="Adb-ir-bPV"/>
-                            <constraint firstItem="vEl-83-JSe" firstAttribute="bottom" secondItem="EsN-sW-Xq8" secondAttribute="bottom" id="UaJ-1H-Yjo"/>
-                            <constraint firstItem="EsN-sW-Xq8" firstAttribute="trailing" secondItem="vEl-83-JSe" secondAttribute="trailing" constant="25" id="VOu-Ol-KE9"/>
+                            <constraint firstItem="DWj-jf-3qp" firstAttribute="leading" secondItem="EsN-sW-Xq8" secondAttribute="leading" id="fJG-7Y-IKJ"/>
                             <constraint firstAttribute="trailing" secondItem="JeR-Ot-lxg" secondAttribute="trailing" constant="39" id="hmg-su-zKq"/>
                             <constraint firstItem="JeR-Ot-lxg" firstAttribute="leading" secondItem="EsN-sW-Xq8" secondAttribute="leading" constant="39" id="nwy-c4-d6S"/>
-                            <constraint firstItem="vEl-83-JSe" firstAttribute="leading" secondItem="EsN-sW-Xq8" secondAttribute="leading" constant="25" id="vDb-N3-QxD"/>
+                            <constraint firstItem="EsN-sW-Xq8" firstAttribute="trailing" secondItem="DWj-jf-3qp" secondAttribute="trailing" id="oC5-JI-n3k"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="FTz-Bm-bJq" id="cC4-Q3-Fac"/>
                         <outlet property="nextButton" destination="vEl-83-JSe" id="jBU-wj-ZxI"/>
-                        <outlet property="nextButtonBottomConstraint" destination="UaJ-1H-Yjo" id="G4d-w1-uUs"/>
+                        <outlet property="nextButtonBottomConstraint" destination="26O-Tv-NgW" id="w4x-zI-5GK"/>
                         <outlet property="tfFour" destination="9JF-1R-qzG" id="fdJ-AH-9qY"/>
                         <outlet property="tfOne" destination="g7U-A5-Veo" id="F37-AN-njI"/>
                         <outlet property="tfThree" destination="lYa-EJ-LDY" id="4Ay-r4-m5C"/>

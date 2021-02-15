@@ -21,7 +21,7 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var userAgreementButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextButton: NextButton!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
@@ -31,7 +31,6 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         self.interactor = AuthInteractor(view: self)
         addKeyboardWillShowObserver()
-        enableNextButton()
         setLabelsAndButtonsText()
         addBottomLabelGestureRecognizer()
         phoneNumberTextField.delegate = self
@@ -73,7 +72,6 @@ class AuthViewController: UIViewController {
     //MARK: - Methods
     
     private func setUpUIAppears() {
-        nextButton.layer.cornerRadius = 15
         userAgreementButton.layer.cornerRadius = 4
         self.phoneNumberTextField.addBottomBorder()
     }
@@ -86,20 +84,17 @@ class AuthViewController: UIViewController {
     private func enableNextButton() {
         
         if interactor.phoneFormatter.rawText.count == 11 && interactor.isUserAgreementReceived {
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = Colors.buttonBlue.getColor()
+            self.nextButton.setActive()
         } else {
-            nextButton.isEnabled = false
-            nextButton.backgroundColor = Colors.buttonGrey.getColor()
+            self.nextButton.setInActive()
         }
     }
     
     private func setLabelsAndButtonsText() {
         
-        self.topLabel.text = interactor.topLabelText
-        self.bottomLabel.text = interactor.bottomLabelText
-        self.bottomLabel.setAttributedText(interactor.userAgreementText)
-        self.nextButton.setTitle(interactor.nextButtonTitle, for: .normal)
+        self.topLabel.text = AuthViewControllerTextData.topLabelText
+        self.bottomLabel.text = AuthViewControllerTextData.bottomLabelText
+        self.bottomLabel.setAttributedText(AuthViewControllerTextData.userAgreementText)
         
     }
     
@@ -125,7 +120,7 @@ class AuthViewController: UIViewController {
     @objc func tapBottomLabel(gesture: UITapGestureRecognizer) {
         guard let text = bottomLabel.text else { return }
         
-        let termsRange = (text as NSString).range(of: interactor.userAgreementText)
+        let termsRange = (text as NSString).range(of: AuthViewControllerTextData.userAgreementText)
         
         if gesture.didTapAttributedTextInLabel(label: bottomLabel, inRange: termsRange) {
             guard let uaVC = storyboard?.instantiateViewController(identifier: ViewControllers.UserAgreementViewController.rawValue)

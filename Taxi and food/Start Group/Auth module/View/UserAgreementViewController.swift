@@ -17,11 +17,11 @@ class UserAgreementViewController: UIViewController {
     }
 
     private func setupTitleLabelText() {
-        switch AppSettings.shared.language {
+        switch UserDefaults.standard.getAppLanguage() {
             
         case .rus:
             self.titleLabel.text = "Пользовательское соглашение"
-        case .en:
+        case .eng:
             self.titleLabel.text = "User agreement"
         }
     }
