@@ -54,7 +54,7 @@ class AuthViewController: UIViewController {
     @IBAction func userAgreementButtonTapped(_ sender: UIButton) {
         interactor.isUserAgreementReceived = !interactor.isUserAgreementReceived
         if interactor.isUserAgreementReceived {
-            let image = UIImage(named: CustomImagesNames.checkMark.rawValue)
+            let image = UIImage(named: CustomImagesNames.CheckMark.rawValue)
             userAgreementButton.setImage(image, for: .normal)
         } else {
             userAgreementButton.setImage(nil, for: .normal)

@@ -28,7 +28,7 @@ enum Colors {
 
 
 enum CustomImagesNames: String {
-    case checkMark
+    case CheckMark
 }
 
 enum StoryBoards: String {
