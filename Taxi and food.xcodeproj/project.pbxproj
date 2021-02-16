@@ -14,7 +14,6 @@
 		0465F51C25DA576A008CA6D0 /* SentVCUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */; };
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
-		04B5651925D6591200E0EC25 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* AuthAndMap.storyboard */; };
 		04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651D25D6591700E0EC25 /* Assets.xcassets */; };
 		04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */; };
 		04B5652C25D6591800E0EC25 /* Taxi_and_foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5652B25D6591800E0EC25 /* Taxi_and_foodTests.swift */; };
@@ -25,6 +24,10 @@
 		04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655225D65B1D00E0EC25 /* Resource.swift */; };
 		04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */; };
 		04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */; };
+		04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656A25D6824400E0EC25 /* ServiceViewController.swift */; };
+		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
+		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
+		04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FFA9E425D91DCB0066032E /* Service.storyboard */; };
 		7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */; };
 		7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */; };
 		7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */; };
@@ -43,10 +46,7 @@
 		7BFFA66B25D66FA100C35652 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66A25D66FA100C35652 /* UIButton+Extension.swift */; };
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
 		7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MapViewController.swift */; };
-		04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656A25D6824400E0EC25 /* ServiceViewController.swift */; };
-		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
-		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
-		04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FFA9E425D91DCB0066032E /* Service.storyboard */; };
+		7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04B5651825D6591200E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AuthAndMap.storyboard; sourceTree = "<group>"; };
 		04B5651D25D6591700E0EC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B5652025D6591700E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B5652225D6591700E0EC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +90,10 @@
 		04B5655225D65B1D00E0EC25 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		04B5656A25D6824400E0EC25 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		04FFA9E425D91DCB0066032E /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
 		7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
 		7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
@@ -109,10 +112,7 @@
 		7BFFA66A25D66FA100C35652 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA68225D67F0300C35652 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		04B5656A25D6824400E0EC25 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
-		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
-		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
-		04FFA9E425D91DCB0066032E /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
+		7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthAndMap.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +163,9 @@
 		04B5651025D6591200E0EC25 /* Taxi and food */ = {
 			isa = PBXGroup;
 			children = (
-				04B5656725D681BC00E0EC25 /* Menu modul */,
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
+				04B5656725D681BC00E0EC25 /* Menu modul */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
@@ -264,6 +264,37 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		04B5656725D681BC00E0EC25 /* Menu modul */ = {
+			isa = PBXGroup;
+			children = (
+				04B5656925D6823200E0EC25 /* View */,
+				04B5656825D6822700E0EC25 /* Interactor */,
+			);
+			path = "Menu modul";
+			sourceTree = "<group>";
+		};
+		04B5656825D6822700E0EC25 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		04B5656925D6823200E0EC25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B5656A25D6824400E0EC25 /* ServiceViewController.swift */,
+				04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */,
+				0465F51925DA561D008CA6D0 /* SentViewController.swift */,
+				04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */,
+				0465F51725DA3BE2008CA6D0 /* PhotosVCUISettings.swift */,
+				0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */,
+				04FFA9E425D91DCB0066032E /* Service.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7B26145225DAD4CE00E2B779 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				7B8465FF25D8398D00B09D98 /* View */,
+				7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */,
 			);
 			path = "Main module";
 			sourceTree = "<group>";
@@ -322,7 +354,6 @@
 				04B5654525D659D800E0EC25 /* Auth module */,
 				7BCBCB7925D9445900C43CF6 /* Confirm Module */,
 				7B8465FE25D8397900B09D98 /* Main module */,
-				04B5651725D6591200E0EC25 /* AuthAndMap.storyboard */,
 			);
 			path = "Start Group";
 			sourceTree = "<group>";
@@ -351,37 +382,6 @@
 				7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		04B5656725D681BC00E0EC25 /* Menu modul */ = {
-			isa = PBXGroup;
-			children = (
-				04B5656925D6823200E0EC25 /* View */,
-				04B5656825D6822700E0EC25 /* Interactor */,
-			);
-			path = "Menu modul";
-			sourceTree = "<group>";
-		};
-		04B5656825D6822700E0EC25 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		04B5656925D6823200E0EC25 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				04B5656A25D6824400E0EC25 /* ServiceViewController.swift */,
-				04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */,
-				0465F51925DA561D008CA6D0 /* SentViewController.swift */,
-				04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */,
-				0465F51725DA3BE2008CA6D0 /* PhotosVCUISettings.swift */,
-				0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */,
-				04FFA9E425D91DCB0066032E /* Service.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,8 +490,8 @@
 			files = (
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
-				04B5651925D6591200E0EC25 /* AuthAndMap.storyboard in Resources */,
 				04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */,
+				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,14 +585,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04B5651725D6591200E0EC25 /* AuthAndMap.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04B5651825D6591200E0EC25 /* Base */,
-			);
-			name = AuthAndMap.storyboard;
-			sourceTree = "<group>";
-		};
 		04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
