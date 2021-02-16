@@ -11,7 +11,7 @@ import AVFoundation
 import MobileCoreServices
 
 protocol PhotosViewProtocol {
-    var interactor: PhotosInteractorProtocol! { get set }
+//    var interactor: PhotosInteractorProtocol! { get set }
 }
 
 
@@ -61,12 +61,21 @@ class PhotosViewController: UIViewController {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Снять фото или видео", style: .default, handler: { _ in
+        let cameraAction = UIAlertAction(title: "Снять фото или видео", style: .default, handler: { _ in
             self.openCamera()
-        }))
-        alert.addAction(UIAlertAction(title: "Медиатека", style: .default, handler: { _ in
+        })
+        
+        let img1 = UIImage(named: "Camera")
+        cameraAction.setValue(img1, forKey: "image")
+        alert.addAction(cameraAction)
+        
+        let galleryAction = UIAlertAction(title: "Медиатека", style: .default, handler: { _ in
             self.openGallaryForPhoto()
-        }))
+        })
+        let img2 = UIImage(named: "Gallery")
+        galleryAction.setValue(img2, forKey: "image")
+        alert.addAction(galleryAction)
+        
         
         alert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
         
