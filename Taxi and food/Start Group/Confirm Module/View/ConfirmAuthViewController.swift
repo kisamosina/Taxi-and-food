@@ -1,37 +1,48 @@
 //
 //  ConfirmAuthViewController.swift
-//  Taxi and food
+//  Ride and food
 //
-//  Created by mac on 12/02/2021.
-//  Copyright © 2021 kisamosina. All rights reserved.
+//  Created by Maxim Alekseev on 10.02.2021.
 //
 
 import UIKit
+
+protocol ConfirmAuthViewProtocol: class {
+    var interactor: ConfirmAuthInteractorProtocol! { get set }
+}
 
 class ConfirmAuthViewController: UIViewController {
     
     //MARK: - Properties
     
+    internal var interactor: ConfirmAuthInteractorProtocol!
     private var phoneNumber: String?
     private var rawPhoneNumber: String?
+    private var remainedSeconds = 30
+    private var timer: Timer?
     
     //MARK: - IBOutlets
     
-    @IBOutlet weak var tfOne: UITextField!
-    @IBOutlet weak var tfTwo: UITextField!
-    @IBOutlet weak var tfThree: UITextField!
-    @IBOutlet weak var tfFour: UITextField!
-    @IBOutlet weak var descriptonLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var tfOne: DigitTextField!
+    @IBOutlet weak var tfTwo: DigitTextField!
+    @IBOutlet weak var tfThree: DigitTextField!
+    @IBOutlet weak var tfFour: DigitTextField!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var nextButton: NextButton!
     @IBOutlet weak var nextButtonBottomConstraint: NSLayoutConstraint!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.interactor = ConfirmAuthInteractor(view: self, phoneNumber: self.rawPhoneNumber!)
+        self.interactor.sendRegistrationRequest()
         addTextfieldsTargets()
         addKeyboardWillShowObserver()
-        setupDescriptonLabelText()
-        print(rawPhoneNumber!)
+        setupTopLabelTextAndNextButtonText()
+        setupDescLabelText(seconds: remainedSeconds)
+        startTimer()
+        addDescriptionLabelGestureRecognizer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,11 +51,10 @@ class ConfirmAuthViewController: UIViewController {
         tfOne.becomeFirstResponder()
     }
     
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setUpUIAppears()
         
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopTimer()
     }
     
     //MARK: - IBActions
@@ -61,9 +71,14 @@ class ConfirmAuthViewController: UIViewController {
         self.rawPhoneNumber = rawPhoneNumber
     }
     
-    private func setupDescriptonLabelText() {
-        self.descriptonLabel.text =
-            "На номер \(phoneNumber ?? "") отправлено смс с кодом. Повторная отправка через 29 секунд"
+    private func setupTopLabelTextAndNextButtonText() {
+        topLabel.text = ConfirmAuthViewControllerTexts.topLabelText
+        nextButton.setTitle(CustomButtonsTitles.nextButtonTitle, for: .normal)
+    }
+    
+    private func setupDescLabelText(seconds: Int) {
+        self.descriptionLabel.text = ConfirmAuthViewControllerTexts.descriptionLabelText.setDescription(for: seconds, and: self.phoneNumber ?? "")
+        self.descriptionLabel.setAttributedText(ConfirmAuthViewControllerTexts.attributedText(for: seconds))
     }
     
     private func addKeyboardWillShowObserver() {
@@ -77,13 +92,10 @@ class ConfirmAuthViewController: UIViewController {
         tfThree.addTarget(self, action: #selector(self.textDidChange(textField:)), for: .editingChanged)
         tfFour.addTarget(self, action: #selector(self.textDidChange(textField:)), for: .editingChanged)
     }
+
     
-    private func setUpUIAppears() {
-        nextButton.layer.cornerRadius = 15
-        tfOne.layer.cornerRadius = 4
-        tfTwo.layer.cornerRadius = 4
-        tfThree.layer.cornerRadius = 4
-        tfFour.layer.cornerRadius = 4
+    private func addDescriptionLabelGestureRecognizer() {
+        descriptionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDescriptionLabel(gesture:))))
     }
     
     @objc private func textDidChange(textField: UITextField) {
@@ -128,12 +140,46 @@ class ConfirmAuthViewController: UIViewController {
     }
     
     
+    private func startTimer() {
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.remainedSeconds -= 1
+            self.setupDescLabelText(seconds: self.remainedSeconds)
+            if self.remainedSeconds == 0 {
+                self.stopTimer()
+            }
+            
+        })
+        
+        timer?.tolerance = 0.1
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     @objc private func keyboardWillAppear(notification: NSNotification) {
         keyboardWillShow(constraint: nextButtonBottomConstraint, notification: notification)
     }
-
+    
     @objc private func keyboardWillDisappear(notification: NSNotification) {
         keyboardWillHide(constraint: nextButtonBottomConstraint, notification: notification)
     }
     
+    @objc func tapDescriptionLabel(gesture: UITapGestureRecognizer) {
+        guard let text = descriptionLabel.text else { return }
+        
+        let range = (text as NSString).range(of: ConfirmAuthViewControllerTexts.resendText)
+        
+        if gesture.didTapAttributedTextInLabel(label: descriptionLabel, inRange: range) {
+            remainedSeconds = 30
+            startTimer()
+        }
+    }
 }
+
+//MARK: - ConfirmAuthViewProtocol
+extension ConfirmAuthViewController: ConfirmAuthViewProtocol {}
