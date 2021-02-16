@@ -14,7 +14,7 @@
 		0465F51C25DA576A008CA6D0 /* SentVCUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51B25DA576A008CA6D0 /* SentVCUISettings.swift */; };
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
-		04B5651925D6591200E0EC25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* Main.storyboard */; };
+		04B5651925D6591200E0EC25 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651725D6591200E0EC25 /* AuthAndMap.storyboard */; };
 		04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651D25D6591700E0EC25 /* Assets.xcassets */; };
 		04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */; };
 		04B5652C25D6591800E0EC25 /* Taxi_and_foodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5652B25D6591800E0EC25 /* Taxi_and_foodTests.swift */; };
@@ -58,7 +58,7 @@
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04B5651825D6591200E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04B5651825D6591200E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AuthAndMap.storyboard; sourceTree = "<group>"; };
 		04B5651D25D6591700E0EC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B5652025D6591700E0EC25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B5652225D6591700E0EC25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,9 +131,11 @@
 			children = (
 				04B5656725D681BC00E0EC25 /* Menu modul */,
 				04B5654425D6596900E0EC25 /* App lifecycle */,
-				04B5654525D659D800E0EC25 /* Auth module */,
+				7B84660325D839BB00B09D98 /* Start Group */,
 				04B5654C25D65A9800E0EC25 /* Services */,
+				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
+				7B26145225DAD4CE00E2B779 /* Data */,
 				04B5655925D65B8F00E0EC25 /* Helpers */,
 				04B5651D25D6591700E0EC25 /* Assets.xcassets */,
 				04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */,
@@ -173,24 +175,16 @@
 			isa = PBXGroup;
 			children = (
 				04B5654725D65A0B00E0EC25 /* View */,
-				04B5654625D659E900E0EC25 /* Interactor */,
+				7BCBCB8625D9454A00C43CF6 /* Interactor */,
 			);
 			path = "Auth module";
-			sourceTree = "<group>";
-		};
-		04B5654625D659E900E0EC25 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		04B5654725D65A0B00E0EC25 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				04B5654825D65A2600E0EC25 /* AuthViewController.swift */,
-				04B5654A25D65A5400E0EC25 /* ConfirmAuthViewController.swift */,
-				04B5651725D6591200E0EC25 /* Main.storyboard */,
+				7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,7 +210,13 @@
 			isa = PBXGroup;
 			children = (
 				04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */,
+				7B75CEEE25DAF622001981CA /* String+Extension.swift */,
+				7BFFA66A25D66FA100C35652 /* UIButton+Extension.swift */,
+				7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */,
 				04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */,
+				7BFFA66525D66F9500C35652 /* UILabel+Extension.swift */,
+				7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */,
+				7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,10 +399,22 @@
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
+				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
+				7B75CEE725DAE72C001981CA /* NextButton.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* ServiceInteractor.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
+				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
+				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
+				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
+				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
+				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
+				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
+				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
+				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
+				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				0465F51C25DA576A008CA6D0 /* SentVCUISettings.swift in Sources */,
@@ -445,12 +457,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04B5651725D6591200E0EC25 /* Main.storyboard */ = {
+		04B5651725D6591200E0EC25 /* AuthAndMap.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04B5651825D6591200E0EC25 /* Base */,
 			);
-			name = Main.storyboard;
+			name = AuthAndMap.storyboard;
 			sourceTree = "<group>";
 		};
 		04B5651F25D6591700E0EC25 /* LaunchScreen.storyboard */ = {

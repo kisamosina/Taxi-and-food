@@ -18,12 +18,12 @@ struct Resource<T: Decodable> {
     var urlComponents: URLComponents
     let requestMethod: RequestMethod
     
-    init (_ host: String, path: String, requestType: RequestMethod, queryItems: [URLQueryItem]? = nil) {
+    init (path: String, requestType: RequestMethod, queryItems: [URLQueryItem]? = nil) {
         self.requestMethod = requestType
         self.urlComponents = URLComponents()
         self.urlComponents.scheme = "https"
-        self.urlComponents.host = host
-        self.urlComponents.path = path
+        self.urlComponents.host = "skillbox.cc"
+        self.urlComponents.path = "/api/" + path
         self.urlComponents.queryItems = queryItems
         
     }
