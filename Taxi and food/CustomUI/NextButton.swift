@@ -21,8 +21,9 @@ class NextButton: UIButton {
     }
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         self.clipsToBounds = true
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
         }
 
     required init?(coder: NSCoder) {

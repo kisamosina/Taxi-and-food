@@ -28,6 +28,7 @@ enum Colors {
     case buttonBlue
     case buttonGrey
     case lightGrey
+    case greyBorderColor
     
     func getColor() -> UIColor {
         switch self {
@@ -38,6 +39,8 @@ enum Colors {
             return UIColor(hexString: "#D0D0D0")
         case .lightGrey:
             return UIColor(hexString: "EFEFF0")
+        case .greyBorderColor:
+            return UIColor(hexString: "CCCCCC")
         }
     }
 }
@@ -62,10 +65,12 @@ struct CustomButtonsTitles {
     
     internal enum RusCustomButtonsTitles: String {
         case nextButtonTitle = "Далее"
+        case sendButtonTitle = "Отправить"
     }
     
     internal enum EngCustomButtonsTitles: String {
         case nextButtonTitle = "Next"
+        case sendButtonTitle = "Send"
     }
     
     static var nextButtonTitle: String {
@@ -78,5 +83,28 @@ struct CustomButtonsTitles {
             return EngCustomButtonsTitles.nextButtonTitle.rawValue
         }
     }
+    
+    static var sendButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusCustomButtonsTitles.sendButtonTitle.rawValue
+        case .eng:
+            return EngCustomButtonsTitles.sendButtonTitle.rawValue
+        }
 
+    }
+
+}
+
+enum ViewsCornerRadiuses: CGFloat {
+    case medium = 15
+}
+
+enum ImageNames: String {
+    case plusWhite
+}
+
+enum BordersWidths: CGFloat {
+    case standart = 1
 }

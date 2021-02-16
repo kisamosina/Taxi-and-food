@@ -41,6 +41,9 @@
 		7B75CEE725DAE72C001981CA /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEE625DAE72C001981CA /* NextButton.swift */; };
 		7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEEE25DAF622001981CA /* String+Extension.swift */; };
 		7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEF325DB0AC1001981CA /* DigitTextField.swift */; };
+		7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */; };
+		7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */; };
+		7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CF1325DC4C53001981CA /* ProblemTextView.swift */; };
 		7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */; };
 		7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */; };
 		7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */; };
@@ -110,6 +113,9 @@
 		7B75CEE625DAE72C001981CA /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		7B75CEEE25DAF622001981CA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7B75CEF325DB0AC1001981CA /* DigitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitTextField.swift; sourceTree = "<group>"; };
+		7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRoundAddButton.swift; sourceTree = "<group>"; };
+		7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageView.swift; sourceTree = "<group>"; };
+		7B75CF1325DC4C53001981CA /* ProblemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTextView.swift; sourceTree = "<group>"; };
 		7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUISettings.swift; sourceTree = "<group>"; };
 		7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -335,7 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				7B75CEE625DAE72C001981CA /* NextButton.swift */,
+				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
+				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
+				7B75CF1325DC4C53001981CA /* ProblemTextView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -531,6 +540,7 @@
 				7BFFA66B25D66FA100C35652 /* UIButton+Extension.swift in Sources */,
 				0465F51825DA3BE2008CA6D0 /* PhotosVCUISettings.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
+				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
@@ -538,6 +548,7 @@
 				7B75CEE725DAE72C001981CA /* NextButton.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
+				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
@@ -548,6 +559,7 @@
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
+				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,

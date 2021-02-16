@@ -11,9 +11,9 @@ import Foundation
 
 class ServiceViewController: UIViewController {
 
-    @IBOutlet var fillInTextView: UITextView!
+    @IBOutlet var fillInTextView: ProblemTextView!
     
-    @IBOutlet var nextButton: UIButton!
+    @IBOutlet var nextButton: NextButton!
     
     @IBOutlet var nextButtonBottomConstraint: NSLayoutConstraint!
     
@@ -24,6 +24,7 @@ class ServiceViewController: UIViewController {
         
         addKeyboardWillShowObserver()
         addKeyboardWillHideObserver()
+        setupNextButton()
    
     }
     
@@ -56,5 +57,13 @@ extension ServiceViewController: UITextViewDelegate {
         }
 
         return true
+    }
+}
+
+
+//FIX ME:
+extension ServiceViewController {
+    func setupNextButton() {
+        self.nextButton.setActive()
     }
 }
