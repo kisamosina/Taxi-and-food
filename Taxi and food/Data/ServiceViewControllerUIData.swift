@@ -10,12 +10,12 @@ import Foundation
 
 struct ServiceViewControllerTextData {
     
-    internal enum RusTextViewText: String {
-        case selectImgeLabelTextRu = "Опишите возникшую проблему"
+    internal enum RusTextViewPlaceholderText: String {
+        case fillInPlaceholderTextRu = "Опишите возникшую проблему"
         
     }
-    internal enum EngTextViewText: String {
-        case selectImgeLabelTextEn = "Describe your problem"
+    internal enum EngTextViewPlaceholderText: String {
+        case fillInPlaceholderTextEn = "Describe your problem"
     }
     
     internal enum RusButtonText: String {
@@ -26,6 +26,15 @@ struct ServiceViewControllerTextData {
     internal enum EngButtonText: String {
         case sendButtonTextEn = "Next"
         
+    }
+    
+    static var fillInPlaceholderText: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusTextViewPlaceholderText.fillInPlaceholderTextRu.rawValue
+        case .eng:
+            return EngTextViewPlaceholderText.fillInPlaceholderTextEn.rawValue
+        }
     }
  
 }

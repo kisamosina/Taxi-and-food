@@ -309,8 +309,8 @@
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
 				0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */,
-				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
 				0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */,
+				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";

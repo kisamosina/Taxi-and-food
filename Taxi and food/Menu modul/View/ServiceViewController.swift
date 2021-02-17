@@ -10,6 +10,10 @@ import UIKit
 import Foundation
 
 class ServiceViewController: UIViewController {
+    
+    //MARK: - Properties
+    
+    var placeholderText: String?
 
     @IBOutlet var fillInTextView: ProblemTextView!
     
@@ -25,6 +29,7 @@ class ServiceViewController: UIViewController {
         addKeyboardWillShowObserver()
         addKeyboardWillHideObserver()
         setupNextButton()
+        setUpfillInTextViewPlaceholderText()
    
     }
     
@@ -38,6 +43,8 @@ class ServiceViewController: UIViewController {
 
     }
     
+//    MARK: - Methods
+    
     private func addKeyboardWillShowObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
@@ -45,18 +52,32 @@ class ServiceViewController: UIViewController {
     private func addKeyboardWillHideObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    private func setUpfillInTextViewPlaceholderText() {
+        self.placeholderText = ServiceViewControllerTextData.fillInPlaceholderText
+        self.fillInTextView.textColor = UIColor.lightGray
+        self.fillInTextView.text = placeholderText
+
+    }
 
 }
 
-extension ServiceViewController: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-            return false
-            
-        }
 
+extension ServiceViewController: UITextViewDelegate {
+
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView.text == placeholderText {
+            textView.textColor = .black
+            textView.text = ""
+        }
         return true
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeholderText
+        }
     }
 }
 

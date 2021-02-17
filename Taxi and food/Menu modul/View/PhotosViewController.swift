@@ -21,11 +21,7 @@ class PhotosViewController: UIViewController {
     
     private var selectedImages: [UIImage] = []
     private var imagePicker = UIImagePickerController()
-    var countPicturesLabelText : String = "" {
-        didSet {
-            self.countPicturesLabel.text = countPicturesLabelText
-        }
-    }
+
     var counter = 0
     
     //MARK: - IBOutlets
