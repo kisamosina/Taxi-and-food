@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 import MobileCoreServices
 
-protocol PhotosViewProtocol {
-        var interactor: PhotosInteractorProtocol! { get set }
-}
+//protocol PhotosViewProtocol {
+//        var interactor: PhotosInteractorProtocol! { get set }
+//}
 
 
 class PhotosViewController: UIViewController {

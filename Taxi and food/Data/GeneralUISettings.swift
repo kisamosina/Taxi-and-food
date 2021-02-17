@@ -29,6 +29,12 @@ enum Colors {
     case buttonGrey
     case lightGrey
     case greyBorderColor
+    case fontGrey
+    case shadowColor
+    case textBlack
+    case tariffGreen
+    case tariffPurple
+    case tariffGold
     
     func getColor() -> UIColor {
         switch self {
@@ -41,6 +47,18 @@ enum Colors {
             return UIColor(hexString: "EFEFF0")
         case .greyBorderColor:
             return UIColor(hexString: "CCCCCC")
+        case .fontGrey:
+            return UIColor(hexString: "8A8A8D")
+        case .shadowColor:
+            return UIColor(hexString: "#000000", alpha: 0.1)
+        case .textBlack:
+            return UIColor(hexString: "#000000")
+        case .tariffGreen:
+            return UIColor(hexString: "#A0E14C")
+        case .tariffPurple:
+            return UIColor(hexString: "#C442F2")
+        case .tariffGold:
+            return UIColor(hexString: "#D4BD80")
         }
     }
 }
@@ -108,3 +126,4 @@ enum ImageNames: String {
 enum BordersWidths: CGFloat {
     case standart = 1
 }
+

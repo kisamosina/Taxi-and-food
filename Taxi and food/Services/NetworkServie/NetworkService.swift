@@ -17,7 +17,7 @@ final class NetworkService {
     typealias FetchResult<T:Decodable> = (Result<T, Error>) -> Void
     
     //Make networking requests
-    func makeRequest<T,U>(for resource: Resource<T>, data: U? = nil, completion: @escaping FetchResult<T>) where U: Codable {
+    func makeRequest<T,U>(for resource: Resource<T>, data: U?, completion: @escaping FetchResult<T>) where U: Codable {
         
         switch resource.requestMethod {
             

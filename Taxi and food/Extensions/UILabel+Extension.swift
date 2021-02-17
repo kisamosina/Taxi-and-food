@@ -23,4 +23,12 @@ extension UILabel {
         
     }
     
+    func setBlackColor(_ fortext: String) {
+        guard let text = text else { return }
+        let attribstring = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: fortext)
+        attribstring.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range)
+        attributedText = attribstring
+    }
+    
 }
