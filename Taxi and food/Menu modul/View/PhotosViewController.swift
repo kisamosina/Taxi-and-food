@@ -11,7 +11,7 @@ import AVFoundation
 import MobileCoreServices
 
 protocol PhotosViewProtocol {
-    //    var interactor: PhotosInteractorProtocol! { get set }
+        var interactor: PhotosInteractorProtocol! { get set }
 }
 
 
@@ -19,12 +19,19 @@ class PhotosViewController: UIViewController {
     
     //MARK: - Properties
     
-    private var selectedImages:[UIImage] = []
+    private var selectedImages: [UIImage] = []
     private var imagePicker = UIImagePickerController()
+    var countPicturesLabelText : String = "" {
+        didSet {
+            self.countPicturesLabel.text = countPicturesLabelText
+        }
+    }
+    var counter = 0
     
     //MARK: - IBOutlets
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var selectImgeLabel: UILabel!
+    @IBOutlet var countPicturesLabel: UILabel!
     @IBOutlet var selectImageButton: ServiceRoundAddButton!
     @IBOutlet var sendButton: NextButton!
     @IBOutlet weak var uploadImageView: UploadImageView!
@@ -36,7 +43,9 @@ class PhotosViewController: UIViewController {
         imagePicker.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.setupSendButton()
+        setUpLabelAndButtonText()
+        enableSendButtonAndlLabel()
+        
         
     }
     
@@ -54,6 +63,8 @@ class PhotosViewController: UIViewController {
         @unknown default:
             break
         }
+        
+        enableSendButtonAndlLabel()
         
         
     }
@@ -84,6 +95,28 @@ class PhotosViewController: UIViewController {
         
         
     }
+    @IBAction func senfButtonTapped(_ sender: Any) {
+    }
+    
+    //MARK: - Methods
+    
+    private func setUpLabelAndButtonText() {
+        self.selectImgeLabel.text = PhotosViewControllerTextData.selectImgeLabelText
+        self.countPicturesLabel.text = ""
+        self.countPicturesLabel.numberOfLines = 1
+        self.sendButton.setTitle(CustomButtonsTitles.nextButtonTitle, for: .normal)
+    }
+    
+    //Activating next button
+    private func enableSendButtonAndlLabel() {
+        if self.counter <= 10{
+        self.sendButton.setActive()
+        } else {
+            self.sendButton.setInActive()
+            self.countPicturesLabel.text = PhotosViewControllerTextData.countImagesText
+           
+        }
+    }
     
     func openGallaryForPhoto() {
         imagePicker.sourceType = .photoLibrary
@@ -109,6 +142,7 @@ class PhotosViewController: UIViewController {
         }
         
     }
+    
     //    Request Camera Permission
     
     func requestCameraPermission() {
@@ -116,7 +150,6 @@ class PhotosViewController: UIViewController {
             guard accesGranted == true else { return }
             
         })
-        
     }
     
     //    Alert Camera Access Needed
@@ -125,13 +158,11 @@ class PhotosViewController: UIViewController {
         presentAlert()
     }
     
-    
 }
 
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return selectedImages.count
         
     }
@@ -152,7 +183,14 @@ extension PhotosViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)") }
-        selectedImages.append(selectedImage)
+        if selectedImages.count < 10  {
+            selectedImages.append(selectedImage)
+            self.counter += 1
+        } else {
+            self.countPicturesLabel.text = PhotosViewControllerTextData.countImagesText
+        }
+        
+        
         dismiss(animated: true, completion: nil)
         self.collectionView.reloadData()
     }
@@ -174,11 +212,5 @@ extension PhotosViewController: AlertPresentable {
     
 }
 
-//FIX ME:
-extension PhotosViewController {
-    func setupSendButton() {
-        self.sendButton.setTitle(CustomButtonsTitles.sendButtonTitle, for: .normal)
-        self.sendButton.setActive()
-    }
-}
+
 

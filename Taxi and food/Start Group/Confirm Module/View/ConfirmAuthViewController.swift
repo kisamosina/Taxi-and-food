@@ -73,7 +73,7 @@ class ConfirmAuthViewController: UIViewController {
     
     private func setupTopLabelTextAndNextButtonText() {
         topLabel.text = ConfirmAuthViewControllerTexts.topLabelText
-        nextButton.setTitle(CustomButtonsTitles.nextButtonTitle, for: .normal)
+        nextButton.setTitle(CustomButtonsTitles.sendButtonTitle, for: .normal)
     }
     
     private func setupDescLabelText(seconds: Int) {

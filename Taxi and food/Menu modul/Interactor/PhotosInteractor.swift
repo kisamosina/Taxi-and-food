@@ -7,27 +7,25 @@
 //
 
 import Foundation
-//
-//protocol PhotosInteractorProtocol {
-//    var view: PhotosViewProtocol! { get }
-//    var selectImgeLabelText: String { get }
-//    var sendButtonText: String { get }
-//    
-//    init(view: PhotosInteractorProtocol)
-//}
-//
-//class PhotosInteractor: PhotosInteractorProtocol {
-//    var selectImgeLabelText: String
-//    
-//    var sendButtonText: String
-//    
-//    var view: PhotosViewProtocol!
-//    
-//   
-//    
-//    required init(view: PhotosInteractorProtocol) {
-//        self.view = view as! PhotosViewProtocol
-//    }
-//    
-//    
-//}
+
+protocol PhotosInteractorProtocol {
+    var view: PhotosViewProtocol! { get }
+    
+    
+    init(view: PhotosInteractorProtocol)
+}
+
+class PhotosInteractor: PhotosInteractorProtocol {
+  
+    
+    var view: PhotosViewProtocol!
+    
+   
+    
+    required init(view: PhotosInteractorProtocol) {
+        self.view = view as! PhotosViewProtocol
+        
+    }
+    
+    
+}
