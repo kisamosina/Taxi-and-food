@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */; };
+		041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */; };
+		041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */; };
+		041E298825DE2ADC00CA9F56 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298725DE2ADC00CA9F56 /* SettingsCell.swift */; };
+		041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298925DE36B500CA9F56 /* SettingsOption.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
@@ -71,6 +76,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleUIData.swift; sourceTree = "<group>"; };
+		041E298725DE2ADC00CA9F56 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		041E298925DE36B500CA9F56 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +158,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041E297E25DE1DBE00CA9F56 /* Settings module */ = {
+			isa = PBXGroup;
+			children = (
+				041E297F25DE1DD400CA9F56 /* View */,
+				041E298025DE1DE800CA9F56 /* Interactor */,
+			);
+			path = "Settings module";
+			sourceTree = "<group>";
+		};
+		041E297F25DE1DD400CA9F56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */,
+				041E298725DE2ADC00CA9F56 /* SettingsCell.swift */,
+				041E298925DE36B500CA9F56 /* SettingsOption.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		041E298025DE1DE800CA9F56 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		04B5650525D6591200E0EC25 = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +210,8 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
-				04B5656725D681BC00E0EC25 /* Menu modul */,
+				041E297E25DE1DBE00CA9F56 /* Settings module */,
+				04B5656725D681BC00E0EC25 /* Service module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
@@ -272,13 +310,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		04B5656725D681BC00E0EC25 /* Menu modul */ = {
+		04B5656725D681BC00E0EC25 /* Service module */ = {
 			isa = PBXGroup;
 			children = (
 				04B5656925D6823200E0EC25 /* View */,
 				04B5656825D6822700E0EC25 /* Interactor */,
 			);
-			path = "Menu modul";
+			path = "Service module";
 			sourceTree = "<group>";
 		};
 		04B5656825D6822700E0EC25 /* Interactor */ = {
@@ -308,6 +346,7 @@
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
+				041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */,
 				0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */,
 				0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */,
 				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
@@ -542,15 +581,20 @@
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
+				041E298825DE2ADC00CA9F56 /* SettingsCell.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
+				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
+				041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
+				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
+				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
