@@ -56,6 +56,34 @@ enum AdvantageViewShadowsData: CGFloat {
     case shadowOffsetHeight = 1.01
 }
 
-enum AdvantageCollectionViewInsets: CGFloat {
+enum AdvantageCollectionViewSizes: CGFloat {
     case widthSumInsets = 75
+    case cellHeight = 80
+}
+
+enum TariffsNames {
+    case Standart
+    case Premium
+    case Business
+    case unknown
+    
+    static func getTariffCase(for name: String) -> TariffsNames {
+        switch name {
+        case "Standart":
+            return .Standart
+        case "Premium":
+            return .Premium
+        case "Business":
+            return .Business
+        default:
+            return .unknown
+        }
+    }
+}
+
+enum TariffButtonsSizes: CGFloat {
+    case tariffTitleButtonHeight = 20
+    case tariffTitleButtonWidth = 57
+    case tariffTitleButtonCornerRadius = 9
+    case tariffTitleButtonFontSize = 10
 }

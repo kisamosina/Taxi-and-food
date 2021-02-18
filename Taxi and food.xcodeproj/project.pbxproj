@@ -39,6 +39,7 @@
 		7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C84A25DD478D00F366FE /* TariffViewController.swift */; };
 		7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C85425DE470500F366FE /* TariffsPageViewController.swift */; };
 		7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C85C25DE478400F366FE /* TariffsPageInteractor.swift */; };
+		7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */; };
 		7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */; };
 		7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */; };
 		7B75CEE725DAE72C001981CA /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEE625DAE72C001981CA /* NextButton.swift */; };
@@ -121,6 +122,7 @@
 		7B47C84A25DD478D00F366FE /* TariffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffViewController.swift; sourceTree = "<group>"; };
 		7B47C85425DE470500F366FE /* TariffsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffsPageViewController.swift; sourceTree = "<group>"; };
 		7B47C85C25DE478400F366FE /* TariffsPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffsPageInteractor.swift; sourceTree = "<group>"; };
+		7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffTitleButton.swift; sourceTree = "<group>"; };
 		7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestData.swift; sourceTree = "<group>"; };
 		7B75CEE625DAE72C001981CA /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				7B75CEE625DAE72C001981CA /* NextButton.swift */,
+				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
 				7B75CF6825DD8D33001981CA /* AdvantageView.swift */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
@@ -615,6 +618,7 @@
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
+				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,

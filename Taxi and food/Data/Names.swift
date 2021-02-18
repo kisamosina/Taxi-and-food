@@ -17,4 +17,7 @@ import Foundation
  TariffResponse
  TariffData
  AdvantageView
+ TariffsPageInteractor
+ TariffsPageViewController
+ 
  */

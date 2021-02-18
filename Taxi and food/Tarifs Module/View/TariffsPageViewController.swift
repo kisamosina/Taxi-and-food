@@ -10,7 +10,7 @@ import UIKit
 
 protocol TariffPageViewProtocol: class {
     var interactor: TariffPageInteractorProtocol! { get set }
-    func setViewControllersFor(_ index: Int)
+    func setViewControllerFor(_ index: Int)
 }
 
 class TariffsPageViewController: UIPageViewController {
@@ -30,10 +30,11 @@ class TariffsPageViewController: UIPageViewController {
 
 extension TariffsPageViewController: TariffPageViewProtocol {
     
-    func setViewControllersFor(_ index: Int) {
+    func setViewControllerFor(_ index: Int) {
         
         DispatchQueue.main.async {
             if let tarifVC = self.interactor.showViewControllerAtIndex(index) {
+                tarifVC.tariffPageDelegate = self
                 self.setViewControllers([tarifVC], direction: .forward, animated: true, completion: nil)
             }
         }
@@ -46,18 +47,26 @@ extension TariffsPageViewController: TariffPageViewProtocol {
 extension TariffsPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        var pageNumber = (viewController as! TariffViewController).interactor.page
+        guard let tariffVC = viewController as? TariffViewController else { return UIViewController() }
+        var pageNumber = tariffVC.interactor.page
+        tariffVC.tariffPageDelegate = self
         pageNumber -= 1
         
         return interactor.showViewControllerAtIndex(pageNumber)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var pageNumber = (viewController as! TariffViewController).interactor.page
+        guard let tariffVC = viewController as? TariffViewController else { return UIViewController() }
+        var pageNumber = tariffVC.interactor.page
+        tariffVC.tariffPageDelegate = self
         pageNumber += 1
         
         return interactor.showViewControllerAtIndex(pageNumber)
     }
-    
-    
+}
+
+extension TariffsPageViewController: TariffPageViewControllerDelegate {
+    func setVC(for tariffName: String) {
+        interactor.getViewControllerForTitle(tariffName)
+    }
 }

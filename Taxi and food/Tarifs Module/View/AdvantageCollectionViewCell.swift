@@ -14,9 +14,9 @@ class AdvantageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var advantageImageView: UIImageView!
     @IBOutlet weak var advantageLabel: UILabel!
 
-    func showData(for advantage: TariffAdvantage) {
+    func showData(for advantage: TariffAdvantage, tariffColor: UIColor) {
         self.advantageImageView.webImage(advantage.icon)
-        self.advantageImageView.backgroundColor = Colors.tariffGreen.getColor()
+        self.advantageImageView.backgroundColor = tariffColor
         self.advantageLabel.text = advantage.name
     }
 }

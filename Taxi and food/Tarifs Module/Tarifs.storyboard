@@ -42,18 +42,13 @@
                                                             <constraint firstAttribute="height" constant="1" id="MX9-Vp-VUb"/>
                                                         </constraints>
                                                     </view>
-                                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="uYI-G7-hLo">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="HT2-Xg-q77">
                                                         <rect key="frame" x="0.0" y="11" width="364" height="20"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="0pZ-OE-GvO"/>
+                                                            <constraint firstAttribute="height" constant="20" id="M4b-TL-sHs"/>
                                                         </constraints>
-                                                    </pageControl>
+                                                    </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="uYI-G7-hLo" firstAttribute="leading" secondItem="8hA-JQ-mcE" secondAttribute="leading" id="76O-Nt-gMf"/>
-                                                    <constraint firstAttribute="trailing" secondItem="uYI-G7-hLo" secondAttribute="trailing" id="fbx-VE-Sgy"/>
-                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BCi-cm-1LZ">
                                                 <rect key="frame" x="0.0" y="66" width="364" height="421"/>
@@ -195,6 +190,7 @@
                         <outlet property="autoNamesLabel" destination="3j0-au-NzO" id="wXs-Az-r2C"/>
                         <outlet property="orderButton" destination="qDW-wX-t89" id="fzi-ew-zMl"/>
                         <outlet property="tarifDescriptionLabel" destination="D4h-1H-8Cs" id="vCR-Y7-r9L"/>
+                        <outlet property="tariffButtonsStackView" destination="HT2-Xg-q77" id="sXt-GV-1Y1"/>
                         <outlet property="taxiImageView" destination="vnb-BN-nPl" id="zS3-Ea-Cno"/>
                         <outlet property="upBorderView" destination="HnN-gl-CP3" id="fJQ-4t-QXj"/>
                     </connections>
