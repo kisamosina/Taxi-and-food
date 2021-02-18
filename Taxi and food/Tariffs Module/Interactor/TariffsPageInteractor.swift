@@ -39,7 +39,7 @@ class TariffPageInteractor: TariffPageInteractorProtocol {
         
         let resource = Resource<TariffResponse>(path: "user/75/tariff", requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource, data: TariffRequest()) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
             guard let self = self else { return }
             switch result {
             

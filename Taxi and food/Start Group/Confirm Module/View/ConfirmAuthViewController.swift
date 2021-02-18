@@ -9,6 +9,7 @@ import UIKit
 
 protocol ConfirmAuthViewProtocol: class {
     var interactor: ConfirmAuthInteractorProtocol! { get set }
+    func showMapViewController()
 }
 
 class ConfirmAuthViewController: UIViewController {
@@ -18,7 +19,7 @@ class ConfirmAuthViewController: UIViewController {
     internal var interactor: ConfirmAuthInteractorProtocol!
     private var phoneNumber: String?
     private var rawPhoneNumber: String?
-    private var remainedSeconds = 30
+    private var remainedSeconds = ConfirmAuthIntData.timerSeconds.rawValue
     private var timer: Timer?
     
     //MARK: - IBOutlets
@@ -60,7 +61,10 @@ class ConfirmAuthViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        
+        let codeArray = [tfOne.text, tfTwo.text, tfThree.text, tfFour.text]
+        let codeText = codeArray.compactMap{ $0 }.reduce("", +)
+        guard codeText != "", codeText.count == 4 else { return }
+        interactor.sendConfirmRequest(codeText)
     }
     
     
@@ -116,13 +120,14 @@ class ConfirmAuthViewController: UIViewController {
                 
             case tfFour:
                 tfFour.resignFirstResponder()
-                
+                nextButton.setActive()
             default:
                 break
                 
             }
             
         } else if textField.text!.isEmpty {
+            nextButton.setInActive()
             switch textField {
             case tfFour:
                 tfThree.becomeFirstResponder()
@@ -175,11 +180,20 @@ class ConfirmAuthViewController: UIViewController {
         let range = (text as NSString).range(of: ConfirmAuthViewControllerTexts.resendText)
         
         if gesture.didTapAttributedTextInLabel(label: descriptionLabel, inRange: range) {
-            remainedSeconds = 30
+            interactor.sendRegistrationRequest()
+            remainedSeconds = ConfirmAuthIntData.timerSeconds.rawValue
             startTimer()
         }
     }
 }
 
 //MARK: - ConfirmAuthViewProtocol
-extension ConfirmAuthViewController: ConfirmAuthViewProtocol {}
+extension ConfirmAuthViewController: ConfirmAuthViewProtocol {
+    func showMapViewController() {
+        DispatchQueue.main.async {
+            let mapVC = self.storyboard?.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue) as! MapViewController
+            self.navigationController?.pushViewController(mapVC, animated: true)
+            
+        }
+    }
+}

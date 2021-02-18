@@ -8,7 +8,6 @@
 
 import Foundation
 /*
- 
  TarifViewController
  TarifModuleData
  AdvantageCollectionViewCell
@@ -19,5 +18,6 @@ import Foundation
  AdvantageView
  TariffsPageInteractor
  TariffsPageViewController
- 
+ TariffTitleButton
+ TariffPageViewControllerDelegate
  */

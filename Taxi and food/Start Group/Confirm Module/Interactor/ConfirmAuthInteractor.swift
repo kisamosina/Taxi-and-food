@@ -14,46 +14,55 @@ protocol ConfirmAuthInteractorProtocol: class {
     init(view: ConfirmAuthViewProtocol, phoneNumber: String)
     
     func sendRegistrationRequest()
-    func sendConfirmRequest()
+    func sendConfirmRequest(_ code: String)
 }
 
 class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
     
     internal weak var view: ConfirmAuthViewProtocol!
             
-    var regResource: Resource<RegistrationResponse>
-    var confirmResource: Resource<ConfirmResponse>
-    var regRequest: RegistrationRequest
-    var confirmRequest: ConfirmRequest!
+    private var regResource: Resource<RegistrationResponse>
+    private var regResponse: RegistrationResponse!
+    private var confirmRespone: ConfirmResponse!
+    private let phoneNumber: String
     
     required init(view: ConfirmAuthViewProtocol, phoneNumber: String) {
         self.view = view
-        self.regRequest = RegistrationRequest(phone: phoneNumber)
-        self.regResource = Resource<RegistrationResponse>(path: RegistrationRequestPaths.registration.rawValue, requestType: .POST)
-        self.confirmResource = Resource<ConfirmResponse>(path: RegistrationRequestPaths.confirm.rawValue, requestType: .POST)
+        self.phoneNumber = phoneNumber
+        self.regResource = Resource<RegistrationResponse>(path: RegistrationRequestPaths.registration.rawValue,
+                                                          requestType: .POST,
+                                                          requestData: [RegistrationRequestKeys.phone.rawValue: phoneNumber])
     }
     
     func sendRegistrationRequest() {
-        NetworkService.shared.makeRequest(for: regResource, data: regRequest) { result in
+        NetworkService.shared.makeRequest(for: regResource) { result in
             
             switch result {
             
-            case .success(let regResponse):
-                print(regResponse)
+            case .success(let response):
+                self.regResponse = response
+                print("RESPONSE CODE: \(self.regResponse.data.code)")
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
             
         }
     }
     
-    func sendConfirmRequest() {
-        NetworkService.shared.makeRequest(for: confirmResource, data: confirmRequest) { result in
-            
+    func sendConfirmRequest(_ code: String) {
+        
+        let confirmResource = Resource<ConfirmResponse>(path: RegistrationRequestPaths.confirm.rawValue,
+                                                        requestType: .POST,
+                                                        requestData: [RegistrationRequestKeys.phone.rawValue: phoneNumber,
+                                                                      RegistrationRequestKeys.code.rawValue: code])
+        
+        NetworkService.shared.makeRequest(for: confirmResource) {[weak self] result in
+            guard let self = self else { return }
             switch result {
             
             case .success(let confirmResponse):
                 print(confirmResponse)
+                self.view.showMapViewController()
             case .failure(let error):
                 print(error)
             }

@@ -200,7 +200,7 @@
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
 				04B5656725D681BC00E0EC25 /* Menu modul */,
-				7B47C81E25DD299F00F366FE /* Tarifs Module */,
+				7B47C81E25DD299F00F366FE /* Tariffs Module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
@@ -284,6 +284,7 @@
 				7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */,
 				04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */,
 				7BFFA66525D66F9500C35652 /* UILabel+Extension.swift */,
+				7B75CF6225DD7DD3001981CA /* UIImageView+Extension.swift */,
 				7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */,
 				7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */,
 			);
@@ -333,7 +334,6 @@
 			children = (
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
-				7B75CF6225DD7DD3001981CA /* UIImageView+Extension.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
@@ -361,7 +361,7 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		7B47C81E25DD299F00F366FE /* Tarifs Module */ = {
+		7B47C81E25DD299F00F366FE /* Tariffs Module */ = {
 			isa = PBXGroup;
 			children = (
 				7B75CF4C25DD716B001981CA /* Interactor */,
@@ -369,7 +369,7 @@
 				7B75CF5525DD71F4001981CA /* Model */,
 				7B47C81F25DD2A4C00F366FE /* Tarifs.storyboard */,
 			);
-			path = "Tarifs Module";
+			path = "Tariffs Module";
 			sourceTree = "<group>";
 		};
 		7B47C83425DD3E1E00F366FE /* View */ = {
@@ -414,13 +414,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7B8465FE25D8397900B09D98 /* Main module */ = {
+		7B8465FE25D8397900B09D98 /* Map module */ = {
 			isa = PBXGroup;
 			children = (
 				7B8465FF25D8398D00B09D98 /* View */,
-				7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */,
 			);
-			path = "Main module";
+			path = "Map module";
 			sourceTree = "<group>";
 		};
 		7B8465FF25D8398D00B09D98 /* View */ = {
@@ -434,9 +433,10 @@
 		7B84660325D839BB00B09D98 /* Start Group */ = {
 			isa = PBXGroup;
 			children = (
+				7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */,
 				04B5654525D659D800E0EC25 /* Auth module */,
 				7BCBCB7925D9445900C43CF6 /* Confirm Module */,
-				7B8465FE25D8397900B09D98 /* Main module */,
+				7B8465FE25D8397900B09D98 /* Map module */,
 			);
 			path = "Start Group";
 			sourceTree = "<group>";

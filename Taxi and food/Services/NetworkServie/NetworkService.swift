@@ -17,17 +17,15 @@ final class NetworkService {
     typealias FetchResult<T:Decodable> = (Result<T, Error>) -> Void
     
     //Make networking requests
-    func makeRequest<T,U>(for resource: Resource<T>, data: U?, completion: @escaping FetchResult<T>) where U: Codable {
+    func makeRequest<T>(for resource: Resource<T>, completion: @escaping FetchResult<T>) {
         
         switch resource.requestMethod {
             
         case .GET:
             self.getData(from: resource, completion: completion)
         case .POST:
-            guard let data = data else { return }
-            self.postData(to: resource, data: data, completion: completion)
+            self.postData(to: resource, completion: completion)
         }
-        
     }
         
     //WHEN GET REQUEST
@@ -67,20 +65,19 @@ final class NetworkService {
     }
     
     //WHEN POST REQUEST
-    private func postData <T,U> (to resource: Resource<T>, data: U, completion: @escaping FetchResult<T>) where U: Codable {
+    private func postData <T> (to resource: Resource<T>, completion: @escaping FetchResult<T>) {
     
-        guard let url = resource.urlComponents.url else { return }
+        guard let url = resource.urlComponents.url, let requestData = resource.requestData else { return }
         
         var request = URLRequest (url: url)
         request.httpMethod = resource.requestMethod.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let serializedResult = self.serilizeData(requestData)
         
-        let encodedResult = self.encode(data: data)
-        
-        switch encodedResult {
-        
+        switch serializedResult {
+
         case .success(let httpBody):
             request.httpBody = httpBody
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
         case .failure(let error):
             print("CATCHED ERROR WHILE ENCODING DATA: \(error.localizedDescription)" )
             return
@@ -119,18 +116,18 @@ final class NetworkService {
         task.resume()
     }
     
-    //ENCODING DATA
-    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
-        
-        let encoder = JSONEncoder()
-        
-        do {
-            let jsonData = try encoder.encode(data)
-            return .success(jsonData)
-        } catch {
-            return .failure(error)
-        }
-    }
+//    //ENCODING DATA
+//    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
+//
+//        let encoder = JSONEncoder()
+//
+//        do {
+//            let jsonData = try encoder.encode(data)
+//            return .success(jsonData)
+//        } catch {
+//            return .failure(error)
+//        }
+//    }
     
     //DECODING DATA
     
@@ -147,6 +144,21 @@ final class NetworkService {
             return .failure(error)
             
         }
+    }
+    
+    //SERILIZE DATA
+    private func serilizeData(_ data: [String: Any]) -> Result<Data, Error> {
+
+        do {
+            
+            let result = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            return .success(result)
+            
+        } catch {
+            return .failure(error)
+        }
+        
+        
     }
     
 }

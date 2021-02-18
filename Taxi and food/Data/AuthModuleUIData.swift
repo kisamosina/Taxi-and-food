@@ -68,5 +68,8 @@ struct AuthViewControllerTextData {
             return EngLabelTexts.userAgreementText.rawValue
         }
     }
-    
+}
+
+enum ConfirmAuthIntData: Int {
+    case timerSeconds = 30
 }
