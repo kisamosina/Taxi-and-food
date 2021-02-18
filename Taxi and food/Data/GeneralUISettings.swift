@@ -70,6 +70,7 @@ enum CustomImagesNames: String {
 
 enum StoryBoards: String {
     case AuthAndMap
+    case Tarifs
 }
 
 enum ViewControllers: String {
@@ -77,6 +78,8 @@ enum ViewControllers: String {
     case UserAgreementViewController
     case ConfirmAuthViewController
     case MapViewController
+    case TariffViewController
+    case TariffsPageViewController
 }
 
 struct CustomButtonsTitles {

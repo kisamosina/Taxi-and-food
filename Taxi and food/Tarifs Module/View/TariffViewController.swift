@@ -19,6 +19,7 @@ class TariffViewController: UIViewController {
     //MARK: - Properties
     
     internal var interactor: TariffInteractorProtocol!
+    private var pageController: UIPageViewController?
     
     //MARK: - IBOutlets
     @IBOutlet weak var upBorderView: UIView!
@@ -33,9 +34,8 @@ class TariffViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.interactor = TariffInteractor(view: self)
-        self.interactor.getTarifs()
         self.aboutTarifLabel.text = TariffViewControllerTextData.tariffDescriptionText
+        self.setViewsData(interactor.tariff)
     }
     
     //MARK: - IBActions
@@ -49,13 +49,13 @@ class TariffViewController: UIViewController {
 extension TariffViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return interactor.tariffAdvantages.count
+        return interactor.tariff.advantages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = advantagesCollectionView.dequeueReusableCell(withReuseIdentifier: TariffsServiceTextData.AdavantageCollectionViewCell.rawValue,
-                                                                      for: indexPath) as? AdvantageCollectionViewCell else { fatalError("AdavantageCollectionViewCell is not exist") }
-        let tariffAdvantage = interactor.tariffAdvantages[indexPath.row]
+                                                                      for: indexPath) as? AdvantageCollectionViewCell else { return UICollectionViewCell() }
+        let tariffAdvantage = interactor.tariff.advantages[indexPath.row]
         cell.showData(for: tariffAdvantage)
         return cell
         
@@ -77,16 +77,11 @@ extension TariffViewController: UICollectionViewDataSource, UICollectionViewDele
 extension TariffViewController: TariffViewProtocol {
     
     func setViewsData(_ tariffData: TariffData) {
-        DispatchQueue.main.async {
             self.autoNamesLabel.text = TariffViewControllerTextData.autoNamesText + tariffData.cars
             self.autoNamesLabel.setBlackColor(TariffViewControllerTextData.autoNamesText)
             self.taxiImageView.webImage(tariffData.icon)
             self.tarifDescriptionLabel.text = tariffData.description
             self.advantagesCollectionView.reloadData()
-        }
     }
-    
-    
-    
 }
 
