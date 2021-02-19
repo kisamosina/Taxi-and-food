@@ -11,8 +11,8 @@ import UIKit
 class MapBottomView: UIView {
 
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override func layoutSubviews() {
+        super.layoutSubviews()
         let shadowLayer = CAShapeLayer()
         
         self.layer.cornerRadius = MapBottomViewUIData.cornerRadius.rawValue
@@ -27,4 +27,5 @@ class MapBottomView: UIView {
         shadowLayer.shadowRadius = MapBottomViewUIData.cornerRadius.rawValue
         self.layer.insertSublayer(shadowLayer, at: 0)
     }
+    
 }
