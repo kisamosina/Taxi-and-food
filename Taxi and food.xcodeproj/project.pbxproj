@@ -10,8 +10,12 @@
 		041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */; };
 		041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */; };
 		041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */; };
-		041E298825DE2ADC00CA9F56 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298725DE2ADC00CA9F56 /* SettingsCell.swift */; };
+		041E298825DE2ADC00CA9F56 /* SettingsStaticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298725DE2ADC00CA9F56 /* SettingsStaticCell.swift */; };
 		041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298925DE36B500CA9F56 /* SettingsOption.swift */; };
+		041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298B25DF5F5B00CA9F56 /* SettingsSwitchCell.swift */; };
+		041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298D25DF6DB900CA9F56 /* LanguageViewController.swift */; };
+		041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298F25DF6F9900CA9F56 /* LanguageCell.swift */; };
+		041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299125DF796000CA9F56 /* LanguageOption.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
@@ -79,8 +83,12 @@
 		041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleUIData.swift; sourceTree = "<group>"; };
-		041E298725DE2ADC00CA9F56 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		041E298725DE2ADC00CA9F56 /* SettingsStaticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStaticCell.swift; sourceTree = "<group>"; };
 		041E298925DE36B500CA9F56 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
+		041E298B25DF5F5B00CA9F56 /* SettingsSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchCell.swift; sourceTree = "<group>"; };
+		041E298D25DF6DB900CA9F56 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		041E298F25DF6F9900CA9F56 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		041E299125DF796000CA9F56 /* LanguageOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageOption.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -171,8 +179,12 @@
 			isa = PBXGroup;
 			children = (
 				041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */,
-				041E298725DE2ADC00CA9F56 /* SettingsCell.swift */,
+				041E298725DE2ADC00CA9F56 /* SettingsStaticCell.swift */,
+				041E298B25DF5F5B00CA9F56 /* SettingsSwitchCell.swift */,
 				041E298925DE36B500CA9F56 /* SettingsOption.swift */,
+				041E299125DF796000CA9F56 /* LanguageOption.swift */,
+				041E298D25DF6DB900CA9F56 /* LanguageViewController.swift */,
+				041E298F25DF6F9900CA9F56 /* LanguageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -568,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
+				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				7BFFA66B25D66FA100C35652 /* UIButton+Extension.swift in Sources */,
@@ -577,15 +590,18 @@
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
+				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* NextButton.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
-				041E298825DE2ADC00CA9F56 /* SettingsCell.swift in Sources */,
+				041E298825DE2ADC00CA9F56 /* SettingsStaticCell.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
+				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
+				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,

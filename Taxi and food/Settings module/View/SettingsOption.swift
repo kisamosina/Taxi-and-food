@@ -8,9 +8,26 @@
 
 import Foundation
 
+struct Section {
+    let tittle: String
+    let options: [SettingsOptionType]
+}
+
+enum SettingsOptionType {
+    case staticCell(model: SettingsOption)
+    case switchCell(model: SettingsSwitchOption)
+}
+
 struct SettingsOption {
     
     let title: String
     let handler: (() -> Void)
+}
+
+struct SettingsSwitchOption {
+    let title: String
+    let handler: (() -> Void)
+    var isOn: Bool
+    
 }
 
