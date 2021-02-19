@@ -6,7 +6,7 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkService {
     
@@ -15,19 +15,35 @@ final class NetworkService {
     private init() {}
     
     typealias FetchResult<T:Decodable> = (Result<T, Error>) -> Void
+    typealias WebImage = (Result<Data, Error>) -> Void
     
     //Make networking requests
     func makeRequest<T>(for resource: Resource<T>, completion: @escaping FetchResult<T>) {
         
         switch resource.requestMethod {
-            
+        
         case .GET:
             self.getData(from: resource, completion: completion)
         case .POST:
             self.postData(to: resource, completion: completion)
         }
     }
+    
+    func loadImageData(for urlString: String, completion: WebImage) {
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
         
+        do {
+            let imageData: Data = try Data(contentsOf: url)
+            completion(.success(imageData))
+            
+        } catch {
+            completion(.failure(error))
+        }
+    }
+    
     //WHEN GET REQUEST
     private func loadData(from url: URL, completion: @escaping (Result<Data, Error>) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -55,7 +71,7 @@ final class NetworkService {
                 
                 let decodeResult = self.decode(for: resource, data: data)
                 completion(decodeResult)
-                                
+                
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -66,7 +82,7 @@ final class NetworkService {
     
     //WHEN POST REQUEST
     private func postData <T> (to resource: Resource<T>, completion: @escaping FetchResult<T>) {
-    
+        
         guard let url = resource.urlComponents.url, let requestData = resource.requestData else { return }
         
         var request = URLRequest (url: url)
@@ -75,7 +91,7 @@ final class NetworkService {
         let serializedResult = self.serilizeData(requestData)
         
         switch serializedResult {
-
+        
         case .success(let httpBody):
             request.httpBody = httpBody
         case .failure(let error):
@@ -116,18 +132,18 @@ final class NetworkService {
         task.resume()
     }
     
-//    //ENCODING DATA
-//    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
-//
-//        let encoder = JSONEncoder()
-//
-//        do {
-//            let jsonData = try encoder.encode(data)
-//            return .success(jsonData)
-//        } catch {
-//            return .failure(error)
-//        }
-//    }
+    //    //ENCODING DATA
+    //    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
+    //
+    //        let encoder = JSONEncoder()
+    //
+    //        do {
+    //            let jsonData = try encoder.encode(data)
+    //            return .success(jsonData)
+    //        } catch {
+    //            return .failure(error)
+    //        }
+    //    }
     
     //DECODING DATA
     
@@ -148,7 +164,7 @@ final class NetworkService {
     
     //SERILIZE DATA
     private func serilizeData(_ data: [String: Any]) -> Result<Data, Error> {
-
+        
         do {
             
             let result = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)

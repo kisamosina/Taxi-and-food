@@ -63,6 +63,7 @@ extension TariffsPageViewController: UIPageViewControllerDataSource {
         
         return interactor.showViewControllerAtIndex(pageNumber)
     }
+    
 }
 
 extension TariffsPageViewController: TariffPageViewControllerDelegate {

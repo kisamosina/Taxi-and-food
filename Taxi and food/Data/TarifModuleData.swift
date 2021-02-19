@@ -14,14 +14,12 @@ enum TariffsServiceTextData: String {
 
 struct TariffViewControllerTextData {
     
-    //AuthViewController labels rus text
     internal enum RusLabelTexts: String {
         case tariffDescriptionText = "О тарифе"
         case autoNamesText = "Автомобили: "
 
     }
     
-    //AuthViewController labels english text
     internal enum EngLabelTexts: String {
         case tariffDescriptionText =  "About"
         case autoNamesText = "Autos: "
@@ -57,7 +55,7 @@ enum AdvantageViewShadowsData: CGFloat {
 }
 
 enum AdvantageCollectionViewSizes: CGFloat {
-    case widthSumInsets = 75
+    case widthSumInsets = 70
     case cellHeight = 80
 }
 
