@@ -10,6 +10,7 @@ import UIKit
 
 class TopAlignedLabel: UILabel {
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         if let stringText = text {
             let stringTextAsNSString = stringText as NSString
             let labelStringSize = stringTextAsNSString.boundingRect(with: CGSize(width: self.frame.width, height: CGFloat.greatestFiniteMagnitude),

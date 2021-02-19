@@ -12,7 +12,7 @@ class MapBottomView: UIView {
 
     
     override func draw(_ rect: CGRect) {
-        
+        super.draw(rect)
         let shadowLayer = CAShapeLayer()
         
         self.layer.cornerRadius = MapBottomViewUIData.cornerRadius.rawValue

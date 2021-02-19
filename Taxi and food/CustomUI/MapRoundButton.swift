@@ -11,7 +11,7 @@ import UIKit
 class MapRoundButton: UIButton {
     
     override func draw(_ rect: CGRect) {
-        
+        super.draw(rect)
         let shadowLayer = CAShapeLayer()
         
         self.layer.cornerRadius = self.frame.height/2
@@ -26,6 +26,11 @@ class MapRoundButton: UIButton {
         shadowLayer.shadowOpacity = Float(MapRoundButtonUIData.shadowOpacity.rawValue)
         shadowLayer.shadowRadius = MapRoundButtonUIData.shadowRadius.rawValue
         self.layer.insertSublayer(shadowLayer, at: 0)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         
     }
 }
