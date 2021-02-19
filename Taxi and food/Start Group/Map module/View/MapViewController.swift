@@ -14,25 +14,19 @@ class MapViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var lkButton: UIButton!
-    @IBOutlet weak var mapCenterButton: UIButton!
+    @IBOutlet weak var menuButton: MapRoundButton!
+    @IBOutlet weak var lkButton: MapRoundButton!
+    @IBOutlet weak var mapCenterButton: MapRoundButton!
     @IBOutlet weak var taxiButton: UIButton!
     @IBOutlet weak var foodButton: UIButton!
-    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var bottomView: MapBottomView!
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.setupButtonsAndViewAppearence()
         
-    }
-    
     //MARK: - IBActions
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -54,18 +48,6 @@ class MapViewController: UIViewController {
         
     }
     //MARK: - Methods
-    
-    private func setupButtonsAndViewAppearence() {
-        self.menuButton.setupRoundedButtonWithShadow()
-        self.lkButton.setupRoundedButtonWithShadow()
-        self.mapCenterButton.setupRoundedButtonWithShadow()
-        self.bottomView.layer.cornerRadius = 20
-        self.bottomView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
-        self.bottomView.layer.shadowOpacity = 1
-        self.bottomView.layer.shadowRadius = 20
-        self.bottomView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.bottomView.layer.masksToBounds = false
-    }
-    
-    
+        
+
 }

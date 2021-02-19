@@ -8,8 +8,21 @@
 
 import UIKit
 
-class NextButton: UIButton {
+class MainBottomButton: UIButton {
 
+    func setupAs(_ type: MainButtonTypes) {
+        
+        self.setTitle(MainButtonTitles.getTitle(for: type), for: .normal)
+        
+        switch type {
+            
+        case .next:
+            setInActive()
+        default:
+            break
+        }
+    }
+    
     func setActive() {
         self.isEnabled = true
         self.backgroundColor = Colors.buttonBlue.getColor()
@@ -28,7 +41,6 @@ class NextButton: UIButton {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setTitle(CustomButtonsTitles.nextButtonTitle, for: .normal)
         self.setInActive()
     }
 }

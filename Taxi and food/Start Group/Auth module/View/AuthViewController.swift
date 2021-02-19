@@ -21,7 +21,7 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var userAgreementButton: UIButton!
-    @IBOutlet weak var nextButton: NextButton!
+    @IBOutlet weak var nextButton: MainBottomButton!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
@@ -30,11 +30,10 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interactor = AuthInteractor(view: self)
-        addKeyboardWillShowObserver()
-        setLabelsAndButtonsText()
-        addBottomLabelGestureRecognizer()
-        phoneNumberTextField.delegate = self
-        notificationRequest()
+        self.addKeyboardWillShowObserver()
+        self.setLabelsAndButtonsText()
+        self.addBottomLabelGestureRecognizer()
+        self.phoneNumberTextField.delegate = self
     }
     
     
@@ -95,22 +94,12 @@ class AuthViewController: UIViewController {
         self.topLabel.text = AuthViewControllerTextData.topLabelText
         self.bottomLabel.text = AuthViewControllerTextData.bottomLabelText
         self.bottomLabel.setAttributedText(AuthViewControllerTextData.userAgreementText)
+        self.nextButton.setupAs(.next)
         
     }
     
     private func addBottomLabelGestureRecognizer() {
         bottomLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBottomLabel(gesture:))))
-    }
-    
-    private func notificationRequest() {
-        let notificationCenter = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        notificationCenter.requestAuthorization(options: options) {
-            (didAllow, error) in
-            if !didAllow {
-                print("User has declined notifications")
-            }
-        }
     }
     
     @objc private func keyBoardWillAppear(notification: NSNotification) {

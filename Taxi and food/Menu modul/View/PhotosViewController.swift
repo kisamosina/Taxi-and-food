@@ -29,7 +29,7 @@ class PhotosViewController: UIViewController {
     @IBOutlet var selectImgeLabel: UILabel!
     @IBOutlet var countPicturesLabel: UILabel!
     @IBOutlet var selectImageButton: ServiceRoundAddButton!
-    @IBOutlet var sendButton: NextButton!
+    @IBOutlet var sendButton: MainBottomButton!
     @IBOutlet weak var uploadImageView: UploadImageView!
     
     //MARK: - Life Cycle
@@ -100,7 +100,7 @@ class PhotosViewController: UIViewController {
         self.selectImgeLabel.text = PhotosViewControllerTextData.selectImgeLabelText
         self.countPicturesLabel.text = ""
         self.countPicturesLabel.numberOfLines = 1
-        self.sendButton.setTitle(CustomButtonsTitles.nextButtonTitle, for: .normal)
+        self.sendButton.setTitle(MainButtonTitles.nextButtonTitle, for: .normal)
     }
     
     //Activating next button

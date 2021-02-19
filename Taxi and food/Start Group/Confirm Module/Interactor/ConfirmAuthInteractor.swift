@@ -6,11 +6,12 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import UserNotifications
 
 protocol ConfirmAuthInteractorProtocol: class {
     var view: ConfirmAuthViewProtocol! { get }
-        
+    
     init(view: ConfirmAuthViewProtocol, phoneNumber: String)
     
     func sendRegistrationRequest()
@@ -20,7 +21,7 @@ protocol ConfirmAuthInteractorProtocol: class {
 class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
     
     internal weak var view: ConfirmAuthViewProtocol!
-            
+    
     private var regResource: Resource<RegistrationResponse>
     private var regResponse: RegistrationResponse!
     private var confirmRespone: ConfirmResponse!
@@ -35,13 +36,14 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
     }
     
     func sendRegistrationRequest() {
-        NetworkService.shared.makeRequest(for: regResource) { result in
+        NetworkService.shared.makeRequest(for: regResource) {[unowned self] result in
             
             switch result {
             
             case .success(let response):
                 self.regResponse = response
                 print("RESPONSE CODE: \(self.regResponse.data.code)")
+                self.scheduleNotification(with: self.regResponse.data.code)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -65,10 +67,30 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
                 self.view.showMapViewController()
             case .failure(let error):
                 print(error)
+                guard let serverError = error as? ServerErrors, serverError.statusCode == ErrorCodes.wrongConfirmCode.rawValue else { return }
+                self.view.setupWhenError()
             }
         }
         
     }
     
+    private func scheduleNotification(with code: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = ConfirmAuthViewControllerTexts.pushConfirmationTitle
+        content.body = ConfirmAuthViewControllerTexts.pushConfirmationBody + "\(code)"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let identifier = NotificationsIdentifiers.confirmtaionCode.rawValue
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        DispatchQueue.main.async {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.notificationCenter.add(request) { error in
+                if let error = error {
+                    print("Notification error: \(error.localizedDescription)")
+                }
+            }
+        }
+        
+    }
     
 }

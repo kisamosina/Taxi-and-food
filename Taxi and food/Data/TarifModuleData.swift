@@ -17,13 +17,12 @@ struct TariffViewControllerTextData {
     internal enum RusLabelTexts: String {
         case tariffDescriptionText = "О тарифе"
         case autoNamesText = "Автомобили: "
-
+        
     }
     
     internal enum EngLabelTexts: String {
         case tariffDescriptionText =  "About"
         case autoNamesText = "Autos: "
-        
     }
     
     static var tariffDescriptionText: String {

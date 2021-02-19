@@ -10,6 +10,7 @@ import UIKit
 protocol ConfirmAuthViewProtocol: class {
     var interactor: ConfirmAuthInteractorProtocol! { get set }
     func showMapViewController()
+    func setupWhenError()
 }
 
 class ConfirmAuthViewController: UIViewController {
@@ -30,7 +31,7 @@ class ConfirmAuthViewController: UIViewController {
     @IBOutlet weak var tfThree: DigitTextField!
     @IBOutlet weak var tfFour: DigitTextField!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var nextButton: NextButton!
+    @IBOutlet weak var nextButton: MainBottomButton!
     @IBOutlet weak var nextButtonBottomConstraint: NSLayoutConstraint!
     
     //MARK: - Lifecycle
@@ -38,12 +39,12 @@ class ConfirmAuthViewController: UIViewController {
         super.viewDidLoad()
         self.interactor = ConfirmAuthInteractor(view: self, phoneNumber: self.rawPhoneNumber!)
         self.interactor.sendRegistrationRequest()
-        addTextfieldsTargets()
-        addKeyboardWillShowObserver()
-        setupTopLabelTextAndNextButtonText()
-        setupDescLabelText(seconds: remainedSeconds)
-        startTimer()
-        addDescriptionLabelGestureRecognizer()
+        self.addTextfieldsTargets()
+        self.addKeyboardWillShowObserver()
+        self.setupTopLabelTextAndNextButtonText()
+        self.setupDescLabelText(seconds: remainedSeconds)
+        self.startTimer()
+        self.addDescriptionLabelGestureRecognizer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +78,7 @@ class ConfirmAuthViewController: UIViewController {
     
     private func setupTopLabelTextAndNextButtonText() {
         topLabel.text = ConfirmAuthViewControllerTexts.topLabelText
-        nextButton.setTitle(CustomButtonsTitles.sendButtonTitle, for: .normal)
+        nextButton.setupAs(.next)
     }
     
     private func setupDescLabelText(seconds: Int) {
@@ -189,6 +190,19 @@ class ConfirmAuthViewController: UIViewController {
 
 //MARK: - ConfirmAuthViewProtocol
 extension ConfirmAuthViewController: ConfirmAuthViewProtocol {
+    func setupWhenError() {
+        self.stopTimer()
+        let textFields = [tfOne, tfTwo, tfThree, tfFour]
+        DispatchQueue.main.async {
+            self.descriptionLabel.text = ConfirmAuthViewControllerTexts.errorDescriptionLabelText + ConfirmAuthViewControllerTexts.resendText
+            self.descriptionLabel.setAttributedText(ConfirmAuthViewControllerTexts.resendText)
+            textFields.forEach { $0?.text = ""}
+            self.tfOne.becomeFirstResponder()
+            
+        }
+    }
+    
+    
     func showMapViewController() {
         DispatchQueue.main.async {
             let mapVC = self.storyboard?.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue) as! MapViewController

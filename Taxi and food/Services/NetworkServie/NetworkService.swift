@@ -117,13 +117,15 @@ final class NetworkService {
             guard let httpResponse = response as? HTTPURLResponse else { return }
             guard (200...299).contains(httpResponse.statusCode) else {
                 print("Server error code: \(httpResponse.statusCode)")
+                let error = ServerErrors(statusCode: httpResponse.statusCode)
+                completion(.failure(error))
                 return
             }
             // Success response
             print("HTTP Post successful. Return code: " + String(httpResponse.statusCode))
-            if let mimeType = httpResponse.mimeType /*, mimeType == "application/json"*/ {
-                print("MimeType: " + mimeType)
-            }
+//            if let mimeType = httpResponse.mimeType /*, mimeType == "application/json"*/ {
+//                print("MimeType: " + mimeType)
+//            }
             guard let data = data else { return }
             let result = self.decode(for: resource, data: data)
             completion(result)

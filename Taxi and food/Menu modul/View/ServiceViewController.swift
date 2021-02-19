@@ -17,7 +17,7 @@ class ServiceViewController: UIViewController {
 
     @IBOutlet var fillInTextView: ProblemTextView!
     
-    @IBOutlet var nextButton: NextButton!
+    @IBOutlet var nextButton: MainBottomButton!
     
     @IBOutlet var nextButtonBottomConstraint: NSLayoutConstraint!
     

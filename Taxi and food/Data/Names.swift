@@ -8,8 +8,8 @@
 
 import Foundation
 /*
- TarifViewController
- TarifModuleData
+ TariffViewController
+ TariffModuleData
  AdvantageCollectionViewCell
  Tarifs.storyboard
  TarifInteractor
@@ -20,4 +20,5 @@ import Foundation
  TariffsPageViewController
  TariffTitleButton
  TariffPageViewControllerDelegate
+ MainBottomButton
  */

@@ -31,7 +31,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yM9-3O-odA">
                                 <rect key="frame" x="25" y="787" width="364" height="75"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKa-YX-c7m" customClass="NextButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKa-YX-c7m" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ODb-3m-lPP"/>
@@ -167,7 +167,7 @@
                                         <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfn-i8-WeP" customClass="NextButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfn-i8-WeP" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="701" width="364" height="50"/>
                                         <color key="backgroundColor" red="0.23921568630000001" green="0.23137254900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>

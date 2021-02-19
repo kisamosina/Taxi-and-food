@@ -82,41 +82,6 @@ enum ViewControllers: String {
     case TariffsPageViewController
 }
 
-struct CustomButtonsTitles {
-    
-    internal enum RusCustomButtonsTitles: String {
-        case nextButtonTitle = "Далее"
-        case sendButtonTitle = "Отправить"
-    }
-    
-    internal enum EngCustomButtonsTitles: String {
-        case nextButtonTitle = "Next"
-        case sendButtonTitle = "Send"
-    }
-    
-    static var nextButtonTitle: String {
-        
-        switch UserDefaults.standard.getAppLanguage() {
-        
-        case .rus:
-            return RusCustomButtonsTitles.nextButtonTitle.rawValue
-        case .eng:
-            return EngCustomButtonsTitles.nextButtonTitle.rawValue
-        }
-    }
-    
-    static var sendButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
-        
-        case .rus:
-            return RusCustomButtonsTitles.sendButtonTitle.rawValue
-        case .eng:
-            return EngCustomButtonsTitles.sendButtonTitle.rawValue
-        }
-
-    }
-
-}
 
 enum ViewsCornerRadiuses: CGFloat {
     case medium = 15
@@ -130,3 +95,6 @@ enum BordersWidths: CGFloat {
     case standart = 1
 }
 
+enum NotificationsIdentifiers: String {
+    case confirmtaionCode
+}

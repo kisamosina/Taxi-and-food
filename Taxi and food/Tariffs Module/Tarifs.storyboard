@@ -146,7 +146,7 @@
                                     <outlet property="delegate" destination="Oam-YQ-RGz" id="TvC-zO-Nb4"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-wX-t89" customClass="NextButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-wX-t89" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="25" y="787" width="364" height="50"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23137254900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

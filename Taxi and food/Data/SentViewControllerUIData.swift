@@ -29,5 +29,4 @@ struct SentViewControllerTextData {
         case sendButtonTextEn = "Done!"
         
     }
- 
 }

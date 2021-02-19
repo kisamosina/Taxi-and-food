@@ -36,7 +36,7 @@ class TariffViewController: UIViewController {
     @IBOutlet weak var aboutTarifLabel: UILabel!
     @IBOutlet weak var tarifDescriptionLabel: TopAlignedLabel!
     @IBOutlet weak var advantagesCollectionView: UICollectionView!
-    @IBOutlet weak var orderButton: NextButton!
+    @IBOutlet weak var orderButton: MainBottomButton!
     @IBOutlet weak var tariffButtonsStackView: UIStackView!
     
     //MARK: - Life cycle
@@ -94,17 +94,17 @@ extension TariffViewController: TariffViewProtocol {
     
     func setViewsData(_ tariffData: TariffData) {
         
-            self.tariffButtons = interactor.makeTariffsButtons()
-            self.tariffButtons.forEach { [weak self] button in  self?.tariffButtonsStackView.addArrangedSubview(button)
-                button.addTarget(self, action: #selector(tariffButtonTapped), for: .touchUpInside)
-            }
-            self.autoNamesLabel.text = TariffViewControllerTextData.autoNamesText + tariffData.cars
-            self.autoNamesLabel.setBlackColor(TariffViewControllerTextData.autoNamesText)
-            self.taxiImageView.webImage(tariffData.icon)
-            self.tarifDescriptionLabel.text = tariffData.description
-            self.upBorderView.backgroundColor = interactor.tariffColor
-            self.advantagesCollectionView.reloadData()
-            
+        self.tariffButtons = interactor.makeTariffsButtons()
+        self.tariffButtons.forEach { [weak self] button in  self?.tariffButtonsStackView.addArrangedSubview(button)
+            button.addTarget(self, action: #selector(tariffButtonTapped), for: .touchUpInside)
+        }
+        self.autoNamesLabel.text = TariffViewControllerTextData.autoNamesText + tariffData.cars
+        self.autoNamesLabel.setBlackColor(TariffViewControllerTextData.autoNamesText)
+        self.taxiImageView.webImage(tariffData.icon)
+        self.tarifDescriptionLabel.text = tariffData.description
+        self.upBorderView.backgroundColor = interactor.tariffColor
+        self.advantagesCollectionView.reloadData()
+        self.orderButton.setupAs(.taxiOrder)
     }
 }
 
