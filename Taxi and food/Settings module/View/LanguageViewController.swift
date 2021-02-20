@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol LanguageViewControllerDelegate: class {
-    func update()
-}
-
 class LanguageViewController: UIViewController {
     
     var models = [LanguageOption]()
-    weak var delegate: LanguageViewControllerDelegate?
-    
 
     @IBOutlet var tableView: UITableView!
     
@@ -32,7 +26,7 @@ class LanguageViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.delegate?.update()
+        
     }
     
     func configure() {
@@ -66,10 +60,13 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
             cell.accessoryType = .checkmark
             
             if indexPath.row == 0 {
-                UserDefaults.standard.storeLanguage("rus")
+                UserDefaults.standard.storeLanguage(AppLanguages.rus.rawValue)
             } else {
-                UserDefaults.standard.storeLanguage("eng")
+                UserDefaults.standard.storeLanguage(AppLanguages.eng.rawValue)
             }
+            models.removeAll()
+            configure()
+            self.tableView.reloadData()
            
         }
     

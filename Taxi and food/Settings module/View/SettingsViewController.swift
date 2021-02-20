@@ -28,19 +28,20 @@ class SettingsViewController: UIViewController {
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        VC.delegate = self
         
         tableView.register(SettingsStaticCell.self, forCellReuseIdentifier: "StaticCell")
         tableView.register(SettingsSwitchCell.self, forCellReuseIdentifier: "SwitchCell")
         
-        configure()
+//        configure()
         
 
        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-    
+        models.removeAll()
+        configure()
+        self.tableView.reloadData()
     }
     
     //MARK: - IBActions
@@ -122,11 +123,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   
 }
 
-extension SettingsViewController: LanguageViewControllerDelegate {
-    func update() {
-        self.tableView.reloadData()
-    }
-}
     
     
 
