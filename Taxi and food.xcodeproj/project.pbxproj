@@ -40,6 +40,8 @@
 		7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C85425DE470500F366FE /* TariffsPageViewController.swift */; };
 		7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C85C25DE478400F366FE /* TariffsPageInteractor.swift */; };
 		7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */; };
+		7B47C87725E1458900F366FE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C87625E1458900F366FE /* MenuView.swift */; };
+		7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C87B25E147E700F366FE /* CloseMenuButton.swift */; };
 		7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */; };
 		7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */; };
 		7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEE625DAE72C001981CA /* MainBottomButton.swift */; };
@@ -59,6 +61,10 @@
 		7B75CF9525E03861001981CA /* MapRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CF9425E03861001981CA /* MapRoundButton.swift */; };
 		7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */; };
 		7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFA425E03D5A001981CA /* MapBottomView.swift */; };
+		7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFAC25E16EA9001981CA /* MapInteractor.swift */; };
+		7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */; };
+		7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFC425E175E8001981CA /* MapMenuViewCell.swift */; };
+		7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */; };
 		7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */; };
 		7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */; };
 		7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */; };
@@ -126,6 +132,8 @@
 		7B47C85425DE470500F366FE /* TariffsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffsPageViewController.swift; sourceTree = "<group>"; };
 		7B47C85C25DE478400F366FE /* TariffsPageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffsPageInteractor.swift; sourceTree = "<group>"; };
 		7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffTitleButton.swift; sourceTree = "<group>"; };
+		7B47C87625E1458900F366FE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		7B47C87B25E147E700F366FE /* CloseMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseMenuButton.swift; sourceTree = "<group>"; };
 		7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestData.swift; sourceTree = "<group>"; };
 		7B75CEE625DAE72C001981CA /* MainBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomButton.swift; sourceTree = "<group>"; };
@@ -145,6 +153,10 @@
 		7B75CF9425E03861001981CA /* MapRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRoundButton.swift; sourceTree = "<group>"; };
 		7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerUIData.swift; sourceTree = "<group>"; };
 		7B75CFA425E03D5A001981CA /* MapBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomView.swift; sourceTree = "<group>"; };
+		7B75CFAC25E16EA9001981CA /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceAndDelegate.swift; sourceTree = "<group>"; };
+		7B75CFC425E175E8001981CA /* MapMenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuViewCell.swift; sourceTree = "<group>"; };
+		7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuDataModel.swift; sourceTree = "<group>"; };
 		7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUISettings.swift; sourceTree = "<group>"; };
 		7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -300,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFFA66025D66F8300C35652 /* PhoneFormatter.swift */,
+				7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */,
 				0465F51325DA30CD008CA6D0 /* AlertController.swift */,
 				7B75CF8F25E01CFD001981CA /* ServerError.swift */,
 			);
@@ -395,9 +408,11 @@
 			children = (
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				7B75CFA425E03D5A001981CA /* MapBottomView.swift */,
+				7B47C87625E1458900F366FE /* MenuView.swift */,
 				7B75CF9425E03861001981CA /* MapRoundButton.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
+				7B47C87B25E147E700F366FE /* CloseMenuButton.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
@@ -423,10 +438,28 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7B75CFB125E16EB4001981CA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7B75CFAC25E16EA9001981CA /* MapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7B75CFCE25E17B19001981CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7B8465FE25D8397900B09D98 /* Map module */ = {
 			isa = PBXGroup;
 			children = (
+				7B75CFB125E16EB4001981CA /* Interactor */,
 				7B8465FF25D8398D00B09D98 /* View */,
+				7B75CFCE25E17B19001981CA /* Model */,
 			);
 			path = "Map module";
 			sourceTree = "<group>";
@@ -435,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFFA68225D67F0300C35652 /* MapViewController.swift */,
+				7B75CFC425E175E8001981CA /* MapMenuViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -611,6 +645,7 @@
 			files = (
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
+				7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */,
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
@@ -618,6 +653,7 @@
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
+				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
@@ -643,10 +679,12 @@
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
+				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
+				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
@@ -655,9 +693,11 @@
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
+				7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */,
 				7B75CF9525E03861001981CA /* MapRoundButton.swift in Sources */,
 				7B75CF4225DD707B001981CA /* TariffInteractor.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
+				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,

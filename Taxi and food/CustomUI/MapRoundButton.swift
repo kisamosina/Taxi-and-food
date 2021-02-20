@@ -12,16 +12,16 @@ class MapRoundButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-                
+        
         self.layer.cornerRadius = self.frame.height/2
-               
+        
         self.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.layer.shadowOpacity = Float(MapRoundButtonUIData.shadowOpacity.rawValue)
         self.layer.shadowRadius = MapRoundButtonUIData.shadowRadius.rawValue
         self.layer.shadowOffset = CGSize(width: MapRoundButtonUIData.shadowOffsetWidth.rawValue,
                                          height: MapRoundButtonUIData.shadowOffsetHeight.rawValue)
-               self.layer.masksToBounds = false
-
+        self.layer.masksToBounds = false
+        
     }
     
 }

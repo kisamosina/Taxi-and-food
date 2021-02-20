@@ -21,4 +21,14 @@ import Foundation
  TariffTitleButton
  TariffPageViewControllerDelegate
  MainBottomButton
+ CloseMenuButton
+ MenuView
+ MapMenuViewUIData
+ MapInteractor
+ MapViewProtocol
+ TableViewDataSourceAndDelegate
+ MapMenuViewCell
+ MapMenuDataModel
+ MapMenuItem
+ MapMenuSection
  */
