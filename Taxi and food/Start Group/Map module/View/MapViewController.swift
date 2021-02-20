@@ -27,6 +27,10 @@ class MapViewController: UIViewController {
         
     }
         
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+    }
     //MARK: - IBActions
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
