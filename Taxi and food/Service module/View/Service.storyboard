@@ -379,6 +379,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yAU-xa-3Ig" id="WGX-0I-A6b"/>
+                                    <outlet property="delegate" destination="yAU-xa-3Ig" id="ZeI-JR-JKu"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -390,12 +394,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T4P-3k-y0a"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ftX-5H-cYi"/>
+                    <navigationItem key="navigationItem" id="ftX-5H-cYi">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Q03-nu-zQT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IPc-tk-g8b">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Ry8-y1-yhk" kind="unwind" identifier="settings" unwindAction="unwind:" id="Och-T4-ddS"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="yAU-xa-3Ig" id="Do4-FH-ftk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="W2N-hd-fEb" id="H6x-gX-9aI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkc-lU-BsR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ry8-y1-yhk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1874" y="1511"/>
         </scene>

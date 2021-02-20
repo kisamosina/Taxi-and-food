@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol LanguageViewControllerDelegate: class {
+    func update()
+}
+
 class LanguageViewController: UIViewController {
     
     var models = [LanguageOption]()
+    weak var delegate: LanguageViewControllerDelegate?
     
 
     @IBOutlet var tableView: UITableView!
@@ -26,6 +31,10 @@ class LanguageViewController: UIViewController {
         
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.delegate?.update()
+    }
+    
     func configure() {
         models.append(LanguageOption(title: SettingsViewControllerText.rusLanguageCellTittleText))
         
@@ -33,6 +42,7 @@ class LanguageViewController: UIViewController {
     }
 
 
+    
 }
 
 extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,8 +80,7 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
             cell.accessoryType = .none
         }
     }
-    
-    
-    
-    
+  
 }
+
+

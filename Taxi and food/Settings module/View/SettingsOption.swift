@@ -19,14 +19,12 @@ enum SettingsOptionType {
 }
 
 struct SettingsOption {
-    
     let title: String
-    let handler: (() -> Void)
+    
 }
 
 struct SettingsSwitchOption {
     let title: String
-    let handler: (() -> Void)
     var isOn: Bool
     
 }

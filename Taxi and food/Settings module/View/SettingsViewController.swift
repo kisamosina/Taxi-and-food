@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
     //MARK: - Properties
     
     var models = [Section]()
+    var VC = LanguageViewController()
     
     
     
@@ -27,12 +28,19 @@ class SettingsViewController: UIViewController {
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        VC.delegate = self
+        
         tableView.register(SettingsStaticCell.self, forCellReuseIdentifier: "StaticCell")
         tableView.register(SettingsSwitchCell.self, forCellReuseIdentifier: "SwitchCell")
         
         configure()
+        
 
        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    
     }
     
     //MARK: - IBActions
@@ -41,22 +49,26 @@ class SettingsViewController: UIViewController {
     
     func configure() {
         models.append(Section(tittle: "", options: [
-            .staticCell(model: SettingsOption(title: SettingsViewControllerText.languageCellTitleText, handler: {})),
-            .staticCell(model: SettingsOption(title: SettingsViewControllerText.personalDataCellTitleText, handler: {})),
+            .staticCell(model: SettingsOption(title: SettingsViewControllerText.languageCellTitleText)),
+            .staticCell(model: SettingsOption(title: SettingsViewControllerText.personalDataCellTitleText)),
             
-            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.pushCellTitleText, handler: {}, isOn: true))
+            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.pushCellTitleText, isOn: true))
             
         ]))
         
         models.append(Section(tittle: "", options: [
-            .staticCell(model: SettingsOption(title: SettingsViewControllerText.promoNotificationCellTitleText, handler: {})),
-            .staticCell(model: SettingsOption(title: SettingsViewControllerText.availablePromoCellTitleText, handler: {}))
+            .staticCell(model: SettingsOption(title: SettingsViewControllerText.promoNotificationCellTitleText)),
+            .staticCell(model: SettingsOption(title: SettingsViewControllerText.availablePromoCellTitleText))
             
         ]))
         
         models.append(Section(tittle: SettingsViewControllerText.headerTitleText, options: [
-            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.refreshCellTitleText, handler: {}, isOn: true))
+            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.refreshCellTitleText, isOn: true))
         ]))
+    }
+    
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
 }
     
@@ -94,7 +106,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configure(with: model)
             return cell
         }
-        
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -103,16 +115,21 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             performSegue(withIdentifier: "language", sender: self)
-        }
-        
-        switch type.self {
-        case .staticCell(model: let model):
-            model.handler()
-        case .switchCell(model: let model):
-            model.handler()
+
         }
  
     }
-    
-    
+  
 }
+
+extension SettingsViewController: LanguageViewControllerDelegate {
+    func update() {
+        self.tableView.reloadData()
+    }
+}
+    
+    
+
+
+
+

@@ -11,6 +11,6 @@ import UIKit
 
 struct LanguageOption {
     let title: String
-    let handler: (() -> Void)
+    
 
 }
