@@ -16,6 +16,14 @@
 		041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298D25DF6DB900CA9F56 /* LanguageViewController.swift */; };
 		041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298F25DF6F9900CA9F56 /* LanguageCell.swift */; };
 		041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299125DF796000CA9F56 /* LanguageOption.swift */; };
+		041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E299825E20E6400CA9F56 /* PersonalData.storyboard */; };
+		041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299A25E20ED700CA9F56 /* PersonalDataViewController.swift */; };
+		041E299D25E20EFE00CA9F56 /* PersonalDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299C25E20EFE00CA9F56 /* PersonalDataInteractor.swift */; };
+		041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299E25E210F600CA9F56 /* PersonalDataCell.swift */; };
+		041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */; };
+		041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E29A225E21AEA00CA9F56 /* Settings.storyboard */; };
+		041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E29A425E21BF300CA9F56 /* Service.storyboard */; };
+		041E29A925E220BC00CA9F56 /* PersonalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29A825E220BC00CA9F56 /* PersonalDataModel.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
@@ -37,7 +45,6 @@
 		04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656A25D6824400E0EC25 /* ServiceViewController.swift */; };
 		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
 		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
-		04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FFA9E425D91DCB0066032E /* Service.storyboard */; };
 		7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */; };
 		7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */; };
 		7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */; };
@@ -89,6 +96,14 @@
 		041E298D25DF6DB900CA9F56 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		041E298F25DF6F9900CA9F56 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		041E299125DF796000CA9F56 /* LanguageOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageOption.swift; sourceTree = "<group>"; };
+		041E299825E20E6400CA9F56 /* PersonalData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalData.storyboard; sourceTree = "<group>"; };
+		041E299A25E20ED700CA9F56 /* PersonalDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataViewController.swift; sourceTree = "<group>"; };
+		041E299C25E20EFE00CA9F56 /* PersonalDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataInteractor.swift; sourceTree = "<group>"; };
+		041E299E25E210F600CA9F56 /* PersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataCell.swift; sourceTree = "<group>"; };
+		041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataModuleUIData.swift; sourceTree = "<group>"; };
+		041E29A225E21AEA00CA9F56 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		041E29A425E21BF300CA9F56 /* Service.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
+		041E29A825E220BC00CA9F56 /* PersonalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataModel.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +131,6 @@
 		04B5656A25D6824400E0EC25 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
-		04FFA9E425D91DCB0066032E /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
 		7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
 		7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +199,7 @@
 				041E299125DF796000CA9F56 /* LanguageOption.swift */,
 				041E298D25DF6DB900CA9F56 /* LanguageViewController.swift */,
 				041E298F25DF6F9900CA9F56 /* LanguageCell.swift */,
+				041E29A225E21AEA00CA9F56 /* Settings.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +208,34 @@
 			isa = PBXGroup;
 			children = (
 				041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		041E299425E20D4D00CA9F56 /* PersonalData module */ = {
+			isa = PBXGroup;
+			children = (
+				041E299525E20D8800CA9F56 /* View */,
+			);
+			path = "PersonalData module";
+			sourceTree = "<group>";
+		};
+		041E299525E20D8800CA9F56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				041E299A25E20ED700CA9F56 /* PersonalDataViewController.swift */,
+				041E299E25E210F600CA9F56 /* PersonalDataCell.swift */,
+				041E29A825E220BC00CA9F56 /* PersonalDataModel.swift */,
+				041E299725E20DB000CA9F56 /* Interactor */,
+				041E299825E20E6400CA9F56 /* PersonalData.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		041E299725E20DB000CA9F56 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				041E299C25E20EFE00CA9F56 /* PersonalDataInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -222,6 +265,7 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
+				041E299425E20D4D00CA9F56 /* PersonalData module */,
 				041E297E25DE1DBE00CA9F56 /* Settings module */,
 				04B5656725D681BC00E0EC25 /* Service module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
@@ -346,7 +390,7 @@
 				04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */,
 				0465F51925DA561D008CA6D0 /* SentViewController.swift */,
 				04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */,
-				04FFA9E425D91DCB0066032E /* Service.storyboard */,
+				041E29A425E21BF300CA9F56 /* Service.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +403,7 @@
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
 				041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */,
+				041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */,
 				0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */,
 				0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */,
 				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
@@ -551,9 +596,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
+				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
-				04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */,
+				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +635,7 @@
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
+				041E29A925E220BC00CA9F56 /* PersonalDataModel.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
@@ -611,14 +659,18 @@
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
+				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
+				041E299D25E20EFE00CA9F56 /* PersonalDataInteractor.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
+				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
+				041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */,
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,

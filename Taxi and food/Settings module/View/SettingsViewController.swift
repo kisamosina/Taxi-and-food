@@ -31,11 +31,7 @@ class SettingsViewController: UIViewController {
         
         tableView.register(SettingsStaticCell.self, forCellReuseIdentifier: "StaticCell")
         tableView.register(SettingsSwitchCell.self, forCellReuseIdentifier: "SwitchCell")
-        
-//        configure()
-        
-
-       
+ 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
