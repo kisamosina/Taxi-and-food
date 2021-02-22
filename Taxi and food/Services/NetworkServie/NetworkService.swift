@@ -6,7 +6,7 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkService {
     
@@ -15,21 +15,35 @@ final class NetworkService {
     private init() {}
     
     typealias FetchResult<T:Decodable> = (Result<T, Error>) -> Void
+    typealias WebImage = (Result<Data, Error>) -> Void
     
     //Make networking requests
-    func makeRequest<T,U>(for resource: Resource<T>, data: U? = nil, completion: @escaping FetchResult<T>) where U: Codable {
+    func makeRequest<T>(for resource: Resource<T>, completion: @escaping FetchResult<T>) {
         
         switch resource.requestMethod {
-            
+        
         case .GET:
             self.getData(from: resource, completion: completion)
         case .POST:
-            guard let data = data else { return }
-            self.postData(to: resource, data: data, completion: completion)
+            self.postData(to: resource, completion: completion)
+        }
+    }
+    
+    func loadImageData(for urlString: String, completion: WebImage) {
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
         }
         
+        do {
+            let imageData: Data = try Data(contentsOf: url)
+            completion(.success(imageData))
+            
+        } catch {
+            completion(.failure(error))
+        }
     }
-        
+    
     //WHEN GET REQUEST
     private func loadData(from url: URL, completion: @escaping (Result<Data, Error>) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -57,7 +71,7 @@ final class NetworkService {
                 
                 let decodeResult = self.decode(for: resource, data: data)
                 completion(decodeResult)
-                                
+                
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -67,20 +81,19 @@ final class NetworkService {
     }
     
     //WHEN POST REQUEST
-    private func postData <T,U> (to resource: Resource<T>, data: U, completion: @escaping FetchResult<T>) where U: Codable {
-    
-        guard let url = resource.urlComponents.url else { return }
+    private func postData <T> (to resource: Resource<T>, completion: @escaping FetchResult<T>) {
+        
+        guard let url = resource.urlComponents.url, let requestData = resource.requestData else { return }
         
         var request = URLRequest (url: url)
         request.httpMethod = resource.requestMethod.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let serializedResult = self.serilizeData(requestData)
         
-        let encodedResult = self.encode(data: data)
-        
-        switch encodedResult {
+        switch serializedResult {
         
         case .success(let httpBody):
             request.httpBody = httpBody
-            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
         case .failure(let error):
             print("CATCHED ERROR WHILE ENCODING DATA: \(error.localizedDescription)" )
             return
@@ -104,13 +117,15 @@ final class NetworkService {
             guard let httpResponse = response as? HTTPURLResponse else { return }
             guard (200...299).contains(httpResponse.statusCode) else {
                 print("Server error code: \(httpResponse.statusCode)")
+                let error = ServerErrors(statusCode: httpResponse.statusCode)
+                completion(.failure(error))
                 return
             }
             // Success response
             print("HTTP Post successful. Return code: " + String(httpResponse.statusCode))
-            if let mimeType = httpResponse.mimeType /*, mimeType == "application/json"*/ {
-                print("MimeType: " + mimeType)
-            }
+//            if let mimeType = httpResponse.mimeType /*, mimeType == "application/json"*/ {
+//                print("MimeType: " + mimeType)
+//            }
             guard let data = data else { return }
             let result = self.decode(for: resource, data: data)
             completion(result)
@@ -119,18 +134,18 @@ final class NetworkService {
         task.resume()
     }
     
-    //ENCODING DATA
-    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
-        
-        let encoder = JSONEncoder()
-        
-        do {
-            let jsonData = try encoder.encode(data)
-            return .success(jsonData)
-        } catch {
-            return .failure(error)
-        }
-    }
+    //    //ENCODING DATA
+    //    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
+    //
+    //        let encoder = JSONEncoder()
+    //
+    //        do {
+    //            let jsonData = try encoder.encode(data)
+    //            return .success(jsonData)
+    //        } catch {
+    //            return .failure(error)
+    //        }
+    //    }
     
     //DECODING DATA
     
@@ -147,6 +162,21 @@ final class NetworkService {
             return .failure(error)
             
         }
+    }
+    
+    //SERILIZE DATA
+    private func serilizeData(_ data: [String: Any]) -> Result<Data, Error> {
+        
+        do {
+            
+            let result = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            return .success(result)
+            
+        } catch {
+            return .failure(error)
+        }
+        
+        
     }
     
 }

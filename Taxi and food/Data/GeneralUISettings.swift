@@ -28,6 +28,17 @@ enum Colors {
     case buttonBlue
     case buttonGrey
     case lightGrey
+    case greyBorderColor
+    case fontGrey
+    case shadowColor
+    case textBlack
+    case tariffGreen
+    case tariffPurple
+    case tariffGold
+    case closeButtonGrey
+    case XTintColor
+    case InactiveViewColor
+    case mapMenuColor
     
     func getColor() -> UIColor {
         switch self {
@@ -37,7 +48,29 @@ enum Colors {
         case .buttonGrey:
             return UIColor(hexString: "#D0D0D0")
         case .lightGrey:
-            return UIColor(hexString: "EFEFF0")
+            return UIColor(hexString: "#EFEFF0")
+        case .greyBorderColor:
+            return UIColor(hexString: "#CCCCCC")
+        case .fontGrey:
+            return UIColor(hexString: "#8A8A8D")
+        case .shadowColor:
+            return UIColor(hexString: "#000000", alpha: 0.1)
+        case .textBlack:
+            return UIColor(hexString: "#000000")
+        case .tariffGreen:
+            return UIColor(hexString: "#A0E14C")
+        case .tariffPurple:
+            return UIColor(hexString: "#C442F2")
+        case .tariffGold:
+            return UIColor(hexString: "#D4BD80")
+        case .closeButtonGrey:
+            return UIColor(hexString: "#E5E5E5")
+        case .XTintColor:
+            return UIColor(hexString: "#333333")
+        case .InactiveViewColor:
+            return UIColor(hexString: "#000000" , alpha: 0.5)
+        case .mapMenuColor:
+            return UIColor(hexString: "#FBFBFB")
         }
     }
 }
@@ -45,10 +78,14 @@ enum Colors {
 
 enum CustomImagesNames: String {
     case CheckMark
+    case X
+    case payment
+    case promocode
 }
 
 enum StoryBoards: String {
     case AuthAndMap
+    case Tarifs
 }
 
 enum ViewControllers: String {
@@ -56,27 +93,23 @@ enum ViewControllers: String {
     case UserAgreementViewController
     case ConfirmAuthViewController
     case MapViewController
+    case TariffViewController
+    case TariffsPageViewController
 }
 
-struct CustomButtonsTitles {
-    
-    internal enum RusCustomButtonsTitles: String {
-        case nextButtonTitle = "Далее"
-    }
-    
-    internal enum EngCustomButtonsTitles: String {
-        case nextButtonTitle = "Next"
-    }
-    
-    static var nextButtonTitle: String {
-        
-        switch UserDefaults.standard.getAppLanguage() {
-        
-        case .rus:
-            return RusCustomButtonsTitles.nextButtonTitle.rawValue
-        case .eng:
-            return EngCustomButtonsTitles.nextButtonTitle.rawValue
-        }
-    }
 
+enum ViewsCornerRadiuses: CGFloat {
+    case medium = 15
+}
+
+enum ImageNames: String {
+    case plusWhite
+}
+
+enum BordersWidths: CGFloat {
+    case standart = 1
+}
+
+enum NotificationsIdentifiers: String {
+    case confirmtaionCode
 }

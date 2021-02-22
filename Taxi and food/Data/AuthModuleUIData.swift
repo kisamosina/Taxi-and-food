@@ -18,11 +18,6 @@ enum AuthVCLabelsTexts: String {
     case userAgreementTextEn = "user agreement"
 }
 
-enum AuthVCButtonsTexts: String {
-    case nextButtonTitleRus = "Далее"
-    case nextButtonTitleEn = "Next"
-}
-
 struct AuthViewControllerTextData {
     
     //AuthViewController labels rus text
@@ -38,6 +33,7 @@ struct AuthViewControllerTextData {
         case bottomLabelText = "I agree to the personal data processing, I have read the user agreement"
         case userAgreementText = "user agreement"
     }
+    
     
     static var topLabelText: String {
         switch UserDefaults.standard.getAppLanguage() {
@@ -68,5 +64,8 @@ struct AuthViewControllerTextData {
             return EngLabelTexts.userAgreementText.rawValue
         }
     }
-    
+}
+
+enum ConfirmAuthIntData: Int {
+    case timerSeconds = 30
 }

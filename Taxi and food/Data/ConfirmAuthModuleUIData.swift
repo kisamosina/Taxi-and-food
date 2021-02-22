@@ -8,25 +8,30 @@
 
 import Foundation
 
-enum ConfirmAuthVCLabelsTexts: String {
-    case topLabelRus = "Код подтверждения"
-    case topLabelEn = "Approval code"
-    case resendTextRus = "Повторить отправку."
-    case resendTextEn = "Resend code."
-    }
-
 struct ConfirmAuthViewControllerTexts{
     
     internal enum RusLabelTexts: String {
         case topLabelText = "Код подтверждения"
         case descriptionLabelText = "На номер$отправлено СМС с кодом.$Повторная отправка будет доступна через"
         case resendText = "Повторить отправку."
+        case errorDescriptionLabelText = "Введен неверный код. Попробуйте еще раз. "
     }
     
     internal enum EngLabelTexts: String {
         case topLabelText = "Approval code"
         case descriptionLabelText = "On number $sended SMS with code. $Resend will be available after $seconds."
         case resendText = "Resend code."
+        case errorDescriptionLabelText = "Wrong code has been entered. Plese try to enter code again. "
+    }
+    
+    internal enum NotificationTextRus: String {
+        case title = "Код подтверждения"
+        case body = "Код подтверждения: "
+    }
+    
+    internal enum NotificationTextEng: String {
+        case title = "Confirmation code"
+        case body = "Confirmation code: "
     }
     
     static var topLabelText: String {
@@ -59,6 +64,37 @@ struct ConfirmAuthViewControllerTexts{
             }
         }
     
+    static var errorDescriptionLabelText: String {
+            switch UserDefaults.standard.getAppLanguage() {
+            
+            case .rus:
+                return RusLabelTexts.errorDescriptionLabelText.rawValue
+            case .eng:
+                return EngLabelTexts.errorDescriptionLabelText.rawValue
+            }
+        }
+    
+    static var pushConfirmationTitle: String {
+            switch UserDefaults.standard.getAppLanguage() {
+            
+            case .rus:
+                return NotificationTextRus.title.rawValue
+            case .eng:
+                return NotificationTextEng.title.rawValue
+            }
+        }
+    
+    static var pushConfirmationBody: String {
+            switch UserDefaults.standard.getAppLanguage() {
+            
+            case .rus:
+                return NotificationTextRus.body.rawValue
+            case .eng:
+                return NotificationTextEng.body.rawValue
+            }
+        }
+
+    
     static func ruSeconds(_ seconds: Int) -> String {
         
         switch seconds {
@@ -90,4 +126,5 @@ struct ConfirmAuthViewControllerTexts{
             }
         }
     }
+    
 }

@@ -10,17 +10,12 @@ import UIKit
 
 class PhotosCell: UICollectionViewCell {
     
-    
-
     @IBOutlet var imageView: UIImageView!
     
     func initCell(userPhoto: UIImage) {
-        backgroundColor = .black
-        imageView = UIImageView(image: userPhoto)
-        print(userPhoto)
+        self.imageView.image = userPhoto
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 10
-        
+        imageView.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
     }
     
     

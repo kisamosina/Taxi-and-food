@@ -8,28 +8,23 @@
 
 import Foundation
 
-struct RegistrationRequest: Codable {
-    var phone: String
-}
-
 struct RegistrationResponse: Decodable {
     var data: RegistrationResponseData
 }
 
 struct RegistrationResponseData: Decodable {
-    var code: String
-}
-
-struct ConfirmRequest: Codable {
-    var phone: String
-    var code: String
+    var code: Int
 }
 
 struct ConfirmResponse: Decodable {
+    var data: ConfirmResponseData
+}
+
+struct ConfirmResponseData: Decodable {
     var id: Int
     var name: String?
     var email: String?
-    
+    var setting: ResponsedSettings?
 }
 
 struct ResponsedSettings: Decodable {

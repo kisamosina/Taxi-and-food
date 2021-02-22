@@ -12,3 +12,8 @@ enum RegistrationRequestPaths: String {
     case registration = "auth/registration"
     case confirm = "auth/confirm"
 }
+
+enum RegistrationRequestKeys: String {
+    case phone
+    case code
+}

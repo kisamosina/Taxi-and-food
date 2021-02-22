@@ -11,6 +11,7 @@ import UIKit
 class DigitTextField: UITextField {
     
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         self.clipsToBounds = true
         self.layer.cornerRadius = 4
     }
