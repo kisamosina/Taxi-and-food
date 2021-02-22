@@ -76,6 +76,18 @@ struct MapMenuViewTexts {
     static var menuTableViewCellId: String {
         return "MapMenuViewCell"
     }
-    
 }
 
+enum MapViewControllerSegue {
+    case Tariffs
+    case unknown
+    
+    static func getMapViewControllerSegue(_ cellTitle: String) -> MapViewControllerSegue {
+        switch cellTitle {
+        case MapMenuData.tariffs:
+            return Tariffs
+        default:
+            return .unknown
+        }
+    }
+}

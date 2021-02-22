@@ -10,6 +10,7 @@ import MapKit
 
 protocol MapViewProtocol: class {
     var interactor: MapInteractorProtocol! { get set }
+    func showTariffPageVieController(_ tariffs: [TariffData])
 }
 
 
@@ -40,11 +41,12 @@ class MapViewController: UIViewController {
         self.minimizeMenuView()
         
     }
-        
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
     //MARK: - IBActions
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -81,6 +83,7 @@ class MapViewController: UIViewController {
         self.inactiveView.alpha = 0
         self.menuView.alpha = 0
         self.menuView.setupView(with: interactor.mapMenuData)
+        self.menuView.delegate = self
     }
     
     private func minimizeMenuView() {
@@ -92,7 +95,7 @@ class MapViewController: UIViewController {
         self.leadingLeftSideViewConstraint.constant = 0
         self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
     }
- 
+    
     private func animateMenuViewMaximizing() {
         self.maximizeMenuView()
         
@@ -104,7 +107,7 @@ class MapViewController: UIViewController {
                        animations: {[weak self] in
                         self?.view.layoutIfNeeded()
                         self?.menuView.alpha = 1
-        },
+                       },
                        completion: nil)
     }
     
@@ -118,10 +121,37 @@ class MapViewController: UIViewController {
                        animations: {[weak self] in
                         self?.view.layoutIfNeeded()
                         self?.menuView.alpha = 0
-        },
+                       },
                        completion: nil)
     }
     
 }
+//MARK: - MapViewProtocol
+extension MapViewController: MapViewProtocol {
+    func showTariffPageVieController(_ tariffs: [TariffData]) {
+        let storyboard = UIStoryboard(name: StoryBoards.Tarifs.rawValue, bundle: nil)
+        DispatchQueue.main.async {
+            let tariffPageVC = storyboard.instantiateInitialViewController() as! TariffsPageViewController
+            tariffPageVC.interactor = TariffPageInteractor(view: tariffPageVC, tariffs: tariffs)
+            self.minimizeMenuView()
+            self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+            self.navigationController?.pushViewController(tariffPageVC, animated: true)
+        }
+        
+    }
+}
 
-extension MapViewController: MapViewProtocol { }
+//MARK: - MenuViewDelegate
+
+extension MapViewController: MenuViewDelegate {
+    
+    func performSegue(_ type: MapViewControllerSegue) {
+        switch type {
+        
+        case .Tariffs:
+            self.interactor.getTarifs()
+        case .unknown:
+            break
+        }
+    }
+}

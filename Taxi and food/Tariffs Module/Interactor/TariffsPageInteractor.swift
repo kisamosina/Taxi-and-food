@@ -13,9 +13,9 @@ protocol TariffPageInteractorProtocol: class {
     var view: TariffPageViewProtocol! { get set }
     var tariffs: [TariffData] { get set }
     
-    init(view: TariffPageViewProtocol)
+    init(view: TariffPageViewProtocol, tariffs: [TariffData])
     
-    func getTarifs()
+//    func getTarifs()
     func showViewControllerAtIndex(_ index: Int) -> TariffViewController?
     func getViewControllerForTitle(_ title: String)
 }
@@ -30,27 +30,29 @@ class TariffPageInteractor: TariffPageInteractorProtocol {
     
 
     
-    required init(view: TariffPageViewProtocol) {
+    required init(view: TariffPageViewProtocol, tariffs: [TariffData]) {
         self.view = view
-        getTarifs()
+        self.tariffs = tariffs
+        self.view.setViewControllerFor(0)
+//        getTarifs()
     }
     
-    func getTarifs() {
-        
-        let resource = Resource<TariffResponse>(path: "user/75/tariff", requestType: .GET)
-        
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
-            guard let self = self else { return }
-            switch result {
-            
-            case .success(let tariffResponse):
-                self.tariffs = tariffResponse.data
-                self.view.setViewControllerFor(0)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
+//    func getTarifs() {
+//
+//        let resource = Resource<TariffResponse>(path: "user/75/tariff", requestType: .GET)
+//
+//        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//
+//            case .success(let tariffResponse):
+//                self.tariffs = tariffResponse.data
+//                self.view.setViewControllerFor(0)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
     
     func showViewControllerAtIndex(_ index: Int) -> TariffViewController? {
         

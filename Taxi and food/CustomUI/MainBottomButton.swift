@@ -38,9 +38,4 @@ class MainBottomButton: UIButton {
         self.clipsToBounds = true
         self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
         }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.setInActive()
-    }
 }

@@ -22,9 +22,16 @@ class TariffsPageViewController: UIPageViewController {
         super.viewDidLoad()
         dataSource = self
         
-        self.interactor = TariffPageInteractor(view: self)
+//        self.interactor = TariffPageInteractor(view: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationItem.title = TariffViewControllerTextData.navBarTtitle
     }
 }
+
 
 //MARK: - TariffsPageViewProtocol
 

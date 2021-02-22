@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol MenuViewDelegate: class {
+    func performSegue(_ type: MapViewControllerSegue)
+}
+
 class MenuView: UIView {
     
+    weak var delegate: MenuViewDelegate?
     var menuItems: [MapMenuSection]!
+    
     
     @IBOutlet weak var menuLabel: UILabel!
     @IBOutlet weak var menuTableView: UITableView!
@@ -56,6 +62,12 @@ extension MenuView: UITableViewDataSource, UITableViewDelegate {
         let item = menuItems[indexPath.section].items[indexPath.row]
         cell.setupCell(with: item.itemImage, and: item.itemName)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = menuItems[indexPath.section].items[indexPath.row]
+        let segueType  = MapViewControllerSegue.getMapViewControllerSegue(item.itemName)
+        self.delegate?.performSegue(segueType)
     }
 
 }

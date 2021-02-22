@@ -12,18 +12,26 @@ enum TariffsServiceTextData: String {
     case AdavantageCollectionViewCell
 }
 
+enum TariffServerPath: String {
+    case path = "user/$/tariff"
+}
+
 struct TariffViewControllerTextData {
     
     internal enum RusLabelTexts: String {
         case tariffDescriptionText = "О тарифе"
         case autoNamesText = "Автомобили: "
+        case navBarTitle = "Тарифы"
         
     }
     
     internal enum EngLabelTexts: String {
         case tariffDescriptionText =  "About"
         case autoNamesText = "Autos: "
+        case navBarTitle = "Tarifs"
     }
+    
+    
     
     static var tariffDescriptionText: String {
         switch UserDefaults.standard.getAppLanguage() {
@@ -43,6 +51,17 @@ struct TariffViewControllerTextData {
         case .eng:
             return EngLabelTexts.autoNamesText.rawValue
         }
+    }
+    
+    static var navBarTtitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusLabelTexts.navBarTitle.rawValue
+        case .eng:
+            return EngLabelTexts.navBarTitle.rawValue
+        }
+
     }
 }
 

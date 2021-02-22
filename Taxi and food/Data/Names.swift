@@ -31,4 +31,5 @@ import Foundation
  MapMenuDataModel
  MapMenuItem
  MapMenuSection
+ PersistanceStoreManager
  */

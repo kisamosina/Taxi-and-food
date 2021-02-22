@@ -88,6 +88,16 @@ struct MapMenuData {
 
     }
     
+    static var tariffs: String {
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusNames.Tariffs.rawValue
+        case .eng:
+            return EngNames.Tariffs.rawValue
+        }
+    }
+    
     private static var menuEngItems: [String] {
         return EngNames.allCases.map { $0.rawValue }
     }

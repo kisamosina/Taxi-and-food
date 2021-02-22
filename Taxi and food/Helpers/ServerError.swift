@@ -15,3 +15,7 @@ struct ServerErrors: Error {
 enum ErrorCodes: Int {
     case wrongConfirmCode = 404
 }
+
+struct PersistanceStoreError: Error {
+    let description: String
+}

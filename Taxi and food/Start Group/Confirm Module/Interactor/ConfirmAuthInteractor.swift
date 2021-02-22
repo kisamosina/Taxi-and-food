@@ -63,7 +63,9 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
             switch result {
             
             case .success(let confirmResponse):
-                print(confirmResponse)
+                DispatchQueue.main.async {
+                    PersistanceStoreManager.shared.saveUserData(confirmResponse.data)
+                }
                 self.view.showMapViewController()
             case .failure(let error):
                 print(error)
