@@ -35,10 +35,14 @@ struct PersonalDataViewControllerText {
     
     internal enum RusPolicyLabelText: String {
         case policyLabelTextRu = "Указывая свои данные, вы подтверждаете, что ознакомились с пользовательским соглашением, а так же с политикой конфиденциальности"
+        case userAgreementTextRu = "пользовательским соглашением"
+        case privacyPolicyTextRu = "политикой конфиденциальности"
     }
     
     internal enum EngPolicyLabelText: String {
         case policyLabelTextEn = "By entering your data, you confirm that you have read the user agreement, as well as the privacy policy"
+        case userAgreementTextEn = "user agreement"
+        case privacyPolicyTextEn = "privacy policy"
     }
     
     internal enum RusTableHeaderText: String {
@@ -103,6 +107,24 @@ struct PersonalDataViewControllerText {
             return RusTableHeaderText.emailHeaderRu.rawValue
         case .eng:
             return EngTableHeaderText.emailHeaderEn.rawValue
+        }
+    }
+    
+    static var userArgeement: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusPolicyLabelText.userAgreementTextRu.rawValue
+        case .eng:
+            return EngPolicyLabelText.userAgreementTextEn.rawValue
+        }
+    }
+    
+    static var privacyPolicy: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusPolicyLabelText.privacyPolicyTextRu.rawValue
+        case .eng:
+            return EngPolicyLabelText.privacyPolicyTextEn.rawValue
         }
     }
     

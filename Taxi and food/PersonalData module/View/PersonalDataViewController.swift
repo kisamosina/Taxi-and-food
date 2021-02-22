@@ -8,36 +8,53 @@
 
 import UIKit
 
+protocol PersonalDataViewProtocol: class {
+    var interactor: PersonalDataInteractorProtocol! { get set }
+}
 class PersonalDataViewController: UIViewController {
     
     @IBOutlet var policyLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    var models = [PersonalDataSection]()
+    var interactor: PersonalDataInteractorProtocol!
+    var models: [PersonalDataSection]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
+        addPolicyLabelGestureRecognizer()
         
-        configureCellText()
+        self.interactor = PersonalDataInteractor(view: self)
+        self.interactor.configure()
+        
+        tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
+
         confugureLabel()
         
     }
     
     //MARK: - Methods
-    
-    func configureCellText() {
-        models.append(PersonalDataSection(tittle: "", options: [PersonalDataOption(title: "")]))
-        
-        models.append(PersonalDataSection(tittle: PersonalDataViewControllerText.nameHeaderText, options: [PersonalDataOption(title: PersonalDataViewControllerText.nameTextFieldText)]))
-        
-        models.append(PersonalDataSection(tittle: PersonalDataViewControllerText.emailHeaderText, options: [PersonalDataOption(title: PersonalDataViewControllerText.emailTextFieldText)]))
-        
-    }
-    
+
     func confugureLabel() {
         policyLabel.text = PersonalDataViewControllerText.policyLabelText
+    }
+    
+    private func addPolicyLabelGestureRecognizer() {
+        policyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPolicyLabel(gesture:))))
+    }
+    
+    @objc func tapPolicyLabel(gesture: UITapGestureRecognizer) {
+        guard let text = policyLabel.text else { return }
+        
+        let range = (text as NSString).range(of: PersonalDataViewControllerText.userArgeement)
+        
+        if gesture.didTapAttributedTextInLabel(label: policyLabel, inRange: range) {
+            guard let uaVC = storyboard?.instantiateViewController(identifier: "userAgreement")
+            else { return }
+            self.present(uaVC, animated: true, completion: nil)
+            
+        }
+        
     }
     
 
@@ -51,20 +68,20 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let section = models[section]
+        let section = interactor.models[section]
         return section.tittle
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return models.count
+        return interactor.models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models[section].options.count
+        return interactor.models[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.section].options[indexPath.row]
+        let model = interactor.models[indexPath.section].options[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonalDataCell.identifier, for: indexPath) as? PersonalDataCell else {
             return UITableViewCell()
@@ -76,3 +93,5 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     
     
 }
+
+extension PersonalDataViewController: PersonalDataViewProtocol {}

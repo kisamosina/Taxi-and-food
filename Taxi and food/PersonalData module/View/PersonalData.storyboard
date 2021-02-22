@@ -54,6 +54,36 @@
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="173.4375"/>
         </scene>
+        <!--userAgreement-->
+        <scene sceneID="wka-yI-d01">
+            <objects>
+                <viewController storyboardIdentifier="userAgreement" title="userAgreement" id="IIZ-zJ-p0A" customClass="UAViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nwc-B8-Cau">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ba7-yZ-Lae"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHU-e6-w9K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="173"/>
+        </scene>
+        <!--privacyPolicy-->
+        <scene sceneID="vrm-Rx-7dw">
+            <objects>
+                <viewController title="privacyPolicy" id="9j2-Zg-jOd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RGZ-wz-GUM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="TYM-Ok-sfQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFQ-Vn-oym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2703" y="169"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nrv-Nd-FLU">
             <objects>
