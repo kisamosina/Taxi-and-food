@@ -28,7 +28,5 @@ struct ConfirmResponseData: Decodable {
 }
 
 struct ResponsedSettings: Decodable {
-    var id: Int
     var language: String
-    var userId: Int
 }
