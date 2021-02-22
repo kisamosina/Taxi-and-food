@@ -26,7 +26,7 @@ class PersonalDataViewController: UIViewController {
         
         self.interactor = PersonalDataInteractor(view: self)
         self.interactor.configure()
-        
+        //FIXME: Для имен ячеек лучше использовать enum
         tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
 
         confugureLabel()
@@ -37,6 +37,9 @@ class PersonalDataViewController: UIViewController {
 
     func confugureLabel() {
         policyLabel.text = PersonalDataViewControllerText.policyLabelText
+        
+        //MARK: - Даш, ты не добавила эту строку
+        policyLabel.setAttributedText(PersonalDataViewControllerText.userArgeement)
     }
     
     private func addPolicyLabelGestureRecognizer() {
@@ -49,6 +52,9 @@ class PersonalDataViewController: UIViewController {
         let range = (text as NSString).range(of: PersonalDataViewControllerText.userArgeement)
         
         if gesture.didTapAttributedTextInLabel(label: policyLabel, inRange: range) {
+            
+            //TODO: Даш в папке Data для имен сторибордов есть отдельный enum, испопльзуй его
+            
             guard let uaVC = storyboard?.instantiateViewController(identifier: "userAgreement")
             else { return }
             self.present(uaVC, animated: true, completion: nil)
