@@ -39,6 +39,7 @@ enum Colors {
     case XTintColor
     case InactiveViewColor
     case mapMenuColor
+    case redTextColor
     
     func getColor() -> UIColor {
         switch self {
@@ -71,6 +72,8 @@ enum Colors {
             return UIColor(hexString: "#000000" , alpha: 0.5)
         case .mapMenuColor:
             return UIColor(hexString: "#FBFBFB")
+        case .redTextColor:
+            return UIColor(hexString: "#FF3B30")
         }
     }
 }
@@ -81,11 +84,13 @@ enum CustomImagesNames: String {
     case X
     case payment
     case promocode
+    case promocodeBackground
 }
 
 enum StoryBoards: String {
     case AuthAndMap
     case Tarifs
+    case Promocode
 }
 
 enum ViewControllers: String {
@@ -95,6 +100,8 @@ enum ViewControllers: String {
     case MapViewController
     case TariffViewController
     case TariffsPageViewController
+    case PromocodeViewController
+    case PromocodeEnterViewController
 }
 
 

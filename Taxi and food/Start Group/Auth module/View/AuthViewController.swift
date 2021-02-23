@@ -72,7 +72,7 @@ class AuthViewController: UIViewController {
     
     private func setUpUIAppears() {
         userAgreementButton.layer.cornerRadius = 4
-        self.phoneNumberTextField.addBottomBorder()
+        self.phoneNumberTextField.addBottomBorder(color: Colors.buttonGrey.getColor())
     }
     
     private func addKeyboardWillShowObserver() {

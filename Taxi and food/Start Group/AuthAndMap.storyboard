@@ -385,7 +385,7 @@
                                                             <action selector="taxiButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="dMT-qB-QqP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrK-be-7iC">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrK-be-7iC">
                                                         <rect key="frame" x="168" y="0.0" width="158" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="8m1-ib-T0i"/>

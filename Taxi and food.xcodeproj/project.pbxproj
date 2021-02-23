@@ -29,6 +29,8 @@
 		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
 		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
 		04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FFA9E425D91DCB0066032E /* Service.storyboard */; };
+		7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */; };
+		7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C991025E55B9000530932 /* PromocodeResponse.swift */; };
 		7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */; };
 		7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */; };
 		7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */; };
@@ -67,6 +69,13 @@
 		7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */; };
 		7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFDE25E3CBEC001981CA /* Taxi_and_food.xcdatamodeld */; };
 		7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFE725E3FE80001981CA /* PersistanceStoreManager.swift */; };
+		7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B75D01525E50B99001981CA /* Promocode.storyboard */; };
+		7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D01E25E5105A001981CA /* PromocodeViewController.swift */; };
+		7B75D02825E512EE001981CA /* PromocodeModuleTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D02725E512EE001981CA /* PromocodeModuleTexts.swift */; };
+		7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D02C25E51C18001981CA /* TextEnterView.swift */; };
+		7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */; };
+		7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04625E52979001981CA /* TextEnterViewUIData.swift */; };
+		7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */; };
 		7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */; };
 		7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */; };
 		7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */; };
@@ -123,6 +132,8 @@
 		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
 		04FFA9E425D91DCB0066032E /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
+		7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterInteractor.swift; sourceTree = "<group>"; };
+		7B0C991025E55B9000530932 /* PromocodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeResponse.swift; sourceTree = "<group>"; };
 		7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
 		7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +172,13 @@
 		7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMenuDataModel.swift; sourceTree = "<group>"; };
 		7B75CFDF25E3CBEC001981CA /* Taxi_and_food.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Taxi_and_food.xcdatamodel; sourceTree = "<group>"; };
 		7B75CFE725E3FE80001981CA /* PersistanceStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceStoreManager.swift; sourceTree = "<group>"; };
+		7B75D01525E50B99001981CA /* Promocode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promocode.storyboard; sourceTree = "<group>"; };
+		7B75D01E25E5105A001981CA /* PromocodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeViewController.swift; sourceTree = "<group>"; };
+		7B75D02725E512EE001981CA /* PromocodeModuleTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeModuleTexts.swift; sourceTree = "<group>"; };
+		7B75D02C25E51C18001981CA /* TextEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnterView.swift; sourceTree = "<group>"; };
+		7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewController.swift; sourceTree = "<group>"; };
+		7B75D04625E52979001981CA /* TextEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnterViewUIData.swift; sourceTree = "<group>"; };
+		7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUISettings.swift; sourceTree = "<group>"; };
 		7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -223,6 +241,7 @@
 				7B84660325D839BB00B09D98 /* Start Group */,
 				04B5656725D681BC00E0EC25 /* Menu modul */,
 				7B47C81E25DD299F00F366FE /* Tariffs Module */,
+				7B75D01A25E50BB9001981CA /* PromocodeModule */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
@@ -302,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */,
+				7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */,
 				7B75CEEE25DAF622001981CA /* String+Extension.swift */,
 				7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */,
 				04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */,
@@ -353,6 +373,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7B0C990C25E5596200530932 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		7B26145225DAD4CE00E2B779 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,11 +388,13 @@
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
 				7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */,
+				7B75D02725E512EE001981CA /* PromocodeModuleTexts.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
 				7B75CF8A25E00B9B001981CA /* MainBottomButtonUIData.swift */,
+				7B75D04625E52979001981CA /* TextEnterViewUIData.swift */,
 				0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */,
 				0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */,
 				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
@@ -413,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
+				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
 				7B75CFA425E03D5A001981CA /* MapBottomView.swift */,
 				7B47C87625E1458900F366FE /* MenuView.swift */,
 				7B75CF9425E03861001981CA /* MapRoundButton.swift */,
@@ -466,6 +497,26 @@
 				7B75CFE725E3FE80001981CA /* PersistanceStoreManager.swift */,
 			);
 			path = PersistanceService;
+			sourceTree = "<group>";
+		};
+		7B75D01A25E50BB9001981CA /* PromocodeModule */ = {
+			isa = PBXGroup;
+			children = (
+				7B75D01525E50B99001981CA /* Promocode.storyboard */,
+				7B0C991025E55B9000530932 /* PromocodeResponse.swift */,
+				7B0C990C25E5596200530932 /* Interactor */,
+				7B75D02325E51073001981CA /* View */,
+			);
+			path = PromocodeModule;
+			sourceTree = "<group>";
+		};
+		7B75D02325E51073001981CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B75D01E25E5105A001981CA /* PromocodeViewController.swift */,
+				7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7B8465FE25D8397900B09D98 /* Map module */ = {
@@ -633,6 +684,7 @@
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
+				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,10 +711,12 @@
 			files = (
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
+				7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */,
 				7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */,
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
+				7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */,
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
@@ -672,16 +726,19 @@
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
+				7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
 				7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
+				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
+				7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
@@ -689,7 +746,9 @@
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
+				7B75D02825E512EE001981CA /* PromocodeModuleTexts.swift in Sources */,
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
@@ -699,6 +758,7 @@
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
+				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,

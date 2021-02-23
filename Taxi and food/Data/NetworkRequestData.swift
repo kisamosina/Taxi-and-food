@@ -17,3 +17,11 @@ enum RegistrationRequestKeys: String {
     case phone
     case code
 }
+
+enum PromocodesRequestPaths: String {
+    case activate = "user/$/promo-codes/activate"
+}
+
+enum PromocodesRequestKeys: String {
+    case code
+}
