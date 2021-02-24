@@ -12,7 +12,7 @@ class PersonalDataCell: UITableViewCell {
     
     static let identifier = "personalData"
     
-    private var textField: UITextField = {
+    var textField: UITextField = {
         let textField = UITextField()
         return textField
     }()

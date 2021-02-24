@@ -54,35 +54,61 @@
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="173.4375"/>
         </scene>
-        <!--userAgreement-->
-        <scene sceneID="wka-yI-d01">
-            <objects>
-                <viewController storyboardIdentifier="userAgreement" title="userAgreement" id="IIZ-zJ-p0A" customClass="UAViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nwc-B8-Cau">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="ba7-yZ-Lae"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LHU-e6-w9K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1894" y="173"/>
-        </scene>
-        <!--privacyPolicy-->
+        <!--View Controller-->
         <scene sceneID="vrm-Rx-7dw">
             <objects>
-                <viewController title="privacyPolicy" id="9j2-Zg-jOd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userAgreement" id="9j2-Zg-jOd" customClass="UAViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RGZ-wz-GUM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользовательское соглашение" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5h-xt-8GF">
+                                <rect key="frame" x="20" y="144" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="B5h-xt-8GF" firstAttribute="top" secondItem="TYM-Ok-sfQ" secondAttribute="top" constant="100" id="ZBG-0O-MUB"/>
+                            <constraint firstItem="B5h-xt-8GF" firstAttribute="leading" secondItem="TYM-Ok-sfQ" secondAttribute="leading" constant="20" id="ddy-yM-o0y"/>
+                            <constraint firstItem="TYM-Ok-sfQ" firstAttribute="trailing" secondItem="B5h-xt-8GF" secondAttribute="trailing" constant="20" id="haY-pr-4SE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TYM-Ok-sfQ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFQ-Vn-oym" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2703" y="169"/>
+            <point key="canvasLocation" x="2702.898550724638" y="168.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fiN-ga-4ZC">
+            <objects>
+                <viewController storyboardIdentifier="privacyPolicy" id="q5X-ow-UM4" customClass="PPViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lD9-vT-X9t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Политика конфеденциальности" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsr-FZ-vDE">
+                                <rect key="frame" x="20" y="144" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wsr-FZ-vDE" firstAttribute="leading" secondItem="8rn-NC-EaB" secondAttribute="leading" constant="20" id="Jf5-6n-uxi"/>
+                            <constraint firstItem="8rn-NC-EaB" firstAttribute="trailing" secondItem="Wsr-FZ-vDE" secondAttribute="trailing" constant="20" id="ai0-kF-l06"/>
+                            <constraint firstItem="Wsr-FZ-vDE" firstAttribute="top" secondItem="8rn-NC-EaB" secondAttribute="top" constant="100" id="rXA-Qx-r7z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8rn-NC-EaB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwK-M4-Xq8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3522" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nrv-Nd-FLU">
