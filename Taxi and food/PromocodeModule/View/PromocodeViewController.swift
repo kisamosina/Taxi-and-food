@@ -38,14 +38,16 @@ extension PromocodeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let segueCase = PromocodeViewControllerTexts.getSegue(PromocodeViewControllerTexts.promocodeOptions[indexPath.row])
         
+        let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
+        
         switch segueCase {
                 
         case .enterPromocode:
-            let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeEnterViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
         case .showHistory:
-            break
+            let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeHistoryViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
         case .unknown:
             break
         }

@@ -44,6 +44,11 @@
 		7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */; };
 		7B47C87725E1458900F366FE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C87625E1458900F366FE /* MenuView.swift */; };
 		7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C87B25E147E700F366FE /* CloseMenuButton.swift */; };
+		7B47C88725E6720000F366FE /* PromocodeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C88625E6720000F366FE /* PromocodeHistoryViewController.swift */; };
+		7B47C88D25E6771400F366FE /* PromocodeHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C88B25E6771400F366FE /* PromocodeHistoryTableViewCell.swift */; };
+		7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B47C88C25E6771400F366FE /* PromocodeHistoryTableViewCell.xib */; };
+		7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */; };
+		7B47C89C25E6820100F366FE /* PromocodeHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C89B25E6820100F366FE /* PromocodeHistoryInteractor.swift */; };
 		7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */; };
 		7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */; };
 		7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CEE625DAE72C001981CA /* MainBottomButton.swift */; };
@@ -71,11 +76,15 @@
 		7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75CFE725E3FE80001981CA /* PersistanceStoreManager.swift */; };
 		7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B75D01525E50B99001981CA /* Promocode.storyboard */; };
 		7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D01E25E5105A001981CA /* PromocodeViewController.swift */; };
-		7B75D02825E512EE001981CA /* PromocodeModuleTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D02725E512EE001981CA /* PromocodeModuleTexts.swift */; };
+		7B75D02825E512EE001981CA /* PromocodeModuleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D02725E512EE001981CA /* PromocodeModuleData.swift */; };
 		7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D02C25E51C18001981CA /* TextEnterView.swift */; };
 		7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */; };
 		7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04625E52979001981CA /* TextEnterViewUIData.swift */; };
 		7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */; };
+		7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */; };
+		7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3925E6B90600649669 /* Formatter+Extension.swift */; };
+		7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3E25E6B94100649669 /* Date+Extension.swift */; };
+		7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F4625E6CC3700649669 /* DateFormatter+Extension.swift */; };
 		7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */; };
 		7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */; };
 		7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */; };
@@ -147,6 +156,11 @@
 		7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffTitleButton.swift; sourceTree = "<group>"; };
 		7B47C87625E1458900F366FE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7B47C87B25E147E700F366FE /* CloseMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseMenuButton.swift; sourceTree = "<group>"; };
+		7B47C88625E6720000F366FE /* PromocodeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeHistoryViewController.swift; sourceTree = "<group>"; };
+		7B47C88B25E6771400F366FE /* PromocodeHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		7B47C88C25E6771400F366FE /* PromocodeHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromocodeHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeHistoryCellUIData.swift; sourceTree = "<group>"; };
+		7B47C89B25E6820100F366FE /* PromocodeHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeHistoryInteractor.swift; sourceTree = "<group>"; };
 		7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestData.swift; sourceTree = "<group>"; };
 		7B75CEE625DAE72C001981CA /* MainBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomButton.swift; sourceTree = "<group>"; };
@@ -174,11 +188,15 @@
 		7B75CFE725E3FE80001981CA /* PersistanceStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceStoreManager.swift; sourceTree = "<group>"; };
 		7B75D01525E50B99001981CA /* Promocode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promocode.storyboard; sourceTree = "<group>"; };
 		7B75D01E25E5105A001981CA /* PromocodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeViewController.swift; sourceTree = "<group>"; };
-		7B75D02725E512EE001981CA /* PromocodeModuleTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeModuleTexts.swift; sourceTree = "<group>"; };
+		7B75D02725E512EE001981CA /* PromocodeModuleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeModuleData.swift; sourceTree = "<group>"; };
 		7B75D02C25E51C18001981CA /* TextEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnterView.swift; sourceTree = "<group>"; };
 		7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewController.swift; sourceTree = "<group>"; };
 		7B75D04625E52979001981CA /* TextEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnterViewUIData.swift; sourceTree = "<group>"; };
 		7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ISO8601DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		7BB36F3925E6B90600649669 /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
+		7BB36F3E25E6B94100649669 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7BB36F4625E6CC3700649669 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUISettings.swift; sourceTree = "<group>"; };
 		7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -321,8 +339,12 @@
 			isa = PBXGroup;
 			children = (
 				04B5655525D65B4D00E0EC25 /* UITextField+Extension.swift */,
+				7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */,
+				7BB36F3925E6B90600649669 /* Formatter+Extension.swift */,
+				7BB36F3E25E6B94100649669 /* Date+Extension.swift */,
 				7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */,
 				7B75CEEE25DAF622001981CA /* String+Extension.swift */,
+				7BB36F4625E6CC3700649669 /* DateFormatter+Extension.swift */,
 				7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */,
 				04B5655725D65B6D00E0EC25 /* UIViewController+Extension.swift */,
 				7BFFA66525D66F9500C35652 /* UILabel+Extension.swift */,
@@ -377,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */,
+				7B47C89B25E6820100F366FE /* PromocodeHistoryInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -396,7 +419,8 @@
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
 				7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */,
-				7B75D02725E512EE001981CA /* PromocodeModuleTexts.swift */,
+				7B75D02725E512EE001981CA /* PromocodeModuleData.swift */,
+				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
@@ -445,6 +469,15 @@
 				7B47C85425DE470500F366FE /* TariffsPageViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7B47C89225E6771E00F366FE /* PromocodeHistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				7B47C88B25E6771400F366FE /* PromocodeHistoryTableViewCell.swift */,
+				7B47C88C25E6771400F366FE /* PromocodeHistoryTableViewCell.xib */,
+			);
+			path = PromocodeHistoryCell;
 			sourceTree = "<group>";
 		};
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
@@ -523,6 +556,8 @@
 			children = (
 				7B75D01E25E5105A001981CA /* PromocodeViewController.swift */,
 				7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */,
+				7B47C88625E6720000F366FE /* PromocodeHistoryViewController.swift */,
+				7B47C89225E6771E00F366FE /* PromocodeHistoryCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -689,6 +724,7 @@
 			files = (
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
+				7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				04FFA9E525D91DCB0066032E /* Service.storyboard in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
@@ -731,8 +767,10 @@
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
 				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
+				7B47C88725E6720000F366FE /* PromocodeHistoryViewController.swift in Sources */,
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
+				7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
 				7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
@@ -746,6 +784,7 @@
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
+				7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */,
 				7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
@@ -756,10 +795,13 @@
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
-				7B75D02825E512EE001981CA /* PromocodeModuleTexts.swift in Sources */,
+				7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */,
+				7B75D02825E512EE001981CA /* PromocodeModuleData.swift in Sources */,
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
+				7B47C88D25E6771400F366FE /* PromocodeHistoryTableViewCell.swift in Sources */,
+				7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
@@ -775,12 +817,14 @@
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				7B75CF5125DD71E1001981CA /* TarifResponse.swift in Sources */,
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,
+				7B47C89C25E6820100F366FE /* PromocodeHistoryInteractor.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */,
 				7B75CF9525E03861001981CA /* MapRoundButton.swift in Sources */,
 				7B75CF4225DD707B001981CA /* TariffInteractor.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
+				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,

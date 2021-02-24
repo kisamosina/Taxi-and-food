@@ -31,4 +31,12 @@ extension UILabel {
         attributedText = attribstring
     }
     
+    func setBold(_ forText: String) {
+        guard let text = text else { return }
+        let attribstring = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: forText)
+        attribstring.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: self.font.pointSize), range: range)
+        attributedText = attribstring
+    }
+    
 }

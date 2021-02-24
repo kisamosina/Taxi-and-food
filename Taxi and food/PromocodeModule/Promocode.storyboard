@@ -93,6 +93,72 @@
             </objects>
             <point key="canvasLocation" x="1275" y="72"/>
         </scene>
+        <!--Promocode History View Controller-->
+        <scene sceneID="MTX-AS-6WM">
+            <objects>
+                <viewController storyboardIdentifier="PromocodeHistoryViewController" id="R3W-JT-n8f" customClass="PromocodeHistoryViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iSw-D2-pr0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZDl-bj-grJ">
+                                <rect key="frame" x="25" y="52" width="364" height="55.5"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Auo-tW-UiH">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentSwitched:" destination="R3W-JT-n8f" eventType="valueChanged" id="X4P-dL-kRV"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-kc-8Iv">
+                                        <rect key="frame" x="0.0" y="41" width="364" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2cc-kc-8Iv" firstAttribute="leading" secondItem="ZDl-bj-grJ" secondAttribute="leading" id="DA7-NQ-oPh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Auo-tW-UiH" secondAttribute="trailing" id="Hj0-kU-bkq"/>
+                                    <constraint firstAttribute="trailing" secondItem="2cc-kc-8Iv" secondAttribute="trailing" id="ICA-b6-k34"/>
+                                    <constraint firstItem="Auo-tW-UiH" firstAttribute="leading" secondItem="ZDl-bj-grJ" secondAttribute="leading" id="qv8-Ua-kqd"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibn-p7-9eA">
+                                <rect key="frame" x="0.0" y="107.5" width="414" height="788.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="R3W-JT-n8f" id="gf1-2v-Z64"/>
+                                    <outlet property="delegate" destination="R3W-JT-n8f" id="CPb-yI-mfN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ImF-TI-Qvg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ibn-p7-9eA" firstAttribute="top" secondItem="ZDl-bj-grJ" secondAttribute="bottom" id="2yN-Js-W3b"/>
+                            <constraint firstAttribute="bottom" secondItem="ibn-p7-9eA" secondAttribute="bottom" id="7uX-DN-cui"/>
+                            <constraint firstItem="ZDl-bj-grJ" firstAttribute="top" secondItem="ImF-TI-Qvg" secondAttribute="top" constant="8" id="Cmh-ii-ZAx"/>
+                            <constraint firstItem="ImF-TI-Qvg" firstAttribute="trailing" secondItem="ZDl-bj-grJ" secondAttribute="trailing" constant="25" id="Ocq-c2-EEx"/>
+                            <constraint firstItem="ZDl-bj-grJ" firstAttribute="leading" secondItem="ImF-TI-Qvg" secondAttribute="leading" constant="25" id="iSs-nr-HDd"/>
+                            <constraint firstItem="ibn-p7-9eA" firstAttribute="leading" secondItem="ImF-TI-Qvg" secondAttribute="leading" id="otC-dZ-vno"/>
+                            <constraint firstItem="ImF-TI-Qvg" firstAttribute="trailing" secondItem="ibn-p7-9eA" secondAttribute="trailing" id="sug-mf-yT7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="Auo-tW-UiH" id="ujY-ak-een"/>
+                        <outlet property="tableView" destination="ibn-p7-9eA" id="6nM-jj-po0"/>
+                        <outlet property="warningLabel" destination="2cc-kc-8Iv" id="Gq7-GF-ENO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FW-3f-q5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2314" y="72"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wBm-Dt-QLw">
             <objects>

@@ -42,4 +42,6 @@ import Foundation
  PromocodeEnterInteractorProtocol
  PromocodeEnterViewProtocol
  TextEnterViewDelegate
+ PromocodeHistoryTableViewCell
+ PromocodeHistoryViewController
  */

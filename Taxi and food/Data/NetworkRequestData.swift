@@ -20,6 +20,7 @@ enum RegistrationRequestKeys: String {
 
 enum PromocodesRequestPaths: String {
     case activate = "user/$/promo-codes/activate"
+    case getHistory = "user/$/promo-codes"
 }
 
 enum PromocodesRequestKeys: String {

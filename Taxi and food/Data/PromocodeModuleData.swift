@@ -137,3 +137,72 @@ struct PromocodeEnterViewControllerTexts {
         }
     }
 }
+
+enum PromocodeHistoryViewControllerStates {
+    case active
+    case expired
+}
+
+
+struct PromocodeHistoryViewControllerTexts {
+    internal enum RusTexts: String {
+        case vcTitle = "История использования"
+        case segmentControlZeroTitle = "Активные"
+        case segmentControlFirstTitle = "Неактивные"
+        case warningLabelText = "Обращаем ваше внимание, что скидки по промокодам на аналогичные сервисы не суммируются. На ближайший заказ сработает тот промокод, срок действия которого истекает раньше."
+    }
+    
+    internal enum EngTexts: String {
+        case vcTitle = "Using history"
+        case segmentControlZeroTitle = "Active"
+        case segmentControlFirstTitle = "Nonactive"
+        case warningLabelText = "Please pay attetion, promocode discounts on the same services doesn't sum up. On the next order will be work promocode with expiration expire early."
+    }
+    
+    
+    static var vcTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.vcTitle.rawValue
+        case .eng:
+            return EngTexts.vcTitle.rawValue
+        }
+    }
+
+    static var segmentControlZeroTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.segmentControlZeroTitle.rawValue
+        case .eng:
+            return EngTexts.segmentControlZeroTitle.rawValue
+        }
+    }
+    
+    static var segmentControlFirstTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.segmentControlFirstTitle.rawValue
+        case .eng:
+            return EngTexts.segmentControlFirstTitle.rawValue
+        }
+    }
+
+    static var warningLabelText: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.warningLabelText.rawValue
+        case .eng:
+            return EngTexts.warningLabelText.rawValue
+        }
+    }
+
+    
+}

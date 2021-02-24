@@ -10,6 +10,8 @@ import Foundation
 
 extension String {
     
+    var iso8601withFractionalSeconds: Date? { return Formatter.iso8601withFractionalSeconds.date(from: self) }
+       
     func setDescription(for seconds: Int, and phoneNumber: String) -> String {
         
         let temp = self.split(separator: "$")

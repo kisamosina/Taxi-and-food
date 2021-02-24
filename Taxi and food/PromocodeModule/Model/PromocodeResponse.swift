@@ -15,3 +15,18 @@ struct PromocodeResponse: Decodable {
 struct PromocodeDataResponse: Decodable {
     var description: String
 }
+
+struct PromocodeHistoryResponse: Decodable {
+    var data: [PromocodeHistoryData]
+}
+
+struct PromocodeHistoryData: Decodable {
+    var id: Int
+    var code: String
+    var validity: Int
+    var dateActivation: String
+    var used: Bool
+    var description: String
+    var shortDescription: String
+    var sale: Int
+}

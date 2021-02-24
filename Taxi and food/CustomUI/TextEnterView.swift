@@ -119,7 +119,7 @@ class TextEnterView: UIView {
             
             button.heightAnchor.constraint(equalToConstant: MainButtonSizes.height.rawValue),
             button.leadingAnchor.constraint(equalTo: innerStackView.leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: innerStackView.trailingAnchor),
+            button.trailingAnchor.constraint(equalTo: innerStackView.trailingAnchor)
         ])
     }
     
