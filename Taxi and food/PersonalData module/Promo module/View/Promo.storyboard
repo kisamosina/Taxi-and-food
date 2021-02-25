@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Promo View Controller-->
+        <scene sceneID="pT2-lM-GSf">
+            <objects>
+                <viewController id="Uxw-Za-ChO" customClass="PromoViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fPL-vH-krm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzl-Yj-Xvx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="promoCell" id="3Z4-YL-F4h" customClass="PromoTableViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Z4-YL-F4h" id="EQs-6U-j9a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Uxw-Za-ChO" id="g2b-FM-tQz"/>
+                                    <outlet property="delegate" destination="Uxw-Za-ChO" id="oJH-O8-P6n"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Qzl-Yj-Xvx" firstAttribute="top" secondItem="QPN-HK-m8T" secondAttribute="top" id="pJ0-4h-879"/>
+                            <constraint firstItem="QPN-HK-m8T" firstAttribute="bottom" secondItem="Qzl-Yj-Xvx" secondAttribute="bottom" id="q0h-se-p3h"/>
+                            <constraint firstItem="Qzl-Yj-Xvx" firstAttribute="leading" secondItem="QPN-HK-m8T" secondAttribute="leading" id="uwo-fm-8in"/>
+                            <constraint firstItem="QPN-HK-m8T" firstAttribute="trailing" secondItem="Qzl-Yj-Xvx" secondAttribute="trailing" id="x6l-Wc-mc3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QPN-HK-m8T"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Qzl-Yj-Xvx" id="pnS-gL-lSX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihK-mb-3Cm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="134"/>
+        </scene>
+    </scenes>
+</document>

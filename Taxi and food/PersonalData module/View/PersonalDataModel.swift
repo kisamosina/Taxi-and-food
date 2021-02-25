@@ -15,6 +15,5 @@ struct PersonalDataSection {
 
 struct PersonalDataOption {
     let title: String
-    
 }
 

@@ -27,6 +27,12 @@
 		041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29AC25E2694000CA9F56 /* UAViewController.swift */; };
 		041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29AE25E26B5200CA9F56 /* PPViewController.swift */; };
 		041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29B025E6155900CA9F56 /* SlideUpView.swift */; };
+		041E29C125E766D900CA9F56 /* PromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C025E766D900CA9F56 /* PromoViewController.swift */; };
+		041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */; };
+		041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C425E7678000CA9F56 /* PromoModuleUIData.swift */; };
+		041E29C725E7691C00CA9F56 /* PromoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C625E7691C00CA9F56 /* PromoModel.swift */; };
+		041E29C925E7696A00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C825E7696A00CA9F56 /* PromoInteractor.swift */; };
+		041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E29CA25E769C700CA9F56 /* Promo.storyboard */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
@@ -110,6 +116,12 @@
 		041E29AC25E2694000CA9F56 /* UAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UAViewController.swift; sourceTree = "<group>"; };
 		041E29AE25E26B5200CA9F56 /* PPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPViewController.swift; sourceTree = "<group>"; };
 		041E29B025E6155900CA9F56 /* SlideUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUpView.swift; sourceTree = "<group>"; };
+		041E29C025E766D900CA9F56 /* PromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewController.swift; sourceTree = "<group>"; };
+		041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoTableViewCell.swift; sourceTree = "<group>"; };
+		041E29C425E7678000CA9F56 /* PromoModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoModuleUIData.swift; sourceTree = "<group>"; };
+		041E29C625E7691C00CA9F56 /* PromoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoModel.swift; sourceTree = "<group>"; };
+		041E29C825E7696A00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
+		041E29CA25E769C700CA9F56 /* Promo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promo.storyboard; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +260,35 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		041E29BD25E7662600CA9F56 /* Promo module */ = {
+			isa = PBXGroup;
+			children = (
+				041E29BE25E7667800CA9F56 /* View */,
+				041E29BF25E7667F00CA9F56 /* Interactor */,
+			);
+			name = "Promo module";
+			path = "PersonalData module/Promo module";
+			sourceTree = "<group>";
+		};
+		041E29BE25E7667800CA9F56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				041E29C025E766D900CA9F56 /* PromoViewController.swift */,
+				041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */,
+				041E29C625E7691C00CA9F56 /* PromoModel.swift */,
+				041E29CA25E769C700CA9F56 /* Promo.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		041E29BF25E7667F00CA9F56 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				041E29C825E7696A00CA9F56 /* PromoInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		04B5650525D6591200E0EC25 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +314,7 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
+				041E29BD25E7662600CA9F56 /* Promo module */,
 				041E299425E20D4D00CA9F56 /* PersonalData module */,
 				041E297E25DE1DBE00CA9F56 /* Settings module */,
 				04B5656725D681BC00E0EC25 /* Service module */,
@@ -412,6 +454,7 @@
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
 				041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */,
 				041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */,
+				041E29C425E7678000CA9F56 /* PromoModuleUIData.swift */,
 				0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */,
 				0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */,
 				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
@@ -608,6 +651,7 @@
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
+				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
@@ -637,6 +681,7 @@
 			files = (
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
 				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
+				041E29C725E7691C00CA9F56 /* PromoModel.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				7BFFA66B25D66FA100C35652 /* UIButton+Extension.swift in Sources */,
@@ -659,6 +704,7 @@
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
+				041E29C125E766D900CA9F56 /* PromoViewController.swift in Sources */,
 				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
@@ -672,6 +718,7 @@
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
+				041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */,
@@ -688,6 +735,8 @@
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				041E29C925E7696A00CA9F56 /* PromoInteractor.swift in Sources */,
+				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,
 				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,
 			);
