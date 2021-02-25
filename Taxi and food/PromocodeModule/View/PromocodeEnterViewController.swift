@@ -11,6 +11,7 @@ import UIKit
 protocol PromocodeEnterViewProtocol: class {
     var interactor: PromocodeEnterInteractorProtocol! { get set }
     func setupLabelError(text: String)
+    func showSuccess(data: PromocodeDataResponse)
 }
 
 class PromocodeEnterViewController: UIViewController {
@@ -75,6 +76,15 @@ extension PromocodeEnterViewController: TextEnterViewDelegate {
 //MARK: - PromocodeEnterViewProtocol
 
 extension PromocodeEnterViewController: PromocodeEnterViewProtocol {
+    func showSuccess(data: PromocodeDataResponse) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: StoryBoards.Service.rawValue, bundle: nil)
+            guard let vc = storyboard.instantiateViewController(identifier: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
+            vc.showingCase = .promocode(data)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func setupLabelError(text: String) {
         DispatchQueue.main.async {
             self.textEnterView.label.isHidden = false

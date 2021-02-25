@@ -122,12 +122,14 @@ struct PromocodeEnterViewControllerTexts {
         case vcTitle = "Ввести промокод"
         case invalidPromocode = "Промокод недействителен"
         case promocodeAlreadyHas = "Промокод уже добавлен"
+        case promocodeActivated = "Промокод активирован"
     }
     
     internal enum EngTexts: String, CaseIterable {
         case vcTitle = "Enter Promocode"
         case invalidPromocode = "Invalid promocode"
         case promocodeAlreadyHas = "Promocode already activated"
+        case promocodeActivated = "Promocode activated"
     }
     
     static var vcTitle: String {
@@ -160,6 +162,17 @@ struct PromocodeEnterViewControllerTexts {
             return RusTexts.promocodeAlreadyHas.rawValue
         case .eng:
             return EngTexts.promocodeAlreadyHas.rawValue
+        }
+    }
+    
+    static var promocodeActivated: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.promocodeActivated.rawValue
+        case .eng:
+            return EngTexts.promocodeActivated.rawValue
         }
     }
 

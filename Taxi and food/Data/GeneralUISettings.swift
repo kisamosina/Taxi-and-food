@@ -94,6 +94,7 @@ enum StoryBoards: String {
     case AuthAndMap
     case Tarifs
     case Promocode
+    case Service
 }
 
 enum ViewControllers: String {
@@ -106,6 +107,7 @@ enum ViewControllers: String {
     case PromocodeViewController
     case PromocodeEnterViewController
     case PromocodeHistoryViewController
+    case SentViewController
 }
 
 

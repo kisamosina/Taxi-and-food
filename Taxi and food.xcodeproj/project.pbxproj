@@ -85,6 +85,7 @@
 		7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3925E6B90600649669 /* Formatter+Extension.swift */; };
 		7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3E25E6B94100649669 /* Date+Extension.swift */; };
 		7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F4625E6CC3700649669 /* DateFormatter+Extension.swift */; };
+		7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F6725E8167000649669 /* SentVCShowingCases.swift */; };
 		7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */; };
 		7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */; };
 		7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */; };
@@ -197,6 +198,7 @@
 		7BB36F3925E6B90600649669 /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
 		7BB36F3E25E6B94100649669 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7BB36F4625E6CC3700649669 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		7BB36F6725E8167000649669 /* SentVCShowingCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentVCShowingCases.swift; sourceTree = "<group>"; };
 		7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUISettings.swift; sourceTree = "<group>"; };
 		7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
 				7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */,
+				7BB36F6725E8167000649669 /* SentVCShowingCases.swift */,
 				7B75D02725E512EE001981CA /* PromocodeModuleData.swift */,
 				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
@@ -763,6 +766,7 @@
 				7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */,
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
+				7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
 				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,

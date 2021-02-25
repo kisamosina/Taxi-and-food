@@ -42,7 +42,7 @@ class PromocodeEnterInteractor: PromocodeEnterInteractorProtocol {
             switch result {
             
             case .success(let promocodeResponse):
-                print (promocodeResponse)
+                self.view.showSuccess(data: promocodeResponse.data)
             case .failure(let error):
                 if let serverError = error as? ServerErrors {
                     switch serverError.statusCode {
