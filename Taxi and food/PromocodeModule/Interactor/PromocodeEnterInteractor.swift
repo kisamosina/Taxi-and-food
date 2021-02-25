@@ -44,7 +44,15 @@ class PromocodeEnterInteractor: PromocodeEnterInteractorProtocol {
             case .success(let promocodeResponse):
                 print (promocodeResponse)
             case .failure(let error):
-                print(error)
+                if let serverError = error as? ServerErrors {
+                    switch serverError.statusCode {
+                     case 403:
+                        self.view.setupLabelError(text: PromocodeEnterViewControllerTexts.promocodeAlreadyHas)
+                        
+                    default:
+                        self.view.setupLabelError(text: PromocodeEnterViewControllerTexts.invalidPromocode)
+                    }
+                }
             }
         }
 

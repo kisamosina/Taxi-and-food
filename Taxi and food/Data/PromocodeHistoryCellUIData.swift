@@ -23,13 +23,13 @@ struct PromocodeHistoryCellTexts {
     enum RusText: String {
         case expired = "Истек срок действия: "
         case activated = "Промокод был использован: "
-        case expireAfter = "Истекает через: "
+        case expireAfter = "Истекает: "
     }
     
     enum EngText: String {
         case expired = "Expired: "
         case activated = "Promocode had been used: "
-        case expireAfter = "Expire after: "
+        case expireAfter = "Expire: "
     }
     
     

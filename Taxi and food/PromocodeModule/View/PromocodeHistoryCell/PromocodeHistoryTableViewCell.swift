@@ -46,17 +46,19 @@ class PromocodeHistoryTableViewCell: UITableViewCell {
     }
     
     private func setExpirationLabelTextAndImage(data: PromocodeHistoryData, vcState: PromocodeHistoryViewControllerStates) {
+        
+        guard let activationDate = data.dateActivation.iso8601withFractionalSeconds  else { return }
+        let expiredDate = activationDate + TimeInterval(data.validity)
+        let dateFormatter = DateFormatter()
+        let dateString = dateFormatter.getDateWithPoints(date: expiredDate)
+        
         switch vcState {
         
         case .active:
-            
-            self.expirationLabel.text = "Истекает через \(data.validity / 3600) часов"
-            
+            self.expirationLabel.text = PromocodeHistoryCellTexts.expireAfterText + dateString
+            self.expirationImageView.image = UIImage(named: CustomImagesNames.promocodeExpire.rawValue)
         case .expired:
-            guard let activationDate = data.dateActivation.iso8601withFractionalSeconds  else { return }
-            let expiredDate = activationDate + TimeInterval(data.validity)
-            let dateFormatter = DateFormatter()
-            let dateString = dateFormatter.getDateWithPoints(date: expiredDate)
+            
             if data.used {
                 self.expirationLabel.text = PromocodeHistoryCellTexts.activatedText + dateString
                 self.expirationImageView.image = UIImage(named: CustomImagesNames.pomocodeActivated.rawValue)
@@ -64,7 +66,9 @@ class PromocodeHistoryTableViewCell: UITableViewCell {
                 self.expirationLabel.text = PromocodeHistoryCellTexts.expiredText + dateString
                 self.expirationImageView.image = UIImage(named: CustomImagesNames.promocodeExpired.rawValue)
             }
-            self.expirationLabel.setBold(dateString)
+            
         }
+        
+        self.expirationLabel.setBold(dateString)
     }
 }

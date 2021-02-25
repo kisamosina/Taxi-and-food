@@ -10,6 +10,7 @@ import UIKit
 
 protocol PromocodeEnterViewProtocol: class {
     var interactor: PromocodeEnterInteractorProtocol! { get set }
+    func setupLabelError(text: String)
 }
 
 class PromocodeEnterViewController: UIViewController {
@@ -64,6 +65,7 @@ class PromocodeEnterViewController: UIViewController {
 //MARK: - TextEnterViewDelegate
 extension PromocodeEnterViewController: TextEnterViewDelegate {
     func approveButtonTapped(_ text: String) {
+        
         self.interactor.requestPromocodeActivate(code: text)
     }
     
@@ -72,4 +74,13 @@ extension PromocodeEnterViewController: TextEnterViewDelegate {
 
 //MARK: - PromocodeEnterViewProtocol
 
-extension PromocodeEnterViewController: PromocodeEnterViewProtocol { }
+extension PromocodeEnterViewController: PromocodeEnterViewProtocol {
+    func setupLabelError(text: String) {
+        DispatchQueue.main.async {
+            self.textEnterView.label.isHidden = false
+            self.textEnterView.label.text = text
+        }
+    }
+    
+    
+}

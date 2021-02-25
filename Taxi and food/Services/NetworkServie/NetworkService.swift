@@ -123,9 +123,7 @@ final class NetworkService {
             }
             // Success response
             print("HTTP Post successful. Return code: " + String(httpResponse.statusCode))
-//            if let mimeType = httpResponse.mimeType /*, mimeType == "application/json"*/ {
-//                print("MimeType: " + mimeType)
-//            }
+
             guard let data = data else { return }
             let result = self.decode(for: resource, data: data)
             completion(result)
@@ -134,18 +132,6 @@ final class NetworkService {
         task.resume()
     }
     
-    //    //ENCODING DATA
-    //    private func encode<T: Codable>(data: T) -> Result<Data, Error> {
-    //
-    //        let encoder = JSONEncoder()
-    //
-    //        do {
-    //            let jsonData = try encoder.encode(data)
-    //            return .success(jsonData)
-    //        } catch {
-    //            return .failure(error)
-    //        }
-    //    }
     
     //DECODING DATA
     

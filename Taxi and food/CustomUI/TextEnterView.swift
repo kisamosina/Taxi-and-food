@@ -57,6 +57,7 @@ class TextEnterView: UIView {
         return button
     }()
     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.mainView.layer.cornerRadius = MapBottomViewUIData.cornerRadius.rawValue
@@ -129,6 +130,7 @@ class TextEnterView: UIView {
     }
     
     @objc func textFieldTextChanged() {
+        self.label.isHidden = true
         self.button.setActive()
     }
 }
