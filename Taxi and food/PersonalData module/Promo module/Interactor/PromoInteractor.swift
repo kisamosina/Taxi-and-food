@@ -19,4 +19,17 @@ protocol PromoInteractorProtocol {
 
 class PromoInteractor: PromoInteractorProtocol {
     
+    var models: [PromoOption] = [PromoOption]()
+    
+    internal weak var view: PromoViewProtocol!
+    
+    required init(view: PromoViewProtocol) {
+        self.view = view
+    }
+    
+    func configure() {
+        models.append(PromoOption(title: PromoViewControllerText.foodNameLabelTitleText))
+        models.append(PromoOption(title: PromoViewControllerText.taxiNameLabelTitleText))
+    }
+    
     }

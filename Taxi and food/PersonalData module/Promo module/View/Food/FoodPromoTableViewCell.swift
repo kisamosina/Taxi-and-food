@@ -1,5 +1,5 @@
 //
-//  PromoTableViewCell.swift
+//  FoodPromoTableViewCell.swift
 //  Taxi and food
 //
 //  Created by mac on 25/02/2021.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PromoTableViewCell: UITableViewCell {
+class FoodPromoTableViewCell: UITableViewCell {
 
-       static let identifier = "PromoCell"
+    static let identifier = "FoodPromoCell"
        
        private var titleLabel: UILabel = {
            let tittleLabel = UILabel()
@@ -24,7 +24,7 @@ class PromoTableViewCell: UITableViewCell {
 
            
            contentView.clipsToBounds = true
-           accessoryType = .disclosureIndicator
+           
        }
        
        
@@ -48,5 +48,4 @@ class PromoTableViewCell: UITableViewCell {
            titleLabel.text = model.title
     
        }
-
 }
