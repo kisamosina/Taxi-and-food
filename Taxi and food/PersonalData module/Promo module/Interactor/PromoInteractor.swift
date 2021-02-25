@@ -9,27 +9,30 @@
 import Foundation
 
 protocol PromoInteractorProtocol {
-    var view: PromoViewProtocol! { get }
-    var models: [PromoOption] { get set }
     
-    init(view: PromoViewProtocol)
-    
-    func configure()
 }
 
 class PromoInteractor: PromoInteractorProtocol {
     
-    var models: [PromoOption] = [PromoOption]()
+//    func getPromos() {
+//        
+//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+//        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
+//        
+//        let resource = Resource<PromoResponse>(path: path, requestType: .GET)
+//        
+//        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            
+//            case .success(let tariffResponse):
+//                self.view.showTariffPageVieController(tariffResponse.data)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
     
-    internal weak var view: PromoViewProtocol!
     
-    required init(view: PromoViewProtocol) {
-        self.view = view
-    }
     
-    func configure() {
-        models.append(PromoOption(title: PromoViewControllerText.foodNameLabelTitleText))
-        models.append(PromoOption(title: PromoViewControllerText.taxiNameLabelTitleText))
-    }
-    
-    }
+}

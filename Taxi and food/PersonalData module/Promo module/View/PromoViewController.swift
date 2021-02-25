@@ -22,10 +22,10 @@ class PromoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.interactor = PromoInteractor(view: self)
-        self.interactor.configure()
+//        self.interactor = PromoInteractor(view: self)
+//        self.interactor.configure()
         
-        tableView.register(PromoTableViewCell.self, forCellReuseIdentifier: PromoTableViewCell.identifier)
+    
 
         
     }
@@ -34,21 +34,15 @@ class PromoViewController: UIViewController {
 
 extension PromoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return interactor.models.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = interactor.models[indexPath.row]
-        print(model)
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PromoTableViewCell.identifier, for: indexPath) as? PromoTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PromoShort", for: indexPath) as? PromoShortTableViewCell else {
             return UITableViewCell()
         }
-        
-        cell.configure(with: model)
-        
-        print(cell)
-        
+
         return cell
         
     }

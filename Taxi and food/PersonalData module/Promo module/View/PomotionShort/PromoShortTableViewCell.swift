@@ -1,5 +1,5 @@
 //
-//  TaxiPromoTableViewCell.swift
+//  PromoShortTableViewCell.swift
 //  Taxi and food
 //
 //  Created by mac on 25/02/2021.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class TaxiPromoTableViewCell: UITableViewCell {
+class PromoShortTableViewCell: UITableViewCell {
 
+    @IBOutlet var nameLabel: UILabel!
+    
+    @IBOutlet var moreButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,3 +26,4 @@ class TaxiPromoTableViewCell: UITableViewCell {
     }
 
 }
+

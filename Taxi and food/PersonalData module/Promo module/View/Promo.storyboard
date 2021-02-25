@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bSS-WU-5JH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tc3-Is-eXR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -42,73 +42,78 @@
             </objects>
             <point key="canvasLocation" x="1123.1884057971015" y="133.92857142857142"/>
         </scene>
-        <!--Taxi Promo View Controller-->
-        <scene sceneID="EiO-Sb-9Yk">
+        <!--Promo Short View Controller-->
+        <scene sceneID="PlZ-oA-r3U">
             <objects>
-                <viewController id="CuH-GJ-KvW" customClass="TaxiPromoViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FR1-Oo-jNB">
+                <viewController id="tc3-Is-eXR" customClass="PromoShortViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GC3-Jc-nvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-sL-AUA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Too-vM-0B3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PromoShortCell" rowHeight="120" id="0Ci-TZ-IRI" customClass="PromoShortTableViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Ci-TZ-IRI" id="Byg-O4-JkF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-L1-lwE">
+                                                    <rect key="frame" x="20" y="68" width="92" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="92" id="Pdg-Hy-ONV"/>
+                                                        <constraint firstAttribute="height" constant="30" id="UDa-LA-fdv"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhy-qo-M3g">
+                                                    <rect key="frame" x="20" y="8" width="212" height="49"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="v0M-L1-lwE" firstAttribute="leading" secondItem="Byg-O4-JkF" secondAttribute="leadingMargin" id="9Th-u3-Tfg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="v0M-L1-lwE" secondAttribute="bottom" constant="11" id="B8U-Ri-xoq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="v0M-L1-lwE" secondAttribute="trailing" constant="282" id="QzF-oJ-OYv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mhy-qo-M3g" secondAttribute="trailing" constant="162" id="dbq-7k-jAR"/>
+                                                <constraint firstItem="mhy-qo-M3g" firstAttribute="leading" secondItem="Byg-O4-JkF" secondAttribute="leadingMargin" id="eKq-FC-ZLk"/>
+                                                <constraint firstItem="v0M-L1-lwE" firstAttribute="top" secondItem="mhy-qo-M3g" secondAttribute="bottom" constant="11" id="lLF-6w-1tR"/>
+                                                <constraint firstItem="mhy-qo-M3g" firstAttribute="top" secondItem="Byg-O4-JkF" secondAttribute="topMargin" constant="-3" id="xbA-gk-PEI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="moreButton" destination="v0M-L1-lwE" id="8CF-p8-fQE"/>
+                                            <outlet property="nameLabel" destination="mhy-qo-M3g" id="6l5-b5-FKR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="CuH-GJ-KvW" id="g0V-y2-m33"/>
-                                    <outlet property="delegate" destination="CuH-GJ-KvW" id="OJL-NR-GbN"/>
+                                    <outlet property="dataSource" destination="tc3-Is-eXR" id="YfX-Dd-ksa"/>
+                                    <outlet property="delegate" destination="tc3-Is-eXR" id="dEb-4n-GF3"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Opr-bj-Qyd" firstAttribute="trailing" secondItem="1Md-sL-AUA" secondAttribute="trailing" id="2uV-9h-EQs"/>
-                            <constraint firstItem="1Md-sL-AUA" firstAttribute="leading" secondItem="Opr-bj-Qyd" secondAttribute="leading" id="4D6-63-VPh"/>
-                            <constraint firstItem="Opr-bj-Qyd" firstAttribute="bottom" secondItem="1Md-sL-AUA" secondAttribute="bottom" id="VmJ-tl-dP8"/>
-                            <constraint firstItem="1Md-sL-AUA" firstAttribute="top" secondItem="Opr-bj-Qyd" secondAttribute="top" id="i7j-Qh-y0u"/>
+                            <constraint firstItem="Too-vM-0B3" firstAttribute="top" secondItem="zM5-c7-JIt" secondAttribute="top" id="ECM-L8-z4r"/>
+                            <constraint firstItem="zM5-c7-JIt" firstAttribute="trailing" secondItem="Too-vM-0B3" secondAttribute="trailing" id="WIg-cI-UpP"/>
+                            <constraint firstItem="Too-vM-0B3" firstAttribute="leading" secondItem="zM5-c7-JIt" secondAttribute="leading" id="hHS-zB-gSV"/>
+                            <constraint firstItem="zM5-c7-JIt" firstAttribute="bottom" secondItem="Too-vM-0B3" secondAttribute="bottom" id="una-g7-c17"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Opr-bj-Qyd"/>
+                        <viewLayoutGuide key="safeArea" id="zM5-c7-JIt"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="1Md-sL-AUA" id="YDs-IQ-etX"/>
+                        <outlet property="tableView" destination="Too-vM-0B3" id="mlG-dl-xiT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u1n-oB-xhD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMi-lE-CSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1916" y="539"/>
-        </scene>
-        <!--Food Promo View Controller-->
-        <scene sceneID="PIa-SC-tbZ">
-            <objects>
-                <viewController id="FNL-5w-izA" customClass="FoodPromoViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RQY-Wq-flS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tli-e8-Znu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="FNL-5w-izA" id="HzB-Xf-WIT"/>
-                                    <outlet property="delegate" destination="FNL-5w-izA" id="p34-6x-xtI"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Tli-e8-Znu" firstAttribute="top" secondItem="e7s-fN-g0J" secondAttribute="top" id="2tG-A1-EU7"/>
-                            <constraint firstItem="Tli-e8-Znu" firstAttribute="leading" secondItem="e7s-fN-g0J" secondAttribute="leading" id="4kD-aQ-4YJ"/>
-                            <constraint firstItem="e7s-fN-g0J" firstAttribute="bottom" secondItem="Tli-e8-Znu" secondAttribute="bottom" id="VxF-LE-StM"/>
-                            <constraint firstItem="e7s-fN-g0J" firstAttribute="trailing" secondItem="Tli-e8-Znu" secondAttribute="trailing" id="mSt-ZD-urr"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="e7s-fN-g0J"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="Tli-e8-Znu" id="zRc-Zz-Yvx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xwN-tV-0nd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1916" y="-355"/>
+            <point key="canvasLocation" x="2075.36231884058" y="128.57142857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9d5-e9-sqX">

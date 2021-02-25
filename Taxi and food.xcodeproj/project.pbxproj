@@ -31,13 +31,11 @@
 		041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */; };
 		041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C425E7678000CA9F56 /* PromoModuleUIData.swift */; };
 		041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C625E7691C00CA9F56 /* PromoCellModel.swift */; };
-		041E29C925E7696A00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29C825E7696A00CA9F56 /* PromoInteractor.swift */; };
 		041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E29CA25E769C700CA9F56 /* Promo.storyboard */; };
-		041E29D025E79B1D00CA9F56 /* FoodPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29CF25E79B1D00CA9F56 /* FoodPromoViewController.swift */; };
-		041E29D225E79B3E00CA9F56 /* TaxiPromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29D125E79B3E00CA9F56 /* TaxiPromoViewController.swift */; };
-		041E29D625E79F2B00CA9F56 /* FoodPromoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29D525E79F2B00CA9F56 /* FoodPromoTableViewCell.swift */; };
-		041E29D825E79F5F00CA9F56 /* TaxiPromoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29D725E79F5E00CA9F56 /* TaxiPromoTableViewCell.swift */; };
 		041E29DB25E7A54700CA9F56 /* PromoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DA25E7A54700CA9F56 /* PromoResponse.swift */; };
+		041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */; };
+		041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */; };
+		041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
@@ -125,13 +123,11 @@
 		041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoTableViewCell.swift; sourceTree = "<group>"; };
 		041E29C425E7678000CA9F56 /* PromoModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoModuleUIData.swift; sourceTree = "<group>"; };
 		041E29C625E7691C00CA9F56 /* PromoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCellModel.swift; sourceTree = "<group>"; };
-		041E29C825E7696A00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
 		041E29CA25E769C700CA9F56 /* Promo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Promo.storyboard; sourceTree = "<group>"; };
-		041E29CF25E79B1D00CA9F56 /* FoodPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPromoViewController.swift; sourceTree = "<group>"; };
-		041E29D125E79B3E00CA9F56 /* TaxiPromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiPromoViewController.swift; sourceTree = "<group>"; };
-		041E29D525E79F2B00CA9F56 /* FoodPromoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPromoTableViewCell.swift; sourceTree = "<group>"; };
-		041E29D725E79F5E00CA9F56 /* TaxiPromoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiPromoTableViewCell.swift; sourceTree = "<group>"; };
 		041E29DA25E7A54700CA9F56 /* PromoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoResponse.swift; sourceTree = "<group>"; };
+		041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortTableViewCell.swift; sourceTree = "<group>"; };
+		041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortViewController.swift; sourceTree = "<group>"; };
+		041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -285,8 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				041E29C025E766D900CA9F56 /* PromoViewController.swift */,
-				041E29D325E79ED300CA9F56 /* Food */,
-				041E29D425E79EF300CA9F56 /* Taxi */,
+				041E29D325E79ED300CA9F56 /* PomotionShort */,
 				041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */,
 				041E29C625E7691C00CA9F56 /* PromoCellModel.swift */,
 				041E29CA25E769C700CA9F56 /* Promo.storyboard */,
@@ -297,27 +292,18 @@
 		041E29BF25E7667F00CA9F56 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				041E29C825E7696A00CA9F56 /* PromoInteractor.swift */,
+				041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		041E29D325E79ED300CA9F56 /* Food */ = {
+		041E29D325E79ED300CA9F56 /* PomotionShort */ = {
 			isa = PBXGroup;
 			children = (
-				041E29CF25E79B1D00CA9F56 /* FoodPromoViewController.swift */,
-				041E29D525E79F2B00CA9F56 /* FoodPromoTableViewCell.swift */,
+				041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */,
+				041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */,
 			);
-			path = Food;
-			sourceTree = "<group>";
-		};
-		041E29D425E79EF300CA9F56 /* Taxi */ = {
-			isa = PBXGroup;
-			children = (
-				041E29D125E79B3E00CA9F56 /* TaxiPromoViewController.swift */,
-				041E29D725E79F5E00CA9F56 /* TaxiPromoTableViewCell.swift */,
-			);
-			path = Taxi;
+			path = PomotionShort;
 			sourceTree = "<group>";
 		};
 		041E29D925E7A51D00CA9F56 /* Model */ = {
@@ -731,6 +717,8 @@
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				041E29A925E220BC00CA9F56 /* PersonalDataModel.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
+				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
+				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* NextButton.swift in Sources */,
@@ -748,7 +736,6 @@
 				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
-				041E29D825E79F5F00CA9F56 /* TaxiPromoTableViewCell.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
@@ -761,25 +748,22 @@
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
-				041E29D625E79F2B00CA9F56 /* FoodPromoTableViewCell.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
-				041E29D025E79B1D00CA9F56 /* FoodPromoViewController.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
-				041E29D225E79B3E00CA9F56 /* TaxiPromoViewController.swift in Sources */,
 				041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */,
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				041E29AB25E2412600CA9F56 /* PersonalDataInteractor.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
+				041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
-				041E29C925E7696A00CA9F56 /* PromoInteractor.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,
 				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,

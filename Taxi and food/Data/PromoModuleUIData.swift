@@ -9,6 +9,13 @@
 import Foundation
 
 struct PromoViewControllerText {
+    
+    enum PromoServerPath: String {
+        case path = "user/$/tariff"
+        
+    }
+    
+    
 
 internal enum RusNavigationItemTitleText: String {
     case navigationItemTextRu = "Акции"
