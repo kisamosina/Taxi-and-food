@@ -210,17 +210,38 @@
         <!--Cлужба поддержки-->
         <scene sceneID="K3a-nd-mmN">
             <objects>
-                <viewController id="QYw-jR-CMT" customClass="SentViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SentViewController" id="QYw-jR-CMT" customClass="SentViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RL3-aZ-w7y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-2l-wxK">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Gmy-4Q-6z0">
+                                <rect key="frame" x="25" y="385" width="364" height="126"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" image="Group 1221 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-y5-h5V">
+                                        <rect key="frame" x="157" y="0.0" width="50" height="50"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-RS-HFL">
+                                        <rect key="frame" x="96" y="61" width="172.5" height="18"/>
+                                        <color key="tintColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Обращение отправлено
+</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalCompressionResistancePriority="751" text="В течении часа с вами свяжется наш менеджер и постарается решить вашу проблему." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rly-EX-IlE">
+                                        <rect key="frame" x="2" y="90" width="360" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-2l-wxK" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="25" y="753" width="364" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="tMl-4v-HSl"/>
-                                </constraints>
                                 <state key="normal" title="Отлично!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -229,59 +250,17 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="successButtonTapped:" destination="QYw-jR-CMT" eventType="touchUpInside" id="kii-Vt-7gf"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="nOp-Ok-fkC">
-                                <rect key="frame" x="25" y="276" width="364" height="252"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalCompressionResistancePriority="751" text="В течении часа с вами свяжется наш менеджер и постарается решить вашу проблему." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rly-EX-IlE">
-                                        <rect key="frame" x="39" y="190" width="286" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-RS-HFL">
-                                        <rect key="frame" x="39" y="157" width="286" height="18"/>
-                                        <color key="tintColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Обращение отправлено
-</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" image="Group 1221 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-y5-h5V">
-                                        <rect key="frame" x="157" y="99" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="Zrl-nL-kes"/>
-                                            <constraint firstAttribute="height" constant="50" id="le6-Yk-O8x"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="Rly-EX-IlE" firstAttribute="leading" secondItem="nOp-Ok-fkC" secondAttribute="leading" constant="39" id="14c-3a-o3D"/>
-                                    <constraint firstAttribute="trailing" secondItem="5qz-y5-h5V" secondAttribute="trailing" constant="157" id="778-tH-g0v"/>
-                                    <constraint firstItem="Rly-EX-IlE" firstAttribute="top" secondItem="dqm-RS-HFL" secondAttribute="bottom" constant="15" id="CrH-bR-ZG0"/>
-                                    <constraint firstAttribute="trailing" secondItem="dqm-RS-HFL" secondAttribute="trailing" constant="39" id="EPJ-nv-Ecq"/>
-                                    <constraint firstItem="dqm-RS-HFL" firstAttribute="leading" secondItem="nOp-Ok-fkC" secondAttribute="leading" constant="39" id="Fea-ZA-NMD"/>
-                                    <constraint firstItem="dqm-RS-HFL" firstAttribute="top" secondItem="5qz-y5-h5V" secondAttribute="bottom" constant="8" id="cDj-hT-t7l"/>
-                                    <constraint firstItem="5qz-y5-h5V" firstAttribute="leading" secondItem="nOp-Ok-fkC" secondAttribute="leading" constant="157" id="eE2-2g-Ite"/>
-                                    <constraint firstItem="5qz-y5-h5V" firstAttribute="top" secondItem="nOp-Ok-fkC" secondAttribute="top" constant="99" id="hwQ-PF-mX3"/>
-                                    <constraint firstAttribute="bottom" secondItem="Rly-EX-IlE" secondAttribute="bottom" constant="8" id="jDy-7n-Vao"/>
-                                    <constraint firstAttribute="trailing" secondItem="Rly-EX-IlE" secondAttribute="trailing" constant="39" id="sIc-xj-jae"/>
-                                    <constraint firstAttribute="height" constant="252" id="yMQ-HE-pMF"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zkf-cr-WV2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zkf-cr-WV2" firstAttribute="trailing" secondItem="MY2-2l-wxK" secondAttribute="trailing" constant="25" id="7Nn-0B-uQi"/>
-                            <constraint firstItem="zkf-cr-WV2" firstAttribute="trailing" secondItem="nOp-Ok-fkC" secondAttribute="trailing" constant="25" id="LkZ-Fd-SHG"/>
-                            <constraint firstItem="zkf-cr-WV2" firstAttribute="bottom" secondItem="MY2-2l-wxK" secondAttribute="bottom" constant="59" id="Vxd-Nr-omf"/>
-                            <constraint firstItem="nOp-Ok-fkC" firstAttribute="top" relation="lessThanOrEqual" secondItem="zkf-cr-WV2" secondAttribute="top" constant="188" id="Y4n-wY-OIG"/>
-                            <constraint firstItem="MY2-2l-wxK" firstAttribute="leading" secondItem="zkf-cr-WV2" secondAttribute="leading" constant="25" id="ZKU-Nh-FwS"/>
-                            <constraint firstItem="MY2-2l-wxK" firstAttribute="top" secondItem="nOp-Ok-fkC" secondAttribute="bottom" constant="225" id="kOu-VA-sW4"/>
-                            <constraint firstItem="nOp-Ok-fkC" firstAttribute="leading" secondItem="zkf-cr-WV2" secondAttribute="leading" constant="25" id="kyQ-2N-v6e"/>
+                            <constraint firstItem="Gmy-4Q-6z0" firstAttribute="centerY" secondItem="RL3-aZ-w7y" secondAttribute="centerY" id="7U0-gb-gDp"/>
+                            <constraint firstAttribute="trailing" secondItem="Gmy-4Q-6z0" secondAttribute="trailing" constant="25" id="Dup-DM-e7p"/>
+                            <constraint firstItem="Gmy-4Q-6z0" firstAttribute="leading" secondItem="RL3-aZ-w7y" secondAttribute="leading" constant="25" id="PXp-ba-ueT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cлужба поддержки" id="ywu-HQ-5Qr"/>

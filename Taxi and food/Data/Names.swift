@@ -32,4 +32,16 @@ import Foundation
  MapMenuItem
  MapMenuSection
  PersistanceStoreManager
+ Promocode.storyboard
+ PromocodeEnterViewController
+ PromocodeViewController
+ TextEnterView
+ TextEnterViewStackViewData
+ PromocodeEnterViewControllerTexts
+ PromocodeEnterInteractor
+ PromocodeEnterInteractorProtocol
+ PromocodeEnterViewProtocol
+ TextEnterViewDelegate
+ PromocodeHistoryTableViewCell
+ PromocodeHistoryViewController
  */

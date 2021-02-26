@@ -15,17 +15,15 @@ class AdvantageCollectionViewCell: UICollectionViewCell {
     
     func showData(for advantage: TariffAdvantage, tariffColor: UIColor) {
         
-        NetworkService.shared.loadImageData(for: advantage.icon) { [weak self] result in
-            guard let self = self  else { return }
-            
-            switch result {
-            case .success(let imgData):
+        NetworkService.shared.loadImageData(for: advantage.icon) { [weak self] imgData in
+            guard let self = self, let imgData = imgData  else { return }
                 let image = UIImage(data: imgData)
+            DispatchQueue.main.async {
                 self.advantageButton.setImage(image, for: .normal)
-            case .failure(let error):
-                print("Error while load advantage image: \(error.localizedDescription)")
             }
+                
         }
+        
         self.advantageButton.tintColor = tariffColor
         self.advantageLabel.text = advantage.name
         setupShadowAndRoundCorner()

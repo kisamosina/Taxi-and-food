@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Promocode View Controller-->
+        <scene sceneID="dj5-Jj-zhy">
+            <objects>
+                <viewController storyboardIdentifier="PromocodeViewController" id="Ue2-St-fMb" customClass="PromocodeViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a3g-c4-6V3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q7b-he-ycR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="88"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="NEa-HS-Q7Q"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChoosePromocodeOptionCell" id="7I5-he-wUz">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7I5-he-wUz" id="b1w-jy-jD1">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ue2-St-fMb" id="HF0-fR-W6W"/>
+                                    <outlet property="delegate" destination="Ue2-St-fMb" id="0lM-uK-6jp"/>
+                                </connections>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promocodeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0tm-Xx-CZA">
+                                <rect key="frame" x="0.0" y="372" width="414" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="EUz-8z-RBw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1jD-wf-dWh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="q7b-he-ycR" firstAttribute="top" secondItem="1jD-wf-dWh" secondAttribute="top" id="Aqi-LN-rpW"/>
+                            <constraint firstItem="1jD-wf-dWh" firstAttribute="trailing" secondItem="0tm-Xx-CZA" secondAttribute="trailing" id="Dnj-OZ-Rk1"/>
+                            <constraint firstItem="1jD-wf-dWh" firstAttribute="bottom" secondItem="0tm-Xx-CZA" secondAttribute="bottom" constant="115" id="NpK-Vg-AkK"/>
+                            <constraint firstItem="q7b-he-ycR" firstAttribute="leading" secondItem="1jD-wf-dWh" secondAttribute="leading" id="TEg-m8-vEw"/>
+                            <constraint firstItem="q7b-he-ycR" firstAttribute="trailing" secondItem="1jD-wf-dWh" secondAttribute="trailing" id="iat-h4-0Of"/>
+                            <constraint firstItem="0tm-Xx-CZA" firstAttribute="leading" secondItem="1jD-wf-dWh" secondAttribute="leading" id="wdd-WU-Rmw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="war-xt-hSv"/>
+                    <connections>
+                        <outlet property="tableView" destination="q7b-he-ycR" id="UFo-gv-o6T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iU5-zE-IEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405.79710144927537" y="71.651785714285708"/>
+        </scene>
+        <!--PromoCodeEnterViewController-->
+        <scene sceneID="vHa-Sk-iRE">
+            <objects>
+                <viewController storyboardIdentifier="PromocodeEnterViewController" title="PromoCodeEnterViewController" id="hZb-gg-bAA" customClass="PromocodeEnterViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EKg-5x-4qX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promocodeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GGc-7x-ZU4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="sbv-CW-Oy9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eSM-xC-dUr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GGc-7x-ZU4" firstAttribute="trailing" secondItem="eSM-xC-dUr" secondAttribute="trailing" id="D8F-Dh-NOO"/>
+                            <constraint firstItem="GGc-7x-ZU4" firstAttribute="leading" secondItem="eSM-xC-dUr" secondAttribute="leading" id="k2a-wi-GIa"/>
+                            <constraint firstItem="GGc-7x-ZU4" firstAttribute="top" secondItem="eSM-xC-dUr" secondAttribute="top" id="vcF-73-iBc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U48-FO-hn1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1275" y="72"/>
+        </scene>
+        <!--Promocode History View Controller-->
+        <scene sceneID="MTX-AS-6WM">
+            <objects>
+                <viewController storyboardIdentifier="PromocodeHistoryViewController" id="R3W-JT-n8f" customClass="PromocodeHistoryViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iSw-D2-pr0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZDl-bj-grJ">
+                                <rect key="frame" x="25" y="52" width="364" height="55.5"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Auo-tW-UiH">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentSwitched:" destination="R3W-JT-n8f" eventType="valueChanged" id="X4P-dL-kRV"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-kc-8Iv">
+                                        <rect key="frame" x="0.0" y="41" width="364" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2cc-kc-8Iv" firstAttribute="leading" secondItem="ZDl-bj-grJ" secondAttribute="leading" id="DA7-NQ-oPh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Auo-tW-UiH" secondAttribute="trailing" id="Hj0-kU-bkq"/>
+                                    <constraint firstAttribute="trailing" secondItem="2cc-kc-8Iv" secondAttribute="trailing" id="ICA-b6-k34"/>
+                                    <constraint firstItem="Auo-tW-UiH" firstAttribute="leading" secondItem="ZDl-bj-grJ" secondAttribute="leading" id="qv8-Ua-kqd"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibn-p7-9eA">
+                                <rect key="frame" x="0.0" y="107.5" width="414" height="788.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="R3W-JT-n8f" id="gf1-2v-Z64"/>
+                                    <outlet property="delegate" destination="R3W-JT-n8f" id="CPb-yI-mfN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ImF-TI-Qvg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ibn-p7-9eA" firstAttribute="top" secondItem="ZDl-bj-grJ" secondAttribute="bottom" id="2yN-Js-W3b"/>
+                            <constraint firstAttribute="bottom" secondItem="ibn-p7-9eA" secondAttribute="bottom" id="7uX-DN-cui"/>
+                            <constraint firstItem="ZDl-bj-grJ" firstAttribute="top" secondItem="ImF-TI-Qvg" secondAttribute="top" constant="8" id="Cmh-ii-ZAx"/>
+                            <constraint firstItem="ImF-TI-Qvg" firstAttribute="trailing" secondItem="ZDl-bj-grJ" secondAttribute="trailing" constant="25" id="Ocq-c2-EEx"/>
+                            <constraint firstItem="ZDl-bj-grJ" firstAttribute="leading" secondItem="ImF-TI-Qvg" secondAttribute="leading" constant="25" id="iSs-nr-HDd"/>
+                            <constraint firstItem="ibn-p7-9eA" firstAttribute="leading" secondItem="ImF-TI-Qvg" secondAttribute="leading" id="otC-dZ-vno"/>
+                            <constraint firstItem="ImF-TI-Qvg" firstAttribute="trailing" secondItem="ibn-p7-9eA" secondAttribute="trailing" id="sug-mf-yT7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="Auo-tW-UiH" id="ujY-ak-een"/>
+                        <outlet property="tableView" destination="ibn-p7-9eA" id="6nM-jj-po0"/>
+                        <outlet property="warningLabel" destination="2cc-kc-8Iv" id="Gq7-GF-ENO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FW-3f-q5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2314" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="promocodeBackground" width="500" height="379"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -39,6 +39,7 @@ class MapViewController: UIViewController {
         self.interactor = MapInteractor(view: self)
         self.initViewSetup()
         self.minimizeMenuView()
+        self.addSwipes()
         
     }
     
@@ -125,6 +126,35 @@ class MapViewController: UIViewController {
                        completion: nil)
     }
     
+    //Remove left menu
+    private func removeMenuView() {
+        self.minimizeMenuView()
+        self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+    }
+    
+    //Add Swipes
+    
+    func addSwipes() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
+        switch gesture.direction {
+        case .left:
+            self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+            self.animateMenuViewMinimizing()
+        
+        default:
+            break
+        }
+    }
+    
 }
 //MARK: - MapViewProtocol
 extension MapViewController: MapViewProtocol {
@@ -133,8 +163,7 @@ extension MapViewController: MapViewProtocol {
         DispatchQueue.main.async {
             let tariffPageVC = storyboard.instantiateInitialViewController() as! TariffsPageViewController
             tariffPageVC.interactor = TariffPageInteractor(view: tariffPageVC, tariffs: tariffs)
-            self.minimizeMenuView()
-            self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+            self.removeMenuView()
             self.navigationController?.pushViewController(tariffPageVC, animated: true)
         }
         
@@ -150,6 +179,13 @@ extension MapViewController: MenuViewDelegate {
         
         case .Tariffs:
             self.interactor.getTarifs()
+            
+        case .Promocode:
+            let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeViewController.rawValue)
+            self.removeMenuView()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         case .unknown:
             break
         }

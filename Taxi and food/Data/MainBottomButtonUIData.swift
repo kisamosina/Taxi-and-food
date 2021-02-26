@@ -6,12 +6,14 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum MainButtonTypes {
     case next
     case send
     case taxiOrder
+    case approve
+    case perfect
 }
 
 
@@ -22,12 +24,16 @@ struct MainButtonTitles {
         case nextButtonTitle = "Далее"
         case sendButtonTitle = "Отправить"
         case orderTaxiTitle = "Заказать такси"
+        case approveButtonTitle = "Подтвердить"
+        case perfectButtonTitle = "Отлично!"
     }
     
     internal enum EngButtonsTitles: String {
         case nextButtonTitle = "Next"
         case sendButtonTitle = "Send"
         case orderTaxiTitle = "Order taxi"
+        case approveButtonTitle = "Подтвердить"
+        case perfectButtonTitle = "Отлично!"
     }
     
     static var nextButtonTitle: String {
@@ -63,6 +69,26 @@ struct MainButtonTitles {
 
     }
     
+    static var approveTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.approveButtonTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.approveButtonTitle.rawValue
+        }
+    }
+    
+    static var perfectButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.perfectButtonTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.perfectButtonTitle.rawValue
+        }
+    }
+    
     static func getTitle(for type: MainButtonTypes) -> String {
         
         switch type {
@@ -73,7 +99,14 @@ struct MainButtonTitles {
             return sendButtonTitle
         case .taxiOrder:
             return orderTaxiButtonTitle
+        case .approve:
+            return approveTitle
+        case .perfect:
+            return perfectButtonTitle
         }
     }
+}
 
+enum MainButtonSizes: CGFloat {
+    case height = 50
 }

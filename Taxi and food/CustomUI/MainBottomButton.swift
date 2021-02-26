@@ -16,10 +16,10 @@ class MainBottomButton: UIButton {
         
         switch type {
             
-        case .next:
+        case .next, .approve:
             setInActive()
         default:
-            break
+            setActive()
         }
     }
     
@@ -38,4 +38,12 @@ class MainBottomButton: UIButton {
         self.clipsToBounds = true
         self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
         }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
 }
