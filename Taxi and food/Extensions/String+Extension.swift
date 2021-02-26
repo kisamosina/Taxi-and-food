@@ -31,4 +31,8 @@ extension String {
         let temp = self.split(separator: "$")
         return "\(temp[0])\(id)\(temp[1])"
     }
+    
+    func getPromo(by type: String) -> String {
+        return "\(self)/\(type)"
+    }
 }

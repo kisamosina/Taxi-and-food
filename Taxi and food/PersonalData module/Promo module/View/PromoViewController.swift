@@ -10,6 +10,8 @@ import UIKit
 
 protocol PromoViewProtocol: class {
     var interactor: PromoInteractorProtocol! { get set }
+    
+    
 }
 
 class PromoViewController: UIViewController {
@@ -18,16 +20,19 @@ class PromoViewController: UIViewController {
     
     var interactor: PromoInteractorProtocol!
     var models: [PromoOption]?
+    let shortVc = PromoShortViewController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.interactor = PromoInteractor(view: self)
-//        self.interactor.configure()
+        self.interactor = PromoInteractor(view: self)
+        self.interactor.configure()
         
-    
+        tableView.register(PromoTableViewCell.self, forCellReuseIdentifier: PromoTableViewCell.identifier)
 
-        
+        print("loaded")
+  
     }
 
 }
@@ -39,15 +44,52 @@ extension PromoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PromoShort", for: indexPath) as? PromoShortTableViewCell else {
+        let model = interactor.models[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PromoCell", for: indexPath) as? PromoTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.configure(with: model)
 
         return cell
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        var type: String
+        
+//        type = interactor.models[indexPath.row].title
+//
+//        performSegue(withIdentifier: "promoShort", sender: type)
+
+
+        var type: String
+
+        if indexPath.row == 0 {
+            type = "food"
+
+            performSegue(withIdentifier: "promoShort", sender: type)
+
+        } else {
+
+            type = "taxi"
+
+            performSegue(withIdentifier: "promoShort", sender: type)
+        }
+    }
     
+   
 }
 
 extension PromoViewController: PromoViewProtocol {}
+
+extension PromoViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let nextViewController = segue.destination as? PromoShortViewController, let promoType = sender as? String {
+            nextViewController.type = promoType
+        }
+  
+    }
+}

@@ -8,13 +8,16 @@
 
 import Foundation
 
+
+public enum AllPromoServerPath: String {
+    case path = "user/$/promotions"
+}
+
+public enum TypePromoSetverPath: String {
+    case path = "user/$/promotions/"
+}
+
 struct PromoViewControllerText {
-    
-    enum PromoServerPath: String {
-        case path = "user/$/tariff"
-        
-    }
-    
     
 
 internal enum RusNavigationItemTitleText: String {

@@ -9,17 +9,17 @@
 import Foundation
 
 struct PromoResponse: Decodable {
-    var data: [PromoFullData]
+    var data: [PromoShortData]
 }
 
 struct PromoShortData: Decodable {
     var id: Int
-    var date_from: String
-    var date_to: String
-    var time_from: String
-    var time_to: String
-    var type: String
-    var title: String
+    var date_from: String?
+    var date_to: String?
+    var time_from: String?
+    var time_to: String?
+    var type: String?
+    var title: String?
 }
 
 struct PromoFullData: Decodable {
@@ -33,6 +33,10 @@ struct PromoFullData: Decodable {
     var title: String
     var description: String
   
+}
+
+struct PromoTypeData {
+   
 }
 
 
