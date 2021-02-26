@@ -21,8 +21,6 @@ class TariffsPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
-        
-//        self.interactor = TariffPageInteractor(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +43,6 @@ extension TariffsPageViewController: TariffPageViewProtocol {
                 self.setViewControllers([tarifVC], direction: .forward, animated: true, completion: nil)
             }
         }
-        
-        
     }
 }
 

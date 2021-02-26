@@ -12,7 +12,7 @@ let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
     
-    func webImage(_ imageURL: String, placeHolder: UIImage? = nil) {
+    func webImage(_ imageURL: String) {
         
         self.image = nil
         
@@ -21,44 +21,17 @@ extension UIImageView {
             return
         }
         
-//        guard let url = URL(string: imageURL) else {
-//            print("Invalid URL")
-//            self.image = placeHolder
-//            return
-//        }
-        
-        self.image = placeHolder
-        
-//        DispatchQueue.global(qos: .utility).async {
-//            do {
-//                let imageData: Data = try Data(contentsOf: url)
-//
-//                DispatchQueue.main.async {
-//                    let image = UIImage(data: imageData)
-//                    self.image = image
-//                }
-//
-//            } catch {
-//                print("Unable to load image data: \(error)")
-//                self.image = placeHolder
-//            }
-//        }
-        
-        NetworkService.shared.loadImageData(for: imageURL) { result in
-            switch result {
+        NetworkService.shared.loadImageData(for: imageURL) { imageData in
             
-            case .success(let imageData):
+            if let imageData = imageData {
                 
                 DispatchQueue.main.async {
                     let image = UIImage(data: imageData)
                     self.image = image
                 }
-
-            case .failure(let error):
-                print ("Error while loading image: \(error.localizedDescription)")
-                self.image = placeHolder
+            } else {
+                print ("Error while loading image")
             }
         }
-        
     }
 }

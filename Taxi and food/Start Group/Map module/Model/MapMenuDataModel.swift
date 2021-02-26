@@ -98,6 +98,17 @@ struct MapMenuData {
         }
     }
     
+    static var promocodes: String {
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusNames.PromoCode.rawValue
+        case .eng:
+            return EngNames.PromoCode.rawValue
+        }
+    }
+
+    
     private static var menuEngItems: [String] {
         return EngNames.allCases.map { $0.rawValue }
     }

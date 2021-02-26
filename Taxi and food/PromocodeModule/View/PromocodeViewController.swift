@@ -9,7 +9,7 @@
 import UIKit
 
 class PromocodeViewController: UIViewController {
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +18,12 @@ class PromocodeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = PromocodeViewControllerTexts.vcTitle
         self.view.backgroundColor = Colors.mapMenuColor.getColor()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
 }
@@ -41,7 +47,7 @@ extension PromocodeViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
         
         switch segueCase {
-                
+        
         case .enterPromocode:
             let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeEnterViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)

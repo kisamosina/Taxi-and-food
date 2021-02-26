@@ -15,7 +15,7 @@ final class NetworkService {
     private init() {}
     
     typealias FetchResult<T:Decodable> = (Result<T, Error>) -> Void
-    typealias WebImage = (Result<Data, Error>) -> Void
+    typealias WebImage = (Data?) -> Void
     
     //Make networking requests
     func makeRequest<T>(for resource: Resource<T>, completion: @escaping FetchResult<T>) {
@@ -29,18 +29,19 @@ final class NetworkService {
         }
     }
     
-    func loadImageData(for urlString: String, completion: WebImage) {
+    func loadImageData(for urlString: String, completion: @escaping WebImage) {
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
         }
         
-        do {
-            let imageData: Data = try Data(contentsOf: url)
-            completion(.success(imageData))
+        DispatchQueue.global(qos: .utility).async {
             
-        } catch {
-            completion(.failure(error))
+        guard let imageData: Data = try? Data(contentsOf: url) else {
+            completion(nil)
+            return
+        }
+            completion(imageData)
         }
     }
     
