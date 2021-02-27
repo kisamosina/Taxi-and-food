@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HsT-eR-OCg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Payment History View Controller-->
+        <scene sceneID="Yqh-7a-Eoe">
+            <objects>
+                <viewController storyboardIdentifier="PaymentHistoryViewController" id="xzJ-s0-gLv" customClass="PaymentHistoryViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mH9-wS-vFr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-E4-Epa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="czj-T9-80d">
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xzJ-s0-gLv" id="75d-pW-9ha"/>
+                                    <outlet property="delegate" destination="xzJ-s0-gLv" id="sRl-0J-ha6"/>
+                                </connections>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentHistoryBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ATA-Mt-wqy">
+                                <rect key="frame" x="0.0" y="203" width="414" height="490"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="490" id="38A-eM-YCX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44s-9V-bh5">
+                                <rect key="frame" x="176.5" y="738" width="61.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xhi-3R-Ikg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kg5-E4-Epa" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="9YQ-oj-1e9"/>
+                            <constraint firstItem="xhi-3R-Ikg" firstAttribute="trailing" secondItem="czj-T9-80d" secondAttribute="trailing" id="ADV-lN-up3"/>
+                            <constraint firstItem="xhi-3R-Ikg" firstAttribute="trailing" secondItem="ATA-Mt-wqy" secondAttribute="trailing" id="GOF-Da-s4n"/>
+                            <constraint firstItem="czj-T9-80d" firstAttribute="leading" secondItem="mH9-wS-vFr" secondAttribute="leading" id="JOH-VI-c2z"/>
+                            <constraint firstItem="ATA-Mt-wqy" firstAttribute="centerY" secondItem="mH9-wS-vFr" secondAttribute="centerY" id="KK1-i3-kng"/>
+                            <constraint firstAttribute="bottom" secondItem="czj-T9-80d" secondAttribute="bottom" id="KOP-9Q-M8g"/>
+                            <constraint firstItem="44s-9V-bh5" firstAttribute="centerX" secondItem="mH9-wS-vFr" secondAttribute="centerX" id="bBm-yx-pSD"/>
+                            <constraint firstItem="czj-T9-80d" firstAttribute="top" secondItem="Kg5-E4-Epa" secondAttribute="bottom" id="jVd-ks-TTb"/>
+                            <constraint firstItem="Kg5-E4-Epa" firstAttribute="top" secondItem="xhi-3R-Ikg" secondAttribute="top" id="rGU-kz-eoJ"/>
+                            <constraint firstItem="44s-9V-bh5" firstAttribute="top" secondItem="ATA-Mt-wqy" secondAttribute="bottom" constant="45" id="tev-tW-Kmo"/>
+                            <constraint firstItem="Kg5-E4-Epa" firstAttribute="trailing" secondItem="xhi-3R-Ikg" secondAttribute="trailing" id="tsG-hg-f7S"/>
+                            <constraint firstItem="ATA-Mt-wqy" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="uX4-qD-IY1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WOy-H0-Aqx"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="ATA-Mt-wqy" id="2jx-OH-RaM"/>
+                        <outlet property="emptyLabel" destination="44s-9V-bh5" id="uFi-JE-EYQ"/>
+                        <outlet property="searchBar" destination="Kg5-E4-Epa" id="OJ8-Pi-UmS"/>
+                        <outlet property="tableView" destination="czj-T9-80d" id="AaJ-sz-a1b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EoJ-pY-PSt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910.14492753623199" y="104.46428571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="knG-lM-DTr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HsT-eR-OCg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GfY-aW-kcZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xzJ-s0-gLv" kind="relationship" relationship="rootViewController" id="N4t-0e-3TC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XgA-D5-vH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="104.46428571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paymentHistoryBackground" width="520" height="491"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -26,3 +26,7 @@ enum PromocodesRequestPaths: String {
 enum PromocodesRequestKeys: String {
     case code
 }
+enum PaymentRequestPaths: String {
+    case history = "user/$/history/payments"
+    
+}

@@ -44,4 +44,9 @@ import Foundation
  TextEnterViewDelegate
  PromocodeHistoryTableViewCell
  PromocodeHistoryViewController
+ PaymentHistoryViewController
+ PaymentHistory
+ PaymentHistoryInteractor
+ PaymentsHistoryModels
+ PaymentHistoryTableViewCell
  */

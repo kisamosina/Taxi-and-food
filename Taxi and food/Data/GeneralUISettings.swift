@@ -88,6 +88,7 @@ enum CustomImagesNames: String {
     case pomocodeActivated
     case promocodeExpire
     case promocodeExpired
+    case paymentHistoryBackground
 }
 
 enum StoryBoards: String {
@@ -95,6 +96,7 @@ enum StoryBoards: String {
     case Tarifs
     case Promocode
     case Service
+    case PaymentHistory
 }
 
 enum ViewControllers: String {
@@ -108,6 +110,7 @@ enum ViewControllers: String {
     case PromocodeEnterViewController
     case PromocodeHistoryViewController
     case SentViewController
+    case PaymentHistoryViewController
 }
 
 

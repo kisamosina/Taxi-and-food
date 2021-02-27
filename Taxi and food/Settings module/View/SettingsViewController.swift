@@ -108,7 +108,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let type = models[indexPath.section].options[indexPath.row]
+//        let type = models[indexPath.section].options[indexPath.row]
         
         if indexPath.row == 0 {
             performSegue(withIdentifier: "language", sender: self)

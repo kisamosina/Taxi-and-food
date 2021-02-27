@@ -26,7 +26,7 @@ class PromoShortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(type)
+        
 
         self.interactor = PromoShortInteractor(view: self)
         self.interactor.getPromos(type: type!)

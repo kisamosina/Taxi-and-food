@@ -27,7 +27,7 @@ class PromocodeHistoryTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        
+        super.layoutSubviews()
         self.parentView.layer.cornerRadius = PromocodeHistoryCellViewLayer.cornerRadius.rawValue
         self.parentView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.parentView.layer.shadowOpacity = Float(PromocodeHistoryCellViewLayer.shadowOpacity.rawValue)
