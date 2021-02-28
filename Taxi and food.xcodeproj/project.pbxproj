@@ -58,6 +58,7 @@
 		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
 		04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A4C25E89AB300EDC886 /* PromoShortInteractor.swift */; };
 		04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */; };
+		04CA5A5325E905EB00EDC886 /* PromoDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */; };
 		7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */; };
 		7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */; };
 		7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */; };
@@ -181,6 +182,7 @@
 		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
 		04CA5A4C25E89AB300EDC886 /* PromoShortInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortInteractor.swift; sourceTree = "<group>"; };
 		04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalDataInteractor.swift; path = "Taxi and food/PersonalData module/Promo module/View/PomotionShort/PersonalDataInteractor.swift"; sourceTree = SOURCE_ROOT; };
+		04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDescriptionViewController.swift; sourceTree = "<group>"; };
 		7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
 		7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleUIData.swift; sourceTree = "<group>"; };
 		7B2B99DC25D83A38008B6CD9 /* UserAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				041E29C025E766D900CA9F56 /* PromoViewController.swift */,
+				04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */,
 				041E29D325E79ED300CA9F56 /* PomotionShort */,
 				041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */,
 				041E29C625E7691C00CA9F56 /* PromoCellModel.swift */,
@@ -891,6 +894,7 @@
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
+				04CA5A5325E905EB00EDC886 /* PromoDescriptionViewController.swift in Sources */,
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
 				041E29C125E766D900CA9F56 /* PromoViewController.swift in Sources */,

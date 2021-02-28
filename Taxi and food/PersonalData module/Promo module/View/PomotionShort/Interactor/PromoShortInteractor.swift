@@ -45,6 +45,7 @@ class PromoShortInteractor: PromoShortInteractorProtocol {
             switch result {
 
             case .success(let promoResponse):
+                print(promoResponse.data)
                 self.promos = promoResponse.data
                 self.view.reload()
                 

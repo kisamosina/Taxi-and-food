@@ -20,6 +20,7 @@ struct PromoShortData: Decodable {
     var time_to: String?
     var type: String?
     var title: String?
+    var media: [PromoMedia]
 }
 
 struct PromoFullData: Decodable {
@@ -35,8 +36,9 @@ struct PromoFullData: Decodable {
   
 }
 
-struct PromoTypeData {
-   
+struct PromoMedia: Decodable {
+    var url: String?
+    var file_name: String?
 }
 
 
