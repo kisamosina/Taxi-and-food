@@ -35,4 +35,9 @@ extension String {
     func getPromo(by type: String) -> String {
         return "\(self)/\(type)"
     }
+    
+    func getPromoDescription(for id: Int) -> String {
+        
+        return "\(self)/\(id)"
+    }
 }

@@ -116,7 +116,7 @@
                     <navigationItem key="navigationItem" id="5zc-GB-9Dw"/>
                     <connections>
                         <outlet property="tableView" destination="Too-vM-0B3" id="mlG-dl-xiT"/>
-                        <segue destination="oUX-1J-9fA" kind="push" identifier="description" id="ooA-7h-28H"/>
+                        <segue destination="oUX-1J-9fA" kind="push" identifier="description" id="bAi-xY-0FV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMi-lE-CSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -131,43 +131,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjo-0j-NHb">
-                                <rect key="frame" x="20" y="94" width="287" height="55"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSh-Tj-YnH">
+                                <rect key="frame" x="20" y="88" width="374" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="vUO-68-o82"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-pg-Q7W">
-                                <rect key="frame" x="45" y="743" width="325" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rN-qT-LUJ">
+                                <rect key="frame" x="20" y="172" width="374" height="450"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3D9-5G-9sx" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="25" y="812" width="364" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Q78-CZ-LR5"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="xbJ-j7-RZd"/>
+                                </constraints>
+                                <color key="tintColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.23137254901960785" green="0.23921568627450979" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-Ra-CYZ">
-                                <rect key="frame" x="20" y="169" width="325" height="209"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Qjo-0j-NHb" firstAttribute="leading" secondItem="gDG-if-Fpb" secondAttribute="leading" constant="20" id="I4e-vV-frg"/>
-                            <constraint firstItem="Qjo-0j-NHb" firstAttribute="top" secondItem="gDG-if-Fpb" secondAttribute="top" constant="94" id="kPF-XT-IeI"/>
-                            <constraint firstItem="gDG-if-Fpb" firstAttribute="trailing" secondItem="Qjo-0j-NHb" secondAttribute="trailing" constant="107" id="yn4-Cb-nht"/>
+                            <constraint firstItem="gDG-if-Fpb" firstAttribute="trailing" secondItem="3D9-5G-9sx" secondAttribute="trailing" constant="25" id="0u1-3R-HhZ"/>
+                            <constraint firstItem="3D9-5G-9sx" firstAttribute="bottom" secondItem="gDG-if-Fpb" secondAttribute="bottom" id="1fn-Oc-00K"/>
+                            <constraint firstItem="5rN-qT-LUJ" firstAttribute="width" secondItem="uSh-Tj-YnH" secondAttribute="width" id="7Wx-y4-1lF"/>
+                            <constraint firstItem="uSh-Tj-YnH" firstAttribute="top" secondItem="gDG-if-Fpb" secondAttribute="top" id="9gd-9L-W7S"/>
+                            <constraint firstItem="gDG-if-Fpb" firstAttribute="trailing" secondItem="5rN-qT-LUJ" secondAttribute="trailing" constant="20" id="9lq-ez-bAX"/>
+                            <constraint firstItem="5rN-qT-LUJ" firstAttribute="centerX" secondItem="uSh-Tj-YnH" secondAttribute="centerX" id="IWr-CQ-282"/>
+                            <constraint firstItem="5rN-qT-LUJ" firstAttribute="top" secondItem="uSh-Tj-YnH" secondAttribute="bottom" constant="8" id="SWZ-fO-iKH"/>
+                            <constraint firstItem="gDG-if-Fpb" firstAttribute="bottom" secondItem="5rN-qT-LUJ" secondAttribute="bottom" constant="169" id="dih-Hk-R7I"/>
+                            <constraint firstItem="5rN-qT-LUJ" firstAttribute="top" secondItem="uSh-Tj-YnH" secondAttribute="bottom" constant="8" id="gsQ-aa-2mw"/>
+                            <constraint firstItem="5rN-qT-LUJ" firstAttribute="leading" secondItem="gDG-if-Fpb" secondAttribute="leading" constant="20" id="poM-8e-SOl"/>
+                            <constraint firstItem="3D9-5G-9sx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5rN-qT-LUJ" secondAttribute="bottom" constant="190" id="rzc-8j-DW3"/>
+                            <constraint firstItem="3D9-5G-9sx" firstAttribute="leading" secondItem="gDG-if-Fpb" secondAttribute="leading" constant="25" id="yNN-Yl-Cis"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gDG-if-Fpb"/>
                     </view>
                     <navigationItem key="navigationItem" id="wbw-XZ-cAB"/>
                     <connections>
-                        <outlet property="buyButton" destination="tFi-pg-Q7W" id="fzr-dX-cbq"/>
-                        <outlet property="descriptionLabel" destination="UJQ-Ra-CYZ" id="5Th-LH-0SX"/>
-                        <outlet property="titleLabel" destination="Qjo-0j-NHb" id="QJU-MT-abU"/>
+                        <outlet property="buyButton" destination="3D9-5G-9sx" id="BQp-ct-RNl"/>
+                        <outlet property="descriptionLabel" destination="5rN-qT-LUJ" id="wN4-nW-z2c"/>
+                        <outlet property="nameLabel" destination="uSh-Tj-YnH" id="lLq-Rf-BJg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFA-HY-AFT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2990" y="134"/>
+            <point key="canvasLocation" x="2989.8550724637685" y="133.92857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9d5-e9-sqX">

@@ -64,6 +64,7 @@ extension PromoShortViewController: UITableViewDelegate, UITableViewDataSource {
         mediaId = interactor.promos[indexPath.row].id
         print("id here")
         print(interactor.promos[indexPath.row].id)
+        
         performSegue(withIdentifier: "description", sender: mediaId)
     }
     
@@ -75,6 +76,8 @@ extension PromoShortViewController {
     {
         if let nextViewController = segue.destination as? PromoDescriptionViewController, let mediaType = sender as? Int {
             nextViewController.id = mediaType
+            nextViewController.modalPresentationStyle = .popover
+          
         }
   
     }

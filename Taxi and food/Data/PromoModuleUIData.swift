@@ -17,6 +17,10 @@ public enum TypePromoSetverPath: String {
     case path = "user/$/promotions/"
 }
 
+public enum PromoDescriptionPath: String {
+    case path = "user/$/promotion"
+}
+
 struct PromoViewControllerText {
     
 

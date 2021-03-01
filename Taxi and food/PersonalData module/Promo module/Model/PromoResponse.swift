@@ -12,6 +12,10 @@ struct PromoResponse: Decodable {
     var data: [PromoShortData]
 }
 
+struct PromoResponseFull: Decodable {
+    var data: PromoFullData
+}
+
 struct PromoShortData: Decodable {
     var id: Int
     var date_from: String?
@@ -23,16 +27,17 @@ struct PromoShortData: Decodable {
     var media: [PromoMedia]
 }
 
-struct PromoFullData: Decodable {
+struct PromoFullData: Decodable, Identifiable {
     
-    var id: Int
-    var date_from: String
-    var date_to: String
-    var time_from: String
-    var time_to: String
-    var type: String
-    var title: String
-    var description: String
+    var id: Int?
+    var date_from: String?
+    var date_to: String?
+    var time_from: String?
+    var time_to: String?
+    var type: String?
+    var title: String?
+    var description: String?
+    var media: [PromoMedia]
   
 }
 
