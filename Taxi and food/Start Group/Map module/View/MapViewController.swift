@@ -96,6 +96,12 @@ class MapViewController: UIViewController {
         self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
     }
     
+    //Remove left menu
+    private func removeMenuView() {
+        self.minimizeMenuView()
+        self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+    }
+    
     private func animateMenuViewMaximizing() {
         self.maximizeMenuView()
         
@@ -150,8 +156,15 @@ extension MapViewController: MenuViewDelegate {
         
         case .Tariffs:
             self.interactor.getTarifs()
+            
+        case .Settings:
+            let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
+             let vc = storyboard.instantiateViewController(identifier: ViewControllers.SettingsViewController.rawValue)
+             self.removeMenuView()
+             self.navigationController?.pushViewController(vc, animated: true)
         case .unknown:
             break
+  
         }
     }
 }

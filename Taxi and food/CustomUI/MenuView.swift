@@ -68,6 +68,8 @@ extension MenuView: UITableViewDataSource, UITableViewDelegate {
         let item = menuItems[indexPath.section].items[indexPath.row]
         let segueType  = MapViewControllerSegue.getMapViewControllerSegue(item.itemName)
         self.delegate?.performSegue(segueType)
+        
+        
     }
 
 }

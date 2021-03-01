@@ -98,6 +98,18 @@ struct MapMenuData {
         }
     }
     
+    static var settings: String {
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusNames.Settings.rawValue
+        case .eng:
+            return EngNames.Settings.rawValue
+        }
+    }
+    
+    
+    
     private static var menuEngItems: [String] {
         return EngNames.allCases.map { $0.rawValue }
     }

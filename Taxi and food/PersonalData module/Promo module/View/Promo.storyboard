@@ -116,7 +116,7 @@
                     <navigationItem key="navigationItem" id="5zc-GB-9Dw"/>
                     <connections>
                         <outlet property="tableView" destination="Too-vM-0B3" id="mlG-dl-xiT"/>
-                        <segue destination="oUX-1J-9fA" kind="push" identifier="description" id="bAi-xY-0FV"/>
+                        <segue destination="oUX-1J-9fA" kind="show" identifier="description" id="GLs-Vo-CbA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMi-lE-CSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -126,7 +126,7 @@
         <!--Promo Description View Controller-->
         <scene sceneID="ph5-FV-XCq">
             <objects>
-                <viewController id="oUX-1J-9fA" customClass="PromoDescriptionViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="oUX-1J-9fA" customClass="PromoDescriptionViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pBx-ek-rFv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

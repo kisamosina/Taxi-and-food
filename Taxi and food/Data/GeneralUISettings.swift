@@ -86,6 +86,7 @@ enum CustomImagesNames: String {
 enum StoryBoards: String {
     case AuthAndMap
     case Tarifs
+    case Settings
 }
 
 enum ViewControllers: String {
@@ -95,6 +96,7 @@ enum ViewControllers: String {
     case MapViewController
     case TariffViewController
     case TariffsPageViewController
+    case SettingsViewController
 }
 
 

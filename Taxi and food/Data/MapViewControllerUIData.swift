@@ -81,11 +81,14 @@ struct MapMenuViewTexts {
 enum MapViewControllerSegue {
     case Tariffs
     case unknown
+    case Settings
     
     static func getMapViewControllerSegue(_ cellTitle: String) -> MapViewControllerSegue {
         switch cellTitle {
         case MapMenuData.tariffs:
             return Tariffs
+        case MapMenuData.settings:
+            return Settings
         default:
             return .unknown
         }
