@@ -17,9 +17,9 @@ struct PaymentsHistoryResponseData: Decodable {
     var id: Int
     var paid: Int
     var method: String
-    var status: Int
+    var status: String
     var order: Int
-    var paymentCard: PaymentCardResponse
+    var paymentCard: PaymentCardResponse?
 }
 
 

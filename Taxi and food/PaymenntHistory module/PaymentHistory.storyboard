@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="czj-T9-80d">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="144" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="czj-T9-80d">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -41,20 +41,28 @@
                                 <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgk-s5-9mC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.50256640705841271" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xhi-3R-Ikg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Qgk-s5-9mC" secondAttribute="bottom" id="6de-wQ-gWS"/>
                             <constraint firstItem="Kg5-E4-Epa" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="9YQ-oj-1e9"/>
                             <constraint firstItem="xhi-3R-Ikg" firstAttribute="trailing" secondItem="czj-T9-80d" secondAttribute="trailing" id="ADV-lN-up3"/>
                             <constraint firstItem="xhi-3R-Ikg" firstAttribute="trailing" secondItem="ATA-Mt-wqy" secondAttribute="trailing" id="GOF-Da-s4n"/>
                             <constraint firstItem="czj-T9-80d" firstAttribute="leading" secondItem="mH9-wS-vFr" secondAttribute="leading" id="JOH-VI-c2z"/>
                             <constraint firstItem="ATA-Mt-wqy" firstAttribute="centerY" secondItem="mH9-wS-vFr" secondAttribute="centerY" id="KK1-i3-kng"/>
                             <constraint firstAttribute="bottom" secondItem="czj-T9-80d" secondAttribute="bottom" id="KOP-9Q-M8g"/>
+                            <constraint firstAttribute="trailing" secondItem="Qgk-s5-9mC" secondAttribute="trailing" id="Xcx-l6-xUM"/>
                             <constraint firstItem="44s-9V-bh5" firstAttribute="centerX" secondItem="mH9-wS-vFr" secondAttribute="centerX" id="bBm-yx-pSD"/>
                             <constraint firstItem="czj-T9-80d" firstAttribute="top" secondItem="Kg5-E4-Epa" secondAttribute="bottom" id="jVd-ks-TTb"/>
+                            <constraint firstItem="Qgk-s5-9mC" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="qGb-zd-SMC"/>
                             <constraint firstItem="Kg5-E4-Epa" firstAttribute="top" secondItem="xhi-3R-Ikg" secondAttribute="top" id="rGU-kz-eoJ"/>
                             <constraint firstItem="44s-9V-bh5" firstAttribute="top" secondItem="ATA-Mt-wqy" secondAttribute="bottom" constant="45" id="tev-tW-Kmo"/>
+                            <constraint firstItem="Qgk-s5-9mC" firstAttribute="top" secondItem="mH9-wS-vFr" secondAttribute="top" id="tpa-Tn-024"/>
                             <constraint firstItem="Kg5-E4-Epa" firstAttribute="trailing" secondItem="xhi-3R-Ikg" secondAttribute="trailing" id="tsG-hg-f7S"/>
                             <constraint firstItem="ATA-Mt-wqy" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="uX4-qD-IY1"/>
                         </constraints>
@@ -62,6 +70,7 @@
                     <navigationItem key="navigationItem" id="WOy-H0-Aqx"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="ATA-Mt-wqy" id="2jx-OH-RaM"/>
+                        <outlet property="coverView" destination="Qgk-s5-9mC" id="Mu5-Xi-bWi"/>
                         <outlet property="emptyLabel" destination="44s-9V-bh5" id="uFi-JE-EYQ"/>
                         <outlet property="searchBar" destination="Kg5-E4-Epa" id="OJ8-Pi-UmS"/>
                         <outlet property="tableView" destination="czj-T9-80d" id="AaJ-sz-a1b"/>
@@ -74,7 +83,6 @@
         <!--Navigation Controller-->
         <scene sceneID="knG-lM-DTr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XgA-D5-vH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HsT-eR-OCg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GfY-aW-kcZ">
@@ -86,6 +94,7 @@
                         <segue destination="xzJ-s0-gLv" kind="relationship" relationship="rootViewController" id="N4t-0e-3TC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XgA-D5-vH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="104.46428571428571"/>
         </scene>

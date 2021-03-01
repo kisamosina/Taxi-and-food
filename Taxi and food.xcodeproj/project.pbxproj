@@ -72,6 +72,8 @@
 		7B3A8FF525EA9C09008CA13E /* PaymentsHistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A8FF425EA9C09008CA13E /* PaymentsHistoryModels.swift */; };
 		7B3A900225EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A900025EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift */; };
 		7B3A900325EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B3A900125EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib */; };
+		7B3A901B25ED60CE008CA13E /* PaymentHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3A901A25ED60CE008CA13E /* PaymentHistoryDetailView.swift */; };
+		7B3A902025ED60F5008CA13E /* PaymentHistoryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B3A901F25ED60F5008CA13E /* PaymentHistoryDetailView.xib */; };
 		7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B47C81F25DD2A4C00F366FE /* Tarifs.storyboard */; };
 		7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C84225DD448A00F366FE /* AdvantageCollectionViewCell.swift */; };
 		7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47C84A25DD478D00F366FE /* TariffViewController.swift */; };
@@ -221,6 +223,8 @@
 		7B3A8FF425EA9C09008CA13E /* PaymentsHistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsHistoryModels.swift; sourceTree = "<group>"; };
 		7B3A900025EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		7B3A900125EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		7B3A901A25ED60CE008CA13E /* PaymentHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHistoryDetailView.swift; sourceTree = "<group>"; };
+		7B3A901F25ED60F5008CA13E /* PaymentHistoryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentHistoryDetailView.xib; sourceTree = "<group>"; };
 		7B47C81F25DD2A4C00F366FE /* Tarifs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tarifs.storyboard; sourceTree = "<group>"; };
 		7B47C84225DD448A00F366FE /* AdvantageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvantageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B47C84A25DD478D00F366FE /* TariffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TariffViewController.swift; sourceTree = "<group>"; };
@@ -705,6 +709,15 @@
 			path = PaymentHistoryTableViewCell;
 			sourceTree = "<group>";
 		};
+		7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				7B3A901A25ED60CE008CA13E /* PaymentHistoryDetailView.swift */,
+				7B3A901F25ED60F5008CA13E /* PaymentHistoryDetailView.xib */,
+			);
+			path = PaymentHistoryDetailView;
+			sourceTree = "<group>";
+		};
 		7B47C81E25DD299F00F366FE /* Tariffs Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +758,7 @@
 				7B47C87625E1458900F366FE /* MenuView.swift */,
 				7B75CF9425E03861001981CA /* MapRoundButton.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
+				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
 				7B47C87B25E147E700F366FE /* CloseMenuButton.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
@@ -984,6 +998,7 @@
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
 				7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */,
+				7B3A902025ED60F5008CA13E /* PaymentHistoryDetailView.xib in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				7B3A900325EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib in Resources */,
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
@@ -1071,6 +1086,7 @@
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
+				7B3A901B25ED60CE008CA13E /* PaymentHistoryDetailView.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,

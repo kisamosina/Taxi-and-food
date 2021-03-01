@@ -89,6 +89,8 @@ enum CustomImagesNames: String {
     case promocodeExpire
     case promocodeExpired
     case paymentHistoryBackground
+    case visaIcon
+    case mastercardIcon
 }
 
 enum StoryBoards: String {

@@ -36,13 +36,13 @@ class PaymentHistoryInteractor: PaymentHistoryInteractorProtocol {
     
     func loadPayments() {
         
-        guard let userData = PersistanceStoreManager.shared.getUserData() else {
-            print("No user id in storage")
-            return
-        }
+//        guard let userData = PersistanceStoreManager.shared.getUserData() else {
+//            print("No user id in storage")
+//            return
+//        }
         
-        let id = Int(userData[0].id)
-        
+//        let id = Int(userData[0].id)
+        let id = 2
         let resource = Resource<PaymentsHistoryResponse>(path: PaymentRequestPaths.history.rawValue.getServerPath(for: id),
                                                          requestType: .GET)
         
@@ -53,7 +53,6 @@ class PaymentHistoryInteractor: PaymentHistoryInteractorProtocol {
             switch result {
             
             case .success(let response):
-                print(response)
                 self.paymentHistotyData = response.data
                 self.view.setupViewElements()
             case .failure(let error):
