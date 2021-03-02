@@ -13,6 +13,7 @@ class MainBottomButton: UIButton {
     func setupAs(_ type: MainButtonTypes) {
         
         self.setTitle(MainButtonTitles.getTitle(for: type), for: .normal)
+        self.setTitleColor(.white, for: .normal)
         
         switch type {
             

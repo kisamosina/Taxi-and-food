@@ -14,6 +14,7 @@ enum MainButtonTypes {
     case taxiOrder
     case approve
     case perfect
+    case sendEmail
 }
 
 
@@ -26,14 +27,16 @@ struct MainButtonTitles {
         case orderTaxiTitle = "Заказать такси"
         case approveButtonTitle = "Подтвердить"
         case perfectButtonTitle = "Отлично!"
+        case sendEmail = "Отправить e-mail"
     }
     
     internal enum EngButtonsTitles: String {
         case nextButtonTitle = "Next"
         case sendButtonTitle = "Send"
         case orderTaxiTitle = "Order taxi"
-        case approveButtonTitle = "Подтвердить"
-        case perfectButtonTitle = "Отлично!"
+        case approveButtonTitle = "Approve"
+        case perfectButtonTitle = "Perfect!"
+        case sendEmail = "Send e-mail"
     }
     
     static var nextButtonTitle: String {
@@ -89,6 +92,17 @@ struct MainButtonTitles {
         }
     }
     
+    static var sendEmail: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.sendEmail.rawValue
+        case .eng:
+            return EngButtonsTitles.sendEmail.rawValue
+        }
+
+    }
+    
     static func getTitle(for type: MainButtonTypes) -> String {
         
         switch type {
@@ -103,6 +117,8 @@ struct MainButtonTitles {
             return approveTitle
         case .perfect:
             return perfectButtonTitle
+        case .sendEmail:
+            return sendEmail
         }
     }
 }

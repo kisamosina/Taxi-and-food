@@ -10,6 +10,7 @@ import UIKit
 
 class PaymentHistoryTableViewCell: UITableViewCell {
     
+    var paymentHistoryData: PaymentsHistoryResponseData!
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -43,6 +44,9 @@ class PaymentHistoryTableViewCell: UITableViewCell {
     }
     
     func setupCell(by data:PaymentsHistoryResponseData) {
+        self.paymentHistoryData = data
+        let dateString = DateFormatter().getDateWithPoints(date: Date())
+        self.dateLabel.text = dateString
         self.sumLabel.text = String(data.paid) + PaymentHistoryViewControllerTexts.rubText
         self.paymentNumberLabel.text = PaymentHistoryViewControllerTexts.paymentText + String(data.order)
         guard let paymentCard = data.paymentCard  else {

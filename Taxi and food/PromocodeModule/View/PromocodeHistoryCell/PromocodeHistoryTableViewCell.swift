@@ -23,7 +23,6 @@ class PromocodeHistoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func layoutSubviews() {
@@ -39,6 +38,7 @@ class PromocodeHistoryTableViewCell: UITableViewCell {
     
     
     func setupCell(with data: PromocodeHistoryData, vcState: PromocodeHistoryViewControllerStates) {
+        
         self.codeLabel.text = data.code
         self.descriptionLabel.text = data.shortDescription
         self.expirationImageView.image = UIImage(named: CustomImagesNames.promocodeExpire.rawValue)

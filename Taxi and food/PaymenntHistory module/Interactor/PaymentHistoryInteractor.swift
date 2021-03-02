@@ -12,7 +12,7 @@ protocol PaymentHistoryInteractorProtocol: class {
     
     var view: PaymentHistoryViewProtocol! { get }
     var isPaymentLoad: Bool { get set }
-    var paymentHistotyData: [PaymentsHistoryResponseData] { get set }
+    var paymentHistoryData: [PaymentsHistoryResponseData] { get set }
     
     init(view: PaymentHistoryViewProtocol)
     
@@ -26,7 +26,7 @@ class PaymentHistoryInteractor: PaymentHistoryInteractorProtocol {
     
     var isPaymentLoad: Bool = false
     
-    var paymentHistotyData: [PaymentsHistoryResponseData] = []
+    var paymentHistoryData: [PaymentsHistoryResponseData] = []
 
     
     required init(view: PaymentHistoryViewProtocol) {
@@ -53,7 +53,7 @@ class PaymentHistoryInteractor: PaymentHistoryInteractorProtocol {
             switch result {
             
             case .success(let response):
-                self.paymentHistotyData = response.data
+                self.paymentHistoryData = response.data
                 self.view.setupViewElements()
             case .failure(let error):
                 print(error)
