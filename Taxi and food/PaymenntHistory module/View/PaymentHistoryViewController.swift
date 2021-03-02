@@ -158,6 +158,7 @@ extension PaymentHistoryViewController: UITableViewDataSource, UITableViewDelega
     
 }
 
+//MARK: - UISearchBarDelegate
 extension PaymentHistoryViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
