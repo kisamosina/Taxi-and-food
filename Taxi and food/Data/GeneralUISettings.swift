@@ -40,6 +40,8 @@ enum Colors {
     case InactiveViewColor
     case mapMenuColor
     case redTextColor
+    case logOutButtonBorderColor
+    
     
     func getColor() -> UIColor {
         switch self {
@@ -74,6 +76,8 @@ enum Colors {
             return UIColor(hexString: "#FBFBFB")
         case .redTextColor:
             return UIColor(hexString: "#FF3B30")
+        case .logOutButtonBorderColor:
+            return UIColor(hexString: "#C6C6C8")
         }
     }
 }
@@ -91,6 +95,8 @@ enum CustomImagesNames: String {
     case paymentHistoryBackground
     case visaIcon
     case mastercardIcon
+    case saw
+    case paBackground
 }
 
 enum StoryBoards: String {
@@ -99,6 +105,7 @@ enum StoryBoards: String {
     case Promocode
     case Service
     case PaymentHistory
+    case PersonalAccount
 }
 
 enum ViewControllers: String {
@@ -113,6 +120,8 @@ enum ViewControllers: String {
     case PromocodeHistoryViewController
     case SentViewController
     case PaymentHistoryViewController
+    case InactiveViewController
+    case PersonalAccountViewController
 }
 
 

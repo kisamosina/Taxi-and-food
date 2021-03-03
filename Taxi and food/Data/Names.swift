@@ -49,4 +49,8 @@ import Foundation
  PaymentHistoryInteractor
  PaymentsHistoryModels
  PaymentHistoryTableViewCell
+ InactiveViewController
+ PersonalAccountUIData
+ PersonalAccountViewController
+ PersonalAccount
  */

@@ -132,6 +132,11 @@
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
 		7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MapViewController.swift */; };
 		7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */; };
+		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
+		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
+		7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */; };
+		7DD6B17525F01A8B00445407 /* PersonalAccountUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */; };
+		7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B17925F01C9500445407 /* LogOutButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +288,11 @@
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA68225D67F0300C35652 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthAndMap.storyboard; sourceTree = "<group>"; };
+		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
+		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
+		7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
+		7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountUIData.swift; sourceTree = "<group>"; };
+		7DD6B17925F01C9500445407 /* LogOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +461,7 @@
 				041E299425E20D4D00CA9F56 /* PersonalData module */,
 				041E297E25DE1DBE00CA9F56 /* Settings module */,
 				04B5656725D681BC00E0EC25 /* Service module */,
+				7DD6B16B25F012C000445407 /* PersonalAccount module */,
 				7B3A8FD325EA8BF6008CA13E /* PaymenntHistory module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
@@ -634,6 +645,7 @@
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
+				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
 				7B3A8FEF25EA976B008CA13E /* PaymentHistoryUIData.swift */,
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
 				7B75CF8A25E00B9B001981CA /* MainBottomButtonUIData.swift */,
@@ -687,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				7B3A8FD725EA918C008CA13E /* PaymentHistoryViewController.swift */,
+				7DD6B16125EFF8A600445407 /* InactiveViewController.swift */,
 				7B3A900725EAA31C008CA13E /* PaymentHistoryTableViewCell */,
 			);
 			path = View;
@@ -753,6 +766,7 @@
 			children = (
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
+				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
 				7B75CFA425E03D5A001981CA /* MapBottomView.swift */,
 				7B47C87625E1458900F366FE /* MenuView.swift */,
@@ -888,6 +902,15 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		7DD6B16B25F012C000445407 /* PersonalAccount module */ = {
+			isa = PBXGroup;
+			children = (
+				7DD6B16625F012B900445407 /* PersonalAccount.storyboard */,
+				7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */,
+			);
+			path = "PersonalAccount module";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -992,6 +1015,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */,
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
@@ -1040,6 +1064,7 @@
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
 				7B3A900225EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift in Sources */,
+				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
 				041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
@@ -1059,6 +1084,7 @@
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
 				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,
+				7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */,
 				7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
@@ -1109,6 +1135,7 @@
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
+				7DD6B17525F01A8B00445407 /* PersonalAccountUIData.swift in Sources */,
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
@@ -1138,6 +1165,7 @@
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,
 				7B3A8FF025EA976B008CA13E /* PaymentHistoryUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,
+				7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */,
 				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1306,6 +1334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98379XS7GB;
 				INFOPLIST_FILE = "Taxi and food/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1323,6 +1352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98379XS7GB;
 				INFOPLIST_FILE = "Taxi and food/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -17,7 +17,7 @@ protocol PaymentHistoryViewProtocol: class {
 class PaymentHistoryViewController: UIViewController {
     
     var interactor: PaymentHistoryInteractorProtocol!
-    var payDetailView: PaymentHistoryDetailView!
+    
     var vcState: PaymentHistoryViewControllerStates = .normal
     
     //MARK: - IBOutlets
@@ -26,21 +26,19 @@ class PaymentHistoryViewController: UIViewController {
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var coverView: UIView!
-    
+        
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.interactor = PaymentHistoryInteractor(view: self)
-        self.coverView.alpha = 0
         self.emptyLabel.text = PaymentHistoryViewControllerTexts.emptyLabelText
         self.searchBar.placeholder = PaymentHistoryViewControllerTexts.searchBarPlaceholder
+        self.navigationItem.title = PaymentHistoryViewControllerTexts.title
         self.setupTableView()
         self.setupViewElements()
-        self.addGestureRecognizerToCoverView()
-     
+             
     }
     
     //MARK: - IBActions
@@ -55,46 +53,6 @@ class PaymentHistoryViewController: UIViewController {
 
     }
     
-    private func showPaymentHistoryDetailView(for cell: CGRect, and data: PaymentsHistoryResponseData) {
-        
-        let rect = CGRect(x: cell.origin.x,
-                          y: cell.origin.y,
-                          width: PaymentHistoryDetailViewUIData.width.rawValue,
-                          height: PaymentHistoryDetailViewUIData.height.rawValue)
-        
-        self.payDetailView = PaymentHistoryDetailView(frame: rect)
-        self.payDetailView.alpha = 0
-        self.payDetailView.setupView(by: data)
-        self.view.addSubview(payDetailView)
-        
-        //Animation
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.coverView.alpha = 1
-                        payDetailView.alpha = 1
-                        payDetailView.frame = CGRect(x: self.view.bounds.width/2 - PaymentHistoryDetailViewUIData.width.rawValue/2,
-                                                     y: self.view.bounds.height/2 - PaymentHistoryDetailViewUIData.height.rawValue/2,
-                                                     width: PaymentHistoryDetailViewUIData.width.rawValue,
-                                                     height: PaymentHistoryDetailViewUIData.height.rawValue)
-                       },
-                       completion: nil)
-    }
-    
-    private func addGestureRecognizerToCoverView() {
-        let touchRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnCoverView))
-        self.coverView.addGestureRecognizer(touchRecognizer)
-    }
-    
-    @objc func tapOnCoverView() {
-        self.coverView.alpha = 0
-        self.payDetailView.removeFromSuperview()
-    }
 }
 //MARK: - PaymentHistoryViewProtocol extension
 
@@ -153,7 +111,10 @@ extension PaymentHistoryViewController: UITableViewDataSource, UITableViewDelega
         let rectOfCell = tableView.rectForRow(at: indexPath)
         let rectOfCellInSuperview = tableView.convert(rectOfCell, to: tableView.superview)
         guard let cell = tableView.cellForRow(at: indexPath) as? PaymentHistoryTableViewCell else { return }
-        self.showPaymentHistoryDetailView(for: rectOfCellInSuperview, and: cell.paymentHistoryData)
+        let storyboard = UIStoryboard(name: StoryBoards.PaymentHistory.rawValue, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(identifier: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else  { return }
+        vc.setCellRectAndDetailViewData(rect: rectOfCellInSuperview, data: cell.paymentHistoryData)
+        self.present(vc, animated: false)
     }
     
 }

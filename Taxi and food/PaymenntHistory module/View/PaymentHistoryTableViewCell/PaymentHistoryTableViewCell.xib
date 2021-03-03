@@ -77,11 +77,20 @@
                             <constraint firstAttribute="trailing" secondItem="pbf-e1-jGW" secondAttribute="trailing" constant="15" id="zjI-aE-xYV"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saw" translatesAutoresizingMaskIntoConstraints="NO" id="3IR-Jn-aYw">
+                        <rect key="frame" x="25" y="175" width="325" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="uJo-EJ-qtY"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="2vx-x1-NL9" secondAttribute="trailing" constant="25" id="8ap-dp-QKh"/>
+                    <constraint firstAttribute="trailing" secondItem="3IR-Jn-aYw" secondAttribute="trailing" constant="25" id="Qha-nS-T9y"/>
                     <constraint firstItem="2vx-x1-NL9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="aj6-WZ-XHh"/>
                     <constraint firstItem="2vx-x1-NL9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b0H-AU-oPy"/>
+                    <constraint firstItem="3IR-Jn-aYw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="bBU-NL-vJb"/>
+                    <constraint firstAttribute="bottom" secondItem="3IR-Jn-aYw" secondAttribute="bottom" id="jh7-Kt-3lp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -98,5 +107,6 @@
     </objects>
     <resources>
         <image name="payment" width="66" height="20"/>
+        <image name="saw" width="162" height="12.5"/>
     </resources>
 </document>

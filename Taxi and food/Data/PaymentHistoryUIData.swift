@@ -16,6 +16,7 @@ struct PaymentHistoryViewControllerTexts {
         case payment = "Платеж № "
         case description = "Разнообразный и богатый опыт говорит нам, что повышение уровня гражданского сознания способствует повышению качества существующих финансовых и административных условий. Предварительные выводы неутешительны: понимание сути ресурсосберегающих технологий предопределяет высокую востребованность дальнейших направлений развития."
         case searchBarPlaceholder = "Введите искомую сумму"
+        case title = "История платежей"
     }
     
     private enum EngTexts: String {
@@ -24,6 +25,7 @@ struct PaymentHistoryViewControllerTexts {
         case payment = "Payment № "
         case description = "Diverse and rich experience tells us that raising the level of raising the level of civic awareness improves the quality of financial and administrative conditions. The preliminary conclusions are disappointing: understanding the essence of resource-saving technologies predetermines the demand for further development."
         case searchBarPlaceholder = "Enter searching sum"
+        case title = "Payment History"
     }
     
     static var emptyLabelText: String {
@@ -79,6 +81,18 @@ struct PaymentHistoryViewControllerTexts {
             return RusTexts.searchBarPlaceholder.rawValue
         case .eng:
             return EngTexts.searchBarPlaceholder.rawValue
+        }
+
+    }
+    
+    static var title: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.title.rawValue
+        case .eng:
+            return EngTexts.title.rawValue
         }
 
     }
