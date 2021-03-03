@@ -59,7 +59,7 @@ extension PromoShortViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         mediaId = interactor.promos[indexPath.row].id
         print("id here")

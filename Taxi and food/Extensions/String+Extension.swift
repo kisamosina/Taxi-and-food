@@ -40,4 +40,8 @@ extension String {
         
         return "\(self)/\(id)"
     }
+    
+    func addNanoSec() -> String {
+        return "\(self) +0000"
+    }
 }

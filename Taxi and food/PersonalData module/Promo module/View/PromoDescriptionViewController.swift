@@ -16,6 +16,7 @@ protocol PromoDescriptionViewProtocol: class {
 }
 
 class PromoDescriptionViewController: UIViewController {
+    @IBOutlet var unavailableLabel: UILabel!
     @IBOutlet weak var buyButton: MainBottomButton!
     
     @IBOutlet var nameLabel: UILabel!
@@ -32,6 +33,8 @@ class PromoDescriptionViewController: UIViewController {
     
     var id: Int?
     var data: [PromoFullData] = []
+    var availableByDate: Bool!
+    var availableByTime: Bool!
     
     var interactor: PromoDescriptionIneractorProtocol!
     
@@ -44,16 +47,20 @@ class PromoDescriptionViewController: UIViewController {
         self.interactor = PromoDescriptionInteractor(view: self)
         
         interactor.getPromosDescription(for: id!)
+       
         
         print("description")
         print(interactor.promo)
         
         setUp()
+ 
+    }
+    @IBAction func buyButtonTapped(_ sender: Any) {
         
+        if availableByTime == true { performSegue() } else {
+             self.unavailableLabel.text = PromoViewControllerText.unavailableLabelTitleText
+        }
         
-//        showBackground(for: self.media ?? PromoMedia(url: "", file_name: ""))
-       
-       
     }
     
     func showBackground(for media: PromoMedia) {
@@ -95,9 +102,10 @@ class PromoDescriptionViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.sizeToFit()
         nameLabel.sizeToFit()
-        
-        self.buyButton.setupAs(.goBuy)
-        
+        unavailableLabel.text = ""
+        unavailableLabel.numberOfLines = 2
+        unavailableLabel.textColor = .white
+       
     
     }
 
@@ -110,10 +118,26 @@ extension PromoDescriptionViewController: PromoDescriptionViewProtocol {
             self.showBackground(for: self.interactor.promo?.media[0] ?? PromoMedia(url: "", file_name: ""))
             self.nameLabel.text = self.interactor.promo?.title
             self.descriptionLabel.text = self.interactor.promo?.description
-        
-        
+            self.buyButton.setupAs(.goBuy)
             
+            self.availableByDate = self.interactor.isPromoAvailableByDate()
+            self.availableByTime = self.interactor.isPromoAvailableByTime()
+            
+//            if self.availableByTime == false {
+//                self.unavailableLabel.text = PromoViewControllerText.unavailableLabelTitleText
+//            }
+   
         }
     }
     
+}
+
+extension PromoDescriptionViewController {
+    
+    func performSegue() {
+        let storyboard = UIStoryboard(name: StoryBoards.AuthAndMap.rawValue, bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue)
+        self.navigationController?.pushViewController(vc, animated: true)
+    
+}
 }

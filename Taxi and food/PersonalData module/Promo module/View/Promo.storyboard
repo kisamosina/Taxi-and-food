@@ -116,7 +116,7 @@
                     <navigationItem key="navigationItem" id="5zc-GB-9Dw"/>
                     <connections>
                         <outlet property="tableView" destination="Too-vM-0B3" id="mlG-dl-xiT"/>
-                        <segue destination="oUX-1J-9fA" kind="show" identifier="description" id="GLs-Vo-CbA"/>
+                        <segue destination="oUX-1J-9fA" kind="show" identifier="description" id="ItC-XO-TKY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMi-lE-CSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -155,10 +155,20 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="xbJ-j7-RZd"/>
                                 </constraints>
                                 <color key="tintColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleColor" red="0.23137254901960785" green="0.23921568627450979" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyButtonTapped:" destination="oUX-1J-9fA" eventType="touchUpInside" id="aRH-jF-vgi"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftq-g7-tcP">
+                                <rect key="frame" x="25" y="754" width="364" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -182,6 +192,7 @@
                         <outlet property="buyButton" destination="3D9-5G-9sx" id="BQp-ct-RNl"/>
                         <outlet property="descriptionLabel" destination="5rN-qT-LUJ" id="wN4-nW-z2c"/>
                         <outlet property="nameLabel" destination="uSh-Tj-YnH" id="lLq-Rf-BJg"/>
+                        <outlet property="unavailableLabel" destination="ftq-g7-tcP" id="2Rf-W6-C6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFA-HY-AFT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,6 +202,7 @@
         <!--Navigation Controller-->
         <scene sceneID="9d5-e9-sqX">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsU-Yl-vQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bSS-WU-5JH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7hG-v6-I4o">
@@ -202,9 +214,8 @@
                         <segue destination="Uxw-Za-ChO" kind="relationship" relationship="rootViewController" id="OPm-Yf-iZN"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FsU-Yl-vQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.04347826086959" y="133.92857142857142"/>
+            <point key="canvasLocation" x="213" y="134"/>
         </scene>
     </scenes>
     <resources>

@@ -24,6 +24,7 @@ enum MapBottomViewUIData: CGFloat {
 
 enum MapViewControllerConstraintsData: CGFloat {
     case maximizedTrailingMenuViewConstant = 42
+    case maximizedTopPromoDestinationViewConstant = -265
 }
 
 enum MapMenuViewUIData: CGFloat {
@@ -33,6 +34,12 @@ enum MapMenuViewUIData: CGFloat {
     case shadowOffsetWidth = 2.01
 }
 
+enum MapPromoDestinationViewUIData: CGFloat {
+    case shadowOpacity = 1
+    case cornerRadius = 15
+    case shadowOffsetHeight = 2
+    case shadowOffsetWidth = 2.01
+}
 enum MapInactiveViewAlpha: CGFloat {
     case active = 1
     case inactive = 0

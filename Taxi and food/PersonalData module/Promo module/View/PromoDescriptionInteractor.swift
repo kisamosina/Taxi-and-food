@@ -17,24 +17,23 @@ protocol PromoDescriptionIneractorProtocol: class {
     
     func getPromosDescription(for id: Int)
     
+    func isPromoAvailableByDate() -> Bool
     
-    
+    func isPromoAvailableByTime() -> Bool
+  
 }
 
 class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
 
-    
-    
 
     internal weak var view: PromoDescriptionViewProtocol!
-    
 
-    
     required init(view: PromoDescriptionViewProtocol) {
         self.view = view
     }
     
     var promo: PromoFullData?
+    
        
     
     func getPromosDescription(for id: Int) {
@@ -64,6 +63,78 @@ class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
         }
     }
     
+    func isPromoAvailableByDate() -> Bool {
+        
+        var bool = false
+        
+        let date = Date()
+
+        let promoDate_to = promo?.dateTo ?? ""
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        guard let promoDate = formatter.date(from: promoDate_to) else { return false }
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: promoDate)
+        
+        guard let finalDate = calendar.date(from:components) else { return false}
+        
+        if finalDate >= date {
+            print("true")
+            bool = true
+        }
+        print(promoDate_to)
+        
+        print("promoDate_to")
+        
+        print(promo)
+        
+        return bool
+        
+    }
     
    
+    
+    func isPromoAvailableByTime() -> Bool {
+        
+        var bool = false
+        
+        let date = Date()
+        
+
+        let promoTime_to = promo?.timeTo ?? ""
+        let promoTime_from = promo?.timeFrom ?? ""
+        
+        let promoTime_toSec = promoTime_to.addNanoSec()
+        let promoTime_fromSec = promoTime_from.addNanoSec()
+        
+       
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ssZ"
+
+        
+        guard let promoTimeTo = formatter.date(from: promoTime_toSec) else { return false }
+        guard let promoTimeFrom = formatter.date(from: promoTime_fromSec) else { return false }
+
+        let calendar = Calendar.current
+        let components1 = calendar.dateComponents([.hour, .minute, .second, .nanosecond], from: promoTimeTo)
+        let components2 = calendar.dateComponents([.hour, .minute, .second, .nanosecond], from: promoTimeFrom)
+        let components3 = calendar.dateComponents([.hour, .minute, .second, .nanosecond], from: date)
+
+        guard let finalTimeTo = calendar.date(from:components1) else { return false }
+        guard let finalTimeFrom = calendar.date(from:components2) else { return false }
+        guard let finalTimeCurrent = calendar.date(from:components3) else { return false }
+
+
+        if finalTimeFrom <= finalTimeCurrent && finalTimeTo >= finalTimeCurrent{
+            print("true")
+            bool = true
+        }
+
+        return bool
+        
+    }
+ 
 }

@@ -35,6 +35,7 @@
 		041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */; };
 		041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */; };
 		041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */; };
+		043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
@@ -154,6 +155,7 @@
 		041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortTableViewCell.swift; sourceTree = "<group>"; };
 		041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortViewController.swift; sourceTree = "<group>"; };
 		041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
+		043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDestinationView.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
 				7B75CF1325DC4C53001981CA /* ProblemTextView.swift */,
+				043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -917,6 +920,7 @@
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */,
+				043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,

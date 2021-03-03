@@ -29,16 +29,19 @@ class MapViewController: UIViewController {
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var bottomView: MapBottomView!
     @IBOutlet weak var menuView: MenuView!
+    @IBOutlet var promoDestinationView: PromoDestinationView!
     @IBOutlet weak var inactiveView: UIView!
     @IBOutlet weak var leadingLeftSideViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingLeftSideViewConstraint: NSLayoutConstraint!
     
+    @IBOutlet var topPromoDestinationViewConstraint: NSLayoutConstraint!
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interactor = MapInteractor(view: self)
         self.initViewSetup()
         self.minimizeMenuView()
+        self.minimizePromoDestinationView()
         
     }
     
@@ -52,6 +55,9 @@ class MapViewController: UIViewController {
     @IBAction func menuButtonTapped(_ sender: UIButton) {
         self.inactiveView.alpha = MapInactiveViewAlpha.active.rawValue
         self.animateMenuViewMaximizing()
+        
+//        fix
+        self.animatePromoDestinationViewMaximizing()
     }
     
     
@@ -74,6 +80,7 @@ class MapViewController: UIViewController {
     @IBAction func closeMenuButtonTapped(_ sender: UIButton) {
         self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
         self.animateMenuViewMinimizing()
+        self.animatePromoDestinationViewMinimizing()
         
     }
     
@@ -82,8 +89,16 @@ class MapViewController: UIViewController {
     private func initViewSetup() {
         self.inactiveView.alpha = 0
         self.menuView.alpha = 0
+        self.promoDestinationView.alpha = 0
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
+    }
+    
+    private func initPromoDestinationViewSetUp() {
+        self.inactiveView.alpha = 0
+        self.promoDestinationView.alpha = 0
+        
+        
     }
     
     private func minimizeMenuView() {
@@ -95,6 +110,16 @@ class MapViewController: UIViewController {
         self.leadingLeftSideViewConstraint.constant = 0
         self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
     }
+    
+    private func minimizePromoDestinationView() {
+        self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
+   
+    }
+    
+    private func maximizePromoDestinationView() {
+        self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
+    }
+    
     
     //Remove left menu
     private func removeMenuView() {
@@ -130,6 +155,40 @@ class MapViewController: UIViewController {
                        },
                        completion: nil)
     }
+    
+    private func animatePromoDestinationViewMaximizing() {
+        self.maximizePromoDestinationView()
+        
+        UIView.animate(withDuration: 0.5,
+        delay: 0,
+        usingSpringWithDamping: 0.9,
+        initialSpringVelocity: 1,
+        options: .curveEaseOut,
+        animations: {[weak self] in
+         self?.view.layoutIfNeeded()
+         self?.promoDestinationView.alpha = 1
+        },
+        completion: nil)
+        
+        
+        
+    }
+    
+    private func animatePromoDestinationViewMinimizing() {
+        UIView.animate(withDuration: 0.5,
+        delay: 0,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 1,
+        options: .curveEaseOut,
+        animations: {[weak self] in
+         self?.view.layoutIfNeeded()
+         self?.promoDestinationView.alpha = 0
+        },
+        completion: nil)
+        
+    }
+    
+    
     
 }
 //MARK: - MapViewProtocol
