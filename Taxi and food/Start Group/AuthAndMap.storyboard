@@ -429,12 +429,30 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMF-At-1DK">
                                         <rect key="frame" x="61" y="12" width="250" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29G-aM-h3H" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="330" y="7" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="cue-nH-3GM"/>
+                                            <constraint firstAttribute="height" constant="30" id="ude-6T-SUw"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="closeMenuButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="sdu-PG-uuI"/>
+                                            <action selector="closePromoDescriptionViewTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="cCK-Vq-p2l"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="29G-aM-h3H" secondAttribute="bottom" constant="8" id="3BB-BJ-7WQ"/>
+                                    <constraint firstItem="29G-aM-h3H" firstAttribute="top" secondItem="bal-4K-gGK" secondAttribute="top" constant="7" id="Mez-PA-FI1"/>
+                                    <constraint firstAttribute="trailing" secondItem="29G-aM-h3H" secondAttribute="trailing" constant="12" id="QgX-gh-XYt"/>
+                                    <constraint firstItem="29G-aM-h3H" firstAttribute="leading" secondItem="kMF-At-1DK" secondAttribute="trailing" constant="19" id="hk5-8k-bIZ"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="nameLabel" destination="kMF-At-1DK" id="zQU-SO-Emi"/>
                                 </connections>

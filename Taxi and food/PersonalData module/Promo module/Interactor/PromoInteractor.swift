@@ -13,9 +13,13 @@ protocol PromoInteractorProtocol: class {
     
     var models: [PromoOption] { get set }
     
+    var allPromos: [PromoShortData] { get set }
+    
     init(view: PromoViewProtocol)
     
     func configure()
+    
+    func getAllPromos()
     
 }
 
@@ -25,6 +29,8 @@ class PromoInteractor: PromoInteractorProtocol {
     
     var models: [PromoOption] = []
     
+    var allPromos: [PromoShortData] = []
+    
     required init(view: PromoViewProtocol) {
         self.view = view
     }
@@ -32,8 +38,38 @@ class PromoInteractor: PromoInteractorProtocol {
     func configure() {
         models.append(PromoOption(title: PromoViewControllerText.foodNameLabelTitleText))
         models.append(PromoOption(title: PromoViewControllerText.taxiNameLabelTitleText))
+        
     }
     
+    func getAllPromos() {
+        
+        let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3)
+        print("path")
+        print(path)
+
+        let resource = Resource<PromoResponse>(path: path, requestType: .GET)
+
+        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+
+            case .success(let promoResponse):
+                print(promoResponse.data)
+                self.allPromos = promoResponse.data
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
    
-   }
+    }
+    
+    func getPromo() {
+        for promo in allPromos {
+            
+            
+        }
+    }
+
+}
 

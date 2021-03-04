@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol PromoDescriptionViewProtocol: class {
     var interactor: PromoDescriptionIneractorProtocol! { get set }
     
@@ -16,6 +17,8 @@ protocol PromoDescriptionViewProtocol: class {
 }
 
 class PromoDescriptionViewController: UIViewController {
+    
+    
     @IBOutlet var unavailableLabel: UILabel!
     @IBOutlet weak var buyButton: MainBottomButton!
     
@@ -36,6 +39,8 @@ class PromoDescriptionViewController: UIViewController {
     var availableByDate: Bool!
     var availableByTime: Bool!
     
+  
+   
     var interactor: PromoDescriptionIneractorProtocol!
     
     override func viewDidLoad() {
@@ -81,10 +86,7 @@ class PromoDescriptionViewController: UIViewController {
         }
 
     }
-    
-    
 
-    
     func setUp() {
 
         view.insertSubview(imageView, at: 0)
@@ -115,13 +117,14 @@ extension PromoDescriptionViewController: PromoDescriptionViewProtocol {
     func refresh() {
         DispatchQueue.main.async {
         
-            self.showBackground(for: self.interactor.promo?.media[0] ?? PromoMedia(url: "", file_name: ""))
+            
             self.nameLabel.text = self.interactor.promo?.title
             self.descriptionLabel.text = self.interactor.promo?.description
             self.buyButton.setupAs(.goBuy)
             
             self.availableByDate = self.interactor.isPromoAvailableByDate()
-            self.availableByTime = self.interactor.isPromoAvailableByTime()
+            self.availableByTime = self.interactor.isPromoAvailableByTime(timeFrom:
+                self.interactor.promo?.timeFrom ?? "", timeTo: self.interactor.promo?.timeFrom ?? "")
             
 //            if self.availableByTime == false {
 //                self.unavailableLabel.text = PromoViewControllerText.unavailableLabelTitleText
@@ -136,8 +139,14 @@ extension PromoDescriptionViewController {
     
     func performSegue() {
         let storyboard = UIStoryboard(name: StoryBoards.AuthAndMap.rawValue, bundle: nil)
+
         let vc = storyboard.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue)
         self.navigationController?.pushViewController(vc, animated: true)
+
+}
     
+
 }
-}
+
+
+

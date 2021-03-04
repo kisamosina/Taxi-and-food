@@ -17,6 +17,7 @@ struct PromoResponseFull: Decodable {
 }
 
 struct PromoShortData: Decodable {
+
     var id: Int
     var dateFrom: String?
     var dateTo: String?
@@ -25,6 +26,7 @@ struct PromoShortData: Decodable {
     var type: String?
     var title: String?
     var media: [PromoMedia]
+    
 }
 
 struct PromoFullData: Decodable {
@@ -43,8 +45,10 @@ struct PromoFullData: Decodable {
 
 struct PromoMedia: Decodable {
     var url: String?
-    var file_name: String?
+    
 }
+
+
 
 
 

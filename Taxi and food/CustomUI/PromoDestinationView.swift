@@ -15,7 +15,7 @@ class PromoDestinationView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 //        fix the color
-        self.backgroundColor = .black
+        self.backgroundColor = .white
 
         self.layer.cornerRadius = MapPromoDestinationViewUIData.cornerRadius.rawValue
 

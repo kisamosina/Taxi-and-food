@@ -8,9 +8,13 @@
 import UIKit
 import MapKit
 
+
 protocol MapViewProtocol: class {
     var interactor: MapInteractorProtocol! { get set }
+    var promoDescriptionBackground: UIImage? { get set }
     func showTariffPageVieController(_ tariffs: [TariffData])
+    
+    func refresh()
 }
 
 
@@ -19,6 +23,10 @@ class MapViewController: UIViewController {
     //MARK: - Properties
     
     var interactor: MapInteractorProtocol!
+    
+    var promoDescriptionBackground: UIImage?
+    
+    
     
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -33,8 +41,9 @@ class MapViewController: UIViewController {
     @IBOutlet weak var inactiveView: UIView!
     @IBOutlet weak var leadingLeftSideViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingLeftSideViewConstraint: NSLayoutConstraint!
-    
     @IBOutlet var topPromoDestinationViewConstraint: NSLayoutConstraint!
+    
+    
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +52,19 @@ class MapViewController: UIViewController {
         self.minimizeMenuView()
         self.minimizePromoDestinationView()
         
+           DispatchQueue.global(qos: .background).async {
+
+            self.interactor.getAllPromos()
+            
+
+//            self.showPromos()
+
+        }
+        
+        
+
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,9 +77,7 @@ class MapViewController: UIViewController {
     @IBAction func menuButtonTapped(_ sender: UIButton) {
         self.inactiveView.alpha = MapInactiveViewAlpha.active.rawValue
         self.animateMenuViewMaximizing()
-        
-//        fix
-        self.animatePromoDestinationViewMaximizing()
+
     }
     
     
@@ -80,25 +100,30 @@ class MapViewController: UIViewController {
     @IBAction func closeMenuButtonTapped(_ sender: UIButton) {
         self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
         self.animateMenuViewMinimizing()
-        self.animatePromoDestinationViewMinimizing()
+        
         
     }
     
+    @IBAction func closePromoDescriptionViewTapped(_ sender: Any) {
+        self.animatePromoDestinationViewMinimizing()
+    }
     //MARK: - Methods
     
     private func initViewSetup() {
         self.inactiveView.alpha = 0
         self.menuView.alpha = 0
+        
         self.promoDestinationView.alpha = 0
+        
+
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
-    }
     
+    }
+
     private func initPromoDestinationViewSetUp() {
         self.inactiveView.alpha = 0
         self.promoDestinationView.alpha = 0
-        
-        
     }
     
     private func minimizeMenuView() {
@@ -169,9 +194,7 @@ class MapViewController: UIViewController {
          self?.promoDestinationView.alpha = 1
         },
         completion: nil)
-        
-        
-        
+  
     }
     
     private func animatePromoDestinationViewMinimizing() {
@@ -187,12 +210,11 @@ class MapViewController: UIViewController {
         completion: nil)
         
     }
-    
-    
-    
+  
 }
 //MARK: - MapViewProtocol
 extension MapViewController: MapViewProtocol {
+
     func showTariffPageVieController(_ tariffs: [TariffData]) {
         let storyboard = UIStoryboard(name: StoryBoards.Tarifs.rawValue, bundle: nil)
         DispatchQueue.main.async {
@@ -203,6 +225,32 @@ extension MapViewController: MapViewProtocol {
             self.navigationController?.pushViewController(tariffPageVC, animated: true)
         }
         
+    }
+    
+    func refresh() {
+        
+        DispatchQueue.main.async {
+            
+            guard let promos = self.interactor.promos else {return}
+            
+            for promo in promos {
+                
+                if self.interactor.isPromoAvailableByTime(timeFrom: promo.timeFrom ?? "", timeTo: promo.timeTo ?? "") == true {
+                    self.promoDestinationView.alpha = 1
+                    self.interactor.showBackground(for: promo.media[1])
+                    self.promoDestinationView.backgroundColor = UIColor(patternImage: self.promoDescriptionBackground ?? UIImage())
+                    self.promoDestinationView.nameLabel.text = promo.title
+                    print("promotitle")
+                    print( promo.title)
+                    
+                    
+                    
+                }
+            
+            }
+
+        }
+           
     }
 }
 
@@ -227,3 +275,12 @@ extension MapViewController: MenuViewDelegate {
         }
     }
 }
+
+
+
+
+
+
+
+
+
