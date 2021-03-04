@@ -11,3 +11,103 @@ import Foundation
 enum PersonalAccountCellStringData: String {
     case id = "PersonalAccountCell"
 }
+
+struct PersonalAccountViewControllerTexts {
+    
+    private enum RusTexts: String {
+        case title = "Личный кабинет"
+        case LogoutButtonTitle = "Выйти"
+    }
+    
+    private enum EngTexts: String {
+        case title = "Personal account"
+        case LogoutButtonTitle = "Log out"
+    }
+    
+    private enum RusTableViewTexts: String, CaseIterable {
+        case MyAddresses = "Мои адреса"
+        case PaymentHistory = "История платежей"
+        case OrderHistory = "История заказов"
+        case PaymentWay = "Способ оплаты"
+        
+    }
+    
+    private enum EngTableViewTexts: String, CaseIterable {
+        case MyAddresses = "My addresses"
+        case PaymentHistory = "Payment History"
+        case OrderHistory = "Order History"
+        case PaymentWay = "Payment way"
+    }
+    
+    static var myAddresses: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTableViewTexts.MyAddresses.rawValue
+        case .eng:
+            return EngTableViewTexts.MyAddresses.rawValue
+        }
+    }
+    
+    static var PaymentHistory: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTableViewTexts.PaymentHistory.rawValue
+        case .eng:
+            return EngTableViewTexts.PaymentHistory.rawValue
+        }
+    }
+
+    
+    static var tableViewTextData: [String] {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTableViewTexts.allCases.map { $0.rawValue }
+        case .eng:
+            return EngTableViewTexts.allCases.map { $0.rawValue }
+        }
+    }
+    
+    static var vcTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTexts.title.rawValue
+        case .eng:
+            return EngTexts.title.rawValue
+        }
+    }
+    
+    static var logoutButtonTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTexts.LogoutButtonTitle.rawValue
+        case .eng:
+            return EngTexts.LogoutButtonTitle.rawValue
+        }
+    }
+
+}
+
+
+enum PersonalAccountViewControllerSegues {
+    case PaymentHistory
+    case unknown
+    
+    static func getCase(from text: String) -> PersonalAccountViewControllerSegues {
+        switch text {
+        case PersonalAccountViewControllerTexts.PaymentHistory:
+            return .PaymentHistory
+        default:
+            return unknown
+        }
+    }
+}

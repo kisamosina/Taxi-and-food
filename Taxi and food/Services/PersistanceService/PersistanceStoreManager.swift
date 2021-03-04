@@ -19,14 +19,14 @@ final class PersistanceStoreManager {
         self.context = appDelegate.persistentContainer.viewContext
     }
     
-    func saveUserData(_ userData: ConfirmResponseData) {
+    func saveUserData(_ userData: ConfirmResponseData, phoneNumber: String) {
         DispatchQueue.global(qos: .background).async {
             self.deleteUserData()
             let newUserData = PersistanceUserData(context: self.context)
             newUserData.id = Int32(userData.id)
             newUserData.email = userData.email
             newUserData.name = userData.name
-            
+            newUserData.phoneNumber = phoneNumber
             self.save()
         }
     }

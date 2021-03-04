@@ -97,6 +97,7 @@ enum CustomImagesNames: String {
     case mastercardIcon
     case saw
     case paBackground
+    case lkBlue
 }
 
 enum StoryBoards: String {

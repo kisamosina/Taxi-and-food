@@ -53,4 +53,6 @@ import Foundation
  PersonalAccountUIData
  PersonalAccountViewController
  PersonalAccount
+ PersonalAccountProtocols
+ PersonalAccountInteractor
  */

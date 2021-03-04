@@ -57,6 +57,9 @@ class MapViewController: UIViewController {
     
     
     @IBAction func lkButtonTapped(_ sender: UIButton) {
+        let vc = self.getViewController(storyboardId: StoryBoards.PersonalAccount.rawValue, viewControllerId: ViewControllers.PersonalAccountViewController.rawValue)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     

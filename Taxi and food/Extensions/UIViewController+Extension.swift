@@ -24,3 +24,11 @@ extension UIViewController {
 
     
 }
+
+extension UIViewController {
+    
+    func getViewController(storyboardId: String, viewControllerId: String ) -> UIViewController {
+        let storyboard = UIStoryboard(name: storyboardId, bundle: nil)
+        return storyboard.instantiateViewController(identifier: viewControllerId)
+    }
+}

@@ -30,6 +30,12 @@ class PromocodeHistoryViewController: UIViewController {
         self.interactor = PromocodeHistoryInteractor(view: self)
         self.tableViewSetup()
         self.setupUIUnits()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     //MARK:- IBAction
