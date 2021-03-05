@@ -116,8 +116,10 @@ extension PaymentHistoryViewController: UITableViewDataSource, UITableViewDelega
         let rectOfCell = tableView.rectForRow(at: indexPath)
         let rectOfCellInSuperview = tableView.convert(rectOfCell, to: tableView.superview)
         guard let cell = tableView.cellForRow(at: indexPath) as? PaymentHistoryTableViewCell else { return }
-        let storyboard = UIStoryboard(name: StoryBoards.PaymentHistory.rawValue, bundle: nil)
-        guard let vc = storyboard.instantiateViewController(identifier: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else  { return }
+        guard let vc = self.getViewController(storyboardId: StoryBoards.Inactive.rawValue,
+                                              viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController
+        else  { return }
+        
         vc.setCellRectAndDetailViewData(rect: rectOfCellInSuperview, data: cell.paymentHistoryData)
         self.present(vc, animated: false)
     }

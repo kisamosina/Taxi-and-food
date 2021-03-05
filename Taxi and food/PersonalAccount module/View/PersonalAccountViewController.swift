@@ -34,12 +34,14 @@ class PersonalAccountViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
-
     }
     
     //MARK: - IBActions
     
     @IBAction func logOutButtonTapped(_ sender: UIButton) {
+        guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
+        vc.setLogoutState()
+        self.present(vc, animated: false)
     }
     
     //MARK: - Methods
@@ -82,6 +84,6 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
     
 }
 
-//MARK:
+//MARK: - PersonalAccountViewProtocol
 
 extension PersonalAccountViewController: PersonalAccountViewProtocol { }

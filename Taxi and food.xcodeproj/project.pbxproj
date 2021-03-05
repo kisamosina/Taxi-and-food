@@ -136,6 +136,13 @@
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
 		7D823E9F25F158CF006B174B /* PersonalAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9E25F158CF006B174B /* PersonalAccountCell.swift */; };
+		7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D823EB425F2A908006B174B /* Inactive.storyboard */; };
+		7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */; };
+		7D823EC625F2AE50006B174B /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EC525F2AE50006B174B /* LogoutView.swift */; };
+		7D823ED225F2AE7F006B174B /* LogoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D823ED125F2AE7F006B174B /* LogoutView.xib */; };
+		7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */; };
+		7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */; };
+		7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
 		7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */; };
@@ -296,6 +303,13 @@
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
 		7D823E9E25F158CF006B174B /* PersonalAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountCell.swift; sourceTree = "<group>"; };
+		7D823EB425F2A908006B174B /* Inactive.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Inactive.storyboard; sourceTree = "<group>"; };
+		7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewControllerUIData.swift; sourceTree = "<group>"; };
+		7D823EC525F2AE50006B174B /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		7D823ED125F2AE7F006B174B /* LogoutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutView.xib; sourceTree = "<group>"; };
+		7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewUIData.swift; sourceTree = "<group>"; };
+		7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewDelegate.swift; sourceTree = "<group>"; };
 		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
 		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
 		7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
@@ -471,6 +485,7 @@
 				04B5656725D681BC00E0EC25 /* Service module */,
 				7DD6B16B25F012C000445407 /* PersonalAccount module */,
 				7B3A8FD325EA8BF6008CA13E /* PaymenntHistory module */,
+				7D823EB925F2A995006B174B /* InactivewView module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
@@ -553,6 +568,7 @@
 				7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */,
 				7BB36F3925E6B90600649669 /* Formatter+Extension.swift */,
 				7BB36F3E25E6B94100649669 /* Date+Extension.swift */,
+				7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */,
 				7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */,
 				7B75CEEE25DAF622001981CA /* String+Extension.swift */,
 				7BB36F4625E6CC3700649669 /* DateFormatter+Extension.swift */,
@@ -649,8 +665,10 @@
 				7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */,
 				7BB36F6725E8167000649669 /* SentVCShowingCases.swift */,
 				7B75D02725E512EE001981CA /* PromocodeModuleData.swift */,
+				7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */,
 				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
+				7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
@@ -707,7 +725,6 @@
 			isa = PBXGroup;
 			children = (
 				7B3A8FD725EA918C008CA13E /* PaymentHistoryViewController.swift */,
-				7DD6B16125EFF8A600445407 /* InactiveViewController.swift */,
 				7B3A900725EAA31C008CA13E /* PaymentHistoryTableViewCell */,
 			);
 			path = View;
@@ -772,6 +789,8 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
+				7D823ECD25F2AE5F006B174B /* LogoutView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
@@ -780,7 +799,6 @@
 				7B47C87625E1458900F366FE /* MenuView.swift */,
 				7B75CF9425E03861001981CA /* MapRoundButton.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
-				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
 				7B47C87B25E147E700F366FE /* CloseMenuButton.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
@@ -943,6 +961,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7D823EB925F2A995006B174B /* InactivewView module */ = {
+			isa = PBXGroup;
+			children = (
+				7DD6B16125EFF8A600445407 /* InactiveViewController.swift */,
+				7D823EB425F2A908006B174B /* Inactive.storyboard */,
+			);
+			path = "InactivewView module";
+			sourceTree = "<group>";
+		};
+		7D823ECD25F2AE5F006B174B /* LogoutView */ = {
+			isa = PBXGroup;
+			children = (
+				7D823EC525F2AE50006B174B /* LogoutView.swift */,
+				7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */,
+				7D823ED125F2AE7F006B174B /* LogoutView.xib */,
+			);
+			path = LogoutView;
+			sourceTree = "<group>";
+		};
 		7DD6B16B25F012C000445407 /* PersonalAccount module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,6 +1100,7 @@
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
+				7D823ED225F2AE7F006B174B /* LogoutView.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
 				7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */,
@@ -1070,6 +1108,7 @@
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				7B3A900325EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib in Resources */,
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
+				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
@@ -1135,6 +1174,7 @@
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
 				7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
+				7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
@@ -1160,6 +1200,8 @@
 				7B3A901B25ED60CE008CA13E /* PaymentHistoryDetailView.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
+				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
+				7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
 				7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */,
 				7B75D02825E512EE001981CA /* PromocodeModuleData.swift in Sources */,
@@ -1195,6 +1237,7 @@
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
 				041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */,
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
+				7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */,
 				7B75CF5125DD71E1001981CA /* TarifResponse.swift in Sources */,
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,
 				7B47C89C25E6820100F366FE /* PromocodeHistoryInteractor.swift in Sources */,
@@ -1208,6 +1251,7 @@
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				7D823EC625F2AE50006B174B /* LogoutView.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,
 				7B3A8FF025EA976B008CA13E /* PaymentHistoryUIData.swift in Sources */,

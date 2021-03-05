@@ -74,30 +74,6 @@
             </objects>
             <point key="canvasLocation" x="910.14492753623199" y="104.46428571428571"/>
         </scene>
-        <!--Inactive View Controller-->
-        <scene sceneID="3w2-Rw-qRU">
-            <objects>
-                <viewController storyboardIdentifier="InactiveViewController" modalPresentationStyle="overFullScreen" id="gQm-fn-6SK" customClass="InactiveViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MG4-Hr-DwK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="qHT-jh-94K"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="xmh-zE-I8Q" appends="YES" id="vJJ-ct-856"/>
-                        </connections>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o0g-CC-Lod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="xmh-zE-I8Q">
-                    <connections>
-                        <action selector="userTapped:" destination="gQm-fn-6SK" id="4i2-tR-Rve"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1886" y="122"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="knG-lM-DTr">
             <objects>

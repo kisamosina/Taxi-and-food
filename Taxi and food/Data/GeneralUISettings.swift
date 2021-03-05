@@ -107,6 +107,7 @@ enum StoryBoards: String {
     case Service
     case PaymentHistory
     case PersonalAccount
+    case Inactive
 }
 
 enum ViewControllers: String {
@@ -141,3 +142,5 @@ enum BordersWidths: CGFloat {
 enum NotificationsIdentifiers: String {
     case confirmtaionCode
 }
+
+
