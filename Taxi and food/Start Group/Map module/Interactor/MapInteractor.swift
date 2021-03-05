@@ -22,10 +22,7 @@ protocol MapInteractorProtocol: class {
     func getTarifs()
     func getAllPromos()
     func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
-    func showBackground(for media: PromoMedia)
-    
-    
-    
+   
 }
 
 class MapInteractor: MapInteractorProtocol {
@@ -80,7 +77,7 @@ class MapInteractor: MapInteractorProtocol {
 
              case .success(let promoResponse):
                 self.promos = promoResponse.data
-                self.view.refresh()
+                self.view.updateData()
                  print(promoResponse.data)
 
 
@@ -136,24 +133,5 @@ class MapInteractor: MapInteractorProtocol {
             return bool
             
         }
-    
-    func showBackground(for media: PromoMedia) {
-
-        NetworkService.shared.loadImageData(for: media.url ?? "") { [weak self] result in
-            guard let self = self  else { return }
-
-            switch result {
-            case .success(let imgData):
-                let image = UIImage(data: imgData)
-                self.view.promoDescriptionBackground = image
-                print("success")
-                
-                
-            case .failure(let error):
-                print("Error while load advantage image: \(error.localizedDescription)")
-            }
-        }
-
-    }
-        
+      
 }

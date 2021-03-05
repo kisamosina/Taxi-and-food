@@ -14,7 +14,7 @@ protocol MapViewProtocol: class {
     var promoDescriptionBackground: UIImage? { get set }
     func showTariffPageVieController(_ tariffs: [TariffData])
     
-    func refresh()
+    func updateData()
 }
 
 
@@ -227,7 +227,7 @@ extension MapViewController: MapViewProtocol {
         
     }
     
-    func refresh() {
+    func updateData() {
         
         DispatchQueue.main.async {
             
@@ -237,8 +237,7 @@ extension MapViewController: MapViewProtocol {
                 
                 if self.interactor.isPromoAvailableByTime(timeFrom: promo.timeFrom ?? "", timeTo: promo.timeTo ?? "") == true {
                     self.promoDestinationView.alpha = 1
-                    self.interactor.showBackground(for: promo.media[1])
-                    self.promoDestinationView.backgroundColor = UIColor(patternImage: self.promoDescriptionBackground ?? UIImage())
+                    self.promoDestinationView.imageView.webImage(promo.media[1].url ?? "")
                     self.promoDestinationView.nameLabel.text = promo.title
                     print("promotitle")
                     print( promo.title)
@@ -275,12 +274,3 @@ extension MapViewController: MenuViewDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-

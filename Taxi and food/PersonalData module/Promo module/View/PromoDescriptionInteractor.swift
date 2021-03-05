@@ -36,9 +36,7 @@ class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
     }
     
     var promo: PromoFullData?
-    
-       
-    
+
     func getPromosDescription(for id: Int) {
         
         let path = PromoDescriptionPath.path.rawValue.getServerPath(for: 3).getPromoDescription(for: id)

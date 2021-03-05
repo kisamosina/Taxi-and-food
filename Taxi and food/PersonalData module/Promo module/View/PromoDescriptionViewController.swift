@@ -9,11 +9,14 @@
 import UIKit
 
 
+import UIKit
+
+
 protocol PromoDescriptionViewProtocol: class {
     var interactor: PromoDescriptionIneractorProtocol! { get set }
     
     func refresh()
-    
+
 }
 
 class PromoDescriptionViewController: UIViewController {
@@ -68,24 +71,7 @@ class PromoDescriptionViewController: UIViewController {
         
     }
     
-    func showBackground(for media: PromoMedia) {
 
-        NetworkService.shared.loadImageData(for: media.url ?? "") { [weak self] result in
-            guard let self = self  else { return }
-
-            switch result {
-            case .success(let imgData):
-                let image = UIImage(data: imgData)
-                imageView.image = image
-                print("success")
-                
-                
-            case .failure(let error):
-                print("Error while load advantage image: \(error.localizedDescription)")
-            }
-        }
-
-    }
 
     func setUp() {
 
@@ -122,13 +108,12 @@ extension PromoDescriptionViewController: PromoDescriptionViewProtocol {
             self.descriptionLabel.text = self.interactor.promo?.description
             self.buyButton.setupAs(.goBuy)
             
+            self.imageView.webImage(self.interactor.promo?.media[0].url ?? "")
+            
             self.availableByDate = self.interactor.isPromoAvailableByDate()
             self.availableByTime = self.interactor.isPromoAvailableByTime(timeFrom:
                 self.interactor.promo?.timeFrom ?? "", timeTo: self.interactor.promo?.timeFrom ?? "")
-            
-//            if self.availableByTime == false {
-//                self.unavailableLabel.text = PromoViewControllerText.unavailableLabelTitleText
-//            }
+
    
         }
     }
@@ -142,11 +127,7 @@ extension PromoDescriptionViewController {
 
         let vc = storyboard.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue)
         self.navigationController?.pushViewController(vc, animated: true)
-
 }
     
 
 }
-
-
-
