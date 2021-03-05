@@ -8,7 +8,11 @@
 
 import Foundation
 
-
+protocol PromoDescriptionDelegateProtocol: class {
+    
+    func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
+    
+}
 
 protocol PromoDescriptionIneractorProtocol: class {
     var view: PromoDescriptionViewProtocol! { get }
@@ -22,10 +26,11 @@ protocol PromoDescriptionIneractorProtocol: class {
     func isPromoAvailableByDate() -> Bool
     
     func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
+    
   
 }
 
-class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
+class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol, PromoDescriptionDelegateProtocol {
     
     var description: String?
 
@@ -95,14 +100,11 @@ class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
     
    
     
-    public func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool {
+    func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool {
         
         var bool = false
         let date = Date()
-        
-        
-//        let promoTime_from = promo?.timeFrom ?? ""
-//        let promoTime_to = promo?.timeTo ?? ""
+
         
         
         let promoTime_fromSec = timeFrom.addNanoSec()

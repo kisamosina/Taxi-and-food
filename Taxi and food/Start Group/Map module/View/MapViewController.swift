@@ -235,15 +235,14 @@ extension MapViewController: MapViewProtocol {
             
             for promo in promos {
                 
+                
+                
                 if self.interactor.isPromoAvailableByTime(timeFrom: promo.timeFrom ?? "", timeTo: promo.timeTo ?? "") == true {
                     self.promoDestinationView.alpha = 1
                     self.promoDestinationView.imageView.webImage(promo.media[1].url ?? "")
                     self.promoDestinationView.nameLabel.text = promo.title
-                    print("promotitle")
-                    print( promo.title)
-                    
-                    
-                    
+
+
                 }
             
             }
@@ -274,3 +273,5 @@ extension MapViewController: MenuViewDelegate {
         }
     }
 }
+
+

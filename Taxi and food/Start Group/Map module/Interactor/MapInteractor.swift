@@ -96,12 +96,6 @@ class MapInteractor: MapInteractorProtocol {
         print("mydate")
         print(date)
 
-
-            
-    //        let promoTime_from = promo?.timeFrom ?? ""
-    //        let promoTime_to = promo?.timeTo ?? ""
-            
-            
             let promoTime_fromSec = timeFrom.addNanoSec()
             let promoTime_toSec = timeTo.addNanoSec()
             
