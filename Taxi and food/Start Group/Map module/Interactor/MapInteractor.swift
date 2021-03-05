@@ -15,8 +15,7 @@ protocol MapInteractorProtocol: class {
     
     var promos: [PromoShortData]? { get }
     
-    var promoDescriptionBackgrounds: UIImage? { get set }
-    
+
     init(view: MapViewProtocol)
     
     func getTarifs()
@@ -26,9 +25,8 @@ protocol MapInteractorProtocol: class {
 }
 
 class MapInteractor: MapInteractorProtocol {
-    var promoDescriptionBackgrounds: UIImage?
-    
-    
+  
+ 
     var promos: [PromoShortData]?
     
    

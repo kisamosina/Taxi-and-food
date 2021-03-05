@@ -11,7 +11,6 @@ import MapKit
 
 protocol MapViewProtocol: class {
     var interactor: MapInteractorProtocol! { get set }
-    var promoDescriptionBackground: UIImage? { get set }
     func showTariffPageVieController(_ tariffs: [TariffData])
     
     func updateData()
@@ -24,10 +23,7 @@ class MapViewController: UIViewController {
     
     var interactor: MapInteractorProtocol!
     
-    var promoDescriptionBackground: UIImage?
-    
-    
-    
+
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var menuButton: MapRoundButton!
@@ -214,6 +210,8 @@ class MapViewController: UIViewController {
 }
 //MARK: - MapViewProtocol
 extension MapViewController: MapViewProtocol {
+
+    
 
     func showTariffPageVieController(_ tariffs: [TariffData]) {
         let storyboard = UIStoryboard(name: StoryBoards.Tarifs.rawValue, bundle: nil)
