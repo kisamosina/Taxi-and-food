@@ -42,6 +42,9 @@
 		0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */; };
 		0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */; };
 		0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */; };
+		049A3F6725F1F66400C31AED /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049A3F6625F1F66400C31AED /* Address.storyboard */; };
+		049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A3F6A25F20F5300C31AED /* AddressViewController.swift */; };
+		049A3F6D25F2100500C31AED /* AddressModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */; };
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
 		04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651D25D6591700E0EC25 /* Assets.xcassets */; };
@@ -162,6 +165,9 @@
 		0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewControllerUIData.swift; sourceTree = "<group>"; };
 		0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewControllerUIData.swift; sourceTree = "<group>"; };
 		0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewControllerUIData.swift; sourceTree = "<group>"; };
+		049A3F6625F1F66400C31AED /* Address.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
+		049A3F6A25F20F5300C31AED /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModuleUIData.swift; sourceTree = "<group>"; };
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +378,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		049A3F6525F1F61900C31AED /* Address module */ = {
+			isa = PBXGroup;
+			children = (
+				049A3F6825F20EF900C31AED /* View */,
+				049A3F6925F20F0900C31AED /* Interactor */,
+			);
+			path = "Address module";
+			sourceTree = "<group>";
+		};
+		049A3F6825F20EF900C31AED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049A3F6A25F20F5300C31AED /* AddressViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049A3F6925F20F0900C31AED /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		04B5650525D6591200E0EC25 = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +427,8 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
+				049A3F6525F1F61900C31AED /* Address module */,
+				049A3F6625F1F66400C31AED /* Address.storyboard */,
 				7B47C81E25DD299F00F366FE /* Tariffs Module */,
 				041E29BD25E7662600CA9F56 /* Promo module */,
 				041E299425E20D4D00CA9F56 /* PersonalData module */,
@@ -553,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				7B75CFDE25E3CBEC001981CA /* Taxi_and_food.xcdatamodeld */,
+				049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */,
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
 				7B75CF9925E038F4001981CA /* MapViewControllerUIData.swift */,
@@ -833,6 +866,7 @@
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
+				049A3F6725F1F66400C31AED /* Address.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
@@ -873,6 +907,7 @@
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
+				049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
@@ -884,6 +919,7 @@
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
+				049A3F6D25F2100500C31AED /* AddressModuleUIData.swift in Sources */,
 				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,

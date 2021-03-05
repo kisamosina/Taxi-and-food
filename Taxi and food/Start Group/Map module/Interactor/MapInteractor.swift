@@ -20,6 +20,7 @@ protocol MapInteractorProtocol: class {
     
     func getTarifs()
     func getAllPromos()
+    
     func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
    
 }
