@@ -77,8 +77,12 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
         case .PaymentHistory:
             let vc = self.getViewController(storyboardId: StoryBoards.PaymentHistory.rawValue, viewControllerId: ViewControllers.PaymentHistoryViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
+        case .PaymentWay:
+            let vc = self.getViewController(storyboardId: StoryBoards.PaymentWay.rawValue, viewControllerId: ViewControllers.PaymentWayViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
         case .unknown:
             break
+            
         }
     }
     

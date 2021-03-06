@@ -12,7 +12,7 @@
         <!--Payment Way View Controller-->
         <scene sceneID="qe7-ww-tPy">
             <objects>
-                <viewController id="KIM-B5-Hb9" customClass="PaymentWayViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentWayViewController" id="KIM-B5-Hb9" customClass="PaymentWayViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GLq-El-muU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

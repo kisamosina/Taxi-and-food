@@ -61,6 +61,16 @@ struct PersonalAccountViewControllerTexts {
         }
     }
 
+    static var PaymentWay: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTableViewTexts.PaymentWay.rawValue
+        case .eng:
+            return EngTableViewTexts.PaymentWay.rawValue
+        }
+    }
     
     static var tableViewTextData: [String] {
         
@@ -100,12 +110,15 @@ struct PersonalAccountViewControllerTexts {
 
 enum PersonalAccountViewControllerSegues {
     case PaymentHistory
+    case PaymentWay
     case unknown
     
     static func getCase(from text: String) -> PersonalAccountViewControllerSegues {
         switch text {
         case PersonalAccountViewControllerTexts.PaymentHistory:
             return .PaymentHistory
+        case PersonalAccountViewControllerTexts.PaymentWay:
+            return .PaymentWay
         default:
             return unknown
         }
