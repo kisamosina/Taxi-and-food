@@ -55,4 +55,10 @@ import Foundation
  PersonalAccount
  PersonalAccountProtocols
  PersonalAccountInteractor
+ PaymentWayUIData
+ PaymentWay
+ PaymentWayViewController
+ PaymentWayCell
+ PaymentWayProtocols
+ PaymaentWayInteractor
  */

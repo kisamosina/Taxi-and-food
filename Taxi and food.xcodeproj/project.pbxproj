@@ -132,6 +132,13 @@
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
 		7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MapViewController.swift */; };
 		7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */; };
+		7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */; };
+		7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */; };
+		7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */; };
+		7D1F5EF225F3D29400892B6F /* PaymentWayUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */; };
+		7D1F5EF725F3D2FF00892B6F /* PaymentWayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */; };
+		7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */; };
+		7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */; };
 		7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */; };
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
@@ -299,6 +306,13 @@
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA68225D67F0300C35652 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthAndMap.storyboard; sourceTree = "<group>"; };
+		7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentWay.storyboard; sourceTree = "<group>"; };
+		7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayViewController.swift; sourceTree = "<group>"; };
+		7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayCell.swift; sourceTree = "<group>"; };
+		7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayUIData.swift; sourceTree = "<group>"; };
+		7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayProtocols.swift; sourceTree = "<group>"; };
+		7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayInteractor.swift; sourceTree = "<group>"; };
+		7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayTableViewModel.swift; sourceTree = "<group>"; };
 		7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountProtocols.swift; sourceTree = "<group>"; };
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
@@ -486,6 +500,7 @@
 				7DD6B16B25F012C000445407 /* PersonalAccount module */,
 				7B3A8FD325EA8BF6008CA13E /* PaymenntHistory module */,
 				7D823EB925F2A995006B174B /* InactivewView module */,
+				7D823F0B25F3C79E006B174B /* PaymentWay module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
@@ -672,6 +687,7 @@
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
+				7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */,
 				7B3A8FEF25EA976B008CA13E /* PaymentHistoryUIData.swift */,
 				7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */,
 				7B75CF8A25E00B9B001981CA /* MainBottomButtonUIData.swift */,
@@ -928,6 +944,39 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		7D1F5EE525F3D02300892B6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */,
+				7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D1F5EFB25F3D30900892B6F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7D1F5F0A25F3D36D00892B6F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7D1F5F1625F3DD4400892B6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7D823E7C25F1457C006B174B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,6 +1027,18 @@
 				7D823ED125F2AE7F006B174B /* LogoutView.xib */,
 			);
 			path = LogoutView;
+			sourceTree = "<group>";
+		};
+		7D823F0B25F3C79E006B174B /* PaymentWay module */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */,
+				7D1F5F1625F3DD4400892B6F /* Model */,
+				7D1F5EFB25F3D30900892B6F /* Protocols */,
+				7D1F5F0A25F3D36D00892B6F /* Interactor */,
+				7D1F5EE525F3D02300892B6F /* View */,
+			);
+			path = "PaymentWay module";
 			sourceTree = "<group>";
 		};
 		7DD6B16B25F012C000445407 /* PersonalAccount module */ = {
@@ -1111,6 +1172,7 @@
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
+				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
 				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1137,6 +1199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041E29DB25E7A54700CA9F56 /* PromoResponse.swift in Sources */,
+				7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */,
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
 				04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */,
@@ -1174,6 +1237,7 @@
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
 				7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
+				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
 				7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
@@ -1185,14 +1249,18 @@
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
 				7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */,
 				7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */,
+				7D1F5EF225F3D29400892B6F /* PaymentWayUIData.swift in Sources */,
 				041E298825DE2ADC00CA9F56 /* SettingsStaticCell.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
+				7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
 				041E29C125E766D900CA9F56 /* PromoViewController.swift in Sources */,
+				7D1F5EF725F3D2FF00892B6F /* PaymentWayProtocols.swift in Sources */,
+				7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */,
 				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,

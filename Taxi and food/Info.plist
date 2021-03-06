@@ -57,7 +57,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>AuthAndMap</string>
+					<string>PaymentWay</string>
 				</dict>
 			</array>
 		</dict>

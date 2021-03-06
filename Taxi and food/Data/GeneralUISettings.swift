@@ -98,6 +98,14 @@ enum CustomImagesNames: String {
     case saw
     case paBackground
     case lkBlue
+    case paymentWayMainScreenBackGroundImage
+    case paymentWayActiveCellCheckmark
+    case paymentWayEnterCellCheckmark
+    case paymentWayInActiveCellCheckmark
+    case paymentWayApple
+    case paymentWayCash
+    case paymentWayOne
+    case paymentWayPoints
 }
 
 enum StoryBoards: String {
@@ -108,6 +116,7 @@ enum StoryBoards: String {
     case PaymentHistory
     case PersonalAccount
     case Inactive
+    case PaymentWay
 }
 
 enum ViewControllers: String {
@@ -124,6 +133,7 @@ enum ViewControllers: String {
     case PaymentHistoryViewController
     case InactiveViewController
     case PersonalAccountViewController
+    case PaymentWayViewController
 }
 
 

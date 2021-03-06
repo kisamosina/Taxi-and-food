@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JGW-bR-sSu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Payment Way View Controller-->
+        <scene sceneID="qe7-ww-tPy">
+            <objects>
+                <viewController id="KIM-B5-Hb9" customClass="PaymentWayViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GLq-El-muU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2st-SC-BFB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="336"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentWayCell" id="TXG-Ly-47B" customClass="PaymentWayCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TXG-Ly-47B" id="Rrk-i9-yTl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Euu-Bv-6zF">
+                                                    <rect key="frame" x="25" y="5" width="33" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKC-sw-MQN">
+                                                    <rect key="frame" x="66" y="11" width="300" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPa-l5-1f6">
+                                                    <rect key="frame" x="374" y="14" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkMarkImageView" destination="fPa-l5-1f6" id="AeS-3w-pII"/>
+                                            <outlet property="iconImageView" destination="Euu-Bv-6zF" id="ReC-mU-Q3z"/>
+                                            <outlet property="titleLabel" destination="CKC-sw-MQN" id="Yzj-id-Rac"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KIM-B5-Hb9" id="XZT-Mc-l8z"/>
+                                    <outlet property="delegate" destination="KIM-B5-Hb9" id="Swp-xx-OIf"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-K6-aVL" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="25" y="752" width="364" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ENS-k7-Ong"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="linkACardButtonTapped:" destination="KIM-B5-Hb9" eventType="touchUpInside" id="iNq-nu-UGB"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentWayMainScreenBackGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-rG-sEV">
+                                <rect key="frame" x="30" y="434" width="384" height="278"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="278" id="8Tm-Xk-7vB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Foq-62-rPz"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nay-rG-sEV" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" constant="30" id="2kt-0f-UN6"/>
+                            <constraint firstItem="2st-SC-BFB" firstAttribute="top" secondItem="Foq-62-rPz" secondAttribute="top" id="F5J-8K-2jL"/>
+                            <constraint firstItem="Nay-rG-sEV" firstAttribute="trailing" secondItem="Foq-62-rPz" secondAttribute="trailing" id="FZ9-zb-0eO"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="2st-SC-BFB" secondAttribute="trailing" id="H7T-vQ-zd2"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="mfm-K6-aVL" secondAttribute="bottom" constant="60" id="JCP-aE-vla"/>
+                            <constraint firstItem="mfm-K6-aVL" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" constant="25" id="LcU-yQ-1T8"/>
+                            <constraint firstItem="mfm-K6-aVL" firstAttribute="top" secondItem="Nay-rG-sEV" secondAttribute="bottom" constant="40" id="Q5W-fa-EBD"/>
+                            <constraint firstItem="2st-SC-BFB" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" id="aZO-5i-QZH"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="mfm-K6-aVL" secondAttribute="trailing" constant="25" id="ezR-em-b4y"/>
+                            <constraint firstItem="Nay-rG-sEV" firstAttribute="top" secondItem="2st-SC-BFB" secondAttribute="bottom" constant="10" id="iMH-SH-I5S"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aMZ-Ph-K8o"/>
+                    <connections>
+                        <outlet property="backGroundImageView" destination="Nay-rG-sEV" id="1gV-M6-YlO"/>
+                        <outlet property="linkACardButton" destination="mfm-K6-aVL" id="l6H-ci-jQv"/>
+                        <outlet property="tableView" destination="2st-SC-BFB" id="eaw-dl-LRF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxr-w2-wdM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="655.07246376811599" y="156.69642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SBb-S2-q6c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JGW-bR-sSu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bEy-c4-Q51">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KIM-B5-Hb9" kind="relationship" relationship="rootViewController" id="Mpg-42-1AU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aeb-mH-3aB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255.07246376811597" y="156.69642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paymentWayMainScreenBackGroundImage" width="396" height="278.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
