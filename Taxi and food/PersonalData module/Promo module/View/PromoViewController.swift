@@ -57,12 +57,6 @@ extension PromoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var type: String
-        
-//        type = interactor.models[indexPath.row].title
-//
-//        performSegue(withIdentifier: "promoShort", sender: type)
-
 
         var type: String
 
@@ -78,8 +72,7 @@ extension PromoViewController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: "promoShort", sender: type)
         }
     }
-    
-   
+ 
 }
 
 extension PromoViewController: PromoViewProtocol {}
@@ -89,7 +82,9 @@ extension PromoViewController {
     {
         if let nextViewController = segue.destination as? PromoShortViewController, let promoType = sender as? String {
             nextViewController.type = promoType
+            
         }
   
     }
 }
+

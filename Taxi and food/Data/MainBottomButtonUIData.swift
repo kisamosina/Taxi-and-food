@@ -12,6 +12,12 @@ enum MainButtonTypes {
     case next
     case send
     case taxiOrder
+    case goBuy
+    case addAddress
+    case save
+    case chooseDestination
+    case delete
+    case cancel
     case approve
     case perfect
     case sendEmail
@@ -32,17 +38,95 @@ struct MainButtonTitles {
         case sendEmail = "Отправить e-mail"
         case logOut = "Выйти"
         case linkACard = "Привязать карту"
+        case goBuyTitle = "За покупками!"
+        case addAddressTitle = "Добавить адресс"
+        case saveTitle = "Сохранить"
+        case chooseDestinationTitle = "Выбрать местом назначения"
+        case deleteTitle = "Удалить"
+        case cancelTitle = "Отмена"
     }
     
     internal enum EngButtonsTitles: String {
         case nextButtonTitle = "Next"
         case sendButtonTitle = "Send"
         case orderTaxiTitle = "Order taxi"
+        case goBuyTitle = "Go shopping!"
+        case addAddressTitle = "Add address"
+        case saveTitle = "Save"
+        case chooseDestinationTitle = "Choose destination"
+        case deleteTitle = "Delete"
+        case cancelTitle = "Cancel"
         case approveButtonTitle = "Approve"
         case perfectButtonTitle = "Perfect!"
         case sendEmail = "Send e-mail"
         case logOut = "Log Out"
         case linkACard = "Link a card"
+    }
+    
+    static var cancelButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.cancelTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.cancelTitle.rawValue
+        }
+
+    }
+    
+    static var deleteButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.deleteTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.deleteTitle.rawValue
+        }
+
+    }
+    
+    static var chooseDestinationButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.chooseDestinationTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.chooseDestinationTitle.rawValue
+        }
+
+    }
+    
+    static var saveButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.saveTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.saveTitle.rawValue
+        }
+
+    }
+    
+    static var addAddresButtonTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.addAddressTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.addAddressTitle.rawValue
+        }
+    }
+    
+    static var goBuyButtonTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.goBuyTitle.rawValue
+        case .eng:
+            return EngButtonsTitles.goBuyTitle.rawValue
+        }
     }
     
     static var nextButtonTitle: String {
@@ -154,6 +238,18 @@ struct MainButtonTitles {
             return logOut
         case .linkACard:
             return linkACard
+        case .goBuy:
+            return goBuyButtonTitle
+        case .addAddress:
+            return addAddresButtonTitle
+        case .save:
+            return saveButtonTitle
+        case .chooseDestination:
+            return chooseDestinationButtonTitle
+        case .delete:
+            return deleteButtonTitle
+        case .cancel:
+            return cancelButtonTitle
         }
     }
 }

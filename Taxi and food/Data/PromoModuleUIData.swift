@@ -17,6 +17,10 @@ public enum TypePromoSetverPath: String {
     case path = "user/$/promotions/"
 }
 
+public enum PromoDescriptionPath: String {
+    case path = "user/$/promotion"
+}
+
 struct PromoViewControllerText {
     
 
@@ -41,6 +45,14 @@ internal enum EngNavigationItemTitleText: String {
     
     internal enum EngTaxiNameLabelTitleText: String {
         case nameLabelTextEn = "Taxi"
+    }
+    
+    internal enum RusUnavailableLabelTitleText: String {
+        case unavailableLabelTextRu = "На данный момент акция недействительна. Воспользуйтесь ей в указанный временной промежуток"
+    }
+    
+    internal enum EngUnavailableLabelTitleText: String {
+        case unavailableLabelTextEn = "The promotion is not available right now. Use it in the specified time period"
     }
 
 static var navigationItemTitleText: String {
@@ -75,4 +87,17 @@ case .eng:
             return EngTaxiNameLabelTitleText.nameLabelTextEn.rawValue
             }
     }
+    
+    static var unavailableLabelTitleText: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusUnavailableLabelTitleText.unavailableLabelTextRu .rawValue
+
+        case .eng:
+            return EngUnavailableLabelTitleText.unavailableLabelTextEn.rawValue
+            }
+    }
 }
+
+
