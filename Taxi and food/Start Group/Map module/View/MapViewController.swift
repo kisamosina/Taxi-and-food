@@ -181,11 +181,7 @@ class MapViewController: UIViewController {
                        completion: nil)
     }
     
-    //Remove left menu
-    private func removeMenuView() {
-        self.minimizeMenuView()
-        self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
-    }
+
     
     //Add Swipes
     

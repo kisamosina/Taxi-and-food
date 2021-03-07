@@ -10,42 +10,44 @@ import UIKit
 
 class PromoShortTableViewCell: UITableViewCell {
 
-    @IBOutlet var mainBackgroundView: UIView!
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var moreButton: UIButton!
     
-    public func showPicture(for media: PromoMedia) {
-        
-        NetworkService.shared.loadImageData(for: media.url ?? "") { [weak self] result in
-            guard let self = self  else { return }
-            
-            switch result {
-            case .success(let imgData):
-                let image = UIImage(data: imgData, scale: 2.4)
-            
-                self.contentView.backgroundColor = UIColor(patternImage: image ?? UIImage())
-            case .failure(let error):
-                print("Error while load advantage image: \(error.localizedDescription)")
-            }
-        }
-
-        setup()
-    }
+    var myimageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage()
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
-    private func setup() {
+
+    
+    func setup() {
+        
+        self.insertSubview(myimageView, at: 0)
+        NSLayoutConstraint.activate([
+            myimageView.topAnchor.constraint(equalTo: self.topAnchor),
+            myimageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            myimageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            myimageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            
+            
+        ])
         self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
        
         self.contentView.contentMode = .scaleAspectFit
         
         self.moreButton.setImage(UIImage(named: "moreButton"), for: .normal)
 
-
-     
-        
-     
-
         self.layer.masksToBounds = false
+        
+        
+    }
+    
+    func setImage(url: String) {
+        self.imageView?.webImage(url)
     }
 
 }
