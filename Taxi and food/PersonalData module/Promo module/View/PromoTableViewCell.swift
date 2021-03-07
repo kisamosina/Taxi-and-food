@@ -36,6 +36,9 @@ class PromoTableViewCell: UITableViewCell {
            super.layoutSubviews()
 
            titleLabel.frame = CGRect(x: 25, y: 0, width: contentView.frame.size.width - 20, height: contentView.frame.size.height)
+        
+        
+    
        }
        
        override func prepareForReuse() {

@@ -424,6 +424,41 @@
                                     <action selector="mapCenterButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="BFy-BU-JB3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="bal-4K-gGK" userLabel="PromoDestinationView" customClass="PromoDestinationView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="21" y="631" width="372" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMF-At-1DK">
+                                        <rect key="frame" x="61" y="12" width="250" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29G-aM-h3H" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="330" y="7" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="cue-nH-3GM"/>
+                                            <constraint firstAttribute="height" constant="30" id="ude-6T-SUw"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="closeMenuButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="sdu-PG-uuI"/>
+                                            <action selector="closePromoDescriptionViewTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="cCK-Vq-p2l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="29G-aM-h3H" secondAttribute="bottom" constant="8" id="3BB-BJ-7WQ"/>
+                                    <constraint firstItem="29G-aM-h3H" firstAttribute="top" secondItem="bal-4K-gGK" secondAttribute="top" constant="7" id="Mez-PA-FI1"/>
+                                    <constraint firstAttribute="trailing" secondItem="29G-aM-h3H" secondAttribute="trailing" constant="12" id="QgX-gh-XYt"/>
+                                    <constraint firstItem="29G-aM-h3H" firstAttribute="leading" secondItem="kMF-At-1DK" secondAttribute="trailing" constant="19" id="hk5-8k-bIZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="kMF-At-1DK" id="zQU-SO-Emi"/>
+                                </connections>
+                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZs-BQ-jU1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -518,11 +553,13 @@
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="GsQ-Mk-LhJ"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="yKH-JN-0i3" secondAttribute="trailing" constant="45" id="MJd-Uj-RPi"/>
                             <constraint firstItem="hbh-4U-WAf" firstAttribute="top" secondItem="am8-7N-f7B" secondAttribute="top" constant="24" id="N70-oO-QeA"/>
+                            <constraint firstItem="bal-4K-gGK" firstAttribute="top" secondItem="WpO-6M-tnc" secondAttribute="bottom" constant="-265" id="Q5U-vM-g8M"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="WpO-6M-tnc" secondAttribute="trailing" id="QhZ-vo-gDW"/>
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="trailing" secondItem="am8-7N-f7B" secondAttribute="trailing" id="XBc-TM-Mvg"/>
                             <constraint firstItem="b9C-Im-UHs" firstAttribute="top" secondItem="am8-7N-f7B" secondAttribute="top" constant="24" id="Yep-Y8-uz4"/>
                             <constraint firstAttribute="bottom" secondItem="XCq-re-fWa" secondAttribute="bottom" id="bsY-lw-AQs"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="SGh-SJ-IIw" secondAttribute="trailing" id="d02-nv-yzw"/>
+                            <constraint firstItem="SGh-SJ-IIw" firstAttribute="top" secondItem="bal-4K-gGK" secondAttribute="bottom" constant="20" id="emp-AT-IMZ"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="XCq-re-fWa" secondAttribute="trailing" constant="42" id="fcl-3W-KnG"/>
                             <constraint firstItem="hbh-4U-WAf" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" constant="45" id="gPH-hV-A5m"/>
                             <constraint firstItem="XCq-re-fWa" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="giY-GK-dsX"/>
@@ -542,7 +579,9 @@
                         <outlet property="mapView" destination="WpO-6M-tnc" id="4YK-fc-59z"/>
                         <outlet property="menuButton" destination="hbh-4U-WAf" id="8HW-3e-iU6"/>
                         <outlet property="menuView" destination="XCq-re-fWa" id="eF4-cr-m7T"/>
+                        <outlet property="promoDestinationView" destination="bal-4K-gGK" id="AIG-fX-AZN"/>
                         <outlet property="taxiButton" destination="dS1-Uu-ql0" id="PcD-TQ-Ae3"/>
+                        <outlet property="topPromoDestinationViewConstraint" destination="Q5U-vM-g8M" id="2ZY-Zs-t9R"/>
                         <outlet property="trailingLeftSideViewConstraint" destination="fcl-3W-KnG" id="heJ-7D-Aqb"/>
                     </connections>
                 </viewController>

@@ -10,19 +10,42 @@ import UIKit
 
 class PromoShortTableViewCell: UITableViewCell {
 
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var mainBackgroundView: UIView!
     
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var moreButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    public func showPicture(for media: PromoMedia) {
+        
+        NetworkService.shared.loadImageData(for: media.url ?? "") { [weak self] result in
+            guard let self = self  else { return }
+            
+            switch result {
+            case .success(let imgData):
+                let image = UIImage(data: imgData, scale: 2.4)
+            
+                self.contentView.backgroundColor = UIColor(patternImage: image ?? UIImage())
+            case .failure(let error):
+                print("Error while load advantage image: \(error.localizedDescription)")
+            }
+        }
+
+        setup()
     }
+    
+    private func setup() {
+        self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
+       
+        self.contentView.contentMode = .scaleAspectFit
+        
+        self.moreButton.setImage(UIImage(named: "moreButton"), for: .normal)
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+     
+        
+     
+
+        self.layer.masksToBounds = false
     }
 
 }
