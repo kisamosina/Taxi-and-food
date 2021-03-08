@@ -16,8 +16,11 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
     
     var tableViewModel: PaymentWayTableViewModel!
     
-    required init(view: PaymentWayViewProtocol) {
+    private var cardData: [PaymentCardResponseData]
+    
+    required init(view: PaymentWayViewProtocol, data: [PaymentCardResponseData]) {
         self.view = view
+        self.cardData = data
         self.tableViewModel = self.generateInitialTableViewData()
     }
     

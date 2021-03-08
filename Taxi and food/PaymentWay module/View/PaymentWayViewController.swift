@@ -25,10 +25,10 @@ class PaymentWayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.interactor = PaymentWayInteractor(view: self)
         self.navigationItem.title = PaymentWayTexts.vcTitle
         self.setupTableView()
         self.setuplinkACardButton()
+        
     }
     
     //MARK: - IBActions
@@ -46,13 +46,17 @@ class PaymentWayViewController: UIViewController {
     private func setuplinkACardButton () {
         self.linkACardButton.setupAs(.linkACard)
     }
+    
+    func initPaymentWayInteractor(with data: [PaymentCardResponseData]) {
+        self.interactor = PaymentWayInteractor(view: self, data: data)
+    }
 }
 
 //MARK: - PaymentWayViewProtocol
 
 extension PaymentWayViewController: PaymentWayViewProtocol { }
 
-//MARK: -
+//MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -75,5 +79,19 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? PaymentWayCell else { return }
+        
+        switch cell.titleLabel.text {
+        
+        case PaymentWayTexts.bankCard:
+            let vc = self.getViewController(storyboardId: StoryBoards.PaymentWay.rawValue, viewControllerId: ViewControllers.NewCardEnterViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
+        
+        default:
+            break
+        }
+        
+    }
     
 }

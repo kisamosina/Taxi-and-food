@@ -10,6 +10,8 @@ import Foundation
 
 protocol PersonalAccountViewProtocol: class {
     var interactor: PersonalAccountInteractorProtocol! { get set }
+    
+    func reloadTableViewData()
 }
 
 protocol PersonalAccountInteractorProtocol: class {
@@ -17,6 +19,9 @@ protocol PersonalAccountInteractorProtocol: class {
     var view: PersonalAccountViewProtocol! { get }
     
     var personalAccountTableViewData: [PersonalAccountTableViewModel]! { get set }
+    var paymentCardResponseData: [PaymentCardResponseData] { get set }
     
     init (view: PersonalAccountViewProtocol)
+    
+    func getPaymentData()
 }
