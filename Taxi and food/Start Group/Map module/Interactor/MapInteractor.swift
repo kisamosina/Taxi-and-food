@@ -44,10 +44,8 @@ class MapInteractor: MapInteractorProtocol {
     }
 
     func getTarifs() {
-        
-//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        let path = TariffServerPath.path.rawValue.getServerPath(for: 3)
-        
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
         
         NetworkService.shared.makeRequest(for: resource) {[weak self] result in
