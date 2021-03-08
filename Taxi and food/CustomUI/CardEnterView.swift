@@ -64,10 +64,19 @@ class CardEnterView: UIView {
 extension CardEnterView: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-         let newLength = (textField.text ?? "").count + string.count - range.length
-         if(textField == cardNumberTextField) {
-             return newLength <= 19
-         }
-         return true
+        let newLength = (textField.text ?? "").count + string.count - range.length
+        switch textField {
+        
+        case cardNumberTextField:
+            return newLength <= 19
+        case dateTextField:
+            return ExpirationDateFormatter.checkText(in: textField, range: range, string: string)
+            
+        case cvcTextField:
+            return newLength <= 3
+            
+        default:
+            return true
+        }
     }
 }

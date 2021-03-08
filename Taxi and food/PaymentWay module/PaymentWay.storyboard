@@ -147,11 +147,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="173.5" height="22"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="Mdb-l9-col" id="X9Z-V6-E8U"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vfs-ni-yhX">
                                                                 <rect key="frame" x="190.5" y="0.0" width="173.5" height="22"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="Mdb-l9-col" id="dYC-xP-NKc"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,7 +200,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="cardNumberTextField" destination="i9A-Wj-fLc" id="9wa-0i-71O"/>
-                                    <outlet property="contentView" destination="KgX-YU-0jJ" id="QIG-hH-nUB"/>
+                                    <outlet property="contentView" destination="KgX-YU-0jJ" id="R4i-AX-ncu"/>
                                     <outlet property="cvcTextField" destination="Vfs-ni-yhX" id="Ahl-9x-lvy"/>
                                     <outlet property="dateTextField" destination="dAp-ku-PVN" id="wOI-8l-bmA"/>
                                     <outlet property="linkCardButton" destination="IFb-WD-TxL" id="sF5-95-Ecc"/>

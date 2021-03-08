@@ -132,6 +132,7 @@
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
 		7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MapViewController.swift */; };
 		7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */; };
+		7D0E782125F6ADE7005EF370 /* ExpirationDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */; };
 		7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */; };
 		7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */; };
 		7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */; };
@@ -309,6 +310,7 @@
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA68225D67F0300C35652 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthAndMap.storyboard; sourceTree = "<group>"; };
+		7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentWay.storyboard; sourceTree = "<group>"; };
 		7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayViewController.swift; sourceTree = "<group>"; };
 		7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayCell.swift; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFFA66025D66F8300C35652 /* PhoneFormatter.swift */,
+				7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */,
 				7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */,
 				0465F51325DA30CD008CA6D0 /* AlertController.swift */,
 				7B75CF8F25E01CFD001981CA /* ServerError.swift */,
@@ -1302,6 +1305,7 @@
 				041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7DD6B17525F01A8B00445407 /* PersonalAccountUIData.swift in Sources */,
+				7D0E782125F6ADE7005EF370 /* ExpirationDateFormatter.swift in Sources */,
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
