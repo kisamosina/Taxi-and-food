@@ -9,6 +9,8 @@
 import UIKit
 
 class CardEnterView: UIView {
+    
+    weak var delegate: CardEnterViewDelegate?
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var contentView: UIView!
@@ -37,14 +39,26 @@ class CardEnterView: UIView {
         //Set UI data
         self.topView.backgroundColor = Colors.InactiveViewColor.getColor()
         self.linkCardButton.setupAs(.linkACard)
+        self.linkCardButton.setInActive()
         self.cardNumberTextField.placeholder = CardEnterViewTexts.cardNumberPlaceholderText
         self.dateTextField.placeholder = CardEnterViewTexts.datePlaceholderText
         self.cvcTextField.placeholder = CardEnterViewTexts.cvcPlaceHolderText
         self.cardNumberTextField.becomeFirstResponder()
         self.cardNumberTextField.addTarget(self, action: #selector (didChangeText(textField:)), for: .editingChanged)
-
+        self.linkCardButton.addTarget(self, action: #selector(linkCardButtonTapped), for: .touchUpInside)
     }
     
+    
+    @objc func linkCardButtonTapped() {
+        guard let cardNumber = self.cardNumberTextField.text?.filter({ $0 != " "}),
+              let expirationDate = self.dateTextField.text,
+              let cvv = self.cvcTextField.text,
+              cardNumber.count == 16,
+              expirationDate.count == 5,
+              cvv.count == 3
+        else { return }
+        self.delegate?.catchCardData(cardNumber:cardNumber, expirationDate: expirationDate, cvv: cvv)
+    }
     
     @objc func didChangeText(textField:UITextField) {
         guard let text = textField.text else { return }
@@ -59,24 +73,40 @@ class CardEnterView: UIView {
             self.cardNumberTextField.rightViewMode = .never
         }
     }
+    
+    private func setLinkCardButtonActive() {
+        guard self.cardNumberTextField.text?.count == 19 && self.dateTextField.text?.count == 5 && (self.cvcTextField.text?.count ?? 0) >= 2 else {
+            self.linkCardButton.setInActive()
+            return
+        }
+        
+        self.linkCardButton.setActive()
+    }
 }
 
 extension CardEnterView: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         let newLength = (textField.text ?? "").count + string.count - range.length
+        
         switch textField {
         
         case cardNumberTextField:
+            self.setLinkCardButtonActive()
             return newLength <= 19
+            
         case dateTextField:
+            self.setLinkCardButtonActive()
             return ExpirationDateFormatter.checkText(in: textField, range: range, string: string)
             
         case cvcTextField:
+            self.setLinkCardButtonActive()
             return newLength <= 3
             
         default:
             return true
         }
     }
+    
 }

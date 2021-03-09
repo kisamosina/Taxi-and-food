@@ -31,3 +31,7 @@ enum PaymentRequestPaths: String {
     case history = "user/$/history/payments"
     case paymentCards = "user/$/payment-cards"
 }
+
+enum NewPaymentCardRequestPaths: String {
+    case paymentCard = "/user/$/payment-card"
+}

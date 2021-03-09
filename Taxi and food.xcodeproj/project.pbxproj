@@ -140,6 +140,14 @@
 		7D1F5EF725F3D2FF00892B6F /* PaymentWayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */; };
 		7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */; };
 		7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */; };
+		7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */; };
+		7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */; };
+		7D4748EF25F7E74600F744F7 /* NewCardEnterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */; };
+		7D4748F425F7E9AE00F744F7 /* NewCardEnterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748F325F7E9AE00F744F7 /* NewCardEnterModel.swift */; };
+		7D4748F925F7FC1600F744F7 /* TransitionBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */; };
+		7D47490125F7FC3E00F744F7 /* TransitionBottomViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */; };
+		7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */; };
+		7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */; };
 		7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */; };
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
@@ -318,6 +326,14 @@
 		7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayProtocols.swift; sourceTree = "<group>"; };
 		7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayInteractor.swift; sourceTree = "<group>"; };
 		7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayTableViewModel.swift; sourceTree = "<group>"; };
+		7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterViewDelegate.swift; sourceTree = "<group>"; };
+		7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterInteractor.swift; sourceTree = "<group>"; };
+		7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterProtocols.swift; sourceTree = "<group>"; };
+		7D4748F325F7E9AE00F744F7 /* NewCardEnterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterModel.swift; sourceTree = "<group>"; };
+		7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomView.swift; sourceTree = "<group>"; };
+		7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomViewUIData.swift; sourceTree = "<group>"; };
+		7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionBottomView.xib; sourceTree = "<group>"; };
+		7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButton.swift; sourceTree = "<group>"; };
 		7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountProtocols.swift; sourceTree = "<group>"; };
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
@@ -693,6 +709,7 @@
 				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */,
+				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7D851C5425F687C7000E20DB /* EnterCardUIData.swift */,
@@ -817,11 +834,13 @@
 			children = (
 				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
 				7D823ECD25F2AE5F006B174B /* LogoutView */,
+				7D4748E025F7D89100F744F7 /* CardEnterView */,
+				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
-				7D851C4F25F68475000E20DB /* CardEnterView.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
+				7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */,
 				7B75CFA425E03D5A001981CA /* MapBottomView.swift */,
 				7B47C87625E1458900F366FE /* MenuView.swift */,
 				7B75CF9425E03861001981CA /* MapRoundButton.swift */,
@@ -969,6 +988,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */,
+				7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -977,6 +997,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */,
+				7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -985,8 +1006,27 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */,
+				7D4748F325F7E9AE00F744F7 /* NewCardEnterModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7D4748E025F7D89100F744F7 /* CardEnterView */ = {
+			isa = PBXGroup;
+			children = (
+				7D851C4F25F68475000E20DB /* CardEnterView.swift */,
+				7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */,
+			);
+			path = CardEnterView;
+			sourceTree = "<group>";
+		};
+		7D47490A25F7FC7300F744F7 /* TransitionBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */,
+				7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */,
+			);
+			path = TransitionBottomView;
 			sourceTree = "<group>";
 		};
 		7D823E7C25F1457C006B174B /* View */ = {
@@ -1173,6 +1213,7 @@
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
+				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
 				7D823ED225F2AE7F006B174B /* LogoutView.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
@@ -1238,6 +1279,7 @@
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				041E29A925E220BC00CA9F56 /* PersonalDataModel.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
+				7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */,
 				7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
@@ -1249,6 +1291,7 @@
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
 				7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
+				7D4748F425F7E9AE00F744F7 /* NewCardEnterModel.swift in Sources */,
 				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
 				7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
@@ -1256,8 +1299,10 @@
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
+				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
+				7D4748F925F7FC1600F744F7 /* TransitionBottomView.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
 				7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */,
 				7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */,
@@ -1310,6 +1355,7 @@
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
 				7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */,
+				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
@@ -1317,7 +1363,9 @@
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
+				7D4748EF25F7E74600F744F7 /* NewCardEnterProtocols.swift in Sources */,
 				041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */,
+				7D47490125F7FC3E00F744F7 /* TransitionBottomViewUIData.swift in Sources */,
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */,
 				7B75CF5125DD71E1001981CA /* TarifResponse.swift in Sources */,

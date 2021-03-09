@@ -9,6 +9,8 @@
 import UIKit
 
 class NewCardEnterViewController: UIViewController {
+    
+    internal var interactor: NewCardEnterInteractorProtocol!
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     
@@ -18,6 +20,7 @@ class NewCardEnterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.interactor = NewCardEnterInteractor(view: self)
         self.addKeyboardObserver()
 
     }
@@ -37,3 +40,16 @@ class NewCardEnterViewController: UIViewController {
     }
 
 }
+
+//MARK: - CardEnterViewDelegate
+extension NewCardEnterViewController: CardEnterViewDelegate {
+    
+    func catchCardData(cardNumber: String, expirationDate: String, cvv: String) {
+        self.interactor.makeRequestFor(cardNumber: cardNumber, expirationDate: expirationDate, cvv: cvv)
+    }
+        
+}
+
+//MARK: - NewCardEnterViewProtocol
+
+extension NewCardEnterViewController: NewCardEnterViewProtocol { }

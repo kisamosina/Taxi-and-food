@@ -22,3 +22,5 @@ protocol PaymentWayInteractorProtocol: class {
     
     init (view: PaymentWayViewProtocol, data: [PaymentCardResponseData])
 }
+
+

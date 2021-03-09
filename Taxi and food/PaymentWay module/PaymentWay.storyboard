@@ -168,6 +168,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="CyE-zx-8Ub"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="linkCardButtonTapped:" destination="py3-dU-dll" eventType="touchUpInside" id="n56-hh-xmC"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -225,6 +228,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbL-4o-TSR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="py3-dU-dll" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1672" y="157"/>
         </scene>
