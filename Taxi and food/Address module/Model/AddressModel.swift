@@ -14,7 +14,7 @@ struct AddressResponse: Decodable {
 }
 
 struct AddressResponseData: Decodable {
-    var id: Int?
+    var id: Int
     var name: String?
     var address: String?
     var commentDriver: String?

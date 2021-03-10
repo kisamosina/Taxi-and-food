@@ -20,8 +20,10 @@ enum RegistrationRequestKeys: String {
    
 }
 
+//FIX: - fix id to $
+
 enum AddressRequestPaths: String {
-    case address = "user/$/address"
+    case address = "user/2/address"
     
 }
 

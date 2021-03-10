@@ -33,18 +33,20 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     
     internal var interactor: AddressInteractorProtocol!
     
-    private let rawName: String? = nil
-    private let rawAddress: String? = nil
-    private let rawCommentDriver: String? = nil
-    private let rawCommentCourier: String? = nil
-    private let rawFlat: Int? = nil
-    private let rawIntercom: Int? = nil
-    private let rawEntrance: Int? = nil
-    private let rawFloor: Int? = nil
-    private let rawDestination: Bool? = nil
+//    private let rawName: String? = nil
+//    private let rawAddress: String? = nil
+//    private let rawCommentDriver: String? = nil
+//    private let rawCommentCourier: String? = nil
+//    private let rawFlat: Int? = nil
+//    private let rawIntercom: Int? = nil
+//    private let rawEntrance: Int? = nil
+//    private let rawFloor: Int? = nil
+//    private let rawDestination: Bool? = nil
     
     var userStreet: String?
     var userHouse: String?
+    
+    var destination: Bool = false
     
     var arrayOfTextFields: [UITextField]!
     override func viewDidLoad() {
@@ -56,7 +58,11 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         configureTextFields()
         addTextFieldsTargets()
         
-        self.interactor = AddressInteractor(view: self, name: self.rawName, address: self.rawAddress, commentDriver: self.rawCommentDriver, commentCourier: self.rawCommentCourier, flat: self.rawFlat, intercom: self.rawIntercom, entrance: self.rawEntrance, floor: self.rawFloor, destination: self.rawDestination)
+        self.interactor = AddressInteractor(view: self)
+        
+        
+        
+        print(interactor)
         
     }
     
@@ -107,12 +113,14 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func seveButtonTapped(_ sender: Any) {
         
-        let addressArray = [addressNameTextField.text, addressTextField.text, commentDriverTextField.text, officeTextField.text, entranceTextField.text, intercomTextField.text, floorTextField.text, commenCourierTextField.text]
-        let addressText = addressArray.compactMap{ $0 }.reduce("", +)
-        guard addressText != "" else { return }
+//        let addressArray = [addressNameTextField.text, addressTextField.text, commentDriverTextField.text, officeTextField.text, entranceTextField.text, intercomTextField.text, floorTextField.text, commenCourierTextField.text]
+//        let addressText = addressArray.compactMap{ $0 }.reduce("", +)
+//        guard addressText != "" else { return }
         
-        self.interactor.sendAddressRequest()
+        
         print("want to save data")
+
+        self.interactor.sendAddressRequest(name: addressNameTextField?.text, address: addressTextField?.text, commentDriver: commentDriverTextField?.text, commentCourier: commenCourierTextField?.text, flat: Int(officeTextField?.text ?? ""), intercom: Int(intercomTextField?.text ?? ""), entrance: Int(entranceTextField?.text ?? ""), floor: Int(floorTextField?.text ?? ""), destination: destination)
     }
     @objc private func textDidChange(textField: UITextField) {
         
