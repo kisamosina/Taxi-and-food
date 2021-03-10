@@ -139,6 +139,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="tK5-ua-tdz"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="seveButtonTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="UEl-Ad-7tm"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bN1-li-mjS">
                                                 <rect key="frame" x="20" y="445" width="374" height="60"/>

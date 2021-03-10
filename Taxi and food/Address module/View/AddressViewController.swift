@@ -54,6 +54,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
 
         configureUI()
         configureTextFields()
+        addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self, name: self.rawName, address: self.rawAddress, commentDriver: self.rawCommentDriver, commentCourier: self.rawCommentCourier, flat: self.rawFlat, intercom: self.rawIntercom, entrance: self.rawEntrance, floor: self.rawFloor, destination: self.rawDestination)
         
@@ -104,12 +105,21 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    @IBAction func seveButtonTapped(_ sender: Any) {
+        
+        let addressArray = [addressNameTextField.text, addressTextField.text, commentDriverTextField.text, officeTextField.text, entranceTextField.text, intercomTextField.text, floorTextField.text, commenCourierTextField.text]
+        let addressText = addressArray.compactMap{ $0 }.reduce("", +)
+        guard addressText != "" else { return }
+        
+        self.interactor.sendAddressRequest()
+        print("want to save data")
+    }
     @objc private func textDidChange(textField: UITextField) {
         
         let text = textField.text
         print("text")
         print(text)
-        interactor.sendAddressRequest()
+        
         
     }
     
