@@ -63,13 +63,7 @@ class PromoInteractor: PromoInteractorProtocol {
         }
    
     }
-    
-    func getPromo() {
-        for promo in allPromos {
-            
-            
-        }
-    }
+
 
 }
 

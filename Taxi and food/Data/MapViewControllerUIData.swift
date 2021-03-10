@@ -90,6 +90,7 @@ enum MapViewControllerSegue {
     case Promocode
     case unknown
     case Settings
+    case Service
     
     static func getMapViewControllerSegue(_ cellTitle: String) -> MapViewControllerSegue {
         switch cellTitle {
@@ -99,6 +100,8 @@ enum MapViewControllerSegue {
             return Settings
         case MapMenuData.promocodes:
             return Promocode
+        case MapMenuData.service:
+            return Service
         default:
             return .unknown
         }

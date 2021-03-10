@@ -108,6 +108,16 @@ struct MapMenuData {
         }
     }
     
+    static var service: String {
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusNames.SupportService.rawValue
+        case .eng:
+            return EngNames.SupportService.rawValue
+        }
+    }
+    
     
     
     static var promocodes: String {
