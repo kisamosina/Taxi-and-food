@@ -47,6 +47,7 @@ class TransitionBottomView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        //Layout setup
         self.contentView.layer.cornerRadius = TransitionBottomViewSizes.cornerRadius.rawValue
         self.contentView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.contentView.layer.shadowOpacity = Float(TransitionBottomViewSizes.shadowOpacity.rawValue)
@@ -60,7 +61,7 @@ class TransitionBottomView: UIView {
     
     private func initSubviews() {
         
-        self.loadFromNib(nibName: LogoutViewStringData.nibName.rawValue)
+        self.loadFromNib(nibName: TransitionBottomViewStringData.nibName.rawValue)
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
@@ -75,11 +76,18 @@ class TransitionBottomView: UIView {
                 self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
             ])
         }
+    
+    private func setupLabels() {
+        self.descriptionLabel.font = .systemFont(ofSize: TransitionBottomViewSizes.descriptionLabelFontSize.rawValue)
+        self.descriptionLabel.textColor = Colors.fontGrey.getColor()
+    }
    
     public func setupAs(type: TransitionBottomViewTypes) {
         
         switch type {
         
+        case .cardApproveMent:
+            self.secondTitleLabel.isHidden = true
         }
     }
 }

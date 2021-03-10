@@ -148,6 +148,7 @@
 		7D47490125F7FC3E00F744F7 /* TransitionBottomViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */; };
 		7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */; };
 		7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */; };
+		7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */; };
 		7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */; };
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
@@ -334,6 +335,7 @@
 		7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomViewUIData.swift; sourceTree = "<group>"; };
 		7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionBottomView.xib; sourceTree = "<group>"; };
 		7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButton.swift; sourceTree = "<group>"; };
+		7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewControllerUIData.swift; sourceTree = "<group>"; };
 		7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountProtocols.swift; sourceTree = "<group>"; };
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7D851C5425F687C7000E20DB /* EnterCardUIData.swift */,
+				7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */,
 				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
 				7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */,
 				7B3A8FEF25EA976B008CA13E /* PaymentHistoryUIData.swift */,
@@ -1335,6 +1338,7 @@
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
 				7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */,
+				7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */,
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
 				7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */,
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,

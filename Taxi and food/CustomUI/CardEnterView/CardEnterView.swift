@@ -29,6 +29,7 @@ class CardEnterView: UIView {
         self.contentView.layer.shadowRadius = CardEnterViewUIData.cornerRadius.rawValue
         self.contentView.layer.shadowOffset = CGSize(width: CardEnterViewUIData.shadowOffsetWidth.rawValue,
                                                   height: CardEnterViewUIData.shadowOffsetWidth.rawValue)
+        
         self.contentView.layer.masksToBounds = false
         self.topView.layer.cornerRadius = CardEnterViewUIData.upViewHeight.rawValue / 2
         self.topView.clipsToBounds = true
@@ -50,14 +51,21 @@ class CardEnterView: UIView {
     
     
     @objc func linkCardButtonTapped() {
-        guard let cardNumber = self.cardNumberTextField.text?.filter({ $0 != " "}),
-              let expirationDate = self.dateTextField.text,
-              let cvv = self.cvcTextField.text,
-              cardNumber.count == 16,
-              expirationDate.count == 5,
-              cvv.count == 3
-        else { return }
-        self.delegate?.catchCardData(cardNumber:cardNumber, expirationDate: expirationDate, cvv: cvv)
+//        guard let cardNumber = self.cardNumberTextField.text?.filter({ $0 != " "}),
+//              let expirationDate = self.dateTextField.text,
+//              let cvv = self.cvcTextField.text,
+//              cardNumber.count == 16,
+//              expirationDate.count == 5,
+//              cvv.count == 3
+//        else { return }
+//        self.delegate?.catchCardData(cardNumber:cardNumber, expirationDate: expirationDate, cvv: cvv)
+        
+        UIApplication
+            .shared
+            .sendAction(#selector(UIApplication.resignFirstResponder),
+                        to: nil, from: nil, for: nil)
+        
+        self.delegate?.callApproveView()
     }
     
     @objc func didChangeText(textField:UITextField) {
@@ -79,7 +87,6 @@ class CardEnterView: UIView {
             self.linkCardButton.setInActive()
             return
         }
-        
         self.linkCardButton.setActive()
     }
 }

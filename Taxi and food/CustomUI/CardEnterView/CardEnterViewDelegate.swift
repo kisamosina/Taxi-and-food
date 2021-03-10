@@ -12,4 +12,6 @@ protocol CardEnterViewDelegate: class {
     
 func catchCardData(cardNumber: String, expirationDate: String, cvv: String)
     
+func callApproveView()
+    
 }

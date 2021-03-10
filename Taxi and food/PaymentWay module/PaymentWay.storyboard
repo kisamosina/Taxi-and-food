@@ -115,6 +115,13 @@
                                     <constraint firstAttribute="height" constant="184" id="bOP-kK-ZdC"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42Y-RM-eVv" customClass="TransitionBottomView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="896" width="414" height="335"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="335" id="Eq8-lm-FuC"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-l9-col" customClass="CardEnterView" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="664" width="414" height="232"/>
                                 <subviews>
@@ -216,12 +223,17 @@
                         <constraints>
                             <constraint firstItem="XFP-yV-YCZ" firstAttribute="trailing" secondItem="Mdb-l9-col" secondAttribute="trailing" id="4ga-zB-2rq"/>
                             <constraint firstItem="Mdb-l9-col" firstAttribute="leading" secondItem="XFP-yV-YCZ" secondAttribute="leading" id="LRW-V7-0ah"/>
+                            <constraint firstItem="42Y-RM-eVv" firstAttribute="leading" secondItem="XFP-yV-YCZ" secondAttribute="leading" id="Omx-0g-hFl"/>
                             <constraint firstItem="uxG-ld-xvY" firstAttribute="centerX" secondItem="ai7-5l-RjQ" secondAttribute="centerX" id="q2I-YV-PMB"/>
                             <constraint firstItem="Mdb-l9-col" firstAttribute="bottom" secondItem="ai7-5l-RjQ" secondAttribute="bottom" id="rf8-Yt-xKx"/>
                             <constraint firstItem="uxG-ld-xvY" firstAttribute="top" secondItem="XFP-yV-YCZ" secondAttribute="top" constant="20" id="vM1-7Y-Hh5"/>
+                            <constraint firstAttribute="bottom" secondItem="42Y-RM-eVv" secondAttribute="bottom" constant="-335" id="yTb-0R-dAS"/>
+                            <constraint firstItem="XFP-yV-YCZ" firstAttribute="trailing" secondItem="42Y-RM-eVv" secondAttribute="trailing" id="yyv-ve-sAM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="approveCardView" destination="42Y-RM-eVv" id="Fbq-uE-JrL"/>
+                        <outlet property="approveCardViewBottomConstraint" destination="yTb-0R-dAS" id="FnV-Zj-3GO"/>
                         <outlet property="backgroundImageView" destination="uxG-ld-xvY" id="09p-x4-YZy"/>
                         <outlet property="cardEnterView" destination="Mdb-l9-col" id="Ies-CV-fmD"/>
                         <outlet property="cardEnterViewYConstraint" destination="rf8-Yt-xKx" id="4Oa-AO-0DY"/>

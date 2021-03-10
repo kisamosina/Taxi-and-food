@@ -18,10 +18,16 @@ class NewCardEnterViewController: UIViewController {
         
     @IBOutlet weak var cardEnterViewYConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var approveCardView: TransitionBottomView!
+    
+    @IBOutlet weak var approveCardViewBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interactor = NewCardEnterInteractor(view: self)
         self.addKeyboardObserver()
+        self.cardEnterView.delegate = self
+        self.approveCardView.alpha = 0
 
     }
     
@@ -44,9 +50,28 @@ class NewCardEnterViewController: UIViewController {
 //MARK: - CardEnterViewDelegate
 extension NewCardEnterViewController: CardEnterViewDelegate {
     
+    func callApproveView() {
+        self.cardEnterView.alpha = 0
+        
+        self.approveCardViewBottomConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[weak self] in
+                        self?.view.layoutIfNeeded()
+                        self?.approveCardView.alpha = 1
+                       },
+                       completion: nil)
+    }
+    
+    
     func catchCardData(cardNumber: String, expirationDate: String, cvv: String) {
         self.interactor.makeRequestFor(cardNumber: cardNumber, expirationDate: expirationDate, cvv: cvv)
     }
+
         
 }
 
