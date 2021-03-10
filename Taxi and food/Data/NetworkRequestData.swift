@@ -11,9 +11,30 @@ import Foundation
 enum RegistrationRequestPaths: String {
     case registration = "auth/registration"
     case confirm = "auth/confirm"
+   
 }
 
 enum RegistrationRequestKeys: String {
     case phone
     case code
+   
 }
+
+enum AddressRequestPaths: String {
+    case address = "user/$/address"
+    
+}
+
+enum AddressRequestKeys: String {
+    case name
+    case address
+    case commentDriver
+    case commentCourier
+    case flat
+    case intercom
+    case entrance
+    case floor
+    case destination
+    
+}
+

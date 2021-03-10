@@ -11,6 +11,7 @@ import Foundation
 enum RequestMethod: String {
     case GET
     case POST
+    case PUT
 }
 
 struct Resource<T: Decodable> {
