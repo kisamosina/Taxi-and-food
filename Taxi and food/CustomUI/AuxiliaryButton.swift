@@ -15,4 +15,13 @@ class AuxiliaryButton: UIButton {
         self.setTitleColor(.black, for: .normal)
         self.titleLabel?.font = .systemFont(ofSize: 17)
     }
+    
+    func setupAs(type: AuxiliaryButtonTypes) {
+        
+        switch type {
+        
+        case .cancel:
+            self.setTitle(AuxiliaryButtonTitles.cancelTitle, for: .normal)
+        }
+    }
 }

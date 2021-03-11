@@ -44,28 +44,22 @@ class CardEnterView: UIView {
         self.cardNumberTextField.placeholder = CardEnterViewTexts.cardNumberPlaceholderText
         self.dateTextField.placeholder = CardEnterViewTexts.datePlaceholderText
         self.cvcTextField.placeholder = CardEnterViewTexts.cvcPlaceHolderText
-        self.cardNumberTextField.becomeFirstResponder()
         self.cardNumberTextField.addTarget(self, action: #selector (didChangeText(textField:)), for: .editingChanged)
         self.linkCardButton.addTarget(self, action: #selector(linkCardButtonTapped), for: .touchUpInside)
     }
     
     
     @objc func linkCardButtonTapped() {
-//        guard let cardNumber = self.cardNumberTextField.text?.filter({ $0 != " "}),
-//              let expirationDate = self.dateTextField.text,
-//              let cvv = self.cvcTextField.text,
-//              cardNumber.count == 16,
-//              expirationDate.count == 5,
-//              cvv.count == 3
-//        else { return }
-//        self.delegate?.catchCardData(cardNumber:cardNumber, expirationDate: expirationDate, cvv: cvv)
+        guard let cardNumber = self.cardNumberTextField.text?.filter({ $0 != " "}),
+              let expirationDate = self.dateTextField.text,
+              let cvc = self.cvcTextField.text,
+              cardNumber.count == 16,
+              expirationDate.count == 5,
+              cvc.count == 3
+        else { return }
         
-        UIApplication
-            .shared
-            .sendAction(#selector(UIApplication.resignFirstResponder),
-                        to: nil, from: nil, for: nil)
-        
-        self.delegate?.callApproveView()
+        self.endEditing(true)
+        self.delegate?.catchCardData(cardNumber:cardNumber, expirationDate: expirationDate, cvv: cvc)
     }
     
     @objc func didChangeText(textField:UITextField) {
@@ -101,14 +95,19 @@ extension CardEnterView: UITextFieldDelegate {
         
         case cardNumberTextField:
             self.setLinkCardButtonActive()
+            if newLength == 20 {
+                self.dateTextField.becomeFirstResponder()
+            }
             return newLength <= 19
             
         case dateTextField:
             self.setLinkCardButtonActive()
+            if self.dateTextField.text?.count == 5 { cvcTextField.becomeFirstResponder()}
             return ExpirationDateFormatter.checkText(in: textField, range: range, string: string)
             
         case cvcTextField:
             self.setLinkCardButtonActive()
+            if newLength == 4 { cvcTextField.resignFirstResponder() }
             return newLength <= 3
             
         default:

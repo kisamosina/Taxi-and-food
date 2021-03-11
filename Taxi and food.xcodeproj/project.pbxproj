@@ -149,6 +149,7 @@
 		7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */; };
 		7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */; };
 		7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */; };
+		7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */; };
 		7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */; };
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
@@ -336,6 +337,7 @@
 		7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionBottomView.xib; sourceTree = "<group>"; };
 		7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButton.swift; sourceTree = "<group>"; };
 		7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewControllerUIData.swift; sourceTree = "<group>"; };
+		7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButtonUIData.swift; sourceTree = "<group>"; };
 		7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountProtocols.swift; sourceTree = "<group>"; };
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
@@ -709,6 +711,7 @@
 				7B75D02725E512EE001981CA /* PromocodeModuleData.swift */,
 				7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */,
 				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
+				7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */,
 				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
@@ -837,8 +840,8 @@
 			children = (
 				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
 				7D823ECD25F2AE5F006B174B /* LogoutView */,
-				7D4748E025F7D89100F744F7 /* CardEnterView */,
 				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
+				7D4748E025F7D89100F744F7 /* CardEnterView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
@@ -1386,6 +1389,7 @@
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */,
 				7D823EC625F2AE50006B174B /* LogoutView.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,

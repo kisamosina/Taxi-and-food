@@ -54,4 +54,9 @@ extension String {
          }
          return modifiedCreditCardString
      }
+    
+    func insert(text: String) -> String {
+        let temp = self.split(separator: "$")
+        return "\(temp[0]) \(text) \(temp[1])"
+    }
 }

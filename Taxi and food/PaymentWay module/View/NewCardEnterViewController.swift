@@ -10,8 +10,12 @@ import UIKit
 
 class NewCardEnterViewController: UIViewController {
     
+    //MARK: - Properties
+    
     internal var interactor: NewCardEnterInteractorProtocol!
 
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     @IBOutlet weak var cardEnterView: CardEnterView!
@@ -22,14 +26,18 @@ class NewCardEnterViewController: UIViewController {
     
     @IBOutlet weak var approveCardViewBottomConstraint: NSLayoutConstraint!
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interactor = NewCardEnterInteractor(view: self)
         self.addKeyboardObserver()
         self.cardEnterView.delegate = self
+        self.cardEnterView.cardNumberTextField.becomeFirstResponder()
         self.approveCardView.alpha = 0
 
     }
+    
+    //MARK: - Methods
     
     private func addKeyboardObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -52,8 +60,10 @@ extension NewCardEnterViewController: CardEnterViewDelegate {
     
     func callApproveView() {
         self.cardEnterView.alpha = 0
-        
-        self.approveCardViewBottomConstraint.constant = 0
+            let window = UIApplication.shared.windows[0]
+            let bottomPadding = window.safeAreaInsets.bottom
+        self.approveCardView.setupAs(type: .cardApprovement("4487452445282054"))
+        self.approveCardViewBottomConstraint.constant = 0 - bottomPadding
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -69,7 +79,10 @@ extension NewCardEnterViewController: CardEnterViewDelegate {
     
     
     func catchCardData(cardNumber: String, expirationDate: String, cvv: String) {
-        self.interactor.makeRequestFor(cardNumber: cardNumber, expirationDate: expirationDate, cvv: cvv)
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder),
+                        to: nil, from: nil, for: nil)
+        self.callApproveView()
+//        self.interactor.makeRequestFor(cardNumber: cardNumber, expirationDate: expirationDate, cvv: cvv)
     }
 
         

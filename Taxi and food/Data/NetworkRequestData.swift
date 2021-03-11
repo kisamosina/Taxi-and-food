@@ -33,5 +33,11 @@ enum PaymentRequestPaths: String {
 }
 
 enum NewPaymentCardRequestPaths: String {
-    case paymentCard = "/user/$/payment-card"
+    case paymentCard = "user/$/payment-card"
+}
+
+enum NewPaymentCardRequestKeys: String {
+    case number
+    case expiryDate = "expiry_date"
+    case cvc
 }

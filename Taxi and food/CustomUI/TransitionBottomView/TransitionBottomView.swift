@@ -66,6 +66,7 @@ class TransitionBottomView: UIView {
         self.addSubview(containerView)
         self.setupConstraints()
         self.mainBottomButton.setupAs(.logOut)
+        self.setupLabels()
     }
     
     private func setupConstraints() {
@@ -81,13 +82,27 @@ class TransitionBottomView: UIView {
         self.descriptionLabel.font = .systemFont(ofSize: TransitionBottomViewSizes.descriptionLabelFontSize.rawValue)
         self.descriptionLabel.textColor = Colors.fontGrey.getColor()
     }
+    
+    private func cardApprovementSetup(cardNumber: String) {
+        self.secondTitleLabel.isHidden = true
+        self.firstTitleLabel.text = TransitionBottomViewTexts.approvementTitle
+        let cardText = "****" + String(cardNumber.suffix(4))
+        self.descriptionLabel.text = TransitionBottomViewTexts.approvementDescription.insert(text: cardText)
+        self.descriptionLabel.setBoldAndBlack(cardText)
+        self.mainBottomButton.setupAs(.approve)
+        self.mainBottomButton.setActive()
+        self.auxButton.setupAs(type: .cancel)
+    }
    
     public func setupAs(type: TransitionBottomViewTypes) {
         
         switch type {
         
-        case .cardApproveMent:
-            self.secondTitleLabel.isHidden = true
+        case .cardApprovement (let cardNumber):
+            self.cardApprovementSetup(cardNumber: cardNumber)
         }
     }
+    
+    
+    
 }

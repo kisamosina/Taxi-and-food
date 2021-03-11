@@ -8,4 +8,12 @@
 
 import Foundation
 
-struct NewCardEnterRequest: Decodable { }
+struct AddNewCardResponse: Decodable {
+    var data: AddNewCardResponseData
+}
+
+struct AddNewCardResponseData: Decodable {
+    var number: String
+    var expiryDate: String
+    var status: String
+}

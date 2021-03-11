@@ -9,7 +9,7 @@
 import UIKit
 
 enum TransitionBottomViewTypes {
-    case cardApproveMent
+    case cardApprovement(String)
 }
 
 enum TransitionBottomViewSizes: CGFloat {
@@ -22,4 +22,33 @@ enum TransitionBottomViewSizes: CGFloat {
 
 enum TransitionBottomViewStringData: String {
     case nibName = "TransitionBottomView"
+}
+
+struct TransitionBottomViewTexts {
+    
+    static var approvementTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return "Подтверждение"
+        case .eng:
+            return "Approvement"
+        }
+    }
+    
+    static var approvementDescription: String {
+       
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            
+            return "Для подтверждения платёжеспособности с карты $ будет списан 1 руб. Сумма будет возвращена сразу после подтверждения из банка."
+        case .eng:
+            
+            return "To confirm the platform from the card $, 1 rub will be written off. The amount will be returned immediately after confirmation from the bank."
+        }
+
+    }
+    
 }
