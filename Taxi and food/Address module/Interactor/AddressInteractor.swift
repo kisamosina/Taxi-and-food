@@ -35,7 +35,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
 //        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
 //        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
-        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 4)
+        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 3)
         let data: [String: Any] = [
                  AddressRequestKeys.name.rawValue: name ?? "",
                  AddressRequestKeys.address.rawValue: address ?? "",

@@ -8,12 +8,27 @@
 
 import UIKit
 
+protocol AllAddressesViewProtocol {
+    
+    var interactor: AllAddressesInteractorProtocol! { get set }
+    
+}
+
 class AllAddressesViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    
+    var interactor: AllAddressesInteractorProtocol!
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
+        
+        self.interactor = AllAddressesInteractor(view: self)
+        self.interactor.getAllAddresses()
 
      
     }
@@ -25,3 +40,27 @@ class AllAddressesViewController: UIViewController {
 
 
 }
+
+
+extension AllAddressesViewController: AllAddressesViewProtocol {}
+
+extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.interactor.arrayOfAddresses?.count ?? 0
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewControllers.AllAddressesViewController.rawValue, for: indexPath) as? AllAddressesCell else {
+            return UITableViewCell()
+            
+        }
+        cell.configure()
+        
+        return cell
+    }
+    
+    
+}
+
+

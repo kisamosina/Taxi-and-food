@@ -11,6 +11,9 @@
 		0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314025F86DF80074D86C /* AddressInteractor.swift */; };
 		0414314425F870680074D86C /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314325F870680074D86C /* AddressModel.swift */; };
 		0414314925F9D7770074D86C /* AllAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314825F9D7770074D86C /* AllAddressesViewController.swift */; };
+		0414314B25FA15440074D86C /* AllAddressesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314A25FA15440074D86C /* AllAddressesCell.swift */; };
+		0414314E25FA17C40074D86C /* AddressCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314D25FA17C40074D86C /* AddressCellModel.swift */; };
+		0414315025FA1C6F0074D86C /* AllAddressesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314F25FA1C6F0074D86C /* AllAddressesInteractor.swift */; };
 		041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */; };
 		041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */; };
 		041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */; };
@@ -138,6 +141,9 @@
 		0414314025F86DF80074D86C /* AddressInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
 		0414314325F870680074D86C /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		0414314825F9D7770074D86C /* AllAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesViewController.swift; sourceTree = "<group>"; };
+		0414314A25FA15440074D86C /* AllAddressesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesCell.swift; sourceTree = "<group>"; };
+		0414314D25FA17C40074D86C /* AddressCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellModel.swift; sourceTree = "<group>"; };
+		0414314F25FA1C6F0074D86C /* AllAddressesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesInteractor.swift; sourceTree = "<group>"; };
 		041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleUIData.swift; sourceTree = "<group>"; };
@@ -293,6 +299,7 @@
 		0414314525F9D73B0074D86C /* AllAddresses */ = {
 			isa = PBXGroup;
 			children = (
+				0414314C25FA179E0074D86C /* Model */,
 				0414314725F9D75F0074D86C /* Interactor */,
 				0414314625F9D7540074D86C /* View */,
 			);
@@ -303,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				0414314825F9D7770074D86C /* AllAddressesViewController.swift */,
+				0414314A25FA15440074D86C /* AllAddressesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,8 +318,17 @@
 		0414314725F9D75F0074D86C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				0414314F25FA1C6F0074D86C /* AllAddressesInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0414314C25FA179E0074D86C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0414314D25FA17C40074D86C /* AddressCellModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		041E297E25DE1DBE00CA9F56 /* Settings module */ = {
@@ -997,12 +1014,14 @@
 				041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
+				0414314E25FA17C40074D86C /* AddressCellModel.swift in Sources */,
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */,
 				043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */,
+				0414315025FA1C6F0074D86C /* AllAddressesInteractor.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
@@ -1025,6 +1044,7 @@
 				041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */,
+				0414314B25FA15440074D86C /* AllAddressesCell.swift in Sources */,
 				7B75CF9525E03861001981CA /* MapRoundButton.swift in Sources */,
 				7B75CF4225DD707B001981CA /* TariffInteractor.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
