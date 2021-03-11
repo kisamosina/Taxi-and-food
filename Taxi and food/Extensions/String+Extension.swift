@@ -45,7 +45,7 @@ extension String {
         return "\(self) +0000"
     }
     
-    func makeAddress(for id: Int) -> String {
+    func getServerPathforAddress(for id: Int) -> String {
         let temp = self.split(separator: "$")
         return "\(temp[0])\(id)\(temp[1])"
         

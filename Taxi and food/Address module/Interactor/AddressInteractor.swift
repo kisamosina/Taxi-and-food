@@ -31,18 +31,25 @@ class AddressInteractor: AddressInteractorProtocol {
     
     func sendAddressRequest(name: String?, address: String?, commentDriver: String?, commentCourier: String?, flat: Int?, intercom: Int?, entrance: Int?, floor: Int?, destination: Bool?) {
         
-        let addressResource = Resource<AddressResponse>(path: AddressRequestPaths.address.rawValue, requestType: .POST, requestData: [
-            AddressRequestKeys.name.rawValue: name ?? "",
-            AddressRequestKeys.address.rawValue: address ?? "",
-            AddressRequestKeys.commentDriver.rawValue: commentDriver ?? "",
-            AddressRequestKeys.commentCourier.rawValue: commentCourier ?? "",
-            AddressRequestKeys.flat.rawValue: flat ?? 0,
-            AddressRequestKeys.intercom.rawValue: intercom ?? 0,
-            AddressRequestKeys.entrance.rawValue: entrance ?? 0,
-            AddressRequestKeys.floor.rawValue: floor ?? 0,
-            AddressRequestKeys.destination.rawValue: destination ?? true,
-   
-        ])
+//Uncomment if start from main screen
+        
+//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+//        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
+        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 4)
+        let data: [String: Any] = [
+                 AddressRequestKeys.name.rawValue: name ?? "",
+                 AddressRequestKeys.address.rawValue: address ?? "",
+                 AddressRequestKeys.comment_driver.rawValue: commentDriver ?? "",
+                 AddressRequestKeys.comment_courier.rawValue: commentCourier ?? "",
+                 AddressRequestKeys.flat.rawValue: flat ?? 0,
+                 AddressRequestKeys.intercom.rawValue: intercom ?? 0,
+                 AddressRequestKeys.entrance.rawValue: entrance ?? 0,
+                 AddressRequestKeys.floor.rawValue: floor ?? 0,
+                 AddressRequestKeys.destination.rawValue: destination ?? true
+        
+             ]
+        
+        let addressResource = Resource<AddressResponse>(path: path, requestType: .POST, requestData: data )
        
         NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
             

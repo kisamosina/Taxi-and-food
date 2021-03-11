@@ -9,16 +9,18 @@
 import UIKit
 import MapKit
 
+protocol AppleMapDelegateProtocol {
+    func send(address: String)
+    
+}
+
 class AppleMapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet var mapView: MKMapView!
     
     private let locationManager = CLLocationManager()
     
-//    var tappedData: [String]?
-    
-    var tappedStreet: String?
-    var tappedHouse: String?
+    var delegate: AppleMapDelegateProtocol? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,20 +58,12 @@ class AppleMapViewController: UIViewController, MKMapViewDelegate, UIGestureReco
         let touchLocation = sender.location(in: mapView)
         let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
         print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
-        
-//        DispatchQueue.main.async {
-//            self.convertLatLongToAddress(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
-//        }
+
         self.convertLatLongToAddress(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
-        
-//        self.performSegue(withIdentifier: "Address", sender: self)
-        
 
     }
 
-//    @IBAction func closeButtonTapped(_ sender: Any) {
-//         self.performSegue(withIdentifier: "Address", sender: self)
-//    }
+
     
 // Converting lan and long tp the address
 
@@ -85,17 +79,14 @@ func convertLatLongToAddress(latitude: Double, longitude: Double) {
 
         // Street address
         if let street = placeMark.thoroughfare, let house = placeMark.subThoroughfare {
-            self.tappedStreet = street
-            self.tappedHouse = house
-            print(street)
+            
+            let stringAddress = "\(street), \(house)"
+            self.delegate?.send(address: stringAddress)
+
+            print(stringAddress)
             self.performSegue(withIdentifier: "Address", sender: self)
         }
-        
-//        //  House
-//        if  {
-//            self.tappedHouse = house
-//            print(house)
-        
+
 
     })
     }
@@ -116,20 +107,6 @@ private extension MKMapView {
     }
 }
 
-extension AppleMapViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Address" {
-            let vc = segue.destination as! AddressViewController
-            vc.userStreet = tappedStreet
-            vc.userHouse = tappedHouse
-            print("tapped data")
-            print(tappedStreet)
-            print(tappedHouse)
-            
-            
-        }
-    }
-}
 
 extension AppleMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

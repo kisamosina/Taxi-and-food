@@ -33,22 +33,11 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     
     internal var interactor: AddressInteractorProtocol!
     
-//    private let rawName: String? = nil
-//    private let rawAddress: String? = nil
-//    private let rawCommentDriver: String? = nil
-//    private let rawCommentCourier: String? = nil
-//    private let rawFlat: Int? = nil
-//    private let rawIntercom: Int? = nil
-//    private let rawEntrance: Int? = nil
-//    private let rawFloor: Int? = nil
-//    private let rawDestination: Bool? = nil
-    
-    var userStreet: String?
-    var userHouse: String?
-    
+    private var addressFromMap: String?
     var destination: Bool = false
     
     var arrayOfTextFields: [UITextField]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,11 +48,13 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self)
-        
-        
-        
-        print(interactor)
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("address from map")
+        print(addressFromMap)
+        self.addressTextField.text = addressFromMap
     }
     
     func configureUI() {
@@ -111,17 +102,36 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    @IBAction func seveButtonTapped(_ sender: Any) {
+    
+    @IBAction func mapButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: ViewControllers.AppleMapViewController.rawValue, sender: self)
         
-//        let addressArray = [addressNameTextField.text, addressTextField.text, commentDriverTextField.text, officeTextField.text, entranceTextField.text, intercomTextField.text, floorTextField.text, commenCourierTextField.text]
-//        let addressText = addressArray.compactMap{ $0 }.reduce("", +)
-//        guard addressText != "" else { return }
-        
-        
-        print("want to save data")
-
-        self.interactor.sendAddressRequest(name: addressNameTextField?.text, address: addressTextField?.text, commentDriver: commentDriverTextField?.text, commentCourier: commenCourierTextField?.text, flat: Int(officeTextField?.text ?? ""), intercom: Int(intercomTextField?.text ?? ""), entrance: Int(entranceTextField?.text ?? ""), floor: Int(floorTextField?.text ?? ""), destination: destination)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ViewControllers.AppleMapViewController.rawValue {
+            let vc = segue.destination as! AppleMapViewController
+            vc.delegate = self
+            
+        }
+    }
+    
+    @IBAction func seveButtonTapped(_ sender: Any) {
+
+        print("want to save data")
+        
+        var address = addressTextField?.text
+        
+        if addressTextField?.text == nil {
+            address = addressFromMap
+        }
+       
+
+        self.interactor.sendAddressRequest(name: addressNameTextField?.text, address: address, commentDriver: commentDriverTextField?.text, commentCourier: commenCourierTextField?.text, flat: Int(officeTextField?.text ?? ""), intercom: Int(intercomTextField?.text ?? ""), entrance: Int(entranceTextField?.text ?? ""), floor: Int(floorTextField?.text ?? ""), destination: destination)
+        
+        performSegue(withIdentifier: ViewControllers.AllAddressesViewController.rawValue, sender: self)
+    }
+    
     @objc private func textDidChange(textField: UITextField) {
         
         let text = textField.text
@@ -149,5 +159,12 @@ extension AddressViewController: UITextFieldDelegate {
 }
 
 extension AddressViewController: AddressViewProtocol {}
+extension AddressViewController: AppleMapDelegateProtocol {
+    func send(address: String) {
+        self.addressFromMap = address
+    }
+    
+    
+}
 
 

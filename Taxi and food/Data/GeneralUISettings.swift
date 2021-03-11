@@ -97,6 +97,8 @@ enum ViewControllers: String {
     case TariffViewController
     case TariffsPageViewController
     case SettingsViewController
+    case AppleMapViewController
+    case AllAddressesViewController
 }
 
 
