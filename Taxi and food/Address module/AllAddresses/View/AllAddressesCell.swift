@@ -21,20 +21,7 @@ class AllAddressesCell: UITableViewCell {
         self.contentView.clipsToBounds = true
         self.accessoryType = .disclosureIndicator
         
-        addressNameLabel.text = "dom"
-        
-        
-//        addressNameLabel.text = model.data.
-//        addressNameLabel.text = model.address
-        
-    
+       
        }
-//
-//    func setTableViewData(_ addressData: AddressResponseData) {
-//
-//        self.addressNameLabel.text = addressData.name
-//        self.addressLabel.text = addressData.address
-//    }
 
-   
 }
