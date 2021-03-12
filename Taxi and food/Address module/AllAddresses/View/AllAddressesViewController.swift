@@ -11,6 +11,14 @@ import UIKit
 protocol AllAddressesViewProtocol {
     
     var interactor: AllAddressesInteractorProtocol! { get set }
+    var cellModel: [AddressResponseData]? { get set }
+    
+//    func setTableViewData(_ addressData: AddressResponseData)
+    
+    func updateTableViewData()
+    
+    
+    
     
 }
 
@@ -20,7 +28,8 @@ class AllAddressesViewController: UIViewController {
     
     var interactor: AllAddressesInteractorProtocol!
     
-   
+    var cellModel: [AddressResponseData]?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +38,23 @@ class AllAddressesViewController: UIViewController {
         
         self.interactor = AllAddressesInteractor(view: self)
         self.interactor.getAllAddresses()
-
-     
+        self.tableView.reloadData()
     }
     
     private func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemTitleText
     }
-    
-
 
 }
 
 
-extension AllAddressesViewController: AllAddressesViewProtocol {}
+extension AllAddressesViewController: AllAddressesViewProtocol {
+    func updateTableViewData() {
+        DispatchQueue.main.async {
+        self.tableView.reloadData()
+        }
+    }
+}
 
 extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +68,9 @@ extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource
             
         }
         cell.configure()
+        cell.addressNameLabel.text = cellModel?[indexPath.row].name
+        cell.addressLabel.text = cellModel?[indexPath.row].address
+        
         
         return cell
     }

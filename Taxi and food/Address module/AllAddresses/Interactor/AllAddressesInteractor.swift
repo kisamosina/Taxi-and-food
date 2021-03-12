@@ -12,6 +12,7 @@ protocol AllAddressesInteractorProtocol: class {
     var view: AllAddressesViewProtocol! { get }
     
     var arrayOfAddresses: [AddressResponseData]? { get set }
+    var address: AddressResponseData? { get }
     
     func getAllAddresses()
 }
@@ -21,6 +22,7 @@ class AllAddressesInteractor: AllAddressesInteractorProtocol {
     var view: AllAddressesViewProtocol!
     
     var arrayOfAddresses: [AddressResponseData]?
+    var address: AddressResponseData?
     
     required init(view: AllAddressesViewProtocol) {
         self.view = view
@@ -28,7 +30,7 @@ class AllAddressesInteractor: AllAddressesInteractorProtocol {
     
     func getAllAddresses() {
         
-        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 3)
+        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 1)
         let resource = Resource<AddressResponse>(path: path, requestType: .GET)
         
         NetworkService.shared.makeRequest(for: resource) {[weak self] result in
@@ -38,7 +40,9 @@ class AllAddressesInteractor: AllAddressesInteractorProtocol {
             case .success(let addressResponse):
                 print("my all data")
                 print(addressResponse.data)
-                self.arrayOfAddresses = addressResponse.data
+//                self.arrayOfAddresses = addressResponse.data
+                self.view.cellModel = addressResponse.data
+                self.view.updateTableViewData()
             
             case .failure(let error):
                print(error.localizedDescription)

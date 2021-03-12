@@ -27,5 +27,12 @@ class AllAddressesCell: UITableViewCell {
         
     
        }
+//
+//    func setTableViewData(_ addressData: AddressResponseData) {
+//
+//        self.addressNameLabel.text = addressData.name
+//        self.addressLabel.text = addressData.address
+//    }
+
    
 }
