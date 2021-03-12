@@ -82,7 +82,7 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
             
         case .PaymentWay:
             guard let vc = self.getViewController(storyboardId: StoryBoards.PaymentWay.rawValue, viewControllerId: ViewControllers.PaymentWayViewController.rawValue) as? PaymentWayViewController else { return }
-            vc.initPaymentWayInteractor(with: self.interactor.paymentCardResponseData)
+            vc.initPaymentWayInteractor(with: self.interactor.paymentCards)
             self.navigationController?.pushViewController(vc, animated: true)
             
         case .unknown:

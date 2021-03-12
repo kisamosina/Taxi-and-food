@@ -34,7 +34,7 @@ class PaymentWayViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func linkACardButtonTapped(_ sender: UIButton) {
-        
+        self.performSegueToNewCardEnterViewController()
     }
     
     //MARK: - Methods
@@ -45,6 +45,11 @@ class PaymentWayViewController: UIViewController {
     
     private func setuplinkACardButton () {
         self.linkACardButton.setupAs(.linkACard)
+    }
+    
+    private func performSegueToNewCardEnterViewController() {
+        let vc = self.getViewController(storyboardId: StoryBoards.PaymentWay.rawValue, viewControllerId: ViewControllers.NewCardEnterViewController.rawValue)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func initPaymentWayInteractor(with data: [PaymentCardResponseData]) {
@@ -84,9 +89,8 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch cell.titleLabel.text {
         
-        case PaymentWayTexts.bankCard:
-            let vc = self.getViewController(storyboardId: StoryBoards.PaymentWay.rawValue, viewControllerId: ViewControllers.NewCardEnterViewController.rawValue)
-            self.navigationController?.pushViewController(vc, animated: true)
+        case PaymentWayTexts.bankCard, PaymentWayTexts.addCard:
+            self.performSegueToNewCardEnterViewController()
         
         default:
             break

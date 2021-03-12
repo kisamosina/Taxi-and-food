@@ -10,6 +10,10 @@ import UIKit
 
 class TransitionBottomView: UIView {
     
+    //MARK: - Properties
+    
+    weak var delegate: TransitionBottomViewDelegate?
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var topView: UIView!
@@ -37,9 +41,11 @@ class TransitionBottomView: UIView {
     //MARK: - IBActions
     
     @IBAction func mainBottomButtonTapped(_ sender: UIButton) {
+        self.delegate?.mainButtonTapped()
     }
     
     @IBAction func auxButtonTapped(_ sender: UIButton) {
+        self.delegate?.auxButtonTapped()
     }
     
     //MARK: - Methods
@@ -86,9 +92,9 @@ class TransitionBottomView: UIView {
     private func cardApprovementSetup(cardNumber: String) {
         self.secondTitleLabel.isHidden = true
         self.firstTitleLabel.text = TransitionBottomViewTexts.approvementTitle
-        let cardText = "****" + String(cardNumber.suffix(4))
-        self.descriptionLabel.text = TransitionBottomViewTexts.approvementDescription.insert(text: cardText)
-        self.descriptionLabel.setBoldAndBlack(cardText)
+        
+        self.descriptionLabel.text = TransitionBottomViewTexts.approvementDescription.insert(text: cardNumber)
+        self.descriptionLabel.setBoldAndBlack(cardNumber)
         self.mainBottomButton.setupAs(.approve)
         self.mainBottomButton.setActive()
         self.auxButton.setupAs(type: .cancel)

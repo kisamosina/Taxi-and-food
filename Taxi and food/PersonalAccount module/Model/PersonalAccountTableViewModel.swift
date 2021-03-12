@@ -24,6 +24,12 @@ struct PaymentResponse: Decodable {
 struct PaymentCardResponseData: Decodable {
     var id: Int
     var number: String
-    var expireDate: String
+    var expiryDate: String
     var status: String
+}
+
+extension PaymentCardResponseData {
+    var hidedNumber: String {
+        return "****" + String(number.suffix(4))
+    }
 }

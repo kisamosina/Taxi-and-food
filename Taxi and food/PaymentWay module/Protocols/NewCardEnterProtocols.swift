@@ -11,6 +11,8 @@ import Foundation
 
 protocol NewCardEnterViewProtocol: class {
     var interactor: NewCardEnterInteractorProtocol! { get set }
+    func callApproveView(cardNumber: String)
+    func backToPaymentWayViewController()
 }
 
 
@@ -20,5 +22,7 @@ protocol NewCardEnterInteractorProtocol: class {
     
     init(view: NewCardEnterViewProtocol)
     
-    func makeRequestFor(cardNumber: String, expirationDate: String, cvv: String)
+    func makeRequestFor(cardNumber: String, expirationDate: String, cvc: String)
+    
+    func makeCardApproveRequest()
 }

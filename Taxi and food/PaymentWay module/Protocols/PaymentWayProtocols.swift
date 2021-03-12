@@ -18,7 +18,7 @@ protocol PaymentWayInteractorProtocol: class {
     
     var isInitial: Bool { get set }
     
-    var tableViewModel: PaymentWayTableViewModel! { get set }
+    var tableViewModel: PaymentWayTableViewModel { get }
     
     init (view: PaymentWayViewProtocol, data: [PaymentCardResponseData])
 }

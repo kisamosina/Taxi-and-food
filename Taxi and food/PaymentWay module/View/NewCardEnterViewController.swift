@@ -58,12 +58,31 @@ class NewCardEnterViewController: UIViewController {
 //MARK: - CardEnterViewDelegate
 extension NewCardEnterViewController: CardEnterViewDelegate {
     
-    func callApproveView() {
+    func catchCardData(cardNumber: String, expirationDate: String, cvv: String) {
+        self.interactor.makeRequestFor(cardNumber: cardNumber, expirationDate: expirationDate, cvc: cvv)
+    }
+
+        
+}
+
+//MARK: - NewCardEnterViewProtocol
+
+extension NewCardEnterViewController: NewCardEnterViewProtocol {
+    
+    func backToPaymentWayViewController() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
+    func callApproveView(cardNumber: String) {
         self.cardEnterView.alpha = 0
             let window = UIApplication.shared.windows[0]
             let bottomPadding = window.safeAreaInsets.bottom
-        self.approveCardView.setupAs(type: .cardApprovement("4487452445282054"))
+        self.approveCardView.setupAs(type: .cardApprovement(cardNumber))
         self.approveCardViewBottomConstraint.constant = 0 - bottomPadding
+        self.approveCardView.delegate = self
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -77,17 +96,17 @@ extension NewCardEnterViewController: CardEnterViewDelegate {
                        completion: nil)
     }
     
-    
-    func catchCardData(cardNumber: String, expirationDate: String, cvv: String) {
-        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder),
-                        to: nil, from: nil, for: nil)
-        self.callApproveView()
-//        self.interactor.makeRequestFor(cardNumber: cardNumber, expirationDate: expirationDate, cvv: cvv)
-    }
-
-        
 }
 
-//MARK: - NewCardEnterViewProtocol
-
-extension NewCardEnterViewController: NewCardEnterViewProtocol { }
+extension NewCardEnterViewController: TransitionBottomViewDelegate {
+    func mainButtonTapped() {
+        print (#function)
+        self.interactor.makeCardApproveRequest()
+    }
+    
+    func auxButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+}

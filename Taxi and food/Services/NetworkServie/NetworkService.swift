@@ -37,10 +37,10 @@ final class NetworkService {
         
         DispatchQueue.global(qos: .utility).async {
             
-        guard let imageData: Data = try? Data(contentsOf: url) else {
-            completion(nil)
-            return
-        }
+            guard let imageData: Data = try? Data(contentsOf: url) else {
+                completion(nil)
+                return
+            }
             completion(imageData)
         }
     }
@@ -84,21 +84,23 @@ final class NetworkService {
     //WHEN POST REQUEST
     private func postData <T> (to resource: Resource<T>, completion: @escaping FetchResult<T>) {
         
-        guard let url = resource.urlComponents.url, let requestData = resource.requestData else { return }
+        guard let url = resource.urlComponents.url else { return }
         
         var request = URLRequest (url: url)
         request.httpMethod = resource.requestMethod.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let serializedResult = self.serilizeData(requestData)
-        
-        switch serializedResult {
-        
-        case .success(let httpBody):
-            request.httpBody = httpBody
-        case .failure(let error):
-            print("CATCHED ERROR WHILE ENCODING DATA: \(error.localizedDescription)" )
-            return
+        if let requestData = resource.requestData {
+            let serializedResult = self.serilizeData(requestData)
+            switch serializedResult {
+            
+            case .success(let httpBody):
+                request.httpBody = httpBody
+            case .failure(let error):
+                print("CATCHED ERROR WHILE ENCODING DATA: \(error.localizedDescription)" )
+                return
+            }
         }
+        
         
         
         // set up the session
@@ -124,7 +126,7 @@ final class NetworkService {
             }
             // Success response
             print("HTTP Post successful. Return code: " + String(httpResponse.statusCode))
-
+            
             guard let data = data else { return }
             let result = self.decode(for: resource, data: data)
             completion(result)

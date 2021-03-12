@@ -13,7 +13,17 @@ struct AddNewCardResponse: Decodable {
 }
 
 struct AddNewCardResponseData: Decodable {
+    var id: Int
     var number: String
     var expiryDate: String
     var status: String
 }
+
+extension AddNewCardResponseData {
+    var hidedNumber: String {
+        return "****" + String(number.suffix(4))
+    }
+    
+}
+
+struct ApproveCardResponse: Decodable { }

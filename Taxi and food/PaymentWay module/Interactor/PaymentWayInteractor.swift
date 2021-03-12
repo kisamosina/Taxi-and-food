@@ -14,14 +14,19 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
     
     var isInitial: Bool = true
     
-    var tableViewModel: PaymentWayTableViewModel!
+    var tableViewModel: PaymentWayTableViewModel {
+        if paymentCards.isEmpty {
+            return self.generateInitialTableViewData()
+        } else {
+            return self.generateTableViewDataWithNetworkData()
+        }
+    }
     
-    private var cardData: [PaymentCardResponseData]
+    private var paymentCards: [PaymentCardResponseData]
     
     required init(view: PaymentWayViewProtocol, data: [PaymentCardResponseData]) {
         self.view = view
-        self.cardData = data
-        self.tableViewModel = self.generateInitialTableViewData()
+        self.paymentCards = data
     }
     
     
@@ -58,13 +63,55 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
             return PaymentWayTableViewCellModel(checkMark: .inactive, title: title, iconName: CustomImagesNames.paymentWayApple.rawValue)
         case PaymentWayTexts.points:
             return PaymentWayTableViewCellModel(checkMark: .enter, title: title, iconName: CustomImagesNames.paymentWayPoints.rawValue)
-        case PaymentWayTexts.bankCard:
+        case PaymentWayTexts.addCard:
             return PaymentWayTableViewCellModel(checkMark: .enter, title: title, iconName: nil )
         
         default:
             return nil
         }
         
+    }
+    
+    
+    private func generateTableViewDataWithNetworkData() -> PaymentWayTableViewModel {
+        
+        var cellsForFirstSection = PaymentWayTexts.initialTableViewTitles
+            .filter{ $0 != PaymentWayTexts.points && $0 != PaymentWayTexts.bankCard }
+            .compactMap {[unowned self] in return self.getInitialPaymentWayTableViewCellModel(for: $0)}
+        self.paymentCards.forEach {
+            let paymentWayTableViewCellModel = PaymentWayTableViewCellModel(checkMark: .inactive, title: $0.hidedNumber, iconName: CustomImagesNames.visaIcon.rawValue)
+            cellsForFirstSection.insert(paymentWayTableViewCellModel, at: 1)
+        }
+        
+        let cellsForSecondSection = [self.getInitialPaymentWayTableViewCellModel(for: PaymentWayTexts.addCard)].compactMap { $0 } + PaymentWayTexts.initialTableViewTitles
+            .filter{ $0 == PaymentWayTexts.points }
+            .compactMap {[unowned self] in return self.getInitialPaymentWayTableViewCellModel(for: $0)}
+        
+        let sectionOne = PaymentWayTableViewSectionModel(cells: cellsForFirstSection)
+        let sectionTwo = PaymentWayTableViewSectionModel(cells: cellsForSecondSection)
+        
+        return PaymentWayTableViewModel(sections: [sectionOne, sectionTwo])
+    }
+    
+    //TODO
+    func getPaymentData() {
+        guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
+        
+        let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
+        NetworkService.shared.makeRequest(for: resource) {[weak self] paymentResponse in
+            guard let self = self else { return }
+            
+            switch paymentResponse {
+            
+            case .success(let paymentResponse):
+                self.paymentCards = paymentResponse.data
+                                
+            case .failure(let error):
+                
+                print(error.localizedDescription)
+            }
+            
+        }
     }
     
 }

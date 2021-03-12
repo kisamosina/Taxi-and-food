@@ -119,6 +119,7 @@
 		7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */; };
 		7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04625E52979001981CA /* TextEnterViewUIData.swift */; };
 		7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */; };
+		7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA5138B25FBA4130073AF21 /* TransitionBottomViewDelegate.swift */; };
 		7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */; };
 		7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3925E6B90600649669 /* Formatter+Extension.swift */; };
 		7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3E25E6B94100649669 /* Date+Extension.swift */; };
@@ -307,6 +308,7 @@
 		7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewController.swift; sourceTree = "<group>"; };
 		7B75D04625E52979001981CA /* TextEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnterViewUIData.swift; sourceTree = "<group>"; };
 		7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		7BA5138B25FBA4130073AF21 /* TransitionBottomViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomViewDelegate.swift; sourceTree = "<group>"; };
 		7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ISO8601DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		7BB36F3925E6B90600649669 /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
 		7BB36F3E25E6B94100649669 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -954,6 +956,14 @@
 			path = "Start Group";
 			sourceTree = "<group>";
 		};
+		7BA5139025FBA4190073AF21 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7BA5138B25FBA4130073AF21 /* TransitionBottomViewDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		7BCBCB7925D9445900C43CF6 /* Confirm Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1040,7 @@
 			isa = PBXGroup;
 			children = (
 				7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */,
+				7BA5139025FBA4190073AF21 /* Protocol */,
 				7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */,
 			);
 			path = TransitionBottomView;
@@ -1318,6 +1329,7 @@
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
+				7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */,
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
 				7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,

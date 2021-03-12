@@ -15,6 +15,10 @@ class PersonalAccountCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.iconImageView.image = nil
+    }
     
     func setupCell(for model: PersonalAccountTableViewCellModel) {
         self.nameLabel.text = model.name

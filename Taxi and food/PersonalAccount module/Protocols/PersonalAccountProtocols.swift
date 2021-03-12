@@ -19,7 +19,7 @@ protocol PersonalAccountInteractorProtocol: class {
     var view: PersonalAccountViewProtocol! { get }
     
     var personalAccountTableViewData: [PersonalAccountTableViewModel]! { get set }
-    var paymentCardResponseData: [PaymentCardResponseData] { get set }
+    var paymentCards: [PaymentCardResponseData] { get set }
     
     init (view: PersonalAccountViewProtocol)
     
