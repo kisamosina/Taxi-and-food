@@ -34,11 +34,13 @@ class AllAddressesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        
         configureUI()
         
         self.interactor = AllAddressesInteractor(view: self)
         self.interactor.getAllAddresses()
-        self.tableView.reloadData()
+
     }
     
     private func configureUI() {
@@ -52,13 +54,17 @@ extension AllAddressesViewController: AllAddressesViewProtocol {
     func updateTableViewData() {
         DispatchQueue.main.async {
         self.tableView.reloadData()
+            print("cell model")
+            print(self.cellModel)
+            print("array of addresses")
+            print(self.cellModel)
         }
     }
 }
 
 extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.interactor.arrayOfAddresses?.count ?? 0
+        return self.cellModel?.count ?? 0
         
     }
     
