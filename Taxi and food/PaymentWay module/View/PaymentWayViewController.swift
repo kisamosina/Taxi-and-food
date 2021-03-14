@@ -13,7 +13,7 @@ class PaymentWayViewController: UIViewController {
     //MARK: - Properties
     
     internal var interactor: PaymentWayInteractorProtocol!
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backGroundImageView: UIImageView!
@@ -29,6 +29,11 @@ class PaymentWayViewController: UIViewController {
         self.setupTableView()
         self.setuplinkACardButton()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.interactor.getPaymentData()
     }
     
     //MARK: - IBActions
@@ -59,7 +64,22 @@ class PaymentWayViewController: UIViewController {
 
 //MARK: - PaymentWayViewProtocol
 
-extension PaymentWayViewController: PaymentWayViewProtocol { }
+extension PaymentWayViewController: PaymentWayViewProtocol {
+    
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func hideLinkACardButton() {
+        DispatchQueue.main.async {
+            self.linkACardButton.isHidden = true
+        }
+    }
+    
+    
+}
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
 
@@ -85,15 +105,20 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? PaymentWayCell else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? PaymentWayCell,
+              let title = cell.titleLabel.text
+              else { return }
         
-        switch cell.titleLabel.text {
+        switch title {
         
         case PaymentWayTexts.bankCard, PaymentWayTexts.addCard:
             self.performSegueToNewCardEnterViewController()
-        
-        default:
+            
+        case PaymentWayTexts.points:
             break
+            
+        default:
+            self.interactor.setActiveTableViewModelCell(title)
         }
         
     }

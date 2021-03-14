@@ -58,17 +58,14 @@ class NewCardEnterInteractor: NewCardEnterInteractorProtocol {
                                                                        and: addedNewCardResponseData.id),
                                                      requestType: .POST)
                 
-        NetworkService.shared.makeRequest(for: resource) { result in
-            
-            switch result {
-            
-            case .success(_):
-               print("SUCCESS CARD APPROVEMENT")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-            
+        NetworkService.shared.makeRequest(for: resource) { _ in
+    
+        } completionWithNoResponse: { [weak self] in
+            guard let self = self else { return }
+            PersistanceStoreManager.shared.savePaymentWay(PaymentWayTexts.cardTitle + self.addedNewCardResponseData.hidedNumber)
+            self.view.backToPaymentWayViewController()
         }
     }
+
     
 }

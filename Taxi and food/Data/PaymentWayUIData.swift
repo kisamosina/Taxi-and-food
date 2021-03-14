@@ -28,6 +28,7 @@ struct PaymentWayTexts {
         case applePay = "Apple Pay"
         case points = "Баллы"
         case addCard = "Добавить карту"
+        case cardTitle = "Карта "
     }
     
     private enum EngTableTexts: String, CaseIterable {
@@ -36,6 +37,7 @@ struct PaymentWayTexts {
         case applePay = "Apple Pay"
         case points = "Points"
         case addCard = "Add a card"
+        case cardTitle = "Card "
     }
     
     static var cash: String {
@@ -114,5 +116,17 @@ struct PaymentWayTexts {
             return EngTexts.vcTitle.rawValue
         }
     }
+    
+    static var cardTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTableTexts.cardTitle.rawValue
+        case .eng:
+            return EngTableTexts.cardTitle.rawValue
+        }
+    }
+
 
 }

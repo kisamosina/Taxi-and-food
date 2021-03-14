@@ -17,19 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2st-SC-BFB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="336"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8UP-rE-Cm4">
+                                <rect key="frame" x="0.0" y="434" width="414" height="368"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentWayMainScreenBackGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-rG-sEV">
+                                        <rect key="frame" x="9" y="0.0" width="396" height="278"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="278" id="8Tm-Xk-7vB"/>
+                                            <constraint firstAttribute="width" constant="396" id="Nev-zF-9kb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-K6-aVL" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="318" width="364" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ENS-k7-Ong"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="linkACardButtonTapped:" destination="KIM-B5-Hb9" eventType="touchUpInside" id="iNq-nu-UGB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mfm-K6-aVL" firstAttribute="leading" secondItem="8UP-rE-Cm4" secondAttribute="leading" constant="25" id="QLI-nG-LqK"/>
+                                    <constraint firstAttribute="trailing" secondItem="mfm-K6-aVL" secondAttribute="trailing" constant="25" id="liO-eQ-dc3"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2st-SC-BFB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="336" id="VhV-Zl-mau"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentWayCell" id="TXG-Ly-47B" customClass="PaymentWayCell" customModule="Taxi_and_food" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentWayCell" rowHeight="44" id="TXG-Ly-47B" customClass="PaymentWayCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TXG-Ly-47B" id="Rrk-i9-yTl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Euu-Bv-6zF">
-                                                    <rect key="frame" x="25" y="5" width="33" height="33"/>
+                                                    <rect key="frame" x="25" y="5" width="40" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKC-sw-MQN">
@@ -57,36 +86,17 @@
                                     <outlet property="delegate" destination="KIM-B5-Hb9" id="Swp-xx-OIf"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-K6-aVL" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="25" y="752" width="364" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ENS-k7-Ong"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="linkACardButtonTapped:" destination="KIM-B5-Hb9" eventType="touchUpInside" id="iNq-nu-UGB"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentWayMainScreenBackGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-rG-sEV">
-                                <rect key="frame" x="30" y="434" width="384" height="278"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="278" id="8Tm-Xk-7vB"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Foq-62-rPz"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Nay-rG-sEV" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" constant="30" id="2kt-0f-UN6"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="2st-SC-BFB" secondAttribute="bottom" priority="750" id="0Gm-WE-h7E"/>
                             <constraint firstItem="2st-SC-BFB" firstAttribute="top" secondItem="Foq-62-rPz" secondAttribute="top" id="F5J-8K-2jL"/>
-                            <constraint firstItem="Nay-rG-sEV" firstAttribute="trailing" secondItem="Foq-62-rPz" secondAttribute="trailing" id="FZ9-zb-0eO"/>
                             <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="2st-SC-BFB" secondAttribute="trailing" id="H7T-vQ-zd2"/>
-                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="mfm-K6-aVL" secondAttribute="bottom" constant="60" id="JCP-aE-vla"/>
-                            <constraint firstItem="mfm-K6-aVL" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" constant="25" id="LcU-yQ-1T8"/>
-                            <constraint firstItem="mfm-K6-aVL" firstAttribute="top" secondItem="Nay-rG-sEV" secondAttribute="bottom" constant="40" id="Q5W-fa-EBD"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="8UP-rE-Cm4" secondAttribute="bottom" constant="60" id="TLH-vU-2HD"/>
                             <constraint firstItem="2st-SC-BFB" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" id="aZO-5i-QZH"/>
-                            <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="mfm-K6-aVL" secondAttribute="trailing" constant="25" id="ezR-em-b4y"/>
-                            <constraint firstItem="Nay-rG-sEV" firstAttribute="top" secondItem="2st-SC-BFB" secondAttribute="bottom" constant="10" id="iMH-SH-I5S"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="8UP-rE-Cm4" secondAttribute="trailing" id="fKe-pY-DeS"/>
+                            <constraint firstItem="8UP-rE-Cm4" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" id="uzf-hf-TE7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aMZ-Ph-K8o"/>

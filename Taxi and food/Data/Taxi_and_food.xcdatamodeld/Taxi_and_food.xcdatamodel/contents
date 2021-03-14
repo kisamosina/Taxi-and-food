@@ -6,7 +6,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="SavedPaymentWay" representedClassName="SavedPaymentWay" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="PersistanceUserData" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="SavedPaymentWay" positionX="-63" positionY="9" width="128" height="44"/>
     </elements>
 </model>

@@ -100,12 +100,11 @@ extension NewCardEnterViewController: NewCardEnterViewProtocol {
 
 extension NewCardEnterViewController: TransitionBottomViewDelegate {
     func mainButtonTapped() {
-        print (#function)
         self.interactor.makeCardApproveRequest()
     }
     
     func auxButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        self.backToPaymentWayViewController()
     }
     
     
