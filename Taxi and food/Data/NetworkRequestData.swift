@@ -26,7 +26,20 @@ enum PromocodesRequestPaths: String {
 enum PromocodesRequestKeys: String {
     case code
 }
+
 enum PaymentRequestPaths: String {
     case history = "user/$/history/payments"
-    
+    case paymentCards = "user/$/payment-cards"
 }
+
+enum NewPaymentCardRequestPaths: String {
+    case paymentCard = "user/$/payment-card"
+    case approveCard = "user/$/payment-card/@/approved"
+}
+
+enum NewPaymentCardRequestKeys: String {
+    case number
+    case expiryDate = "expiry_date"
+    case cvc
+}
+

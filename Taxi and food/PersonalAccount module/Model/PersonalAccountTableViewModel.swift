@@ -17,3 +17,19 @@ struct PersonalAccountTableViewCellModel {
     var name: String
 }
 
+struct PaymentResponse: Decodable {
+    var data: [PaymentCardResponseData]
+}
+
+struct PaymentCardResponseData: Decodable {
+    var id: Int
+    var number: String
+    var expiryDate: String
+    var status: String
+}
+
+extension PaymentCardResponseData {
+    var hidedNumber: String {
+        return "****" + String(number.suffix(4))
+    }
+}

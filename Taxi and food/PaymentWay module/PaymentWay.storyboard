@@ -17,19 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2st-SC-BFB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="336"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8UP-rE-Cm4">
+                                <rect key="frame" x="0.0" y="434" width="414" height="368"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentWayMainScreenBackGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-rG-sEV">
+                                        <rect key="frame" x="9" y="0.0" width="396" height="278"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="278" id="8Tm-Xk-7vB"/>
+                                            <constraint firstAttribute="width" constant="396" id="Nev-zF-9kb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-K6-aVL" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="318" width="364" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ENS-k7-Ong"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="linkACardButtonTapped:" destination="KIM-B5-Hb9" eventType="touchUpInside" id="iNq-nu-UGB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mfm-K6-aVL" firstAttribute="leading" secondItem="8UP-rE-Cm4" secondAttribute="leading" constant="25" id="QLI-nG-LqK"/>
+                                    <constraint firstAttribute="trailing" secondItem="mfm-K6-aVL" secondAttribute="trailing" constant="25" id="liO-eQ-dc3"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2st-SC-BFB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="336" id="VhV-Zl-mau"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentWayCell" id="TXG-Ly-47B" customClass="PaymentWayCell" customModule="Taxi_and_food" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentWayCell" rowHeight="44" id="TXG-Ly-47B" customClass="PaymentWayCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TXG-Ly-47B" id="Rrk-i9-yTl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Euu-Bv-6zF">
-                                                    <rect key="frame" x="25" y="5" width="33" height="33"/>
+                                                    <rect key="frame" x="25" y="5" width="40" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKC-sw-MQN">
@@ -57,36 +86,17 @@
                                     <outlet property="delegate" destination="KIM-B5-Hb9" id="Swp-xx-OIf"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-K6-aVL" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="25" y="752" width="364" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ENS-k7-Ong"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="linkACardButtonTapped:" destination="KIM-B5-Hb9" eventType="touchUpInside" id="iNq-nu-UGB"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentWayMainScreenBackGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-rG-sEV">
-                                <rect key="frame" x="30" y="434" width="384" height="278"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="278" id="8Tm-Xk-7vB"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Foq-62-rPz"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Nay-rG-sEV" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" constant="30" id="2kt-0f-UN6"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="2st-SC-BFB" secondAttribute="bottom" priority="750" id="0Gm-WE-h7E"/>
                             <constraint firstItem="2st-SC-BFB" firstAttribute="top" secondItem="Foq-62-rPz" secondAttribute="top" id="F5J-8K-2jL"/>
-                            <constraint firstItem="Nay-rG-sEV" firstAttribute="trailing" secondItem="Foq-62-rPz" secondAttribute="trailing" id="FZ9-zb-0eO"/>
                             <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="2st-SC-BFB" secondAttribute="trailing" id="H7T-vQ-zd2"/>
-                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="mfm-K6-aVL" secondAttribute="bottom" constant="60" id="JCP-aE-vla"/>
-                            <constraint firstItem="mfm-K6-aVL" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" constant="25" id="LcU-yQ-1T8"/>
-                            <constraint firstItem="mfm-K6-aVL" firstAttribute="top" secondItem="Nay-rG-sEV" secondAttribute="bottom" constant="40" id="Q5W-fa-EBD"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="bottom" secondItem="8UP-rE-Cm4" secondAttribute="bottom" constant="60" id="TLH-vU-2HD"/>
                             <constraint firstItem="2st-SC-BFB" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" id="aZO-5i-QZH"/>
-                            <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="mfm-K6-aVL" secondAttribute="trailing" constant="25" id="ezR-em-b4y"/>
-                            <constraint firstItem="Nay-rG-sEV" firstAttribute="top" secondItem="2st-SC-BFB" secondAttribute="bottom" constant="10" id="iMH-SH-I5S"/>
+                            <constraint firstItem="Foq-62-rPz" firstAttribute="trailing" secondItem="8UP-rE-Cm4" secondAttribute="trailing" id="fKe-pY-DeS"/>
+                            <constraint firstItem="8UP-rE-Cm4" firstAttribute="leading" secondItem="Foq-62-rPz" secondAttribute="leading" id="uzf-hf-TE7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aMZ-Ph-K8o"/>
@@ -99,6 +109,150 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxr-w2-wdM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="655.07246376811599" y="156.69642857142856"/>
+        </scene>
+        <!--New Card Enter View Controller-->
+        <scene sceneID="4jE-P9-Tdg">
+            <objects>
+                <viewController storyboardIdentifier="NewCardEnterViewController" id="Yal-gO-8jf" customClass="NewCardEnterViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ai7-5l-RjQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newCardBackground" translatesAutoresizingMaskIntoConstraints="NO" id="uxG-ld-xvY">
+                                <rect key="frame" x="83" y="64" width="248" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="URI-SS-ktM"/>
+                                    <constraint firstAttribute="height" constant="184" id="bOP-kK-ZdC"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42Y-RM-eVv" customClass="TransitionBottomView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="896" width="414" height="335"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="335" id="Eq8-lm-FuC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdb-l9-col" customClass="CardEnterView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="664" width="414" height="232"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2D-RR-RcR">
+                                        <rect key="frame" x="187" y="0.0" width="40" height="5"/>
+                                        <color key="backgroundColor" white="1" alpha="0.48961571929999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="8t3-mW-xLj"/>
+                                            <constraint firstAttribute="height" constant="5" id="L8I-Jy-6nW"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgX-YU-0jJ">
+                                        <rect key="frame" x="0.0" y="15" width="414" height="217"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="cCE-vO-4hr">
+                                                <rect key="frame" x="25" y="54" width="364" height="138"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9A-Wj-fLc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Mdb-l9-col" id="BXA-4N-4PN"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tye-oJ-Pq0">
+                                                        <rect key="frame" x="0.0" y="44" width="364" height="22"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-ku-PVN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="173.5" height="22"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="Mdb-l9-col" id="X9Z-V6-E8U"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vfs-ni-yhX">
+                                                                <rect key="frame" x="190.5" y="0.0" width="173.5" height="22"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="Mdb-l9-col" id="dYC-xP-NKc"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFb-WD-TxL" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="88" width="364" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="CyE-zx-8Ub"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="linkCardButtonTapped:" destination="py3-dU-dll" eventType="touchUpInside" id="n56-hh-xmC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="IFb-WD-TxL" secondAttribute="trailing" id="BX8-4a-VWm"/>
+                                                    <constraint firstItem="Tye-oJ-Pq0" firstAttribute="leading" secondItem="cCE-vO-4hr" secondAttribute="leading" id="KJC-KG-ph9"/>
+                                                    <constraint firstItem="i9A-Wj-fLc" firstAttribute="leading" secondItem="cCE-vO-4hr" secondAttribute="leading" id="Ojh-mp-iRe"/>
+                                                    <constraint firstItem="IFb-WD-TxL" firstAttribute="leading" secondItem="cCE-vO-4hr" secondAttribute="leading" id="Smr-JR-pah"/>
+                                                    <constraint firstAttribute="trailing" secondItem="i9A-Wj-fLc" secondAttribute="trailing" id="jt0-hj-QAX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Tye-oJ-Pq0" secondAttribute="trailing" id="u7K-tL-BUs"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cCE-vO-4hr" secondAttribute="trailing" constant="25" id="JxF-Tt-agC"/>
+                                            <constraint firstItem="cCE-vO-4hr" firstAttribute="leading" secondItem="KgX-YU-0jJ" secondAttribute="leading" constant="25" id="Qwy-OP-Sem"/>
+                                            <constraint firstAttribute="bottom" secondItem="cCE-vO-4hr" secondAttribute="bottom" constant="25" id="ZGH-Y6-H77"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="P2D-RR-RcR" firstAttribute="centerX" secondItem="Mdb-l9-col" secondAttribute="centerX" id="Iuj-0h-P48"/>
+                                    <constraint firstItem="KgX-YU-0jJ" firstAttribute="leading" secondItem="Mdb-l9-col" secondAttribute="leading" id="KRQ-1p-0qb"/>
+                                    <constraint firstItem="KgX-YU-0jJ" firstAttribute="top" secondItem="P2D-RR-RcR" secondAttribute="bottom" constant="10" id="Uhv-ky-fpM"/>
+                                    <constraint firstItem="KgX-YU-0jJ" firstAttribute="bottom" secondItem="Mdb-l9-col" secondAttribute="bottom" id="ZCq-1p-Xy5"/>
+                                    <constraint firstItem="P2D-RR-RcR" firstAttribute="top" secondItem="Mdb-l9-col" secondAttribute="top" id="jOB-un-pRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="KgX-YU-0jJ" secondAttribute="trailing" id="q6d-Je-bCA"/>
+                                    <constraint firstAttribute="height" constant="232" id="tVX-5w-dIq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cardNumberTextField" destination="i9A-Wj-fLc" id="9wa-0i-71O"/>
+                                    <outlet property="contentView" destination="KgX-YU-0jJ" id="R4i-AX-ncu"/>
+                                    <outlet property="cvcTextField" destination="Vfs-ni-yhX" id="Ahl-9x-lvy"/>
+                                    <outlet property="dateTextField" destination="dAp-ku-PVN" id="wOI-8l-bmA"/>
+                                    <outlet property="linkCardButton" destination="IFb-WD-TxL" id="sF5-95-Ecc"/>
+                                    <outlet property="topView" destination="P2D-RR-RcR" id="CAd-Fv-xWt"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XFP-yV-YCZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XFP-yV-YCZ" firstAttribute="trailing" secondItem="Mdb-l9-col" secondAttribute="trailing" id="4ga-zB-2rq"/>
+                            <constraint firstItem="Mdb-l9-col" firstAttribute="leading" secondItem="XFP-yV-YCZ" secondAttribute="leading" id="LRW-V7-0ah"/>
+                            <constraint firstItem="42Y-RM-eVv" firstAttribute="leading" secondItem="XFP-yV-YCZ" secondAttribute="leading" id="Omx-0g-hFl"/>
+                            <constraint firstItem="uxG-ld-xvY" firstAttribute="centerX" secondItem="ai7-5l-RjQ" secondAttribute="centerX" id="q2I-YV-PMB"/>
+                            <constraint firstItem="Mdb-l9-col" firstAttribute="bottom" secondItem="ai7-5l-RjQ" secondAttribute="bottom" id="rf8-Yt-xKx"/>
+                            <constraint firstItem="uxG-ld-xvY" firstAttribute="top" secondItem="XFP-yV-YCZ" secondAttribute="top" constant="20" id="vM1-7Y-Hh5"/>
+                            <constraint firstAttribute="bottom" secondItem="42Y-RM-eVv" secondAttribute="bottom" constant="-335" id="yTb-0R-dAS"/>
+                            <constraint firstItem="XFP-yV-YCZ" firstAttribute="trailing" secondItem="42Y-RM-eVv" secondAttribute="trailing" id="yyv-ve-sAM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="approveCardView" destination="42Y-RM-eVv" id="Fbq-uE-JrL"/>
+                        <outlet property="approveCardViewBottomConstraint" destination="yTb-0R-dAS" id="FnV-Zj-3GO"/>
+                        <outlet property="backgroundImageView" destination="uxG-ld-xvY" id="09p-x4-YZy"/>
+                        <outlet property="cardEnterView" destination="Mdb-l9-col" id="Ies-CV-fmD"/>
+                        <outlet property="cardEnterViewYConstraint" destination="rf8-Yt-xKx" id="4Oa-AO-0DY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HbL-4o-TSR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="py3-dU-dll" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1672" y="157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SBb-S2-q6c">
@@ -120,6 +274,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="newCardBackground" width="248.5" height="185"/>
         <image name="paymentWayMainScreenBackGroundImage" width="396" height="278.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

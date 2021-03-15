@@ -119,6 +119,7 @@
 		7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */; };
 		7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04625E52979001981CA /* TextEnterViewUIData.swift */; };
 		7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */; };
+		7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA5138B25FBA4130073AF21 /* TransitionBottomViewDelegate.swift */; };
 		7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */; };
 		7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3925E6B90600649669 /* Formatter+Extension.swift */; };
 		7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB36F3E25E6B94100649669 /* Date+Extension.swift */; };
@@ -132,6 +133,7 @@
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
 		7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MapViewController.swift */; };
 		7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */; };
+		7D0E782125F6ADE7005EF370 /* ExpirationDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */; };
 		7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */; };
 		7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */; };
 		7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */; };
@@ -139,6 +141,16 @@
 		7D1F5EF725F3D2FF00892B6F /* PaymentWayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */; };
 		7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */; };
 		7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */; };
+		7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */; };
+		7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */; };
+		7D4748EF25F7E74600F744F7 /* NewCardEnterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */; };
+		7D4748F425F7E9AE00F744F7 /* NewCardEnterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748F325F7E9AE00F744F7 /* NewCardEnterModel.swift */; };
+		7D4748F925F7FC1600F744F7 /* TransitionBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */; };
+		7D47490125F7FC3E00F744F7 /* TransitionBottomViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */; };
+		7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */; };
+		7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */; };
+		7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */; };
+		7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */; };
 		7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */; };
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
@@ -150,6 +162,9 @@
 		7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */; };
 		7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */; };
 		7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */; };
+		7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */; };
+		7D851C5025F68475000E20DB /* CardEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C4F25F68475000E20DB /* CardEnterView.swift */; };
+		7D851C5525F687C7000E20DB /* EnterCardUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C5425F687C7000E20DB /* EnterCardUIData.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
 		7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */; };
@@ -293,6 +308,7 @@
 		7B75D03925E51D0E001981CA /* PromocodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewController.swift; sourceTree = "<group>"; };
 		7B75D04625E52979001981CA /* TextEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnterViewUIData.swift; sourceTree = "<group>"; };
 		7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		7BA5138B25FBA4130073AF21 /* TransitionBottomViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomViewDelegate.swift; sourceTree = "<group>"; };
 		7BB36F3425E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ISO8601DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		7BB36F3925E6B90600649669 /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
 		7BB36F3E25E6B94100649669 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -306,6 +322,7 @@
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA68225D67F0300C35652 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthAndMap.storyboard; sourceTree = "<group>"; };
+		7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpirationDateFormatter.swift; sourceTree = "<group>"; };
 		7D1F5ED325F3C7F300892B6F /* PaymentWay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentWay.storyboard; sourceTree = "<group>"; };
 		7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayViewController.swift; sourceTree = "<group>"; };
 		7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayCell.swift; sourceTree = "<group>"; };
@@ -313,6 +330,16 @@
 		7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayProtocols.swift; sourceTree = "<group>"; };
 		7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayInteractor.swift; sourceTree = "<group>"; };
 		7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayTableViewModel.swift; sourceTree = "<group>"; };
+		7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterViewDelegate.swift; sourceTree = "<group>"; };
+		7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterInteractor.swift; sourceTree = "<group>"; };
+		7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterProtocols.swift; sourceTree = "<group>"; };
+		7D4748F325F7E9AE00F744F7 /* NewCardEnterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterModel.swift; sourceTree = "<group>"; };
+		7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomView.swift; sourceTree = "<group>"; };
+		7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionBottomViewUIData.swift; sourceTree = "<group>"; };
+		7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransitionBottomView.xib; sourceTree = "<group>"; };
+		7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButton.swift; sourceTree = "<group>"; };
+		7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewControllerUIData.swift; sourceTree = "<group>"; };
+		7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButtonUIData.swift; sourceTree = "<group>"; };
 		7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountProtocols.swift; sourceTree = "<group>"; };
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
@@ -324,6 +351,9 @@
 		7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewUIData.swift; sourceTree = "<group>"; };
 		7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewDelegate.swift; sourceTree = "<group>"; };
+		7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterViewController.swift; sourceTree = "<group>"; };
+		7D851C4F25F68475000E20DB /* CardEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterView.swift; sourceTree = "<group>"; };
+		7D851C5425F687C7000E20DB /* EnterCardUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCardUIData.swift; sourceTree = "<group>"; };
 		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
 		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
 		7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
@@ -601,6 +631,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFFA66025D66F8300C35652 /* PhoneFormatter.swift */,
+				7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */,
 				7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */,
 				0465F51325DA30CD008CA6D0 /* AlertController.swift */,
 				7B75CF8F25E01CFD001981CA /* ServerError.swift */,
@@ -682,10 +713,14 @@
 				7B75D02725E512EE001981CA /* PromocodeModuleData.swift */,
 				7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */,
 				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
+				7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */,
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */,
+				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
+				7D851C5425F687C7000E20DB /* EnterCardUIData.swift */,
+				7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */,
 				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
 				7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */,
 				7B3A8FEF25EA976B008CA13E /* PaymentHistoryUIData.swift */,
@@ -807,10 +842,13 @@
 			children = (
 				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
 				7D823ECD25F2AE5F006B174B /* LogoutView */,
+				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
+				7D4748E025F7D89100F744F7 /* CardEnterView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
+				7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */,
 				7B75CFA425E03D5A001981CA /* MapBottomView.swift */,
 				7B47C87625E1458900F366FE /* MenuView.swift */,
 				7B75CF9425E03861001981CA /* MapRoundButton.swift */,
@@ -918,6 +956,14 @@
 			path = "Start Group";
 			sourceTree = "<group>";
 		};
+		7BA5139025FBA4190073AF21 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7BA5138B25FBA4130073AF21 /* TransitionBottomViewDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		7BCBCB7925D9445900C43CF6 /* Confirm Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +994,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5EE025F3D01C00892B6F /* PaymentWayViewController.swift */,
+				7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */,
 				7D1F5EEC25F3D1FD00892B6F /* PaymentWayCell.swift */,
 			);
 			path = View;
@@ -957,6 +1004,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */,
+				7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -965,6 +1013,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */,
+				7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -973,8 +1022,28 @@
 			isa = PBXGroup;
 			children = (
 				7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */,
+				7D4748F325F7E9AE00F744F7 /* NewCardEnterModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7D4748E025F7D89100F744F7 /* CardEnterView */ = {
+			isa = PBXGroup;
+			children = (
+				7D851C4F25F68475000E20DB /* CardEnterView.swift */,
+				7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */,
+			);
+			path = CardEnterView;
+			sourceTree = "<group>";
+		};
+		7D47490A25F7FC7300F744F7 /* TransitionBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */,
+				7BA5139025FBA4190073AF21 /* Protocol */,
+				7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */,
+			);
+			path = TransitionBottomView;
 			sourceTree = "<group>";
 		};
 		7D823E7C25F1457C006B174B /* View */ = {
@@ -1161,6 +1230,7 @@
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
+				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
 				7D823ED225F2AE7F006B174B /* LogoutView.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
@@ -1226,6 +1296,7 @@
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				041E29A925E220BC00CA9F56 /* PersonalDataModel.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
+				7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */,
 				7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
@@ -1237,6 +1308,7 @@
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
 				7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
+				7D4748F425F7E9AE00F744F7 /* NewCardEnterModel.swift in Sources */,
 				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
 				7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
@@ -1244,8 +1316,10 @@
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
+				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
+				7D4748F925F7FC1600F744F7 /* TransitionBottomView.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
 				7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */,
 				7B75D01F25E5105A001981CA /* PromocodeViewController.swift in Sources */,
@@ -1255,6 +1329,7 @@
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
+				7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */,
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
 				7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
@@ -1278,6 +1353,7 @@
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
 				7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */,
+				7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */,
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
 				7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */,
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
@@ -1293,9 +1369,12 @@
 				041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7DD6B17525F01A8B00445407 /* PersonalAccountUIData.swift in Sources */,
+				7D0E782125F6ADE7005EF370 /* ExpirationDateFormatter.swift in Sources */,
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
+				7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */,
+				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
@@ -1303,12 +1382,15 @@
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
+				7D4748EF25F7E74600F744F7 /* NewCardEnterProtocols.swift in Sources */,
 				041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */,
+				7D47490125F7FC3E00F744F7 /* TransitionBottomViewUIData.swift in Sources */,
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */,
 				7B75CF5125DD71E1001981CA /* TarifResponse.swift in Sources */,
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,
 				7B47C89C25E6820100F366FE /* PromocodeHistoryInteractor.swift in Sources */,
+				7D851C5025F68475000E20DB /* CardEnterView.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
@@ -1319,11 +1401,13 @@
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */,
 				7D823EC625F2AE50006B174B /* LogoutView.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,
 				7B3A8FF025EA976B008CA13E /* PaymentHistoryUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,
+				7D851C5525F687C7000E20DB /* EnterCardUIData.swift in Sources */,
 				7D823E9F25F158CF006B174B /* PersonalAccountCell.swift in Sources */,
 				7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */,
 				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,
