@@ -106,6 +106,9 @@ enum CustomImagesNames: String {
     case paymentWayCash
     case paymentWayOne
     case paymentWayPoints
+    case userPinGrey
+    case clockGrey
+    case userPin
 }
 
 enum StoryBoards: String {
