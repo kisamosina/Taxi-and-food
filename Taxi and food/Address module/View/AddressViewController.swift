@@ -59,11 +59,17 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
 
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         print("address from map")
         print(addressFromMap)
         self.addressTextField.text = addressFromMap
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
         
         addressNameTextField.isHidden = true
         navigationItem.title = navigationItemNewName
