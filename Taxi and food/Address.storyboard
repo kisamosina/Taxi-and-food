@@ -12,14 +12,14 @@
             <objects>
                 <viewController id="02q-l2-vAb" customClass="AddressViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="huk-Rg-due">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="920"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNq-hN-Agb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="832"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78G-hv-CYJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="832"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gjQ-Zs-Sjo">
                                                 <rect key="frame" x="20" y="25" width="374" height="200"/>
@@ -133,7 +133,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2Q-cH-Bk0" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="757" width="364" height="50"/>
+                                                <rect key="frame" x="25" y="733" width="364" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="364" id="58s-Dg-yLo"/>
                                                     <constraint firstAttribute="height" constant="50" id="tK5-ua-tdz"/>
@@ -202,7 +202,7 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="920"/>
+                    <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="addressNameTextField" destination="8EY-6P-Emm" id="LbI-Ym-byq"/>
                         <outlet property="addressTextField" destination="D1b-on-xhv" id="tD0-i2-Yfn"/>
@@ -282,6 +282,7 @@
                                         <connections>
                                             <outlet property="addressLabel" destination="wh9-iO-Bdp" id="x5Y-71-NlD"/>
                                             <outlet property="addressNameLabel" destination="fkC-1L-pCC" id="ocw-3V-ooS"/>
+                                            <segue destination="1TK-ws-IeL" kind="unwind" identifier="AddressViewController" trigger="accessoryAction" unwindAction="unwind:" id="J9e-tY-Xip"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -306,6 +307,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59i-E5-kme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1TK-ws-IeL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3934.7826086956525" y="156.69642857142856"/>
         </scene>

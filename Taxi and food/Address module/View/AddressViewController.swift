@@ -38,10 +38,13 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     
     var arrayOfTextFields: [UITextField]!
     
+    var scrollViewPoint = CGPoint(x: 0, y: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        scrollView.contentOffset = CGPoint(x: 0, y: 0)
 
         configureUI()
         configureTextFields()
@@ -139,6 +142,18 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         print(text)
         
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let point = CGPoint(x: 0.0, y: commenCourierTextField.frame.origin.y)
+        scrollView.contentOffset = point
+        print("point")
+        print(point)
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.contentOffset = scrollViewPoint
     }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {

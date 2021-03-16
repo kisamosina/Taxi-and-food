@@ -81,6 +81,10 @@ extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "AddressViewController", sender: self)
+    }
+    
     
 }
 
