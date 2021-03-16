@@ -233,7 +233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BuL-Sf-8YT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="528"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AllAddressesViewController" rowHeight="60" id="bEe-aM-ser" customClass="AllAddressesCell" customModule="Taxi_and_food" customModuleProvider="target">
@@ -291,19 +291,26 @@
                                     <outlet property="delegate" destination="XxG-c3-Ucj" id="2W1-F2-3cy"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addressEmpty" id="q2w-JL-Af7">
+                                <rect key="frame" x="0.0" y="616" width="414" height="246"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="q2w-JL-Af7" firstAttribute="top" secondItem="BuL-Sf-8YT" secondAttribute="bottom" id="NXn-re-SB6"/>
                             <constraint firstItem="BuL-Sf-8YT" firstAttribute="top" secondItem="Eeg-Ra-Ccb" secondAttribute="top" id="dib-KB-Ohv"/>
                             <constraint firstItem="Eeg-Ra-Ccb" firstAttribute="trailing" secondItem="BuL-Sf-8YT" secondAttribute="trailing" id="g20-2L-hZ7"/>
                             <constraint firstItem="BuL-Sf-8YT" firstAttribute="leading" secondItem="Eeg-Ra-Ccb" secondAttribute="leading" id="icf-7Y-22k"/>
-                            <constraint firstItem="Eeg-Ra-Ccb" firstAttribute="bottom" secondItem="BuL-Sf-8YT" secondAttribute="bottom" id="o3Q-y2-rrO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eeg-Ra-Ccb"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Eq-js-ng2"/>
                     <connections>
+                        <outlet property="backImage" destination="q2w-JL-Af7" id="Ueq-jG-Ea8"/>
+                        <outlet property="backImageTopConstraint" destination="NXn-re-SB6" id="BBa-DP-mpa"/>
                         <outlet property="tableView" destination="BuL-Sf-8YT" id="pYy-MM-if3"/>
+                        <outlet property="tableViewTopConstraint" destination="dib-KB-Ohv" id="c7f-56-CQH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59i-E5-kme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -363,6 +370,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addressEmpty" width="1125" height="489"/>
         <image name="addressIcon" width="42" height="36"/>
         <image name="backButton" width="10" height="17"/>
     </resources>

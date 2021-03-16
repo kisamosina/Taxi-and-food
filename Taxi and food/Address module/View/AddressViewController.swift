@@ -37,8 +37,10 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     var destination: Bool = false
     
     var arrayOfTextFields: [UITextField]!
+    var navigationItemNewName: String?
     
     var scrollViewPoint = CGPoint(x: 0, y: 0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +53,23 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self)
+        addressNameTextField.isHidden = false
+        
+        
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         print("address from map")
         print(addressFromMap)
         self.addressTextField.text = addressFromMap
+        
+        addressNameTextField.isHidden = true
+        navigationItem.title = navigationItemNewName
     }
+    
+
     
     func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemNewTitleText
@@ -147,8 +158,9 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let point = CGPoint(x: 0.0, y: commenCourierTextField.frame.origin.y)
         scrollView.contentOffset = point
-        print("point")
-        print(point)
+        
+        self.floorTextField.keyboardType = .decimalPad
+
         
     }
     

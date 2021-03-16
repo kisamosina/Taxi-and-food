@@ -12,23 +12,23 @@ protocol AllAddressesViewProtocol {
     
     var interactor: AllAddressesInteractorProtocol! { get set }
     var cellModel: [AddressResponseData]? { get set }
-    
-//    func setTableViewData(_ addressData: AddressResponseData)
-    
+
     func updateTableViewData()
-    
-    
-    
-    
+   
 }
 
 class AllAddressesViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var backImage: UIImageView!
     
+    
+    @IBOutlet var tableViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet var backImageTopConstraint: NSLayoutConstraint!
     var interactor: AllAddressesInteractorProtocol!
     
     var cellModel: [AddressResponseData]?
+    var navigationItemName: String?
 
     
     override func viewDidLoad() {
@@ -40,11 +40,39 @@ class AllAddressesViewController: UIViewController {
         
         self.interactor = AllAddressesInteractor(view: self)
         self.interactor.getAllAddresses()
+        
+        self.backImageTopConstraint.constant += self.view.frame.height + 200
+       
+        print("self.backImageTopConstraint.constant")
+        print(self.backImageTopConstraint.constant)
+        
 
+        
+        print("self.view.frame.height")
+        print(self.view.frame.height)
     }
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        var heightOfTableView: CGFloat = 0.0
+//
+//        let cells = tableView.visibleCells
+//        for cell in cells {
+//            heightOfTableView += cell.frame.height
+//        }
+//        self.backImageTopConstraint.constant = self.view.frame.height - heightOfTableView - self.backImage.frame.height
+//        print("cells count")
+//        print(cells.count)
+//    }
+    
+
     
     private func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemTitleText
+        
+        self.backImage = UIImageView(image: UIImage(named: "addressFull"))
+        
+      
     }
 
 }
@@ -58,6 +86,23 @@ extension AllAddressesViewController: AllAddressesViewProtocol {
             print(self.cellModel)
             print("array of addresses")
             print(self.cellModel)
+
+            var heightOfTableView: CGFloat = 0.0
+
+            let cells = self.tableView.visibleCells
+            for cell in cells {
+                heightOfTableView += cell.frame.height
+                print(cell.frame.height)
+            }
+            self.backImageTopConstraint.constant = self.view.frame.height - heightOfTableView - self.backImage.frame.height
+            print("cells count")
+            print(cells.count)
+
+            print(heightOfTableView)
+            
+            if self.cellModel?.count != 0 {
+                self.backImage = UIImageView(image: UIImage(named: "addressFull"))
+            }
         }
     }
 }
@@ -76,6 +121,8 @@ extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource
         cell.configure()
         cell.addressNameLabel.text = cellModel?[indexPath.row].name
         cell.addressLabel.text = cellModel?[indexPath.row].address
+        self.navigationItemName = cellModel?[indexPath.row].name
+        
         
         
         return cell
@@ -88,4 +135,15 @@ extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource
     
 }
 
+
+extension AllAddressesViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddressViewController" {
+            let vc = segue.destination as! AddressViewController
+            vc.commenCourierTextField.isHidden = false
+            vc.navigationItemNewName = self.navigationItemName
+            
+        }
+    }
+}
 
