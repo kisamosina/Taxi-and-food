@@ -30,7 +30,7 @@ class AllAddressesInteractor: AllAddressesInteractorProtocol {
     
     func getAllAddresses() {
         
-        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 1)
+        let path = AddressRequestPaths.addressPostAndGet.rawValue.getServerAddressPath(for: 1)
         let resource = Resource<AddressResponse>(path: path, requestType: .GET)
         
         NetworkService.shared.makeRequest(for: resource) {[weak self] result in

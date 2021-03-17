@@ -23,9 +23,11 @@ enum RegistrationRequestKeys: String {
 //FIX: - fix id to $
 
 enum AddressRequestPaths: String {
-    case address = "user/$/address"
-    
+    case addressPostAndGet = "user/$/address"
+    case addressPutAndDelete = "user/$/address/$"
 }
+
+
 
 enum AddressRequestKeys: String {
     case name

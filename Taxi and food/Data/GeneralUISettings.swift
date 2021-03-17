@@ -87,6 +87,7 @@ enum StoryBoards: String {
     case AuthAndMap
     case Tarifs
     case Settings
+    case Addresses
 }
 
 enum ViewControllers: String {
@@ -99,6 +100,7 @@ enum ViewControllers: String {
     case SettingsViewController
     case AppleMapViewController
     case AllAddressesViewController
+    case AddressViewController
 }
 
 

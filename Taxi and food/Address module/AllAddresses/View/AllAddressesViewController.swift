@@ -28,6 +28,8 @@ class AllAddressesViewController: UIViewController {
     var interactor: AllAddressesInteractorProtocol!
     
     var cellModel: [AddressResponseData]?
+    
+    var modelToPass: AddressResponseData?
     var navigationItemName: String?
 
     
@@ -129,7 +131,11 @@ extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "AddressViewController", sender: self)
+        
+        modelToPass = cellModel?[indexPath.row]
+        
+        performSegue(withIdentifier: "AddressViewController", sender: modelToPass)
+
     }
     
     
@@ -141,7 +147,7 @@ extension AllAddressesViewController {
         if segue.identifier == "AddressViewController" {
             let vc = segue.destination as! AddressViewController
             vc.commenCourierTextField.isHidden = false
-            vc.navigationItemNewName = self.navigationItemName
+            vc.addressInfo = sender as? AddressResponseData
             
         }
     }

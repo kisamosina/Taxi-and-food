@@ -22,6 +22,8 @@ class PromoViewController: UIViewController {
     var models: [PromoOption]?
     let shortVc = PromoShortViewController()
     
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

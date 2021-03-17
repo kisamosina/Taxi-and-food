@@ -13,6 +13,10 @@ protocol AddressInteractorProtocol: class {
     var view: AddressViewProtocol! { get }
     
     func sendAddressRequest(name: String?, address: String?, commentDriver: String?, commentCourier: String?, flat: Int?, intercom: Int?, entrance: Int?, floor: Int?, destination: Bool?)
+    
+    func deleteAddress(with addressId: Int, with data: [String: Any]?)
+    
+    func changeAddress(with addressId: Int, with data: [String: Any]?)
 }
 
 class AddressInteractor: AddressInteractorProtocol {
@@ -35,7 +39,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
 //        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
 //        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
-        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: 3)
+        let path = AddressRequestPaths.addressPostAndGet.rawValue.getServerAddressPath(for: 3)
         let data: [String: Any] = [
                  AddressRequestKeys.name.rawValue: name ?? "",
                  AddressRequestKeys.address.rawValue: address ?? "",
@@ -49,13 +53,61 @@ class AddressInteractor: AddressInteractorProtocol {
         
              ]
         
-        let addressResource = Resource<AddressResponse>(path: path, requestType: .POST, requestData: data )
+        let addressResource = Resource<AddressResponse>(path: path, requestType: .POST, requestData: data)
        
         NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
             
             switch result {
             case .success(let response):
                 self.addressResponse = response
+                print("RESPONSE DATA: \(self.addressResponse.data)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+        
+    }
+    
+    func deleteAddress(with addressId: Int, with data: [String: Any]?) {
+        
+        //Uncomment if start from main screen
+                
+        //        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        //        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
+        
+        let path = AddressRequestPaths.addressPutAndDelete.rawValue.getServerAddressPath(for: 3, for: addressId)
+        
+        let addressResource = Resource<AddressResponse>(path: path, requestType: .DELETE, requestData: data)
+        
+        NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
+            
+            switch result {
+            case .success:
+                print("RESPONSE DATA: \(self.addressResponse.data)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+        
+    }
+    
+    func changeAddress(with addressId: Int, with data: [String: Any]?) {
+        
+        //Uncomment if start from main screen
+                
+        //        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        //        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
+        
+        let path = AddressRequestPaths.addressPutAndDelete.rawValue.getServerAddressPath(for: 3, for: addressId)
+        
+        let addressResource = Resource<AddressResponse>(path: path, requestType: .PUT, requestData: data)
+        
+        NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
+            
+            switch result {
+            case .success:
                 print("RESPONSE DATA: \(self.addressResponse.data)")
             case .failure(let error):
                 print(error.localizedDescription)

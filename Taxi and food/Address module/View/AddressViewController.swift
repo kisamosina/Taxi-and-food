@@ -31,6 +31,10 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var saveButton: MainBottomButton!
     @IBOutlet var mapButton: UIButton!
     
+    @IBOutlet var chooseDestinationButton: MainBottomButton!
+    @IBOutlet var deleteButton: MainBottomButton!
+    
+    
     internal var interactor: AddressInteractorProtocol!
     
     private var addressFromMap: String?
@@ -40,6 +44,8 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     var navigationItemNewName: String?
     
     var scrollViewPoint = CGPoint(x: 0, y: 0)
+    
+    var addressInfo: AddressResponseData?
     
     
     override func viewDidLoad() {
@@ -53,30 +59,51 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self)
+        
+        
+        chooseDestinationButton.isHidden = true
+        deleteButton.isHidden = true
+        
         addressNameTextField.isHidden = false
         
-        
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
-        print("address from map")
-        print(addressFromMap)
-        self.addressTextField.text = addressFromMap
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        //        Checking data presence
+        if addressInfo != nil {
+            chooseDestinationButton.isHidden = false
+            deleteButton.isHidden = false
+            addressNameTextField.isHidden = true
+        }
         
         
-        addressNameTextField.isHidden = true
-        navigationItem.title = navigationItemNewName
+        
+//        Confuguring textfields
+        self.navigationItem.title = addressInfo?.name
+        
+        self.addressTextField.text = addressInfo?.address
+        self.commentDriverTextField.text = addressInfo?.commentDriver
+        
+        if let userFlat = addressInfo?.flat {
+            self.officeTextField.text = String(userFlat)
+        }
+        if let userEntrance = addressInfo?.entrance {
+            self.entranceTextField.text = String(userEntrance)
+        }
+        if let userIntercom = addressInfo?.intercom {
+            self.intercomTextField.text = String(userIntercom)
+        }
+        if let userFloor = addressInfo?.floor {
+            self.floorTextField.text = String(userFloor)
+        }
+        self.commenCourierTextField.text = addressInfo?.commentCourier
+
     }
     
 
-    
     func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemNewTitleText
         self.addressNameTextField.placeholder = TextFieldsPlaceholderText.nameAddressText
@@ -95,6 +122,15 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         self.mapButton.setTitle(AddressViewControllerText.mapButtonTitleText, for: .normal)
         self.mapButton.tintColor = .black
+        
+        self.deleteButton.setupAs(.delete)
+        self.deleteButton.tintColor = .black
+        
+        self.chooseDestinationButton.setupAs(.chooseDestination)
+        self.chooseDestinationButton.backgroundColor = Colors.buttonBlue.getColor()
+        self.chooseDestinationButton.tintColor = .white
+        
+        
 
     }
     
@@ -121,7 +157,19 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         
     }
+    @IBAction func chooseDestinationTapped(_ sender: Any) {
+        
+        self.destination = true
+        
+        
+    }
     
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        
+        self.interactor.changeAddress(with: addressInfo?.id ?? 0, with: ["name": addressInfo?.name, "address": addressInfo?.address, "commentDriver": addressInfo?.commentDriver, "commentCourier": addressInfo?.commentCourier , "flat": addressInfo?.flat , "intercom": addressInfo?.intercom, "entrance": addressInfo?.entrance, "floor": addressInfo?.floor, "destination": addressInfo?.destination])
+        
+        
+    }
     
     @IBAction func mapButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: ViewControllers.AppleMapViewController.rawValue, sender: self)
