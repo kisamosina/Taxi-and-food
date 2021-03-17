@@ -59,7 +59,7 @@ class TransitionBottomView: UIView {
         self.contentView.layer.shadowOpacity = Float(TransitionBottomViewSizes.shadowOpacity.rawValue)
         self.contentView.layer.shadowRadius = TransitionBottomViewSizes.cornerRadius.rawValue
         self.contentView.layer.shadowOffset = CGSize(width: TransitionBottomViewSizes.shadowOffsetWidth.rawValue,
-                                                  height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
+                                                     height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
         self.contentView.layer.masksToBounds = false
         self.topView.layer.cornerRadius = self.topView.frame.height/2
         self.topView.clipsToBounds = true
@@ -71,18 +71,17 @@ class TransitionBottomView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
-        self.mainBottomButton.setupAs(.logOut)
         self.setupLabels()
     }
     
     private func setupConstraints() {
-            NSLayoutConstraint.activate([
-                self.topAnchor.constraint(equalTo: containerView.topAnchor),
-                self.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
-            ])
-        }
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: containerView.topAnchor),
+            self.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ])
+    }
     
     private func setupLabels() {
         self.descriptionLabel.font = .systemFont(ofSize: TransitionBottomViewSizes.descriptionLabelFontSize.rawValue)
@@ -99,14 +98,42 @@ class TransitionBottomView: UIView {
         self.mainBottomButton.setActive()
         self.auxButton.setupAs(type: .cancel)
     }
-   
+    
+    private func setupWhenFirstTimePointsShow(_ pointsData: PointsResponseData) {
+        self.firstTitleLabel.text = TransitionBottomViewTexts.congratulationText
+        self.firstTitleLabel.setBold(TransitionBottomViewTexts.congratulationText)
+        let pointsString = String(pointsData.credit)
+        let text = TransitionBottomViewTexts.youHaveNPointsText.insert(text: pointsString)
+        self.secondTitleLabel.text = text
+        self.secondTitleLabel.setBoldAndOrange(pointsString + " " + TransitionBottomViewTexts.youHaveNPointsText.selectedSuffixText())
+        self.descriptionLabel.text = TransitionBottomViewTexts.shortPointsDescription
+        self.mainBottomButton.setupAs(.newOrder)
+        self.auxButton.setupAs(type: .about)
+        UserDefaults.standard.storeIsNotFirstTimePointsUsing(true)
+    }
+    
+    private func setupWhenPointsShow(_ pointsData: PointsResponseData) {
+        self.firstTitleLabel.isHidden = true
+        let pointsString = String(pointsData.credit)
+        let text = TransitionBottomViewTexts.youHaveNPointsText.insert(text: pointsString)
+        self.secondTitleLabel.text = text
+        self.secondTitleLabel.setBoldAndOrange(pointsString + " " + TransitionBottomViewTexts.youHaveNPointsText.selectedSuffixText())
+        self.descriptionLabel.isHidden = true
+        self.mainBottomButton.setupAs(.newOrder)
+        self.auxButton.setupAs(type: .about)
+    }
+    
     public func setupAs(type: TransitionBottomViewTypes) {
         
         switch type {
         
         case .cardApprovement (let cardNumber):
             self.cardApprovementSetup(cardNumber: cardNumber)
-        }
+        case .pointsFirstTime(let pointsData):
+            self.setupWhenFirstTimePointsShow(pointsData)
+        case .points(let pointsData):
+            self.setupWhenPointsShow(pointsData)
+            }
     }
     
     

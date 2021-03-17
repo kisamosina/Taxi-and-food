@@ -41,7 +41,7 @@ class PersonalAccountViewController: UIViewController {
     
     @IBAction func logOutButtonTapped(_ sender: UIButton) {
         guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
-        vc.setLogoutState()
+        vc.setState(.showLogoutView)
         self.present(vc, animated: false)
     }
     

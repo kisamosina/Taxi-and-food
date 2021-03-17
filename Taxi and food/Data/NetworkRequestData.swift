@@ -30,6 +30,7 @@ enum PromocodesRequestKeys: String {
 enum PaymentRequestPaths: String {
     case history = "user/$/history/payments"
     case paymentCards = "user/$/payment-cards"
+    case points = "user/$/credit"
 }
 
 enum NewPaymentCardRequestPaths: String {

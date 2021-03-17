@@ -22,6 +22,10 @@ class InactiveViewController: UIViewController {
     private var rectOfCell: CGRect!
     private var paymentHistoryData: PaymentsHistoryResponseData!
     
+    //For Points
+    
+    private var transitionBottomView: TransitionBottomView!
+    
     //MARK: -  Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +45,13 @@ class InactiveViewController: UIViewController {
         
         case .showPaymentHistoryDetailView:
             self.showPaymentHistoryDetailView(for: rectOfCell, and: paymentHistoryData)
+            
         case .showLogoutView:
             self.showLogoutView()
+            
+        case .showPointsView(let pointsData):
+            self.showPointsView(pointsData)
+            
         default:
             break
         }
@@ -50,16 +59,21 @@ class InactiveViewController: UIViewController {
     
     @IBAction func userTapped(_ sender: UITapGestureRecognizer) {
         switch vcState {
-            
+        
         case .showPaymentHistoryDetailView:
             self.dismiss(animated: false, completion: nil)
         case .showLogoutView:
             self.hideLogoutView()
+        case .showPointsView(_):
+            self.dismiss(animated: false, completion: nil)
             
         default:
             break
         }
-        
+    }
+    
+    func setState(_ state: InactiveViewControllerStates) {
+        self.vcState = state
     }
 }
 
@@ -167,9 +181,83 @@ extension InactiveViewController: LogoutViewDelegate {
                        })
         
     }
+}
+
+//MARK: - When points state
+
+extension InactiveViewController {
     
-    func setLogoutState() {
-        self.vcState = .showLogoutView
+    private func showPointsView(_ pointsData: PointsResponseData) {
+        
+        let isNotFirstUse = UserDefaults.standard.getIsNotFirstTimePointsUsage()
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: isNotFirstUse ? TransitionBottomViewSizes.whenPointsHeght.rawValue :  TransitionBottomViewSizes.firstPointsUseHeight.rawValue)
+        
+        self.transitionBottomView = TransitionBottomView(frame: rect)
+        self.transitionBottomView.alpha = 0
+        
+        if isNotFirstUse {
+            self.transitionBottomView.setupAs(type: .points(pointsData))
+        } else {
+            self.transitionBottomView.setupAs(type: .pointsFirstTime(pointsData))
+        }
+        
+        self.view.addSubview(transitionBottomView)
+        self.transitionBottomView.delegate = self
+        
+        //Animations
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.transitionBottomView.alpha = 1
+                        let window = UIApplication.shared.windows[0]
+                        let bottomPadding = window.safeAreaInsets.bottom
+                        if isNotFirstUse {
+                            self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height - TransitionBottomViewSizes.whenPointsHeght.rawValue + bottomPadding
+                        } else {
+                            self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height - TransitionBottomViewSizes.firstPointsUseHeight.rawValue + bottomPadding
+                        }
+                       },
+                       completion: nil)
+        
+        
+    }
+    
+    //Hide logout view
+    private func hidePointsView() {
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.transitionBottomView.alpha = 0
+                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height
+                       },
+                       completion: { _ in })
+        
     }
 }
 
+extension InactiveViewController: TransitionBottomViewDelegate  {
+    
+    func mainButtonTapped() {
+        
+    }
+    
+    func auxButtonTapped() {
+        
+    }
+    
+    
+}

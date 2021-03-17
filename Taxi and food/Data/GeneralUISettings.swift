@@ -22,6 +22,7 @@ enum AppLanguages: String {
 
 enum AppSettingsStorageKeys: String {
     case language
+    case pointsIsFirstTimeUsage
 }
 
 enum Colors {
@@ -41,6 +42,7 @@ enum Colors {
     case mapMenuColor
     case redTextColor
     case logOutButtonBorderColor
+    case bouncesPointsTextColor
     
     
     func getColor() -> UIColor {
@@ -78,6 +80,8 @@ enum Colors {
             return UIColor(hexString: "#FF3B30")
         case .logOutButtonBorderColor:
             return UIColor(hexString: "#C6C6C8")
+        case .bouncesPointsTextColor:
+            return UIColor(hexString: "#FACA50")
         }
     }
 }

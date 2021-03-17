@@ -67,4 +67,9 @@ extension String {
         let temp = self.split(separator: "$")
         return "\(temp[0]) \(text) \(temp[1])"
     }
+    
+    func selectedSuffixText() -> String {
+        let temp = self.split(separator: "$")
+        return "\(temp[1])"
+    }
 }
