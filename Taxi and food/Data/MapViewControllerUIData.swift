@@ -87,7 +87,6 @@ struct MapMenuViewTexts {
 
 enum MapViewControllerSegue {
     case Tariffs
-    case Address
     case Promocode
     case unknown
     case Settings

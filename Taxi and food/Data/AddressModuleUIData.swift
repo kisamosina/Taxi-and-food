@@ -126,6 +126,15 @@ import Foundation
 
 struct AddressViewControllerText {
     
+    internal enum RusChooseDestinationButtonTitleText: String {
+        case buttonTextRu = "Выбрать местом назначения"
+        
+    }
+    internal enum EngChooseDestinationButtonTitleText: String {
+        case buttonTextEn = "Choose destination"
+        
+    }
+    
     internal enum RusMapButtonTitleText: String {
         case mapButtonTextRu = "Карта"
         
@@ -244,6 +253,17 @@ struct AddressViewControllerText {
 
     case .eng:
         return EngMapButtonTitleText.mapButtonTextEn.rawValue
+        }
+        
+    }
+    
+    static var chooseDestinationButtonTitleText: String {
+    switch UserDefaults.standard.getAppLanguage() {
+    case .rus:
+        return RusChooseDestinationButtonTitleText.buttonTextRu.rawValue
+
+    case .eng:
+        return EngChooseDestinationButtonTitleText.buttonTextEn.rawValue
         }
         
     }

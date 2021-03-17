@@ -10,7 +10,6 @@ import UIKit
 
 protocol AddressViewProtocol: class {
     var interactor: AddressInteractorProtocol! { get set }
-    
 }
 
 class AddressViewController: UIViewController, UIScrollViewDelegate {
@@ -77,6 +76,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
             chooseDestinationButton.isHidden = false
             deleteButton.isHidden = false
             addressNameTextField.isHidden = true
+            saveButton.isHidden = false
         }
         
         
@@ -119,18 +119,20 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         self.saveButton.setupAs(.save)
         self.saveButton.backgroundColor = Colors.buttonBlue.getColor()
         self.saveButton.tintColor = .white
-        
-        self.mapButton.setTitle(AddressViewControllerText.mapButtonTitleText, for: .normal)
+        self.saveButton.setTitle(MainButtonTitles.saveButtonTitle, for: .normal)
+    
         self.mapButton.tintColor = .black
+        self.mapButton.setTitle(AddressViewControllerText.mapButtonTitleText, for: .normal)
         
         self.deleteButton.setupAs(.delete)
         self.deleteButton.tintColor = .black
+        self.deleteButton.backgroundColor = .white
+        self.deleteButton.setTitle(MainButtonTitles.deleteButtonTitle, for: .normal)
         
         self.chooseDestinationButton.setupAs(.chooseDestination)
         self.chooseDestinationButton.backgroundColor = Colors.buttonBlue.getColor()
         self.chooseDestinationButton.tintColor = .white
-        
-        
+        self.chooseDestinationButton.setTitle(MainButtonTitles.chooseDestinationButtonTitle, for: .normal)
 
     }
     
@@ -138,10 +140,9 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         arrayOfTextFields = [addressNameTextField,addressTextField, commentDriverTextField, officeTextField, officeTextField, entranceTextField, intercomTextField, floorTextField, commenCourierTextField]
  
-        arrayOfTextFields.map { $0.addBottomBorder() }
+        arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
         arrayOfTextFields.map { $0.delegate = self }
         
-
     }
     
     private func addTextFieldsTargets() {
@@ -153,9 +154,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         intercomTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
         floorTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
         commenCourierTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        
-        
-        
+   
     }
     @IBAction func chooseDestinationTapped(_ sender: Any) {
         

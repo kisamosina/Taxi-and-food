@@ -21,7 +21,6 @@ protocol AddressInteractorProtocol: class {
 
 class AddressInteractor: AddressInteractorProtocol {
 
-    
     internal weak var view: AddressViewProtocol!
 
     private var addressResponse: AddressResponse!
@@ -37,9 +36,10 @@ class AddressInteractor: AddressInteractorProtocol {
         
 //Uncomment if start from main screen
         
-//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-//        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
-        let path = AddressRequestPaths.addressPostAndGet.rawValue.getServerAddressPath(for: 3)
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        let path = AddressRequestPaths.addressPostAndGet.rawValue.getServerPath(for: Int(user.id))
+        
+//        let path = AddressRequestPaths.addressPostAndGet.rawValue.getServerAddressPath(for: 3)
         let data: [String: Any] = [
                  AddressRequestKeys.name.rawValue: name ?? "",
                  AddressRequestKeys.address.rawValue: address ?? "",
@@ -73,10 +73,8 @@ class AddressInteractor: AddressInteractorProtocol {
         
         //Uncomment if start from main screen
                 
-        //        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        //        let path = AddressRequestPaths.address.rawValue.getServerPathforAddress(for: Int(user.id))
-        
-        let path = AddressRequestPaths.addressPutAndDelete.rawValue.getServerAddressPath(for: 3, for: addressId)
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        let path = AddressRequestPaths.addressPutAndDelete.rawValue.getServerAddressPath(for: Int(user.id), for: addressId)
         
         let addressResource = Resource<AddressResponse>(path: path, requestType: .DELETE, requestData: data)
         
