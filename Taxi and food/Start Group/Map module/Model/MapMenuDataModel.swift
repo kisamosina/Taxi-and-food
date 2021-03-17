@@ -36,6 +36,7 @@ struct MapMenuData {
         case Tariffs = "Тарифы"
         case PromoCode = "Промокод"
         case Promotions = "Акции"
+        case Addresses = "Мои адреса"
         case unknown
         
         static func getCase(from text: String) -> RusNames {
@@ -52,6 +53,8 @@ struct MapMenuData {
                 return .PromoCode
             case RusNames.Promotions.rawValue:
                 return .Promotions
+            case RusNames.Addresses.rawValue:
+                return .Addresses
             default:
                 return .unknown
             }
@@ -65,6 +68,7 @@ struct MapMenuData {
         case Tariffs
         case PromoCode = "Promo code"
         case Promotions
+        case Addresses = "My addresses"
         case unknown
         
         static func getCase(from text: String) -> RusNames {
@@ -81,6 +85,8 @@ struct MapMenuData {
                 return .PromoCode
             case EngNames.Promotions.rawValue:
                 return .Promotions
+            case EngNames.Addresses.rawValue:
+                return .Addresses
             default:
                 return .unknown
             }
@@ -108,6 +114,15 @@ struct MapMenuData {
         }
     }
     
+    static var addresses: String {
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusNames.Addresses.rawValue
+        case .eng:
+            return EngNames.Addresses.rawValue
+        }
+    }
     static var service: String {
         switch UserDefaults.standard.getAppLanguage() {
             

@@ -293,6 +293,12 @@ extension MapViewController: MenuViewDelegate {
              let vc = storyboard.instantiateViewController(identifier: ViewControllers.SettingsViewController.rawValue)
              self.removeMenuView()
              self.navigationController?.pushViewController(vc, animated: true)
+        case .Address:
+            let storyboard = UIStoryboard(name: StoryBoards.Addresses.rawValue, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: ViewControllers.AddressViewController.rawValue)
+            self.removeMenuView()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
             
         case .Promocode:
             let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
