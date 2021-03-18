@@ -74,6 +74,8 @@ class LogoutView: UIView {
         self.addSubview(containerView)
         self.setupConstraints()
         self.logOutButton.setupAs(.logOut)
+//        self.logOutLabel.text = label
+//        self.cancelButton.setTitle(buttonTittle, for: .normal)
         self.logOutLabel.text = LogoutViewTexts.logoutLabelText
         self.cancelButton.setTitle(LogoutViewTexts.cancelButtonTitle, for: .normal)
     }

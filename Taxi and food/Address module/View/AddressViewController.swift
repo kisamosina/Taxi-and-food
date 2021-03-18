@@ -33,6 +33,9 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var chooseDestinationButton: MainBottomButton!
     @IBOutlet var deleteButton: MainBottomButton!
     
+    var deleteAddressView: LogoutView!
+    
+    @IBOutlet var backGroundView: UIView!
     
     internal var interactor: AddressInteractorProtocol!
     
@@ -61,9 +64,11 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         
         chooseDestinationButton.isHidden = true
-        deleteButton.isHidden = true
+//        deleteButton.isHidden = true
         
         addressNameTextField.isHidden = false
+        
+       
         
 
     }
@@ -74,9 +79,9 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         //        Checking data presence
         if addressInfo != nil {
             chooseDestinationButton.isHidden = false
-            deleteButton.isHidden = false
+//            deleteButton.isHidden = false
             addressNameTextField.isHidden = true
-            saveButton.isHidden = false
+            saveButton.isHidden = true
         }
         
         
@@ -118,21 +123,20 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
 
         self.saveButton.setupAs(.save)
         self.saveButton.backgroundColor = Colors.buttonBlue.getColor()
-        self.saveButton.tintColor = .white
         self.saveButton.setTitle(MainButtonTitles.saveButtonTitle, for: .normal)
     
         self.mapButton.tintColor = .black
         self.mapButton.setTitle(AddressViewControllerText.mapButtonTitleText, for: .normal)
         
         self.deleteButton.setupAs(.delete)
-        self.deleteButton.tintColor = .black
+        self.deleteButton.setTitleColor(.black, for: .normal)
         self.deleteButton.backgroundColor = .white
         self.deleteButton.setTitle(MainButtonTitles.deleteButtonTitle, for: .normal)
         
         self.chooseDestinationButton.setupAs(.chooseDestination)
-        self.chooseDestinationButton.backgroundColor = Colors.buttonBlue.getColor()
-        self.chooseDestinationButton.tintColor = .white
         self.chooseDestinationButton.setTitle(MainButtonTitles.chooseDestinationButtonTitle, for: .normal)
+        
+//        self.deleteAddressView.logOutLabel.text = "Удалить адрес?"
 
     }
     
@@ -156,6 +160,8 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         commenCourierTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
    
     }
+    
+
     @IBAction func chooseDestinationTapped(_ sender: Any) {
         
         self.destination = true
@@ -163,12 +169,19 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        
-        self.interactor.changeAddress(with: addressInfo?.id ?? 0, with: ["name": addressInfo?.name, "address": addressInfo?.address, "commentDriver": addressInfo?.commentDriver, "commentCourier": addressInfo?.commentCourier , "flat": addressInfo?.flat , "intercom": addressInfo?.intercom, "entrance": addressInfo?.entrance, "floor": addressInfo?.floor, "destination": addressInfo?.destination])
-        
-        
+        self.showDeleteAddressView()
+        print("delete tapped")
     }
+    
+    
+    //        self.interactor.changeAddress(with: addressInfo?.id ?? 0, with: ["name": addressInfo?.name, "address": addressInfo?.address, "commentDriver": addressInfo?.commentDriver, "commentCourier": addressInfo?.commentCourier , "flat": addressInfo?.flat , "intercom": addressInfo?.intercom, "entrance": addressInfo?.entrance, "floor": addressInfo?.floor, "destination": addressInfo?.destination])
+        
+
+//
+        
+    
     
     @IBAction func mapButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: ViewControllers.AppleMapViewController.rawValue, sender: self)
@@ -197,6 +210,8 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         self.interactor.sendAddressRequest(name: addressNameTextField?.text, address: address, commentDriver: commentDriverTextField?.text, commentCourier: commenCourierTextField?.text, flat: Int(officeTextField?.text ?? ""), intercom: Int(intercomTextField?.text ?? ""), entrance: Int(entranceTextField?.text ?? ""), floor: Int(floorTextField?.text ?? ""), destination: destination)
         
         performSegue(withIdentifier: ViewControllers.AllAddressesViewController.rawValue, sender: self)
+        
+        print("save tapped")
     }
     
     @objc private func textDidChange(textField: UITextField) {
@@ -222,7 +237,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
-        
+
     }
 
 }
@@ -242,6 +257,67 @@ extension AddressViewController: AddressViewProtocol {}
 extension AddressViewController: AppleMapDelegateProtocol {
     func send(address: String) {
         self.addressFromMap = address
+    }
+    
+    
+}
+
+extension AddressViewController: LogoutViewDelegate {
+    
+    //Show deleteAddress view
+    private func showDeleteAddressView() {
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: LogoutViewSizes.height.rawValue)
+        self.deleteAddressView = LogoutView(frame: rect)
+        deleteAddressView.alpha = 0
+        self.view.addSubview(deleteAddressView)
+        self.deleteAddressView.delegate = self
+        
+        //Animation
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.deleteAddressView.alpha = 1
+                        let window = UIApplication.shared.windows[0]
+                        let bottomPadding = window.safeAreaInsets.bottom
+                        self.deleteAddressView.frame.origin.y = UIScreen.main.bounds.height - LogoutViewSizes.height.rawValue + bottomPadding
+                       },
+                       completion: nil)
+    }
+    
+    //Hide deleteAddress view
+    private func hideDeleteAddressView() {
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.deleteAddressView.alpha = 0
+                        self.deleteAddressView.frame.origin.y = UIScreen.main.bounds.height
+                       },
+                       completion: {[unowned self] _ in
+                        self.dismiss(animated: false, completion: nil)
+                       })
+        
+    }
+    
+    func cancelButtonTapped() {
+        self.hideDeleteAddressView()
+    }
+    
+    func swipeDown() {
+        self.hideDeleteAddressView()
     }
     
     

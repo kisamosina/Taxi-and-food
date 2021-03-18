@@ -164,6 +164,21 @@
                                                     <constraint firstAttribute="trailing" secondItem="IgW-fo-bkD" secondAttribute="trailing" id="zrC-Wy-3f3"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-tE-K9L" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                                <rect key="frame" x="25" y="733" width="364" height="50"/>
+                                                <color key="backgroundColor" red="0.23137254900000001" green="0.23921568630000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="364" id="bcn-V2-vxn"/>
+                                                    <constraint firstAttribute="height" constant="50" id="uGc-Fe-C7F"/>
+                                                </constraints>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteButtonTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="tch-En-sKb"/>
+                                                    <action selector="seveButtonTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="wik-9g-Udj"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2Q-cH-Bk0" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="733" width="364" height="50"/>
                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.23921568630000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -200,20 +215,6 @@
                                                 <connections>
                                                     <action selector="chooseDestinationTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="iUU-4I-OTu"/>
                                                     <action selector="seveButtonTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="zpc-5D-iKO"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-tE-K9L" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="733" width="364" height="50"/>
-                                                <color key="backgroundColor" red="0.23137254900000001" green="0.23921568630000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="364" id="bcn-V2-vxn"/>
-                                                    <constraint firstAttribute="height" constant="50" id="uGc-Fe-C7F"/>
-                                                </constraints>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="seveButtonTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="wik-9g-Udj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -283,6 +284,7 @@
                     <connections>
                         <outlet property="addressNameTextField" destination="8EY-6P-Emm" id="LbI-Ym-byq"/>
                         <outlet property="addressTextField" destination="D1b-on-xhv" id="tD0-i2-Yfn"/>
+                        <outlet property="backGroundView" destination="78G-hv-CYJ" id="Dfm-cg-fkY"/>
                         <outlet property="chooseDestinationButton" destination="84Z-or-Jtd" id="Zmg-LO-Zwl"/>
                         <outlet property="commenCourierTextField" destination="bN1-li-mjS" id="sEP-Ja-ZCD"/>
                         <outlet property="commentDriverTextField" destination="p18-bA-pOO" id="rGp-Qh-zD7"/>
@@ -296,7 +298,7 @@
                         <outlet property="saveButton" destination="z2Q-cH-Bk0" id="P32-iQ-ltZ"/>
                         <outlet property="scrollView" destination="bNq-hN-Agb" id="ji3-m8-gG8"/>
                         <segue destination="ZcY-pn-1v6" kind="show" identifier="AppleMapViewController" id="NgF-iH-KAM"/>
-                        <segue destination="XxG-c3-Ucj" kind="show" identifier="AllAddressesViewController" id="NIJ-bG-8Z5"/>
+                        <segue destination="XxG-c3-Ucj" kind="show" identifier="AllAddressesViewController" id="xy9-J8-XeQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4C-dF-nv4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -365,7 +367,7 @@
                                         <connections>
                                             <outlet property="addressLabel" destination="wh9-iO-Bdp" id="x5Y-71-NlD"/>
                                             <outlet property="addressNameLabel" destination="fkC-1L-pCC" id="ocw-3V-ooS"/>
-                                            <segue destination="1TK-ws-IeL" kind="unwind" identifier="AddressViewController" trigger="accessoryAction" unwindAction="unwind:" id="J9e-tY-Xip"/>
+                                            <segue destination="1TK-ws-IeL" kind="unwind" identifier="AddressViewController" trigger="accessoryAction" unwindAction="unwind:" id="nDk-7D-jt4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -395,7 +397,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59i-E5-kme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="1TK-ws-IeL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3934.7826086956525" y="156.69642857142856"/>
+            <point key="canvasLocation" x="4220" y="157"/>
         </scene>
         <!--Apple Map View Controller-->
         <scene sceneID="9lE-Y1-dc4">
