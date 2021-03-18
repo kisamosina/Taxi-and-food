@@ -175,4 +175,21 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
         }
     }
     
+    func getPoints() {
+        
+        guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
+        
+        let resource = Resource<PointsResponse>(path: PaymentRequestPaths.points.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
+        
+        NetworkService.shared.makeRequest(for: resource) {  pointsResponse in
+            switch pointsResponse {
+            
+            case .success(let points):
+                self.view.showPointsData(points.data)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

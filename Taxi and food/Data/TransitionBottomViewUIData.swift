@@ -10,6 +10,9 @@ import UIKit
 
 enum TransitionBottomViewTypes {
     case cardApprovement(String)
+    case pointsFirstTime(PointsResponseData)
+    case points(PointsResponseData)
+    case logout
 }
 
 enum TransitionBottomViewSizes: CGFloat {
@@ -18,6 +21,8 @@ enum TransitionBottomViewSizes: CGFloat {
     case shadowOffsetHeight = 2
     case shadowOffsetWidth = 2.01
     case descriptionLabelFontSize = 12
+    case firstPointsUseHeight = 330
+    case whenPointsHeght = 260
 }
 
 enum TransitionBottomViewStringData: String {
@@ -49,6 +54,51 @@ struct TransitionBottomViewTexts {
             return "To confirm the platform from the card $, 1 rub will be written off. The amount will be returned immediately after confirmation from the bank."
         }
 
+    }
+    
+    static var congratulationText: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Поздравляем! 🎉"
+        case .eng:
+            return "Congratulations! 🎉"
+        }
+    }
+    
+    static var youHaveNPointsText: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "У вас $ бонусных баллов"
+        case .eng:
+            return "You have $ bounucing points"
+        }
+
+    }
+    
+    static var shortPointsDescription: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Количество баллов всегда можно посмотреть в данном разделе, либо при оплате заказа"
+        case .eng:
+            return "The number of points can always be viewed in this section, or when paying for the order"
+        }
+    }
+    
+    static var logoutTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Выйти из приложения?"
+        case .eng:
+            return "Log Out from aplication?"
+        }
     }
     
 }

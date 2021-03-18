@@ -532,6 +532,7 @@
                             <constraint firstItem="SGh-SJ-IIw" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" id="ugu-q6-hpN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JH6-Q5-zvc"/>
                     <connections>
                         <outlet property="bottomView" destination="SGh-SJ-IIw" id="A0f-Y2-Z73"/>
                         <outlet property="foodButton" destination="FrK-be-7iC" id="6UJ-Pi-gIk"/>
@@ -548,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im7-D0-rkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666.6666666666667" y="782.8125"/>
+            <point key="canvasLocation" x="2576.811594202899" y="782.8125"/>
         </scene>
         <!--User Agreement View Controller-->
         <scene sceneID="Jpq-ge-sk9">

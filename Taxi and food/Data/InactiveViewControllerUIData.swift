@@ -11,4 +11,5 @@ import Foundation
 enum InactiveViewControllerStates {
     case showPaymentHistoryDetailView
     case showLogoutView
+    case showPointsView(PointsResponseData)
 }

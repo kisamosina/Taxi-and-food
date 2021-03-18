@@ -9,6 +9,7 @@
 import Foundation
 
 enum AuxiliaryButtonTypes {
+    case about
     case cancel
 }
 
@@ -23,4 +24,15 @@ struct AuxiliaryButtonTitles {
             return "Cancel"
         }
     }
+    
+    static var aboutTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Подробнее"
+        case .eng:
+            return "About"
+        }
+    }
+
 }

@@ -99,11 +99,14 @@ extension NewCardEnterViewController: NewCardEnterViewProtocol {
 }
 
 extension NewCardEnterViewController: TransitionBottomViewDelegate {
-    func mainButtonTapped() {
+    
+    func userHasSwipedDown(for viewType: TransitionBottomViewTypes) { }
+    
+    func mainButtonTapped(for viewType: TransitionBottomViewTypes) {
         self.interactor.makeCardApproveRequest()
     }
     
-    func auxButtonTapped() {
+    func auxButtonTapped(for viewType: TransitionBottomViewTypes) {
         self.backToPaymentWayViewController()
     }
     

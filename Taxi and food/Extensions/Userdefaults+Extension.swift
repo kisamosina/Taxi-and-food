@@ -23,5 +23,13 @@ extension UserDefaults {
         self.set(language, forKey: AppSettingsStorageKeys.language.rawValue)
     }
     
+    func storeIsNotFirstTimePointsUsing(_ isNotFirst: Bool) {
+        self.set(isNotFirst, forKey: AppSettingsStorageKeys.pointsIsFirstTimeUsage.rawValue)
+    }
     
+    func getIsNotFirstTimePointsUsage() -> Bool {
+      return bool(forKey: AppSettingsStorageKeys.pointsIsFirstTimeUsage.rawValue)
+        
+        
+    }
 }

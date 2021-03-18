@@ -66,6 +66,19 @@ class PaymentWayViewController: UIViewController {
 
 extension PaymentWayViewController: PaymentWayViewProtocol {
     
+    func showPointsData(_ pointsData: PointsResponseData) {
+        DispatchQueue.main.async {
+            guard let vc  = self.getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController
+            else { return }
+            
+            vc.setState(.showPointsView(pointsData))
+            vc.delegate = self
+            
+            self.present(vc, animated: false)
+        }
+    }
+    
+    
     func reloadTableView() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -107,7 +120,7 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? PaymentWayCell,
               let title = cell.titleLabel.text
-              else { return }
+        else { return }
         
         switch title {
         
@@ -115,7 +128,7 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
             self.performSegueToNewCardEnterViewController()
             
         case PaymentWayTexts.points:
-            break
+            self.interactor.getPoints()
             
         default:
             self.interactor.setActiveTableViewModelCell(title)
@@ -123,4 +136,12 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+}
+
+extension PaymentWayViewController: InactiveViewControllerDelegate {
+    
+    func beginSavePointsButtonTapped() {
+        guard let mapVC = self.navigationController?.viewControllers.first(where: { $0 is MapViewController }) else { return }
+        self.navigationController?.popToViewController(mapVC, animated: true)
+    }
 }

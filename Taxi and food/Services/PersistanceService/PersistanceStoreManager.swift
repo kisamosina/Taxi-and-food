@@ -85,6 +85,17 @@ final class PersistanceStoreManager {
     }
     
     //MARK: - Common
+    
+    
+    //BE CAREFULL WHEN USE THIS FUNCTION DELETE ALL PERSISTANCE STORAGE DATA!!!!
+    
+    func deleteAllData() {
+        self.deleteUserData()
+        self.deleteSavedPaymentWay()
+    }
+    
+    //Saving data
+    
     private func save() {
         DispatchQueue.main.async {
             do {

@@ -15,6 +15,8 @@ protocol PaymentWayViewProtocol: class {
     func hideLinkACardButton()
     
     func reloadTableView()
+    
+    func showPointsData(_ pointsData: PointsResponseData)
 }
 
 protocol PaymentWayInteractorProtocol: class {
@@ -30,4 +32,6 @@ protocol PaymentWayInteractorProtocol: class {
     func setActiveTableViewModelCell(_ title: String)
     
     func showActiveCell()
+    
+    func getPoints()
 }

@@ -44,7 +44,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZd-CX-mbX">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZd-CX-mbX">
                                     <rect key="frame" x="146.5" y="63" width="41.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -76,6 +76,7 @@
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="tUH-Vh-XUb" firstAttribute="leading" secondItem="k4z-s7-UeK" secondAttribute="leading" constant="40" id="4m4-Js-NPd"/>
                         <constraint firstAttribute="bottom" secondItem="5SK-eG-nmX" secondAttribute="bottom" constant="55" id="R2G-Tw-oHe"/>
@@ -84,6 +85,9 @@
                         <constraint firstAttribute="trailing" secondItem="tUH-Vh-XUb" secondAttribute="trailing" constant="40" id="faR-al-Tfh"/>
                         <constraint firstItem="5SK-eG-nmX" firstAttribute="leading" secondItem="k4z-s7-UeK" secondAttribute="leading" constant="25" id="sS3-Ru-yHO"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="C5B-ex-ftb" appends="YES" id="f7M-BL-8DK"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeS-RR-BHB">
                     <rect key="frame" x="187" y="0.0" width="40" height="5"/>
@@ -108,6 +112,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="369.97767857142856"/>
         </view>
+        <swipeGestureRecognizer direction="down" id="C5B-ex-ftb">
+            <connections>
+                <action selector="userHasSwipedDown:" destination="-1" id="cM1-bH-pRL"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">

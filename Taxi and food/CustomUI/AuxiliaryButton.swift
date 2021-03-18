@@ -22,6 +22,8 @@ class AuxiliaryButton: UIButton {
         
         case .cancel:
             self.setTitle(AuxiliaryButtonTitles.cancelTitle, for: .normal)
+        case .about:
+            self.setTitle(AuxiliaryButtonTitles.aboutTitle, for: .normal)
         }
     }
 }
