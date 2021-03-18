@@ -42,6 +42,7 @@ class PersonalAccountViewController: UIViewController {
     @IBAction func logOutButtonTapped(_ sender: UIButton) {
         guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
         vc.setState(.showLogoutView)
+        vc.delegate = self
         self.present(vc, animated: false)
     }
     
@@ -96,9 +97,19 @@ extension PersonalAccountViewController: UITableViewDelegate, UITableViewDataSou
 //MARK: - PersonalAccountViewProtocol
 
 extension PersonalAccountViewController: PersonalAccountViewProtocol {
+    
     func reloadTableViewData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+extension PersonalAccountViewController: InactiveViewControllerDelegate {
+    
+    func logOutButtonTapped() {
+        
+        PersistanceStoreManager.shared.deleteAllData()
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -10,21 +10,24 @@ import UIKit
 
 class InactiveViewController: UIViewController {
     
+    typealias AnimationCompletion = (Bool) -> Void
+    
     //MARK: - Properties
+    
     //General
     private var vcState: InactiveViewControllerStates!
+        
+    private var closeCompletion: AnimationCompletion {
+        return  { [weak self] _ in self?.dismiss(animated: false, completion: nil) }
+    }
     
-    //For LogOut
-    var logoutView: LogoutView!
+    weak var delegate: InactiveViewControllerDelegate?
     
-    //For payment history detail case
     private var payDetailView: PaymentHistoryDetailView!
     private var rectOfCell: CGRect!
     private var paymentHistoryData: PaymentsHistoryResponseData!
-    
-    //For Points
-    
     private var transitionBottomView: TransitionBottomView!
+    private var aboutPointsView: AboutPointsView!
     
     //MARK: -  Lifecycle
     override func viewDidLoad() {
@@ -63,7 +66,7 @@ class InactiveViewController: UIViewController {
         case .showPaymentHistoryDetailView:
             self.dismiss(animated: false, completion: nil)
         case .showLogoutView:
-            self.hideLogoutView()
+            self.hideTransitionBottomView(completion: closeCompletion)
         case .showPointsView(_):
             self.dismiss(animated: false, completion: nil)
             
@@ -74,6 +77,28 @@ class InactiveViewController: UIViewController {
     
     func setState(_ state: InactiveViewControllerStates) {
         self.vcState = state
+    }
+}
+
+//MARK: - Transition View general methods
+
+extension InactiveViewController {
+    
+    //Hide transition view
+    private func hideTransitionBottomView(completion: AnimationCompletion? = nil) {
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.transitionBottomView.alpha = 0
+                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height
+                       },
+                       completion: completion)
+        
     }
 }
 
@@ -121,19 +146,8 @@ extension InactiveViewController {
 
 //MARK: - When LogOut Case
 
-extension InactiveViewController: LogoutViewDelegate {
-    
-    //Action on swipe down
-    func swipeDown() {
-        self.hideLogoutView()
-    }
-    
-    
-    //Action on cancel button tapped
-    func cancelButtonTapped() {
-        self.hideLogoutView()
-    }
-    
+extension InactiveViewController {
+
     //Show logout view
     private func showLogoutView() {
         
@@ -141,10 +155,12 @@ extension InactiveViewController: LogoutViewDelegate {
                           y: UIScreen.main.bounds.height,
                           width: UIScreen.main.bounds.width,
                           height: LogoutViewSizes.height.rawValue)
-        self.logoutView = LogoutView(frame: rect)
-        logoutView.alpha = 0
-        self.view.addSubview(logoutView)
-        self.logoutView.delegate = self
+        
+        self.transitionBottomView = TransitionBottomView(frame: rect)
+        self.transitionBottomView.setupAs(type: .logout)
+        self.transitionBottomView.delegate = self
+        self.transitionBottomView.alpha = 0
+        self.view.addSubview(self.transitionBottomView)
         
         //Animation
         
@@ -155,31 +171,12 @@ extension InactiveViewController: LogoutViewDelegate {
                        options: .curveEaseOut,
                        animations: {[unowned self] in
                         self.view.layoutIfNeeded()
-                        self.logoutView.alpha = 1
+                        self.transitionBottomView.alpha = 1
                         let window = UIApplication.shared.windows[0]
                         let bottomPadding = window.safeAreaInsets.bottom
-                        self.logoutView.frame.origin.y = UIScreen.main.bounds.height - LogoutViewSizes.height.rawValue + bottomPadding
+                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height - LogoutViewSizes.height.rawValue + bottomPadding
                        },
                        completion: nil)
-    }
-    
-    //Hide logout view
-    private func hideLogoutView() {
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.logoutView.alpha = 0
-                        self.logoutView.frame.origin.y = UIScreen.main.bounds.height
-                       },
-                       completion: {[unowned self] _ in
-                        self.dismiss(animated: false, completion: nil)
-                       })
-        
     }
 }
 
@@ -231,8 +228,21 @@ extension InactiveViewController {
         
     }
     
-    //Hide logout view
-    private func hidePointsView() {
+    //Calling About Points view
+    
+    private func showAboutPointsView() {
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: UIScreen.main.bounds.height - AboutPointsViewSizes.topPadding.rawValue)
+        
+        self.aboutPointsView = AboutPointsView(frame: rect)
+        self.aboutPointsView.delegate = self
+        self.aboutPointsView.alpha = 0
+        self.view.addSubview(self.aboutPointsView)
+        
+        //Animation
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -241,23 +251,112 @@ extension InactiveViewController {
                        options: .curveEaseOut,
                        animations: {[unowned self] in
                         self.view.layoutIfNeeded()
-                        self.transitionBottomView.alpha = 0
-                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height
+                        self.aboutPointsView.alpha = 1
+                        self.aboutPointsView.frame.origin.y = AboutPointsViewSizes.topPadding.rawValue
                        },
-                       completion: { _ in })
+                       completion: nil)
         
+    }
+    
+    //Hide About Points view
+    
+    private func hideAboutPointsView(completion: AnimationCompletion?) {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.aboutPointsView.alpha = 0
+                        self.aboutPointsView.frame.origin.y = UIScreen.main.bounds.height
+                       },
+                       completion: completion)
     }
 }
 
+//MARK: - TransitionBottomViewDelegate
+
 extension InactiveViewController: TransitionBottomViewDelegate  {
     
-    func mainButtonTapped() {
+    //Action on swipe down
+    
+    func userHasSwipedDown(for viewType: TransitionBottomViewTypes) {
+        switch viewType {
+            
+        case .logout:
+            self.hideTransitionBottomView(completion: closeCompletion)
+            
+        default:
+            break
+            
+        }
+    }
+    
+    //Action when main button tapped
+    
+    func mainButtonTapped(for viewType: TransitionBottomViewTypes) {
+        
+        switch viewType {
+        
+        case .pointsFirstTime(_), .points(_):
+        
+            self.hideTransitionBottomView(completion: closeCompletion)
+            self.delegate?.beginSavePointsButtonTapped()
+        
+        case .logout:
+            self.hideTransitionBottomView(completion: closeCompletion)
+            self.delegate?.logOutButtonTapped()
+            
+        default:
+            break
+        }
         
     }
     
-    func auxButtonTapped() {
+    //Action when main aux button tapped
+    func auxButtonTapped(for viewType: TransitionBottomViewTypes) {
         
+        switch viewType {
+        
+        case .logout:
+            
+            self.hideTransitionBottomView(completion: closeCompletion)
+        
+        case .pointsFirstTime(_), .points(_):
+            
+            let completion: (Bool) -> Void = { [unowned self] _ in
+                self.showAboutPointsView()
+                self.transitionBottomView.removeFromSuperview()
+            }
+            
+            self.hideTransitionBottomView(completion: completion)
+            
+        default:
+            break
+        }
+    }
+}
+
+extension InactiveViewController: AboutPointsViewDelegate {
+    
+    func userHasSwipedViewDown() {
+        self.closeAboutPointsView()
     }
     
+    
+    func closeButtonTapped() {
+        self.closeAboutPointsView()
+    }
+    
+    func beginSavePointsButtonTapped() {
+        self.hideAboutPointsView(completion: closeCompletion)
+        self.delegate?.beginSavePointsButtonTapped()
+    }
+    
+    private func closeAboutPointsView() {
+        let completion: AnimationCompletion = { [weak self] _ in  self?.dismiss(animated: false)}
+        self.hideAboutPointsView(completion: completion)
+    }
     
 }

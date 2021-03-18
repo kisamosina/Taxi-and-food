@@ -9,6 +9,7 @@
 import Foundation
 
 protocol TransitionBottomViewDelegate: class {
-    func mainButtonTapped()
-    func auxButtonTapped()
+    func mainButtonTapped(for viewType: TransitionBottomViewTypes)
+    func auxButtonTapped(for viewType: TransitionBottomViewTypes)
+    func userHasSwipedDown(for viewType: TransitionBottomViewTypes)
 }

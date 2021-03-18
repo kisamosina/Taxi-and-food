@@ -72,7 +72,7 @@ extension PaymentWayViewController: PaymentWayViewProtocol {
             else { return }
             
             vc.setState(.showPointsView(pointsData))
-            
+            vc.delegate = self
             
             self.present(vc, animated: false)
         }
@@ -136,4 +136,12 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+}
+
+extension PaymentWayViewController: InactiveViewControllerDelegate {
+    
+    func beginSavePointsButtonTapped() {
+        guard let mapVC = self.navigationController?.viewControllers.first(where: { $0 is MapViewController }) else { return }
+        self.navigationController?.popToViewController(mapVC, animated: true)
+    }
 }

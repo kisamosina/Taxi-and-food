@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutPointsView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="beginSavePointsButton" destination="12g-HZ-Xss" id="PX6-uH-zxH"/>
+                <outlet property="closeButton" destination="rN2-64-bZw" id="u4D-Y4-kWc"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="G2l-A1-G39"/>
+                <outlet property="descriptionLabel" destination="Jfr-O9-PMh" id="sVY-ki-eeV"/>
+                <outlet property="titleLabel" destination="80N-mT-ygV" id="9rn-2E-uPx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN2-64-bZw" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
+                    <rect key="frame" x="25" y="15" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="1uS-Ft-b0n"/>
+                        <constraint firstAttribute="height" constant="30" id="aTe-VD-8hG"/>
+                    </constraints>
+                    <state key="normal" image="X"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="NOA-ck-fSM"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lXd-We-XY9">
+                    <rect key="frame" x="25" y="58" width="364" height="69.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-mT-ygV">
+                            <rect key="frame" x="0.0" y="0.0" width="64.5" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfr-O9-PMh">
+                            <rect key="frame" x="0.0" y="51.5" width="37.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paymentPoints" translatesAutoresizingMaskIntoConstraints="NO" id="LbZ-ZY-9TN">
+                    <rect key="frame" x="0.0" y="147.5" width="414" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="hi1-X9-63n"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12g-HZ-Xss" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                    <rect key="frame" x="25" y="195.5" width="364" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="JPL-m5-12g"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="beginSavePointsButtonTapped:" destination="-1" eventType="touchUpInside" id="dGo-TS-Y1S"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="LbZ-ZY-9TN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2ZT-hV-8NR"/>
+                <constraint firstItem="LbZ-ZY-9TN" firstAttribute="top" secondItem="lXd-We-XY9" secondAttribute="bottom" constant="20" id="66y-fI-Opp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="12g-HZ-Xss" secondAttribute="trailing" constant="25" id="A50-AV-2Ih"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lXd-We-XY9" secondAttribute="trailing" constant="25" id="O8r-JQ-HNs"/>
+                <constraint firstItem="rN2-64-bZw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="SRU-cq-UaA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LbZ-ZY-9TN" secondAttribute="trailing" id="V5Q-mP-yAv"/>
+                <constraint firstItem="lXd-We-XY9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="guU-2N-GEw"/>
+                <constraint firstItem="12g-HZ-Xss" firstAttribute="top" secondItem="LbZ-ZY-9TN" secondAttribute="bottom" constant="20" id="t4l-JF-14I"/>
+                <constraint firstItem="12g-HZ-Xss" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="vdj-Xv-RI8"/>
+                <constraint firstItem="lXd-We-XY9" firstAttribute="top" secondItem="rN2-64-bZw" secondAttribute="bottom" constant="13" id="vhU-Dj-vs4"/>
+                <constraint firstItem="rN2-64-bZw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="wNf-If-ZiV"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="G2z-WG-ZhN" appends="YES" id="PY5-iP-NyR"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+        </view>
+        <swipeGestureRecognizer direction="down" id="G2z-WG-ZhN">
+            <connections>
+                <action selector="userSwipedDown:" destination="-1" id="8Tj-0k-kBy"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="X" width="18.5" height="18.5"/>
+        <image name="paymentPoints" width="315" height="28"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

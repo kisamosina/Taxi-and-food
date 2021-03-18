@@ -13,6 +13,7 @@ class TransitionBottomView: UIView {
     //MARK: - Properties
     
     weak var delegate: TransitionBottomViewDelegate?
+    private var viewType: TransitionBottomViewTypes!
     
     //MARK: - IBOutlets
     
@@ -41,12 +42,19 @@ class TransitionBottomView: UIView {
     //MARK: - IBActions
     
     @IBAction func mainBottomButtonTapped(_ sender: UIButton) {
-        self.delegate?.mainButtonTapped()
+        self.delegate?.mainButtonTapped(for: self.viewType)
     }
     
     @IBAction func auxButtonTapped(_ sender: UIButton) {
-        self.delegate?.auxButtonTapped()
+        self.delegate?.auxButtonTapped(for: self.viewType)
     }
+    
+    @IBAction func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            self.delegate?.userHasSwipedDown(for: self.viewType)
+        }
+    }
+    
     
     //MARK: - Methods
     
@@ -88,6 +96,8 @@ class TransitionBottomView: UIView {
         self.descriptionLabel.textColor = Colors.fontGrey.getColor()
     }
     
+    //CardApprovement view
+    
     private func cardApprovementSetup(cardNumber: String) {
         self.secondTitleLabel.isHidden = true
         self.firstTitleLabel.text = TransitionBottomViewTexts.approvementTitle
@@ -98,6 +108,8 @@ class TransitionBottomView: UIView {
         self.mainBottomButton.setActive()
         self.auxButton.setupAs(type: .cancel)
     }
+    
+    //Points show in first time
     
     private func setupWhenFirstTimePointsShow(_ pointsData: PointsResponseData) {
         self.firstTitleLabel.text = TransitionBottomViewTexts.congratulationText
@@ -112,6 +124,7 @@ class TransitionBottomView: UIView {
         UserDefaults.standard.storeIsNotFirstTimePointsUsing(true)
     }
     
+    //Points show in other times
     private func setupWhenPointsShow(_ pointsData: PointsResponseData) {
         self.firstTitleLabel.isHidden = true
         let pointsString = String(pointsData.credit)
@@ -123,7 +136,19 @@ class TransitionBottomView: UIView {
         self.auxButton.setupAs(type: .about)
     }
     
+    //LogOut View
+    private func setupWhenLogout() {
+        self.firstTitleLabel.text = TransitionBottomViewTexts.logoutTitle
+        self.firstTitleLabel.textColor = Colors.redTextColor.getColor()
+        self.secondTitleLabel.isHidden = true
+        self.descriptionLabel.isHidden = true
+        self.mainBottomButton.setupAs(.logOut)
+        self.auxButton.setupAs(type: .cancel)
+    }
+    
     public func setupAs(type: TransitionBottomViewTypes) {
+        
+        self.viewType = type
         
         switch type {
         
@@ -133,9 +158,10 @@ class TransitionBottomView: UIView {
             self.setupWhenFirstTimePointsShow(pointsData)
         case .points(let pointsData):
             self.setupWhenPointsShow(pointsData)
-            }
+        case .logout:
+            self.setupWhenLogout()
+        }
     }
-    
     
     
 }

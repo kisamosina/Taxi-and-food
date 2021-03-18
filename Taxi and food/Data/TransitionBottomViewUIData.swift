@@ -12,6 +12,7 @@ enum TransitionBottomViewTypes {
     case cardApprovement(String)
     case pointsFirstTime(PointsResponseData)
     case points(PointsResponseData)
+    case logout
 }
 
 enum TransitionBottomViewSizes: CGFloat {
@@ -86,6 +87,17 @@ struct TransitionBottomViewTexts {
             return "Количество баллов всегда можно посмотреть в данном разделе, либо при оплате заказа"
         case .eng:
             return "The number of points can always be viewed in this section, or when paying for the order"
+        }
+    }
+    
+    static var logoutTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Выйти из приложения?"
+        case .eng:
+            return "Log Out from aplication?"
         }
     }
     

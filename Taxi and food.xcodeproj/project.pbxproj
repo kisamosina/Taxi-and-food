@@ -128,6 +128,10 @@
 		7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */; };
 		7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */; };
 		7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */; };
+		7BD7CB7E26036A4A0099C9B7 /* AboutPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7CB7D26036A4A0099C9B7 /* AboutPointsView.swift */; };
+		7BD7CB8326036AA30099C9B7 /* AboutPointsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BD7CB8226036AA30099C9B7 /* AboutPointsView.xib */; };
+		7BD7CB8F26037CC20099C9B7 /* AboutPointsViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7CB8E26037CC20099C9B7 /* AboutPointsViewUIData.swift */; };
+		7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD7CB93260392FD0099C9B7 /* AboutPointsViewDelegate.swift */; };
 		7BEA203726008529007DD69A /* AddressEnterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BEA203626008529007DD69A /* AddressEnterView.xib */; };
 		7BEA203D26008576007DD69A /* AddressEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA203C26008576007DD69A /* AddressEnterView.swift */; };
 		7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66025D66F8300C35652 /* PhoneFormatter.swift */; };
@@ -167,14 +171,12 @@
 		7D823E9F25F158CF006B174B /* PersonalAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9E25F158CF006B174B /* PersonalAccountCell.swift */; };
 		7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D823EB425F2A908006B174B /* Inactive.storyboard */; };
 		7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */; };
-		7D823EC625F2AE50006B174B /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EC525F2AE50006B174B /* LogoutView.swift */; };
-		7D823ED225F2AE7F006B174B /* LogoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D823ED125F2AE7F006B174B /* LogoutView.xib */; };
 		7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */; };
 		7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */; };
-		7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */; };
 		7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */; };
 		7D851C5025F68475000E20DB /* CardEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C4F25F68475000E20DB /* CardEnterView.swift */; };
 		7D851C5525F687C7000E20DB /* EnterCardUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C5425F687C7000E20DB /* EnterCardUIData.swift */; };
+		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
 		7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */; };
@@ -327,6 +329,10 @@
 		7BCBCB8125D9452B00C43CF6 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		7BCBCB9025D94EC200C43CF6 /* GeneralUISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUISettings.swift; sourceTree = "<group>"; };
 		7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7BD7CB7D26036A4A0099C9B7 /* AboutPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPointsView.swift; sourceTree = "<group>"; };
+		7BD7CB8226036AA30099C9B7 /* AboutPointsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPointsView.xib; sourceTree = "<group>"; };
+		7BD7CB8E26037CC20099C9B7 /* AboutPointsViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPointsViewUIData.swift; sourceTree = "<group>"; };
+		7BD7CB93260392FD0099C9B7 /* AboutPointsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPointsViewDelegate.swift; sourceTree = "<group>"; };
 		7BEA203626008529007DD69A /* AddressEnterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressEnterView.xib; sourceTree = "<group>"; };
 		7BEA203C26008576007DD69A /* AddressEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterView.swift; sourceTree = "<group>"; };
 		7BFFA66025D66F8300C35652 /* PhoneFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
@@ -366,14 +372,12 @@
 		7D823E9E25F158CF006B174B /* PersonalAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountCell.swift; sourceTree = "<group>"; };
 		7D823EB425F2A908006B174B /* Inactive.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Inactive.storyboard; sourceTree = "<group>"; };
 		7D823EBA25F2AA3F006B174B /* InactiveViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewControllerUIData.swift; sourceTree = "<group>"; };
-		7D823EC525F2AE50006B174B /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
-		7D823ED125F2AE7F006B174B /* LogoutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutView.xib; sourceTree = "<group>"; };
 		7D823ED925F2B9E7006B174B /* LogoutViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewUIData.swift; sourceTree = "<group>"; };
 		7D823EDE25F2BBEC006B174B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewDelegate.swift; sourceTree = "<group>"; };
 		7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterViewController.swift; sourceTree = "<group>"; };
 		7D851C4F25F68475000E20DB /* CardEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterView.swift; sourceTree = "<group>"; };
 		7D851C5425F687C7000E20DB /* EnterCardUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCardUIData.swift; sourceTree = "<group>"; };
+		7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveVIewControllerDelegate.swift; sourceTree = "<group>"; };
 		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
 		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
 		7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
@@ -745,6 +749,7 @@
 				7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */,
 				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
 				041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */,
+				7BD7CB8E26037CC20099C9B7 /* AboutPointsViewUIData.swift */,
 				0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */,
 				7B47C89625E67DA900F366FE /* PromocodeHistoryCellUIData.swift */,
 				7B75D02725E512EE001981CA /* PromocodeModuleData.swift */,
@@ -865,10 +870,10 @@
 			isa = PBXGroup;
 			children = (
 				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
-				7D823ECD25F2AE5F006B174B /* LogoutView */,
 				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
 				7D4748E025F7D89100F744F7 /* CardEnterView */,
 				7BEA203B26008536007DD69A /* AddressEnterView */,
+				7BD7CB8726036AAA0099C9B7 /* AboutPointsView */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
@@ -1015,6 +1020,16 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		7BD7CB8726036AAA0099C9B7 /* AboutPointsView */ = {
+			isa = PBXGroup;
+			children = (
+				7BD7CB7D26036A4A0099C9B7 /* AboutPointsView.swift */,
+				7BD7CB93260392FD0099C9B7 /* AboutPointsViewDelegate.swift */,
+				7BD7CB8226036AA30099C9B7 /* AboutPointsView.xib */,
+			);
+			path = AboutPointsView;
+			sourceTree = "<group>";
+		};
 		7BEA203B26008536007DD69A /* AddressEnterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1137,19 +1152,10 @@
 			isa = PBXGroup;
 			children = (
 				7DD6B16125EFF8A600445407 /* InactiveViewController.swift */,
+				7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */,
 				7D823EB425F2A908006B174B /* Inactive.storyboard */,
 			);
 			path = "InactivewView module";
-			sourceTree = "<group>";
-		};
-		7D823ECD25F2AE5F006B174B /* LogoutView */ = {
-			isa = PBXGroup;
-			children = (
-				7D823EC525F2AE50006B174B /* LogoutView.swift */,
-				7D823EE325F2D32B006B174B /* LogoutViewDelegate.swift */,
-				7D823ED125F2AE7F006B174B /* LogoutView.xib */,
-			);
-			path = LogoutView;
 			sourceTree = "<group>";
 		};
 		7D823F0B25F3C79E006B174B /* PaymentWay module */ = {
@@ -1285,7 +1291,6 @@
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
-				7D823ED225F2AE7F006B174B /* LogoutView.xib in Resources */,
 				7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
@@ -1296,6 +1301,7 @@
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
 				7BEA203726008529007DD69A /* AddressEnterView.xib in Resources */,
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
+				7BD7CB8326036AA30099C9B7 /* AboutPointsView.xib in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
@@ -1343,6 +1349,7 @@
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */,
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
+				7BD7CB7E26036A4A0099C9B7 /* AboutPointsView.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
 				7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
@@ -1356,6 +1363,7 @@
 				7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */,
 				7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
+				7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
 				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,
 				7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */,
@@ -1368,7 +1376,6 @@
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
 				7D4748F425F7E9AE00F744F7 /* NewCardEnterModel.swift in Sources */,
 				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
-				7D823EE425F2D32B006B174B /* LogoutViewDelegate.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
@@ -1439,6 +1446,7 @@
 				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
+				7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
@@ -1466,8 +1474,8 @@
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
 				7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */,
-				7D823EC625F2AE50006B174B /* LogoutView.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
+				7BD7CB8F26037CC20099C9B7 /* AboutPointsViewUIData.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,
 				7B3A8FF025EA976B008CA13E /* PaymentHistoryUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,

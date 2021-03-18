@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="addressFromTextField" destination="IW7-DM-D8c" id="YM0-l3-yHc"/>
                 <outlet property="addressToTextField" destination="jLd-yf-Msj" id="89V-fI-h6x"/>
-                <outlet property="containerView" destination="PMM-Ar-aps" id="r3c-mc-6gy"/>
                 <outlet property="contentView" destination="JZU-zy-T4U" id="kRj-KO-Hnd"/>
                 <outlet property="nextButton" destination="iAd-GQ-FlG" id="WbZ-XI-quW"/>
                 <outlet property="tableView" destination="jCa-5w-xS9" id="pzq-ad-agi"/>
