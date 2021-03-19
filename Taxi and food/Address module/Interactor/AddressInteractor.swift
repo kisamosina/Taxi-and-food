@@ -14,7 +14,7 @@ protocol AddressInteractorProtocol: class {
     
     func sendAddressRequest(name: String?, address: String?, commentDriver: String?, commentCourier: String?, flat: Int?, intercom: Int?, entrance: Int?, floor: Int?, destination: Bool?)
     
-    func deleteAddress(with addressId: Int, with data: [String: Any]?)
+    func deleteAddress(with addressId: Int)
     
     func changeAddress(with addressId: Int, with data: [String: Any]?)
 }
@@ -69,20 +69,20 @@ class AddressInteractor: AddressInteractorProtocol {
         
     }
     
-    func deleteAddress(with addressId: Int, with data: [String: Any]?) {
+    func deleteAddress(with addressId: Int) {
         
         //Uncomment if start from main screen
                 
         guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
         let path = AddressRequestPaths.addressPutAndDelete.rawValue.getServerAddressPath(for: Int(user.id), for: addressId)
         
-        let addressResource = Resource<AddressResponse>(path: path, requestType: .DELETE, requestData: data)
+        let addressResource = Resource<AddressResponse>(path: path, requestType: .DELETE)
         
         NetworkService.shared.makeRequest(for: addressResource, completion:  {[unowned self] result in
             
             switch result {
             case .success:
-                print("RESPONSE DATA: \(self.addressResponse.data)")
+                print("DELETED")
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -90,6 +90,7 @@ class AddressInteractor: AddressInteractorProtocol {
         })
         
     }
+    
     
     func changeAddress(with addressId: Int, with data: [String: Any]?) {
         

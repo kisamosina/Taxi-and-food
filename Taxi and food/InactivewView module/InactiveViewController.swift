@@ -195,7 +195,7 @@ extension InactiveViewController {
         let rect = CGRect(x: 0,
                           y: UIScreen.main.bounds.height,
                           width: UIScreen.main.bounds.width,
-                          height: DeleteAddressViewSizes.height.rawValue)
+                          height: TransitionBottomViewSizes.deleteAddressHeight.rawValue)
         
         self.transitionBottomView = TransitionBottomView(frame: rect)
         self.transitionBottomView.setupAs(type: .deleteAddress)
@@ -215,7 +215,7 @@ extension InactiveViewController {
                         self.transitionBottomView.alpha = 1
                         let window = UIApplication.shared.windows[0]
                         let bottomPadding = window.safeAreaInsets.bottom
-                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height - DeleteAddressViewSizes.height.rawValue + bottomPadding
+                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height - TransitionBottomViewSizes.deleteAddressHeight.rawValue + bottomPadding
                        },
                        completion: nil)
     }
@@ -327,7 +327,8 @@ extension InactiveViewController: TransitionBottomViewDelegate  {
             
         case .logout:
             self.hideTransitionBottomView(completion: closeCompletion)
-            
+        case .deleteAddress:
+            self.hideTransitionBottomView(completion: closeCompletion)
         default:
             break
             
@@ -348,7 +349,8 @@ extension InactiveViewController: TransitionBottomViewDelegate  {
         case .logout:
             self.hideTransitionBottomView(completion: closeCompletion)
             self.delegate?.logOutButtonTapped()
-            
+        case .deleteAddress:
+            self.delegate?.deleteButtonTapped()
         default:
             break
         }
@@ -363,6 +365,10 @@ extension InactiveViewController: TransitionBottomViewDelegate  {
         case .logout:
             
             self.hideTransitionBottomView(completion: closeCompletion)
+            
+        case .deleteAddress:
+            
+           self.hideTransitionBottomView(completion: closeCompletion)
         
         case .pointsFirstTime(_), .points(_):
             

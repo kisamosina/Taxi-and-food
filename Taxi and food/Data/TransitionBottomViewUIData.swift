@@ -24,6 +24,7 @@ enum TransitionBottomViewSizes: CGFloat {
     case descriptionLabelFontSize = 12
     case firstPointsUseHeight = 330
     case whenPointsHeght = 260
+    case deleteAddressHeight = 270
     
 }
 
