@@ -39,4 +39,21 @@ struct PaymentWayTableViewCellModel {
             return CustomImagesNames.paymentWayEnterCellCheckmark.rawValue
         }
     }
+    
+    mutating func setCheckMarkActive() {
+        self.checkMark = .active
+    }
+    
+    mutating func setCheckmarkInActive() {
+        self.checkMark = .inactive
+    }
+}
+
+
+struct PointsResponse: Decodable {
+    var data: PointsResponseData
+}
+
+struct PointsResponseData: Decodable {
+    var credit: Int
 }

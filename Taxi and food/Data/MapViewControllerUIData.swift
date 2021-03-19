@@ -45,6 +45,14 @@ enum MapInactiveViewAlpha: CGFloat {
     case inactive = 0
 }
 
+enum MapViewControllerMapData: Double {
+    case regionRadius = 300
+}
+
+enum MapViewControllerStringData: String {
+    case UserLocationReuseId = "userLocation"
+}
+
 struct MapMenuViewTexts {
     
     internal enum RusTexts: String {

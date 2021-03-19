@@ -18,7 +18,7 @@ final class PersistanceStoreManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         self.context = appDelegate.persistentContainer.viewContext
     }
-    
+    //MARK: - Saving user data
     func saveUserData(_ userData: ConfirmResponseData, phoneNumber: String) {
         DispatchQueue.global(qos: .background).async {
             self.deleteUserData()
@@ -53,6 +53,48 @@ final class PersistanceStoreManager {
             }
     }
     
+    //MARK: - Saving payment way
+    
+    func getSavedPaymentWay() -> [SavedPaymentWay]? {
+                 
+        let request: NSFetchRequest<SavedPaymentWay> = SavedPaymentWay.fetchRequest()
+            
+            do {
+                let paymentWay = try context.fetch(request)
+                return paymentWay
+            } catch {
+                print("Cannot read user data")
+                return nil
+            }
+    }
+
+    func deleteSavedPaymentWay() {
+        guard let paymentWay = self.getSavedPaymentWay() else { return }
+        paymentWay.forEach { self.context.delete($0) }
+
+        self.save()
+
+    }
+    
+    func savePaymentWay(_ title: String) {
+        
+        self.deleteSavedPaymentWay()
+        let newPaymentWay = SavedPaymentWay(context: self.context)
+        newPaymentWay.title = title
+        self.save()
+    }
+    
+    //MARK: - Common
+    
+    
+    //BE CAREFULL WHEN USE THIS FUNCTION DELETE ALL PERSISTANCE STORAGE DATA!!!!
+    
+    func deleteAllData() {
+        self.deleteUserData()
+        self.deleteSavedPaymentWay()
+    }
+    
+    //Saving data
     
     private func save() {
         DispatchQueue.main.async {

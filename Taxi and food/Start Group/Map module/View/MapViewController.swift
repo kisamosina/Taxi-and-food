@@ -11,8 +11,9 @@ import MapKit
 
 protocol MapViewProtocol: class {
     var interactor: MapInteractorProtocol! { get set }
-    func showTariffPageVieController(_ tariffs: [TariffData])
-    
+    func showTariffPageViewController(_ tariffs: [TariffData])
+    func showUserLocation(region: MKCoordinateRegion)
+    func showLocationSettingsAlert(title: String, message: String)
     func updateData()
 }
 
@@ -69,6 +70,10 @@ class MapViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     //MARK: - IBActions
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -86,6 +91,8 @@ class MapViewController: UIViewController {
     
     
     @IBAction func mapCenterButtonTapped(_ sender: UIButton) {
+        guard let region = self.interactor.getUserLoctaionRegion() else { return }
+        self.mapView.setRegion(region, animated: true)
     }
     
     @IBAction func taxiButtonTapped(_ sender: UIButton) {
@@ -118,7 +125,7 @@ class MapViewController: UIViewController {
 
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
-    
+        self.mapView.showsUserLocation = true
     }
 
     private func initPromoDestinationViewSetUp() {
@@ -200,7 +207,7 @@ class MapViewController: UIViewController {
         case .left:
             self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
             self.animateMenuViewMinimizing()
-        
+            
         default:
             break
         }
@@ -239,10 +246,24 @@ class MapViewController: UIViewController {
 }
 //MARK: - MapViewProtocol
 extension MapViewController: MapViewProtocol {
-
     
-
-    func showTariffPageVieController(_ tariffs: [TariffData]) {
+    func showUserLocation(region: MKCoordinateRegion) {
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    
+    func showLocationSettingsAlert(title: String, message: String) {
+        
+        let ac = UIAlertController.showLocationSettingsAlert(title: title, message: message)
+        
+        DispatchQueue.main.async {
+            self.present(ac, animated: true)
+        }
+        
+    }
+    
+    
+    func showTariffPageViewController(_ tariffs: [TariffData]) {
         let storyboard = UIStoryboard(name: StoryBoards.Tarifs.rawValue, bundle: nil)
         DispatchQueue.main.async {
             let tariffPageVC = storyboard.instantiateInitialViewController() as! TariffsPageViewController
@@ -286,7 +307,7 @@ extension MapViewController: MenuViewDelegate {
         switch type {
         
         case .Tariffs:
-            self.interactor.getTarifs()
+            self.interactor.getTariffs()
             
         case .Settings:
             let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
@@ -314,4 +335,16 @@ extension MapViewController: MenuViewDelegate {
     }
 }
 
+//MARK: - MKMapViewDelegate
 
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if annotation.isEqual(mapView.userLocation) {
+                let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
+                annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
+            return annotationView
+        }
+        return nil
+    }
+}

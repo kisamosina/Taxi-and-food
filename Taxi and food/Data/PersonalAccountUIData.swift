@@ -50,7 +50,7 @@ struct PersonalAccountViewControllerTexts {
         }
     }
     
-    static var PaymentHistory: String {
+    static var paymentHistory: String {
         
         switch UserDefaults.standard.getAppLanguage() {
         
@@ -61,7 +61,7 @@ struct PersonalAccountViewControllerTexts {
         }
     }
 
-    static var PaymentWay: String {
+    static var paymentWay: String {
         
         switch UserDefaults.standard.getAppLanguage() {
         
@@ -116,9 +116,9 @@ enum PersonalAccountViewControllerSegues {
     
     static func getCase(from text: String) -> PersonalAccountViewControllerSegues {
         switch text {
-        case PersonalAccountViewControllerTexts.PaymentHistory:
+        case PersonalAccountViewControllerTexts.paymentHistory:
             return .PaymentHistory
-        case PersonalAccountViewControllerTexts.PaymentWay:
+        case PersonalAccountViewControllerTexts.paymentWay:
             return .PaymentWay
         case PersonalAccountViewControllerTexts.myAddresses:
             return .MyAddresses

@@ -14,6 +14,11 @@ class PaymentWayCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var checkMarkImageView: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.iconImageView.image = nil
+    }
+    
     func setupCell(for model: PaymentWayTableViewCellModel) {
         
         self.titleLabel.text = model.title

@@ -23,6 +23,8 @@ enum MainButtonTypes {
     case sendEmail
     case logOut
     case linkACard
+    case newOrder
+    case beginSavePoints
 }
 
 
@@ -38,6 +40,8 @@ struct MainButtonTitles {
         case sendEmail = "Отправить e-mail"
         case logOut = "Выйти"
         case linkACard = "Привязать карту"
+        case newOrder = "Новый заказ"
+        case beginSavePoints = "Начать копить баллы"
         case goBuyTitle = "За покупками!"
         case addAddressTitle = "Добавить адресс"
         case saveTitle = "Сохранить"
@@ -61,6 +65,8 @@ struct MainButtonTitles {
         case sendEmail = "Send e-mail"
         case logOut = "Log Out"
         case linkACard = "Link a card"
+        case newOrder = "New order"
+        case beginSavePoints = "Begin saving points"
     }
     
     static var cancelButtonTitle: String {
@@ -214,7 +220,29 @@ struct MainButtonTitles {
         case .eng:
             return EngButtonsTitles.linkACard.rawValue
         }
+        
+    }
+    
+    static var newOrderTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.newOrder.rawValue
+        case .eng:
+            return EngButtonsTitles.newOrder.rawValue
+        }
+    }
 
+    static var beginSavingPointsTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.beginSavePoints.rawValue
+        case .eng:
+            return EngButtonsTitles.beginSavePoints.rawValue
+        }
     }
 
     
@@ -238,6 +266,10 @@ struct MainButtonTitles {
             return logOut
         case .linkACard:
             return linkACard
+        case .newOrder:
+            return newOrderTitle
+        case .beginSavePoints:
+            return beginSavingPointsTitle
         case .goBuy:
             return goBuyButtonTitle
         case .addAddress:

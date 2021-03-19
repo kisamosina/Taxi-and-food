@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import CoreLocation
+import MapKit
 import UIKit
 
 protocol MapInteractorProtocol: class {
     var view: MapViewProtocol! { get }
     var mapMenuData: [MapMenuSection] { get }
+    var userLocation: CLLocationCoordinate2D? { get set }
     
     var promos: [PromoShortData]? { get }
     
@@ -23,6 +26,7 @@ protocol MapInteractorProtocol: class {
     
     func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
    
+    func getUserLoctaionRegion() -> MKCoordinateRegion?
 }
 
 class MapInteractor: MapInteractorProtocol {
@@ -30,20 +34,30 @@ class MapInteractor: MapInteractorProtocol {
  
     var promos: [PromoShortData]?
     
-   
-    
+    //MARK: - Properties
     
     internal weak var view: MapViewProtocol!
+    private var locationManager: LocationManager
+    var userLocation: CLLocationCoordinate2D?
     
     var mapMenuData: [MapMenuSection] {
         return MapMenuData.getMapMenuSections()
     }
     
+    //MARK: - Initializer
+    
     required init(view: MapViewProtocol) {
         self.view = view
+        self.locationManager = LocationManager.shared
+        self.locationManager.delegate = self
     }
 
-    func getTarifs() {
+    //MARK: - MapInteractorProtocol Methods
+    
+    //GET TARIFFS FROM SERVER
+    
+    func getTariffs() {
+        
         guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
         let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
@@ -53,7 +67,7 @@ class MapInteractor: MapInteractorProtocol {
             switch result {
             
             case .success(let tariffResponse):
-                self.promos = tariffResponse.data
+                self.view.showTariffPageViewController(tariffResponse.data)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -125,4 +139,41 @@ class MapInteractor: MapInteractorProtocol {
             
         }
       
+    
+    //GET REGION FOR USER LOCATION
+    
+    func getUserLoctaionRegion() -> MKCoordinateRegion? {
+        guard let userLocation = self.userLocation else { return nil }
+        return self.makeRegion(regionRadius: MapViewControllerMapData.regionRadius.rawValue, for: userLocation)
+    }
+
+    
+}
+
+//MARK: - Location manager delegate
+
+extension MapInteractor: LocationManagerDelegate {
+    
+    func cantUpdateLocation(_ reason: LocationAuthStatus) {
+        self.view.showLocationSettingsAlert(title: AlertControllerTexts.attentionText, message: reason.status)
+    }
+    
+    func getLocation(_ location: CLLocationCoordinate2D) {
+        self.userLocation = location
+        let region = self.makeRegion(regionRadius: MapViewControllerMapData.regionRadius.rawValue, for: location)
+        self.view.showUserLocation(region: region)
+    }
+    
+}
+
+//MARK: - Work with locations on map
+
+extension MapInteractor {
+    
+    //Make region
+    private func makeRegion(regionRadius: CLLocationDistance, for location: CLLocationCoordinate2D) -> MKCoordinateRegion {
+        return MKCoordinateRegion(center: location,
+                                  latitudinalMeters: regionRadius,
+                                  longitudinalMeters: regionRadius)
+    }
 }
