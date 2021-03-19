@@ -114,6 +114,8 @@ enum CustomImagesNames: String {
     case clockGrey
     case userPin
     case paymentPoints
+    case menuButton
+    case backButton
 }
 
 enum StoryBoards: String {

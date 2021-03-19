@@ -22,7 +22,11 @@ extension UIViewController {
         constraint.constant = 0
     }
 
-    
+    func getKeyBoardHeight(notification: NSNotification) -> CGFloat? {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        else { return nil }
+        return keyboardSize.height
+    }
 }
 
 extension UIViewController {

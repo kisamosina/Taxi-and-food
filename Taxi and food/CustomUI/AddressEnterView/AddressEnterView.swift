@@ -10,6 +10,10 @@ import UIKit
 
 class AddressEnterView: UIView {
     
+    //MARK: - Properties
+    
+    weak var delegate: AddressEnterViewDelegate?
+    
     //MARK: - IBOutlets
 
     @IBOutlet weak var topView: UIView!
@@ -41,6 +45,11 @@ class AddressEnterView: UIView {
     
  //MARK: - IBActions
     
+    @IBAction func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            self.delegate?.userHasSwipedViewDown()
+        }
+    }
     //MARK: - Methods
         
     override func layoutSubviews() {
@@ -60,12 +69,16 @@ class AddressEnterView: UIView {
     
     private func initSubviews() {
         
-        self.loadFromNib(nibName: TransitionBottomViewStringData.nibName.rawValue)
+        self.loadFromNib(nibName: AddressesViewNibsNames.AddressEnterView.rawValue)
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
         self.nextButton.setupAs(.next)
         self.setupTableView()
+        self.addressFromTextField.addBottomBorder(color: Colors.buttonBlue.getColor())
+        self.addressToTextField.addBottomBorder(color: Colors.buttonGrey.getColor())
+        self.addressToTextField.placeholder = AddressesEnterViewTexts.toLabelPlaceHolderText
+        self.tableView.isHidden = true
     }
     
     private func setupConstraints() {
@@ -83,6 +96,9 @@ class AddressEnterView: UIView {
         self.tableView.tableFooterView = UIView()
     }
     
+    public func setAddressFromTextFieldText(_ text: String? ){
+        self.addressFromTextField.text = text
+    }
 }
 
 extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {

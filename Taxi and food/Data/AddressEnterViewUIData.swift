@@ -6,7 +6,7 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum AddressesViewNibsNames: String {
     case AddressTableViewCell
@@ -15,4 +15,30 @@ enum AddressesViewNibsNames: String {
 
 enum AddressesViewStringData: String {
     case AddressTableViewCell
+}
+
+enum AddressEnterViewSizes: CGFloat {
+    case height = 275
+}
+
+struct AddressesEnterViewTexts {
+    
+    private enum RusTexts: String {
+        case toLabelPlaceHolder = "Куда вы хотите поехать?"
+    }
+    
+    private enum EngTexts: String {
+        case toLabelPlaceHolder = "Where do you want to go?"
+    }
+    
+    static var toLabelPlaceHolderText: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTexts.toLabelPlaceHolder.rawValue
+        case .eng:
+            return EngTexts.toLabelPlaceHolder.rawValue
+        }
+    }
 }

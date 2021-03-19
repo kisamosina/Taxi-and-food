@@ -102,3 +102,8 @@ enum MapViewControllerSegue {
         }
     }
 }
+
+enum MapViewControllerStates {
+    case start
+    case enterAddress
+}

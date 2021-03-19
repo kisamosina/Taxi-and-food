@@ -10,7 +10,7 @@ import UIKit
 
 class MapBottomView: UIView {
     
-    
+    @IBOutlet weak var addressLabel: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -24,4 +24,7 @@ class MapBottomView: UIView {
         
     }
     
+    public func setAddressLabelText(_ text: String?) {
+        self.addressLabel.text = text
+    }
 }

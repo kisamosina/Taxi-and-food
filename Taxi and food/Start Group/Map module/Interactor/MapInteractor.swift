@@ -10,38 +10,49 @@ import Foundation
 import CoreLocation
 import MapKit
 
-protocol MapInteractorProtocol: class {
-    var view: MapViewProtocol! { get }
-    var mapMenuData: [MapMenuSection] { get }
-    var userLocation: CLLocationCoordinate2D? { get set }
-    
-    init(view: MapViewProtocol)
-    
-    func getTariffs()
-    func getUserLoctaionRegion() -> MKCoordinateRegion?
-}
-
 class MapInteractor: MapInteractorProtocol {
     
     //MARK: - Properties
     
     internal weak var view: MapViewProtocol!
     private var locationManager: LocationManager
-    var userLocation: CLLocationCoordinate2D?
+    var userLocation: CLLocationCoordinate2D? {
+        didSet {
+            self.getAddressFromLocation()
+        }
+    }
+    var addressString: String? {
+        didSet {
+            self.view.setBottomViewAddressLabel(text: addressString)
+        }
+    }
     
     var mapMenuData: [MapMenuSection] {
         return MapMenuData.getMapMenuSections()
+    }
+    
+    var mapViewControllerState: MapViewControllerStates {
+        didSet {
+            self.view.setViews(for: mapViewControllerState)
+        }
     }
     
     //MARK: - Initializer
     
     required init(view: MapViewProtocol) {
         self.view = view
+        self.mapViewControllerState = .start
         self.locationManager = LocationManager.shared
         self.locationManager.delegate = self
     }
 
     //MARK: - MapInteractorProtocol Methods
+    
+    //Set Map View controller states
+    
+    func setViewControllerState(_ state: MapViewControllerStates) {
+        self.mapViewControllerState = state
+    }
     
     //GET TARIFFS FROM SERVER
     
@@ -99,5 +110,31 @@ extension MapInteractor {
         return MKCoordinateRegion(center: location,
                                   latitudinalMeters: regionRadius,
                                   longitudinalMeters: regionRadius)
+    }
+}
+
+//MARK: - Creating address from location
+
+extension MapInteractor {
+    
+    func getAddressFromLocation() {
+        
+        guard let userlocation = userLocation else { return }
+        
+        let location = CLLocation(latitude: userlocation.latitude, longitude: userlocation.longitude)
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location) {[weak self] (pm, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let placemark = pm?.first, let self = self else { return }
+            
+            self.addressString =  "\(placemark.thoroughfare ?? "..."), \(placemark.subThoroughfare ?? "")"
+        }
+        
     }
 }
