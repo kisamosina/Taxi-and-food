@@ -30,8 +30,7 @@ protocol MapInteractorProtocol: class {
 }
 
 class MapInteractor: MapInteractorProtocol {
-  
- 
+
     var promos: [PromoShortData]?
     
     //MARK: - Properties
@@ -56,13 +55,12 @@ class MapInteractor: MapInteractorProtocol {
     
     //GET TARIFFS FROM SERVER
     
-    func getTariffs() {
-        
+    func getTarifs() {
         guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
         let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
-        let resource = Resource<PromoResponse>(path: path, requestType: .GET)
+        let resource = Resource<TariffResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
             
@@ -71,8 +69,9 @@ class MapInteractor: MapInteractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
+
     
      func getAllPromos() {
 
@@ -82,7 +81,7 @@ class MapInteractor: MapInteractorProtocol {
 
          let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
-         NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
              guard let self = self else { return }
              switch result {
 
@@ -95,7 +94,7 @@ class MapInteractor: MapInteractorProtocol {
              case .failure(let error):
                  print(error.localizedDescription)
              }
-         }
+         })
 
      }
     

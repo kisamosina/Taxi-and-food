@@ -42,7 +42,7 @@ class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
     
         let resource = Resource<PromoResponseFull>(path: path, requestType: .GET)
 
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
 
@@ -55,7 +55,7 @@ class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
     
     func isPromoAvailableByDate() -> Bool {

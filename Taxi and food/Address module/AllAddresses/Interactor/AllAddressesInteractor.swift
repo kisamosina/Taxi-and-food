@@ -33,7 +33,7 @@ class AllAddressesInteractor: AllAddressesInteractorProtocol {
         let path = AddressRequestPaths.addressPostAndGet.rawValue.getServerAddressPath(for: 1)
         let resource = Resource<AddressResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
                 
@@ -48,7 +48,7 @@ class AllAddressesInteractor: AllAddressesInteractorProtocol {
                print(error.localizedDescription)
                 
             }
-        }
+        })
  
     }
     

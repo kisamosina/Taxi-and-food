@@ -37,7 +37,7 @@ class PromoShortInteractor: PromoShortInteractorProtocol {
 
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
 
@@ -49,7 +49,7 @@ class PromoShortInteractor: PromoShortInteractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
 }
 

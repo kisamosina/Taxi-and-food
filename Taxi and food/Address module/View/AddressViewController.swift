@@ -33,7 +33,6 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var chooseDestinationButton: MainBottomButton!
     @IBOutlet var deleteButton: MainBottomButton!
     
-    var deleteAddressView: LogoutView!
     
     @IBOutlet var backGroundView: UIView!
     
@@ -171,7 +170,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     
 
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        self.showDeleteAddressView()
+        
         print("delete tapped")
     }
     
@@ -261,66 +260,3 @@ extension AddressViewController: AppleMapDelegateProtocol {
     
     
 }
-
-extension AddressViewController: LogoutViewDelegate {
-    
-    //Show deleteAddress view
-    private func showDeleteAddressView() {
-        
-        let rect = CGRect(x: 0,
-                          y: UIScreen.main.bounds.height,
-                          width: UIScreen.main.bounds.width,
-                          height: LogoutViewSizes.height.rawValue)
-        self.deleteAddressView = LogoutView(frame: rect)
-        deleteAddressView.alpha = 0
-        self.view.addSubview(deleteAddressView)
-        self.deleteAddressView.delegate = self
-        
-        //Animation
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.deleteAddressView.alpha = 1
-                        let window = UIApplication.shared.windows[0]
-                        let bottomPadding = window.safeAreaInsets.bottom
-                        self.deleteAddressView.frame.origin.y = UIScreen.main.bounds.height - LogoutViewSizes.height.rawValue + bottomPadding
-                       },
-                       completion: nil)
-    }
-    
-    //Hide deleteAddress view
-    private func hideDeleteAddressView() {
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.deleteAddressView.alpha = 0
-                        self.deleteAddressView.frame.origin.y = UIScreen.main.bounds.height
-                       },
-                       completion: {[unowned self] _ in
-                        self.dismiss(animated: false, completion: nil)
-                       })
-        
-    }
-    
-    func cancelButtonTapped() {
-        self.hideDeleteAddressView()
-    }
-    
-    func swipeDown() {
-        self.hideDeleteAddressView()
-    }
-    
-    
-}
-
-

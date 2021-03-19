@@ -55,7 +55,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
         let addressResource = Resource<AddressResponse>(path: path, requestType: .POST, requestData: data)
        
-        NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
+        NetworkService.shared.makeRequest(for: addressResource, completion:  {[unowned self] result in
             
             switch result {
             case .success(let response):
@@ -65,7 +65,7 @@ class AddressInteractor: AddressInteractorProtocol {
                 print(error.localizedDescription)
             }
             
-        }
+        })
         
     }
     
@@ -78,7 +78,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
         let addressResource = Resource<AddressResponse>(path: path, requestType: .DELETE, requestData: data)
         
-        NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
+        NetworkService.shared.makeRequest(for: addressResource, completion:  {[unowned self] result in
             
             switch result {
             case .success:
@@ -87,7 +87,7 @@ class AddressInteractor: AddressInteractorProtocol {
                 print(error.localizedDescription)
             }
             
-        }
+        })
         
     }
     
@@ -102,7 +102,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
         let addressResource = Resource<AddressResponse>(path: path, requestType: .PUT, requestData: data)
         
-        NetworkService.shared.makeRequest(for: addressResource) {[unowned self] result in
+        NetworkService.shared.makeRequest(for: addressResource, completion:  {[unowned self] result in
             
             switch result {
             case .success:
@@ -110,12 +110,8 @@ class AddressInteractor: AddressInteractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
-        }
+        })
         
     }
-    
-     
-
     
 }

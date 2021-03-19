@@ -307,7 +307,8 @@ extension MapViewController: MenuViewDelegate {
         switch type {
         
         case .Tariffs:
-            self.interactor.getTariffs()
+            
+            self.interactor.getTarifs()
             
         case .Settings:
             let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
