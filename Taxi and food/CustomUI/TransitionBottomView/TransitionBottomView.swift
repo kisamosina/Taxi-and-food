@@ -146,6 +146,17 @@ class TransitionBottomView: UIView {
         self.auxButton.setupAs(type: .cancel)
     }
     
+    //DeleteAddress View
+    private func setupWhenDeleteAddress() {
+        self.firstTitleLabel.text = TransitionBottomViewTexts.deleteAddressTitle
+        self.firstTitleLabel.textColor = Colors.redTextColor.getColor()
+        self.secondTitleLabel.isHidden = true
+        self.descriptionLabel.isHidden = true
+        self.mainBottomButton.setupAs(.delete)
+        self.auxButton.setupAs(type: .cancel)
+        
+    }
+    
     public func setupAs(type: TransitionBottomViewTypes) {
         
         self.viewType = type
@@ -160,8 +171,9 @@ class TransitionBottomView: UIView {
             self.setupWhenPointsShow(pointsData)
         case .logout:
             self.setupWhenLogout()
+        case .deleteAddress:
+            self.setupWhenDeleteAddress()
         }
     }
-    
     
 }
