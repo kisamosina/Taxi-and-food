@@ -56,7 +56,11 @@
                             <constraint firstItem="0tm-Xx-CZA" firstAttribute="leading" secondItem="1jD-wf-dWh" secondAttribute="leading" id="wdd-WU-Rmw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="war-xt-hSv"/>
+                    <navigationItem key="navigationItem" id="war-xt-hSv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="KEz-vJ-kEt">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="q7b-he-ycR" id="UFo-gv-o6T"/>
                     </connections>

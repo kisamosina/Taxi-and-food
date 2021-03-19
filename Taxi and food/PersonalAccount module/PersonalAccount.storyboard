@@ -96,7 +96,11 @@
                             <constraint firstItem="H81-ig-x6B" firstAttribute="trailing" secondItem="aCj-MM-bg0" secondAttribute="trailing" id="qbC-yo-JbN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="o0C-Ee-pwv"/>
+                    <navigationItem key="navigationItem" id="o0C-Ee-pwv">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Cwj-vw-9qD">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="logOutButton" destination="nbR-Ha-EGi" id="t8u-zo-Wxs"/>
                         <outlet property="tableView" destination="H81-ig-x6B" id="l1x-j6-fhV"/>
@@ -110,6 +114,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tjJ-3R-WCm">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUM-v8-ykU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dvj-x8-Sqw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mlD-nR-rt4">
@@ -121,7 +126,6 @@
                         <segue destination="INa-rj-4N5" kind="relationship" relationship="rootViewController" id="oT9-ne-8X1"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bUM-v8-ykU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1214.4927536231885" y="182.8125"/>
         </scene>

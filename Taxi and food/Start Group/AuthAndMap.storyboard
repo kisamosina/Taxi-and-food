@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lGt-Kg-wgK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zux-rs-o3I">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -118,7 +118,11 @@
                             <constraint firstItem="XgZ-wA-Nv6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ySH-Ig-Ruw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="RTd-5a-tje"/>
+                    <navigationItem key="navigationItem" id="RTd-5a-tje">
+                        <barButtonItem key="backBarButtonItem" title=" " id="bTf-Kd-vRY">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomLabel" destination="WF8-pC-aga" id="QR5-le-AGg"/>
                         <outlet property="bottomView" destination="kNN-I8-7Oi" id="igE-2c-X7U"/>
@@ -535,7 +539,11 @@
                             <constraint firstItem="SGh-SJ-IIw" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" id="ugu-q6-hpN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JH6-Q5-zvc"/>
+                    <navigationItem key="navigationItem" id="JH6-Q5-zvc">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2gP-az-0Wd">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomView" destination="SGh-SJ-IIw" id="A0f-Y2-Z73"/>
                         <outlet property="foodButton" destination="FrK-be-7iC" id="6UJ-Pi-gIk"/>
