@@ -80,6 +80,7 @@
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go"/>
                                                     <connections>
                                                         <action selector="addressToTextFieldHasBecomeActive:" destination="-1" eventType="editingDidBegin" id="EN5-ip-bdP"/>
+                                                        <action selector="addressToTextfieldEditingChaged:" destination="-1" eventType="editingChanged" id="r8e-YC-bP0"/>
                                                     </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-dc-jeG" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">

@@ -14,7 +14,8 @@ class AddressTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    public func setCell(by address: AddressResponseData) {
+        self.placeTitleLabel.text = address.name
+        self.addressLabel.text = address.address
     }
 }

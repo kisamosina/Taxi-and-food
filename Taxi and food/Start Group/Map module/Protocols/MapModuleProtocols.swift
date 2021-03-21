@@ -16,6 +16,7 @@ protocol MapInteractorProtocol: class {
     var userLocation: CLLocationCoordinate2D? { get set }
     var addressString: String? { get set }
     var mapViewControllerState: MapViewControllerStates { get set }
+    var addresses: [AddressResponseData] { get set }
 
     init(view: MapViewProtocol)
     

@@ -13,12 +13,18 @@ enum AddressesViewNibsNames: String {
     case AddressEnterView
 }
 
+enum AddressEnterViewStringData: String {
+    case addressTableViewCellReuseId = "AddressTableViewCell"
+}
+
 enum AddressesViewStringData: String {
     case AddressTableViewCell
 }
 
 enum AddressEnterViewSizes: CGFloat {
     case height = 275
+    case tableViewHeight = 182
+    case tableViewTopPadding = 25
 }
 
 struct AddressesEnterViewTexts {

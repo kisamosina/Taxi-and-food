@@ -14,6 +14,8 @@ class AddressEnterView: UIView {
     
     weak var delegate: AddressEnterViewDelegate?
     
+    private var addresses: [AddressResponseData] = []
+    
     //MARK: - IBOutlets
 
     @IBOutlet weak var topView: UIView!
@@ -55,6 +57,14 @@ class AddressEnterView: UIView {
     
     @IBAction func addressToTextFieldHasBecomeActive(_ sender: UITextField) {
         self.mapButtonView.alpha = 1
+        }
+    
+    
+    @IBAction func addressToTextfieldEditingChaged(_ sender: UITextField) {
+        guard !self.addresses.isEmpty else { return }
+        self.delegate?.tableViewWillAppear()
+        self.tableView.isHidden = false
+
     }
     
     //MARK: - Methods
@@ -108,6 +118,11 @@ class AddressEnterView: UIView {
     public func setAddressFromTextFieldText(_ text: String? ){
         self.addressFromTextField.text = text
     }
+    
+    public func setAddresses(_ addresses: [AddressResponseData]) {
+        self.addresses = addresses
+        self.tableView.reloadData()
+    }
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -115,11 +130,18 @@ class AddressEnterView: UIView {
 extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.addresses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddressEnterViewStringData.addressTableViewCellReuseId.rawValue) as! AddressTableViewCell
+        cell.setCell(by: self.addresses[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let address = addresses[indexPath.row]
+        self.addressToTextField.text = address.address
     }
 }
 

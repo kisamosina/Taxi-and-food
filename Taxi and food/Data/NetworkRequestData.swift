@@ -44,3 +44,7 @@ enum NewPaymentCardRequestKeys: String {
     case cvc
 }
 
+enum AddressesRequestPaths: String {
+    case getAddresses = "user/$/address"
+}
+

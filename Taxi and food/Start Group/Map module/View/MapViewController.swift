@@ -308,7 +308,7 @@ extension MapViewController: MenuViewDelegate {
             self.interactor.getPaymentData()
         case .unknown:
             break
-
+            
         }
     }
 }
@@ -340,6 +340,7 @@ extension MapViewController {
         self.addressEnterView = AddressEnterView(frame: rect)
         self.addressEnterView.alpha = 0
         self.addressEnterView.delegate = self
+        self.addressEnterView.setAddresses(self.interactor.addresses)
         self.view.addSubview(self.addressEnterView)
         self.addressEnterView.setAddressFromTextFieldText(interactor.addressString)
         
@@ -378,6 +379,17 @@ extension MapViewController {
 //MARK: - AddressEnterViewDelegate
 
 extension MapViewController: AddressEnterViewDelegate {
+    
+    func tableViewWillAppear() {
+        if addressEnterView.frame.height == AddressEnterViewSizes.height.rawValue {
+            let addressEnterViewHeight = addressEnterView.frame.height + AddressEnterViewSizes.tableViewHeight.rawValue + AddressEnterViewSizes.tableViewTopPadding.rawValue
+            let addressEnterViewY = addressEnterView.frame.origin.y - AddressEnterViewSizes.tableViewHeight.rawValue - AddressEnterViewSizes.tableViewTopPadding.rawValue
+            
+            let rect = CGRect(x: 0, y: addressEnterViewY, width: UIScreen.main.bounds.width, height: addressEnterViewHeight)
+            self.addressEnterView.frame = rect
+        }
+    }
+    
     
     func mapButtonViewTapped() {
         guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLoactionViewController else { return }

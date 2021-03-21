@@ -15,12 +15,17 @@ class MapInteractor: MapInteractorProtocol {
     //MARK: - Properties
     
     internal weak var view: MapViewProtocol!
+    
     private var locationManager: LocationManager
+    
+    var addresses: [AddressResponseData] = []
+    
     var userLocation: CLLocationCoordinate2D? {
         didSet {
             self.getAddressFromLocation()
         }
     }
+    
     var addressString: String? {
         didSet {
             self.view.setBottomViewAddressLabel(text: addressString)
@@ -44,6 +49,7 @@ class MapInteractor: MapInteractorProtocol {
         self.mapViewControllerState = .start
         self.locationManager = LocationManager.shared
         self.locationManager.delegate = self
+        self.getAddresses()
     }
 
     //MARK: - MapInteractorProtocol Methods
@@ -169,3 +175,30 @@ extension MapInteractor {
         }
     }
 }
+
+//MARK: - Get addresses
+
+extension MapInteractor {
+    
+    private func getAddresses() {
+        
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        let path = AddressesRequestPaths.getAddresses.rawValue.getServerPath(for: Int(user.id))
+        
+        let resource = Resource<AddressResponse>(path: path, requestType: .GET)
+        
+        NetworkService.shared.makeRequest(for: resource) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+                
+            case .success(let addressResponse):
+                self.addresses = addressResponse.data
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+}
+
