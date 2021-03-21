@@ -379,6 +379,14 @@ extension MapViewController {
 
 extension MapViewController: AddressEnterViewDelegate {
     
+    func mapButtonViewTapped() {
+        guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLoactionViewController else { return }
+        let region = self.interactor.getUserLoctaionRegion()
+        showLocationVC.setMapRegion(region)
+        self.present(showLocationVC, animated: true, completion: nil)
+    }
+    
+    
     func userHasSwipedViewDown() {
         self.interactor.setViewControllerState(.start)
     }

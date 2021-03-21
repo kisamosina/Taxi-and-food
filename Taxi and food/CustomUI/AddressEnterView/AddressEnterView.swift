@@ -30,6 +30,7 @@ class AddressEnterView: UIView {
     
     @IBOutlet weak var nextButton: MainBottomButton!
     
+    @IBOutlet weak var mapButtonView: MapButtonView!
     
     //MARK: - Initializers
     
@@ -50,6 +51,12 @@ class AddressEnterView: UIView {
             self.delegate?.userHasSwipedViewDown()
         }
     }
+    
+    
+    @IBAction func addressToTextFieldHasBecomeActive(_ sender: UITextField) {
+        self.mapButtonView.alpha = 1
+    }
+    
     //MARK: - Methods
         
     override func layoutSubviews() {
@@ -78,6 +85,8 @@ class AddressEnterView: UIView {
         self.addressFromTextField.addBottomBorder(color: Colors.buttonBlue.getColor())
         self.addressToTextField.addBottomBorder(color: Colors.buttonGrey.getColor())
         self.addressToTextField.placeholder = AddressesEnterViewTexts.toLabelPlaceHolderText
+        self.mapButtonView.delegate = self
+        self.mapButtonView.alpha = 0
         self.tableView.isHidden = true
     }
     
@@ -101,6 +110,8 @@ class AddressEnterView: UIView {
     }
 }
 
+//MARK: - UITableViewDataSource, UITableViewDelegate
+
 extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,7 +121,14 @@ extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+}
+
+//MARK: - MapButtonViewDelegate
+
+extension AddressEnterView: MapButtonViewDelegate {
     
-    
+    func mapButtonTapped() {
+        self.delegate?.mapButtonViewTapped()
+    }
     
 }

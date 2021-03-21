@@ -141,6 +141,11 @@
 		7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */; };
 		7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFFA68225D67F0300C35652 /* MapViewController.swift */; };
 		7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */; };
+		7D00DDDF26076B4C004D5777 /* MapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D00DDDE26076B4C004D5777 /* MapButtonView.swift */; };
+		7D00DDE426076B76004D5777 /* MapButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D00DDE326076B76004D5777 /* MapButtonView.xib */; };
+		7D00DDF026076FAD004D5777 /* MapButtonViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D00DDEF26076FAD004D5777 /* MapButtonViewUIData.swift */; };
+		7D00DDF82607765E004D5777 /* MapButtonViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D00DDF72607765E004D5777 /* MapButtonViewDelegate.swift */; };
+		7D00DE0526077D99004D5777 /* ShowLoactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D00DE0426077D99004D5777 /* ShowLoactionViewController.swift */; };
 		7D06D65C26012A1B00219F02 /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06D65B26012A1B00219F02 /* LocationManagerDelegate.swift */; };
 		7D06D66126012CE400219F02 /* LoacationAuthStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06D66026012CE400219F02 /* LoacationAuthStatus.swift */; };
 		7D06D666260134DF00219F02 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06D665260134DF00219F02 /* UIAlertController+Extension.swift */; };
@@ -344,6 +349,11 @@
 		7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
 		7BFFA68225D67F0300C35652 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7BFFA70F25DBCC9200C35652 /* AuthAndMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthAndMap.storyboard; sourceTree = "<group>"; };
+		7D00DDDE26076B4C004D5777 /* MapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonView.swift; sourceTree = "<group>"; };
+		7D00DDE326076B76004D5777 /* MapButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapButtonView.xib; sourceTree = "<group>"; };
+		7D00DDEF26076FAD004D5777 /* MapButtonViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonViewUIData.swift; sourceTree = "<group>"; };
+		7D00DDF72607765E004D5777 /* MapButtonViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonViewDelegate.swift; sourceTree = "<group>"; };
+		7D00DE0426077D99004D5777 /* ShowLoactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLoactionViewController.swift; sourceTree = "<group>"; };
 		7D06D65B26012A1B00219F02 /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
 		7D06D66026012CE400219F02 /* LoacationAuthStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoacationAuthStatus.swift; sourceTree = "<group>"; };
 		7D06D665260134DF00219F02 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -738,6 +748,7 @@
 				7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */,
 				7D06D66A2601367200219F02 /* AlertControllerUIData.swift */,
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
+				7D00DDEF26076FAD004D5777 /* MapButtonViewUIData.swift */,
 				7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
 				7D851C5425F687C7000E20DB /* EnterCardUIData.swift */,
@@ -878,6 +889,7 @@
 				7D4748E025F7D89100F744F7 /* CardEnterView */,
 				7BEA203B26008536007DD69A /* AddressEnterView */,
 				7BD7CB8726036AAA0099C9B7 /* AboutPointsView */,
+				7D00DDE826076B84004D5777 /* MapButtonView */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
@@ -975,6 +987,7 @@
 			isa = PBXGroup;
 			children = (
 				7BFFA68225D67F0300C35652 /* MapViewController.swift */,
+				7D00DE0426077D99004D5777 /* ShowLoactionViewController.swift */,
 				7B75CFC425E175E8001981CA /* MapMenuViewCell.swift */,
 			);
 			path = View;
@@ -1052,6 +1065,16 @@
 				7D542B892601165B0030FC2D /* AddressTableViewCell */,
 			);
 			path = AddressEnterView;
+			sourceTree = "<group>";
+		};
+		7D00DDE826076B84004D5777 /* MapButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				7D00DDDE26076B4C004D5777 /* MapButtonView.swift */,
+				7D00DDF72607765E004D5777 /* MapButtonViewDelegate.swift */,
+				7D00DDE326076B76004D5777 /* MapButtonView.xib */,
+			);
+			path = MapButtonView;
 			sourceTree = "<group>";
 		};
 		7D1F5EE525F3D02300892B6F /* View */ = {
@@ -1315,6 +1338,7 @@
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
 				7BEA203726008529007DD69A /* AddressEnterView.xib in Resources */,
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
+				7D00DDE426076B76004D5777 /* MapButtonView.xib in Resources */,
 				7BD7CB8326036AA30099C9B7 /* AboutPointsView.xib in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
@@ -1348,6 +1372,7 @@
 				7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */,
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
+				7D00DE0526077D99004D5777 /* ShowLoactionViewController.swift in Sources */,
 				04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */,
 				7B3A8FF525EA9C09008CA13E /* PaymentsHistoryModels.swift in Sources */,
 				04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */,
@@ -1355,6 +1380,7 @@
 				7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */,
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
+				7D00DDDF26076B4C004D5777 /* MapButtonView.swift in Sources */,
 				7B3A900225EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift in Sources */,
 				7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */,
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
@@ -1395,6 +1421,7 @@
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
+				7D00DDF82607765E004D5777 /* MapButtonViewDelegate.swift in Sources */,
 				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
@@ -1488,6 +1515,7 @@
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7D06D65C26012A1B00219F02 /* LocationManagerDelegate.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
+				7D00DDF026076FAD004D5777 /* MapButtonViewUIData.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
 				7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,

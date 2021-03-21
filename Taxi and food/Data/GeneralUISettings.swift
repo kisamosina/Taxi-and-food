@@ -145,6 +145,7 @@ enum ViewControllers: String {
     case PersonalAccountViewController
     case PaymentWayViewController
     case NewCardEnterViewController
+    case ShowLoactionViewController
 }
 
 

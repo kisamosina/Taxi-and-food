@@ -12,4 +12,5 @@ protocol AddressEnterViewDelegate: class {
     
     func userHasSwipedViewDown()
     func nextButtonTapped()
+    func mapButtonViewTapped()
 }
