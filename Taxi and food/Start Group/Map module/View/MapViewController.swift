@@ -382,8 +382,8 @@ extension MapViewController: AddressEnterViewDelegate {
     
     func tableViewWillAppear() {
         if addressEnterView.frame.height == AddressEnterViewSizes.height.rawValue {
-            let addressEnterViewHeight = addressEnterView.frame.height + AddressEnterViewSizes.tableViewHeight.rawValue + AddressEnterViewSizes.tableViewTopPadding.rawValue
-            let addressEnterViewY = addressEnterView.frame.origin.y - AddressEnterViewSizes.tableViewHeight.rawValue - AddressEnterViewSizes.tableViewTopPadding.rawValue
+            let addressEnterViewHeight = addressEnterView.frame.height + AddressEnterViewSizes.tableViewHeight.rawValue
+            let addressEnterViewY = addressEnterView.frame.origin.y - AddressEnterViewSizes.tableViewHeight.rawValue - bottomPadding
             
             let rect = CGRect(x: 0, y: addressEnterViewY, width: UIScreen.main.bounds.width, height: addressEnterViewHeight)
             self.addressEnterView.frame = rect

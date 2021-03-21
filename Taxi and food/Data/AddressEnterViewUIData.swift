@@ -22,9 +22,8 @@ enum AddressesViewStringData: String {
 }
 
 enum AddressEnterViewSizes: CGFloat {
-    case height = 275
-    case tableViewHeight = 182
-    case tableViewTopPadding = 25
+    case height = 255
+    case tableViewHeight = 180
 }
 
 struct AddressesEnterViewTexts {
