@@ -34,6 +34,7 @@ class PaymentWayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.interactor.getPaymentData()
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     //MARK: - IBActions

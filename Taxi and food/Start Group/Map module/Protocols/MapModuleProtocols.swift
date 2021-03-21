@@ -22,6 +22,7 @@ protocol MapInteractorProtocol: class {
     func setViewControllerState(_ state: MapViewControllerStates)
     func getTariffs()
     func getUserLoctaionRegion() -> MKCoordinateRegion?
+    func getPaymentData()
 }
 
 protocol MapViewProtocol: class {
@@ -31,4 +32,5 @@ protocol MapViewProtocol: class {
     func showLocationSettingsAlert(title: String, message: String)
     func setViews(for state: MapViewControllerStates)
     func setBottomViewAddressLabel(text: String?)
+    func showPaymentsViewController(data: [PaymentCardResponseData])
 }

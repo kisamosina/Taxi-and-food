@@ -85,12 +85,12 @@ struct MapMenuData {
                 return .unknown
             }
         }
-
+        
     }
     
     static var tariffs: String {
         switch UserDefaults.standard.getAppLanguage() {
-            
+        
         case .rus:
             return RusNames.Tariffs.rawValue
         case .eng:
@@ -100,14 +100,25 @@ struct MapMenuData {
     
     static var promocodes: String {
         switch UserDefaults.standard.getAppLanguage() {
-            
+        
         case .rus:
             return RusNames.PromoCode.rawValue
         case .eng:
             return EngNames.PromoCode.rawValue
         }
     }
-
+    
+    static var paymentsWay: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusNames.Payment.rawValue
+        case .eng:
+            return EngNames.Payment.rawValue
+        }
+        
+    }
+    
     
     private static var menuEngItems: [String] {
         return EngNames.allCases.map { $0.rawValue }
@@ -161,7 +172,7 @@ struct MapMenuData {
         }
         
         let sectionTwoItems = section2.map { item -> MapMenuItem in
-
+            
             if RusNames.getCase(from: item) == .PromoCode || EngNames.getCase(from: item) == .PromoCode {
                 return MapMenuItem(itemName: item, itemImageName: CustomImagesNames.promocode.rawValue)
             } else {

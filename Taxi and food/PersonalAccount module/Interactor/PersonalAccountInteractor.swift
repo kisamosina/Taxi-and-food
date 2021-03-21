@@ -48,6 +48,7 @@ class PersonalAccountInteractor: PersonalAccountInteractorProtocol {
     }
     
     func getPaymentData() {
+        
         guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
         
         let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)

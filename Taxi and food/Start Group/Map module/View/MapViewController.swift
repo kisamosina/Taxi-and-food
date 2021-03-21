@@ -167,6 +167,17 @@ extension MapViewController {
 
 extension MapViewController: MapViewProtocol {
     
+    func showPaymentsViewController(data: [PaymentCardResponseData]) {
+        
+        DispatchQueue.main.async {
+            guard let paymentVC = self.getViewController(storyboardId: StoryBoards.PaymentWay.rawValue, viewControllerId: ViewControllers.PaymentWayViewController.rawValue) as? PaymentWayViewController else { return }
+            paymentVC.initPaymentWayInteractor(with: data)
+            self.removeMenuView()
+            self.navigationController?.pushViewController(paymentVC, animated: true)
+        }
+    }
+    
+    
     func setBottomViewAddressLabel(text: String?) {
         self.bottomView.setAddressLabelText(text)
     }
@@ -293,8 +304,11 @@ extension MapViewController: MenuViewDelegate {
             self.removeMenuView()
             self.navigationController?.pushViewController(vc, animated: true)
             
+        case .PaymentWay:
+            self.interactor.getPaymentData()
         case .unknown:
             break
+
         }
     }
 }

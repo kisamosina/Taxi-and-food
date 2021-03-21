@@ -89,6 +89,7 @@ struct MapMenuViewTexts {
 enum MapViewControllerSegue {
     case Tariffs
     case Promocode
+    case PaymentWay
     case unknown
     
     static func getMapViewControllerSegue(_ cellTitle: String) -> MapViewControllerSegue {
@@ -97,6 +98,8 @@ enum MapViewControllerSegue {
             return Tariffs
         case MapMenuData.promocodes:
             return Promocode
+        case MapMenuData.paymentsWay:
+            return PaymentWay
         default:
             return .unknown
         }

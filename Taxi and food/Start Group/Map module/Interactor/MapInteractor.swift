@@ -54,27 +54,6 @@ class MapInteractor: MapInteractorProtocol {
         self.mapViewControllerState = state
     }
     
-    //GET TARIFFS FROM SERVER
-    
-    func getTariffs() {
-        
-        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
-        
-        let resource = Resource<TariffResponse>(path: path, requestType: .GET)
-        
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
-            guard let self = self else { return }
-            switch result {
-            
-            case .success(let tariffResponse):
-                self.view.showTariffPageViewController(tariffResponse.data)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
     //GET REGION FOR USER LOCATION
     
     func getUserLoctaionRegion() -> MKCoordinateRegion? {
@@ -136,5 +115,57 @@ extension MapInteractor {
             self.addressString =  "\(placemark.thoroughfare ?? "..."), \(placemark.subThoroughfare ?? "")"
         }
         
+    }
+}
+
+//MARK: - Get payments
+
+extension MapInteractor {
+    
+    func getPaymentData() {
+        
+        guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
+        
+        let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
+        
+        NetworkService.shared.makeRequest(for: resource) {[weak self] paymentResponse in
+            guard let self = self else { return }
+            
+            switch paymentResponse {
+            
+            case .success(let paymentResponse):
+                
+                self.view.showPaymentsViewController(data: paymentResponse.data)
+                
+            case .failure(let error):
+                
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
+}
+
+//MARK: - Get Tariffs
+
+extension MapInteractor {
+    
+    func getTariffs() {
+        
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
+        
+        let resource = Resource<TariffResponse>(path: path, requestType: .GET)
+        
+        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            
+            case .success(let tariffResponse):
+                self.view.showTariffPageViewController(tariffResponse.data)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
