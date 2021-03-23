@@ -14,4 +14,5 @@ protocol AddressEnterViewDelegate: class {
     func nextButtonTapped()
     func mapButtonViewTapped()
     func tableViewWillAppear()
+    func tableViewWillDisappear()
 }

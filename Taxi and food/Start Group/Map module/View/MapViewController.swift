@@ -407,6 +407,12 @@ extension MapViewController {
 //MARK: - AddressEnterViewDelegate
 
 extension MapViewController: AddressEnterViewDelegate {
+    func tableViewWillDisappear() {
+        if addressEnterViewHeightConstraint.constant > AddressEnterViewSizes.height.rawValue {
+            self.addressEnterViewHeightConstraint.constant = AddressEnterViewSizes.height.rawValue
+        }
+    }
+    
     
     func tableViewWillAppear() {
         if addressEnterViewHeightConstraint.constant == AddressEnterViewSizes.height.rawValue {
@@ -420,7 +426,6 @@ extension MapViewController: AddressEnterViewDelegate {
         let region = self.interactor.getUserLoctaionRegion()
         showLocationVC.setMapRegion(region)
         self.navigationController?.pushViewController(showLocationVC, animated: true)
-//        present(showLocationVC, animated: true)
     }
     
     

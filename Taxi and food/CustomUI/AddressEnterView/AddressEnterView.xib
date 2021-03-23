@@ -88,8 +88,8 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" textContentType="location"/>
                                             <connections>
+                                                <action selector="addressToTextFieldDidEndEditing:" destination="-1" eventType="editingDidEnd" id="I1o-mJ-5eZ"/>
                                                 <action selector="addressToTextFieldHasBecomeActive:" destination="-1" eventType="editingDidBegin" id="EN5-ip-bdP"/>
-                                                <action selector="addressToTextfieldEditingChaged:" destination="-1" eventType="editingChanged" id="r8e-YC-bP0"/>
                                             </connections>
                                         </textField>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-dc-jeG" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">

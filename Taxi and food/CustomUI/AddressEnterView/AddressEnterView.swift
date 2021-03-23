@@ -61,10 +61,10 @@ class AddressEnterView: UIView {
         }
     
     
-    @IBAction func addressToTextfieldEditingChaged(_ sender: UITextField) {
-        guard !self.addresses.isEmpty else { return }
-        
-
+    
+    @IBAction func addressToTextFieldDidEndEditing(_ sender: UITextField) {
+        self.tableView.isHidden = true
+        self.delegate?.tableViewWillDisappear()
     }
     
     //MARK: - Methods
@@ -152,6 +152,7 @@ extension AddressEnterView: MapButtonViewDelegate {
     
     func mapButtonTapped() {
         self.delegate?.mapButtonViewTapped()
+        self.endEditing(true)
     }
     
 }
