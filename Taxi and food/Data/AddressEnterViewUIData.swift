@@ -22,7 +22,7 @@ enum AddressesViewStringData: String {
 }
 
 enum AddressEnterViewSizes: CGFloat {
-    case height = 255
+    case height = 260
     case tableViewHeight = 180
 }
 

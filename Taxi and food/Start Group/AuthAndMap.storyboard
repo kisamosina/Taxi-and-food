@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zux-rs-o3I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="foG-tD-RfG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -326,7 +326,7 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbh-4U-WAf" customClass="MapRoundButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="45" y="68" width="40" height="40"/>
+                                <rect key="frame" x="45" y="112" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="8Vt-Ye-YVK"/>
@@ -339,7 +339,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-Im-UHs" customClass="MapRoundButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="329" y="68" width="40" height="40"/>
+                                <rect key="frame" x="329" y="112" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="xeR-mR-KcE"/>
@@ -560,12 +560,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im7-D0-rkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3486.9565217391305" y="782.8125"/>
+            <point key="canvasLocation" x="5307.2463768115949" y="782.8125"/>
         </scene>
-        <!--Show Loaction View Controller-->
+        <!--Title-->
         <scene sceneID="PrB-Wf-pf5">
             <objects>
-                <viewController storyboardIdentifier="ShowLoactionViewController" id="ofD-AY-QuS" customClass="ShowLoactionViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowLoactionViewController" modalPresentationStyle="fullScreen" id="ofD-AY-QuS" customClass="ShowLoactionViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhD-RT-Ssj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -599,13 +599,18 @@
                             <constraint firstItem="5bn-Gn-oBN" firstAttribute="leading" secondItem="vhD-RT-Ssj" secondAttribute="leading" id="kc1-hR-Hql"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="nDb-zV-kTJ">
+                        <barButtonItem key="backBarButtonItem" title=" " id="UTJ-sw-L5d">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="5bn-Gn-oBN" id="ooD-rc-RAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q41-q8-eck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4406" y="783"/>
+            <point key="canvasLocation" x="6226.0869565217399" y="782.8125"/>
         </scene>
         <!--User Agreement View Controller-->
         <scene sceneID="Jpq-ge-sk9">
@@ -654,6 +659,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r98-jX-6mY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NIg-Ge-8QG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="foG-tD-RfG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="NdS-Tu-jvf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SX9-4Z-suh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o8O-ca-Uob" kind="relationship" relationship="rootViewController" id="vWd-2A-lKL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYe-Ef-TWJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4397.1014492753629" y="782.8125"/>
         </scene>
     </scenes>
     <resources>

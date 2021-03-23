@@ -38,7 +38,7 @@
                     <rect key="frame" x="0.0" y="15" width="414" height="482"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Gzl-Ak-Mua">
-                            <rect key="frame" x="25" y="24" width="364" height="379"/>
+                            <rect key="frame" x="25" y="24" width="364" height="375"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9N3-yR-j7l">
                                     <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
@@ -59,44 +59,51 @@
                                         <constraint firstAttribute="height" constant="34" id="1fL-UO-hBC"/>
                                     </constraints>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QNB-7i-cNR">
-                                    <rect key="frame" x="0.0" y="59" width="364" height="38"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QNB-7i-cNR">
+                                    <rect key="frame" x="0.0" y="59" width="364" height="34"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPinGrey" translatesAutoresizingMaskIntoConstraints="NO" id="XTw-4V-Pz6">
-                                            <rect key="frame" x="0.0" y="0.0" width="12" height="38"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="12" id="MMX-6G-bhg"/>
-                                            </constraints>
-                                        </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVL-2G-BCx">
-                                            <rect key="frame" x="22" y="0.0" width="342" height="34"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-o9-KPR">
+                                            <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLd-yf-Msj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="34"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPinGrey" translatesAutoresizingMaskIntoConstraints="NO" id="XTw-4V-Pz6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="38"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="cgf-f7-kSf"/>
+                                                        <constraint firstAttribute="width" constant="12" id="MMX-6G-bhg"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go"/>
-                                                    <connections>
-                                                        <action selector="addressToTextFieldHasBecomeActive:" destination="-1" eventType="editingDidBegin" id="EN5-ip-bdP"/>
-                                                        <action selector="addressToTextfieldEditingChaged:" destination="-1" eventType="editingChanged" id="r8e-YC-bP0"/>
-                                                    </connections>
-                                                </textField>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-dc-jeG" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
-                                                    <rect key="frame" x="277" y="0.0" width="65" height="34"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="RJh-iq-SHO"/>
-                                                        <constraint firstAttribute="width" constant="65" id="esh-gc-8kt"/>
-                                                    </constraints>
-                                                </view>
+                                                </imageView>
                                             </subviews>
-                                        </stackView>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="XTw-4V-Pz6" firstAttribute="leading" secondItem="JfW-o9-KPR" secondAttribute="leading" id="QYj-1s-rBl"/>
+                                                <constraint firstAttribute="width" constant="22" id="TWQ-Zs-UkL"/>
+                                                <constraint firstItem="XTw-4V-Pz6" firstAttribute="top" secondItem="JfW-o9-KPR" secondAttribute="top" id="buY-7d-FFs"/>
+                                                <constraint firstAttribute="height" constant="34" id="l7F-t1-kVb"/>
+                                            </constraints>
+                                        </view>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLd-yf-Msj">
+                                            <rect key="frame" x="22" y="0.0" width="342" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="cgf-f7-kSf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" textContentType="location"/>
+                                            <connections>
+                                                <action selector="addressToTextFieldHasBecomeActive:" destination="-1" eventType="editingDidBegin" id="EN5-ip-bdP"/>
+                                                <action selector="addressToTextfieldEditingChaged:" destination="-1" eventType="editingChanged" id="r8e-YC-bP0"/>
+                                            </connections>
+                                        </textField>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-dc-jeG" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
+                                            <rect key="frame" x="364" y="0.0" width="65" height="34"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="RJh-iq-SHO"/>
+                                                <constraint firstAttribute="width" constant="65" id="esh-gc-8kt"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jCa-5w-xS9">
-                                    <rect key="frame" x="0.0" y="122" width="364" height="182"/>
+                                    <rect key="frame" x="0.0" y="118" width="364" height="182"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="182" id="0oY-mD-qgS"/>
@@ -107,7 +114,7 @@
                                     </connections>
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAd-GQ-FlG" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="329" width="364" height="50"/>
+                                    <rect key="frame" x="0.0" y="325" width="364" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Ab7-vs-3hl"/>
                                     </constraints>

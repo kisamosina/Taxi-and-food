@@ -45,7 +45,6 @@ class AddressEnterView: UIView {
         super.init(coder: coder)
         self.initSubviews()
     }
-    
  //MARK: - IBActions
     
     @IBAction func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
@@ -56,14 +55,15 @@ class AddressEnterView: UIView {
     
     
     @IBAction func addressToTextFieldHasBecomeActive(_ sender: UITextField) {
-        self.mapButtonView.alpha = 1
+        self.mapButtonView.isHidden = false
+        self.tableView.isHidden = false
+        self.delegate?.tableViewWillAppear()
         }
     
     
     @IBAction func addressToTextfieldEditingChaged(_ sender: UITextField) {
         guard !self.addresses.isEmpty else { return }
-        self.delegate?.tableViewWillAppear()
-        self.tableView.isHidden = false
+        
 
     }
     
@@ -82,6 +82,7 @@ class AddressEnterView: UIView {
         self.contentView.layer.masksToBounds = false
         self.topView.layer.cornerRadius = self.topView.frame.height/2
         self.topView.clipsToBounds = true
+        
     }
     
     private func initSubviews() {
@@ -96,7 +97,7 @@ class AddressEnterView: UIView {
         self.addressToTextField.addBottomBorder(color: Colors.buttonGrey.getColor())
         self.addressToTextField.placeholder = AddressesEnterViewTexts.toLabelPlaceHolderText
         self.mapButtonView.delegate = self
-        self.mapButtonView.alpha = 0
+        self.mapButtonView.isHidden = true
         self.tableView.isHidden = true
     }
     

@@ -24,6 +24,11 @@ class ShowLoactionViewController: UIViewController {
         self.mapView.showsUserLocation = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.showMapRegion()
@@ -43,7 +48,7 @@ class ShowLoactionViewController: UIViewController {
     //MARK: - Close button tapped
     
     @IBAction func closeButtonTapped(_ sender: CloseMenuButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

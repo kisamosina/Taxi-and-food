@@ -15,7 +15,11 @@ class MapViewController: UIViewController {
     //MARK: - Properties
     
     var interactor: MapInteractorProtocol!
-    var addressEnterView: AddressEnterView!
+    
+    //Address Enter View
+    private var addressEnterView: AddressEnterView!
+    private var addressEnterViewBottomConstraint: NSLayoutConstraint!
+    private var addressEnterViewHeightConstraint: NSLayoutConstraint!
     
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -38,7 +42,6 @@ class MapViewController: UIViewController {
         self.minimizeMenuView()
         self.addSwipes()
         self.addKeyboardWillShowObserver()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,17 +150,21 @@ extension MapViewController {
     }
     
     @objc private func keyboardWillAppear(notification: NSNotification) {
-        if let kbHeight = self.getKeyBoardHeight(notification: notification),
-           let addressEnterView = self.addressEnterView,
-           addressEnterView.frame.origin.y == UIScreen.main.bounds.height - AddressEnterViewSizes.height.rawValue + bottomPadding {
-            addressEnterView.frame.origin.y -= kbHeight
-            self.inactiveView.alpha = 1
+        
+        guard addressEnterView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) else { return }
+        
+        if self.addressEnterViewBottomConstraint.constant == bottomPadding {
+            self.addressEnterViewBottomConstraint.constant = -kbHeight
+            print ("Keyboard height: \(kbHeight)")
         }
+            
+        self.inactiveView.alpha = 1
     }
     
     @objc private func keyboardWillDisappear(notification: NSNotification) {
-        if let kbHeight = self.getKeyBoardHeight(notification: notification), let addressEnterView = self.addressEnterView {
-            addressEnterView.frame.origin.y += kbHeight
+        
+        if addressEnterView != nil {
+            self.addressEnterViewBottomConstraint.constant = bottomPadding
             self.inactiveView.alpha = 0
         }
     }
@@ -327,11 +334,29 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
-//MARK: - Taxi view methods
+//MARK: - Address enter view methods
 
 extension MapViewController {
     
+    //Setup Address enter view constraints
+    private func setupAddressEnterViewConstraints() {
+        self.addressEnterView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addressEnterViewBottomConstraint = self.addressEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: AddressEnterViewSizes.height.rawValue + bottomPadding)
+        
+        addressEnterViewHeightConstraint = self.addressEnterView.heightAnchor.constraint(equalToConstant: AddressEnterViewSizes.height.rawValue)
+        
+        NSLayoutConstraint.activate([addressEnterViewHeightConstraint,
+                                     addressEnterViewBottomConstraint,
+                                     self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+    }
+    
+    //Setup show animation for Address enter view
     private func showAddressEnterView() {
+        
         let rect = CGRect(x: 0,
                           y: UIScreen.main.bounds.height,
                           width: UIScreen.main.bounds.width,
@@ -343,8 +368,11 @@ extension MapViewController {
         self.addressEnterView.setAddresses(self.interactor.addresses)
         self.view.addSubview(self.addressEnterView)
         self.addressEnterView.setAddressFromTextFieldText(interactor.addressString)
+        self.setupAddressEnterViewConstraints()
         
         //Animation
+        
+        self.addressEnterViewBottomConstraint.constant = bottomPadding
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -354,12 +382,14 @@ extension MapViewController {
                        animations: {[unowned self] in
                         self.view.layoutIfNeeded()
                         self.addressEnterView.alpha = 1
-                        self.addressEnterView.frame.origin.y = UIScreen.main.bounds.height - AddressEnterViewSizes.height.rawValue + self.bottomPadding
                        },
                        completion: nil)
     }
     
+    //Setup hide animation for Address enter view
     func hideTransitionBottomView(completion: AnimationCompletion? = nil) {
+        
+        self.addressEnterViewBottomConstraint.constant = AddressEnterViewSizes.height.rawValue + bottomPadding
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -369,10 +399,8 @@ extension MapViewController {
                        animations: {[unowned self] in
                         self.view.layoutIfNeeded()
                         self.addressEnterView.alpha = 0
-                        self.addressEnterView.frame.origin.y = UIScreen.main.bounds.height
                        },
                        completion: completion)
-        
     }
 }
 
@@ -381,12 +409,8 @@ extension MapViewController {
 extension MapViewController: AddressEnterViewDelegate {
     
     func tableViewWillAppear() {
-        if addressEnterView.frame.height == AddressEnterViewSizes.height.rawValue {
-            let addressEnterViewHeight = addressEnterView.frame.height + AddressEnterViewSizes.tableViewHeight.rawValue
-            let addressEnterViewY = addressEnterView.frame.origin.y - AddressEnterViewSizes.tableViewHeight.rawValue - bottomPadding
-            
-            let rect = CGRect(x: 0, y: addressEnterViewY, width: UIScreen.main.bounds.width, height: addressEnterViewHeight)
-            self.addressEnterView.frame = rect
+        if addressEnterViewHeightConstraint.constant == AddressEnterViewSizes.height.rawValue {
+            self.addressEnterViewHeightConstraint.constant += AddressEnterViewSizes.tableViewHeight.rawValue
         }
     }
     
@@ -395,7 +419,8 @@ extension MapViewController: AddressEnterViewDelegate {
         guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLoactionViewController else { return }
         let region = self.interactor.getUserLoctaionRegion()
         showLocationVC.setMapRegion(region)
-        self.present(showLocationVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(showLocationVC, animated: true)
+//        present(showLocationVC, animated: true)
     }
     
     
