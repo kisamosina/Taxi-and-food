@@ -64,7 +64,7 @@ class PhotosViewController: UIViewController {
         
         
     }
-    
+
     @IBAction func addButtonTapped(_ sender: Any) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

@@ -328,7 +328,12 @@ extension MapViewController: MenuViewDelegate {
             self.removeMenuView()
             self.navigationController?.pushViewController(vc, animated: true)
             
-            
+        case .Promo:
+            let storyboard = UIStoryboard(name: StoryBoards.Promo.rawValue, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromoViewController.rawValue)
+        self.removeMenuView()
+        self.navigationController?.pushViewController(vc, animated: true)
+     
         case .unknown:
             break
   

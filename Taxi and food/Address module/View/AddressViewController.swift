@@ -165,12 +165,13 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         self.destination = true
         
-        
     }
     
 
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        
+        guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
+        vc.setState(.showDeleteAddressView)
+        vc.delegate = self
         print("delete tapped")
     }
     
@@ -258,5 +259,13 @@ extension AddressViewController: AppleMapDelegateProtocol {
         self.addressFromMap = address
     }
     
+    
+}
+
+extension AddressViewController: InactiveViewControllerDelegate {
+    func deleteButtonTapped() {
+        
+        self.interactor.deleteAddress(with: addressInfo?.id ?? 0)
+    }
     
 }

@@ -10,7 +10,7 @@
         <!--Personal Data View Controller-->
         <scene sceneID="reo-9i-Wr5">
             <objects>
-                <viewController id="80O-is-3Cm" customClass="PersonalDataViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalDataViewController" id="80O-is-3Cm" customClass="PersonalDataViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JBX-SP-Tb2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,6 +11,7 @@ import UIKit
 
 struct LanguageOption {
     let title: String
+    var isSelected: Bool
     
 
 }
