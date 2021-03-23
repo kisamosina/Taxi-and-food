@@ -96,9 +96,10 @@ struct MapMenuViewTexts {
 enum MapViewControllerSegue {
     case Tariffs
     case Promocode
-    case unknown
     case Settings
     case Service
+    case Promo
+    case unknown
     
     
     
@@ -112,6 +113,8 @@ enum MapViewControllerSegue {
             return Promocode
         case MapMenuData.service:
             return Service
+        case MapMenuData.promo:
+            return Promo
         default:
             return .unknown
         }

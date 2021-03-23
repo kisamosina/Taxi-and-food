@@ -127,6 +127,8 @@ enum StoryBoards: String {
     case PersonalAccount
     case Inactive
     case PaymentWay
+    case PersonalData
+    case Promo
   
 }
 
@@ -151,6 +153,10 @@ enum ViewControllers: String {
     case PaymentWayViewController
     case ServiceViewController
     case NewCardEnterViewController
+    case LanguageViewController
+    case PersonalDataViewController
+    case PromoViewController
+    
 }
 
 

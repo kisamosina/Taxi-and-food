@@ -173,6 +173,7 @@ class TransitionBottomView: UIView {
             self.setupWhenLogout()
         case .deleteAddress:
             self.setupWhenDeleteAddress()
+        
         }
     }
     

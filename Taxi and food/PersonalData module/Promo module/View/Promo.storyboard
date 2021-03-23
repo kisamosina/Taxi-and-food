@@ -11,7 +11,7 @@
         <!--Promo View Controller-->
         <scene sceneID="pT2-lM-GSf">
             <objects>
-                <viewController id="Uxw-Za-ChO" customClass="PromoViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uxw-Za-ChO" customClass="PromoViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fPL-vH-krm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QPN-HK-m8T"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hpm-XL-UYh"/>
+                    <navigationItem key="navigationItem" id="Hpm-XL-UYh">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cqq-vQ-YKc">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Qzl-Yj-Xvx" id="pnS-gL-lSX"/>
                         <segue destination="tc3-Is-eXR" kind="show" identifier="promoShort" id="jks-dg-B8w"/>
@@ -113,7 +117,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zM5-c7-JIt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5zc-GB-9Dw"/>
+                    <navigationItem key="navigationItem" id="5zc-GB-9Dw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cK2-0w-d0l">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Too-vM-0B3" id="mlG-dl-xiT"/>
                         <segue destination="oUX-1J-9fA" kind="show" identifier="description" id="ItC-XO-TKY"/>
@@ -123,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="2082.608695652174" y="133.92857142857142"/>
         </scene>
-        <!--Promo Description View Controller-->
+        <!-- -->
         <scene sceneID="ph5-FV-XCq">
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" id="oUX-1J-9fA" customClass="PromoDescriptionViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,7 +195,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gDG-if-Fpb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wbw-XZ-cAB"/>
+                    <navigationItem key="navigationItem" title=" " id="wbw-XZ-cAB">
+                        <barButtonItem key="backBarButtonItem" title=" " id="EeS-vl-94a">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="buyButton" destination="3D9-5G-9sx" id="BQp-ct-RNl"/>
                         <outlet property="descriptionLabel" destination="5rN-qT-LUJ" id="wN4-nW-z2c"/>

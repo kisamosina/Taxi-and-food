@@ -35,7 +35,7 @@ struct MapMenuData {
         case Payment = "Способ оплаты"
         case Tariffs = "Тарифы"
         case PromoCode = "Промокод"
-        case Promotions = "Акции"
+        case Promo = "Акции"
         case Addresses = "Мои адреса"
         case unknown
         
@@ -51,8 +51,8 @@ struct MapMenuData {
                 return .Tariffs
             case RusNames.PromoCode.rawValue:
                 return .PromoCode
-            case RusNames.Promotions.rawValue:
-                return .Promotions
+            case RusNames.Promo.rawValue:
+                return .Promo
             case RusNames.Addresses.rawValue:
                 return .Addresses
             default:
@@ -67,7 +67,7 @@ struct MapMenuData {
         case Payment
         case Tariffs
         case PromoCode = "Promo code"
-        case Promotions
+        case Promo = "Promotions"
         case Addresses = "My addresses"
         case unknown
         
@@ -83,8 +83,8 @@ struct MapMenuData {
                 return .Tariffs
             case EngNames.PromoCode.rawValue:
                 return .PromoCode
-            case EngNames.Promotions.rawValue:
-                return .Promotions
+            case EngNames.Promo.rawValue:
+                return .Promo
             case EngNames.Addresses.rawValue:
                 return .Addresses
             default:
@@ -133,6 +133,16 @@ struct MapMenuData {
         }
     }
     
+    static var promo: String {
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusNames.Promo.rawValue
+        case .eng:
+            return EngNames.Promo.rawValue
+        }
+    }
+    
     
     
     static var promocodes: String {
@@ -177,12 +187,12 @@ struct MapMenuData {
         case .rus:
             return menuRusItems.filter { RusNames.getCase(from: $0) == .Tariffs ||
                 RusNames.getCase(from: $0) == .PromoCode ||
-                RusNames.getCase(from: $0) == .Promotions
+                RusNames.getCase(from: $0) == .Promo
             }
         case .eng:
             return menuEngItems.filter { EngNames.getCase(from: $0) == .Tariffs ||
                 EngNames.getCase(from: $0) == .PromoCode ||
-                EngNames.getCase(from: $0) == .Promotions
+                EngNames.getCase(from: $0) == .Promo
             }
         }
     }
