@@ -67,6 +67,7 @@
 		04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656A25D6824400E0EC25 /* ServiceViewController.swift */; };
 		04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */; };
 		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
+		04B73EF22609D6CC003A9AEE /* PersonalDataTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B73EF12609D6CC003A9AEE /* PersonalDataTableViewModel.swift */; };
 		04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A4C25E89AB300EDC886 /* PromoShortInteractor.swift */; };
 		04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */; };
 		04CA5A5325E905EB00EDC886 /* PromoDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */; };
@@ -281,6 +282,7 @@
 		04B5656A25D6824400E0EC25 /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		04B5656C25D68EA800E0EC25 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		04B73EF12609D6CC003A9AEE /* PersonalDataTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataTableViewModel.swift; sourceTree = "<group>"; };
 		04CA5A4C25E89AB300EDC886 /* PromoShortInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortInteractor.swift; sourceTree = "<group>"; };
 		04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalDataInteractor.swift; path = "Taxi and food/PersonalData module/Promo module/View/PomotionShort/PersonalDataInteractor.swift"; sourceTree = SOURCE_ROOT; };
 		04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDescriptionViewController.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 		041E299425E20D4D00CA9F56 /* PersonalData module */ = {
 			isa = PBXGroup;
 			children = (
+				04B73EF02609D66B003A9AEE /* Model */,
 				041E299525E20D8800CA9F56 /* View */,
 			);
 			path = "PersonalData module";
@@ -793,6 +796,14 @@
 				041E29A425E21BF300CA9F56 /* Service.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04B73EF02609D66B003A9AEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04B73EF12609D6CC003A9AEE /* PersonalDataTableViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		04CA5A4E25E89AEC00EDC886 /* Interactor */ = {
@@ -1534,6 +1545,7 @@
 				7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */,
 				7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */,
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
+				04B73EF22609D6CC003A9AEE /* PersonalDataTableViewModel.swift in Sources */,
 				7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */,
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,

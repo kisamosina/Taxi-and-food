@@ -24,7 +24,6 @@ class PersonalDataCell: UITableViewCell {
         contentView.addSubview(textField)
 
         contentView.clipsToBounds = true
-        accessoryType = .disclosureIndicator
     }
     
     
@@ -43,8 +42,18 @@ class PersonalDataCell: UITableViewCell {
         textField.text = nil
     }
     
-       public func configure(with model: PersonalDataOption) {
+       public func configureUI(with model: PersonalDataUIOption) {
         textField.placeholder = model.title
-    
+        textField.text = model.text
+        if model.accessoryType == true {
+            self.accessoryType = .disclosureIndicator
        }
+        
+    }
 }
+    
+//    public func configureData(with model: PersonalDataData) {
+//        textField.text = model.name
+//        
+//    }
+

@@ -21,7 +21,7 @@ class PersonalDataViewController: UIViewController {
     let slideUpViewHeight: CGFloat = 200
     
     var interactor: PersonalDataInteractorProtocol!
-    var models: [PersonalDataSection]?
+    var models: [PersonalDataUISection]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +138,7 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = interactor.models[section]
-        return section.tittle
+        return section.placeholder
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -152,11 +152,17 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = interactor.models[indexPath.section].options[indexPath.row]
         
+
+        
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonalDataCell.identifier, for: indexPath) as? PersonalDataCell else {
             return UITableViewCell()
         }
-        cell.configure(with: model)
+        cell.configureUI(with: model)
         
+//        if let data = interactor.personalDataTableViewData {
+//            cell.configureData(with: data)
+//        }
         cell.textField.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(showSlideUpView)))
             
         return cell
