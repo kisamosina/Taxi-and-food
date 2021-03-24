@@ -151,7 +151,7 @@ extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
 extension AddressEnterView: MapButtonViewDelegate {
     
     func mapButtonTapped() {
-        self.delegate?.mapButtonViewTapped()
+        self.delegate?.mapButtonViewTapped(destinationAddress: self.addressToTextField.text)
         self.endEditing(true)
     }
     

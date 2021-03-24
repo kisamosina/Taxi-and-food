@@ -22,7 +22,11 @@ class AddressEnterDetailView: UIView {
     
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var pinImageView: UIImageView!
+    @IBOutlet weak var pinLabelImageView: UIImageView!
+    
+    @IBOutlet weak var pinTextFieldImageView: UIImageView!
+    
+    @IBOutlet weak var pinTextFieldView: UIView!
     
     @IBOutlet weak var locationTextField: UITextField!
     
@@ -73,5 +77,54 @@ class AddressEnterDetailView: UIView {
             self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+    }
+    
+    public func setupAs(_ type: AddressEnterDetailViewType) {
+        switch type {
+            
+        case .addressFrom:
+            self.configureViewAsAddressFrom()
+        case .addressTo:
+            self.configureViewAsAddressTo()
+        case .showDestination(let destinationAddressText):
+            self.configureViewAsShowDestination(destinationAddressText)
+        }
+    }
+    
+    public func setupLocationLabelText(_ text: String?) {
+        self.locationLabel.text = text ?? "..."
+    }
+    
+    //Configure view when AddressEnterDetailViewType.addressFrom selected
+    private func configureViewAsAddressFrom() {
+        self.locationTextField.placeholder = AddressesEnterDetailViewTexts.locationFromTextFieldPlaceholder
+        self.locationTextField.addBottomBorder(color: Colors.buttonBlue.getColor())
+        self.pinTextFieldView.isHidden = false
+        self.pinLabelImageView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
+        self.mainButton.setActive()
+    }
+    
+    //Configure view when AddressEnterDetailViewType.addressTo selected
+    private func configureViewAsAddressTo() {
+        self.locationTextField.placeholder = AddressesEnterDetailViewTexts.locationToTextFieldPlaceholder
+        self.locationTextField.addBottomBorder(color: Colors.taxiOrange.getColor())
+        self.pinTextFieldView.isHidden = true
+        self.pinLabelImageView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
+        self.mainButton.setActive()
+    }
+
+    
+    //Configure view when AddressEnterDetailViewType.showDestination selected
+    private func configureViewAsShowDestination(_ destinationAddress: String?) {
+        if let destinationAddress = destinationAddress, destinationAddress != "" {
+            self.locationTextField.text = destinationAddress
+        } else {
+            self.locationTextField.text = "..."
+        }
+        self.locationTextField.addBottomBorder(color: Colors.taxiOrange.getColor())
+        self.pinTextFieldView.isHidden = false
+        self.topStackView.isHidden = true
+        self.pinTextFieldImageView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
+        self.mainButton.setActive()
     }
 }

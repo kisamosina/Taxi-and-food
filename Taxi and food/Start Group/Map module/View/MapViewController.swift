@@ -155,7 +155,6 @@ extension MapViewController {
         
         if self.addressEnterViewBottomConstraint.constant == bottomPadding {
             self.addressEnterViewBottomConstraint.constant = -kbHeight
-            print ("Keyboard height: \(kbHeight)")
         }
             
         self.inactiveView.alpha = 1
@@ -299,6 +298,8 @@ extension MapViewController {
 
 extension MapViewController: MenuViewDelegate {
     
+    //Set segues when table view cell in menu view tapped
+    
     func performSegue(_ type: MapViewControllerSegue) {
         switch type {
         
@@ -407,27 +408,30 @@ extension MapViewController {
 //MARK: - AddressEnterViewDelegate
 
 extension MapViewController: AddressEnterViewDelegate {
+    
+    //Action when table view will disappear
     func tableViewWillDisappear() {
         if addressEnterViewHeightConstraint.constant > AddressEnterViewSizes.height.rawValue {
             self.addressEnterViewHeightConstraint.constant = AddressEnterViewSizes.height.rawValue
         }
     }
     
-    
+    //Action when table view will appear
     func tableViewWillAppear() {
         if addressEnterViewHeightConstraint.constant == AddressEnterViewSizes.height.rawValue {
             self.addressEnterViewHeightConstraint.constant += AddressEnterViewSizes.tableViewHeight.rawValue
         }
     }
     
-    
-    func mapButtonViewTapped() {
-        guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLoactionViewController else { return }
-        let region = self.interactor.getUserLoctaionRegion()
-        showLocationVC.setMapRegion(region)
+    //Action when map button has tapped
+    func mapButtonViewTapped(destinationAddress: String?) {
+        guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLocationViewController else { return }
+        let showLocationInteractor = ShowLocationInteractor(view: showLocationVC, userLocation: self.interactor.userLocation, addressEnterDetailViewType: .showDestination(destinationAddress))
+        showLocationVC.interactor = showLocationInteractor
         self.navigationController?.pushViewController(showLocationVC, animated: true)
     }
     
+    //Action when user swipe on address enter view
     
     func userHasSwipedViewDown() {
         self.interactor.setViewControllerState(.start)

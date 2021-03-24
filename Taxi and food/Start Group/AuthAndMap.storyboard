@@ -565,7 +565,7 @@
         <!--Title-->
         <scene sceneID="PrB-Wf-pf5">
             <objects>
-                <viewController storyboardIdentifier="ShowLoactionViewController" modalPresentationStyle="fullScreen" id="ofD-AY-QuS" customClass="ShowLoactionViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowLoactionViewController" modalPresentationStyle="fullScreen" id="ofD-AY-QuS" customClass="ShowLocationViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhD-RT-Ssj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -576,27 +576,46 @@
                                     <outlet property="delegate" destination="ofD-AY-QuS" id="gZ2-Gc-8xW"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wK5-Hg-dV9" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wK5-Hg-dV9" customClass="MapRoundButton" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="45" y="68" width="40" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="nqx-TC-gWT"/>
                                     <constraint firstAttribute="height" constant="40" id="wQF-nu-jfg"/>
                                 </constraints>
+                                <state key="normal" image="backButton"/>
                                 <connections>
                                     <action selector="closeButtonTapped:" destination="ofD-AY-QuS" eventType="touchUpInside" id="uQD-KR-EWm"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhM-vx-7r5" customClass="InactiveView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdO-9Z-jc3" customClass="AddressEnterDetailView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="666" width="414" height="230"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="5IK-pg-OAt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GxA-Xi-KYF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5bn-Gn-oBN" firstAttribute="top" secondItem="vhD-RT-Ssj" secondAttribute="top" id="1dD-iF-t1u"/>
                             <constraint firstItem="wK5-Hg-dV9" firstAttribute="leading" secondItem="GxA-Xi-KYF" secondAttribute="leading" constant="45" id="37u-Su-cTl"/>
+                            <constraint firstItem="vdO-9Z-jc3" firstAttribute="bottom" secondItem="vhD-RT-Ssj" secondAttribute="bottom" id="8nj-bH-Kk9"/>
                             <constraint firstItem="wK5-Hg-dV9" firstAttribute="top" secondItem="GxA-Xi-KYF" secondAttribute="top" constant="24" id="D1L-9H-Q7W"/>
                             <constraint firstItem="GxA-Xi-KYF" firstAttribute="trailing" secondItem="5bn-Gn-oBN" secondAttribute="trailing" id="F19-r2-6OQ"/>
+                            <constraint firstItem="lhM-vx-7r5" firstAttribute="top" secondItem="vhD-RT-Ssj" secondAttribute="top" id="JwN-4W-w91"/>
+                            <constraint firstItem="GxA-Xi-KYF" firstAttribute="trailing" secondItem="vdO-9Z-jc3" secondAttribute="trailing" id="LeI-c7-7mQ"/>
+                            <constraint firstItem="GxA-Xi-KYF" firstAttribute="trailing" secondItem="lhM-vx-7r5" secondAttribute="trailing" id="XkB-kY-Flk"/>
                             <constraint firstAttribute="bottom" secondItem="5bn-Gn-oBN" secondAttribute="bottom" id="Y83-Ch-McN"/>
                             <constraint firstItem="5bn-Gn-oBN" firstAttribute="leading" secondItem="vhD-RT-Ssj" secondAttribute="leading" id="kc1-hR-Hql"/>
+                            <constraint firstItem="lhM-vx-7r5" firstAttribute="leading" secondItem="GxA-Xi-KYF" secondAttribute="leading" id="kqP-AZ-Y8G"/>
+                            <constraint firstItem="vdO-9Z-jc3" firstAttribute="leading" secondItem="GxA-Xi-KYF" secondAttribute="leading" id="r7F-CW-pi0"/>
+                            <constraint firstAttribute="bottom" secondItem="lhM-vx-7r5" secondAttribute="bottom" id="ygt-fZ-5l4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="nDb-zV-kTJ">
@@ -605,6 +624,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressEnterDetailView" destination="vdO-9Z-jc3" id="2S0-P8-fpW"/>
+                        <outlet property="addressEnterDetailViewBottomConstraint" destination="8nj-bH-Kk9" id="9WJ-VC-dsG"/>
+                        <outlet property="inactiveView" destination="lhM-vx-7r5" id="UIc-0a-Lvj"/>
                         <outlet property="mapView" destination="5bn-Gn-oBN" id="ooD-rc-RAO"/>
                     </connections>
                 </viewController>
@@ -682,6 +704,7 @@
     </scenes>
     <resources>
         <image name="authBackgroundImage" width="187.5" height="105"/>
+        <image name="backButton" width="10" height="17"/>
         <image name="centerMapButton" width="15" height="15"/>
         <image name="foodButton" width="158" height="81"/>
         <image name="lkButton" width="15" height="15"/>

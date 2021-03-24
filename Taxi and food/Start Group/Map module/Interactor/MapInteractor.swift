@@ -65,9 +65,7 @@ class MapInteractor: MapInteractorProtocol {
     func getUserLoctaionRegion() -> MKCoordinateRegion? {
         guard let userLocation = self.userLocation else { return nil }
         return self.makeRegion(regionRadius: MapViewControllerMapData.regionRadius.rawValue, for: userLocation)
-    }
-
-    
+    }    
 }
 
 //MARK: - Location manager delegate
@@ -100,29 +98,7 @@ extension MapInteractor {
 
 //MARK: - Creating address from location
 
-extension MapInteractor {
-    
-    func getAddressFromLocation() {
-        
-        guard let userlocation = userLocation else { return }
-        
-        let location = CLLocation(latitude: userlocation.latitude, longitude: userlocation.longitude)
-        
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.reverseGeocodeLocation(location) {[weak self] (pm, error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            
-            guard let placemark = pm?.first, let self = self else { return }
-            
-            self.addressString =  "\(placemark.thoroughfare ?? "..."), \(placemark.subThoroughfare ?? "")"
-        }
-        
-    }
-}
+extension MapInteractor: AddressTranslatable { }
 
 //MARK: - Get payments
 

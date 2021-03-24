@@ -12,7 +12,7 @@ protocol AddressEnterViewDelegate: class {
     
     func userHasSwipedViewDown()
     func nextButtonTapped()
-    func mapButtonViewTapped()
+    func mapButtonViewTapped(destinationAddress: String?)
     func tableViewWillAppear()
     func tableViewWillDisappear()
 }

@@ -43,6 +43,7 @@ enum Colors {
     case redTextColor
     case logOutButtonBorderColor
     case bouncesPointsTextColor
+    case taxiOrange
     
     
     func getColor() -> UIColor {
@@ -82,6 +83,8 @@ enum Colors {
             return UIColor(hexString: "#C6C6C8")
         case .bouncesPointsTextColor:
             return UIColor(hexString: "#FACA50")
+        case .taxiOrange:
+            return UIColor(hexString: "FB8E50")
         }
     }
 }
@@ -116,6 +119,7 @@ enum CustomImagesNames: String {
     case paymentPoints
     case menuButton
     case backButton
+    case userPinOrange
 }
 
 enum StoryBoards: String {
