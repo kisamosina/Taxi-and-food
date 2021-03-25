@@ -12,6 +12,8 @@ class ShowLocationInteractor: ShowLocationInteractorProtocol {
     
     internal weak var view: ShowLocationViewProtocol!
     
+    weak var delegate: ShowLocationInteractorDelegate?
+    
     private var locationManager: LocationManager
     
     internal var addressEnterDetailViewType: AddressEnterDetailViewType
@@ -25,9 +27,12 @@ class ShowLocationInteractor: ShowLocationInteractorProtocol {
     
     var addressString: String? {
         didSet {
-            self.view.setupAddressEnterDetailLocationLabelText(addressString)
+            self.view.setAddressEnterDetailLocationLabelText(addressString)
         }
     }
+    
+    private var destinationAddressString: String?
+    private var destinationLocation: CLLocationCoordinate2D?
     
     
     required init(view: ShowLocationViewProtocol, userLocation: CLLocationCoordinate2D?, addressEnterDetailViewType: AddressEnterDetailViewType) {
@@ -45,6 +50,24 @@ class ShowLocationInteractor: ShowLocationInteractorProtocol {
         return MKCoordinateRegion(center: userLocation,
                                   latitudinalMeters: regionRadius,
                                   longitudinalMeters: regionRadius)}
+    
+    func getDestinationAddressText(for loctaion: CLLocationCoordinate2D) {
+        self.destinationLocation = loctaion
+        self.getAddress(from: loctaion) { [weak self] addressText in
+            guard let self = self else { return }
+            self.view.setAddressEnterDetailLocationTextFieldText(addressText)
+            self.destinationAddressString = addressText
+        }
+    }
+    
+    func transmitDestinationAddressToDelegate(_ addressText: String) {
+        if let destinationAddressString = destinationAddressString {
+            self.delegate?.get(location: self.destinationLocation, and: destinationAddressString)
+        } else {
+            self.delegate?.get(location: self.destinationLocation, and: addressText)
+        }
+        self.view.popViewController()
+    }
 }
 
 //MARK: - AddressTranslatable

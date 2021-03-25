@@ -14,7 +14,11 @@ protocol ShowLocationViewProtocol: class {
     
     func showMapRegion(region: MKCoordinateRegion?)
     
-    func setupAddressEnterDetailLocationLabelText(_ text: String?)
+    func setAddressEnterDetailLocationLabelText(_ text: String?)
+    
+    func setAddressEnterDetailLocationTextFieldText(_ text: String)
+    
+    func popViewController()
 }
 
 protocol ShowLocationInteractorProtocol: class {
@@ -28,4 +32,13 @@ protocol ShowLocationInteractorProtocol: class {
     init(view: ShowLocationViewProtocol, userLocation: CLLocationCoordinate2D?, addressEnterDetailViewType: AddressEnterDetailViewType)
     
     func getLocationRegion() -> MKCoordinateRegion?
+    
+    func getDestinationAddressText(for loctaion: CLLocationCoordinate2D)
+    
+    func transmitDestinationAddressToDelegate(_ addressText: String)
+}
+
+
+protocol ShowLocationInteractorDelegate: class {
+    func get(location: CLLocationCoordinate2D?, and addressText: String)
 }

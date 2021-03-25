@@ -10,6 +10,10 @@ import UIKit
 
 class AddressEnterDetailView: UIView {
     
+    //MARK: - Properties
+    
+    weak var delegate: AddressEnterDetailViewDelegate?
+    
     //MARK: - IBOutlets
 
     @IBOutlet weak var topView: UIView!
@@ -44,6 +48,17 @@ class AddressEnterDetailView: UIView {
         self.initSubviews()
     }
 
+    //MARK: - @IBActions
+    
+    @IBAction func locationTextFieldEdited(_ sender: UITextField) {
+
+    }
+    
+    @IBAction func mainButtonTapped(_ sender: MainBottomButton) {
+        guard let text = locationTextField.text else {  return }
+        self.delegate?.mainButtonTapped(text)
+    }
+    
     //MARK: - Methods
     
     override func layoutSubviews() {
@@ -95,6 +110,10 @@ class AddressEnterDetailView: UIView {
         self.locationLabel.text = text ?? "..."
     }
     
+    public func setupLocationTextFieldText(_ text: String?) {
+        self.locationTextField.text = text ?? "..."
+    }
+    
     //Configure view when AddressEnterDetailViewType.addressFrom selected
     private func configureViewAsAddressFrom() {
         self.locationTextField.placeholder = AddressesEnterDetailViewTexts.locationFromTextFieldPlaceholder
@@ -116,7 +135,7 @@ class AddressEnterDetailView: UIView {
     
     //Configure view when AddressEnterDetailViewType.showDestination selected
     private func configureViewAsShowDestination(_ destinationAddress: String?) {
-        if let destinationAddress = destinationAddress, destinationAddress != "" {
+        if let destinationAddress = destinationAddress {
             self.locationTextField.text = destinationAddress
         } else {
             self.locationTextField.text = "..."

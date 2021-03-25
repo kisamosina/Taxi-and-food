@@ -173,6 +173,29 @@ extension MapViewController {
 
 extension MapViewController: MapViewProtocol {
     
+    func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?) {
+        guard let coordinate = coordinate else { return }
+        DispatchQueue.main.async {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.addAnnotation(annotation)
+        }
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    func setDestinationAddressText(for addressText: String?) {
+        guard let addressText = addressText else { return }
+        DispatchQueue.main.async {
+            self.addressEnterView.addressToTextField.text = addressText
+        }
+        
+    }
+    
+    
     func showPaymentsViewController(data: [PaymentCardResponseData]) {
         
         DispatchQueue.main.async {
@@ -326,12 +349,17 @@ extension MapViewController: MenuViewDelegate {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Annotation for userLocation
         if annotation.isEqual(mapView.userLocation) {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
             annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
             return annotationView
         }
-        return nil
+        
+        //Annotation for destination
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.DestinationLocation.rawValue)
+        annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
+        return annotationView
     }
 }
 
@@ -427,6 +455,7 @@ extension MapViewController: AddressEnterViewDelegate {
     func mapButtonViewTapped(destinationAddress: String?) {
         guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLocationViewController else { return }
         let showLocationInteractor = ShowLocationInteractor(view: showLocationVC, userLocation: self.interactor.userLocation, addressEnterDetailViewType: .showDestination(destinationAddress))
+        showLocationInteractor.delegate = self.interactor as! MapInteractor
         showLocationVC.interactor = showLocationInteractor
         self.navigationController?.pushViewController(showLocationVC, animated: true)
     }
@@ -434,7 +463,7 @@ extension MapViewController: AddressEnterViewDelegate {
     //Action when user swipe on address enter view
     
     func userHasSwipedViewDown() {
-        self.interactor.setViewControllerState(.start)
+        self.addressEnterView.endEditing(true)
     }
     
     func nextButtonTapped() {

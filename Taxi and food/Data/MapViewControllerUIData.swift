@@ -44,6 +44,7 @@ enum MapViewControllerMapData: Double {
 
 enum MapViewControllerStringData: String {
     case UserLocationReuseId = "userLocation"
+    case DestinationLocation = "destinationLocation"
 }
 
 struct MapMenuViewTexts {

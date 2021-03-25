@@ -166,6 +166,7 @@
 		7D33FAA3260B9FFF00DA5D0C /* AddressTranslatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAA2260B9FFF00DA5D0C /* AddressTranslatable.swift */; };
 		7D33FAA8260BB1AA00DA5D0C /* InactiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAA7260BB1AA00DA5D0C /* InactiveView.swift */; };
 		7D33FAB1260BB38100DA5D0C /* InactiveViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAB0260BB38100DA5D0C /* InactiveViewDelegate.swift */; };
+		7D33FAB6260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAB5260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift */; };
 		7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */; };
 		7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */; };
 		7D4748EF25F7E74600F744F7 /* NewCardEnterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */; };
@@ -382,6 +383,7 @@
 		7D33FAA2260B9FFF00DA5D0C /* AddressTranslatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressTranslatable.swift; path = "Taxi and food/Helpers/Protocols_/AddressTranslatable.swift"; sourceTree = SOURCE_ROOT; };
 		7D33FAA7260BB1AA00DA5D0C /* InactiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveView.swift; sourceTree = "<group>"; };
 		7D33FAB0260BB38100DA5D0C /* InactiveViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewDelegate.swift; sourceTree = "<group>"; };
+		7D33FAB5260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterDetailViewDelegate.swift; sourceTree = "<group>"; };
 		7D4748E425F7D8B900F744F7 /* CardEnterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterViewDelegate.swift; sourceTree = "<group>"; };
 		7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterInteractor.swift; sourceTree = "<group>"; };
 		7D4748EE25F7E74600F744F7 /* NewCardEnterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterProtocols.swift; sourceTree = "<group>"; };
@@ -1138,6 +1140,7 @@
 			isa = PBXGroup;
 			children = (
 				7D33FA62260A561B00DA5D0C /* AddressEnterDetailView.swift */,
+				7D33FAB5260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift */,
 				7D33FA67260A56B600DA5D0C /* AddressEnterDetailView.xib */,
 			);
 			path = AddressEnterDetailView;
@@ -1487,6 +1490,7 @@
 				7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */,
 				7BB36F3F25E6B94100649669 /* Date+Extension.swift in Sources */,
 				7B75CFE825E3FE80001981CA /* PersistanceStoreManager.swift in Sources */,
+				7D33FAB6260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift in Sources */,
 				7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
 				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,

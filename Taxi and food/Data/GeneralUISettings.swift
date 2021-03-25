@@ -18,6 +18,17 @@ enum AppLanguages: String {
         default: return .eng
         }
     }
+    
+    func getLocaleID() -> String {
+        
+        switch self {
+            
+        case .rus:
+            return "ru_RU"
+        case .eng:
+            return "en"
+        }
+    }
 }
 
 enum AppSettingsStorageKeys: String {

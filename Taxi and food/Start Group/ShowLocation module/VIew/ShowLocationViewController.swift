@@ -32,6 +32,7 @@ class ShowLocationViewController: UIViewController {
         self.mapView.showsUserLocation = true
         self.addKeyboardWillShowObserver()
         self.inactiveView.delegate = self
+        self.addressEnterDetailView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,13 +49,45 @@ class ShowLocationViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - Methods
+    
     private func initialSetup() {
         
         if let region = self.interactor.getLocationRegion() {
             self.mapView.setRegion(region, animated: false)
         }
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userTapped(gestureReconizer:)))
+        self.mapView.addGestureRecognizer(gestureRecognizer)
     }
+    
+    @objc func userTapped(gestureReconizer: UITapGestureRecognizer) {
+        if gestureReconizer.state == .ended {
+            let locationInView = gestureReconizer.location(in: self.mapView)
+            let tappedCoordinate = self.mapView.convert(locationInView, toCoordinateFrom: self.mapView)
+            self.interactor.getDestinationAddressText(for: tappedCoordinate)
+            self.deleteAnnotation()
+            self.addDestinationAnnotation(coordinate: tappedCoordinate)
+        }
+    }
+}
+
+//MARK: - Work with Map View
+
+extension ShowLocationViewController {
+    
+    //Add Destination annotation
+    
+    private func addDestinationAnnotation(coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    private func deleteAnnotation() {
+        self.mapView.removeAnnotations(self.mapView.annotations)
+    }
+    
 }
 
 
@@ -63,18 +96,37 @@ class ShowLocationViewController: UIViewController {
 extension ShowLocationViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        //Annotation for user location
         if annotation.isEqual(mapView.userLocation) {
             let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
             annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
             return annotationView
         }
-        return nil
+        
+        //Annotation for destination
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.DestinationLocation.rawValue)
+        annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
+        return annotationView
     }
 }
 
 //MARK: - ShowLocationViewProtocol
 
 extension ShowLocationViewController: ShowLocationViewProtocol {
+    
+    func popViewController() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
+    func setAddressEnterDetailLocationTextFieldText(_ text: String) {
+        DispatchQueue.main.async {
+            self.addressEnterDetailView.setupLocationTextFieldText(text)
+        }
+    }
     
     func showMapRegion(region: MKCoordinateRegion?) {
         guard let region = region else { return }
@@ -84,8 +136,10 @@ extension ShowLocationViewController: ShowLocationViewProtocol {
         }
     }
     
-    func setupAddressEnterDetailLocationLabelText(_ text: String?) {
-        self.addressEnterDetailView.setupLocationLabelText(text)
+    func setAddressEnterDetailLocationLabelText(_ text: String?) {
+        DispatchQueue.main.async {
+            self.addressEnterDetailView.setupLocationLabelText(text)
+        }
     }
 }
 
@@ -117,7 +171,13 @@ extension ShowLocationViewController: InactiveViewDelegate {
     func userHasTapped() {
         self.addressEnterDetailView.endEditing(true)
     }
+}
+
+//MARK: - AddressEnterDetailViewDelegate
+
+extension ShowLocationViewController: AddressEnterDetailViewDelegate {
     
-        
-    
+    func mainButtonTapped(_ destinationAddressText: String) {
+        self.interactor.transmitDestinationAddressToDelegate(destinationAddressText)
+    }
 }

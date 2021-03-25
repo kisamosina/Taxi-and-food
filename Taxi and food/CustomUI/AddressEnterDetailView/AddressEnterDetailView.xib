@@ -86,6 +86,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="locationTextFieldEdited:" destination="-1" eventType="editingDidEnd" id="yoa-H9-g7w"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </stackView>
@@ -95,6 +98,9 @@
                                         <constraint firstAttribute="height" constant="50" id="pb1-92-G1G"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="mainButtonTapped:" destination="-1" eventType="touchUpInside" id="zKK-m3-Lc5"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>

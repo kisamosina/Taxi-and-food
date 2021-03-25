@@ -17,6 +17,9 @@ protocol MapInteractorProtocol: class {
     var addressString: String? { get set }
     var mapViewControllerState: MapViewControllerStates { get set }
     var addresses: [AddressResponseData] { get set }
+    var destinationAddressText: String? { get set }
+    var destinationLocation: CLLocationCoordinate2D? { get set }
+
 
     init(view: MapViewProtocol)
     
@@ -34,4 +37,6 @@ protocol MapViewProtocol: class {
     func setViews(for state: MapViewControllerStates)
     func setBottomViewAddressLabel(text: String?)
     func showPaymentsViewController(data: [PaymentCardResponseData])
+    func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?)
+    func setDestinationAddressText(for addressText: String?)
 }

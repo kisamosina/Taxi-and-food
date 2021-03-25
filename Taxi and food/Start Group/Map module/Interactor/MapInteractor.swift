@@ -21,15 +21,11 @@ class MapInteractor: MapInteractorProtocol {
     var addresses: [AddressResponseData] = []
     
     var userLocation: CLLocationCoordinate2D? {
-        didSet {
-            self.getAddressFromLocation()
-        }
+        didSet { self.getAddressFromLocation() }
     }
     
     var addressString: String? {
-        didSet {
-            self.view.setBottomViewAddressLabel(text: addressString)
-        }
+        didSet { self.view.setBottomViewAddressLabel(text: addressString) }
     }
     
     var mapMenuData: [MapMenuSection] {
@@ -37,9 +33,15 @@ class MapInteractor: MapInteractorProtocol {
     }
     
     var mapViewControllerState: MapViewControllerStates {
-        didSet {
-            self.view.setViews(for: mapViewControllerState)
-        }
+        didSet { self.view.setViews(for: mapViewControllerState) }
+    }
+    
+    var destinationAddressText: String? {
+        didSet { self.view.setDestinationAddressText(for: destinationAddressText)}
+    }
+    
+    var destinationLocation: CLLocationCoordinate2D? {
+        didSet { self.view.setDestinationAnnotation(for: destinationLocation)}
     }
     
     //MARK: - Initializer
@@ -178,3 +180,13 @@ extension MapInteractor {
     
 }
 
+//MARK: - ShowLocationInteractorDelegate
+
+extension MapInteractor: ShowLocationInteractorDelegate {
+    
+    func get(location: CLLocationCoordinate2D?, and addressText: String) {
+        self.destinationLocation = location
+        self.destinationAddressText = addressText
+    }
+}
+ 
