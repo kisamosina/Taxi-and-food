@@ -12,13 +12,14 @@ protocol PersonalDataViewProtocol: class {
     var interactor: PersonalDataInteractorProtocol! { get set }
 }
 class PersonalDataViewController: UIViewController {
+
+    @IBOutlet var transitionView: PersonalDataBottomView!
     
     @IBOutlet var policyLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    var containerView = UIView()
-    var slideUpView = UITableView()
-    let slideUpViewHeight: CGFloat = 200
+    @IBOutlet var personalDataViewBottomConstraint: NSLayoutConstraint!
+    
     
     var interactor: PersonalDataInteractorProtocol!
     var models: [PersonalDataUISection]?
@@ -27,6 +28,7 @@ class PersonalDataViewController: UIViewController {
         super.viewDidLoad()
         
         addPolicyLabelGestureRecognizer()
+        self.addKeyboardWillShowObserver()
         
         self.interactor = PersonalDataInteractor(view: self)
         self.interactor.configure()
@@ -35,10 +37,33 @@ class PersonalDataViewController: UIViewController {
         tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
 
         confugureLabel()
+        self.setupTextView()
         
     }
     
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
+
+    
+    
     //MARK: - Methods
+    
+    private func setupTextView() {
+       
+        personalDataViewBottomConstraint = self.transitionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        print("when set up")
+        print(personalDataViewBottomConstraint.constant)
+
+        NSLayoutConstraint.activate([
+            self.personalDataViewBottomConstraint,
+            self.transitionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.transitionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.transitionView.heightAnchor.constraint(equalToConstant: TextEnterViewSize.height.rawValue)
+
+        ])
+    }
 
     func confugureLabel() {
         policyLabel.text = PersonalDataViewControllerText.policyLabelText
@@ -48,62 +73,29 @@ class PersonalDataViewController: UIViewController {
         policyLabel.setAttributedText(PersonalDataViewControllerText.privacyPolicy)
     }
     
+    private func addKeyboardWillShowObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillAppear(notification: NSNotification) {
+        keyboardWillShowReverse(constraint: personalDataViewBottomConstraint, notification: notification, selfHeight: self.transitionView.frame.height)
+        print("keyboard appeared")
+        print(personalDataViewBottomConstraint.constant)
+        
+    }
+    
+    @objc private func keyboardWillDisappear(notification: NSNotification) {
+        keyboardWillHide(constraint: personalDataViewBottomConstraint, notification: notification)
+        
+        print("keyboard dissapeared")
+        print(personalDataViewBottomConstraint.constant)
+    }
+    
     private func addPolicyLabelGestureRecognizer() {
         policyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPolicyLabel(gesture:))))
     }
-    
-    @objc func slideUpViewTapped() {
-        let screenSize = UIScreen.main.bounds.size
-        UIView.animate(withDuration: 0.5,
-                       delay: 0, usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 1.0,
-                       options: .curveEaseInOut, animations: {
-          self.containerView.alpha = 0
-          self.slideUpView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: self.slideUpViewHeight)
-        }, completion: nil)
-    }
-    
-    @objc func showSlideUpView() {
-        print("show slide up view")
-        
-        let keyWindow = UIApplication.shared.connectedScenes
-        .filter({$0.activationState == .foregroundActive})
-        .map({$0 as? UIWindowScene})
-        .compactMap({$0})
-        .first?.windows
-        .filter({$0.isKeyWindow}).first
-        
-        
 
-        
-        containerView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        containerView.frame = self.view.frame
-        keyWindow?.addSubview(containerView)
-        
-        
-        
-        
-        let screenSize = UIScreen.main.bounds.size
-        slideUpView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: slideUpViewHeight)
-        slideUpView.separatorStyle = .none
-        keyWindow?.addSubview(slideUpView)
-        
-        
-        let tapGesture = UITapGestureRecognizer(target: self,
-        action: #selector(slideUpViewTapped))
-        containerView.addGestureRecognizer(tapGesture)
-        
-        containerView.alpha = 0
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0, usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 1.0,
-                       options: .curveEaseInOut, animations: {
-          self.containerView.alpha = 0.8
-          self.slideUpView.frame = CGRect(x: 0, y: screenSize.height - self.slideUpViewHeight, width: screenSize.width, height: self.slideUpViewHeight)
-        }, completion: nil)
-    }
-    
     
     @objc func tapPolicyLabel(gesture: UITapGestureRecognizer) {
         guard let text = policyLabel.text else { return }
@@ -125,6 +117,24 @@ class PersonalDataViewController: UIViewController {
                 else { return }
             self.present(ppVC, animated: true, completion: nil)
         }
+        
+    }
+    
+    @objc func showSlideUpView() {
+        
+//        let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
+//
+//
+//        let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeEnterViewController.rawValue)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
+        
+        guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
+        vc.setState(.showEnterPersonalDataView)
+//        vc.delegate = self
+        self.present(vc, animated: false)
+        print("textfield tapped")
+        
         
     }
   
@@ -163,7 +173,7 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
 //        if let data = interactor.personalDataTableViewData {
 //            cell.configureData(with: data)
 //        }
-        cell.textField.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(showSlideUpView)))
+        cell.textField.addTarget(self, action: #selector(showSlideUpView), for: .editingDidBegin)
             
         return cell
     }

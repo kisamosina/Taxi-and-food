@@ -28,6 +28,7 @@ class InactiveViewController: UIViewController {
     private var paymentHistoryData: PaymentsHistoryResponseData!
     private var transitionBottomView: TransitionBottomView!
     private var aboutPointsView: AboutPointsView!
+    private var personalDataTransitionView: PersonalDataBottomView!
     
     //MARK: -  Lifecycle
     override func viewDidLoad() {
@@ -58,6 +59,9 @@ class InactiveViewController: UIViewController {
         case .showDeleteAddressView:
             self.showDeleteAddressView()
             
+        case .showEnterPersonalDataView:
+            self.showEnterPersonalDataView()
+            
         default:
             break
         }
@@ -74,6 +78,9 @@ class InactiveViewController: UIViewController {
             self.dismiss(animated: false, completion: nil)
         case .showDeleteAddressView:
             self.dismiss(animated: false, completion: nil)
+        case .showEnterPersonalDataView:
+            self.dismiss(animated: false, completion: nil)
+        
             
         default:
             break
@@ -106,6 +113,48 @@ extension InactiveViewController {
         
     }
 }
+
+//MARK: - When enter personal data case
+
+extension InactiveViewController {
+    
+    private func showEnterPersonalDataView() {
+        
+        
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: TextEnterViewSize.height.rawValue)
+        
+        self.personalDataTransitionView = PersonalDataBottomView(frame: rect)
+//        self.personalDataTransitionView.
+//        self.personalDataTransitionView.delegate = self
+        self.personalDataTransitionView.alpha = 0
+        self.view.addSubview(self.personalDataTransitionView)
+        
+        //Animation
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.personalDataTransitionView.alpha = 1
+
+                        
+                        
+                        let window = UIApplication.shared.windows[0]
+                        let bottomPadding = window.safeAreaInsets.bottom
+                        self.personalDataTransitionView.frame.origin.y = UIScreen.main.bounds.height - TextEnterViewSize.height.rawValue  + bottomPadding
+                       },
+                       completion: nil)
+        
+    }
+}
+
 
 //MARK: - When payment history detail case
 

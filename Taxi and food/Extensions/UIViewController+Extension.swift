@@ -18,6 +18,14 @@ extension UIViewController {
         }
     }
     
+    func keyboardWillShowReverse(constraint: NSLayoutConstraint, notification: NSNotification, selfHeight: CGFloat) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if constraint.constant == 0 {
+                constraint.constant += keyboardSize.height + selfHeight
+            }
+        }
+    }
+    
     func keyboardWillHide(constraint:NSLayoutConstraint, notification: NSNotification) {
         constraint.constant = 0
     }

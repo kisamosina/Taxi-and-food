@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +17,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q7b-he-ycR">
                                 <rect key="frame" x="0.0" y="44" width="414" height="88"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="NEa-HS-Q7Q"/>
                                 </constraints>
@@ -45,8 +43,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="1jD-wf-dWh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="q7b-he-ycR" firstAttribute="top" secondItem="1jD-wf-dWh" secondAttribute="top" id="Aqi-LN-rpW"/>
                             <constraint firstItem="1jD-wf-dWh" firstAttribute="trailing" secondItem="0tm-Xx-CZA" secondAttribute="trailing" id="Dnj-OZ-Rk1"/>
@@ -55,6 +52,7 @@
                             <constraint firstItem="q7b-he-ycR" firstAttribute="trailing" secondItem="1jD-wf-dWh" secondAttribute="trailing" id="iat-h4-0Of"/>
                             <constraint firstItem="0tm-Xx-CZA" firstAttribute="leading" secondItem="1jD-wf-dWh" secondAttribute="leading" id="wdd-WU-Rmw"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="1jD-wf-dWh"/>
                     </view>
                     <navigationItem key="navigationItem" id="war-xt-hSv"/>
                     <connections>
@@ -68,7 +66,7 @@
         <!--PromoCodeEnterViewController-->
         <scene sceneID="vHa-Sk-iRE">
             <objects>
-                <viewController storyboardIdentifier="PromocodeEnterViewController" title="PromoCodeEnterViewController" id="hZb-gg-bAA" customClass="PromocodeEnterViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromocodeEnterViewController" title="PromoCodeEnterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hZb-gg-bAA" customClass="PromocodeEnterViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EKg-5x-4qX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,13 +78,13 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="eSM-xC-dUr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GGc-7x-ZU4" firstAttribute="trailing" secondItem="eSM-xC-dUr" secondAttribute="trailing" id="D8F-Dh-NOO"/>
                             <constraint firstItem="GGc-7x-ZU4" firstAttribute="leading" secondItem="eSM-xC-dUr" secondAttribute="leading" id="k2a-wi-GIa"/>
                             <constraint firstItem="GGc-7x-ZU4" firstAttribute="top" secondItem="eSM-xC-dUr" secondAttribute="top" id="vcF-73-iBc"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="eSM-xC-dUr"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U48-FO-hn1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -130,15 +128,14 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibn-p7-9eA">
                                 <rect key="frame" x="0.0" y="107.5" width="414" height="788.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="R3W-JT-n8f" id="gf1-2v-Z64"/>
                                     <outlet property="delegate" destination="R3W-JT-n8f" id="CPb-yI-mfN"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="ImF-TI-Qvg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ibn-p7-9eA" firstAttribute="top" secondItem="ZDl-bj-grJ" secondAttribute="bottom" id="2yN-Js-W3b"/>
                             <constraint firstAttribute="bottom" secondItem="ibn-p7-9eA" secondAttribute="bottom" id="7uX-DN-cui"/>
@@ -148,6 +145,7 @@
                             <constraint firstItem="ibn-p7-9eA" firstAttribute="leading" secondItem="ImF-TI-Qvg" secondAttribute="leading" id="otC-dZ-vno"/>
                             <constraint firstItem="ImF-TI-Qvg" firstAttribute="trailing" secondItem="ibn-p7-9eA" secondAttribute="trailing" id="sug-mf-yT7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ImF-TI-Qvg"/>
                     </view>
                     <connections>
                         <outlet property="segmentedControl" destination="Auo-tW-UiH" id="ujY-ak-een"/>
@@ -162,8 +160,5 @@
     </scenes>
     <resources>
         <image name="promocodeBackground" width="500" height="379"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

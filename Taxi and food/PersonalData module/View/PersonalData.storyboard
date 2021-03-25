@@ -30,16 +30,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhT-Oc-X2v" customClass="PersonalAccountCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="896" width="414" height="167"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="bgQ-j0-Scq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uhT-Oc-X2v" secondAttribute="trailing" id="0qK-ae-fPg"/>
                             <constraint firstItem="t9M-GI-hdR" firstAttribute="bottom" secondItem="eF7-go-ZjK" secondAttribute="bottom" constant="45" id="Koi-ne-UCs"/>
                             <constraint firstItem="eF7-go-ZjK" firstAttribute="leading" secondItem="t9M-GI-hdR" secondAttribute="leading" id="OBs-fO-uRz"/>
                             <constraint firstItem="Jye-gK-lZz" firstAttribute="leading" secondItem="t9M-GI-hdR" secondAttribute="leading" constant="20" id="OUb-Kc-PIf"/>
+                            <constraint firstItem="t9M-GI-hdR" firstAttribute="trailing" secondItem="uhT-Oc-X2v" secondAttribute="trailing" id="Ok8-yR-lXh"/>
                             <constraint firstItem="t9M-GI-hdR" firstAttribute="trailing" secondItem="eF7-go-ZjK" secondAttribute="trailing" id="QRx-Je-GO4"/>
                             <constraint firstItem="Jye-gK-lZz" firstAttribute="bottom" secondItem="t9M-GI-hdR" secondAttribute="bottom" id="ZCh-B2-UBE"/>
                             <constraint firstItem="t9M-GI-hdR" firstAttribute="trailing" secondItem="Jye-gK-lZz" secondAttribute="trailing" constant="20" id="eGN-SW-AO5"/>
+                            <constraint firstItem="uhT-Oc-X2v" firstAttribute="bottom" secondItem="JBX-SP-Tb2" secondAttribute="bottom" constant="167" id="kPF-VU-8MH"/>
                             <constraint firstItem="Jye-gK-lZz" firstAttribute="top" secondItem="eF7-go-ZjK" secondAttribute="bottom" id="q73-Tu-7Eh"/>
+                            <constraint firstItem="uhT-Oc-X2v" firstAttribute="leading" secondItem="JBX-SP-Tb2" secondAttribute="leading" id="u58-Zb-ylk"/>
                             <constraint firstItem="eF7-go-ZjK" firstAttribute="top" secondItem="t9M-GI-hdR" secondAttribute="top" id="ve3-Xl-rNd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t9M-GI-hdR"/>
@@ -48,6 +59,7 @@
                     <connections>
                         <outlet property="policyLabel" destination="Jye-gK-lZz" id="I8t-OM-ixT"/>
                         <outlet property="tableView" destination="eF7-go-ZjK" id="xFe-Al-cFf"/>
+                        <outlet property="transitionView" destination="uhT-Oc-X2v" id="PQF-mn-Foy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiw-Ss-TKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

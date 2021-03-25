@@ -14,4 +14,6 @@ enum InactiveViewControllerStates {
     case showLogoutView
     case showPointsView(PointsResponseData)
     case showDeleteAddressView
+    case showEnterPersonalDataView
+    
 }

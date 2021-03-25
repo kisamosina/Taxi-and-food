@@ -25,6 +25,7 @@ enum MainButtonTypes {
     case linkACard
     case newOrder
     case beginSavePoints
+
 }
 
 
@@ -48,6 +49,7 @@ struct MainButtonTitles {
         case chooseDestinationTitle = "Выбрать местом назначения"
         case deleteTitle = "Удалить"
         case cancelTitle = "Отмена"
+        
     }
     
     internal enum EngButtonsTitles: String {
@@ -67,6 +69,7 @@ struct MainButtonTitles {
         case linkACard = "Link a card"
         case newOrder = "New order"
         case beginSavePoints = "Begin saving points"
+        
     }
     
     static var cancelButtonTitle: String {
@@ -282,6 +285,7 @@ struct MainButtonTitles {
             return deleteButtonTitle
         case .cancel:
             return cancelButtonTitle
+
         }
     }
 }

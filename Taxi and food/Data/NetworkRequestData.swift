@@ -35,6 +35,12 @@ enum PaymentRequestPaths: String {
     case points = "user/$/credit"
 }
 
+enum OrderRequestPaths: String {
+   case history = "/user/$/history/order/@/status/&"
+    
+    
+}
+
 enum NewPaymentCardRequestPaths: String {
     case paymentCard = "user/$/payment-card"
     case approveCard = "user/$/payment-card/@/approved"
