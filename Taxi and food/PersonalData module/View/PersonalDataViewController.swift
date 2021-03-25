@@ -28,7 +28,7 @@ class PersonalDataViewController: UIViewController {
         super.viewDidLoad()
         
         addPolicyLabelGestureRecognizer()
-        self.addKeyboardWillShowObserver()
+//        self.addKeyboardWillShowObserver()
         
         self.interactor = PersonalDataInteractor(view: self)
         self.interactor.configure()
@@ -37,7 +37,7 @@ class PersonalDataViewController: UIViewController {
         tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
 
         confugureLabel()
-        self.setupTextView()
+  
         
     }
     
@@ -50,20 +50,7 @@ class PersonalDataViewController: UIViewController {
     
     //MARK: - Methods
     
-    private func setupTextView() {
-       
-        personalDataViewBottomConstraint = self.transitionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        print("when set up")
-        print(personalDataViewBottomConstraint.constant)
 
-        NSLayoutConstraint.activate([
-            self.personalDataViewBottomConstraint,
-            self.transitionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.transitionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.transitionView.heightAnchor.constraint(equalToConstant: TextEnterViewSize.height.rawValue)
-
-        ])
-    }
 
     func confugureLabel() {
         policyLabel.text = PersonalDataViewControllerText.policyLabelText
@@ -73,24 +60,24 @@ class PersonalDataViewController: UIViewController {
         policyLabel.setAttributedText(PersonalDataViewControllerText.privacyPolicy)
     }
     
-    private func addKeyboardWillShowObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func keyboardWillAppear(notification: NSNotification) {
-        keyboardWillShowReverse(constraint: personalDataViewBottomConstraint, notification: notification, selfHeight: self.transitionView.frame.height)
-        print("keyboard appeared")
-        print(personalDataViewBottomConstraint.constant)
-        
-    }
-    
-    @objc private func keyboardWillDisappear(notification: NSNotification) {
-        keyboardWillHide(constraint: personalDataViewBottomConstraint, notification: notification)
-        
-        print("keyboard dissapeared")
-        print(personalDataViewBottomConstraint.constant)
-    }
+//    private func addKeyboardWillShowObserver() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//
+//    @objc private func keyboardWillAppear(notification: NSNotification) {
+//        keyboardWillShowReverse(constraint: personalDataViewBottomConstraint, notification: notification)
+//        print("keyboard appeared")
+//        print(personalDataViewBottomConstraint.constant)
+//
+//    }
+//
+//    @objc private func keyboardWillDisappear(notification: NSNotification) {
+//        keyboardWillHide(constraint: personalDataViewBottomConstraint, notification: notification)
+//
+//        print("keyboard dissapeared")
+//        print(personalDataViewBottomConstraint.constant)
+//    }
     
     private func addPolicyLabelGestureRecognizer() {
         policyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPolicyLabel(gesture:))))

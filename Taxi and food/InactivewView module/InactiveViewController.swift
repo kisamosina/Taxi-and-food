@@ -29,11 +29,14 @@ class InactiveViewController: UIViewController {
     private var transitionBottomView: TransitionBottomView!
     private var aboutPointsView: AboutPointsView!
     private var personalDataTransitionView: PersonalDataBottomView!
+    private var keyboardHeight: CGFloat?
+    private var personalDataViewPadding: CGFloat?
     
     //MARK: -  Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.InactiveViewColor.getColor()
+        addKeyboardWillShowObserver()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,6 +44,34 @@ class InactiveViewController: UIViewController {
         
         self.setView()
     }
+    
+    private func addKeyboardWillShowObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+       
+    }
+
+    @objc private func keyboardWillAppear(notification: NSNotification) {
+        
+        guard let userInfo = notification.userInfo else { return }
+        
+        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        let beginEnd = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        let endFrameY = endFrame?.origin.y ?? 0
+        let beginFrameY = beginEnd?.origin.y ?? 0
+        print("endFrameY")
+        print(endFrameY)
+        
+        keyboardHeight = keyboardWillShowHeight(notification: notification)
+        personalDataViewPadding = endFrameY
+
+    }
+//
+//    @objc private func keyboardWillDisappear(notification: NSNotification) {
+//        keyboardWillHide(constraint: personalDataViewBottomConstraint, notification: notification)
+//
+//        print("keyboard dissapeared")
+//        print(personalDataViewBottomConstraint.constant)
+//    }
     
     
     private func setView() {
@@ -80,8 +111,6 @@ class InactiveViewController: UIViewController {
             self.dismiss(animated: false, completion: nil)
         case .showEnterPersonalDataView:
             self.dismiss(animated: false, completion: nil)
-        
-            
         default:
             break
         }
@@ -128,6 +157,9 @@ extension InactiveViewController {
                           height: TextEnterViewSize.height.rawValue)
         
         self.personalDataTransitionView = PersonalDataBottomView(frame: rect)
+        print("my height")
+        print(personalDataTransitionView.frame.height)
+        
 //        self.personalDataTransitionView.
 //        self.personalDataTransitionView.delegate = self
         self.personalDataTransitionView.alpha = 0
@@ -144,14 +176,23 @@ extension InactiveViewController {
                         self.view.layoutIfNeeded()
                         self.personalDataTransitionView.alpha = 1
 
-                        
-                        
                         let window = UIApplication.shared.windows[0]
-                        let bottomPadding = window.safeAreaInsets.bottom
-                        self.personalDataTransitionView.frame.origin.y = UIScreen.main.bounds.height - TextEnterViewSize.height.rawValue  + bottomPadding
+                        let bottomPaddingSafeArea = window.safeAreaInsets.bottom
+                        guard let bottomPadding = self.personalDataViewPadding, let height = self.keyboardHeight else { return }
+                        
+                        
+                        print("bottomPadding")
+                        print(bottomPadding)
+                        print(bottomPaddingSafeArea)
+                        print("keyboardHeight")
+                        print(height)
+                        
+                     
+                        self.personalDataTransitionView.frame.origin.y = height + self.personalDataTransitionView.frame.height - bottomPaddingSafeArea - bottomPaddingSafeArea
+                        print("origin")
+                        print(self.personalDataTransitionView.frame.origin.y)
                        },
                        completion: nil)
-        
     }
 }
 

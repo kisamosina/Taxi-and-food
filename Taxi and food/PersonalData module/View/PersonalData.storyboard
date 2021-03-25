@@ -30,7 +30,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhT-Oc-X2v" customClass="PersonalAccountCell" customModule="Taxi_and_food" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhT-Oc-X2v" customClass="PersonalDataBottomView" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="896" width="414" height="167"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -57,6 +57,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bMh-gO-utj"/>
                     <connections>
+                        <outlet property="personalDataViewBottomConstraint" destination="kPF-VU-8MH" id="8gt-Ls-tNt"/>
                         <outlet property="policyLabel" destination="Jye-gK-lZz" id="I8t-OM-ixT"/>
                         <outlet property="tableView" destination="eF7-go-ZjK" id="xFe-Al-cFf"/>
                         <outlet property="transitionView" destination="uhT-Oc-X2v" id="PQF-mn-Foy"/>
