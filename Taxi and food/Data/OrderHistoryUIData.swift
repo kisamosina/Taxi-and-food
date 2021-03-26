@@ -18,6 +18,8 @@ struct OrderHistoryViewControllerTexts {
         case firstSegmentTitle = "Завершённые"
         case secondSegmentTitle = "Отменённые"
         case title = "История заказов"
+        case typeFoodLabel = "/Доставка еды"
+        case typeTaxiLabel = "/Услуги такси"
         
     }
     
@@ -29,6 +31,8 @@ struct OrderHistoryViewControllerTexts {
         case firstSegmentTitle = "Completed"
         case secondSegmentTitle = "Canceled"
         case title = "Order history"
+        case typeFoodLabel = "/Food order"
+        case typeTaxiLabel = "/Taxi order"
     }
     
     static var emptyLabelText: String {
@@ -108,8 +112,85 @@ struct OrderHistoryViewControllerTexts {
         }
     }
     
+    static var typeFoodLabel: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.typeFoodLabel.rawValue
+        case .eng:
+            return EngTexts.typeFoodLabel.rawValue
+        }
+    }
+    
+    static var typeTaxiLabel: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.typeTaxiLabel.rawValue
+        case .eng:
+            return EngTexts.typeTaxiLabel.rawValue
+        }
+    }
+    
 }
 
 enum OrderHistoryIds: String {
     case id = "OrderHistoryTableViewCell"
+}
+
+enum OrderHistoryViewControllerStates {
+    case done
+    case canceled 
+}
+
+enum OrderHistoryType {
+    case food
+    case taxi
+}
+
+
+enum OrderType {
+    case food
+    case taxi
+    case unknown
+
+    
+    static func getOrderType(from text: String) -> OrderType {
+        switch text {
+        
+        case "food":
+            return .food
+            
+        case "taxi":
+            return .taxi
+    
+        default:
+            return .unknown
+        }
+    }
+    
+}
+
+enum OrderStatusType {
+    case done
+    case canceled
+    case unknown
+
+    
+    static func getOrderStatusType(from text: String) -> OrderStatusType {
+        switch text {
+        
+        case "done":
+            return .done
+            
+        case "canceled":
+            return .canceled
+    
+        default:
+            return .unknown
+        }
+    }
+    
 }

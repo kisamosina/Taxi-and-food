@@ -22,7 +22,6 @@ class OrderHistoryTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.orderImageView.isHidden = false
-        
     }
     
     override func layoutSubviews() {
@@ -40,12 +39,31 @@ class OrderHistoryTableViewCell: UITableViewCell {
     }
     
     func setUpCell(by data: OrderHistoryResponseData) {
+//        data
         self.orderHistoryData = data
-        let dateString = DateFormatter().getDateWithPoints(date: Date())
+//        date
+        let unixDate = data.updatedAt
+        let date = Date(timeIntervalSince1970: unixDate)
+        let dateString = DateFormatter().getDateByDay(date: date)
         self.dateLabel.text = dateString
-        self.sumLabel.text = String(data.forPayment) + OrderHistoryViewControllerTexts.rubText
-        self.orderImageView.image = UIImage(named: "foodType")
         
+        let orderType = data.type
+
+        switch OrderType.getOrderType(from: orderType) {
+        case .food:
+            self.orderImageView.image = UIImage(named: CustomImagesNames.foodType.rawValue)
+            self.typeLabel.text = OrderHistoryViewControllerTexts.typeFood
+            self.serviceLabel.text = OrderHistoryViewControllerTexts.typeFoodLabel
+        case .taxi:
+            self.orderImageView.image = UIImage(named: CustomImagesNames.taxiType.rawValue)
+            self.typeLabel.text = OrderHistoryViewControllerTexts.typeTaxi
+            self.serviceLabel.text = OrderHistoryViewControllerTexts.typeTaxiLabel
+        case .unknown:
+            self.orderImageView.isHidden = true
+        }
+
+        self.sumLabel.text = String(data.forPayment) + OrderHistoryViewControllerTexts.rubText
+
     }
     
 }

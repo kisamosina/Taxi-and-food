@@ -12,12 +12,15 @@ protocol OrderHistotyInteractorProtocol: class {
     
     var view: OrderHistoryViewProtocol! { get }
     var orderHistoryData: [OrderHistoryResponseData] { get set }
+    var orderStatus: String! { get set }
     
     init(view: OrderHistoryViewProtocol)
 }
 
 class OrderHistotyInteractor: OrderHistotyInteractorProtocol {
     var orderHistoryData: [OrderHistoryResponseData] = []
+    
+    var orderStatus: String! = "canceled"
     
     
     internal weak var view: OrderHistoryViewProtocol!
@@ -37,10 +40,20 @@ class OrderHistotyInteractor: OrderHistotyInteractorProtocol {
         //        }
                 
 //                let id = Int(userData[0].id)
-                let id = 2
-        let type = "food"
-        let status = "done"
-        let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id, and: type, and: status),
+        let id = 2
+        let type = "all"
+//        let status = "done"
+        
+        switch OrderStatusType.getOrderStatusType(from: orderStatus) {
+        case .done:
+            self.orderStatus = "done"
+        case .canceled:
+            self.orderStatus = "canceled"
+        case .unknown:
+            self.orderStatus = "done"
+            
+        }
+        let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id, and: type, and: orderStatus),
         requestType: .GET)
         print("resource")
         print(resource)

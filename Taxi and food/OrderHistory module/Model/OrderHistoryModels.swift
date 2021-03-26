@@ -25,10 +25,11 @@ struct OrderHistoryResponseData: Decodable {
     var forPayment: Int
     var type: String
     var status: String
-    var comment: [String]?
-    var tariff: [TariffData]?
+//    var comment: CommentData?
+    var tariff: TariffHistoryData?
     var promoCodes: [PromocodeHistoryData]?
     var availablePromoCodes: [PromocodeHistoryData]?
+    var updatedAt: Double
     var taxi: [TaxiHistoryData]?
     var products: [ProductsHistoryData]?
     
@@ -61,4 +62,16 @@ struct ProductsHistoryData: Decodable {
     var unit: String
     
    
+}
+
+struct TariffHistoryData: Decodable {
+    var id: Int
+    var name: String
+    var cars: String
+    var description: String
+    var icon: String
+}
+
+struct CommentData: Decodable {
+    var banknote: Int
 }
