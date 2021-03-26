@@ -26,6 +26,8 @@ class AddressEnterView: UIView {
     
     @IBOutlet weak var addressFromTextField: UITextField!
     
+    @IBOutlet weak var addressFromPinButton: UIButton!
+    
     @IBOutlet weak var addressToTextField: UITextField!
     
     @IBOutlet weak var tableView: UITableView!
@@ -47,10 +49,18 @@ class AddressEnterView: UIView {
     }
  //MARK: - IBActions
     
+    @IBAction func addressFromPinButtonTapped(_ sender: UIButton) {
+        self.delegate?.addressFromPinButtonTapped()
+    }
+    
     @IBAction func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             self.delegate?.userHasSwipedViewDown()
         }
+    }
+    
+    @IBAction func addressFromTextFieldHasBecomeActive(_ sender: UITextField) {
+        self.delegate?.addressFromTextFieldHasBecomeActive()
     }
     
     
@@ -59,8 +69,6 @@ class AddressEnterView: UIView {
         self.tableView.isHidden = false
         self.delegate?.tableViewWillAppear()
         }
-    
-    
     
     @IBAction func addressToTextFieldDidEndEditing(_ sender: UITextField) {
         self.tableView.isHidden = true
@@ -106,6 +114,8 @@ class AddressEnterView: UIView {
         self.tableView.isHidden = true
         self.addressToTextField.delegate = self
         self.addressFromTextField.delegate = self
+        self.addressFromPinButton.imageView?.contentMode = .scaleAspectFit
+        
     }
     
     private func setupConstraints() {

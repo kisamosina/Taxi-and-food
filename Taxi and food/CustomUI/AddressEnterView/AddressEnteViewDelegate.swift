@@ -15,4 +15,6 @@ protocol AddressEnterViewDelegate: class {
     func mapButtonViewTapped(destinationAddress: String?)
     func tableViewWillAppear()
     func tableViewWillDisappear()
+    func addressFromPinButtonTapped()
+    func addressFromTextFieldHasBecomeActive()
 }

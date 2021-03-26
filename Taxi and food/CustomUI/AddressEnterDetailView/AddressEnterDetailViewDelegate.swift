@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AddressEnterDetailViewDelegate: class {
-    func mainButtonTapped(_ destinationAddressText: String)
+    func mainButtonTapped(_ addressText: String)
 }

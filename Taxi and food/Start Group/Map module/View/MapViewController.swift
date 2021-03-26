@@ -25,6 +25,10 @@ class MapViewController: UIViewController {
     private var addressEnterDetailView: AddressEnterDetailView!
     private var addressEnterViewDetailLeadingConstraint: NSLayoutConstraint!
     
+    //TipAddress View
+    private var tipAddressView: TipAddressView!
+    private var tipAddressViewBottomAnchor: NSLayoutConstraint!
+    
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var menuButton: MapRoundButton!
@@ -137,11 +141,17 @@ class MapViewController: UIViewController {
 
 extension MapViewController {
     
-    var bottomPadding: CGFloat {
+    //Bottom indent
+    private var bottomPadding: CGFloat {
         let window = UIApplication.shared.windows[0]
         return window.safeAreaInsets.bottom
     }
     
+    //Top indent
+    private var topPadding: CGFloat {
+        let window = UIApplication.shared.windows[0]
+        return window.safeAreaInsets.top
+    }
 }
 
 //MARK:- Work with keyboard
@@ -160,6 +170,9 @@ extension MapViewController {
             
             if self.addressEnterViewBottomConstraint.constant == bottomPadding {
                 self.addressEnterViewBottomConstraint.constant = -kbHeight
+                if tipAddressView != nil {
+                    self.tipAddressViewBottomAnchor.constant = -kbHeight
+                }
             }
         }
 
@@ -445,6 +458,24 @@ extension MapViewController {
 
 extension MapViewController: AddressEnterViewDelegate {
     
+    //Action when addressFromTextFieldHasBecomeActive
+    func addressFromTextFieldHasBecomeActive() {
+        guard UserDefaults.standard.getTipAddressViewIsShowed()
+        else {
+            self.callTipAddressView()
+            return
+        }
+        
+    }
+    
+    
+    //Action when addressFromPinButtonTapped
+    func addressFromPinButtonTapped() {
+        self.interactor.sourceAddress = self.addressEnterView.sourceAddress
+        self.showAddressEnterDetailView()
+    }
+    
+    
     //Action when table view will disappear
     func tableViewWillDisappear() {
         if addressEnterViewHeightConstraint.constant > AddressEnterViewSizes.height.rawValue {
@@ -477,8 +508,9 @@ extension MapViewController: AddressEnterViewDelegate {
     func nextButtonTapped() {
         self.interactor.sourceAddress = self.addressEnterView.sourceAddress
         self.interactor.destinationAddress = self.addressEnterView.destinationAddress
-        self.showAddressEnterDetailView()
     }
+    
+    
 }
 
 
@@ -513,12 +545,16 @@ extension MapViewController {
         guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
         
         let rect = CGRect(x: UIScreen.main.bounds.width,
-                          y: UIScreen.main.bounds.width - (AddressEnterDetailViewSizes.height.rawValue + addressEnterViewBottomConstraint.constant),
+                          y: UIScreen.main.bounds.height - (AddressEnterDetailViewSizes.height.rawValue + addressEnterViewBottomConstraint.constant),
                           width: UIScreen.main.bounds.width,
                           height: AddressEnterDetailViewSizes.height.rawValue)
         
+        
+                
         self.addressEnterDetailView = AddressEnterDetailView(frame: rect)
+                
         self.addressEnterDetailView.alpha = 0
+        self.addressEnterDetailView.delegate = self
         self.view.addSubview(self.addressEnterDetailView)
         self.setupAddressEnterDetailView()
         self.setupAddressEnterDetailViewConstraints()
@@ -536,10 +572,71 @@ extension MapViewController {
                         self.view.layoutIfNeeded()
                         self.addressEnterDetailView.alpha = 1
                        },
-                       completion:  {[unowned self] _ in
-                        self.addressEnterView.removeFromSuperview()
-                        self.addressEnterView = nil
+                       completion:  nil )
+    }
+    
+    //Setup hide animation for Address enter view
+    private func hideAddressEnterDetailView(completion: AnimationCompletion? = nil) {
+        
+        self.addressEnterViewDetailLeadingConstraint.constant = UIScreen.main.bounds.width
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.addressEnterDetailView.alpha = 0
+                       },
+                       completion:  completion )
+    }
+    
+}
 
-                       })
+//MARK: - AddressEnterDetailViewDelegate
+
+extension MapViewController: AddressEnterDetailViewDelegate {
+    
+    func mainButtonTapped(_ addressText: String) {
+        
+        self.interactor.sourceAddressDetails = addressText
+        
+        self.hideAddressEnterDetailView {[unowned self] _ in
+            self.addressEnterView.alpha = 1
+            self.addressEnterDetailView.removeFromSuperview()
+            self.addressEnterDetailView = nil
+        }
+    }
+    
+}
+
+//MARK: - TipAddres view methods
+extension MapViewController {
+    
+    //Call tip address view
+    private func callTipAddressView() {
+        
+        let rect = CGRect(x: 0,
+                          y: 0,
+                          width: UIScreen.main.bounds.width,
+                          height: UIScreen.main.bounds.height)
+        
+        
+                
+        self.tipAddressView = TipAddressView(frame: rect)
+        self.view.addSubview(tipAddressView)
+        self.tipAddressView.translatesAutoresizingMaskIntoConstraints = false
+        
+        guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
+        
+        tipAddressViewBottomAnchor = self.tipAddressView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: addressEnterViewBottomConstraint.constant)
+        tipAddressViewBottomAnchor.isActive = true
+        self.tipAddressView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.tipAddressView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.tipAddressView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -topPadding).isActive = true
+        
+        UserDefaults.standard.storeShowingTipAddressView(true)
     }
 }
+

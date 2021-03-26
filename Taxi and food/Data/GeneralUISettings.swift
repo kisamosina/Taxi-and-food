@@ -34,6 +34,7 @@ enum AppLanguages: String {
 enum AppSettingsStorageKeys: String {
     case language
     case pointsIsFirstTimeUsage
+    case tipAddressViewShowing
 }
 
 enum Colors {

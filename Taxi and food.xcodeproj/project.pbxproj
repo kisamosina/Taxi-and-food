@@ -192,6 +192,9 @@
 		7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */; };
 		7D851C5025F68475000E20DB /* CardEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C4F25F68475000E20DB /* CardEnterView.swift */; };
 		7D851C5525F687C7000E20DB /* EnterCardUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D851C5425F687C7000E20DB /* EnterCardUIData.swift */; };
+		7D868D3D260E78EC00D3A91E /* TipAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D868D3C260E78EC00D3A91E /* TipAddressView.swift */; };
+		7D868D45260E794200D3A91E /* TipAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D868D44260E794200D3A91E /* TipAddressView.xib */; };
+		7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */; };
 		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
@@ -409,6 +412,9 @@
 		7D851C4A25F67CD4000E20DB /* NewCardEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardEnterViewController.swift; sourceTree = "<group>"; };
 		7D851C4F25F68475000E20DB /* CardEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterView.swift; sourceTree = "<group>"; };
 		7D851C5425F687C7000E20DB /* EnterCardUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCardUIData.swift; sourceTree = "<group>"; };
+		7D868D3C260E78EC00D3A91E /* TipAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAddressView.swift; sourceTree = "<group>"; };
+		7D868D44260E794200D3A91E /* TipAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipAddressView.xib; sourceTree = "<group>"; };
+		7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAddressViewUIData.swift; sourceTree = "<group>"; };
 		7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveVIewControllerDelegate.swift; sourceTree = "<group>"; };
 		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
 		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
@@ -767,6 +773,7 @@
 				7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */,
 				7D33FA73260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift */,
 				7D06D66A2601367200219F02 /* AlertControllerUIData.swift */,
+				7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */,
 				7B26145E25DAD9BC00E2B779 /* AuthModuleUIData.swift */,
 				7D00DDEF26076FAD004D5777 /* MapButtonViewUIData.swift */,
 				7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */,
@@ -911,9 +918,10 @@
 				7BD7CB8726036AAA0099C9B7 /* AboutPointsView */,
 				7D00DDE826076B84004D5777 /* MapButtonView */,
 				7D33FA6C260A56C600DA5D0C /* AddressEnterDetailView */,
+				7D33FAAC260BB34F00DA5D0C /* InactiveView */,
+				7D868D49260E794E00D3A91E /* TipAddressView */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
-				7D33FAAC260BB34F00DA5D0C /* InactiveView */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
 				7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */,
@@ -1290,6 +1298,15 @@
 			path = "PaymentWay module";
 			sourceTree = "<group>";
 		};
+		7D868D49260E794E00D3A91E /* TipAddressView */ = {
+			isa = PBXGroup;
+			children = (
+				7D868D3C260E78EC00D3A91E /* TipAddressView.swift */,
+				7D868D44260E794200D3A91E /* TipAddressView.xib */,
+			);
+			path = TipAddressView;
+			sourceTree = "<group>";
+		};
 		7DD6B16B25F012C000445407 /* PersonalAccount module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1424,6 +1441,7 @@
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
 				7D00DDE426076B76004D5777 /* MapButtonView.xib in Resources */,
 				7BD7CB8326036AA30099C9B7 /* AboutPointsView.xib in Resources */,
+				7D868D45260E794200D3A91E /* TipAddressView.xib in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
@@ -1537,6 +1555,7 @@
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
 				7B3A901B25ED60CE008CA13E /* PaymentHistoryDetailView.swift in Sources */,
+				7D868D3D260E78EC00D3A91E /* TipAddressView.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
 				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
@@ -1606,6 +1625,7 @@
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7D06D65C26012A1B00219F02 /* LocationManagerDelegate.swift in Sources */,
+				7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				7D00DDF026076FAD004D5777 /* MapButtonViewUIData.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
