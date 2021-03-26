@@ -21,6 +21,10 @@ class MapViewController: UIViewController {
     private var addressEnterViewBottomConstraint: NSLayoutConstraint!
     private var addressEnterViewHeightConstraint: NSLayoutConstraint!
     
+    //Address Enter Detail View
+    private var addressEnterDetailView: AddressEnterDetailView!
+    private var addressEnterViewDetailLeadingConstraint: NSLayoutConstraint!
+    
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var menuButton: MapRoundButton!
@@ -151,12 +155,14 @@ extension MapViewController {
     
     @objc private func keyboardWillAppear(notification: NSNotification) {
         
-        guard addressEnterView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) else { return }
-        
-        if self.addressEnterViewBottomConstraint.constant == bottomPadding {
-            self.addressEnterViewBottomConstraint.constant = -kbHeight
-        }
+        //When addressEnterView is active
+        if addressEnterView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) {
             
+            if self.addressEnterViewBottomConstraint.constant == bottomPadding {
+                self.addressEnterViewBottomConstraint.constant = -kbHeight
+            }
+        }
+
         self.inactiveView.alpha = 1
     }
     
@@ -174,23 +180,25 @@ extension MapViewController {
 extension MapViewController: MapViewProtocol {
     
     func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?) {
-        guard let coordinate = coordinate else { return }
-        DispatchQueue.main.async {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.mapView.addAnnotation(annotation)
+        if let coordinate =  coordinate {
+            DispatchQueue.main.async {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                self.mapView.addAnnotation(annotation)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.mapView.removeAnnotations(self.mapView.annotations)
+            }
+            
         }
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        self.mapView.removeAnnotations(self.mapView.annotations)
-        self.mapView.addAnnotation(annotation)
     }
     
     func setDestinationAddressText(for addressText: String?) {
         guard let addressText = addressText else { return }
         DispatchQueue.main.async {
-            self.addressEnterView.addressToTextField.text = addressText
+            self.addressEnterView.setAddressToTextFieldText(addressText)
         }
         
     }
@@ -461,13 +469,77 @@ extension MapViewController: AddressEnterViewDelegate {
     }
     
     //Action when user swipe on address enter view
-    
     func userHasSwipedViewDown() {
         self.addressEnterView.endEditing(true)
     }
     
+    //Action when Next button tapped
     func nextButtonTapped() {
+        self.interactor.sourceAddress = self.addressEnterView.sourceAddress
+        self.interactor.destinationAddress = self.addressEnterView.destinationAddress
+        self.showAddressEnterDetailView()
+    }
+}
+
+
+//MARK: - Address enter detail view methods
+
+extension MapViewController {
+    
+    //Setup Address enter detail view constraints
+    private func setupAddressEnterDetailViewConstraints() {
         
+        self.addressEnterDetailView.translatesAutoresizingMaskIntoConstraints = false
+        
+        guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
+        
+        let addressEnterViewDetailBottomConstraint = self.addressEnterDetailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: addressEnterViewBottomConstraint.constant)
+        let addressEnterViewDetailWidthConstraint = self.addressEnterDetailView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+        let addressEnterViewDetailHeightConstraint = self.addressEnterDetailView.heightAnchor.constraint(equalToConstant: AddressEnterDetailViewSizes.height.rawValue)
+        self.addressEnterViewDetailLeadingConstraint = self.addressEnterDetailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: UIScreen.main.bounds.width)
+        
+        NSLayoutConstraint.activate([addressEnterViewDetailBottomConstraint, addressEnterViewDetailWidthConstraint, addressEnterViewDetailHeightConstraint, addressEnterViewDetailLeadingConstraint ])
     }
     
+    //Setup AddressEnterDetailView before calling
+    
+    private func setupAddressEnterDetailView() {
+        self.addressEnterDetailView.setupAs(.addressFrom(self.interactor.sourceAddress))
+    }
+    
+    //Setup show animation for Address enter view
+    private func showAddressEnterDetailView() {
+        
+        guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
+        
+        let rect = CGRect(x: UIScreen.main.bounds.width,
+                          y: UIScreen.main.bounds.width - (AddressEnterDetailViewSizes.height.rawValue + addressEnterViewBottomConstraint.constant),
+                          width: UIScreen.main.bounds.width,
+                          height: AddressEnterDetailViewSizes.height.rawValue)
+        
+        self.addressEnterDetailView = AddressEnterDetailView(frame: rect)
+        self.addressEnterDetailView.alpha = 0
+        self.view.addSubview(self.addressEnterDetailView)
+        self.setupAddressEnterDetailView()
+        self.setupAddressEnterDetailViewConstraints()
+        
+        //Animation
+        self.addressEnterView.alpha = 0
+        self.addressEnterViewDetailLeadingConstraint.constant = 0
+                
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.addressEnterDetailView.alpha = 1
+                       },
+                       completion:  {[unowned self] _ in
+                        self.addressEnterView.removeFromSuperview()
+                        self.addressEnterView = nil
+
+                       })
+    }
 }

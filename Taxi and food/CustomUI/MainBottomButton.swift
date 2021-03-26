@@ -19,6 +19,10 @@ class MainBottomButton: UIButton {
             
         case .next, .approve:
             setInActive()
+        case .skip:
+            self.isEnabled = true
+            self.backgroundColor = Colors.buttonGrey.getColor()
+            
         default:
             setActive()
         }

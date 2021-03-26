@@ -119,6 +119,9 @@
                                         <constraint firstAttribute="height" constant="50" id="Ab7-vs-3hl"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="Ot4-W3-Ose"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

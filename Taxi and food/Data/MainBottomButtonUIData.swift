@@ -19,6 +19,7 @@ enum MainButtonTypes {
     case linkACard
     case newOrder
     case beginSavePoints
+    case skip
 }
 
 
@@ -36,6 +37,7 @@ struct MainButtonTitles {
         case linkACard = "Привязать карту"
         case newOrder = "Новый заказ"
         case beginSavePoints = "Начать копить баллы"
+        case skip = "Пропустить"
     }
     
     internal enum EngButtonsTitles: String {
@@ -49,6 +51,7 @@ struct MainButtonTitles {
         case linkACard = "Link a card"
         case newOrder = "New order"
         case beginSavePoints = "Begin saving points"
+        case skip = "Пропустить"
     }
     
     static var nextButtonTitle: String {
@@ -162,6 +165,18 @@ struct MainButtonTitles {
     }
 
     
+    static var skipButtonTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.skip.rawValue
+        case .eng:
+            return EngButtonsTitles.skip.rawValue
+        }
+    }
+
+    
     static func getTitle(for type: MainButtonTypes) -> String {
         
         switch type {
@@ -186,6 +201,8 @@ struct MainButtonTitles {
             return newOrderTitle
         case .beginSavePoints:
             return beginSavingPointsTitle
+        case .skip:
+            return skipButtonTitle
         }
     }
 }

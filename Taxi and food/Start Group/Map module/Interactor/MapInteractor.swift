@@ -18,31 +18,47 @@ class MapInteractor: MapInteractorProtocol {
     
     private var locationManager: LocationManager
     
+    //Addresses saved by user on server
     var addresses: [AddressResponseData] = []
     
+    //User location
     var userLocation: CLLocationCoordinate2D? {
         didSet { self.getAddressFromLocation() }
     }
     
-    var addressString: String? {
+    //Address getted from user location
+    internal var addressString: String? {
         didSet { self.view.setBottomViewAddressLabel(text: addressString) }
     }
     
+    //Menu items
     var mapMenuData: [MapMenuSection] {
         return MapMenuData.getMapMenuSections()
     }
     
+    //Map View controller state
     var mapViewControllerState: MapViewControllerStates {
         didSet { self.view.setViews(for: mapViewControllerState) }
     }
     
-    var destinationAddressText: String? {
-        didSet { self.view.setDestinationAddressText(for: destinationAddressText)}
+    //Destination address getted from map
+    internal var destinationAddressFromMap: String? {
+        didSet { self.view.setDestinationAddressText(for: destinationAddressFromMap)}
     }
     
-    var destinationLocation: CLLocationCoordinate2D? {
-        didSet { self.view.setDestinationAnnotation(for: destinationLocation)}
+    //Destination location getted from map
+    internal var destinationLocationFromMap: CLLocationCoordinate2D? {
+        didSet { self.view.setDestinationAnnotation(for: destinationLocationFromMap)}
     }
+    
+    //Source Address for order
+    var sourceAddress: String?
+    
+    //Destination Address for order
+    var destinationAddress: String?
+    
+    //Source address details
+    var sourceAddressDetails: String?
     
     //MARK: - Initializer
     
@@ -185,8 +201,8 @@ extension MapInteractor {
 extension MapInteractor: ShowLocationInteractorDelegate {
     
     func get(location: CLLocationCoordinate2D?, and addressText: String) {
-        self.destinationLocation = location
-        self.destinationAddressText = addressText
+        self.destinationLocationFromMap = location
+        self.destinationAddressFromMap = addressText
     }
 }
  

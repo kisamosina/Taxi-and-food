@@ -17,7 +17,7 @@ enum AddressEnterDetailViewSizes: CGFloat {
 }
 
 enum AddressEnterDetailViewType {
-    case addressFrom
+    case addressFrom(String?)
     case addressTo
     case showDestination(String?)
 }

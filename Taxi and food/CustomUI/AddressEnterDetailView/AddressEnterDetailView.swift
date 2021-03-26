@@ -14,8 +14,10 @@ class AddressEnterDetailView: UIView {
     
     weak var delegate: AddressEnterDetailViewDelegate?
     
+    private var viewType: AddressEnterDetailViewType?
+    
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet var containerView: UIView!
@@ -35,7 +37,7 @@ class AddressEnterDetailView: UIView {
     @IBOutlet weak var locationTextField: UITextField!
     
     @IBOutlet weak var mainButton: MainBottomButton!
-        
+    
     //MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -47,11 +49,11 @@ class AddressEnterDetailView: UIView {
         super.init(coder: coder)
         self.initSubviews()
     }
-
+    
     //MARK: - @IBActions
     
     @IBAction func locationTextFieldEdited(_ sender: UITextField) {
-
+        
     }
     
     @IBAction func mainButtonTapped(_ sender: MainBottomButton) {
@@ -83,6 +85,7 @@ class AddressEnterDetailView: UIView {
         self.addSubview(containerView)
         self.setupConstraints()
         self.mainButton.setupAs(.approve)
+        self.locationTextField.delegate = self
     }
     
     private func setupConstraints() {
@@ -95,10 +98,13 @@ class AddressEnterDetailView: UIView {
     }
     
     public func setupAs(_ type: AddressEnterDetailViewType) {
+        
+        self.viewType = type
+        
         switch type {
-            
-        case .addressFrom:
-            self.configureViewAsAddressFrom()
+        
+        case .addressFrom(let sourceAddress):
+            self.configureViewAsAddressFrom(sourceAddress)
         case .addressTo:
             self.configureViewAsAddressTo()
         case .showDestination(let destinationAddressText):
@@ -115,12 +121,14 @@ class AddressEnterDetailView: UIView {
     }
     
     //Configure view when AddressEnterDetailViewType.addressFrom selected
-    private func configureViewAsAddressFrom() {
+    private func configureViewAsAddressFrom(_ sourceAddress: String?) {
         self.locationTextField.placeholder = AddressesEnterDetailViewTexts.locationFromTextFieldPlaceholder
         self.locationTextField.addBottomBorder(color: Colors.buttonBlue.getColor())
-        self.pinTextFieldView.isHidden = false
+        self.pinTextFieldView.isHidden = true
         self.pinLabelImageView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
-        self.mainButton.setActive()
+        self.locationTextField.becomeFirstResponder()
+        self.mainButton.setupAs(.skip)
+        self.locationLabel.text = sourceAddress
     }
     
     //Configure view when AddressEnterDetailViewType.addressTo selected
@@ -131,7 +139,7 @@ class AddressEnterDetailView: UIView {
         self.pinLabelImageView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
         self.mainButton.setActive()
     }
-
+    
     
     //Configure view when AddressEnterDetailViewType.showDestination selected
     private func configureViewAsShowDestination(_ destinationAddress: String?) {
@@ -145,5 +153,32 @@ class AddressEnterDetailView: UIView {
         self.topStackView.isHidden = true
         self.pinTextFieldImageView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
         self.mainButton.setActive()
+    }
+}
+
+//MARK:  -
+
+extension AddressEnterDetailView: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let viewType = viewType else { return false }
+        
+        switch viewType {
+        
+        case .addressFrom(_):
+            
+            if let text = textField.text, text.count > 1 {
+                self.mainButton.setupAs(.approve)
+                self.mainButton.setActive()
+            } else {
+                self.mainButton.setupAs(.skip)
+            }
+            
+        default:
+            break
+        }
+        
+        return true
     }
 }

@@ -67,6 +67,11 @@ class AddressEnterView: UIView {
         self.delegate?.tableViewWillDisappear()
     }
     
+    @IBAction func nextButtonTapped(_ sender: MainBottomButton) {
+        self.delegate?.nextButtonTapped()
+    }
+    
+    
     //MARK: - Methods
         
     override func layoutSubviews() {
@@ -99,6 +104,8 @@ class AddressEnterView: UIView {
         self.mapButtonView.delegate = self
         self.mapButtonView.isHidden = true
         self.tableView.isHidden = true
+        self.addressToTextField.delegate = self
+        self.addressFromTextField.delegate = self
     }
     
     private func setupConstraints() {
@@ -116,13 +123,27 @@ class AddressEnterView: UIView {
         self.tableView.tableFooterView = UIView()
     }
     
-    public func setAddressFromTextFieldText(_ text: String? ){
+    public func setAddressFromTextFieldText(_ text: String? ) {
         self.addressFromTextField.text = text
+        self.setNextButtonActive()
+    }
+    
+    public func setAddressToTextFieldText(_ text: String) {
+        self.addressToTextField.text = text
+        self.setNextButtonActive()
     }
     
     public func setAddresses(_ addresses: [AddressResponseData]) {
         self.addresses = addresses
         self.tableView.reloadData()
+    }
+    
+    private func setNextButtonActive() {
+        
+        if addressFromTextField.text != nil && addressToTextField.text != nil,
+           self.addressToTextField.text != "" && addressFromTextField.text != "" {
+            self.nextButton.setActive()
+        }
     }
 }
 
@@ -143,6 +164,7 @@ extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let address = addresses[indexPath.row]
         self.addressToTextField.text = address.address
+        self.setNextButtonActive()
     }
 }
 
@@ -155,4 +177,29 @@ extension AddressEnterView: MapButtonViewDelegate {
         self.endEditing(true)
     }
     
+}
+
+//MARK: - UITextFieldDelegate
+
+extension AddressEnterView: UITextFieldDelegate {
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        self.setNextButtonActive()
+        return true
+    }
+}
+
+extension AddressEnterView {
+    
+    //Returns text from addressFromTextField
+    var sourceAddress: String? {
+        return addressFromTextField.text
+    }
+    
+    //Returns text from addressToTextField
+    var destinationAddress: String? {
+        return addressToTextField.text
+    }
 }

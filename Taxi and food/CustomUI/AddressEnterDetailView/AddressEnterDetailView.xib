@@ -84,8 +84,11 @@
                                         </view>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfa-Zc-Rlo">
                                             <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="Z4w-dU-tWT"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             <connections>
                                                 <action selector="locationTextFieldEdited:" destination="-1" eventType="editingDidEnd" id="yoa-H9-g7w"/>
                                             </connections>
