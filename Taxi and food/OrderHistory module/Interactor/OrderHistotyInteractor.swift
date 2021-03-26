@@ -11,46 +11,54 @@ import Foundation
 protocol OrderHistotyInteractorProtocol: class {
     
     var view: OrderHistoryViewProtocol! { get }
-    var orderHistoryData: [OrderHistoryResponse] { get set }
+    var orderHistoryData: [OrderHistoryResponseData] { get set }
     
     init(view: OrderHistoryViewProtocol)
 }
 
 class OrderHistotyInteractor: OrderHistotyInteractorProtocol {
-    var orderHistoryData: [OrderHistoryResponse] = []
+    var orderHistoryData: [OrderHistoryResponseData] = []
     
     
     internal weak var view: OrderHistoryViewProtocol!
     
     required init(view: OrderHistoryViewProtocol) {
         self.view = view
+        loadOrders()
     }
     
     func loadOrders() {
+        
+        print("want to load")
         
         //        guard let userData = PersistanceStoreManager.shared.getUserData() else {
         //            print("No user id in storage")
         //            return
         //        }
                 
-        //        let id = Int(userData[0].id)
-//                let id = 2
-//                let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id),
-//                                                                 requestType: .GET)
-//
-//        NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
-//
-//                    guard let self = self else { return }
-//
-//                    switch result {
-//
-//                    case .success(let response):
-//                        self.orderHistoryData = response.data
-////                        self.view.setupViewElements()
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                })
+//                let id = Int(userData[0].id)
+                let id = 2
+        let type = "food"
+        let status = "done"
+        let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id, and: type, and: status),
+        requestType: .GET)
+        print("resource")
+        print(resource)
+
+        NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
+
+                    guard let self = self else { return }
+
+                    switch result {
+
+                    case .success(let response):
+                        self.orderHistoryData = response.data
+                        self.view.configureViewElements()
+                        print("here is my data")
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
     }
    
 }

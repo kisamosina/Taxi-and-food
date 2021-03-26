@@ -36,7 +36,7 @@ enum PaymentRequestPaths: String {
 }
 
 enum OrderRequestPaths: String {
-   case history = "/user/$/history/order/@/status/&"
+   case history = "user/$/history/order/@/status/&"
     
     
 }

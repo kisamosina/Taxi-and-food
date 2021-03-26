@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct OrderHistoryResponse {
+struct OrderHistoryResponse: Decodable {
     var data: [OrderHistoryResponseData]
 }
 
@@ -16,7 +16,7 @@ struct OrderHistoryResponseData: Decodable {
     
     var id: Int
     var userId: Int
-    var from: String
+    var from: String?
     var to: String
     var credit: Int
     var distance: Int
@@ -25,12 +25,12 @@ struct OrderHistoryResponseData: Decodable {
     var forPayment: Int
     var type: String
     var status: String
-    var comment: [String]
-    var tariff: [TariffData]
-    var promoCodes: [PromocodeHistoryData]
-    var availablePromoCodes: [PromocodeHistoryData]
-    var taxi: [TaxiHistoryData]
-    var products: [ProductsHistoryData]
+    var comment: [String]?
+    var tariff: [TariffData]?
+    var promoCodes: [PromocodeHistoryData]?
+    var availablePromoCodes: [PromocodeHistoryData]?
+    var taxi: [TaxiHistoryData]?
+    var products: [ProductsHistoryData]?
     
 }
 
@@ -50,12 +50,15 @@ struct TaxiHistoryData: Decodable {
 struct ProductsHistoryData: Decodable {
     var id: Int
     var name: String
+    var icon: String?
+    var isCategory: Bool
     var price: Int
+    var producing: String
+    var hit: Int
     var sale: Int
-    var hit: Bool
     var composition: String
     var weight: Int
     var unit: String
-    var producing: String
-    var image: String
+    
+   
 }

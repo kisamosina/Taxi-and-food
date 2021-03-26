@@ -1,0 +1,51 @@
+//
+//  OrderHistoryTableViewCell.swift
+//  Taxi and food
+//
+//  Created by mac on 26/03/2021.
+//  Copyright © 2021 kisamosina. All rights reserved.
+//
+
+import UIKit
+
+class OrderHistoryTableViewCell: UITableViewCell {
+    
+    var orderHistoryData: OrderHistoryResponseData!
+    
+    @IBOutlet var parentView: UIView!
+    @IBOutlet var sumLabel: UILabel!
+    @IBOutlet var typeLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var serviceLabel: UILabel!
+    @IBOutlet var orderImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.orderImageView.isHidden = false
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.parentView.layer.masksToBounds = false
+        
+//        fix naming
+
+        self.parentView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
+        self.parentView.layer.shadowOpacity = Float(PaymentHistoryCellViewLayer.shadowOpacity.rawValue)
+        self.parentView.layer.shadowRadius = PaymentHistoryCellViewLayer.shadowRadius.rawValue
+        self.parentView.layer.shadowOffset = CGSize(width: PaymentHistoryCellViewLayer.shadowOffsetHeightAndWidth.rawValue,
+                                                    height: PaymentHistoryCellViewLayer.shadowOffsetHeightAndWidth.rawValue)
+               
+    }
+    
+    func setUpCell(by data: OrderHistoryResponseData) {
+        self.orderHistoryData = data
+        let dateString = DateFormatter().getDateWithPoints(date: Date())
+        self.dateLabel.text = dateString
+        self.sumLabel.text = String(data.forPayment) + OrderHistoryViewControllerTexts.rubText
+        self.orderImageView.image = UIImage(named: "foodType")
+        
+    }
+    
+}
