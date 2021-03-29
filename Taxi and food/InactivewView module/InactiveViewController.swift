@@ -24,6 +24,7 @@ class InactiveViewController: UIViewController {
     weak var delegate: InactiveViewControllerDelegate?
     
     private var payDetailView: PaymentHistoryDetailView!
+    private var orderDetailView: OrderHistoryDetailView!
     private var rectOfCell: CGRect!
     private var paymentHistoryData: PaymentsHistoryResponseData!
     private var orderHistoryData: OrderHistoryResponseData!
@@ -77,7 +78,7 @@ class InactiveViewController: UIViewController {
             self.showPaymentHistoryDetailView(for: rectOfCell, and: paymentHistoryData)
             
         case .showOrderHistoryDetailView:
-            self.showPaymentOrderHistoryDetailView(for: rectOfCell, and: orderHistoryData)
+            self.showOrderHistoryDetailView(for: rectOfCell, and: orderHistoryData)
             
         case .showLogoutView:
             self.showLogoutView()
@@ -100,6 +101,8 @@ class InactiveViewController: UIViewController {
         switch vcState {
         
         case .showPaymentHistoryDetailView:
+            self.dismiss(animated: false, completion: nil)
+        case .showOrderHistoryDetailView:
             self.dismiss(animated: false, completion: nil)
         case .showLogoutView:
             self.hideTransitionBottomView(completion: closeCompletion)
@@ -194,6 +197,52 @@ extension InactiveViewController {
     }
 }
 
+//MARK: - When order history detail case
+
+extension InactiveViewController {
+
+// Show order History detail view
+   
+   func showOrderHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
+       
+       let rect = CGRect(x: cell.origin.x,
+                         y: cell.origin.y,
+                         width: PaymentHistoryDetailViewUIData.width.rawValue,
+                         height: PaymentHistoryDetailViewUIData.height.rawValue)
+       
+       self.orderDetailView = OrderHistoryDetailView(frame: rect)
+       self.orderDetailView.alpha = 0
+    self.orderDetailView.setupView(by: data)
+       self.view.addSubview(orderDetailView)
+       
+       //Animation
+       
+       UIView.animate(withDuration: 0.5,
+                      delay: 0,
+                      usingSpringWithDamping: 0.9,
+                      initialSpringVelocity: 1,
+                      options: .curveEaseOut,
+                      animations: {[unowned self] in
+                       self.view.layoutIfNeeded()
+                       self.orderDetailView.alpha = 1
+                       self.orderDetailView.frame = CGRect(x: self.view.bounds.width/2 - PaymentHistoryDetailViewUIData.width.rawValue/2,
+                                                         y: self.view.bounds.height/2 - PaymentHistoryDetailViewUIData.height.rawValue/2,
+                                                         width: PaymentHistoryDetailViewUIData.width.rawValue,
+                                                         height: PaymentHistoryDetailViewUIData.height.rawValue)
+                      },
+                      completion: nil)
+    
+    }
+    
+    func setCellRectAndDetailViewOrderData(rect: CGRect, data: OrderHistoryResponseData) {
+        self.vcState = .showOrderHistoryDetailView
+        self.rectOfCell = rect
+        self.orderHistoryData = data
+    }
+}
+       
+   
+
 
 //MARK: - When payment history detail case
 
@@ -230,11 +279,7 @@ extension InactiveViewController {
                        completion: nil)
     }
     
-     // Show order History detail view
     
-    func showPaymentOrderHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
-        
-    }
     
     func setCellRectAndDetailViewData(rect: CGRect, data: PaymentsHistoryResponseData) {
         self.vcState = .showPaymentHistoryDetailView
@@ -242,11 +287,6 @@ extension InactiveViewController {
         self.paymentHistoryData = data
     }
     
-    func setCellRectAndDetailViewOrderData(rect: CGRect, data: OrderHistoryResponseData) {
-        self.vcState = .showPaymentHistoryDetailView
-        self.rectOfCell = rect
-        self.orderHistoryData = data
-    }
 }
 
 //MARK: - When LogOut Case

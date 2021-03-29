@@ -6,7 +6,146 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+struct OrderHistoryDetailViewTexts {
+    
+    private enum RusTexts: String {
+        case from = "От: "
+        case to = "До: "
+        case driver = "Водитель: "
+        case car = "Автомобиль: "
+        case number = "Номер: "
+        case time = "Время в пути: "
+        case payment = "Платеж № "
+        case orderList = "Состав заказа: "
+        case store = "Магазин: "
+        case courier = "Курьер: "
+    }
+    
+    private enum EngTexts: String {
+        case from = "From: "
+        case to = "To: "
+        case driver = "Driver: "
+        case car = "Car: "
+        case number = "Number: "
+        case time = "Travel time : "
+        case payment = "Payment № "
+        case orderList = "Order list: "
+        case store = "Store: "
+        case courier = "Courier: "
+    }
+    
+    
+    static var from: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.from.rawValue
+        case .eng:
+            return EngTexts.from.rawValue
+        }
+    }
+    
+    static var to: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.to.rawValue
+        case .eng:
+            return EngTexts.to.rawValue
+        }
+    }
+    static var driver: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.driver.rawValue
+        case .eng:
+            return EngTexts.driver.rawValue
+        }
+    }
+    static var car: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.car.rawValue
+        case .eng:
+            return EngTexts.car.rawValue
+        }
+    }
+    static var number: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.number.rawValue
+        case .eng:
+            return EngTexts.number.rawValue
+        }
+    }
+    
+    static var time: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.time.rawValue
+        case .eng:
+            return EngTexts.time.rawValue
+        }
+    }
+    
+    static var payment: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.payment.rawValue
+        case .eng:
+            return EngTexts.payment.rawValue
+        }
+    }
+    
+    static var orderList: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.orderList.rawValue
+        case .eng:
+            return EngTexts.orderList.rawValue
+        }
+    }
+    
+    static var store: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.store.rawValue
+        case .eng:
+            return EngTexts.store.rawValue
+        }
+    }
+    
+    static var courier: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return RusTexts.courier.rawValue
+        case .eng:
+            return EngTexts.courier.rawValue
+        }
+    }
+    
+}
 
 struct OrderHistoryViewControllerTexts {
     
@@ -134,10 +273,18 @@ struct OrderHistoryViewControllerTexts {
         }
     }
     
+    
 }
 
 enum OrderHistoryIds: String {
+    case OrderHistoryDetailView
+    case OrderHistoryFoodDetailView
     case id = "OrderHistoryTableViewCell"
+}
+
+enum OrderHistoryDetailViewUIData: CGFloat {
+    case width = 324
+    case height = 345
 }
 
 enum OrderHistoryViewControllerStates {

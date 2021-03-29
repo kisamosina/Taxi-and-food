@@ -25,6 +25,7 @@ struct OrderHistoryResponseData: Decodable {
     var forPayment: Int
     var type: String
     var status: String
+    var courier: [CourierData]?
 //    var comment: CommentData?
     var tariff: TariffHistoryData?
     var promoCodes: [PromocodeHistoryData]?
@@ -35,11 +36,19 @@ struct OrderHistoryResponseData: Decodable {
     
 }
 
+struct CourierData: Decodable {
+    var id: Int
+    var name: String
+    var phone: String
+    
+}
+
 struct TaxiHistoryData: Decodable {
     
     var id: Int
     var car: String
     var color: String
+    var driver: String
     var number: String
     var regionNumber: Int
     var imageMap: String
