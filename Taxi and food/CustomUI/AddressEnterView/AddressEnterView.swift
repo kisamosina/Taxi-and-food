@@ -17,9 +17,9 @@ class AddressEnterView: UIView {
     private var addresses: [AddressResponseData] = []
     
     //MARK: - IBOutlets
-
+    
     @IBOutlet weak var topView: UIView!
-        
+    
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var contentView: UIView!
@@ -47,7 +47,7 @@ class AddressEnterView: UIView {
         super.init(coder: coder)
         self.initSubviews()
     }
- //MARK: - IBActions
+    //MARK: - IBActions
     
     @IBAction func addressFromPinButtonTapped(_ sender: UIButton) {
         self.delegate?.addressFromPinButtonTapped()
@@ -66,9 +66,12 @@ class AddressEnterView: UIView {
     
     @IBAction func addressToTextFieldHasBecomeActive(_ sender: UITextField) {
         self.mapButtonView.isHidden = false
-        self.tableView.isHidden = false
-        self.delegate?.tableViewWillAppear()
+        if !addresses.isEmpty {
+            self.tableView.isHidden = false
+            self.delegate?.tableViewWillAppear()
+            
         }
+    }
     
     @IBAction func addressToTextFieldDidEndEditing(_ sender: UITextField) {
         self.tableView.isHidden = true
@@ -81,7 +84,7 @@ class AddressEnterView: UIView {
     
     
     //MARK: - Methods
-        
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -91,7 +94,7 @@ class AddressEnterView: UIView {
         self.contentView.layer.shadowOpacity = Float(TransitionBottomViewSizes.shadowOpacity.rawValue)
         self.contentView.layer.shadowRadius = TransitionBottomViewSizes.cornerRadius.rawValue
         self.contentView.layer.shadowOffset = CGSize(width: TransitionBottomViewSizes.shadowOffsetWidth.rawValue,
-                                                  height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
+                                                     height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
         self.contentView.layer.masksToBounds = false
         self.topView.layer.cornerRadius = self.topView.frame.height/2
         self.topView.clipsToBounds = true
@@ -119,13 +122,13 @@ class AddressEnterView: UIView {
     }
     
     private func setupConstraints() {
-            NSLayoutConstraint.activate([
-                self.topAnchor.constraint(equalTo: containerView.topAnchor),
-                self.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
-            ])
-        }
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: containerView.topAnchor),
+            self.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ])
+    }
     
     private func setupTableView() {
         let nib = UINib(nibName: AddressesViewNibsNames.AddressTableViewCell.rawValue, bundle: nil)
@@ -195,7 +198,7 @@ extension AddressEnterView: UITextFieldDelegate {
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
         self.setNextButtonActive()
         return true
     }
