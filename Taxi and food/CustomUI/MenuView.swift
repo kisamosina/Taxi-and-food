@@ -44,6 +44,15 @@ class MenuView: UIView {
         self.menuTableView.dataSource = self
         self.menuTableView.tableFooterView = UIView()
     }
+    
+    func reloadView(with menuItems: [MapMenuSection]) {
+        self.menuLabel.text = MapMenuViewTexts.menuLabelText
+        self.aboutLabel.text = MapMenuViewTexts.aboutLabelText
+        self.aboutLabel.textColor = Colors.fontGrey.getColor()
+        self.menuItems = menuItems
+        self.menuTableView.reloadData()
+    }
+    
 }
 
 extension MenuView: UITableViewDataSource, UITableViewDelegate {

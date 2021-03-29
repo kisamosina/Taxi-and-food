@@ -396,6 +396,7 @@ extension MapViewController {
     private func maximizeMenuView() {
         self.leadingLeftSideViewConstraint.constant = 0
         self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
+        self.menuView.reloadView(with: interactor.mapMenuData)
     }
     
     private func animateMenuViewMaximizing() {
