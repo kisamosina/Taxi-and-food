@@ -92,9 +92,6 @@ class MapViewController: UIViewController {
         case .enterAddress:
             self.interactor.setViewControllerState(.start)
         }
-        self.inactiveView.alpha = MapInactiveViewAlpha.active.rawValue
-        self.animateMenuViewMaximizing()
-
     }
     
     
