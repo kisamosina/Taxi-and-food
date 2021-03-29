@@ -76,7 +76,7 @@ class InactiveViewController: UIViewController {
         case .showPaymentHistoryDetailView:
             self.showPaymentHistoryDetailView(for: rectOfCell, and: paymentHistoryData)
             
-        case .showPaymentHistoryDetailView:
+        case .showOrderHistoryDetailView:
             self.showPaymentOrderHistoryDetailView(for: rectOfCell, and: orderHistoryData)
             
         case .showLogoutView:
@@ -232,7 +232,7 @@ extension InactiveViewController {
     
      // Show order History detail view
     
-    func showPaymentOrderHistoryDetailView(for cell: CGRect, and data: PaymentsHistoryResponseData) {
+    func showPaymentOrderHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
         
     }
     

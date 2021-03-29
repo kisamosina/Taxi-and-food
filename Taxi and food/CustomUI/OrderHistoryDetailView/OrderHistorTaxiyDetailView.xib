@@ -7,7 +7,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderHistoryTaxiDetailView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="carLabel" destination="b2n-Bi-ouz" id="gm5-3R-fhb"/>
+                <outlet property="carNameLabel" destination="kwa-KA-x1e" id="hDF-Ij-oD1"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="0tt-Lw-hPK"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="PjN-6x-9FO"/>
+                <outlet property="dateLabel" destination="cVr-lb-mgd" id="b44-kE-idJ"/>
+                <outlet property="driverLabel" destination="Zsf-er-Iz9" id="HiP-gV-KbE"/>
+                <outlet property="driverNameLabel" destination="zh2-kq-Wud" id="byi-T5-Zwy"/>
+                <outlet property="fromAddressLabel" destination="XLF-Kh-owz" id="pkV-KD-OTi"/>
+                <outlet property="fromLabel" destination="Lu5-PF-hGT" id="f1P-mN-4Km"/>
+                <outlet property="numberLabel" destination="Dxo-Pn-gBp" id="Xzy-9x-mRV"/>
+                <outlet property="numberTextLabel" destination="XBp-8A-lSl" id="Ybc-kz-og1"/>
+                <outlet property="orderTypeLabel" destination="hsF-bd-Ysi" id="fbA-rM-FXw"/>
+                <outlet property="paymentNumberLabel" destination="PNt-Zg-tv6" id="RtQ-hT-p03"/>
+                <outlet property="serviceLabel" destination="v5e-ym-unr" id="LJd-ht-Duo"/>
+                <outlet property="sumLabel" destination="NvF-wb-A3S" id="gKc-Px-rMK"/>
+                <outlet property="tariffLabel" destination="VF0-vh-GbZ" id="BiX-w5-FnH"/>
+                <outlet property="taxiImage" destination="Nx8-FK-vqr" id="Cd4-h4-Tql"/>
+                <outlet property="timeLabel" destination="0YO-cV-3I4" id="AzR-4J-SQQ"/>
+                <outlet property="timeTextLabel" destination="eKV-y8-dJe" id="f67-nb-955"/>
+                <outlet property="toAddressLabel" destination="XhO-jQ-cLR" id="XNf-BI-npv"/>
+                <outlet property="toLabel" destination="jER-8h-q6A" id="K8b-57-rEQ"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="325" height="390"/>
