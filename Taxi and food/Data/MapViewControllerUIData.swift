@@ -84,7 +84,7 @@ struct MapMenuViewTexts {
         case .rus:
             return RusTexts.About.rawValue
         case .eng:
-            return RusTexts.About.rawValue
+            return EngTexts.About.rawValue
         }
     }
 
