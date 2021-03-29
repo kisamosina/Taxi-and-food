@@ -233,21 +233,21 @@ struct MapMenuData {
 
 
 //MARK: - This section is temporary after merge with Dasha branch need it to delete
-
-struct AddressResponse: Decodable {
-    var data: [AddressResponseData]
-}
-
-struct AddressResponseData: Decodable {
-    
-    var id: Int
-    var name: String
-    var address: String
-    var commentDriver: String?
-    var commentCourier: String?
-    var flat: Int?
-    var intercom: Int?
-    var floor: Int?
-    var destination: Bool
-    
-}
+//
+//struct AddressResponse: Decodable {
+//    var data: [AddressResponseData]
+//}
+//
+//struct AddressResponseData: Decodable {
+//    
+//    var id: Int
+//    var name: String
+//    var address: String
+//    var commentDriver: String?
+//    var commentCourier: String?
+//    var flat: Int?
+//    var intercom: Int?
+//    var floor: Int?
+//    var destination: Bool
+//    
+//}

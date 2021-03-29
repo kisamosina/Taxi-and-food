@@ -9,15 +9,6 @@ import UIKit
 import MapKit
 
 
-protocol MapViewProtocol: class {
-    var interactor: MapInteractorProtocol! { get set }
-    func showTariffPageViewController(_ tariffs: [TariffData])
-    func showUserLocation(region: MKCoordinateRegion)
-    func showLocationSettingsAlert(title: String, message: String)
-    func updateData()
-}
-
-
 class MapViewController: UIViewController {
     
     typealias AnimationCompletion = (Bool) -> Void
@@ -83,6 +74,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.inactiveView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -156,16 +148,6 @@ class MapViewController: UIViewController {
         self.promoDestinationView.alpha = 0
     }
     
-    private func minimizeMenuView() {
-        self.leadingLeftSideViewConstraint.constant = -UIScreen.main.bounds.width
-        self.trailingLeftSideViewConstraint.constant = UIScreen.main.bounds.width
-    }
-    
-    private func maximizeMenuView() {
-        self.leadingLeftSideViewConstraint.constant = 0
-        self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
-    }
-    
     private func minimizePromoDestinationView() {
         self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
    
@@ -174,45 +156,7 @@ class MapViewController: UIViewController {
     private func maximizePromoDestinationView() {
         self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
     }
-    
-    
-    //Remove left menu
-    private func removeMenuView() {
-        self.minimizeMenuView()
-        self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
-    }
-    
-    private func animateMenuViewMaximizing() {
-        self.maximizeMenuView()
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[weak self] in
-                        self?.view.layoutIfNeeded()
-                        self?.menuView.alpha = 1
-                       },
-                       completion: nil)
-    }
-    
-    private func animateMenuViewMinimizing() {
-        self.minimizeMenuView()
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[weak self] in
-                        self?.view.layoutIfNeeded()
-                        self?.menuView.alpha = 0
-                       },
-                       completion: nil)
-    }
-    
 
-    
     //Add Swipes
     
     func addSwipes() {
@@ -504,7 +448,7 @@ extension MapViewController: MenuViewDelegate {
         
         case .Tariffs:
             
-            self.interactor.getTarifs()
+            self.interactor.getTariffs()
             
         case .Settings:
             let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)

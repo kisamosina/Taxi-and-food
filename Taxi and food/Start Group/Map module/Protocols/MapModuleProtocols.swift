@@ -22,6 +22,8 @@ protocol MapInteractorProtocol: class {
     //User location
     var userLocation: CLLocationCoordinate2D? { get set }
     
+    var promos: [PromoShortData]? { get }
+    
     //Address getted from user location
     var addressString: String? { get set }
 
@@ -59,7 +61,12 @@ protocol MapInteractorProtocol: class {
     
     //Get paymentOptions from server
     func getPaymentData()
+    
+    func getAllPromos()
+    
+    func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
 }
+
 
 //MARK: - MapViewProtocol
 
@@ -82,4 +89,7 @@ protocol MapViewProtocol: class {
     func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?)
     
     func setDestinationAddressText(for addressText: String?)
+    
+    func updateData()
+
 }

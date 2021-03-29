@@ -11,24 +11,6 @@ import CoreLocation
 import MapKit
 import UIKit
 
-protocol MapInteractorProtocol: class {
-    var view: MapViewProtocol! { get }
-    var mapMenuData: [MapMenuSection] { get }
-    var userLocation: CLLocationCoordinate2D? { get set }
-    
-    var promos: [PromoShortData]? { get }
-    
-
-    init(view: MapViewProtocol)
-    
-    func getTarifs()
-    func getAllPromos()
-    
-    func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
-   
-    func getUserLoctaionRegion() -> MKCoordinateRegion?
-}
-
 class MapInteractor: MapInteractorProtocol {
 
     var promos: [PromoShortData]?

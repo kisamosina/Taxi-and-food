@@ -82,9 +82,7 @@ final class NetworkService {
                 
                 let decodeResult = self.decode(for: resource, data: data)
                 completion(decodeResult)
-                print("decodeResult")
-                print(decodeResult)
-                
+                                
             case .failure(let error):
                 completion(.failure(error))
             }
