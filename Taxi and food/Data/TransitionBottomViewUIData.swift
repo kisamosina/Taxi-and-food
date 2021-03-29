@@ -13,6 +13,8 @@ enum TransitionBottomViewTypes {
     case pointsFirstTime(PointsResponseData)
     case points(PointsResponseData)
     case logout
+    case deleteAddress
+//    case findAddressView
 }
 
 enum TransitionBottomViewSizes: CGFloat {
@@ -23,6 +25,9 @@ enum TransitionBottomViewSizes: CGFloat {
     case descriptionLabelFontSize = 12
     case firstPointsUseHeight = 330
     case whenPointsHeght = 260
+    case deleteAddressHeight = 270
+    case findAddressView = 386
+    
 }
 
 enum TransitionBottomViewStringData: String {
@@ -30,6 +35,18 @@ enum TransitionBottomViewStringData: String {
 }
 
 struct TransitionBottomViewTexts {
+    
+    static var findAddressPlaceholderTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return "Введите адрес доставки"
+        case .eng:
+            return "Enter delivery address"
+        }
+    }
+
     
     static var approvementTitle: String {
         
@@ -98,6 +115,17 @@ struct TransitionBottomViewTexts {
             return "Выйти из приложения?"
         case .eng:
             return "Log Out from aplication?"
+        }
+    }
+    
+    static var deleteAddressTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Удалить адрес?"
+        case .eng:
+            return "Delete address?"
         }
     }
     

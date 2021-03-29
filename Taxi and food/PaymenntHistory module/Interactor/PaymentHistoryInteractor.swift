@@ -46,7 +46,7 @@ class PaymentHistoryInteractor: PaymentHistoryInteractorProtocol {
         let resource = Resource<PaymentsHistoryResponse>(path: PaymentRequestPaths.history.rawValue.getServerPath(for: id),
                                                          requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) { [weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
             
             guard let self = self else { return }
             
@@ -58,6 +58,6 @@ class PaymentHistoryInteractor: PaymentHistoryInteractorProtocol {
             case .failure(let error):
                 print(error)
             }
-        }
+        })
     }
 }

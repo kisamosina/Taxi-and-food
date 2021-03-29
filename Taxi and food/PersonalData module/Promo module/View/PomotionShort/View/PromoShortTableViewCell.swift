@@ -10,19 +10,44 @@ import UIKit
 
 class PromoShortTableViewCell: UITableViewCell {
 
-    @IBOutlet var nameLabel: UILabel!
     
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var moreButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var myimageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage()
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+
+    
+    func setup() {
+        
+        self.insertSubview(myimageView, at: 0)
+        NSLayoutConstraint.activate([
+            myimageView.topAnchor.constraint(equalTo: self.topAnchor),
+            myimageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            myimageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            myimageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            
+            
+        ])
+        self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
+       
+        self.contentView.contentMode = .scaleAspectFit
+        
+        self.moreButton.setImage(UIImage(named: "moreButton"), for: .normal)
+
+        self.layer.masksToBounds = false
+        
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setImage(url: String) {
+        self.imageView?.webImage(url)
     }
 
 }

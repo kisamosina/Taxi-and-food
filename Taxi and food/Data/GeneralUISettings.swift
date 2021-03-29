@@ -137,12 +137,17 @@ enum CustomImagesNames: String {
 enum StoryBoards: String {
     case AuthAndMap
     case Tarifs
+    case Settings
+    case Addresses
     case Promocode
     case Service
     case PaymentHistory
     case PersonalAccount
     case Inactive
     case PaymentWay
+    case PersonalData
+    case Promo
+  
 }
 
 enum ViewControllers: String {
@@ -152,6 +157,10 @@ enum ViewControllers: String {
     case MapViewController
     case TariffViewController
     case TariffsPageViewController
+    case SettingsViewController
+    case AppleMapViewController
+    case AllAddressesViewController
+    case AddressViewController
     case PromocodeViewController
     case PromocodeEnterViewController
     case PromocodeHistoryViewController
@@ -160,8 +169,13 @@ enum ViewControllers: String {
     case InactiveViewController
     case PersonalAccountViewController
     case PaymentWayViewController
+    case ServiceViewController
     case NewCardEnterViewController
     case ShowLoactionViewController
+    case LanguageViewController
+    case PersonalDataViewController
+    case PromoViewController
+    
 }
 
 

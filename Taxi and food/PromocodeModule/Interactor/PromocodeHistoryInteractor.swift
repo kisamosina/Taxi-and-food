@@ -70,7 +70,7 @@ class PromocodeHistoryInteractor: PromocodeHistoryInteractorProtocol {
         let promocodeResource = Resource<PromocodeHistoryResponse>(path: PromocodesRequestPaths.getHistory.rawValue.getServerPath(for: id),
                                                           requestType: .GET)
       
-        NetworkService.shared.makeRequest(for: promocodeResource) { result in
+        NetworkService.shared.makeRequest(for: promocodeResource, completion:  { result in
             
             switch result {
             
@@ -80,7 +80,7 @@ class PromocodeHistoryInteractor: PromocodeHistoryInteractorProtocol {
             case .failure(let error):
                 print(error)
             }
-        }
+        })
 
     }
     

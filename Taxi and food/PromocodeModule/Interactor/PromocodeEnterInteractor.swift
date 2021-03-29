@@ -37,7 +37,7 @@ class PromocodeEnterInteractor: PromocodeEnterInteractorProtocol {
                                                           requestType: .POST,
                                                           requestData: [PromocodesRequestKeys.code.rawValue: code])
 
-        NetworkService.shared.makeRequest(for: promocodeResource) { result in
+        NetworkService.shared.makeRequest(for: promocodeResource, completion:  { result in
         
             switch result {
             
@@ -54,7 +54,7 @@ class PromocodeEnterInteractor: PromocodeEnterInteractorProtocol {
                     }
                 }
             }
-        }
+        })
 
     }
     

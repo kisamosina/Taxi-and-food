@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0414313C25F727C50074D86C /* AppleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414313B25F727C50074D86C /* AppleMapViewController.swift */; };
+		0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314025F86DF80074D86C /* AddressInteractor.swift */; };
+		0414314425F870680074D86C /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314325F870680074D86C /* AddressModel.swift */; };
+		0414314925F9D7770074D86C /* AllAddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314825F9D7770074D86C /* AllAddressesViewController.swift */; };
+		0414314B25FA15440074D86C /* AllAddressesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314A25FA15440074D86C /* AllAddressesCell.swift */; };
+		0414314E25FA17C40074D86C /* AddressCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314D25FA17C40074D86C /* AddressCellModel.swift */; };
+		0414315025FA1C6F0074D86C /* AllAddressesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314F25FA1C6F0074D86C /* AllAddressesInteractor.swift */; };
 		041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */; };
 		041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */; };
 		041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */; };
@@ -35,12 +42,16 @@
 		041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */; };
 		041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */; };
 		041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */; };
+		043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
 		0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51925DA561D008CA6D0 /* SentViewController.swift */; };
 		0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */; };
 		0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */; };
 		0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */; };
+		049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049A3F6625F1F66400C31AED /* Addresses.storyboard */; };
+		049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A3F6A25F20F5300C31AED /* AddressViewController.swift */; };
+		049A3F6D25F2100500C31AED /* AddressModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */; };
 		04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651125D6591200E0EC25 /* AppDelegate.swift */; };
 		04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5651325D6591200E0EC25 /* SceneDelegate.swift */; };
 		04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B5651D25D6591700E0EC25 /* Assets.xcassets */; };
@@ -58,6 +69,8 @@
 		04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */; };
 		04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A4C25E89AB300EDC886 /* PromoShortInteractor.swift */; };
 		04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */; };
+		04CA5A5325E905EB00EDC886 /* PromoDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */; };
+		04EFB7CE25EB887F00787C68 /* PromoDescriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB7CD25EB887E00787C68 /* PromoDescriptionInteractor.swift */; };
 		7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */; };
 		7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C991025E55B9000530932 /* PromocodeResponse.swift */; };
 		7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */; };
@@ -221,6 +234,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0414313B25F727C50074D86C /* AppleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapViewController.swift; sourceTree = "<group>"; };
+		0414314025F86DF80074D86C /* AddressInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
+		0414314325F870680074D86C /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		0414314825F9D7770074D86C /* AllAddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesViewController.swift; sourceTree = "<group>"; };
+		0414314A25FA15440074D86C /* AllAddressesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesCell.swift; sourceTree = "<group>"; };
+		0414314D25FA17C40074D86C /* AddressCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellModel.swift; sourceTree = "<group>"; };
+		0414314F25FA1C6F0074D86C /* AllAddressesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAddressesInteractor.swift; sourceTree = "<group>"; };
 		041E298125DE1F8A00CA9F56 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		041E298325DE1FA700CA9F56 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModuleUIData.swift; sourceTree = "<group>"; };
@@ -249,12 +269,16 @@
 		041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortTableViewCell.swift; sourceTree = "<group>"; };
 		041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortViewController.swift; sourceTree = "<group>"; };
 		041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
+		043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDestinationView.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
 		0465F51925DA561D008CA6D0 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
 		0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewControllerUIData.swift; sourceTree = "<group>"; };
 		0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewControllerUIData.swift; sourceTree = "<group>"; };
 		0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewControllerUIData.swift; sourceTree = "<group>"; };
+		049A3F6625F1F66400C31AED /* Addresses.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Addresses.storyboard; sourceTree = "<group>"; };
+		049A3F6A25F20F5300C31AED /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModuleUIData.swift; sourceTree = "<group>"; };
 		04B5650E25D6591200E0EC25 /* Taxi and food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi and food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B5651125D6591200E0EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B5651325D6591200E0EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -278,6 +302,8 @@
 		04B5656E25D8D6C600E0EC25 /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
 		04CA5A4C25E89AB300EDC886 /* PromoShortInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortInteractor.swift; sourceTree = "<group>"; };
 		04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalDataInteractor.swift; path = "Taxi and food/PersonalData module/Promo module/View/PomotionShort/PersonalDataInteractor.swift"; sourceTree = SOURCE_ROOT; };
+		04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDescriptionViewController.swift; sourceTree = "<group>"; };
+		04EFB7CD25EB887E00787C68 /* PromoDescriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDescriptionInteractor.swift; sourceTree = "<group>"; };
 		7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterInteractor.swift; sourceTree = "<group>"; };
 		7B0C991025E55B9000530932 /* PromocodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeResponse.swift; sourceTree = "<group>"; };
 		7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
@@ -448,6 +474,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0414313F25F86DB70074D86C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0414314025F86DF80074D86C /* AddressInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0414314225F870440074D86C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0414314325F870680074D86C /* AddressModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0414314525F9D73B0074D86C /* AllAddresses */ = {
+			isa = PBXGroup;
+			children = (
+				0414314C25FA179E0074D86C /* Model */,
+				0414314725F9D75F0074D86C /* Interactor */,
+				0414314625F9D7540074D86C /* View */,
+			);
+			path = AllAddresses;
+			sourceTree = "<group>";
+		};
+		0414314625F9D7540074D86C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0414314825F9D7770074D86C /* AllAddressesViewController.swift */,
+				0414314A25FA15440074D86C /* AllAddressesCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0414314725F9D75F0074D86C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0414314F25FA1C6F0074D86C /* AllAddressesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0414314C25FA179E0074D86C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0414314D25FA17C40074D86C /* AddressCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		041E297E25DE1DBE00CA9F56 /* Settings module */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +602,8 @@
 			isa = PBXGroup;
 			children = (
 				041E29C025E766D900CA9F56 /* PromoViewController.swift */,
+				04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */,
+				04EFB7CD25EB887E00787C68 /* PromoDescriptionInteractor.swift */,
 				041E29D325E79ED300CA9F56 /* PomotionShort */,
 				041E29C225E7670000CA9F56 /* PromoTableViewCell.swift */,
 				041E29C625E7691C00CA9F56 /* PromoCellModel.swift */,
@@ -558,6 +637,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		049A3F6525F1F61900C31AED /* Address module */ = {
+			isa = PBXGroup;
+			children = (
+				0414314525F9D73B0074D86C /* AllAddresses */,
+				0414314225F870440074D86C /* Model */,
+				0414313F25F86DB70074D86C /* Interactor */,
+				049A3F6825F20EF900C31AED /* View */,
+			);
+			path = "Address module";
+			sourceTree = "<group>";
+		};
+		049A3F6825F20EF900C31AED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049A3F6A25F20F5300C31AED /* AddressViewController.swift */,
+				0414313B25F727C50074D86C /* AppleMapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04B5650525D6591200E0EC25 = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +682,8 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
+				049A3F6525F1F61900C31AED /* Address module */,
+				049A3F6625F1F66400C31AED /* Addresses.storyboard */,
 				7B47C81E25DD299F00F366FE /* Tariffs Module */,
 				7B75D01A25E50BB9001981CA /* PromocodeModule */,
 				041E29BD25E7662600CA9F56 /* Promo module */,
@@ -770,6 +871,7 @@
 		7B26145225DAD4CE00E2B779 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */,
 				7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */,
 				7D33FA73260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift */,
 				7D06D66A2601367200219F02 /* AlertControllerUIData.swift */,
@@ -935,6 +1037,7 @@
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
 				7B75CF1325DC4C53001981CA /* ProblemTextView.swift */,
+				043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1431,6 +1534,7 @@
 				7D33FA68260A56B600DA5D0C /* AddressEnterDetailView.xib in Resources */,
 				7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
+				049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
 				7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */,
 				7B3A902025ED60F5008CA13E /* PaymentHistoryDetailView.xib in Resources */,
@@ -1473,6 +1577,7 @@
 				041E29DB25E7A54700CA9F56 /* PromoResponse.swift in Sources */,
 				7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */,
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
+				0414314925F9D7770074D86C /* AllAddressesViewController.swift in Sources */,
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
 				04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */,
 				7B3A8FF525EA9C09008CA13E /* PaymentsHistoryModels.swift in Sources */,
@@ -1487,16 +1592,19 @@
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
 				7D33FAA3260B9FFF00DA5D0C /* AddressTranslatable.swift in Sources */,
 				041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */,
+				0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				7D33FAB1260BB38100DA5D0C /* InactiveViewDelegate.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */,
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
 				7BD7CB7E26036A4A0099C9B7 /* AboutPointsView.swift in Sources */,
+				049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
 				7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
+				04EFB7CE25EB887F00787C68 /* PromoDescriptionInteractor.swift in Sources */,
 				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
 				7B47C88725E6720000F366FE /* PromocodeHistoryViewController.swift in Sources */,
@@ -1511,6 +1619,7 @@
 				7D33FAB6260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift in Sources */,
 				7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
+				049A3F6D25F2100500C31AED /* AddressModuleUIData.swift in Sources */,
 				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,
 				7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */,
 				7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */,
@@ -1542,6 +1651,7 @@
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
 				7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */,
+				04CA5A5325E905EB00EDC886 /* PromoDescriptionViewController.swift in Sources */,
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
 				7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
@@ -1570,6 +1680,7 @@
 				041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
+				0414314E25FA17C40074D86C /* AddressCellModel.swift in Sources */,
 				7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */,
 				7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */,
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
@@ -1581,6 +1692,8 @@
 				7B47C88D25E6771400F366FE /* PromocodeHistoryTableViewCell.swift in Sources */,
 				7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */,
 				041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */,
+				043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */,
+				0414315025FA1C6F0074D86C /* AllAddressesInteractor.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
 				7B3A8FD825EA918C008CA13E /* PaymentHistoryViewController.swift in Sources */,
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
@@ -1610,6 +1723,7 @@
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
 				7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */,
 				7B75CF5125DD71E1001981CA /* TarifResponse.swift in Sources */,
+				0414314425F870680074D86C /* AddressModel.swift in Sources */,
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,
 				7D06D666260134DF00219F02 /* UIAlertController+Extension.swift in Sources */,
 				7B47C89C25E6820100F366FE /* PromocodeHistoryInteractor.swift in Sources */,
@@ -1619,10 +1733,12 @@
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				7BD7CB9C2604C3E50099C9B7 /* MapModuleProtocols.swift in Sources */,
 				7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */,
+				0414314B25FA15440074D86C /* AllAddressesCell.swift in Sources */,
 				7B75CF9525E03861001981CA /* MapRoundButton.swift in Sources */,
 				7D33FA74260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift in Sources */,
 				7B75CF4225DD707B001981CA /* TariffInteractor.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
+				0414313C25F727C50074D86C /* AppleMapViewController.swift in Sources */,
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
 				7D06D65C26012A1B00219F02 /* LocationManagerDelegate.swift in Sources */,
 				7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */,

@@ -35,6 +35,10 @@ class SettingsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
+        
         models.removeAll()
         configure()
         self.tableView.reloadData()
@@ -106,16 +110,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-//        let type = models[indexPath.section].options[indexPath.row]
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           tableView.deselectRow(at: indexPath, animated: true)
+           
+           let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
+           
+           if indexPath.row == 0 {
+               
+               let vc = storyboard.instantiateViewController(identifier: ViewControllers.LanguageViewController.rawValue)
+               self.navigationController?.pushViewController(vc, animated: true)
+               
+           }
         
-        if indexPath.row == 0 {
-            performSegue(withIdentifier: "language", sender: self)
-
+        let storyboard1 = UIStoryboard(name: StoryBoards.PersonalData.rawValue, bundle: nil)
+        
+        if indexPath.row == 1 {
+            
+            let vc = storyboard1.instantiateViewController(identifier: ViewControllers.PersonalDataViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
- 
-    }
+    
+       }
   
 }
 

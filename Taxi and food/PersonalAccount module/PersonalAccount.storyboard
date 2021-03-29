@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvj-x8-Sqw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvj-x8-Sqw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -67,9 +65,9 @@
                                     <constraint firstAttribute="width" constant="239" id="iOd-cd-WbW"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-Ha-EGi" customClass="LogOutButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-Ha-EGi" customClass="LogOutButton" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="784" width="414" height="44"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="834-MM-Zo8"/>
                                 </constraints>
@@ -80,7 +78,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="aCj-MM-bg0"/>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MYo-u7-XDy" firstAttribute="leading" secondItem="aCj-MM-bg0" secondAttribute="leading" constant="25" id="3s4-DA-cuR"/>
@@ -95,6 +92,7 @@
                             <constraint firstItem="cYD-z4-kUA" firstAttribute="top" secondItem="H81-ig-x6B" secondAttribute="bottom" id="qFp-By-FT1"/>
                             <constraint firstItem="H81-ig-x6B" firstAttribute="trailing" secondItem="aCj-MM-bg0" secondAttribute="trailing" id="qbC-yo-JbN"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="aCj-MM-bg0"/>
                     </view>
                     <navigationItem key="navigationItem" id="o0C-Ee-pwv">
                         <barButtonItem key="backBarButtonItem" title=" " id="Cwj-vw-9qD">
@@ -132,8 +130,5 @@
     </scenes>
     <resources>
         <image name="paBackground" width="308" height="506"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

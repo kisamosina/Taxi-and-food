@@ -46,6 +46,26 @@ extension String {
         return "\(self)/\(type)"
     }
     
+    func getPromoDescription(for id: Int) -> String {
+        
+        return "\(self)/\(id)"
+    }
+    
+    func addNanoSec() -> String {
+        return "\(self) +0000"
+    }
+    
+    func getServerAddressPath(for id: Int) -> String {
+        let temp = self.split(separator: "$")
+        return "\(temp[0])\(id)\(temp[1])"
+        
+    }
+    
+    func getServerAddressPath(for id: Int, for addressId: Int) -> String {
+        let temp = self.split(separator: "$")
+        return "\(temp[0])\(id)\(temp[1])\(addressId)"
+    }
+    
     func modifyCreditCardString() -> String {
          let trimmedString = self.components(separatedBy: .whitespaces).joined()
 

@@ -22,6 +22,8 @@ class PromoViewController: UIViewController {
     var models: [PromoOption]?
     let shortVc = PromoShortViewController()
     
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,14 @@ class PromoViewController: UIViewController {
         
         tableView.register(PromoTableViewCell.self, forCellReuseIdentifier: PromoTableViewCell.identifier)
 
-        print("loaded")
+
   
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
     }
 
 }
@@ -57,12 +65,6 @@ extension PromoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var type: String
-        
-//        type = interactor.models[indexPath.row].title
-//
-//        performSegue(withIdentifier: "promoShort", sender: type)
-
 
         var type: String
 
@@ -78,8 +80,7 @@ extension PromoViewController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: "promoShort", sender: type)
         }
     }
-    
-   
+ 
 }
 
 extension PromoViewController: PromoViewProtocol {}
@@ -89,7 +90,9 @@ extension PromoViewController {
     {
         if let nextViewController = segue.destination as? PromoShortViewController, let promoType = sender as? String {
             nextViewController.type = promoType
+            
         }
   
     }
 }
+

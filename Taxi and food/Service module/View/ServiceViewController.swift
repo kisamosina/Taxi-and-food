@@ -30,9 +30,18 @@ class ServiceViewController: UIViewController {
         addKeyboardWillHideObserver()
         setupNextButton()
         setUpfillInTextViewPlaceholderText()
-   
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        
+        
+    }
     @objc private func keyboardWillAppear(notification: NSNotification) {
         keyboardWillShow(constraint: nextButtonBottomConstraint, notification: notification)
 
@@ -64,8 +73,14 @@ class ServiceViewController: UIViewController {
 
 
 extension ServiceViewController: UITextViewDelegate {
-
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView.text == placeholderText {
             textView.textColor = .black

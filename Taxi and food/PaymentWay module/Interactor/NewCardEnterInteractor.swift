@@ -30,7 +30,7 @@ class NewCardEnterInteractor: NewCardEnterInteractorProtocol {
                                                         NewPaymentCardRequestKeys.cvc.rawValue: cvc
                                                         ])
         
-        NetworkService.shared.makeRequest(for: resource) { result in
+        NetworkService.shared.makeRequest(for: resource, completion: { result in
             
             switch result {
             
@@ -42,7 +42,7 @@ class NewCardEnterInteractor: NewCardEnterInteractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
         
     }
     
@@ -58,14 +58,11 @@ class NewCardEnterInteractor: NewCardEnterInteractorProtocol {
                                                                        and: addedNewCardResponseData.id),
                                                      requestType: .POST)
                 
-        NetworkService.shared.makeRequest(for: resource) { _ in
-    
-        } completionWithNoResponse: { [weak self] in
+        NetworkService.shared.makeRequest(for: resource, completion: {_ in }, completionWithNoResponse: { [weak self] in
             guard let self = self else { return }
             PersistanceStoreManager.shared.savePaymentWay(PaymentWayTexts.cardTitle + self.addedNewCardResponseData.hidedNumber)
             self.view.backToPaymentWayViewController()
-        }
+        })
     }
-
     
 }

@@ -11,11 +11,13 @@ import Foundation
 enum RegistrationRequestPaths: String {
     case registration = "auth/registration"
     case confirm = "auth/confirm"
+   
 }
 
 enum RegistrationRequestKeys: String {
     case phone
     case code
+   
 }
 
 enum PromocodesRequestPaths: String {
@@ -46,5 +48,27 @@ enum NewPaymentCardRequestKeys: String {
 
 enum AddressesRequestPaths: String {
     case getAddresses = "user/$/address"
+}
+
+//FIX: - fix id to $
+
+enum AddressRequestPaths: String {
+    case addressPostAndGet = "user/$/address"
+    case addressPutAndDelete = "user/$/address/$"
+}
+
+
+
+enum AddressRequestKeys: String {
+    case name
+    case address
+    case comment_driver
+    case comment_courier
+    case flat
+    case intercom
+    case entrance
+    case floor
+    case destination
+    
 }
 

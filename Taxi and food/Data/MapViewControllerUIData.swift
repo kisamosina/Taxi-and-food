@@ -24,6 +24,7 @@ enum MapBottomViewUIData: CGFloat {
 
 enum MapViewControllerConstraintsData: CGFloat {
     case maximizedTrailingMenuViewConstant = 42
+    case maximizedTopPromoDestinationViewConstant = -265
 }
 
 enum MapMenuViewUIData: CGFloat {
@@ -33,6 +34,12 @@ enum MapMenuViewUIData: CGFloat {
     case shadowOffsetWidth = 2.01
 }
 
+enum MapPromoDestinationViewUIData: CGFloat {
+    case shadowOpacity = 1
+    case cornerRadius = 15
+    case shadowOffsetHeight = 2
+    case shadowOffsetWidth = 2.01
+}
 enum MapInactiveViewAlpha: CGFloat {
     case active = 1
     case inactive = 0
@@ -90,17 +97,28 @@ struct MapMenuViewTexts {
 enum MapViewControllerSegue {
     case Tariffs
     case Promocode
+    case Settings
+    case Service
+    case Promo
     case PaymentWay
     case unknown
+    
+    
     
     static func getMapViewControllerSegue(_ cellTitle: String) -> MapViewControllerSegue {
         switch cellTitle {
         case MapMenuData.tariffs:
             return Tariffs
+        case MapMenuData.settings:
+            return Settings
         case MapMenuData.promocodes:
             return Promocode
         case MapMenuData.paymentsWay:
             return PaymentWay
+        case MapMenuData.service:
+            return Service
+        case MapMenuData.promo:
+            return Promo
         default:
             return .unknown
         }

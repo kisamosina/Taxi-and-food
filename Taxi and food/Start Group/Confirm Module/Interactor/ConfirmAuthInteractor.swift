@@ -36,7 +36,7 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
     }
     
     func sendRegistrationRequest() {
-        NetworkService.shared.makeRequest(for: regResource) {[unowned self] result in
+        NetworkService.shared.makeRequest(for: regResource, completion: {[unowned self] result in
             
             switch result {
             
@@ -48,7 +48,7 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
                 print(error.localizedDescription)
             }
             
-        }
+        })
     }
     
     func sendConfirmRequest(_ code: String) {
@@ -58,7 +58,7 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
                                                         requestData: [RegistrationRequestKeys.phone.rawValue: phoneNumber,
                                                                       RegistrationRequestKeys.code.rawValue: code])
         
-        NetworkService.shared.makeRequest(for: confirmResource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: confirmResource, completion: {[weak self] result in
             guard let self = self else { return }
             switch result {
             
@@ -72,7 +72,7 @@ class ConfirmAuthInteractor: ConfirmAuthInteractorProtocol {
                 guard let serverError = error as? ServerErrors, serverError.statusCode == ErrorCodes.wrongConfirmCode.rawValue else { return }
                 self.view.setupWhenError()
             }
-        }
+        })
         
     }
     

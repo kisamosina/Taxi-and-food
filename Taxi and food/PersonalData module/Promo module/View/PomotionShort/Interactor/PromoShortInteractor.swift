@@ -32,26 +32,24 @@ class PromoShortInteractor: PromoShortInteractorProtocol {
     
     func getPromos(type: String) {
         
-        
-//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3).getPromo(by: type)
-        print("path")
-        print(path)
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id)).getPromo(by: type)
 
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
 
             case .success(let promoResponse):
+                print(promoResponse.data)
                 self.promos = promoResponse.data
                 self.view.reload()
                 
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
 }
 

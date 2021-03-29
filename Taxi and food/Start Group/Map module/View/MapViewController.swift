@@ -8,6 +8,16 @@
 import UIKit
 import MapKit
 
+
+protocol MapViewProtocol: class {
+    var interactor: MapInteractorProtocol! { get set }
+    func showTariffPageViewController(_ tariffs: [TariffData])
+    func showUserLocation(region: MKCoordinateRegion)
+    func showLocationSettingsAlert(title: String, message: String)
+    func updateData()
+}
+
+
 class MapViewController: UIViewController {
     
     typealias AnimationCompletion = (Bool) -> Void
@@ -38,9 +48,12 @@ class MapViewController: UIViewController {
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var bottomView: MapBottomView!
     @IBOutlet weak var menuView: MenuView!
+    @IBOutlet var promoDestinationView: PromoDestinationView!
     @IBOutlet weak var inactiveView: UIView!
     @IBOutlet weak var leadingLeftSideViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingLeftSideViewConstraint: NSLayoutConstraint!
+    @IBOutlet var topPromoDestinationViewConstraint: NSLayoutConstraint!
+    
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -48,8 +61,23 @@ class MapViewController: UIViewController {
         self.interactor = MapInteractor(view: self)
         self.initViewSetup()
         self.minimizeMenuView()
+        self.minimizePromoDestinationView()
         self.addSwipes()
         self.addKeyboardWillShowObserver()
+        
+           DispatchQueue.global(qos: .background).async {
+
+            self.interactor.getAllPromos()
+            
+
+//            self.showPromos()
+
+        }
+        
+        
+
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +100,9 @@ class MapViewController: UIViewController {
         case .enterAddress:
             self.interactor.setViewControllerState(.start)
         }
+        self.inactiveView.alpha = MapInactiveViewAlpha.active.rawValue
+        self.animateMenuViewMaximizing()
+
     }
     
     
@@ -100,17 +131,87 @@ class MapViewController: UIViewController {
         self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
         self.animateMenuViewMinimizing()
         
+        
     }
     
+    @IBAction func closePromoDescriptionViewTapped(_ sender: Any) {
+        self.animatePromoDestinationViewMinimizing()
+    }
     //MARK: - Methods
     
     private func initViewSetup() {
         self.inactiveView.alpha = 0
         self.menuView.alpha = 0
+        
+        self.promoDestinationView.alpha = 0
+        
+
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
         self.mapView.showsUserLocation = true
     }
+
+    private func initPromoDestinationViewSetUp() {
+        self.inactiveView.alpha = 0
+        self.promoDestinationView.alpha = 0
+    }
+    
+    private func minimizeMenuView() {
+        self.leadingLeftSideViewConstraint.constant = -UIScreen.main.bounds.width
+        self.trailingLeftSideViewConstraint.constant = UIScreen.main.bounds.width
+    }
+    
+    private func maximizeMenuView() {
+        self.leadingLeftSideViewConstraint.constant = 0
+        self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
+    }
+    
+    private func minimizePromoDestinationView() {
+        self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
+   
+    }
+    
+    private func maximizePromoDestinationView() {
+        self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
+    }
+    
+    
+    //Remove left menu
+    private func removeMenuView() {
+        self.minimizeMenuView()
+        self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+    }
+    
+    private func animateMenuViewMaximizing() {
+        self.maximizeMenuView()
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[weak self] in
+                        self?.view.layoutIfNeeded()
+                        self?.menuView.alpha = 1
+                       },
+                       completion: nil)
+    }
+    
+    private func animateMenuViewMinimizing() {
+        self.minimizeMenuView()
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[weak self] in
+                        self?.view.layoutIfNeeded()
+                        self?.menuView.alpha = 0
+                       },
+                       completion: nil)
+    }
+    
+
     
     //Add Swipes
     
@@ -135,6 +236,36 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func animatePromoDestinationViewMaximizing() {
+        self.maximizePromoDestinationView()
+        
+        UIView.animate(withDuration: 0.5,
+        delay: 0,
+        usingSpringWithDamping: 0.9,
+        initialSpringVelocity: 1,
+        options: .curveEaseOut,
+        animations: {[weak self] in
+         self?.view.layoutIfNeeded()
+         self?.promoDestinationView.alpha = 1
+        },
+        completion: nil)
+  
+    }
+    
+    private func animatePromoDestinationViewMinimizing() {
+        UIView.animate(withDuration: 0.5,
+        delay: 0,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 1,
+        options: .curveEaseOut,
+        animations: {[weak self] in
+         self?.view.layoutIfNeeded()
+         self?.promoDestinationView.alpha = 0
+        },
+        completion: nil)
+        
+    }
+  
 }
 
 //MARK: - Sizes
@@ -286,6 +417,30 @@ extension MapViewController: MapViewProtocol {
         }
         
     }
+    
+    func updateData() {
+        
+        DispatchQueue.main.async {
+            
+            guard let promos = self.interactor.promos else {return}
+            
+            for promo in promos {
+                
+                
+                
+                if self.interactor.isPromoAvailableByTime(timeFrom: promo.timeFrom ?? "", timeTo: promo.timeTo ?? "") == true {
+                    self.promoDestinationView.alpha = 1
+                    self.promoDestinationView.imageView.webImage(promo.media[1].url ?? "")
+                    self.promoDestinationView.nameLabel.text = promo.title
+
+
+                }
+            
+            }
+
+        }
+           
+    }
 }
 
 //MARK: - Menu View Methods
@@ -348,7 +503,14 @@ extension MapViewController: MenuViewDelegate {
         switch type {
         
         case .Tariffs:
-            self.interactor.getTariffs()
+            
+            self.interactor.getTarifs()
+            
+        case .Settings:
+            let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
+             let vc = storyboard.instantiateViewController(identifier: ViewControllers.SettingsViewController.rawValue)
+             self.removeMenuView()
+             self.navigationController?.pushViewController(vc, animated: true)
             
         case .Promocode:
             let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
@@ -358,6 +520,18 @@ extension MapViewController: MenuViewDelegate {
             
         case .PaymentWay:
             self.interactor.getPaymentData()
+        case .Service:
+            let storyboard = UIStoryboard(name: StoryBoards.Service.rawValue, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: ViewControllers.ServiceViewController.rawValue)
+            self.removeMenuView()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case .Promo:
+            let storyboard = UIStoryboard(name: StoryBoards.Promo.rawValue, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromoViewController.rawValue)
+        self.removeMenuView()
+        self.navigationController?.pushViewController(vc, animated: true)
+     
         case .unknown:
             break
             

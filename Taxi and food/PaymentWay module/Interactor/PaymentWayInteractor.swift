@@ -115,7 +115,7 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
         guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
         
         let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
-        NetworkService.shared.makeRequest(for: resource) {[weak self] paymentResponse in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] paymentResponse in
             guard let self = self else { return }
             
             switch paymentResponse {
@@ -128,8 +128,7 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
                 
                 print(error.localizedDescription)
             }
-            
-        }
+        })
     }
     
     // Set active cells
@@ -181,7 +180,7 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
         
         let resource = Resource<PointsResponse>(path: PaymentRequestPaths.points.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {  pointsResponse in
+        NetworkService.shared.makeRequest(for: resource, completion:  {  pointsResponse in
             switch pointsResponse {
             
             case .success(let points):
@@ -189,7 +188,7 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
     
 }

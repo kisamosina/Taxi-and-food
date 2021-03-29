@@ -54,6 +54,9 @@ class InactiveViewController: UIViewController {
             
         case .showPointsView(let pointsData):
             self.showPointsView(pointsData)
+        
+        case .showDeleteAddressView:
+            self.showDeleteAddressView()
             
         default:
             break
@@ -68,6 +71,8 @@ class InactiveViewController: UIViewController {
         case .showLogoutView:
             self.hideTransitionBottomView(completion: closeCompletion)
         case .showPointsView(_):
+            self.dismiss(animated: false, completion: nil)
+        case .showDeleteAddressView:
             self.dismiss(animated: false, completion: nil)
             
         default:
@@ -180,6 +185,42 @@ extension InactiveViewController {
     }
 }
 
+//MARK: - When DeleteAddress Case
+
+extension InactiveViewController {
+
+    //Show deleteAddress view
+    private func showDeleteAddressView() {
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: TransitionBottomViewSizes.deleteAddressHeight.rawValue)
+        
+        self.transitionBottomView = TransitionBottomView(frame: rect)
+        self.transitionBottomView.setupAs(type: .deleteAddress)
+        self.transitionBottomView.delegate = self
+        self.transitionBottomView.alpha = 0
+        self.view.addSubview(self.transitionBottomView)
+        
+        //Animation
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.transitionBottomView.alpha = 1
+                        let window = UIApplication.shared.windows[0]
+                        let bottomPadding = window.safeAreaInsets.bottom
+                        self.transitionBottomView.frame.origin.y = UIScreen.main.bounds.height - TransitionBottomViewSizes.deleteAddressHeight.rawValue + bottomPadding
+                       },
+                       completion: nil)
+    }
+}
+
 //MARK: - When points state
 
 extension InactiveViewController {
@@ -286,7 +327,8 @@ extension InactiveViewController: TransitionBottomViewDelegate  {
             
         case .logout:
             self.hideTransitionBottomView(completion: closeCompletion)
-            
+        case .deleteAddress:
+            self.hideTransitionBottomView(completion: closeCompletion)
         default:
             break
             
@@ -307,7 +349,8 @@ extension InactiveViewController: TransitionBottomViewDelegate  {
         case .logout:
             self.hideTransitionBottomView(completion: closeCompletion)
             self.delegate?.logOutButtonTapped()
-            
+        case .deleteAddress:
+            self.delegate?.deleteButtonTapped()
         default:
             break
         }
@@ -322,6 +365,10 @@ extension InactiveViewController: TransitionBottomViewDelegate  {
         case .logout:
             
             self.hideTransitionBottomView(completion: closeCompletion)
+            
+        case .deleteAddress:
+            
+           self.hideTransitionBottomView(completion: closeCompletion)
         
         case .pointsFirstTime(_), .points(_):
             

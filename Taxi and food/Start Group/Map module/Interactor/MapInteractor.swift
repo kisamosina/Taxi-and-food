@@ -9,8 +9,29 @@
 import Foundation
 import CoreLocation
 import MapKit
+import UIKit
+
+protocol MapInteractorProtocol: class {
+    var view: MapViewProtocol! { get }
+    var mapMenuData: [MapMenuSection] { get }
+    var userLocation: CLLocationCoordinate2D? { get set }
+    
+    var promos: [PromoShortData]? { get }
+    
+
+    init(view: MapViewProtocol)
+    
+    func getTarifs()
+    func getAllPromos()
+    
+    func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
+   
+    func getUserLoctaionRegion() -> MKCoordinateRegion?
+}
 
 class MapInteractor: MapInteractorProtocol {
+
+    var promos: [PromoShortData]?
     
     //MARK: - Properties
     
@@ -77,6 +98,73 @@ class MapInteractor: MapInteractorProtocol {
     func setViewControllerState(_ state: MapViewControllerStates) {
         self.mapViewControllerState = state
     }
+
+    
+     func getAllPromos() {
+
+         let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3)
+         print("path")
+         print(path)
+
+         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
+
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
+             guard let self = self else { return }
+             switch result {
+
+             case .success(let promoResponse):
+                self.promos = promoResponse.data
+                self.view.updateData()
+                 print(promoResponse.data)
+
+
+             case .failure(let error):
+                 print(error.localizedDescription)
+             }
+         })
+
+     }
+    
+    public func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool {
+            
+            var bool = false
+            let date = Date()
+        
+        print("mydate")
+        print(date)
+
+            let promoTime_fromSec = timeFrom.addNanoSec()
+            let promoTime_toSec = timeTo.addNanoSec()
+            
+           
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm:ssZ"
+
+            
+            
+            guard let promoTimeFrom = formatter.date(from: promoTime_fromSec) else { return false }
+            guard let promoTimeTo = formatter.date(from: promoTime_toSec) else { return false }
+
+            let calendar = Calendar.current
+            let components1 = calendar.dateComponents([.hour, .minute, .second, .nanosecond], from: promoTimeTo)
+            let components2 = calendar.dateComponents([.hour, .minute, .second, .nanosecond], from: promoTimeFrom)
+            let components3 = calendar.dateComponents([.hour, .minute, .second, .nanosecond], from: date)
+
+            
+            guard let finalTimeFrom = calendar.date(from:components2) else { return false }
+            guard let finalTimeTo = calendar.date(from:components1) else { return false }
+            guard let finalTimeCurrent = calendar.date(from:components3) else { return false }
+
+
+            if finalTimeFrom <= finalTimeCurrent && finalTimeTo >= finalTimeCurrent{
+                print("true")
+                bool = true
+            }
+
+            return bool
+            
+        }
+      
     
     //GET REGION FOR USER LOCATION
     

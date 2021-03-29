@@ -111,6 +111,7 @@ struct PersonalAccountViewControllerTexts {
 enum PersonalAccountViewControllerSegues {
     case PaymentHistory
     case PaymentWay
+    case MyAddresses
     case unknown
     
     static func getCase(from text: String) -> PersonalAccountViewControllerSegues {
@@ -119,6 +120,8 @@ enum PersonalAccountViewControllerSegues {
             return .PaymentHistory
         case PersonalAccountViewControllerTexts.paymentWay:
             return .PaymentWay
+        case PersonalAccountViewControllerTexts.myAddresses:
+            return .MyAddresses
         default:
             return unknown
         }

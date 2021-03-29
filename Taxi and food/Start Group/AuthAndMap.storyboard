@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zux-rs-o3I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zux-rs-o3I">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,15 +44,15 @@
                                         <rect key="frame" x="25" y="25" width="364" height="150"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+7 (XXX) XXX-XX-XX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Os-YR-r1n">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="EoX-o1-9wF">
-                                                <rect key="frame" x="0.0" y="40" width="364" height="42"/>
+                                                <rect key="frame" x="0.0" y="39" width="364" height="43"/>
                                                 <subviews>
-                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0I-h0-470">
-                                                        <rect key="frame" x="0.0" y="13" width="16" height="16"/>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0I-h0-470">
+                                                        <rect key="frame" x="0.0" y="13.5" width="16" height="16"/>
                                                         <color key="backgroundColor" red="0.93727916479999995" green="0.93720275159999999" blue="0.94117778539999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="ThA-ZD-4Ug"/>
@@ -65,14 +63,14 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Даю согласие на обработку персональных данных, с пользовательским соглашением ознакомлен" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WF8-pC-aga">
-                                                        <rect key="frame" x="23" y="6.5" width="341" height="29"/>
+                                                        <rect key="frame" x="23" y="7" width="341" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-7W-z48" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-7W-z48" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="100" width="364" height="50"/>
                                                 <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -105,8 +103,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kNN-I8-7Oi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BPq-Ia-Wvy"/>
                             <constraint firstItem="kNN-I8-7Oi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WQB-SD-nDT"/>
@@ -117,6 +114,7 @@
                             <constraint firstItem="Z1V-cS-gxc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lw8-lU-gg3"/>
                             <constraint firstItem="XgZ-wA-Nv6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ySH-Ig-Ruw"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RTd-5a-tje">
                         <barButtonItem key="backBarButtonItem" title=" " id="bTf-Kd-vRY">
@@ -149,7 +147,7 @@
                                 <rect key="frame" x="39" y="250" width="336" height="126.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Код подтверждения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijq-d6-99l">
-                                        <rect key="frame" x="88" y="0.0" width="160" height="20.5"/>
+                                        <rect key="frame" x="88" y="0.0" width="160.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -252,7 +250,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На номер +7 (944) 534-43-53 отправлено смс с кодом. Повторная отправка через 29 секунд" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTz-Bm-bJq">
-                                        <rect key="frame" x="1" y="97.5" width="334" height="29"/>
+                                        <rect key="frame" x="1" y="97.5" width="334.5" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -262,7 +260,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWj-jf-3qp">
                                 <rect key="frame" x="0.0" y="787" width="414" height="75"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-83-JSe" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-83-JSe" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                         <rect key="frame" x="25" y="0.0" width="364" height="50"/>
                                         <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -285,8 +283,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="EsN-sW-Xq8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DWj-jf-3qp" firstAttribute="bottom" secondItem="EsN-sW-Xq8" secondAttribute="bottom" id="26O-Tv-NgW"/>
                             <constraint firstItem="JeR-Ot-lxg" firstAttribute="top" secondItem="EsN-sW-Xq8" secondAttribute="top" constant="206" id="Adb-ir-bPV"/>
@@ -295,6 +292,7 @@
                             <constraint firstItem="JeR-Ot-lxg" firstAttribute="leading" secondItem="EsN-sW-Xq8" secondAttribute="leading" constant="39" id="nwy-c4-d6S"/>
                             <constraint firstItem="EsN-sW-Xq8" firstAttribute="trailing" secondItem="DWj-jf-3qp" secondAttribute="trailing" id="oC5-JI-n3k"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="EsN-sW-Xq8"/>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="FTz-Bm-bJq" id="cC4-Q3-Fac"/>
@@ -358,7 +356,7 @@
                                         <rect key="frame" x="44" y="23" width="326" height="112"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pk7-qk-2cB">
-                                                <rect key="frame" x="43.5" y="0.0" width="239.5" height="19"/>
+                                                <rect key="frame" x="42" y="0.0" width="242.5" height="19"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPin" translatesAutoresizingMaskIntoConstraints="NO" id="fRk-zA-Uo4">
                                                         <rect key="frame" x="0.0" y="0.0" width="12" height="19"/>
@@ -368,7 +366,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Садовая-Триумфальная, 24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-g6-Zzj">
-                                                        <rect key="frame" x="20" y="0.0" width="219.5" height="19"/>
+                                                        <rect key="frame" x="20" y="0.0" width="222.5" height="19"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -378,7 +376,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fLt-0C-fgo">
                                                 <rect key="frame" x="0.0" y="32" width="326" height="80"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS1-Uu-ql0">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS1-Uu-ql0">
                                                         <rect key="frame" x="0.0" y="0.0" width="158" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="FxU-qk-00R"/>
@@ -389,7 +387,7 @@
                                                             <action selector="taxiButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="dMT-qB-QqP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrK-be-7iC">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrK-be-7iC">
                                                         <rect key="frame" x="168" y="0.0" width="158" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="8m1-ib-T0i"/>
@@ -431,6 +429,41 @@
                                     <action selector="mapCenterButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="BFy-BU-JB3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="bal-4K-gGK" userLabel="PromoDestinationView" customClass="PromoDestinationView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="21" y="631" width="372" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMF-At-1DK">
+                                        <rect key="frame" x="61" y="12" width="250" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29G-aM-h3H" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="330" y="7" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="cue-nH-3GM"/>
+                                            <constraint firstAttribute="height" constant="30" id="ude-6T-SUw"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="closeMenuButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="sdu-PG-uuI"/>
+                                            <action selector="closePromoDescriptionViewTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="cCK-Vq-p2l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="29G-aM-h3H" secondAttribute="bottom" constant="8" id="3BB-BJ-7WQ"/>
+                                    <constraint firstItem="29G-aM-h3H" firstAttribute="top" secondItem="bal-4K-gGK" secondAttribute="top" constant="7" id="Mez-PA-FI1"/>
+                                    <constraint firstAttribute="trailing" secondItem="29G-aM-h3H" secondAttribute="trailing" constant="12" id="QgX-gh-XYt"/>
+                                    <constraint firstItem="29G-aM-h3H" firstAttribute="leading" secondItem="kMF-At-1DK" secondAttribute="trailing" constant="19" id="hk5-8k-bIZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="kMF-At-1DK" id="zQU-SO-Emi"/>
+                                </connections>
+                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZs-BQ-jU1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -438,7 +471,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCq-re-fWa" customClass="MenuView" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="372" height="896"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6g-It-UOG" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6g-It-UOG" customClass="CloseMenuButton" customModule="Taxi_and_food" customModuleProvider="target">
                                         <rect key="frame" x="25" y="73" width="30" height="30"/>
                                         <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -493,7 +526,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="K6g-It-UOG" firstAttribute="leading" secondItem="XCq-re-fWa" secondAttribute="leading" constant="25" id="9wf-W5-aEW"/>
                                     <constraint firstItem="7CO-61-HFk" firstAttribute="top" secondItem="quJ-7e-qUL" secondAttribute="bottom" constant="2" id="FmO-bX-xWk"/>
@@ -513,8 +546,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="am8-7N-f7B"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="SGh-SJ-IIw" firstAttribute="top" secondItem="yKH-JN-0i3" secondAttribute="bottom" constant="25" id="5yt-UE-0hw"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="b9C-Im-UHs" secondAttribute="trailing" constant="45" id="6yj-pF-b9o"/>
@@ -525,11 +557,13 @@
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="GsQ-Mk-LhJ"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="yKH-JN-0i3" secondAttribute="trailing" constant="45" id="MJd-Uj-RPi"/>
                             <constraint firstItem="hbh-4U-WAf" firstAttribute="top" secondItem="am8-7N-f7B" secondAttribute="top" constant="24" id="N70-oO-QeA"/>
+                            <constraint firstItem="bal-4K-gGK" firstAttribute="top" secondItem="WpO-6M-tnc" secondAttribute="bottom" constant="-265" id="Q5U-vM-g8M"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="WpO-6M-tnc" secondAttribute="trailing" id="QhZ-vo-gDW"/>
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="trailing" secondItem="am8-7N-f7B" secondAttribute="trailing" id="XBc-TM-Mvg"/>
                             <constraint firstItem="b9C-Im-UHs" firstAttribute="top" secondItem="am8-7N-f7B" secondAttribute="top" constant="24" id="Yep-Y8-uz4"/>
                             <constraint firstAttribute="bottom" secondItem="XCq-re-fWa" secondAttribute="bottom" id="bsY-lw-AQs"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="SGh-SJ-IIw" secondAttribute="trailing" id="d02-nv-yzw"/>
+                            <constraint firstItem="SGh-SJ-IIw" firstAttribute="top" secondItem="bal-4K-gGK" secondAttribute="bottom" constant="20" id="emp-AT-IMZ"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="XCq-re-fWa" secondAttribute="trailing" constant="42" id="fcl-3W-KnG"/>
                             <constraint firstItem="hbh-4U-WAf" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" constant="45" id="gPH-hV-A5m"/>
                             <constraint firstItem="XCq-re-fWa" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="giY-GK-dsX"/>
@@ -538,6 +572,7 @@
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" id="nhC-u4-cqN"/>
                             <constraint firstItem="SGh-SJ-IIw" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" id="ugu-q6-hpN"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="am8-7N-f7B"/>
                     </view>
                     <navigationItem key="navigationItem" id="JH6-Q5-zvc">
                         <barButtonItem key="backBarButtonItem" title=" " id="2gP-az-0Wd">
@@ -554,7 +589,9 @@
                         <outlet property="mapView" destination="WpO-6M-tnc" id="4YK-fc-59z"/>
                         <outlet property="menuButton" destination="hbh-4U-WAf" id="8HW-3e-iU6"/>
                         <outlet property="menuView" destination="XCq-re-fWa" id="eF4-cr-m7T"/>
+                        <outlet property="promoDestinationView" destination="bal-4K-gGK" id="AIG-fX-AZN"/>
                         <outlet property="taxiButton" destination="dS1-Uu-ql0" id="PcD-TQ-Ae3"/>
+                        <outlet property="topPromoDestinationViewConstraint" destination="Q5U-vM-g8M" id="2ZY-Zs-t9R"/>
                         <outlet property="trailingLeftSideViewConstraint" destination="fcl-3W-KnG" id="heJ-7D-Aqb"/>
                     </connections>
                 </viewController>
@@ -644,18 +681,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользовательское соглашение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hs-pm-kH1">
-                                <rect key="frame" x="83" y="124" width="248" height="21"/>
+                                <rect key="frame" x="82.5" y="124" width="249.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="OKU-mi-ljO"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="1hs-pm-kH1" firstAttribute="centerX" secondItem="jxr-GO-m8X" secondAttribute="centerX" id="9hc-qO-dWc"/>
                             <constraint firstItem="1hs-pm-kH1" firstAttribute="top" secondItem="OKU-mi-ljO" secondAttribute="top" constant="80" id="a0G-c4-Jui"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="OKU-mi-ljO"/>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="1hs-pm-kH1" id="srK-Dc-UBm"/>
@@ -693,8 +730,5 @@
         <image name="menuButton" width="20" height="10"/>
         <image name="taxiButton" width="158" height="80"/>
         <image name="userPin" width="15.5" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

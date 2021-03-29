@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HsT-eR-OCg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HsT-eR-OCg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +24,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="144" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="czj-T9-80d">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xzJ-s0-gLv" id="75d-pW-9ha"/>
                                     <outlet property="delegate" destination="xzJ-s0-gLv" id="sRl-0J-ha6"/>
@@ -45,8 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="xhi-3R-Ikg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Kg5-E4-Epa" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="9YQ-oj-1e9"/>
                             <constraint firstItem="xhi-3R-Ikg" firstAttribute="trailing" secondItem="czj-T9-80d" secondAttribute="trailing" id="ADV-lN-up3"/>
@@ -61,6 +58,7 @@
                             <constraint firstItem="Kg5-E4-Epa" firstAttribute="trailing" secondItem="xhi-3R-Ikg" secondAttribute="trailing" id="tsG-hg-f7S"/>
                             <constraint firstItem="ATA-Mt-wqy" firstAttribute="leading" secondItem="xhi-3R-Ikg" secondAttribute="leading" id="uX4-qD-IY1"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="xhi-3R-Ikg"/>
                     </view>
                     <navigationItem key="navigationItem" id="WOy-H0-Aqx"/>
                     <connections>
@@ -95,8 +93,5 @@
     </scenes>
     <resources>
         <image name="paymentHistoryBackground" width="520" height="491"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

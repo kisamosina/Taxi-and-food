@@ -53,7 +53,7 @@ class PersonalAccountInteractor: PersonalAccountInteractorProtocol {
         
         let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {[weak self] paymentResponse in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] paymentResponse in
             guard let self = self else { return }
             
             switch paymentResponse {
@@ -69,7 +69,7 @@ class PersonalAccountInteractor: PersonalAccountInteractorProtocol {
                 print(error.localizedDescription)
             }
             
-        }
+        })
     }
     
 }

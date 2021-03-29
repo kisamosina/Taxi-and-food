@@ -30,9 +30,9 @@ class LanguageViewController: UIViewController {
     }
     
     func configure() {
-        models.append(LanguageOption(title: SettingsViewControllerText.rusLanguageCellTittleText))
+        models.append(LanguageOption(title: SettingsViewControllerText.rusLanguageCellTittleText, isSelected: false))
         
-        models.append(LanguageOption(title: SettingsViewControllerText.engLanguageCellTittleText))
+        models.append(LanguageOption(title: SettingsViewControllerText.engLanguageCellTittleText, isSelected: false))
     }
 
 
@@ -51,26 +51,35 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.configure(with: model)
+        cell.accessoryType = models[indexPath.row].isSelected ? .checkmark : .none
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        models[indexPath.row].isSelected = !models[indexPath.row].isSelected
+        self.tableView.reloadData()
         if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
             
             if indexPath.row == 0 {
                 UserDefaults.standard.storeLanguage(AppLanguages.rus.rawValue)
+                
             } else {
                 UserDefaults.standard.storeLanguage(AppLanguages.eng.rawValue)
             }
             models.removeAll()
             configure()
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
+            
            
         }
+        
+        
     
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
