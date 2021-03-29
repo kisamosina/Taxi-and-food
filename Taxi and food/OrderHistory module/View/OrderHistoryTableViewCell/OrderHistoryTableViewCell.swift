@@ -27,8 +27,6 @@ class OrderHistoryTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.parentView.layer.masksToBounds = false
-        
-//        fix naming
 
         self.parentView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.parentView.layer.shadowOpacity = Float(PaymentHistoryCellViewLayer.shadowOpacity.rawValue)
@@ -63,6 +61,7 @@ class OrderHistoryTableViewCell: UITableViewCell {
         }
 
         self.sumLabel.text = String(data.forPayment) + OrderHistoryViewControllerTexts.rubText
+
 
     }
     

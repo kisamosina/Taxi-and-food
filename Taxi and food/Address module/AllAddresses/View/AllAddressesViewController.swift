@@ -83,12 +83,8 @@ class AllAddressesViewController: UIViewController {
 extension AllAddressesViewController: AllAddressesViewProtocol {
     func updateTableViewData() {
         DispatchQueue.main.async {
-        self.tableView.reloadData()
-            print("cell model")
-            print(self.cellModel)
-            print("array of addresses")
-            print(self.cellModel)
-
+            
+            self.tableView.reloadData()
             var heightOfTableView: CGFloat = 0.0
 
             let cells = self.tableView.visibleCells
@@ -97,10 +93,6 @@ extension AllAddressesViewController: AllAddressesViewProtocol {
                 print(cell.frame.height)
             }
             self.backImageTopConstraint.constant = self.view.frame.height - heightOfTableView - self.backImage.frame.height
-            print("cells count")
-            print(cells.count)
-
-            print(heightOfTableView)
             
             if self.cellModel?.count != 0 {
                 self.backImage = UIImageView(image: UIImage(named: "addressFull"))

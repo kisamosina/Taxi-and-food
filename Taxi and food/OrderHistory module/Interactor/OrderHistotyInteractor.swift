@@ -11,52 +11,42 @@ import Foundation
 protocol OrderHistotyInteractorProtocol: class {
     
     var view: OrderHistoryViewProtocol! { get }
-    var orderHistoryData: [OrderHistoryResponseData] { get set }
-    var orderStatus: String! { get set }
     
+    var orderDoneHistoryData: [OrderHistoryResponseData] { get set }
+    var orderCanceledHistoryData: [OrderHistoryResponseData] { get set }
+    
+    var vcState: OrderHistoryViewControllerStates! { get set }
+    
+
     init(view: OrderHistoryViewProtocol)
+    
 }
 
 class OrderHistotyInteractor: OrderHistotyInteractorProtocol {
-    var orderHistoryData: [OrderHistoryResponseData] = []
+
+    var orderDoneHistoryData: [OrderHistoryResponseData] = []
+    var orderCanceledHistoryData: [OrderHistoryResponseData] = []
     
-    var orderStatus: String! = "canceled"
-    
-    
+    var vcState: OrderHistoryViewControllerStates! = .done
+
     internal weak var view: OrderHistoryViewProtocol!
     
     required init(view: OrderHistoryViewProtocol) {
         self.view = view
-        loadOrders()
+        self.loadDoneOrders()
+        self.loadCanceledOrders()
+
     }
     
-    func loadOrders() {
-        
-        print("want to load")
-        
-        //        guard let userData = PersistanceStoreManager.shared.getUserData() else {
-        //            print("No user id in storage")
-        //            return
-        //        }
-                
-//                let id = Int(userData[0].id)
+    func loadDoneOrders() {
         let id = 2
         let type = "all"
-//        let status = "done"
-        
-        switch OrderStatusType.getOrderStatusType(from: orderStatus) {
-        case .done:
-            self.orderStatus = "done"
-        case .canceled:
-            self.orderStatus = "canceled"
-        case .unknown:
-            self.orderStatus = "done"
-            
-        }
-        let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id, and: type, and: orderStatus),
+        let status = "done"
+           
+
+        let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id, and: type, and: status),
         requestType: .GET)
-        print("resource")
-        print(resource)
+
 
         NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
 
@@ -65,13 +55,42 @@ class OrderHistotyInteractor: OrderHistotyInteractorProtocol {
                     switch result {
 
                     case .success(let response):
-                        self.orderHistoryData = response.data
+                        self.orderDoneHistoryData = response.data
                         self.view.configureViewElements()
-                        print("here is my data")
+                        self.view.refreshTableView()
+
                     case .failure(let error):
                         print(error)
                     }
                 })
+    }
+    
+    func loadCanceledOrders() {
+        
+        let id = 2
+        let type = "all"
+        let status = "canceled"
+           
+
+        let resource = Resource<OrderHistoryResponse>(path: OrderRequestPaths.history.rawValue.getServerPath(for: id, and: type, and: status),
+        requestType: .GET)
+
+        NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
+
+                    guard let self = self else { return }
+
+                    switch result {
+
+                    case .success(let response):
+                        self.orderCanceledHistoryData = response.data
+                        self.view.configureViewElements()
+                        self.view.refreshTableView()
+
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+        
     }
    
 }

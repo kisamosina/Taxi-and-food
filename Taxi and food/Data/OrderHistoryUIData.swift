@@ -194,3 +194,24 @@ enum OrderStatusType {
     }
     
 }
+
+enum SelectedIndex: Int {
+    case null = 0
+    case one = 1
+    
+    static func getSelectedIndex(from index: Int) -> Int {
+        switch index {
+        
+        case 0:
+            return 0
+            
+        case 1:
+            return 1
+    
+        default:
+            return 0
+        }
+    }
+    
+}
+

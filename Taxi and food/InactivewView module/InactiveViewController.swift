@@ -26,6 +26,7 @@ class InactiveViewController: UIViewController {
     private var payDetailView: PaymentHistoryDetailView!
     private var rectOfCell: CGRect!
     private var paymentHistoryData: PaymentsHistoryResponseData!
+    private var orderHistoryData: OrderHistoryResponseData!
     private var transitionBottomView: TransitionBottomView!
     private var aboutPointsView: AboutPointsView!
     private var personalDataTransitionView: PersonalDataBottomView!
@@ -65,13 +66,7 @@ class InactiveViewController: UIViewController {
         personalDataViewPadding = endFrameY
 
     }
-//
-//    @objc private func keyboardWillDisappear(notification: NSNotification) {
-//        keyboardWillHide(constraint: personalDataViewBottomConstraint, notification: notification)
-//
-//        print("keyboard dissapeared")
-//        print(personalDataViewBottomConstraint.constant)
-//    }
+
     
     
     private func setView() {
@@ -80,6 +75,9 @@ class InactiveViewController: UIViewController {
         
         case .showPaymentHistoryDetailView:
             self.showPaymentHistoryDetailView(for: rectOfCell, and: paymentHistoryData)
+            
+        case .showPaymentHistoryDetailView:
+            self.showPaymentOrderHistoryDetailView(for: rectOfCell, and: orderHistoryData)
             
         case .showLogoutView:
             self.showLogoutView()
@@ -232,10 +230,22 @@ extension InactiveViewController {
                        completion: nil)
     }
     
+     // Show order History detail view
+    
+    func showPaymentOrderHistoryDetailView(for cell: CGRect, and data: PaymentsHistoryResponseData) {
+        
+    }
+    
     func setCellRectAndDetailViewData(rect: CGRect, data: PaymentsHistoryResponseData) {
         self.vcState = .showPaymentHistoryDetailView
         self.rectOfCell = rect
         self.paymentHistoryData = data
+    }
+    
+    func setCellRectAndDetailViewOrderData(rect: CGRect, data: OrderHistoryResponseData) {
+        self.vcState = .showPaymentHistoryDetailView
+        self.rectOfCell = rect
+        self.orderHistoryData = data
     }
 }
 

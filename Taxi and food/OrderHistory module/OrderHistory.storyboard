@@ -15,16 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3nK-kO-uqY">
-                                <rect key="frame" x="0.0" y="88" width="414" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="tBS-3T-HR8"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EEz-fl-8ef">
                                 <rect key="frame" x="0.0" y="132" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -46,6 +36,16 @@
                                 <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3nK-kO-uqY">
+                                <rect key="frame" x="27" y="88" width="360" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="tBS-3T-HR8"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -53,7 +53,7 @@
                             <constraint firstItem="bcS-4n-zy9" firstAttribute="centerX" secondItem="Zqw-Tx-bc4" secondAttribute="centerX" id="25r-SH-Ffz"/>
                             <constraint firstItem="bcS-4n-zy9" firstAttribute="trailing" secondItem="Zqw-Tx-bc4" secondAttribute="trailing" id="5KO-rl-H0A"/>
                             <constraint firstItem="3nK-kO-uqY" firstAttribute="top" secondItem="Zqw-Tx-bc4" secondAttribute="top" id="6sX-kS-Iea"/>
-                            <constraint firstItem="3nK-kO-uqY" firstAttribute="leading" secondItem="Zqw-Tx-bc4" secondAttribute="leading" id="8N3-pd-HPm"/>
+                            <constraint firstItem="3nK-kO-uqY" firstAttribute="leading" secondItem="Zqw-Tx-bc4" secondAttribute="leading" constant="27" id="8N3-pd-HPm"/>
                             <constraint firstItem="bcS-4n-zy9" firstAttribute="leading" secondItem="Zqw-Tx-bc4" secondAttribute="leading" id="8kE-Gb-KXg"/>
                             <constraint firstItem="bcS-4n-zy9" firstAttribute="leading" secondItem="Zqw-Tx-bc4" secondAttribute="leading" id="9FV-um-3n3"/>
                             <constraint firstItem="3nK-kO-uqY" firstAttribute="top" secondItem="Zqw-Tx-bc4" secondAttribute="top" id="CJV-KC-Yxr"/>
@@ -65,13 +65,12 @@
                             <constraint firstItem="bcS-4n-zy9" firstAttribute="leading" secondItem="Zqw-Tx-bc4" secondAttribute="leading" id="MIq-69-dd2"/>
                             <constraint firstItem="EEz-fl-8ef" firstAttribute="trailing" secondItem="Zqw-Tx-bc4" secondAttribute="trailing" id="PDP-Wr-EyX"/>
                             <constraint firstItem="Zqw-Tx-bc4" firstAttribute="trailing" secondItem="bcS-4n-zy9" secondAttribute="trailing" id="S7z-OT-7cz"/>
-                            <constraint firstItem="3nK-kO-uqY" firstAttribute="trailing" secondItem="Zqw-Tx-bc4" secondAttribute="trailing" id="SPx-wZ-6tx"/>
+                            <constraint firstItem="3nK-kO-uqY" firstAttribute="trailing" secondItem="Zqw-Tx-bc4" secondAttribute="trailing" constant="-27" id="SPx-wZ-6tx"/>
                             <constraint firstAttribute="bottom" secondItem="EEz-fl-8ef" secondAttribute="bottom" id="Xl8-fE-zg8"/>
                             <constraint firstItem="EEz-fl-8ef" firstAttribute="top" secondItem="3nK-kO-uqY" secondAttribute="bottom" constant="8" id="bJx-c3-tSx"/>
                             <constraint firstItem="3nK-kO-uqY" firstAttribute="top" secondItem="Zqw-Tx-bc4" secondAttribute="top" id="bvm-aE-KCM"/>
                             <constraint firstItem="bcS-4n-zy9" firstAttribute="trailing" secondItem="Zqw-Tx-bc4" secondAttribute="trailing" id="fW3-j5-7ts"/>
                             <constraint firstItem="EEz-fl-8ef" firstAttribute="leading" secondItem="Zqw-Tx-bc4" secondAttribute="leading" id="q5w-03-PPr"/>
-                            <constraint firstItem="3nK-kO-uqY" firstAttribute="trailing" secondItem="Zqw-Tx-bc4" secondAttribute="trailing" id="rjG-Hv-Q5b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zqw-Tx-bc4"/>
                     </view>
