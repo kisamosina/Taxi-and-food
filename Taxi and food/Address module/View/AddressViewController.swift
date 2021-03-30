@@ -57,7 +57,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
 
         configureUI()
         configureTextFields()
-        addTextFieldsTargets()
+//        addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self)
         
@@ -148,17 +148,17 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    private func addTextFieldsTargets() {
-        addressNameTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        addressTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        commentDriverTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        officeTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        entranceTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        intercomTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        floorTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-        commenCourierTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
-   
-    }
+//    private func addTextFieldsTargets() {
+//        addressNameTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        addressTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        commentDriverTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        officeTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        entranceTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        intercomTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        floorTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//        commenCourierTextField.addTarget(self, action: #selector(textDidChange(textField:)), for: .editingChanged)
+//
+//    }
     
 
     @IBAction func chooseDestinationTapped(_ sender: Any) {

@@ -215,7 +215,7 @@ extension MapInteractor {
     
     func getTariffs() {
         
-        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
         let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
         
         let resource = Resource<TariffResponse>(path: path, requestType: .GET)

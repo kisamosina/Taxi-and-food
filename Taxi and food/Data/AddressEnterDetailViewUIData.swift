@@ -13,7 +13,7 @@ enum AddressEnterDetailViewStringData: String {
 }
 
 enum AddressEnterDetailViewSizes: CGFloat {
-    case height = 230
+    case height = 260
 }
 
 enum AddressEnterDetailViewType {
