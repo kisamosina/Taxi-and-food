@@ -24,7 +24,7 @@ class MapViewController: UIViewController {
     
     //Address Enter Detail View
     private var addressEnterDetailView: AddressEnterDetailView!
-    private var addressEnterViewDetailLeadingConstraint: NSLayoutConstraint!
+    private var addressEnterViewDetailBottomConstraint: NSLayoutConstraint!
     
     //TipAddress View
     private var tipAddressView: TipAddressView!
@@ -241,10 +241,14 @@ extension MapViewController {
         if addressEnterView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) {
             
             if self.addressEnterViewBottomConstraint.constant == bottomPadding {
-                self.addressEnterViewBottomConstraint.constant = -kbHeight
+                self.addressEnterViewBottomConstraint.constant = -kbHeight + 20
                 if tipAddressView != nil {
                     self.tipAddressViewBottomAnchor.constant = -kbHeight
                 }
+            }
+            
+            if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterViewDetailBottomConstraint.constant == bottomPadding {
+                self.addressEnterViewDetailBottomConstraint.constant = -kbHeight + 20
             }
         }
 
@@ -256,6 +260,10 @@ extension MapViewController {
         if addressEnterView != nil {
             self.addressEnterViewBottomConstraint.constant = bottomPadding
             self.inactiveView.alpha = 0
+        }
+        
+        if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterDetailView != nil {
+            self.addressEnterViewDetailBottomConstraint.constant = bottomPadding
         }
     }
 }
@@ -617,7 +625,7 @@ extension MapViewController: AddressEnterViewDelegate {
     
     //Action when user swipe on address enter view
     func userHasSwipedViewDown() {
-        self.addressEnterView.endEditing(true)
+        self.interactor.setViewControllerState(.start)
     }
     
     //Action when Next button tapped
@@ -639,14 +647,14 @@ extension MapViewController {
         
         self.addressEnterDetailView.translatesAutoresizingMaskIntoConstraints = false
         
-        guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
+//        guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
         
-        let addressEnterViewDetailBottomConstraint = self.addressEnterDetailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: addressEnterViewBottomConstraint.constant)
-        let addressEnterViewDetailWidthConstraint = self.addressEnterDetailView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+        addressEnterViewDetailBottomConstraint = self.addressEnterDetailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: AddressEnterDetailViewSizes.height.rawValue + bottomPadding)
+        let addressEnterViewDetailTrailingConstraint = self.addressEnterDetailView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         let addressEnterViewDetailHeightConstraint = self.addressEnterDetailView.heightAnchor.constraint(equalToConstant: AddressEnterDetailViewSizes.height.rawValue)
-        self.addressEnterViewDetailLeadingConstraint = self.addressEnterDetailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: UIScreen.main.bounds.width)
+        let addressEnterViewDetailLeadingConstraint = self.addressEnterDetailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         
-        NSLayoutConstraint.activate([addressEnterViewDetailBottomConstraint, addressEnterViewDetailWidthConstraint, addressEnterViewDetailHeightConstraint, addressEnterViewDetailLeadingConstraint ])
+        NSLayoutConstraint.activate([addressEnterViewDetailBottomConstraint, addressEnterViewDetailTrailingConstraint, addressEnterViewDetailHeightConstraint, addressEnterViewDetailLeadingConstraint ])
     }
     
     //Setup AddressEnterDetailView before calling
@@ -660,8 +668,8 @@ extension MapViewController {
         
         guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
         
-        let rect = CGRect(x: UIScreen.main.bounds.width,
-                          y: UIScreen.main.bounds.height - (AddressEnterDetailViewSizes.height.rawValue + addressEnterViewBottomConstraint.constant),
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
                           width: UIScreen.main.bounds.width,
                           height: AddressEnterDetailViewSizes.height.rawValue)
         
@@ -677,7 +685,7 @@ extension MapViewController {
         
         //Animation
         self.addressEnterView.alpha = 0
-        self.addressEnterViewDetailLeadingConstraint.constant = 0
+        self.addressEnterViewDetailBottomConstraint.constant = addressEnterViewBottomConstraint.constant
                 
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -694,7 +702,7 @@ extension MapViewController {
     //Setup hide animation for Address enter view
     private func hideAddressEnterDetailView(completion: AnimationCompletion? = nil) {
         
-        self.addressEnterViewDetailLeadingConstraint.constant = UIScreen.main.bounds.width
+        self.addressEnterViewDetailBottomConstraint.constant = AddressEnterDetailViewSizes.height.rawValue + bottomPadding
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,

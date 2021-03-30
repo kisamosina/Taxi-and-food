@@ -10,10 +10,10 @@ import UIKit
 
 extension UIViewController {
     
-    func keyboardWillShow(constraint: NSLayoutConstraint, notification: NSNotification) {
+    func keyboardWillShow(constraint: NSLayoutConstraint, notification: NSNotification, padding: CGFloat = 0) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if constraint.constant == 0 {
-                constraint.constant -= keyboardSize.height
+                constraint.constant -= keyboardSize.height - padding
             }
         }
     }

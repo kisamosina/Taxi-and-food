@@ -38,8 +38,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZU-zy-T4U">
                     <rect key="frame" x="0.0" y="15" width="414" height="482"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Gzl-Ak-Mua">
-                            <rect key="frame" x="25" y="24" width="364" height="375"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7sT-sb-9kQ">
+                            <rect key="frame" x="25" y="25" width="364" height="360"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9N3-yR-j7l">
                                     <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
@@ -68,7 +68,7 @@
                                     </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QNB-7i-cNR">
-                                    <rect key="frame" x="0.0" y="59" width="364" height="34"/>
+                                    <rect key="frame" x="0.0" y="54" width="364" height="34"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-o9-KPR">
                                             <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
@@ -111,7 +111,7 @@
                                     </subviews>
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jCa-5w-xS9">
-                                    <rect key="frame" x="0.0" y="118" width="364" height="182"/>
+                                    <rect key="frame" x="0.0" y="108" width="364" height="182"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="182" id="0oY-mD-qgS"/>
@@ -122,7 +122,7 @@
                                     </connections>
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAd-GQ-FlG" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="325" width="364" height="50"/>
+                                    <rect key="frame" x="0.0" y="310" width="364" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Ab7-vs-3hl"/>
                                     </constraints>
@@ -136,9 +136,9 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="Gzl-Ak-Mua" firstAttribute="top" secondItem="JZU-zy-T4U" secondAttribute="top" constant="24" id="3Sj-s1-Kwg"/>
-                        <constraint firstAttribute="trailing" secondItem="Gzl-Ak-Mua" secondAttribute="trailing" constant="25" id="XTc-W2-PTw"/>
-                        <constraint firstItem="Gzl-Ak-Mua" firstAttribute="leading" secondItem="JZU-zy-T4U" secondAttribute="leading" constant="25" id="hzC-iC-uWp"/>
+                        <constraint firstAttribute="trailing" secondItem="7sT-sb-9kQ" secondAttribute="trailing" constant="25" id="WfW-2o-Ooo"/>
+                        <constraint firstItem="7sT-sb-9kQ" firstAttribute="leading" secondItem="JZU-zy-T4U" secondAttribute="leading" constant="25" id="uGr-uY-wwS"/>
+                        <constraint firstItem="7sT-sb-9kQ" firstAttribute="top" secondItem="JZU-zy-T4U" secondAttribute="top" constant="25" id="ynJ-hZ-EOw"/>
                     </constraints>
                 </view>
             </subviews>

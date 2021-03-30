@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wW8-2A-B04">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wW8-2A-B04">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Address View Controller-->
         <scene sceneID="eba-Pe-BlA">
             <objects>
-                <viewController id="02q-l2-vAb" customClass="AddressViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddressViewController" id="02q-l2-vAb" customClass="AddressViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="huk-Rg-due">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +46,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LA-XE-44n">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LA-XE-44n">
                                                                 <rect key="frame" x="314" y="0.0" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="60" id="y6t-mK-J5O"/>
@@ -133,7 +135,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CdB-5Z-hwY">
-                                                <rect key="frame" x="20" y="305" width="175" height="130"/>
+                                                <rect key="frame" x="20" y="292" width="175" height="130"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGh-aD-nhI">
                                                         <rect key="frame" x="0.0" y="0.0" width="175" height="60"/>
@@ -164,7 +166,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="IgW-fo-bkD" secondAttribute="trailing" id="zrC-Wy-3f3"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-tE-K9L" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWA-tE-K9L" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="733" width="364" height="50"/>
                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.23921568630000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -179,7 +181,7 @@
                                                     <action selector="seveButtonTapped:" destination="02q-l2-vAb" eventType="touchUpInside" id="wik-9g-Udj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2Q-cH-Bk0" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2Q-cH-Bk0" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="733" width="364" height="50"/>
                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.23921568630000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -202,7 +204,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84Z-or-Jtd" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84Z-or-Jtd" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="675" width="364" height="50"/>
                                                 <color key="backgroundColor" red="0.23137254900000001" green="0.23921568630000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -218,7 +220,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="z2Q-cH-Bk0" firstAttribute="top" secondItem="84Z-or-Jtd" secondAttribute="bottom" constant="8" id="4sH-Aq-UX3"/>
                                             <constraint firstAttribute="trailing" secondItem="bN1-li-mjS" secondAttribute="trailing" constant="20" id="5Dj-bF-tqV"/>
@@ -264,7 +266,8 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="WfE-yD-xc4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="78G-hv-CYJ" firstAttribute="width" secondItem="huk-Rg-due" secondAttribute="width" id="8rr-B7-SNW"/>
                             <constraint firstItem="bNq-hN-Agb" firstAttribute="trailing" secondItem="WfE-yD-xc4" secondAttribute="trailing" id="MFf-mD-Hj2"/>
@@ -273,10 +276,9 @@
                             <constraint firstAttribute="bottom" secondItem="bNq-hN-Agb" secondAttribute="bottom" id="ukn-2F-Uam"/>
                             <constraint firstItem="78G-hv-CYJ" firstAttribute="height" secondItem="huk-Rg-due" secondAttribute="height" multiplier="0.901786" id="woe-kB-tf1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="WfE-yD-xc4"/>
                     </view>
                     <navigationItem key="navigationItem" id="hA3-g8-PPV">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" style="plain" id="fDU-cs-ByH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hwi-3T-EF1">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
@@ -319,7 +321,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BuL-Sf-8YT">
                                 <rect key="frame" x="0.0" y="88" width="414" height="528"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AllAddressesViewController" rowHeight="60" id="bEe-aM-ser" customClass="AllAddressesCell" customModule="Taxi_and_food" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
@@ -377,6 +379,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eeg-Ra-Ccb"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="q2w-JL-Af7" firstAttribute="top" secondItem="BuL-Sf-8YT" secondAttribute="bottom" id="NXn-re-SB6"/>
@@ -384,7 +387,6 @@
                             <constraint firstItem="Eeg-Ra-Ccb" firstAttribute="trailing" secondItem="BuL-Sf-8YT" secondAttribute="trailing" id="g20-2L-hZ7"/>
                             <constraint firstItem="BuL-Sf-8YT" firstAttribute="leading" secondItem="Eeg-Ra-Ccb" secondAttribute="leading" id="icf-7Y-22k"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Eeg-Ra-Ccb"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Eq-js-ng2"/>
                     <connections>
@@ -411,14 +413,14 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XH8-pA-e64"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XH8-pA-e64" firstAttribute="trailing" secondItem="Wdq-M3-X25" secondAttribute="trailing" id="5oA-9R-bt3"/>
                             <constraint firstItem="Wdq-M3-X25" firstAttribute="top" secondItem="XH8-pA-e64" secondAttribute="top" id="YHv-kf-Ays"/>
                             <constraint firstItem="Wdq-M3-X25" firstAttribute="leading" secondItem="XH8-pA-e64" secondAttribute="leading" id="iki-To-1O6"/>
                             <constraint firstItem="XH8-pA-e64" firstAttribute="bottom" secondItem="Wdq-M3-X25" secondAttribute="bottom" id="lpD-BN-baf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="XH8-pA-e64"/>
                     </view>
                     <navigationItem key="navigationItem" id="JNU-Ya-NPw"/>
                     <connections>
@@ -453,6 +455,8 @@
     <resources>
         <image name="addressEmpty" width="1125" height="489"/>
         <image name="addressIcon" width="42" height="36"/>
-        <image name="backButton" width="10" height="17"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
