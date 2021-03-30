@@ -42,6 +42,7 @@ class OrderHistoryDetailView: UIView {
         let nib = UINib(nibName: OrderHistoryIds.OrderHistoryDetailView.rawValue, bundle: bundle)
         nib.instantiate(withOwner: self, options: nil)
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.layer.cornerRadius = 14
         self.addSubview(containerView)
         self.setupConstraints()
     
@@ -59,6 +60,11 @@ class OrderHistoryDetailView: UIView {
 
     func setupView(by data: OrderHistoryResponseData) {
         
+        print("data.tariff?.name")
+        print(data.tariff?.name)
+        guard let tariffame = data.tariff?.name else { return }
+        self.tariffLabel.text = tariffame
+        
         let unixDate = data.updatedAt
         let date = Date(timeIntervalSince1970: unixDate)
         let dateString = DateFormatter().getDateByDay(date: date)
@@ -74,7 +80,12 @@ class OrderHistoryDetailView: UIView {
         self.sumLabel.text = String(data.forPayment) + OrderHistoryViewControllerTexts.rubText
         self.paymentLabel.text = OrderHistoryDetailViewTexts.payment
         self.taxiImage.image = UIImage(named: CustomImagesNames.taxiType.rawValue)
- 
         
+        guard let payment = data.payment else { return }
+               
+              
+                   self.paymentLabel.text = OrderHistoryDetailViewTexts.payment + String(payment.orderId)
+        
+         
     }
 }

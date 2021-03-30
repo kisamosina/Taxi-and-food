@@ -11,6 +11,7 @@ import UIKit
 class OrderHistoryTableViewCell: UITableViewCell {
     
     var orderHistoryData: OrderHistoryResponseData!
+    var cellType: OrderType!
     
     @IBOutlet var parentView: UIView!
     @IBOutlet var sumLabel: UILabel!
@@ -45,6 +46,7 @@ class OrderHistoryTableViewCell: UITableViewCell {
         let dateString = DateFormatter().getDateByDay(date: date)
         self.dateLabel.text = dateString
         
+        
         let orderType = data.type
 
         switch OrderType.getOrderType(from: orderType) {
@@ -52,10 +54,13 @@ class OrderHistoryTableViewCell: UITableViewCell {
             self.orderImageView.image = UIImage(named: CustomImagesNames.foodType.rawValue)
             self.typeLabel.text = OrderHistoryViewControllerTexts.typeFood
             self.serviceLabel.text = OrderHistoryViewControllerTexts.typeFoodLabel
+            self.cellType = .food
+            
         case .taxi:
             self.orderImageView.image = UIImage(named: CustomImagesNames.taxiType.rawValue)
             self.typeLabel.text = OrderHistoryViewControllerTexts.typeTaxi
             self.serviceLabel.text = OrderHistoryViewControllerTexts.typeTaxiLabel
+            self.cellType = .taxi
         case .unknown:
             self.orderImageView.isHidden = true
         }

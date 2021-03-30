@@ -19,12 +19,13 @@
                 <outlet property="paymentLabel" destination="PNt-Zg-tv6" id="p0w-9i-2aX"/>
                 <outlet property="sumLabel" destination="NvF-wb-A3S" id="O7K-nT-hr1"/>
                 <outlet property="tariffLabel" destination="VF0-vh-GbZ" id="gqT-Wm-svS"/>
+                <outlet property="taxiImage" destination="Nx8-FK-vqr" id="T6i-dc-FhX"/>
                 <outlet property="toLabel" destination="jER-8h-q6A" id="pPm-zc-4t8"/>
                 <outlet property="travelTimeLabel" destination="0YO-cV-3I4" id="CeA-YE-MbQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="OrderHistoryDetailView" id="iN0-l3-epB">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="325" height="390"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -63,11 +64,14 @@
                                 <constraint firstAttribute="height" constant="100" id="26z-nd-IGx"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR1-uG-KIt">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR1-uG-KIt">
                             <rect key="frame" x="0.0" y="78" width="325" height="46"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="3cr-gn-7k3"/>
+                                <constraint firstAttribute="width" constant="325" id="McW-jO-kpZ"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -147,7 +151,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VF0-vh-GbZ">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VF0-vh-GbZ">
                             <rect key="frame" x="260" y="10" width="57" height="20"/>
                             <color key="backgroundColor" red="0.62745098039215685" green="0.88235294117647056" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -161,6 +165,7 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="14"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNt-Zg-tv6">
@@ -195,15 +200,18 @@
                         <constraint firstAttribute="trailing" secondItem="NvF-wb-A3S" secondAttribute="trailing" constant="147" id="F5P-ie-eq8"/>
                         <constraint firstItem="GSZ-IY-c1I" firstAttribute="leading" secondItem="85P-k9-X5A" secondAttribute="leading" constant="8" id="FUN-S3-PPH"/>
                         <constraint firstItem="Nx8-FK-vqr" firstAttribute="top" secondItem="tWh-tX-7w1" secondAttribute="bottom" constant="8" id="FtT-V1-sXC"/>
+                        <constraint firstItem="rR1-uG-KIt" firstAttribute="leading" secondItem="85P-k9-X5A" secondAttribute="leading" id="IMm-qh-kpS"/>
                         <constraint firstAttribute="bottom" secondItem="Nx8-FK-vqr" secondAttribute="bottom" constant="77" id="LHc-AG-Yfc"/>
                         <constraint firstItem="Nx8-FK-vqr" firstAttribute="leading" secondItem="85P-k9-X5A" secondAttribute="leading" constant="37" id="MSq-QK-Yt1"/>
                         <constraint firstItem="PNt-Zg-tv6" firstAttribute="top" secondItem="NvF-wb-A3S" secondAttribute="bottom" constant="8" id="Mjy-bS-3Mx"/>
                         <constraint firstItem="GSZ-IY-c1I" firstAttribute="top" secondItem="85P-k9-X5A" secondAttribute="top" constant="10" id="Oxk-RI-kXr"/>
                         <constraint firstItem="hsF-bd-Ysi" firstAttribute="top" secondItem="GSZ-IY-c1I" secondAttribute="bottom" constant="32" id="Qyv-g8-Ou1"/>
                         <constraint firstItem="VF0-vh-GbZ" firstAttribute="leading" secondItem="GSZ-IY-c1I" secondAttribute="trailing" constant="57" id="SXu-Ha-I2o"/>
+                        <constraint firstAttribute="trailing" secondItem="rR1-uG-KIt" secondAttribute="trailing" id="Sex-Ps-5ea"/>
                         <constraint firstItem="VF0-vh-GbZ" firstAttribute="top" secondItem="85P-k9-X5A" secondAttribute="top" constant="10" id="TNQ-4A-Cal"/>
                         <constraint firstItem="NvF-wb-A3S" firstAttribute="top" secondItem="Nx8-FK-vqr" secondAttribute="bottom" constant="5" id="W48-B8-6c6"/>
                         <constraint firstItem="tWh-tX-7w1" firstAttribute="leading" secondItem="85P-k9-X5A" secondAttribute="leading" constant="8" id="ggI-oS-0aS"/>
+                        <constraint firstItem="rR1-uG-KIt" firstAttribute="top" secondItem="85P-k9-X5A" secondAttribute="top" constant="78" id="lWR-lI-INh"/>
                         <constraint firstItem="Nx8-FK-vqr" firstAttribute="top" secondItem="85P-k9-X5A" secondAttribute="top" constant="213" id="ugH-V3-Y6a"/>
                         <constraint firstItem="PNt-Zg-tv6" firstAttribute="leading" secondItem="85P-k9-X5A" secondAttribute="leading" constant="8" id="zW5-Or-d5R"/>
                     </constraints>
@@ -223,6 +231,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="14"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="138.40579710144928" y="116.51785714285714"/>
         </view>
     </objects>

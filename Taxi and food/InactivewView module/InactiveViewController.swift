@@ -25,6 +25,7 @@ class InactiveViewController: UIViewController {
     
     private var payDetailView: PaymentHistoryDetailView!
     private var orderDetailView: OrderHistoryDetailView!
+    private var orderFoodDetailView: OrderFoodHistoryDetailView!
     private var rectOfCell: CGRect!
     private var paymentHistoryData: PaymentsHistoryResponseData!
     private var orderHistoryData: OrderHistoryResponseData!
@@ -78,8 +79,9 @@ class InactiveViewController: UIViewController {
             self.showPaymentHistoryDetailView(for: rectOfCell, and: paymentHistoryData)
             
         case .showOrderHistoryDetailView:
-            self.showOrderHistoryDetailView(for: rectOfCell, and: orderHistoryData)
-            
+            self.showOrderTaxiHistoryDetailView(for: rectOfCell, and: orderHistoryData)
+        case .showOrderFoodHistoryDetailView:
+            self.showOrderFoodHistoryDetailView(for: rectOfCell, and: orderHistoryData)
         case .showLogoutView:
             self.showLogoutView()
             
@@ -103,6 +105,8 @@ class InactiveViewController: UIViewController {
         case .showPaymentHistoryDetailView:
             self.dismiss(animated: false, completion: nil)
         case .showOrderHistoryDetailView:
+            self.dismiss(animated: false, completion: nil)
+        case .showOrderFoodHistoryDetailView:
             self.dismiss(animated: false, completion: nil)
         case .showLogoutView:
             self.hideTransitionBottomView(completion: closeCompletion)
@@ -197,13 +201,13 @@ extension InactiveViewController {
     }
 }
 
-//MARK: - When order history detail case
+//MARK: - When order taxi history detail case
 
 extension InactiveViewController {
 
-// Show order History detail view
+// Show Order Taxi History detail view
    
-   func showOrderHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
+   func showOrderTaxiHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
        
        let rect = CGRect(x: cell.origin.x,
                          y: cell.origin.y,
@@ -240,8 +244,50 @@ extension InactiveViewController {
         self.orderHistoryData = data
     }
 }
-       
+
+//MARK: - When order food history detail case
+
+extension InactiveViewController {
+
+// Show Order Taxi History detail view
    
+   func showOrderFoodHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
+       
+       let rect = CGRect(x: cell.origin.x,
+                         y: cell.origin.y,
+                         width: OrderFoodHistoryDetailViewUIData.width.rawValue,
+                         height: OrderFoodHistoryDetailViewUIData.height.rawValue)
+       
+    self.orderFoodDetailView = OrderFoodHistoryDetailView(frame: rect)
+    self.orderFoodDetailView.alpha = 0
+    self.orderFoodDetailView.setupView(by: data)
+    self.view.addSubview(orderFoodDetailView)
+       
+       //Animation
+       
+       UIView.animate(withDuration: 0.5,
+                      delay: 0,
+                      usingSpringWithDamping: 0.9,
+                      initialSpringVelocity: 1,
+                      options: .curveEaseOut,
+                      animations: {[unowned self] in
+                       self.view.layoutIfNeeded()
+                       self.orderFoodDetailView.alpha = 1
+                       self.orderFoodDetailView.frame = CGRect(x: self.view.bounds.width/2 - OrderFoodHistoryDetailViewUIData.width.rawValue/2,
+                                                         y: self.view.bounds.height/2 - OrderFoodHistoryDetailViewUIData.height.rawValue/2,
+                                                         width: OrderFoodHistoryDetailViewUIData.width.rawValue,
+                                                         height: OrderFoodHistoryDetailViewUIData.height.rawValue)
+                      },
+                      completion: nil)
+    
+    }
+    
+    func setCellRectAndDetailViewOrderFoodData(rect: CGRect, data: OrderHistoryResponseData) {
+        self.vcState = .showOrderFoodHistoryDetailView
+        self.rectOfCell = rect
+        self.orderHistoryData = data
+    }
+}
 
 
 //MARK: - When payment history detail case

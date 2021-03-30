@@ -44,8 +44,8 @@
 		041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */; };
 		043C91FE26119ECD00E141BB /* OrderHistoryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C91FD26119ECD00E141BB /* OrderHistoryDetailView.xib */; };
 		043C920026119EE600E141BB /* OrderHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */; };
-		043C92032612059E00E141BB /* OrderHistoryFoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C92022612059E00E141BB /* OrderHistoryFoodDetailView.swift */; };
-		043C9205261205B200E141BB /* OrderHistoryFoodDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C9204261205B200E141BB /* OrderHistoryFoodDetailView.xib */; };
+		043C92032612059E00E141BB /* OrderFoodHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */; };
+		043C92092612FD2600E141BB /* OrderFoodHistoryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C92082612FD2600E141BB /* OrderFoodHistoryDetailView.xib */; };
 		043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
@@ -267,8 +267,8 @@
 		041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
 		043C91FD26119ECD00E141BB /* OrderHistoryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHistoryDetailView.xib; sourceTree = "<group>"; };
 		043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryDetailView.swift; sourceTree = "<group>"; };
-		043C92022612059E00E141BB /* OrderHistoryFoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryFoodDetailView.swift; sourceTree = "<group>"; };
-		043C9204261205B200E141BB /* OrderHistoryFoodDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHistoryFoodDetailView.xib; sourceTree = "<group>"; };
+		043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFoodHistoryDetailView.swift; sourceTree = "<group>"; };
+		043C92082612FD2600E141BB /* OrderFoodHistoryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderFoodHistoryDetailView.xib; sourceTree = "<group>"; };
 		043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDestinationView.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
@@ -642,8 +642,8 @@
 		043C92012612053E00E141BB /* OrderHistoryFoodDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				043C92022612059E00E141BB /* OrderHistoryFoodDetailView.swift */,
-				043C9204261205B200E141BB /* OrderHistoryFoodDetailView.xib */,
+				043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */,
+				043C92082612FD2600E141BB /* OrderFoodHistoryDetailView.xib */,
 			);
 			path = OrderHistoryFoodDetailView;
 			sourceTree = "<group>";
@@ -1509,7 +1509,6 @@
 				049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
 				7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */,
-				043C9205261205B200E141BB /* OrderHistoryFoodDetailView.xib in Resources */,
 				7B3A902025ED60F5008CA13E /* PaymentHistoryDetailView.xib in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				7B3A900325EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib in Resources */,
@@ -1517,6 +1516,7 @@
 				7BEA203726008529007DD69A /* AddressEnterView.xib in Resources */,
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
 				7BD7CB8326036AA30099C9B7 /* AboutPointsView.xib in Resources */,
+				043C92092612FD2600E141BB /* OrderFoodHistoryDetailView.xib in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				04B73EF4260A2CAE003A9AEE /* PersonalDataBottomView.xib in Resources */,
@@ -1572,7 +1572,7 @@
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
 				7BD7CB7E26036A4A0099C9B7 /* AboutPointsView.swift in Sources */,
 				049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */,
-				043C92032612059E00E141BB /* OrderHistoryFoodDetailView.swift in Sources */,
+				043C92032612059E00E141BB /* OrderFoodHistoryDetailView.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
 				7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,

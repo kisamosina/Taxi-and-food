@@ -26,7 +26,7 @@ struct OrderHistoryResponseData: Decodable {
     var type: String
     var status: String
     var courier: [CourierData]?
-//    var comment: CommentData?
+    var payment: PaymentData?
     var tariff: TariffHistoryData?
     var promoCodes: [PromocodeHistoryData]?
     var availablePromoCodes: [PromocodeHistoryData]?
@@ -83,4 +83,9 @@ struct TariffHistoryData: Decodable {
 
 struct CommentData: Decodable {
     var banknote: Int
+}
+
+struct PaymentData: Decodable {
+    var id: Int
+    var orderId: Int
 }

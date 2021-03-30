@@ -12,19 +12,14 @@ protocol OrderHistoryViewProtocol: class {
     var interactor: OrderHistotyInteractorProtocol! { get set }
     
     func configureViewElements()
-    
     func refreshTableView()
-    
-   
-    
+  
 }
 
 class OrderHistoryViewController: UIViewController {
     
     var interactor: OrderHistotyInteractorProtocol!
-    
-    
-    
+
     //MARK: - IBOutlets
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var emptyLabel: UILabel!
@@ -140,10 +135,21 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
         guard let vc = self.getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else {
             return
         }
+        
+        switch cell.cellType {
+        case .taxi:
         vc.setCellRectAndDetailViewOrderData(rect: rectOfCellInSuperview, data: cell.orderHistoryData)
         self.present(vc, animated: false)
+        case .food:
+            vc.setCellRectAndDetailViewOrderFoodData(rect: rectOfCellInSuperview, data: cell.orderHistoryData)
+            self.present(vc, animated: false)
+        case .none:
+            break
         
-    }
+        case .some(.unknown):
+            break
+        }
+}
  
 }
 

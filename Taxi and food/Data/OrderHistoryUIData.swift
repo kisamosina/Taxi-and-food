@@ -278,13 +278,18 @@ struct OrderHistoryViewControllerTexts {
 
 enum OrderHistoryIds: String {
     case OrderHistoryDetailView
-    case OrderHistoryFoodDetailView
+    case OrderFoodHistoryDetailView
     case id = "OrderHistoryTableViewCell"
 }
 
-enum OrderHistoryDetailViewUIData: CGFloat {
-    case width = 324
+enum OrderTaxiHistoryDetailViewUIData: CGFloat {
+    case width = 325
     case height = 345
+}
+
+enum OrderFoodHistoryDetailViewUIData: CGFloat {
+    case width = 325
+    case height = 350
 }
 
 enum OrderHistoryViewControllerStates {

@@ -1,5 +1,5 @@
 //
-//  OrderHistoryFoodDetailView.swift
+//  OrderFoodHistoryDetailView.swift
 //  Taxi and food
 //
 //  Created by mac on 29/03/2021.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class OrderHistoryFoodDetailView: UIView {
-    
+class OrderFoodHistoryDetailView: UIView {
+
     @IBOutlet var containerView: UIView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var orderListLabel: UILabel!
@@ -33,11 +33,13 @@ class OrderHistoryFoodDetailView: UIView {
     
     private func initSubviews() {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: OrderHistoryIds.OrderHistoryFoodDetailView.rawValue, bundle: bundle)
+        let nib = UINib(nibName: OrderHistoryIds.OrderFoodHistoryDetailView.rawValue, bundle: bundle)
         nib.instantiate(withOwner: self, options: nil)
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.layer.cornerRadius = 14
         self.addSubview(containerView)
         self.setupConstraints()
+        
     
     }
     
@@ -50,7 +52,9 @@ class OrderHistoryFoodDetailView: UIView {
         ])
     }
     
-    func setUpView(by data: OrderHistoryResponseData) {
+    func setupView(by data: OrderHistoryResponseData) {
+        
+       
         
         let unixDate = data.updatedAt
         let date = Date(timeIntervalSince1970: unixDate)
@@ -62,14 +66,40 @@ class OrderHistoryFoodDetailView: UIView {
         self.storeLabel.text = ""
         self.courierLabel.text = OrderHistoryDetailViewTexts.courier + String(data.courier?[0].name ?? "")
         self.toLabel.text = OrderHistoryDetailViewTexts.store + String(data.to)
+        print("data.products")
+        print(data.products)
         
-        let productName = String(data.products?[0].name ?? "")
-        let composition = String(data.products?[0].composition ?? "")
-        let weight = String(data.products?[0].weight ?? 0)
-        let unit = String(data.products?[0].unit ?? "")
-        self.orderListLabel.text = OrderHistoryDetailViewTexts.orderList + productName + composition + weight + unit
+        guard let products = data.products else { return }
+        
+        var arrayOfProducts: [String] = []
+        var productDescription = String()
+        
+        for product in products {
+            let name = product.name
+            let composition = product.composition
+            let unit = product.unit
+            
+            productDescription = name + " " + composition + " " + unit
+            arrayOfProducts.append(productDescription)
+
+        }
+        
+        for descr in arrayOfProducts {
+            
+            self.orderListLabel.text = OrderHistoryDetailViewTexts.orderList + descr
+            
+        }
+        
         
         self.sumLabel.text = String(data.forPayment) + OrderHistoryViewControllerTexts.rubText
+        
+        guard let payment = data.payment else { return }
+        
+       
+            self.paymentNumberLabel.text = OrderHistoryDetailViewTexts.payment + String(payment.orderId)
+            
+        
+        
         
     }
 
