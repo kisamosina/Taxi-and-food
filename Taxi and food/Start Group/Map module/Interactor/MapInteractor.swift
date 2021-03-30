@@ -85,9 +85,6 @@ class MapInteractor: MapInteractorProtocol {
      func getAllPromos() {
 
          let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3)
-         print("path")
-         print(path)
-
          let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
         NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
@@ -111,10 +108,6 @@ class MapInteractor: MapInteractorProtocol {
             
             var bool = false
             let date = Date()
-        
-        print("mydate")
-        print(date)
-
             let promoTime_fromSec = timeFrom.addNanoSec()
             let promoTime_toSec = timeTo.addNanoSec()
             
@@ -139,7 +132,7 @@ class MapInteractor: MapInteractorProtocol {
 
 
             if finalTimeFrom <= finalTimeCurrent && finalTimeTo >= finalTimeCurrent{
-                print("true")
+
                 bool = true
             }
 
@@ -198,7 +191,7 @@ extension MapInteractor {
         
         let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {[weak self] paymentResponse in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] paymentResponse in
             guard let self = self else { return }
             
             switch paymentResponse {
@@ -212,7 +205,7 @@ extension MapInteractor {
                 print(error.localizedDescription)
             }
             
-        }
+        })
     }
 }
 
@@ -227,7 +220,7 @@ extension MapInteractor {
         
         let resource = Resource<TariffResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {[weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
             
@@ -236,7 +229,7 @@ extension MapInteractor {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
 }
 
@@ -251,7 +244,7 @@ extension MapInteractor {
         
         let resource = Resource<AddressResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) { [weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -261,7 +254,7 @@ extension MapInteractor {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
     
 }

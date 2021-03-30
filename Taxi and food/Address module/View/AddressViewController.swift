@@ -210,18 +210,9 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         self.interactor.sendAddressRequest(name: addressNameTextField?.text, address: address, commentDriver: commentDriverTextField?.text, commentCourier: commenCourierTextField?.text, flat: Int(officeTextField?.text ?? ""), intercom: Int(intercomTextField?.text ?? ""), entrance: Int(entranceTextField?.text ?? ""), floor: Int(floorTextField?.text ?? ""), destination: destination)
         
         performSegue(withIdentifier: ViewControllers.AllAddressesViewController.rawValue, sender: self)
-        
-        print("save tapped")
+
     }
     
-    @objc private func textDidChange(textField: UITextField) {
-        
-        let text = textField.text
-        print("text")
-        print(text)
-        
-        
-    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let point = CGPoint(x: 0.0, y: commenCourierTextField.frame.origin.y)

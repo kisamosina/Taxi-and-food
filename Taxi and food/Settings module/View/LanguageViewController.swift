@@ -60,7 +60,7 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
         
         models[indexPath.row].isSelected = !models[indexPath.row].isSelected
         self.tableView.reloadData()
-        if let cell = tableView.cellForRow(at: indexPath) {
+        if tableView.cellForRow(at: indexPath) != nil {
             
             if indexPath.row == 0 {
                 UserDefaults.standard.storeLanguage(AppLanguages.rus.rawValue)
@@ -70,12 +70,9 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
             }
             models.removeAll()
             configure()
-//            self.tableView.reloadData()
-            
-           
+  
         }
-        
-        
+     
     
     }
     

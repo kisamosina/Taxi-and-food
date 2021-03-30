@@ -44,37 +44,15 @@ class AllAddressesViewController: UIViewController {
         self.interactor.getAllAddresses()
         
         self.backImageTopConstraint.constant += self.view.frame.height + 200
-       
-        print("self.backImageTopConstraint.constant")
-        print(self.backImageTopConstraint.constant)
-        
 
-        
-        print("self.view.frame.height")
-        print(self.view.frame.height)
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        var heightOfTableView: CGFloat = 0.0
-//
-//        let cells = tableView.visibleCells
-//        for cell in cells {
-//            heightOfTableView += cell.frame.height
-//        }
-//        self.backImageTopConstraint.constant = self.view.frame.height - heightOfTableView - self.backImage.frame.height
-//        print("cells count")
-//        print(cells.count)
-//    }
-    
 
     
     private func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemTitleText
         
         self.backImage = UIImageView(image: UIImage(named: "addressFull"))
-        
-      
+ 
     }
 
 }
@@ -84,10 +62,6 @@ extension AllAddressesViewController: AllAddressesViewProtocol {
     func updateTableViewData() {
         DispatchQueue.main.async {
         self.tableView.reloadData()
-            print("cell model")
-            print(self.cellModel)
-            print("array of addresses")
-            print(self.cellModel)
 
             var heightOfTableView: CGFloat = 0.0
 
@@ -97,10 +71,6 @@ extension AllAddressesViewController: AllAddressesViewProtocol {
                 print(cell.frame.height)
             }
             self.backImageTopConstraint.constant = self.view.frame.height - heightOfTableView - self.backImage.frame.height
-            print("cells count")
-            print(cells.count)
-
-            print(heightOfTableView)
             
             if self.cellModel?.count != 0 {
                 self.backImage = UIImageView(image: UIImage(named: "addressFull"))
@@ -124,9 +94,7 @@ extension AllAddressesViewController: UITableViewDelegate, UITableViewDataSource
         cell.addressNameLabel.text = cellModel?[indexPath.row].name
         cell.addressLabel.text = cellModel?[indexPath.row].address
         self.navigationItemName = cellModel?[indexPath.row].name
-        
-        
-        
+
         return cell
     }
     

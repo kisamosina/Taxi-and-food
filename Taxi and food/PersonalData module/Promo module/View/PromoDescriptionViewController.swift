@@ -48,18 +48,11 @@ class PromoDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("id")
-        print(id)
-        print(data)
-        
+
         self.interactor = PromoDescriptionInteractor(view: self)
         
         interactor.getPromosDescription(for: id!)
-       
-        
-        print("description")
-        print(interactor.promo)
-        
+
         setUp()
  
     }
