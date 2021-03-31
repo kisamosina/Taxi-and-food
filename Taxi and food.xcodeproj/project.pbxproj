@@ -208,12 +208,15 @@
 		7D868D3D260E78EC00D3A91E /* TipAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D868D3C260E78EC00D3A91E /* TipAddressView.swift */; };
 		7D868D45260E794200D3A91E /* TipAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D868D44260E794200D3A91E /* TipAddressView.xib */; };
 		7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */; };
+		7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9067CA2614F02500B06BAB /* ShopsView.swift */; };
+		7D9067D02614F06400B06BAB /* ShopsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9067CF2614F06400B06BAB /* ShopsView.xib */; };
 		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
 		7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */; };
 		7DD6B17525F01A8B00445407 /* PersonalAccountUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */; };
 		7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B17925F01C9500445407 /* LogOutButton.swift */; };
+		7DD93B5A2614F90000AC3990 /* ShopsViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -441,12 +444,15 @@
 		7D868D3C260E78EC00D3A91E /* TipAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAddressView.swift; sourceTree = "<group>"; };
 		7D868D44260E794200D3A91E /* TipAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TipAddressView.xib; sourceTree = "<group>"; };
 		7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipAddressViewUIData.swift; sourceTree = "<group>"; };
+		7D9067CA2614F02500B06BAB /* ShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsView.swift; sourceTree = "<group>"; };
+		7D9067CF2614F06400B06BAB /* ShopsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopsView.xib; sourceTree = "<group>"; };
 		7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveVIewControllerDelegate.swift; sourceTree = "<group>"; };
 		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
 		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
 		7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
 		7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountUIData.swift; sourceTree = "<group>"; };
 		7DD6B17925F01C9500445407 /* LogOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutButton.swift; sourceTree = "<group>"; };
+		7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsViewUIData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -889,6 +895,7 @@
 				7B75CF3425DD6628001981CA /* Names.swift */,
 				7B75CEDD25DAE2E3001981CA /* NetworkRequestData.swift */,
 				7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */,
+				7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */,
 				7B3A8FEF25EA976B008CA13E /* PaymentHistoryUIData.swift */,
 				7D1F5EF125F3D29400892B6F /* PaymentWayUIData.swift */,
 				7DD6B17425F01A8B00445407 /* PersonalAccountUIData.swift */,
@@ -1031,6 +1038,7 @@
 				7B75CF1325DC4C53001981CA /* ProblemTextView.swift */,
 				043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
+				7D9067D42614F06B00B06BAB /* ShopsView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
@@ -1410,6 +1418,15 @@
 			path = TipAddressView;
 			sourceTree = "<group>";
 		};
+		7D9067D42614F06B00B06BAB /* ShopsView */ = {
+			isa = PBXGroup;
+			children = (
+				7D9067CA2614F02500B06BAB /* ShopsView.swift */,
+				7D9067CF2614F06400B06BAB /* ShopsView.xib */,
+			);
+			path = ShopsView;
+			sourceTree = "<group>";
+		};
 		7DD6B16B25F012C000445407 /* PersonalAccount module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1550,6 +1567,7 @@
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
 				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
+				7D9067D02614F06400B06BAB /* ShopsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1648,6 +1666,7 @@
 				041E298825DE2ADC00CA9F56 /* SettingsStaticCell.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
+				7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
 				7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */,
@@ -1745,6 +1764,7 @@
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
 				7D00DDF026076FAD004D5777 /* MapButtonViewUIData.swift in Sources */,
 				04B5655325D65B1D00E0EC25 /* Resource.swift in Sources */,
+				7DD93B5A2614F90000AC3990 /* ShopsViewUIData.swift in Sources */,
 				7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */,
 				041E29C525E7678000CA9F56 /* PromoModuleUIData.swift in Sources */,
 				7BD7CB8F26037CC20099C9B7 /* AboutPointsViewUIData.swift in Sources */,
