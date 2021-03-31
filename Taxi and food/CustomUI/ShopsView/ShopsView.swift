@@ -10,13 +10,14 @@ import UIKit
 
 class ShopsView: UIView {
     
+    //MARK: - IBOutlets
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var placeAddressLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     //MARK: - Initializers
     
@@ -55,7 +56,8 @@ class ShopsView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
-
+        let nib = UINib(nibName: ShopsViewNibsNames.ShopsViewCollectionViewCell.rawValue, bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: ShopsViewStringData.ShopsViewCollectionViewCell.rawValue)
     }
 
     

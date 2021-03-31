@@ -10,4 +10,9 @@ import Foundation
 
 enum ShopsViewNibsNames: String {
     case ShopsView
+    case ShopsViewCollectionViewCell
+}
+
+enum ShopsViewStringData: String {
+    case ShopsViewCollectionViewCell
 }
