@@ -14,7 +14,6 @@ enum TransitionBottomViewTypes {
     case points(PointsResponseData)
     case logout
     case deleteAddress
-//    case findAddressView
 }
 
 enum TransitionBottomViewSizes: CGFloat {

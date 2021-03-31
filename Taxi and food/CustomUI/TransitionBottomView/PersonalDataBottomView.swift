@@ -10,6 +10,7 @@ import UIKit
 
 class PersonalDataBottomView: UIView {
     
+    weak var delegate: PersonalDataViewDelegate?
     
     //MARK: - IBOutlets
     
@@ -19,6 +20,15 @@ class PersonalDataBottomView: UIView {
     
     @IBOutlet var mainButton: MainBottomButton!
     @IBOutlet var textfield: UITextField!
+    
+    var text: String? {
+        get {
+            return textfield.text
+        }
+        set {
+            textfield.text = newValue
+        }
+    }
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -55,15 +65,36 @@ class PersonalDataBottomView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setUpWhenPersonalDataEnter()
+        self.textfield.becomeFirstResponder()
+        self.textfield.addTarget(self, action: #selector(buttonActivate), for: .editingChanged)
     }
     
     func setUpWhenPersonalDataEnter() {
-//        self.textfield.placeholder =
         self.mainButton.setupAs(.approve)
         self.mainButton.setActive()
        
     }
     
+    func setPlaceholder(cellPlaceholder: String) {
+        self.textfield.placeholder = cellPlaceholder
+    }
+    
+    @objc private func buttonActivate() {
+        self.mainButton.setActive()
+    }
+    
+    @IBAction func mainButtonTapped(_ sender: Any) {
+        
+        
+        print("entered user's text")
+        print(text)
+        
+        
+        self.delegate?.approveDataButtonTapped(text ?? "")
+
+            
+        
+    }
     
     
 }

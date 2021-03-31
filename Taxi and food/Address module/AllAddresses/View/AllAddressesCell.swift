@@ -21,6 +21,7 @@ class AllAddressesCell: UITableViewCell {
         self.contentView.clipsToBounds = true
         self.accessoryType = .disclosureIndicator
         
+        
        
        }
 

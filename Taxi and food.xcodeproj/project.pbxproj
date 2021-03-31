@@ -25,7 +25,6 @@
 		041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299125DF796000CA9F56 /* LanguageOption.swift */; };
 		041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E299825E20E6400CA9F56 /* PersonalData.storyboard */; };
 		041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299A25E20ED700CA9F56 /* PersonalDataViewController.swift */; };
-		041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E299E25E210F600CA9F56 /* PersonalDataCell.swift */; };
 		041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */; };
 		041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E29A225E21AEA00CA9F56 /* Settings.storyboard */; };
 		041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E29A425E21BF300CA9F56 /* Service.storyboard */; };
@@ -46,6 +45,8 @@
 		043C920026119EE600E141BB /* OrderHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */; };
 		043C92032612059E00E141BB /* OrderFoodHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */; };
 		043C92092612FD2600E141BB /* OrderFoodHistoryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C92082612FD2600E141BB /* OrderFoodHistoryDetailView.xib */; };
+		043C920B2614175F00E141BB /* PersonalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C920A2614175F00E141BB /* PersonalDataTableViewCell.swift */; };
+		043C920E26144CEF00E141BB /* PersonalDataViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C920D26144CEE00E141BB /* PersonalDataViewDelegate.swift */; };
 		043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */; };
 		0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51325DA30CD008CA6D0 /* AlertController.swift */; };
 		0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */; };
@@ -248,7 +249,6 @@
 		041E299125DF796000CA9F56 /* LanguageOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageOption.swift; sourceTree = "<group>"; };
 		041E299825E20E6400CA9F56 /* PersonalData.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalData.storyboard; sourceTree = "<group>"; };
 		041E299A25E20ED700CA9F56 /* PersonalDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataViewController.swift; sourceTree = "<group>"; };
-		041E299E25E210F600CA9F56 /* PersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataCell.swift; sourceTree = "<group>"; };
 		041E29A025E2175800CA9F56 /* PersonalDataModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataModuleUIData.swift; sourceTree = "<group>"; };
 		041E29A225E21AEA00CA9F56 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		041E29A425E21BF300CA9F56 /* Service.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
@@ -269,6 +269,8 @@
 		043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryDetailView.swift; sourceTree = "<group>"; };
 		043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFoodHistoryDetailView.swift; sourceTree = "<group>"; };
 		043C92082612FD2600E141BB /* OrderFoodHistoryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderFoodHistoryDetailView.xib; sourceTree = "<group>"; };
+		043C920A2614175F00E141BB /* PersonalDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataTableViewCell.swift; sourceTree = "<group>"; };
+		043C920D26144CEE00E141BB /* PersonalDataViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataViewDelegate.swift; sourceTree = "<group>"; };
 		043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDestinationView.swift; sourceTree = "<group>"; };
 		0465F51325DA30CD008CA6D0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		0465F51525DA39BA008CA6D0 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
@@ -562,7 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				041E299A25E20ED700CA9F56 /* PersonalDataViewController.swift */,
-				041E299E25E210F600CA9F56 /* PersonalDataCell.swift */,
+				043C920A2614175F00E141BB /* PersonalDataTableViewCell.swift */,
 				041E29A825E220BC00CA9F56 /* PersonalDataModel.swift */,
 				041E29AC25E2694000CA9F56 /* UAViewController.swift */,
 				041E29AE25E26B5200CA9F56 /* PPViewController.swift */,
@@ -1300,10 +1302,11 @@
 			isa = PBXGroup;
 			children = (
 				7D4748F825F7FC1600F744F7 /* TransitionBottomView.swift */,
+				043C920D26144CEE00E141BB /* PersonalDataViewDelegate.swift */,
 				04B73EF5260A2EDB003A9AEE /* PersonalDataBottomView.swift */,
+				04B73EF3260A2CAE003A9AEE /* PersonalDataBottomView.xib */,
 				7BA5139025FBA4190073AF21 /* Protocol */,
 				7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */,
-				04B73EF3260A2CAE003A9AEE /* PersonalDataBottomView.xib */,
 			);
 			path = TransitionBottomView;
 			sourceTree = "<group>";
@@ -1590,6 +1593,7 @@
 				7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */,
 				041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */,
 				049A3F6D25F2100500C31AED /* AddressModuleUIData.swift in Sources */,
+				043C920B2614175F00E141BB /* PersonalDataTableViewCell.swift in Sources */,
 				041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */,
 				7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */,
 				7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */,
@@ -1640,6 +1644,7 @@
 				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
 				7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
+				043C920E26144CEF00E141BB /* PersonalDataViewDelegate.swift in Sources */,
 				7D542B96260122320030FC2D /* LocationManager.swift in Sources */,
 				7BB36F3A25E6B90600649669 /* Formatter+Extension.swift in Sources */,
 				7B75D02825E512EE001981CA /* PromocodeModuleData.swift in Sources */,
@@ -1682,7 +1687,6 @@
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
-				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,

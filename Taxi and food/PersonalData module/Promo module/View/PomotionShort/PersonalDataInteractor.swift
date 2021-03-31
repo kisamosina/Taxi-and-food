@@ -12,9 +12,6 @@ protocol PersonalDataInteractorProtocol {
     var view: PersonalDataViewProtocol! { get }
     var models: [PersonalDataUISection] { get set }
     var personalDataTableViewData: PersonalDataData! { get set }
-    
-//    var personalDataTableViewData:
-    
     init(view: PersonalDataViewProtocol)
     
     func configure()
@@ -30,29 +27,20 @@ class PersonalDataInteractor: PersonalDataInteractorProtocol {
     
     required init(view: PersonalDataViewProtocol) {
         self.view = view
-//        self.configureData()
+
     }
     
     func configure() {
         
         guard let userData = PersistanceStoreManager.shared.getUserData(), let phoneNumber = userData[0].phoneNumber else { return }
+    
+        models.append(PersonalDataUISection(placeholder: " ", options: [PersonalDataUIOption(title: PhoneFormatter().format(phone: phoneNumber), text: "", accessoryType: false, key: "phone")]))
         
-        models.append(PersonalDataUISection(placeholder: "", options: [PersonalDataUIOption(title: "", text: PhoneFormatter().format(phone: phoneNumber), accessoryType: false)]))
+        models.append(PersonalDataUISection(placeholder: PersonalDataViewControllerText.nameHeaderText, options: [PersonalDataUIOption(title: PersonalDataViewControllerText.nameTextFieldText, text: "", accessoryType: true, key: "name")]))
         
-        models.append(PersonalDataUISection(placeholder: PersonalDataViewControllerText.nameHeaderText, options: [PersonalDataUIOption(title: PersonalDataViewControllerText.nameTextFieldText, text: "", accessoryType: true)]))
-        
-        models.append(PersonalDataUISection(placeholder: PersonalDataViewControllerText.emailHeaderText, options: [PersonalDataUIOption(title: PersonalDataViewControllerText.emailTextFieldText, text: "", accessoryType: true)]))
+        models.append(PersonalDataUISection(placeholder: PersonalDataViewControllerText.emailHeaderText, options: [PersonalDataUIOption(title: PersonalDataViewControllerText.emailTextFieldText, text: "", accessoryType: true, key: "email")]))
         
     }
-    
-//    func configureData() {
-//        
-//                guard let userData = PersistanceStoreManager.shared.getUserData(), let phoneNumber = userData[0].phoneNumber else { return }
-//        let cellPhoneData = PersonalDataData(imageName: CustomImagesNames.lkBlue.rawValue, name: PhoneFormatter().format(phone: phoneNumber))
-//        
-//        self.personalDataTableViewData = cellPhoneData
-//        
-//        
-//    }
+
    
 }

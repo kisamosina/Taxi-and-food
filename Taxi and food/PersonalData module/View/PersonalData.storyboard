@@ -18,6 +18,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eF7-go-ZjK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonalDataViewController" rowHeight="44" id="1NL-tW-F16" customClass="PersonalDataTableViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1NL-tW-F16" id="ucF-Vb-URM">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87Z-E4-vh1">
+                                                    <rect key="frame" x="20" y="13" width="180" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="87Z-E4-vh1" secondAttribute="bottom" constant="2" id="0oV-ZZ-Cpa"/>
+                                                <constraint firstItem="87Z-E4-vh1" firstAttribute="top" secondItem="ucF-Vb-URM" secondAttribute="topMargin" constant="2" id="HK1-EZ-xag"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="87Z-E4-vh1" secondAttribute="trailing" constant="194" id="TnO-9g-GuH"/>
+                                                <constraint firstItem="87Z-E4-vh1" firstAttribute="leading" secondItem="ucF-Vb-URM" secondAttribute="leadingMargin" id="gzu-gh-Umy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="87Z-E4-vh1" id="3dM-LU-ZlM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="80O-is-3Cm" id="d6J-0Y-fbh"/>
                                     <outlet property="delegate" destination="80O-is-3Cm" id="eVQ-gN-ub7"/>

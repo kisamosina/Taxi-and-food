@@ -11,13 +11,21 @@ import Foundation
 enum RegistrationRequestPaths: String {
     case registration = "auth/registration"
     case confirm = "auth/confirm"
-   
 }
+
 
 enum RegistrationRequestKeys: String {
     case phone
     case code
-   
+}
+
+enum ProfileRequestPath: String {
+    case profile = "user/$/profile"
+}
+
+enum ProfileRequestKeys: String {
+    case name
+    case email
 }
 
 enum PromocodesRequestPaths: String {

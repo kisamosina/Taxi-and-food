@@ -28,17 +28,10 @@ class PersonalDataViewController: UIViewController {
         super.viewDidLoad()
         
         addPolicyLabelGestureRecognizer()
-//        self.addKeyboardWillShowObserver()
-        
         self.interactor = PersonalDataInteractor(view: self)
         self.interactor.configure()
-        
-        //FIXME: rename identifier
-        tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
-
         confugureLabel()
   
-        
     }
     
         override func viewWillAppear(_ animated: Bool) {
@@ -49,9 +42,6 @@ class PersonalDataViewController: UIViewController {
     
     
     //MARK: - Methods
-    
-
-
     func confugureLabel() {
         policyLabel.text = PersonalDataViewControllerText.policyLabelText
         
@@ -59,25 +49,7 @@ class PersonalDataViewController: UIViewController {
         policyLabel.setAttributedText(PersonalDataViewControllerText.userArgeement)
         policyLabel.setAttributedText(PersonalDataViewControllerText.privacyPolicy)
     }
-    
-//    private func addKeyboardWillShowObserver() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//
-//    @objc private func keyboardWillAppear(notification: NSNotification) {
-//        keyboardWillShowReverse(constraint: personalDataViewBottomConstraint, notification: notification)
-//        print("keyboard appeared")
-//        print(personalDataViewBottomConstraint.constant)
-//
-//    }
-//
-//    @objc private func keyboardWillDisappear(notification: NSNotification) {
-//        keyboardWillHide(constraint: personalDataViewBottomConstraint, notification: notification)
-//
-//        print("keyboard dissapeared")
-//        print(personalDataViewBottomConstraint.constant)
-//    }
+
     
     private func addPolicyLabelGestureRecognizer() {
         policyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPolicyLabel(gesture:))))
@@ -106,24 +78,7 @@ class PersonalDataViewController: UIViewController {
         }
         
     }
-    
-    @objc func showSlideUpView() {
-        
-//        let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
-//
-//
-//        let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeEnterViewController.rawValue)
-//        self.navigationController?.pushViewController(vc, animated: true)
-//
-        
-        guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
-        vc.setState(.showEnterPersonalDataView)
-//        vc.delegate = self
-        self.present(vc, animated: false)
-        print("textfield tapped")
-        
-        
-    }
+
   
 }
 
@@ -148,24 +103,54 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = interactor.models[indexPath.section].options[indexPath.row]
-        
-
-        
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonalDataCell.identifier, for: indexPath) as? PersonalDataCell else {
+   
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewControllers.PersonalDataViewController.rawValue, for: indexPath) as? PersonalDataTableViewCell else {
             return UITableViewCell()
         }
         cell.configureUI(with: model)
-        
-//        if let data = interactor.personalDataTableViewData {
-//            cell.configureData(with: data)
-//        }
-        cell.textField.addTarget(self, action: #selector(showSlideUpView), for: .editingDidBegin)
             
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let model = interactor.models[indexPath.section].options[indexPath.row]
+        
+        model.key
+        
+        guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
+        vc.setState(.showEnterPersonalDataView(model.title))
+                vc.delegate = self
+                self.present(vc, animated: false)
+
+    }
     
 }
 
 extension PersonalDataViewController: PersonalDataViewProtocol {}
+extension PersonalDataViewController: InactiveViewControllerDelegate {
+    
+    func approveDataButtonTapped(_ text: String) {
+        
+//        let regResource = Resource<ProfileResponseData>(path: RegistrationRequestPaths.registration.rawValue,
+//                                                                 requestType: .POST,
+//                                                                 requestData: [RegistrationRequestKeys.phone.rawValue: phoneNumber])
+//
+//            NetworkService.shared.makeRequest(for: regResource, completion: {[unowned self] result in
+//
+//                switch result {
+//
+//                case .success(let response):
+//                    self.regResponse = response
+//                    print("RESPONSE CODE: \(self.regResponse.data.code)")
+//                    self.scheduleNotification(with: self.regResponse.data.code)
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
+//
+//            })
+        }
+        
+    
+    
+}

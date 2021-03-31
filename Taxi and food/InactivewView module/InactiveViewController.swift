@@ -91,8 +91,8 @@ class InactiveViewController: UIViewController {
         case .showDeleteAddressView:
             self.showDeleteAddressView()
             
-        case .showEnterPersonalDataView:
-            self.showEnterPersonalDataView()
+        case .showEnterPersonalDataView(let placeholder):
+            self.showEnterPersonalDataView(with: placeholder)
             
         default:
             break
@@ -152,9 +152,7 @@ extension InactiveViewController {
 
 extension InactiveViewController {
     
-    private func showEnterPersonalDataView() {
-        
-        
+    private func showEnterPersonalDataView(with placeholder: String) {
         
         let rect = CGRect(x: 0,
                           y: UIScreen.main.bounds.height,
@@ -162,12 +160,13 @@ extension InactiveViewController {
                           height: TextEnterViewSize.height.rawValue)
         
         self.personalDataTransitionView = PersonalDataBottomView(frame: rect)
-        print("my height")
-        print(personalDataTransitionView.frame.height)
-        
-//        self.personalDataTransitionView.
+       
+        self.personalDataTransitionView.textfield.placeholder = placeholder
 //        self.personalDataTransitionView.delegate = self
         self.personalDataTransitionView.alpha = 0
+        
+        self.personalDataTransitionView.mainButton.setInActive()
+        
         self.view.addSubview(self.personalDataTransitionView)
         
         //Animation
@@ -591,5 +590,15 @@ extension InactiveViewController: AboutPointsViewDelegate {
         let completion: AnimationCompletion = { [weak self] _ in  self?.dismiss(animated: false)}
         self.hideAboutPointsView(completion: completion)
     }
+    
+}
+
+extension InactiveViewController: PersonalDataViewDelegate {
+    func approveDataButtonTapped(_ text: String) {
+        self.delegate?.approveButtonTapped()
+    }
+    
+
+    
     
 }

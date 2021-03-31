@@ -17,6 +17,7 @@ struct PersonalDataUIOption {
     let title: String
     let text: String?
     let accessoryType: Bool
+    let key: String
 }
 
 struct PersonalDataData {
