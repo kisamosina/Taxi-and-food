@@ -27,11 +27,13 @@ struct AddressesEnterDetailViewTexts {
     private enum RusTexts: String {
         case locationFromTextFieldPlaceholder = "Уточните, как до вас добраться"
         case locationToTextFieldPlaceholder = "Уточните, куда едем"
+        case foodDeliveryLocation = "Введите адрес доставки"
     }
     
     private enum EngTexts: String {
         case locationFromTextFieldPlaceholder = "Please write how to get to you"
         case locationToTextFieldPlaceholder = "Please write where we will go"
+        case foodDeliveryLocation = "Please enter delivery address"
     }
     
     static var locationFromTextFieldPlaceholder: String {
@@ -53,6 +55,17 @@ struct AddressesEnterDetailViewTexts {
             return RusTexts.locationToTextFieldPlaceholder.rawValue
         case .eng:
             return EngTexts.locationToTextFieldPlaceholder.rawValue
+        }
+    }
+    
+    static var foodDeliveryLocation: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTexts.foodDeliveryLocation.rawValue
+        case .eng:
+            return EngTexts.foodDeliveryLocation.rawValue
         }
     }
 

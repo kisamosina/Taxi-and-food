@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressEnterView" customModule="Taxi_and_food" customModuleProvider="target">
             <connections>
                 <outlet property="addressFromPinButton" destination="faE-wT-sQo" id="PzQ-hi-mzy"/>
+                <outlet property="addressFromStackView" destination="9N3-yR-j7l" id="5wq-1V-6O1"/>
                 <outlet property="addressFromTextField" destination="IW7-DM-D8c" id="YM0-l3-yHc"/>
+                <outlet property="addressToImageView" destination="XTw-4V-Pz6" id="NvO-5f-p9l"/>
                 <outlet property="addressToTextField" destination="jLd-yf-Msj" id="89V-fI-h6x"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="hwT-A5-TW6"/>
                 <outlet property="contentView" destination="JZU-zy-T4U" id="kRj-KO-Hnd"/>

@@ -108,11 +108,11 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func taxiButtonTapped(_ sender: UIButton) {
-        self.interactor.setViewControllerState(.enterAddress)
+        self.interactor.setViewControllerState(.enterAddress(.taxi))
     }
     
     @IBAction func foodButtonTapped(_ sender: UIButton) {
-        
+        self.interactor.setViewControllerState(.enterAddress(.food))
     }
     
     
@@ -330,12 +330,12 @@ extension MapViewController: MapViewProtocol {
                 self.hideTransitionBottomView(completion: completion)
             }
             
-        case .enterAddress:
+        case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
             self.lkButton.isHidden = true
             self.bottomView.isHidden = true
             self.mapCenterButton.isHidden = true
-            self.showAddressEnterView()
+            self.showAddressEnterView(as: addresEnterViewType)
         }
     }
     
@@ -513,12 +513,13 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController {
     
     //Setup Address enter view constraints
-    private func setupAddressEnterViewConstraints() {
+    private func setupAddressEnterViewConstraints(viewType: AddressEnterViewType) {
+        
         self.addressEnterView.translatesAutoresizingMaskIntoConstraints = false
         
-        addressEnterViewBottomConstraint = self.addressEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: AddressEnterViewSizes.height.rawValue + bottomPadding)
+        addressEnterViewBottomConstraint = self.addressEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding)
         
-        addressEnterViewHeightConstraint = self.addressEnterView.heightAnchor.constraint(equalToConstant: AddressEnterViewSizes.height.rawValue)
+        addressEnterViewHeightConstraint = self.addressEnterView.heightAnchor.constraint(equalToConstant: viewType.viewHeight())
         
         NSLayoutConstraint.activate([addressEnterViewHeightConstraint,
                                      addressEnterViewBottomConstraint,
@@ -529,20 +530,21 @@ extension MapViewController {
     }
     
     //Setup show animation for Address enter view
-    private func showAddressEnterView() {
+    private func showAddressEnterView(as type: AddressEnterViewType) {
         
         let rect = CGRect(x: 0,
                           y: UIScreen.main.bounds.height,
                           width: UIScreen.main.bounds.width,
-                          height: AddressEnterViewSizes.height.rawValue)
+                          height: type.viewHeight())
         
         self.addressEnterView = AddressEnterView(frame: rect)
         self.addressEnterView.alpha = 0
         self.addressEnterView.delegate = self
         self.addressEnterView.setAddresses(self.interactor.addresses)
         self.view.addSubview(self.addressEnterView)
+        self.addressEnterView.setView(as: type)
         self.addressEnterView.setAddressFromTextFieldText(interactor.addressString)
-        self.setupAddressEnterViewConstraints()
+        self.setupAddressEnterViewConstraints(viewType: type)
         
         //Animation
         
@@ -563,7 +565,7 @@ extension MapViewController {
     //Setup hide animation for Address enter view
     func hideTransitionBottomView(completion: AnimationCompletion? = nil) {
         
-        self.addressEnterViewBottomConstraint.constant = AddressEnterViewSizes.height.rawValue + bottomPadding
+        self.addressEnterViewBottomConstraint.constant = self.addressEnterView.type.viewHeight() + bottomPadding
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -602,14 +604,14 @@ extension MapViewController: AddressEnterViewDelegate {
     
     //Action when table view will disappear
     func tableViewWillDisappear() {
-        if addressEnterViewHeightConstraint.constant > AddressEnterViewSizes.height.rawValue {
-            self.addressEnterViewHeightConstraint.constant = AddressEnterViewSizes.height.rawValue
+        if addressEnterViewHeightConstraint.constant > self.addressEnterView.type.viewHeight()  {
+            self.addressEnterViewHeightConstraint.constant = self.addressEnterView.type.viewHeight()
         }
     }
     
     //Action when table view will appear
     func tableViewWillAppear() {
-        if addressEnterViewHeightConstraint.constant == AddressEnterViewSizes.height.rawValue {
+        if addressEnterViewHeightConstraint.constant == self.addressEnterView.type.viewHeight()  {
             self.addressEnterViewHeightConstraint.constant += AddressEnterViewSizes.tableViewHeight.rawValue
         }
     }
@@ -646,9 +648,7 @@ extension MapViewController {
     private func setupAddressEnterDetailViewConstraints() {
         
         self.addressEnterDetailView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
-        
+                
         addressEnterViewDetailBottomConstraint = self.addressEnterDetailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: AddressEnterDetailViewSizes.height.rawValue + bottomPadding)
         let addressEnterViewDetailTrailingConstraint = self.addressEnterDetailView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         let addressEnterViewDetailHeightConstraint = self.addressEnterDetailView.heightAnchor.constraint(equalToConstant: AddressEnterDetailViewSizes.height.rawValue)

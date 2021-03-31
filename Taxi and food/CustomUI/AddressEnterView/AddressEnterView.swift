@@ -16,6 +16,23 @@ class AddressEnterView: UIView {
     
     private var addresses: [AddressResponseData] = []
     
+    var type: AddressEnterViewType! {
+        didSet {
+            guard let type = type  else { return }
+            switch type {
+                                
+            case .taxi:
+                self.addressFromStackView.isHidden = false
+                self.addressToImageView.image = UIImage(named: CustomImagesNames.userPinGrey.rawValue)
+                self.addressToTextField.placeholder = AddressesEnterDetailViewTexts.locationToTextFieldPlaceholder
+            case .food:
+                self.addressFromStackView.isHidden = true
+                self.addressToImageView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
+                self.addressToTextField.placeholder = AddressesEnterDetailViewTexts.foodDeliveryLocation
+            }
+        }
+    }
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var topView: UIView!
@@ -27,6 +44,10 @@ class AddressEnterView: UIView {
     @IBOutlet weak var addressFromTextField: UITextField!
     
     @IBOutlet weak var addressFromPinButton: UIButton!
+    
+    @IBOutlet weak var addressFromStackView: UIStackView!
+    
+    @IBOutlet weak var addressToImageView: UIImageView!
     
     @IBOutlet weak var addressToTextField: UITextField!
     
@@ -141,6 +162,9 @@ class AddressEnterView: UIView {
         self.setNextButtonActive()
     }
     
+    public func setView(as type: AddressEnterViewType ) {
+        self.type = type
+    }
     public func setAddressToTextFieldText(_ text: String) {
         self.addressToTextField.text = text
         self.setNextButtonActive()
