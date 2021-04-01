@@ -10,6 +10,12 @@ import UIKit
 
 class ShopsView: UIView {
     
+    private var shopList: [ShopResponseData] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var topView: UIView!
@@ -56,8 +62,8 @@ class ShopsView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
-        let nib = UINib(nibName: ShopsViewNibsNames.ShopsViewCollectionViewCell.rawValue, bundle: nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: ShopsViewStringData.ShopsViewCollectionViewCell.rawValue)
+        let nib = UINib(nibName: ShopsViewNibsNames.ShopsCollectionViewCell.rawValue, bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: ShopsViewStringData.cellReuseId.rawValue)
     }
 
     
@@ -68,5 +74,34 @@ class ShopsView: UIView {
             self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+    }
+    
+    public func setShopList(_ list: [ShopResponseData]) {
+        self.shopList = list
+    }
+}
+
+//MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewFlowLayout
+
+extension ShopsView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.shopList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopsViewStringData.cellReuseId.rawValue, for: indexPath) as! ShopsCollectionViewCell
+        let shopModel = self.shopList[indexPath.row]
+        cell.bind(shopModel)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let screenWidth = UIScreen.main.bounds.width
+        let cellnumbersOnScreen: CGFloat = 2
+        let workSpace = (screenWidth - ShopsCellViewUIData.summCollectionViewInsets.rawValue)/cellnumbersOnScreen
+        
+        return CGSize(width: workSpace, height: ShopsCellViewUIData.cellHeight.rawValue)
     }
 }

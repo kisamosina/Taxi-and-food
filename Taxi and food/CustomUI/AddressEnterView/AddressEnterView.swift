@@ -100,6 +100,7 @@ class AddressEnterView: UIView {
     }
     
     @IBAction func nextButtonTapped(_ sender: MainBottomButton) {
+        self.endEditing(true)
         self.delegate?.nextButtonTapped()
     }
     

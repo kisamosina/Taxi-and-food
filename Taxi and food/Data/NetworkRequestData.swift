@@ -72,3 +72,6 @@ enum AddressRequestKeys: String {
     
 }
 
+enum ShopsRequestPaths: String {
+    case shopList = "user/$/shops"
+}

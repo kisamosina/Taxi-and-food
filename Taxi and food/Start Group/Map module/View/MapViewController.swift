@@ -30,6 +30,10 @@ class MapViewController: UIViewController {
     private var tipAddressView: TipAddressView!
     private var tipAddressViewBottomAnchor: NSLayoutConstraint!
     
+    //Shops List View
+    private var shopsListView: ShopsView!
+    private var shopsListViewBottomConstraint: NSLayoutConstraint!
+    
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var menuButton: MapRoundButton!
@@ -113,6 +117,7 @@ class MapViewController: UIViewController {
     
     @IBAction func foodButtonTapped(_ sender: UIButton) {
         self.interactor.setViewControllerState(.enterAddress(.food))
+        self.interactor.getShopList()
     }
     
     
@@ -272,6 +277,12 @@ extension MapViewController {
 
 extension MapViewController: MapViewProtocol {
     
+    func updateShopList(_ list: [ShopResponseData]) {
+        guard let shopsView = self.shopsListView else { return }
+        shopsView.setShopList(list)
+    }
+    
+    
     func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?) {
         if let coordinate =  coordinate {
             DispatchQueue.main.async {
@@ -327,7 +338,7 @@ extension MapViewController: MapViewProtocol {
                     addressEnterView.removeFromSuperview()
                     self?.addressEnterView = nil
                 }
-                self.hideTransitionBottomView(completion: completion)
+                self.hideAddressEnterView(completion: completion)
             }
             
         case .enterAddress(let addresEnterViewType):
@@ -563,7 +574,7 @@ extension MapViewController {
     }
     
     //Setup hide animation for Address enter view
-    func hideTransitionBottomView(completion: AnimationCompletion? = nil) {
+    func hideAddressEnterView(completion: AnimationCompletion? = nil) {
         
         self.addressEnterViewBottomConstraint.constant = self.addressEnterView.type.viewHeight() + bottomPadding
         
@@ -634,6 +645,19 @@ extension MapViewController: AddressEnterViewDelegate {
     func nextButtonTapped() {
         self.interactor.sourceAddress = self.addressEnterView.sourceAddress
         self.interactor.destinationAddress = self.addressEnterView.destinationAddress
+        guard let type = self.addressEnterView.type else { return }
+        switch type {
+            
+        case .taxi:
+            print("Taxi")
+        case .food:
+            self.hideAddressEnterView {[weak self] _ in
+                guard let self = self else { return }
+                self.showShopsView()
+                self.shopsListView.setShopList(self.interactor.shopsList)
+                self.addressEnterView = nil
+            }
+        }
     }
     
     
@@ -764,3 +788,38 @@ extension MapViewController {
     }
 }
 
+//MARK: - Shops view methods
+
+extension MapViewController {
+    
+    func showShopsView() {
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: ShopsCellViewUIData.viewHeight.rawValue)
+        
+        self.shopsListView = ShopsView(frame: rect)
+        self.view.addSubview(shopsListView)
+        self.shopsListView.setupConstraints(for: self.view,
+                                       viewHeight: ShopsCellViewUIData.viewHeight.rawValue,
+                                       bottomContraintConstant: ShopsCellViewUIData.viewHeight.rawValue + bottomPadding,
+                                       with: {[weak self] bottomConstraint in
+                                        guard let self = self else { return }
+                                        self.shopsListViewBottomConstraint = bottomConstraint})
+        
+        //Animation
+        self.shopsListView.alpha = 0
+        self.shopsListViewBottomConstraint.constant = bottomPadding
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.shopsListView.alpha = 1
+                       },
+                       completion: nil)
+    }
+}

@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="158" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZc-lD-Wbd">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZc-lD-Wbd">
                         <rect key="frame" x="0.0" y="0.0" width="158" height="80"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-mo-Rxq">
@@ -62,9 +62,9 @@
                 <constraint firstAttribute="bottom" secondItem="YZc-lD-Wbd" secondAttribute="bottom" id="cOv-Cu-NqD"/>
             </constraints>
             <connections>
-                <outlet property="shopContentView" destination="YZc-lD-Wbd" id="Ryo-64-4iW"/>
                 <outlet property="shopImageView" destination="dsg-mo-Rxq" id="20L-ke-XTL"/>
                 <outlet property="shopTitle" destination="1RU-au-WX4" id="7zL-Cd-l33"/>
+                <outlet property="substrateView" destination="YZc-lD-Wbd" id="Z9F-RT-Jc3"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </collectionViewCell>

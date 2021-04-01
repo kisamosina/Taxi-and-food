@@ -231,6 +231,16 @@ struct MapMenuData {
     }
 }
 
+struct ShopsResponse: Decodable {
+    var data: [ShopResponseData]
+}
+
+struct ShopResponseData: Decodable {
+    var id: Int
+    var name: String
+    var icon: String
+}
+
 
 //MARK: - This section is temporary after merge with Dasha branch need it to delete
 //
