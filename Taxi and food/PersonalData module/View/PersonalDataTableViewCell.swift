@@ -22,6 +22,8 @@ class PersonalDataTableViewCell: UITableViewCell {
          if model.accessoryType == true {
              self.accessoryType = .disclosureIndicator
         }
+        
+        self.titleLabel.textColor = model.color
     }
     
 

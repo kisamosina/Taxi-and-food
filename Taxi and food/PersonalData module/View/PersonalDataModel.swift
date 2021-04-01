@@ -6,7 +6,7 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct PersonalDataUISection {
     let placeholder: String?
@@ -17,7 +17,7 @@ struct PersonalDataUIOption {
     let title: String
     let text: String?
     let accessoryType: Bool
-    let key: String
+    let color: UIColor
 }
 
 struct PersonalDataData {

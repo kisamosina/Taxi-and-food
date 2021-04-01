@@ -116,7 +116,6 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
         
         let model = interactor.models[indexPath.section].options[indexPath.row]
         
-        model.key
         
         guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
         vc.setState(.showEnterPersonalDataView(model.title))
@@ -132,11 +131,16 @@ extension PersonalDataViewController: InactiveViewControllerDelegate {
     
     func approveDataButtonTapped(_ text: String) {
         
-//        let regResource = Resource<ProfileResponseData>(path: RegistrationRequestPaths.registration.rawValue,
-//                                                                 requestType: .POST,
-//                                                                 requestData: [RegistrationRequestKeys.phone.rawValue: phoneNumber])
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+//        let path = ProfileRequestPath.profile.rawValue.getServerPath(for: Int(user.id))
 //
-//            NetworkService.shared.makeRequest(for: regResource, completion: {[unowned self] result in
+//        let profileResource = Resource<ProfileResponseData>(path: path,
+//                                                                 requestType: .PUT,
+//                                                                 requestData: [ProfileRequestKeys.name.rawValue: text,
+//
+//                                                                               ProfileRequestKeys.name.rawValue:text])
+//
+//            NetworkService.shared.makeRequest(for: profileResource, completion: {[unowned self] result in
 //
 //                switch result {
 //
@@ -149,8 +153,8 @@ extension PersonalDataViewController: InactiveViewControllerDelegate {
 //                }
 //
 //            })
-        }
+//        }
         
-    
+    }
     
 }

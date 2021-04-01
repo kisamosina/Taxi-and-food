@@ -19,6 +19,7 @@ class PersonalDataBottomView: UIView {
     @IBOutlet var containerView: UIView!
     
     @IBOutlet var mainButton: MainBottomButton!
+    
     @IBOutlet var textfield: UITextField!
     
     var text: String? {
@@ -64,15 +65,11 @@ class PersonalDataBottomView: UIView {
         self.loadFromNib(nibName: PersonalDataBottomViewStringData.nibName.rawValue)
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
-        self.setUpWhenPersonalDataEnter()
+//        self.setUpWhenPersonalDataEnter()
+        self.mainButton.setupAs(.approve)
         self.textfield.becomeFirstResponder()
         self.textfield.addTarget(self, action: #selector(buttonActivate), for: .editingChanged)
-    }
-    
-    func setUpWhenPersonalDataEnter() {
-        self.mainButton.setupAs(.approve)
-        self.mainButton.setActive()
-       
+        self.mainButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     func setPlaceholder(cellPlaceholder: String) {
@@ -82,17 +79,12 @@ class PersonalDataBottomView: UIView {
     @objc private func buttonActivate() {
         self.mainButton.setActive()
     }
+
     
-    @IBAction func mainButtonTapped(_ sender: Any) {
-        
-        
+    @objc func buttonTapped() {
         print("entered user's text")
         print(text)
-        
-        
         self.delegate?.approveDataButtonTapped(text ?? "")
-
-            
         
     }
     

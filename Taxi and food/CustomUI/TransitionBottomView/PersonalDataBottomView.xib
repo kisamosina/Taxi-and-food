@@ -11,7 +11,7 @@
             <connections>
                 <outlet property="containerView" destination="iN0-l3-epB" id="pMB-4Q-TXg"/>
                 <outlet property="contentView" destination="fNe-qv-a3z" id="Qoz-kA-H6X"/>
-                <outlet property="mainButton" destination="yiC-rL-9hA" id="E67-yS-iPC"/>
+                <outlet property="mainButton" destination="yiC-rL-9hA" id="RTM-iE-C77"/>
                 <outlet property="textfield" destination="RnB-0t-BRl" id="JKL-A3-hWO"/>
                 <outlet property="topView" destination="jMD-3P-IEn" id="9ay-hy-hHb"/>
             </connections>
@@ -33,9 +33,6 @@
                             </constraints>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <connections>
-                                <action selector="mainButtonTapped:" destination="-1" eventType="touchUpInside" id="Vd5-GM-JDV"/>
-                            </connections>
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RnB-0t-BRl">
                             <rect key="frame" x="45" y="18" width="325" height="50"/>

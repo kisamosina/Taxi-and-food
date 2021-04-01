@@ -162,11 +162,10 @@ extension InactiveViewController {
         self.personalDataTransitionView = PersonalDataBottomView(frame: rect)
        
         self.personalDataTransitionView.textfield.placeholder = placeholder
-//        self.personalDataTransitionView.delegate = self
+        self.personalDataTransitionView.delegate = self
         self.personalDataTransitionView.alpha = 0
         
         self.personalDataTransitionView.mainButton.setInActive()
-        
         self.view.addSubview(self.personalDataTransitionView)
         
         //Animation
