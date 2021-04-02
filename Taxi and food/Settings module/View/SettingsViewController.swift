@@ -53,12 +53,12 @@ class SettingsViewController: UIViewController {
             .staticCell(model: SettingsOption(title: SettingsViewControllerText.languageCellTitleText)),
             .staticCell(model: SettingsOption(title: SettingsViewControllerText.personalDataCellTitleText)),
             
-            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.pushCellTitleText, isOn: true))
+            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.pushCellTitleText, isOn: false))
             
         ]))
         
         models.append(Section(tittle: "", options: [
-            .staticCell(model: SettingsOption(title: SettingsViewControllerText.promoNotificationCellTitleText)),
+            .switchCell(model: SettingsSwitchOption(title: SettingsViewControllerText.promoNotificationCellTitleText, isOn: true)),
             .staticCell(model: SettingsOption(title: SettingsViewControllerText.availablePromoCellTitleText))
             
         ]))
@@ -71,6 +71,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
+    
+   
 }
     
 
@@ -112,21 +114,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            tableView.deselectRow(at: indexPath, animated: true)
+       
+        let storyboard1 = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
+        let storyboard2 = UIStoryboard(name: StoryBoards.PersonalData.rawValue, bundle: nil)
+        let storyboard3 = UIStoryboard(name: StoryBoards.Promo.rawValue, bundle: nil)
            
-           let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
-           
-           if indexPath.row == 0 {
+           if indexPath.section == 0 && indexPath.row == 0 {
                
-               let vc = storyboard.instantiateViewController(identifier: ViewControllers.LanguageViewController.rawValue)
+               let vc = storyboard1.instantiateViewController(identifier: ViewControllers.LanguageViewController.rawValue)
                self.navigationController?.pushViewController(vc, animated: true)
                
            }
         
-        let storyboard1 = UIStoryboard(name: StoryBoards.PersonalData.rawValue, bundle: nil)
-        
-        if indexPath.row == 1 {
+        if indexPath.section == 0 && indexPath.row == 1 {
             
-            let vc = storyboard1.instantiateViewController(identifier: ViewControllers.PersonalDataViewController.rawValue)
+            let vc = storyboard2.instantiateViewController(identifier: ViewControllers.PersonalDataViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            
+            let vc = storyboard3.instantiateViewController(identifier: ViewControllers.PromoViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
             
         }

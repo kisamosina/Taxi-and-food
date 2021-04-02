@@ -37,8 +37,12 @@ class PromoDescriptionInteractor: PromoDescriptionIneractorProtocol {
 
     func getPromosDescription(for id: Int) {
         
-        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id)).getPromoDescription(for: id)
+//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+//        let path = PromoDescriptionPath.path.rawValue.getServerPath(for: Int(user.id)).getPromoDescription(for: id)
+        
+       
+        let path = PromoDescriptionPath.path.rawValue.getServerPath(for: 3).getPromoDescription(for: id)
+        print(path)
     
         let resource = Resource<PromoResponseFull>(path: path, requestType: .GET)
 

@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNe-qv-a3z">
-                    <rect key="frame" x="0.0" y="10" width="414" height="182"/>
+                    <rect key="frame" x="0.0" y="10" width="414" height="172"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiC-rL-9hA" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                             <rect key="frame" x="45" y="93" width="325" height="50"/>
@@ -66,7 +66,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="fNe-qv-a3z" secondAttribute="top" constant="34" id="ZAl-fV-VeL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="yiC-rL-9hA" secondAttribute="bottom" constant="29" id="ewv-mq-UfB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="RnB-0t-BRl" secondAttribute="top" constant="16" id="kLn-GT-iF6"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fNe-qv-a3z" secondAttribute="bottom" constant="-10" id="rqg-u3-txw"/>
+                <constraint firstAttribute="bottom" secondItem="fNe-qv-a3z" secondAttribute="bottom" id="wHt-kd-GSU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

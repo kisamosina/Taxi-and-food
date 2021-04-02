@@ -10,7 +10,7 @@
         <!--Order History View Controller-->
         <scene sceneID="ZO4-pA-odK">
             <objects>
-                <viewController id="oNH-iG-JmK" customClass="OrderHistoryViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderHistoryViewController" id="oNH-iG-JmK" customClass="OrderHistoryViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ram-3h-bYl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

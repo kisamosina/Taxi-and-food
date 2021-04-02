@@ -664,6 +664,7 @@
 		049A3F6825F20EF900C31AED /* View */ = {
 			isa = PBXGroup;
 			children = (
+				049A3F6625F1F66400C31AED /* Addresses.storyboard */,
 				049A3F6A25F20F5300C31AED /* AddressViewController.swift */,
 				0414313B25F727C50074D86C /* AppleMapViewController.swift */,
 			);
@@ -696,7 +697,6 @@
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7B84660325D839BB00B09D98 /* Start Group */,
 				049A3F6525F1F61900C31AED /* Address module */,
-				049A3F6625F1F66400C31AED /* Addresses.storyboard */,
 				7B47C81E25DD299F00F366FE /* Tariffs Module */,
 				04B73EF9260C389E003A9AEE /* OrderHistory module */,
 				7B75D01A25E50BB9001981CA /* PromocodeModule */,

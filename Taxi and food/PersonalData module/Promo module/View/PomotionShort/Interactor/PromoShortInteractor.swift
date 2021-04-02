@@ -33,7 +33,7 @@ class PromoShortInteractor: PromoShortInteractorProtocol {
     func getPromos(type: String) {
         
         guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id)).getPromo(by: type)
+        let path = PromoDescriptionPath.path.rawValue.getServerPath(for: Int(user.id)).getPromo(by: type)
 
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 

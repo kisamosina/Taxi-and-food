@@ -19,7 +19,7 @@ class PersonalDataBottomView: UIView {
     @IBOutlet var containerView: UIView!
     
     @IBOutlet var mainButton: MainBottomButton!
-    
+
     @IBOutlet var textfield: UITextField!
     
     var text: String? {
@@ -67,7 +67,7 @@ class PersonalDataBottomView: UIView {
         self.addSubview(containerView)
 //        self.setUpWhenPersonalDataEnter()
         self.mainButton.setupAs(.approve)
-        self.textfield.becomeFirstResponder()
+//        self.textfield.becomeFirstResponder()
         self.textfield.addTarget(self, action: #selector(buttonActivate), for: .editingChanged)
         self.mainButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }

@@ -63,7 +63,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         
         chooseDestinationButton.isHidden = true
-//        deleteButton.isHidden = true
+        deleteButton.isHidden = true
         
         addressNameTextField.isHidden = false
         
@@ -111,14 +111,43 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemNewTitleText
         self.addressNameTextField.placeholder = TextFieldsPlaceholderText.nameAddressText
+        self.addressNameTextField.adjustsFontSizeToFitWidth = true
+        self.addressNameTextField.minimumFontSize = 9.0
+        
         self.addressTextField.placeholder = TextFieldsPlaceholderText.addressText
+        self.addressTextField.adjustsFontSizeToFitWidth = true
+        self.addressTextField.minimumFontSize = 9.0
+        
+
         self.commentDriverTextField.placeholder = TextFieldsPlaceholderText.commentForDriverText
+        self.commentDriverTextField.adjustsFontSizeToFitWidth = true
+        self.commentDriverTextField.minimumFontSize = 9.0
+        
+        
         self.officeTextField.placeholder = TextFieldsPlaceholderText.officeText
+        self.officeTextField.adjustsFontSizeToFitWidth = true
+        self.officeTextField.minimumFontSize = 9.0
+        
+        
         self.entranceTextField.placeholder = TextFieldsPlaceholderText.entranceText
+        self.entranceTextField.adjustsFontSizeToFitWidth = true
+        self.entranceTextField.minimumFontSize = 9.0
+        
         self.intercomTextField.placeholder = TextFieldsPlaceholderText.intercomText
+        self.intercomTextField.adjustsFontSizeToFitWidth = true
+        self.intercomTextField.minimumFontSize = 9.0
+        
         self.floorTextField.placeholder = TextFieldsPlaceholderText.floorText
+        self.floorTextField.adjustsFontSizeToFitWidth = true
+        self.floorTextField.minimumFontSize = 9.0
+        
         self.commenCourierTextField.placeholder = TextFieldsPlaceholderText.commenForCourierText
+        self.commenCourierTextField.adjustsFontSizeToFitWidth = true
+        self.commenCourierTextField.minimumFontSize = 9.0
+        
         self.deliveryLabel.text = AddressViewControllerText.deliveryLabelText
+        self.deliveryLabel.adjustsFontSizeToFitWidth = true
+       
 
         self.saveButton.setupAs(.save)
         self.saveButton.backgroundColor = Colors.buttonBlue.getColor()
