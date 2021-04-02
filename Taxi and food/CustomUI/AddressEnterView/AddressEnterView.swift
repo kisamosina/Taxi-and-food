@@ -20,7 +20,7 @@ class AddressEnterView: UIView {
         didSet {
             guard let type = type  else { return }
             switch type {
-                                
+            
             case .taxi:
                 self.addressFromStackView.isHidden = false
                 self.addressToImageView.image = UIImage(named: CustomImagesNames.userPinGrey.rawValue)
@@ -202,6 +202,7 @@ extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let address = addresses[indexPath.row]
         self.addressToTextField.text = address.address
+        self.delegate?.setDestinationTitle(address.name ?? "")
         self.setNextButtonActive()
     }
 }
@@ -225,8 +226,13 @@ extension AddressEnterView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         self.setNextButtonActive()
+        
+        if textField == self.addressToTextField {
+            self.delegate?.removeDestinationTitle()
+        }
         return true
     }
+    
 }
 
 extension AddressEnterView {

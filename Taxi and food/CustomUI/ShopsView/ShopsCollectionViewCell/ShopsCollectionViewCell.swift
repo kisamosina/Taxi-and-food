@@ -26,10 +26,10 @@ class ShopsCollectionViewCell: UICollectionViewCell {
         self.substrateView.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.shadowColor = Colors.shadowColor.getColor().cgColor
-        self.layer.shadowOffset = CGSize(width: ShopsCellViewUIData.shadowOffsetWidth.rawValue,
-                                         height: ShopsCellViewUIData.shadowOffsetWidth.rawValue)
-        self.layer.shadowRadius = ShopsCellViewUIData.shadowRadius.rawValue
-        self.layer.shadowOpacity = Float(ShopsCellViewUIData.shadowOpacity.rawValue)
+        self.layer.shadowOffset = CGSize(width: ShopsViewUIData.shadowOffsetWidth.rawValue,
+                                         height: ShopsViewUIData.shadowOffsetWidth.rawValue)
+        self.layer.shadowRadius = ShopsViewUIData.shadowRadius.rawValue
+        self.layer.shadowOpacity = Float(ShopsViewUIData.shadowOpacity.rawValue)
         self.layer.masksToBounds = false
         
     }

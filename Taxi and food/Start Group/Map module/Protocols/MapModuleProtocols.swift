@@ -45,6 +45,9 @@ protocol MapInteractorProtocol: class {
     //Destination Address for order
     var destinationAddress: String? { get set }
     
+    //Destination Address title for order
+    var destinationAddressTitle: String? { get set }
+    
     //Source address details
     var sourceAddressDetails: String? { get set }
     

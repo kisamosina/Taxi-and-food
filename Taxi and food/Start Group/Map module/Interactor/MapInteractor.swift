@@ -58,6 +58,9 @@ class MapInteractor: MapInteractorProtocol {
     //Destination Address for order
     var destinationAddress: String?
     
+    //Destination Address title for order
+    var destinationAddressTitle: String?
+    
     //Source address details
     var sourceAddressDetails: String?
     

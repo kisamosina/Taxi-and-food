@@ -16,6 +16,8 @@ class ShopsView: UIView {
         }
     }
     
+    weak var delegate: ShopsViewDelegate?
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var topView: UIView!
@@ -37,6 +39,14 @@ class ShopsView: UIView {
         self.initSubviews()
     }
 
+    // MARK: - IBActions
+    
+    
+    @IBAction func userHasSwipedViewDown(_ sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            self.delegate?.userHasSwipedDownView()
+        }
+    }
     
     //MARK: - Methods
     
@@ -76,8 +86,10 @@ class ShopsView: UIView {
         ])
     }
     
-    public func setShopList(_ list: [ShopResponseData]) {
+    public func setShopView(list: [ShopResponseData], destinationAddress: String?, destinationTitle: String?) {
         self.shopList = list
+        self.placeLabel.text = destinationTitle ?? ""
+        self.placeAddressLabel.text = destinationAddress ?? ""
     }
 }
 
@@ -100,8 +112,8 @@ extension ShopsView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
         
         let screenWidth = UIScreen.main.bounds.width
         let cellnumbersOnScreen: CGFloat = 2
-        let workSpace = (screenWidth - ShopsCellViewUIData.summCollectionViewInsets.rawValue)/cellnumbersOnScreen
+        let workSpace = (screenWidth - ShopsViewUIData.summCollectionViewInsets.rawValue)/cellnumbersOnScreen
         
-        return CGSize(width: workSpace, height: ShopsCellViewUIData.cellHeight.rawValue)
+        return CGSize(width: workSpace, height: ShopsViewUIData.cellHeight.rawValue)
     }
 }

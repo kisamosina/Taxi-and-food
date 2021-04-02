@@ -26,7 +26,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eti-aC-Mnc">
                     <rect key="frame" x="187" y="0.0" width="40" height="5"/>
-                    <color key="backgroundColor" white="1" alpha="0.49638397839604592" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="GNc-GY-Fw3"/>
                         <constraint firstAttribute="height" constant="5" id="oG9-yN-t8m"/>
@@ -99,6 +99,7 @@
                         </collectionView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="MMq-0j-2qY" firstAttribute="top" secondItem="oWK-ee-OCM" secondAttribute="bottom" id="5uf-RP-a0E"/>
                         <constraint firstItem="MMq-0j-2qY" firstAttribute="leading" secondItem="qHO-Ux-nFb" secondAttribute="leading" id="7Uo-Ql-Sfn"/>
@@ -108,6 +109,9 @@
                         <constraint firstAttribute="trailing" secondItem="MMq-0j-2qY" secondAttribute="trailing" id="Qo4-ol-qdj"/>
                         <constraint firstAttribute="bottom" secondItem="MMq-0j-2qY" secondAttribute="bottom" id="Srv-1N-1xe"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="khC-BZ-ruj" appends="YES" id="OLF-Tg-orW"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -124,6 +128,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="3.3482142857142856"/>
         </view>
+        <swipeGestureRecognizer direction="down" id="khC-BZ-ruj">
+            <connections>
+                <action selector="userHasSwipedViewDown:" destination="-1" id="BsI-Jq-Ey6"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
     <resources>
         <image name="userPin" width="15.5" height="24"/>

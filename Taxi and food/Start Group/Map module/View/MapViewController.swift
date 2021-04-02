@@ -11,8 +11,6 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    typealias AnimationCompletion = (Bool) -> Void
-    
     //MARK: - Properties
     
     var interactor: MapInteractorProtocol!
@@ -55,24 +53,21 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         self.interactor = MapInteractor(view: self)
         self.initViewSetup()
-        self.minimizeMenuView()
+        //        self.minimizeMenuView()
+        self.removeMenuView()
         self.minimizePromoDestinationView()
         self.addSwipes()
         self.addKeyboardWillShowObserver()
         
-           DispatchQueue.global(qos: .background).async {
-
+        DispatchQueue.global(qos: .background).async {
+            
             self.interactor.getAllPromos()
             
-
-//            self.showPromos()
-
+            
+            //            self.showPromos()
+            
         }
         
-        
-
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,26 +134,12 @@ class MapViewController: UIViewController {
         
         self.promoDestinationView.alpha = 0
         
-
+        
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
         self.mapView.showsUserLocation = true
     }
-
-    private func initPromoDestinationViewSetUp() {
-        self.inactiveView.alpha = 0
-        self.promoDestinationView.alpha = 0
-    }
     
-    private func minimizePromoDestinationView() {
-        self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
-   
-    }
-    
-    private func maximizePromoDestinationView() {
-        self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
-    }
-
     //Add Swipes
     
     func addSwipes() {
@@ -182,36 +163,6 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func animatePromoDestinationViewMaximizing() {
-        self.maximizePromoDestinationView()
-        
-        UIView.animate(withDuration: 0.5,
-        delay: 0,
-        usingSpringWithDamping: 0.9,
-        initialSpringVelocity: 1,
-        options: .curveEaseOut,
-        animations: {[weak self] in
-         self?.view.layoutIfNeeded()
-         self?.promoDestinationView.alpha = 1
-        },
-        completion: nil)
-  
-    }
-    
-    private func animatePromoDestinationViewMinimizing() {
-        UIView.animate(withDuration: 0.5,
-        delay: 0,
-        usingSpringWithDamping: 0.7,
-        initialSpringVelocity: 1,
-        options: .curveEaseOut,
-        animations: {[weak self] in
-         self?.view.layoutIfNeeded()
-         self?.promoDestinationView.alpha = 0
-        },
-        completion: nil)
-        
-    }
-  
 }
 
 //MARK: - Sizes
@@ -256,7 +207,7 @@ extension MapViewController {
                 self.addressEnterViewDetailBottomConstraint.constant = -kbHeight + 20
             }
         }
-
+        
         self.inactiveView.alpha = 1
     }
     
@@ -279,7 +230,7 @@ extension MapViewController: MapViewProtocol {
     
     func updateShopList(_ list: [ShopResponseData]) {
         guard let shopsView = self.shopsListView else { return }
-        shopsView.setShopList(list)
+        shopsView.setShopView(list: list, destinationAddress: self.interactor.destinationAddress, destinationTitle: self.interactor.destinationAddressTitle)
     }
     
     
@@ -324,6 +275,31 @@ extension MapViewController: MapViewProtocol {
     }
     
     
+    
+    private func dismissAddressEnterView() {
+        guard let addressEnterView = self.addressEnterView else {return}
+        
+        let completion: AnimationCompletion = { [weak self] _ in
+            self?.bottomView.isHidden = false
+            addressEnterView.removeFromSuperview()
+            self?.addressEnterView = nil
+        }
+        
+        self.hideAddressEnterView(completion: completion)
+    }
+    
+    private func dismissShopsView() {
+        guard let shopsListView = self.shopsListView else { return }
+        
+        let completion: AnimationCompletion = { [weak self] _ in
+            self?.bottomView.isHidden = false
+            shopsListView.removeFromSuperview()
+            self?.shopsListView = nil
+        }
+        
+        self.hideShopsView(completion: completion)
+    }
+    
     func setViews(for state: MapViewControllerStates) {
         
         switch state {
@@ -332,14 +308,8 @@ extension MapViewController: MapViewProtocol {
             self.menuButton.setImage(UIImage(named: CustomImagesNames.menuButton.rawValue), for: .normal)
             self.lkButton.isHidden = false
             self.mapCenterButton.isHidden = false
-            if let addressEnterView = self.addressEnterView {
-                let completion: AnimationCompletion = { [weak self] _ in
-                    self?.bottomView.isHidden = false
-                    addressEnterView.removeFromSuperview()
-                    self?.addressEnterView = nil
-                }
-                self.hideAddressEnterView(completion: completion)
-            }
+            self.dismissAddressEnterView()
+            self.dismissShopsView()
             
         case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
@@ -392,14 +362,14 @@ extension MapViewController: MapViewProtocol {
                     self.promoDestinationView.alpha = 1
                     self.promoDestinationView.imageView.webImage(promo.media[1].url ?? "")
                     self.promoDestinationView.nameLabel.text = promo.title
-
-
+                    
+                    
                 }
-            
+                
             }
-
+            
         }
-           
+        
     }
 }
 
@@ -407,50 +377,22 @@ extension MapViewController: MapViewProtocol {
 
 extension MapViewController {
     
-    private func minimizeMenuView() {
-        self.leadingLeftSideViewConstraint.constant = -UIScreen.main.bounds.width
-        self.trailingLeftSideViewConstraint.constant = UIScreen.main.bounds.width
-    }
-    
-    private func maximizeMenuView() {
-        self.leadingLeftSideViewConstraint.constant = 0
-        self.trailingLeftSideViewConstraint.constant = MapViewControllerConstraintsData.maximizedTrailingMenuViewConstant.rawValue
-        self.menuView.reloadView(with: interactor.mapMenuData)
-    }
-    
     private func animateMenuViewMaximizing() {
-        self.maximizeMenuView()
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[weak self] in
-                        self?.view.layoutIfNeeded()
-                        self?.menuView.alpha = 1
-                       },
-                       completion: nil)
+        self.menuView.reloadView(with: interactor.mapMenuData)
+        Animator.shared.showView(animationType: .menuViewAnimation(self.menuView, self.leadingLeftSideViewConstraint, self.trailingLeftSideViewConstraint), from: self.view)
     }
     
     private func animateMenuViewMinimizing() {
-        self.minimizeMenuView()
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[weak self] in
-                        self?.view.layoutIfNeeded()
-                        self?.menuView.alpha = 0
-                       },
-                       completion: nil)
+        
+        Animator.shared.hideView(animationType: .menuViewAnimation(self.menuView, self.leadingLeftSideViewConstraint, self.trailingLeftSideViewConstraint), from: self.view)
+        
     }
     
     //Remove left menu
     private func removeMenuView() {
-        self.minimizeMenuView()
-        self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
+        self.leadingLeftSideViewConstraint.constant = -UIScreen.main.bounds.width
+        self.trailingLeftSideViewConstraint.constant = UIScreen.main.bounds.width
+        self.inactiveView.alpha = 0
     }
 }
 
@@ -461,6 +403,9 @@ extension MapViewController: MenuViewDelegate {
     //Set segues when table view cell in menu view tapped
     
     func performSegue(_ type: MapViewControllerSegue) {
+        
+        self.removeMenuView()
+        
         switch type {
         
         case .Tariffs:
@@ -468,31 +413,24 @@ extension MapViewController: MenuViewDelegate {
             self.interactor.getTariffs()
             
         case .Settings:
-            let storyboard = UIStoryboard(name: StoryBoards.Settings.rawValue, bundle: nil)
-             let vc = storyboard.instantiateViewController(identifier: ViewControllers.SettingsViewController.rawValue)
-             self.removeMenuView()
-             self.navigationController?.pushViewController(vc, animated: true)
+            let vc = self.getViewController(storyboardId: StoryBoards.Settings.rawValue, viewControllerId: ViewControllers.SettingsViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
             
         case .Promocode:
-            let storyboard = UIStoryboard(name: StoryBoards.Promocode.rawValue, bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromocodeViewController.rawValue)
-            self.removeMenuView()
+            let vc = self.getViewController(storyboardId: StoryBoards.Promocode.rawValue, viewControllerId: ViewControllers.PromocodeViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
             
         case .PaymentWay:
             self.interactor.getPaymentData()
+            
         case .Service:
-            let storyboard = UIStoryboard(name: StoryBoards.Service.rawValue, bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: ViewControllers.ServiceViewController.rawValue)
-            self.removeMenuView()
+            let vc = self.getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.ServiceViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
             
         case .Promo:
-            let storyboard = UIStoryboard(name: StoryBoards.Promo.rawValue, bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: ViewControllers.PromoViewController.rawValue)
-        self.removeMenuView()
-        self.navigationController?.pushViewController(vc, animated: true)
-     
+            let vc = self.getViewController(storyboardId: StoryBoards.Promo.rawValue, viewControllerId: ViewControllers.PromoViewController.rawValue)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         case .unknown:
             break
             
@@ -543,12 +481,7 @@ extension MapViewController {
     //Setup show animation for Address enter view
     private func showAddressEnterView(as type: AddressEnterViewType) {
         
-        let rect = CGRect(x: 0,
-                          y: UIScreen.main.bounds.height,
-                          width: UIScreen.main.bounds.width,
-                          height: type.viewHeight())
-        
-        self.addressEnterView = AddressEnterView(frame: rect)
+        self.addressEnterView = AddressEnterView(frame: CGRect.makeRect(height: type.viewHeight()))
         self.addressEnterView.alpha = 0
         self.addressEnterView.delegate = self
         self.addressEnterView.setAddresses(self.interactor.addresses)
@@ -558,19 +491,7 @@ extension MapViewController {
         self.setupAddressEnterViewConstraints(viewType: type)
         
         //Animation
-        
-        self.addressEnterViewBottomConstraint.constant = bottomPadding
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.addressEnterView.alpha = 1
-                       },
-                       completion: nil)
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.addressEnterView, self.addressEnterViewBottomConstraint), from: self.view)
     }
     
     //Setup hide animation for Address enter view
@@ -578,22 +499,22 @@ extension MapViewController {
         
         self.addressEnterViewBottomConstraint.constant = self.addressEnterView.type.viewHeight() + bottomPadding
         
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.addressEnterView.alpha = 0
-                       },
-                       completion: completion)
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.addressEnterView, self.addressEnterViewBottomConstraint), from: self.view, viewHeight: self.addressEnterView.type.viewHeight() + bottomPadding, completion: completion)
     }
 }
 
 //MARK: - AddressEnterViewDelegate
 
 extension MapViewController: AddressEnterViewDelegate {
+    
+    func setDestinationTitle(_ title: String) {
+        self.interactor.destinationAddressTitle = title
+    }
+    
+    func removeDestinationTitle() {
+        self.interactor.destinationAddressTitle = nil
+    }
+    
     
     //Action when addressFromTextFieldHasBecomeActive
     func addressFromTextFieldHasBecomeActive() {
@@ -604,7 +525,6 @@ extension MapViewController: AddressEnterViewDelegate {
         }
         
     }
-    
     
     //Action when addressFromPinButtonTapped
     func addressFromPinButtonTapped() {
@@ -643,46 +563,28 @@ extension MapViewController: AddressEnterViewDelegate {
     
     //Action when Next button tapped
     func nextButtonTapped() {
-        self.interactor.sourceAddress = self.addressEnterView.sourceAddress
         self.interactor.destinationAddress = self.addressEnterView.destinationAddress
         guard let type = self.addressEnterView.type else { return }
         switch type {
-            
         case .taxi:
+            self.interactor.sourceAddress = self.addressEnterView.sourceAddress
             print("Taxi")
         case .food:
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
                 self.showShopsView()
-                self.shopsListView.setShopList(self.interactor.shopsList)
+                self.shopsListView.setShopView(list: self.interactor.shopsList, destinationAddress: self.interactor.destinationAddress, destinationTitle: self.interactor.destinationAddressTitle)
                 self.addressEnterView = nil
             }
         }
     }
-    
-    
 }
-
 
 //MARK: - Address enter detail view methods
 
 extension MapViewController {
     
-    //Setup Address enter detail view constraints
-    private func setupAddressEnterDetailViewConstraints() {
-        
-        self.addressEnterDetailView.translatesAutoresizingMaskIntoConstraints = false
-                
-        addressEnterViewDetailBottomConstraint = self.addressEnterDetailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: AddressEnterDetailViewSizes.height.rawValue + bottomPadding)
-        let addressEnterViewDetailTrailingConstraint = self.addressEnterDetailView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        let addressEnterViewDetailHeightConstraint = self.addressEnterDetailView.heightAnchor.constraint(equalToConstant: AddressEnterDetailViewSizes.height.rawValue)
-        let addressEnterViewDetailLeadingConstraint = self.addressEnterDetailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        
-        NSLayoutConstraint.activate([addressEnterViewDetailBottomConstraint, addressEnterViewDetailTrailingConstraint, addressEnterViewDetailHeightConstraint, addressEnterViewDetailLeadingConstraint ])
-    }
-    
     //Setup AddressEnterDetailView before calling
-    
     private func setupAddressEnterDetailView() {
         self.addressEnterDetailView.setupAs(.addressFrom(self.interactor.sourceAddress))
     }
@@ -692,52 +594,31 @@ extension MapViewController {
         
         guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
         
-        let rect = CGRect(x: 0,
-                          y: UIScreen.main.bounds.height,
-                          width: UIScreen.main.bounds.width,
-                          height: AddressEnterDetailViewSizes.height.rawValue)
-        
-        
-                
-        self.addressEnterDetailView = AddressEnterDetailView(frame: rect)
-                
-        self.addressEnterDetailView.alpha = 0
+        self.addressEnterDetailView = AddressEnterDetailView(frame: CGRect.makeRect(height: AddressEnterDetailViewSizes.height.rawValue))
         self.addressEnterDetailView.delegate = self
         self.view.addSubview(self.addressEnterDetailView)
         self.setupAddressEnterDetailView()
-        self.setupAddressEnterDetailViewConstraints()
+        self.addressEnterDetailView.setupConstraints(for: self.view,
+                                                     viewHeight: AddressEnterDetailViewSizes.height.rawValue,
+                                                     bottomContraintConstant: AddressEnterDetailViewSizes.height.rawValue + bottomPadding) { [weak self] constraint in
+            guard let self = self else { return }
+            self.addressEnterViewDetailBottomConstraint = constraint
+        }
         
-        //Animation
         self.addressEnterView.alpha = 0
-        self.addressEnterViewDetailBottomConstraint.constant = addressEnterViewBottomConstraint.constant
-                
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.addressEnterDetailView.alpha = 1
-                       },
-                       completion:  nil )
+        
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.addressEnterDetailView, self.addressEnterViewDetailBottomConstraint),
+                                 from: self.view,
+                                 for: addressEnterViewBottomConstraint.constant)
     }
     
     //Setup hide animation for Address enter view
     private func hideAddressEnterDetailView(completion: AnimationCompletion? = nil) {
         
-        self.addressEnterViewDetailBottomConstraint.constant = AddressEnterDetailViewSizes.height.rawValue + bottomPadding
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.addressEnterDetailView.alpha = 0
-                       },
-                       completion:  completion )
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.addressEnterDetailView, self.addressEnterViewDetailBottomConstraint),
+                                 from: self.view,
+                                 viewHeight: AddressEnterDetailViewSizes.height.rawValue,
+                                 completion: completion )
     }
     
 }
@@ -756,70 +637,108 @@ extension MapViewController: AddressEnterDetailViewDelegate {
             self.addressEnterDetailView = nil
         }
     }
-    
 }
 
 //MARK: - TipAddres view methods
+
 extension MapViewController {
     
     //Call tip address view
     private func callTipAddressView() {
         
-        let rect = CGRect(x: 0,
-                          y: 0,
-                          width: UIScreen.main.bounds.width,
-                          height: UIScreen.main.bounds.height)
-        
-        
-                
-        self.tipAddressView = TipAddressView(frame: rect)
+        self.tipAddressView = TipAddressView(frame: CGRect.makeRectWidthAndHeightScreen())
         self.view.addSubview(tipAddressView)
-        self.tipAddressView.translatesAutoresizingMaskIntoConstraints = false
         
         guard let addressEnterViewBottomConstraint = self.addressEnterViewBottomConstraint else { return }
         
-        tipAddressViewBottomAnchor = self.tipAddressView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: addressEnterViewBottomConstraint.constant)
-        tipAddressViewBottomAnchor.isActive = true
-        self.tipAddressView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.tipAddressView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.tipAddressView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -topPadding).isActive = true
+        self.tipAddressView.setupConstraints(for: self.view, bottomConstraintConstant: addressEnterViewBottomConstraint.constant) {[weak self] constraint in
+            guard let self = self else { return }
+            self.tipAddressViewBottomAnchor = constraint
+        }
         
         UserDefaults.standard.storeShowingTipAddressView(true)
     }
 }
 
-//MARK: - Shops view methods
+// MARK: - Shops view methods
 
 extension MapViewController {
     
     func showShopsView() {
         
-        let rect = CGRect(x: 0,
-                          y: UIScreen.main.bounds.height,
-                          width: UIScreen.main.bounds.width,
-                          height: ShopsCellViewUIData.viewHeight.rawValue)
-        
-        self.shopsListView = ShopsView(frame: rect)
+        self.shopsListView = ShopsView(frame: CGRect.makeRect(height: ShopsViewUIData.viewHeight.rawValue))
+        self.shopsListView.delegate = self
         self.view.addSubview(shopsListView)
-        self.shopsListView.setupConstraints(for: self.view,
-                                       viewHeight: ShopsCellViewUIData.viewHeight.rawValue,
-                                       bottomContraintConstant: ShopsCellViewUIData.viewHeight.rawValue + bottomPadding,
-                                       with: {[weak self] bottomConstraint in
-                                        guard let self = self else { return }
-                                        self.shopsListViewBottomConstraint = bottomConstraint})
         
-        //Animation
-        self.shopsListView.alpha = 0
-        self.shopsListViewBottomConstraint.constant = bottomPadding
+        self.shopsListView.setupConstraints(for: self.view,
+                                            viewHeight: ShopsViewUIData.viewHeight.rawValue,
+                                            bottomContraintConstant: ShopsViewUIData.viewHeight.rawValue + bottomPadding,
+                                            with: {[weak self] bottomConstraint in
+                                                guard let self = self else { return }
+                                                self.shopsListViewBottomConstraint = bottomConstraint})
+        
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.shopsListView, shopsListViewBottomConstraint), from: self.view)
+    }
+    
+    func hideShopsView(completion: AnimationCompletion? = nil) {
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.shopsListView, shopsListViewBottomConstraint),
+                                 from: self.view,
+                                 viewHeight: ShopsViewUIData.viewHeight.rawValue, completion: completion)
+    }
+}
+
+extension MapViewController: ShopsViewDelegate {
+   
+    func userHasSwipedDownView() {
+        self.interactor.setViewControllerState(.start)
+    }
+}
+
+// MARK: - Work with Promos
+extension MapViewController {
+    
+    
+    private func initPromoDestinationViewSetUp() {
+        self.inactiveView.alpha = 0
+        self.promoDestinationView.alpha = 0
+    }
+    
+    private func minimizePromoDestinationView() {
+        self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
+        
+    }
+    
+    private func maximizePromoDestinationView() {
+        self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
+    }
+    
+    private func animatePromoDestinationViewMaximizing() {
+        self.maximizePromoDestinationView()
+        
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 0.9,
                        initialSpringVelocity: 1,
                        options: .curveEaseOut,
-                       animations: {[unowned self] in
-                        self.view.layoutIfNeeded()
-                        self.shopsListView.alpha = 1
+                       animations: {[weak self] in
+                        self?.view.layoutIfNeeded()
+                        self?.promoDestinationView.alpha = 1
                        },
                        completion: nil)
+        
+    }
+    
+    private func animatePromoDestinationViewMinimizing() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[weak self] in
+                        self?.view.layoutIfNeeded()
+                        self?.promoDestinationView.alpha = 0
+                       },
+                       completion: nil)
+        
     }
 }

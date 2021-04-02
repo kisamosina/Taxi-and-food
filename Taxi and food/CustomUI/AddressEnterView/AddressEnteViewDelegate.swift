@@ -17,4 +17,6 @@ protocol AddressEnterViewDelegate: class {
     func tableViewWillDisappear()
     func addressFromPinButtonTapped()
     func addressFromTextFieldHasBecomeActive()
+    func setDestinationTitle(_ title: String)
+    func removeDestinationTitle()
 }

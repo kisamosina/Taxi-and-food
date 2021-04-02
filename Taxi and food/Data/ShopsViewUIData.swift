@@ -17,7 +17,7 @@ enum ShopsViewStringData: String {
     case cellReuseId = "ShopsViewCollectionViewCell"
 }
 
-enum ShopsCellViewUIData: CGFloat {
+enum ShopsViewUIData: CGFloat {
     case shadowOffsetWidth = 0
     case shadowOffsetHeight = 1.01
     case shadowOpacity = 1

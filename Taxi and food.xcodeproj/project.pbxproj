@@ -176,7 +176,6 @@
 		7D33FA7E260B9EC100DA5D0C /* ShowLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FA7D260B9EC100DA5D0C /* ShowLocationViewController.swift */; };
 		7D33FA8B260B9EE900DA5D0C /* ShowLocationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FA8A260B9EE900DA5D0C /* ShowLocationProtocols.swift */; };
 		7D33FA99260B9F5200DA5D0C /* ShowLocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FA98260B9F5200DA5D0C /* ShowLocationInteractor.swift */; };
-		7D33FAA3260B9FFF00DA5D0C /* AddressTranslatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAA2260B9FFF00DA5D0C /* AddressTranslatable.swift */; };
 		7D33FAA8260BB1AA00DA5D0C /* InactiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAA7260BB1AA00DA5D0C /* InactiveView.swift */; };
 		7D33FAB1260BB38100DA5D0C /* InactiveViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAB0260BB38100DA5D0C /* InactiveViewDelegate.swift */; };
 		7D33FAB6260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FAB5260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift */; };
@@ -190,6 +189,10 @@
 		7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */; };
 		7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */; };
 		7D47492B25FAADC000F744F7 /* AuxiliaryButtonUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */; };
+		7D491576261776D100EBD03A /* AddressTranslatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D491575261776D100EBD03A /* AddressTranslatable.swift */; };
+		7D49157B261776ED00EBD03A /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49157A261776ED00EBD03A /* Animator.swift */; };
+		7D49158426178A1200EBD03A /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49158326178A1200EBD03A /* CGRect+Extension.swift */; };
+		7D4915892617C51200EBD03A /* ShopsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915882617C51200EBD03A /* ShopsViewDelegate.swift */; };
 		7D542B84260116520030FC2D /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B82260116520030FC2D /* AddressTableViewCell.swift */; };
 		7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D542B83260116520030FC2D /* AddressTableViewCell.xib */; };
 		7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */; };
@@ -414,7 +417,6 @@
 		7D33FA7D260B9EC100DA5D0C /* ShowLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationViewController.swift; sourceTree = "<group>"; };
 		7D33FA8A260B9EE900DA5D0C /* ShowLocationProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationProtocols.swift; sourceTree = "<group>"; };
 		7D33FA98260B9F5200DA5D0C /* ShowLocationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLocationInteractor.swift; sourceTree = "<group>"; };
-		7D33FAA2260B9FFF00DA5D0C /* AddressTranslatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressTranslatable.swift; path = "Taxi and food/Helpers/Protocols_/AddressTranslatable.swift"; sourceTree = SOURCE_ROOT; };
 		7D33FAA7260BB1AA00DA5D0C /* InactiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveView.swift; sourceTree = "<group>"; };
 		7D33FAB0260BB38100DA5D0C /* InactiveViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewDelegate.swift; sourceTree = "<group>"; };
 		7D33FAB5260D0F6300DA5D0C /* AddressEnterDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterDetailViewDelegate.swift; sourceTree = "<group>"; };
@@ -428,6 +430,10 @@
 		7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButton.swift; sourceTree = "<group>"; };
 		7D47491625F933F400F744F7 /* NewCardViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewControllerUIData.swift; sourceTree = "<group>"; };
 		7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryButtonUIData.swift; sourceTree = "<group>"; };
+		7D491575261776D100EBD03A /* AddressTranslatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressTranslatable.swift; path = "New Group/AddressTranslatable.swift"; sourceTree = "<group>"; };
+		7D49157A261776ED00EBD03A /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		7D49158326178A1200EBD03A /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		7D4915882617C51200EBD03A /* ShopsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsViewDelegate.swift; sourceTree = "<group>"; };
 		7D542B82260116520030FC2D /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		7D542B83260116520030FC2D /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterViewUIData.swift; sourceTree = "<group>"; };
@@ -705,6 +711,7 @@
 				7D823EB925F2A995006B174B /* InactivewView module */,
 				7D823F0B25F3C79E006B174B /* PaymentWay module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
+				7D49157F2617782200EBD03A /* Animations */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
 				04B5655425D65B3900E0EC25 /* Extensions */,
 				7B26145225DAD4CE00E2B779 /* Data */,
@@ -791,6 +798,7 @@
 				7D06D665260134DF00219F02 /* UIAlertController+Extension.swift */,
 				7BCBCB9525D94F4100C43CF6 /* UIColor+Extension.swift */,
 				7B75CF6225DD7DD3001981CA /* UIImageView+Extension.swift */,
+				7D49158326178A1200EBD03A /* CGRect+Extension.swift */,
 				7BFFA66525D66F9500C35652 /* UILabel+Extension.swift */,
 				7B75D04B25E52EF1001981CA /* UIStackView+Extension.swift */,
 				7BFFA66F25D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift */,
@@ -805,7 +813,7 @@
 		04B5655925D65B8F00E0EC25 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7D33FAA1260B9FC100DA5D0C /* Protocols */,
+				7D491575261776D100EBD03A /* AddressTranslatable.swift */,
 				7BFFA66025D66F8300C35652 /* PhoneFormatter.swift */,
 				7D0E782025F6ADE7005EF370 /* ExpirationDateFormatter.swift */,
 				7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */,
@@ -1303,14 +1311,6 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		7D33FAA1260B9FC100DA5D0C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				7D33FAA2260B9FFF00DA5D0C /* AddressTranslatable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		7D33FAAC260BB34F00DA5D0C /* InactiveView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1337,6 +1337,14 @@
 				7D47490525F7FC6D00F744F7 /* TransitionBottomView.xib */,
 			);
 			path = TransitionBottomView;
+			sourceTree = "<group>";
+		};
+		7D49157F2617782200EBD03A /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7D49157A261776ED00EBD03A /* Animator.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		7D542B892601165B0030FC2D /* AddressTableViewCell */ = {
@@ -1426,6 +1434,7 @@
 			isa = PBXGroup;
 			children = (
 				7D9067CA2614F02500B06BAB /* ShopsView.swift */,
+				7D4915882617C51200EBD03A /* ShopsViewDelegate.swift */,
 				7D9067CF2614F06400B06BAB /* ShopsView.xib */,
 				7DD93B652614FE2400AC3990 /* ShopsCollectionViewCell */,
 			);
@@ -1623,7 +1632,6 @@
 				7B3A900225EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift in Sources */,
 				7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */,
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
-				7D33FAA3260B9FFF00DA5D0C /* AddressTranslatable.swift in Sources */,
 				041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */,
 				0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
@@ -1713,6 +1721,7 @@
 				7BEA203D26008576007DD69A /* AddressEnterView.swift in Sources */,
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
 				041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */,
+				7D49157B261776ED00EBD03A /* Animator.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
 				0414314E25FA17C40074D86C /* AddressCellModel.swift in Sources */,
@@ -1727,9 +1736,11 @@
 				7B47C88D25E6771400F366FE /* PromocodeHistoryTableViewCell.swift in Sources */,
 				7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */,
 				041E29C325E7670000CA9F56 /* PromoTableViewCell.swift in Sources */,
+				7D4915892617C51200EBD03A /* ShopsViewDelegate.swift in Sources */,
 				043E67CA25EDE50C003E49C9 /* PromoDestinationView.swift in Sources */,
 				0414315025FA1C6F0074D86C /* AllAddressesInteractor.swift in Sources */,
 				7B75CF1425DC4C53001981CA /* ProblemTextView.swift in Sources */,
+				7D49158426178A1200EBD03A /* CGRect+Extension.swift in Sources */,
 				7B3A8FD825EA918C008CA13E /* PaymentHistoryViewController.swift in Sources */,
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
@@ -1775,6 +1786,7 @@
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
 				0414313C25F727C50074D86C /* AppleMapViewController.swift in Sources */,
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
+				7D491576261776D100EBD03A /* AddressTranslatable.swift in Sources */,
 				7D06D65C26012A1B00219F02 /* LocationManagerDelegate.swift in Sources */,
 				7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
