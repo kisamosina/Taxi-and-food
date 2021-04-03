@@ -22,8 +22,24 @@ enum AddressesViewStringData: String {
 }
 
 enum AddressEnterViewSizes: CGFloat {
-    case height = 280
+    case heightWhenTaxi = 280
     case tableViewHeight = 180
+    case heightWhenFood = 215
+}
+
+enum AddressEnterViewType {
+    case taxi
+    case food
+    
+    func viewHeight() -> CGFloat {
+        switch self {
+        
+        case .taxi:
+            return AddressEnterViewSizes.heightWhenTaxi.rawValue
+        case .food:
+            return AddressEnterViewSizes.heightWhenFood.rawValue
+        }
+    }
 }
 
 struct AddressesEnterViewTexts {

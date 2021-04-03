@@ -12,8 +12,6 @@ import MapKit
 import UIKit
 
 class MapInteractor: MapInteractorProtocol {
-
-    var promos: [PromoShortData]?
     
     //MARK: - Properties
     
@@ -60,8 +58,28 @@ class MapInteractor: MapInteractorProtocol {
     //Destination Address for order
     var destinationAddress: String?
     
+    //Destination Address title for order
+    var destinationAddressTitle: String?
+    
     //Source address details
     var sourceAddressDetails: String?
+    
+    //Shops List
+    var shopsList: [ShopResponseData] = [] {
+        didSet {
+            self.view.updateShopList(shopsList)
+        }
+    }
+    
+    //Shop detail
+    var shopDetail: ShopDetailResponseData? {
+        didSet {
+            self.view.showFoodCategoriesForShop(shopDetail)
+        }
+    }
+
+    
+    var promos: [PromoShortData]?
     
     //MARK: - Initializer
     
@@ -146,7 +164,7 @@ class MapInteractor: MapInteractorProtocol {
     func getUserLoctaionRegion() -> MKCoordinateRegion? {
         guard let userLocation = self.userLocation else { return nil }
         return self.makeRegion(regionRadius: MapViewControllerMapData.regionRadius.rawValue, for: userLocation)
-    }    
+    }
 }
 
 //MARK: - Location manager delegate
@@ -239,7 +257,7 @@ extension MapInteractor {
     
     private func getAddresses() {
         
-        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+        guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
         let path = AddressesRequestPaths.getAddresses.rawValue.getServerPath(for: Int(user.id))
         
         let resource = Resource<AddressResponse>(path: path, requestType: .GET)
@@ -269,3 +287,53 @@ extension MapInteractor: ShowLocationInteractorDelegate {
     }
 }
  
+//MARK: - Get shops list
+
+extension MapInteractor {
+    
+    //Get shops list
+    func getShopList() {
+        
+        guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
+        let path = ShopsRequestPaths.shopList.rawValue.getServerPath(for: Int(user.id))
+        
+        let resource = Resource<ShopsResponse>(path: path, requestType: .GET)
+        
+        NetworkService.shared.makeRequest(for: resource) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            
+            case .success(let response):
+                self.shopsList = response.data
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+}
+
+// MARK: - Get Food Categories for shops
+
+extension MapInteractor {
+    
+    func makeRequest(for shopId: Int) {
+        
+        guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
+        let path = FoodCategoriesNetworkPaths.shopDetails.rawValue.getServerPath(userId: Int(user.id), shopId: shopId)
+        
+        let resource = Resource<ShopDetailResponse>(path: path, requestType: .GET)
+        
+        NetworkService.shared.makeRequest(for: resource) { result in
+            switch result {
+            
+            case .success(let response):
+                self.shopDetail = response.data
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
