@@ -798,6 +798,5 @@ extension MapViewController {
                         self?.promoDestinationView.alpha = 0
                        },
                        completion: nil)
-        
     }
 }
