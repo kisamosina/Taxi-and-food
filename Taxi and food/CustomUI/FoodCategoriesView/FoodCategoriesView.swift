@@ -110,7 +110,7 @@ extension FoodCategoriesView: UICollectionViewDelegateFlowLayout, UICollectionVi
         let cellnumbersOnScreen: CGFloat = 2
         let workSpace = (screenWidth - ShopDetailSizeData.collectionViewSummInsets.rawValue)/cellnumbersOnScreen
         
-        return CGSize(width: workSpace, height: ShopsViewUIData.cellHeight.rawValue)
+        return CGSize(width: workSpace, height: ShopDetailSizeData.collectionViewCellHeight.rawValue)
     }
     
 }

@@ -17,11 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="158" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPT-HT-zcZ">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPT-HT-zcZ">
                         <rect key="frame" x="0.0" y="0.0" width="158" height="120"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория продукта" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PT7-Um-XuX">
-                        <rect key="frame" x="15" y="9" width="144.5" height="18"/>
+                        <rect key="frame" x="15" y="9" width="141" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -30,6 +30,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="PT7-Um-XuX" secondAttribute="trailing" constant="2" id="4ZD-hv-6vu"/>
                 <constraint firstItem="FPT-HT-zcZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ChY-oz-Ue3"/>
                 <constraint firstAttribute="trailing" secondItem="FPT-HT-zcZ" secondAttribute="trailing" id="G77-5p-z1q"/>
                 <constraint firstAttribute="bottom" secondItem="FPT-HT-zcZ" secondAttribute="bottom" id="L4c-I3-PX0"/>

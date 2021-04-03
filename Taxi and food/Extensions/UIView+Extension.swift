@@ -32,6 +32,7 @@ extension UIView {
 
     
     typealias BottomConstraintHanler = (NSLayoutConstraint) -> Void
+    typealias VerticalConstraintsHandler = (NSLayoutConstraint, NSLayoutConstraint) -> Void
         
     func setupConstraints(for superview: UIView, viewHeight: CGFloat, bottomContraintConstant: CGFloat, with bottomConstraintHanler: BottomConstraintHanler) {
         
@@ -55,5 +56,17 @@ extension UIView {
         self.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: superview.topAnchor, constant: -topPadding).isActive = true
+    }
+    
+    func setupConstraints(for superView: UIView, topConstraint: CGFloat, bottomConstraint: CGFloat, constraintHandler: VerticalConstraintsHandler) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = self.topAnchor.constraint(equalTo: superView.topAnchor, constant: UIScreen.main.bounds.height)
+        let bottomConstraint = self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: ShopDetailSizeData.topConstraintConstant.rawValue - UIScreen.main.bounds.height)
+        bottomConstraint.isActive = true
+        topConstraint.isActive = true
+        constraintHandler(topConstraint, bottomConstraint)
+        self.leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
     }
 }

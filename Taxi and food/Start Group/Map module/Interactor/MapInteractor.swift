@@ -321,11 +321,19 @@ extension MapInteractor {
     func makeRequest(for shopId: Int) {
         
         guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
-        let path = FoodCategoriesNetworkPaths.shopDetails.rawValue.getServerPath(for: Int(user.id), and: shopId)
+        let path = FoodCategoriesNetworkPaths.shopDetails.rawValue.getServerPath(userId: Int(user.id), shopId: shopId)
         
         let resource = Resource<ShopDetailResponse>(path: path, requestType: .GET)
         
-        
+        NetworkService.shared.makeRequest(for: resource) { result in
+            switch result {
+            
+            case .success(let response):
+                self.shopDetail = response.data
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 

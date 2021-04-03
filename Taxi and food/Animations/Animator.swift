@@ -19,6 +19,7 @@ class Animator {
     enum AnimationType {
         case usualBottomAnimation(UIView, NSLayoutConstraint)
         case menuViewAnimation(UIView, NSLayoutConstraint, NSLayoutConstraint)
+        case categoriesView(UIView, NSLayoutConstraint, NSLayoutConstraint)
     }
     
     //Bottom indent
@@ -43,6 +44,8 @@ class Animator {
             UsualBotomViewAnimation.showView(superview: superView, view: view, for: distance ?? self.bottomPadding, bottomConstraint: constraint, completion: completion)
         case .menuViewAnimation(let view, let leadingConstraint, let trailingConstraint):
             MenuViewAnimation.showView(superview: superView, view: view, leadingConstraint: leadingConstraint, trailingConstraint: trailingConstraint, completion: completion)
+        case .categoriesView(let view, let topConstraint, let bottomConstraint):
+            CategoriesViewAnimation.showView(superview: superView, view: view, topConstraint: topConstraint, bottomConstraint: bottomConstraint, completion: completion)
         }
         
     }
@@ -57,6 +60,8 @@ class Animator {
             UsualBotomViewAnimation.hideView(superview: superView, view: view, viewHeight: viewHeight, for: distance ?? bottomPadding, bottomConstraint: constraint, completion: completion)
         case .menuViewAnimation(let view, let leadingConstraint, let trailingConstraint):
             MenuViewAnimation.hideView(superview: superView, view: view, leadingConstraint: leadingConstraint, trailingConstraint: trailingConstraint, completion: completion)
+        case .categoriesView(_, _, _):
+            break
         }
     }
     
@@ -147,5 +152,36 @@ fileprivate class MenuViewAnimation {
                            completion: completion)
         }
     }
+    
+}
+
+fileprivate class CategoriesViewAnimation {
+    
+    private static var bottomPadding: CGFloat {
+        let window = UIApplication.shared.windows[0]
+        return window.safeAreaInsets.bottom
+    }
+    
+    static func showView(superview: UIView, view: UIView, topConstraint: NSLayoutConstraint, bottomConstraint: NSLayoutConstraint, completion: AnimationCompletion? = nil) {
+        
+        DispatchQueue.main.async {
+            
+            topConstraint.constant = ShopDetailSizeData.topConstraintConstant.rawValue
+            bottomConstraint.constant = bottomPadding
+            
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.9,
+                           initialSpringVelocity: 1,
+                           options: .curveEaseOut,
+                           animations: {
+                            superview.layoutIfNeeded()
+                            view.alpha = 1
+                           },
+                           completion: completion)
+            
+        }
+    }
+
     
 }

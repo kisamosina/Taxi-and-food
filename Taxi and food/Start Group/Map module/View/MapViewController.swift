@@ -377,7 +377,11 @@ extension MapViewController: MapViewProtocol {
     }
     
     func showFoodCategoriesForShop(_ shopDetailData: ShopDetailResponseData?) {
+        guard let shopDetailData = shopDetailData else { return }
         
+        DispatchQueue.main.async {
+            self.showFoodCategoryView(shopDetailData)
+        }
     }
 
 }
@@ -716,8 +720,23 @@ extension MapViewController {
     
     private func showFoodCategoryView(_ shopDetailData: ShopDetailResponseData) {
         
+        self.foodCategoryView = FoodCategoriesView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height,
+                                                                 width: UIScreen.main.bounds.width,
+                                                                 height: UIScreen.main.bounds.height - ShopDetailSizeData.topConstraintConstant.rawValue))
         
+        self.view.addSubview(foodCategoryView)
+        self.foodCategoryView.setFoodData(shopDetailData)
+        self.foodCategoryView.setupConstraints(for: self.view,
+                                               topConstraint: UIScreen.main.bounds.height,
+                                               bottomConstraint: UIScreen.main.bounds.height - ShopDetailSizeData.topConstraintConstant.rawValue)
+        {[weak self] (topConstraint, bottomConstraint) in
+            guard let self = self else { return }
+            self.foodCategoryTopConstraint = topConstraint
+            self.foodCategoryViewBottomConstraint = bottomConstraint
+        }
         
+        self.shopsListView.alpha = 0
+        Animator.shared.showView(animationType: .categoriesView(self.foodCategoryView, self.foodCategoryTopConstraint, self.foodCategoryViewBottomConstraint), from: self.view)
     }
 }
 

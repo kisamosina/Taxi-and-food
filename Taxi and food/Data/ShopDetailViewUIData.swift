@@ -18,6 +18,7 @@ enum ShopDetailSizeData: CGFloat {
     case collectionViewSummInsets = 60
     case collectionViewCellHeight = 120
     case collectionViewCellCornerRadius = 15
+    case topConstraintConstant = 140
 }
 
 
