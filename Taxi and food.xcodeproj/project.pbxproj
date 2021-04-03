@@ -199,6 +199,8 @@
 		7D4915AC2618C37300EBD03A /* ShopDetailViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915AB2618C37300EBD03A /* ShopDetailViewUIData.swift */; };
 		7D4915BA2618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915B82618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift */; };
 		7D4915BB2618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915B92618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib */; };
+		7D4915CD2619057B00EBD03A /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915CC2619057B00EBD03A /* Paddings.swift */; };
+		7D4915D526190EC400EBD03A /* FoodCategoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915D426190EC400EBD03A /* FoodCategoryViewDelegate.swift */; };
 		7D542B84260116520030FC2D /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B82260116520030FC2D /* AddressTableViewCell.swift */; };
 		7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D542B83260116520030FC2D /* AddressTableViewCell.xib */; };
 		7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */; };
@@ -446,6 +448,8 @@
 		7D4915AB2618C37300EBD03A /* ShopDetailViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewUIData.swift; sourceTree = "<group>"; };
 		7D4915B82618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D4915B92618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		7D4915CC2619057B00EBD03A /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
+		7D4915D426190EC400EBD03A /* FoodCategoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryViewDelegate.swift; sourceTree = "<group>"; };
 		7D542B82260116520030FC2D /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		7D542B83260116520030FC2D /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterViewUIData.swift; sourceTree = "<group>"; };
@@ -831,6 +835,7 @@
 				7B75CFB625E17219001981CA /* TableViewDataSourceAndDelegate.swift */,
 				0465F51325DA30CD008CA6D0 /* AlertController.swift */,
 				7B75CF8F25E01CFD001981CA /* ServerError.swift */,
+				7D4915CC2619057B00EBD03A /* Paddings.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1366,6 +1371,7 @@
 			isa = PBXGroup;
 			children = (
 				7D49159D2618A51200EBD03A /* FoodCategoriesView.swift */,
+				7D4915D426190EC400EBD03A /* FoodCategoryViewDelegate.swift */,
 				7D4915A22618A57400EBD03A /* FoodCategoriesView.xib */,
 				7D4915BF2618D12C00EBD03A /* FoodCategoryCollectionViewCell */,
 			);
@@ -1711,6 +1717,7 @@
 				7D4915BA2618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift in Sources */,
 				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
+				7D4915D526190EC400EBD03A /* FoodCategoryViewDelegate.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
@@ -1799,6 +1806,7 @@
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */,
+				7D4915CD2619057B00EBD03A /* Paddings.swift in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,

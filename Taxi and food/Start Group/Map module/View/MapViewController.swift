@@ -169,23 +169,6 @@ class MapViewController: UIViewController {
     
 }
 
-//MARK: - Sizes
-
-extension MapViewController {
-    
-    //Bottom indent
-    private var bottomPadding: CGFloat {
-        let window = UIApplication.shared.windows[0]
-        return window.safeAreaInsets.bottom
-    }
-    
-    //Top indent
-    private var topPadding: CGFloat {
-        let window = UIApplication.shared.windows[0]
-        return window.safeAreaInsets.top
-    }
-}
-
 //MARK:- Work with keyboard
 
 extension MapViewController {
@@ -708,7 +691,6 @@ extension MapViewController: ShopsViewDelegate {
         self.interactor.makeRequest(for: shopId)
     }
     
-   
     func userHasSwipedDownView() {
         self.interactor.setViewControllerState(.start)
     }
@@ -718,6 +700,7 @@ extension MapViewController: ShopsViewDelegate {
 
 extension MapViewController {
     
+    //Show Food Category view
     private func showFoodCategoryView(_ shopDetailData: ShopDetailResponseData) {
         
         self.foodCategoryView = FoodCategoriesView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height,
@@ -725,7 +708,11 @@ extension MapViewController {
                                                                  height: UIScreen.main.bounds.height - ShopDetailSizeData.topConstraintConstant.rawValue))
         
         self.view.addSubview(foodCategoryView)
+        
         self.foodCategoryView.setFoodData(shopDetailData)
+        
+        self.foodCategoryView.delegate = self
+        
         self.foodCategoryView.setupConstraints(for: self.view,
                                                topConstraint: UIScreen.main.bounds.height,
                                                bottomConstraint: UIScreen.main.bounds.height - ShopDetailSizeData.topConstraintConstant.rawValue)
@@ -734,12 +721,37 @@ extension MapViewController {
             self.foodCategoryTopConstraint = topConstraint
             self.foodCategoryViewBottomConstraint = bottomConstraint
         }
-        
-        self.shopsListView.alpha = 0
+        self.inactiveView.alpha = 1
         Animator.shared.showView(animationType: .categoriesView(self.foodCategoryView, self.foodCategoryTopConstraint, self.foodCategoryViewBottomConstraint), from: self.view)
+    }
+    
+    //Hide Food Category view
+    private func hideFoodCategoryView(hasSwipedDown: Bool = false) {
+        
+        self.inactiveView.alpha = 0
+        
+        Animator.shared.hideView(animationType: .categoriesView(self.foodCategoryView, self.foodCategoryTopConstraint, self.foodCategoryViewBottomConstraint), from: self.view) {[weak self] _ in
+            guard let self = self else { return }
+            self.foodCategoryView.removeFromSuperview()
+            self.foodCategoryView = nil
+            self.foodCategoryTopConstraint = nil
+            self.foodCategoryViewBottomConstraint = nil
+            if hasSwipedDown { self.interactor.setViewControllerState(.start) }
+        }
     }
 }
 
+extension MapViewController: FoodViewCategoryViewDelegate {
+    
+    func userHasSwipedDown() {
+        self.hideFoodCategoryView(hasSwipedDown: true)
+    }
+    
+    
+    func backButtonTapped() {
+        self.hideFoodCategoryView()
+    }
+}
 
 // MARK: - Work with Promos
 extension MapViewController {

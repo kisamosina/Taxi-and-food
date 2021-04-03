@@ -22,17 +22,7 @@ class Animator {
         case categoriesView(UIView, NSLayoutConstraint, NSLayoutConstraint)
     }
     
-    //Bottom indent
-    private var bottomPadding: CGFloat {
-        let window = UIApplication.shared.windows[0]
-        return window.safeAreaInsets.bottom
-    }
-    
-    //Top indent
-    private var topPadding: CGFloat {
-        let window = UIApplication.shared.windows[0]
-        return window.safeAreaInsets.top
-    }
+
     
     //Show view
     
@@ -41,7 +31,7 @@ class Animator {
         switch animationType {
         
         case .usualBottomAnimation(let view, let constraint):
-            UsualBotomViewAnimation.showView(superview: superView, view: view, for: distance ?? self.bottomPadding, bottomConstraint: constraint, completion: completion)
+            UsualBotomViewAnimation.showView(superview: superView, view: view, for: distance ?? bottomPadding, bottomConstraint: constraint, completion: completion)
         case .menuViewAnimation(let view, let leadingConstraint, let trailingConstraint):
             MenuViewAnimation.showView(superview: superView, view: view, leadingConstraint: leadingConstraint, trailingConstraint: trailingConstraint, completion: completion)
         case .categoriesView(let view, let topConstraint, let bottomConstraint):
@@ -60,8 +50,8 @@ class Animator {
             UsualBotomViewAnimation.hideView(superview: superView, view: view, viewHeight: viewHeight, for: distance ?? bottomPadding, bottomConstraint: constraint, completion: completion)
         case .menuViewAnimation(let view, let leadingConstraint, let trailingConstraint):
             MenuViewAnimation.hideView(superview: superView, view: view, leadingConstraint: leadingConstraint, trailingConstraint: trailingConstraint, completion: completion)
-        case .categoriesView(_, _, _):
-            break
+        case .categoriesView(let view, let topConstraint, let bottomConstraint):
+            CategoriesViewAnimation.hideView(superview: superView, view: view, topConstraint: topConstraint, bottomConstraint: bottomConstraint, completion: completion)
         }
     }
     
@@ -166,9 +156,9 @@ fileprivate class CategoriesViewAnimation {
         
         DispatchQueue.main.async {
             
-            topConstraint.constant = ShopDetailSizeData.topConstraintConstant.rawValue
             bottomConstraint.constant = bottomPadding
-            
+            topConstraint.constant = ShopDetailSizeData.topConstraintConstant.rawValue
+                        
             UIView.animate(withDuration: 0.5,
                            delay: 0,
                            usingSpringWithDamping: 0.9,
@@ -183,5 +173,25 @@ fileprivate class CategoriesViewAnimation {
         }
     }
 
-    
+    static func hideView(superview: UIView, view: UIView, topConstraint: NSLayoutConstraint, bottomConstraint: NSLayoutConstraint, completion: AnimationCompletion? = nil) {
+        
+        DispatchQueue.main.async {
+            
+            topConstraint.constant = UIScreen.main.bounds.height
+            bottomConstraint.constant = UIScreen.main.bounds.height + ShopDetailSizeData.topConstraintConstant.rawValue
+            
+                        
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.9,
+                           initialSpringVelocity: 1,
+                           options: .curveEaseOut,
+                           animations: {
+                            superview.layoutIfNeeded()
+                            view.alpha = 0
+                           },
+                           completion: completion)
+            
+        }
+    }
 }

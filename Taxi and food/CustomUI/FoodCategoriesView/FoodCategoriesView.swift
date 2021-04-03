@@ -20,6 +20,8 @@ import UIKit
         }
     }
     
+    weak var delegate: FoodViewCategoryViewDelegate?
+    
     // MARK: - IBOutlets
     
     @IBOutlet var containerView: UIView!
@@ -58,6 +60,7 @@ import UIKit
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.delegate?.backButtonTapped()
     }
     
     
@@ -85,6 +88,13 @@ import UIKit
     
     public func setFoodData(_ data: ShopDetailResponseData) {
         self.shopDetailData = data
+    }
+    
+    override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        super.userHasSwipedDown(sender)
+        if sender.state == .ended {
+            self.delegate?.userHasSwipedDown()
+        }
     }
 
 }

@@ -84,8 +84,8 @@ extension CustomBottomView {
     }
     
     @objc func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .down, sender.state == .ended {
-            print("User has swiped down")
-        }
+//        if sender.direction == .down, sender.state == .ended {
+//            print("User has swiped down")
+//        }
     }
 }

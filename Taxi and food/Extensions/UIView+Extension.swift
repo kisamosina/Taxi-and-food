@@ -61,11 +61,15 @@ extension UIView {
     func setupConstraints(for superView: UIView, topConstraint: CGFloat, bottomConstraint: CGFloat, constraintHandler: VerticalConstraintsHandler) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         let topConstraint = self.topAnchor.constraint(equalTo: superView.topAnchor, constant: UIScreen.main.bounds.height)
-        let bottomConstraint = self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: ShopDetailSizeData.topConstraintConstant.rawValue - UIScreen.main.bounds.height)
+        
+        let bottomConstraint = self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: UIScreen.main.bounds.height + ShopDetailSizeData.topConstraintConstant.rawValue)
+        
         bottomConstraint.isActive = true
         topConstraint.isActive = true
         constraintHandler(topConstraint, bottomConstraint)
+        
         self.leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
     }
