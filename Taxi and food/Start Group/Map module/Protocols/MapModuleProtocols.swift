@@ -53,6 +53,9 @@ protocol MapInteractorProtocol: class {
     
     //Shops list
     var shopsList:[ShopResponseData] { get set }
+    
+    //FoodCategories list
+    var shopDetail: ShopDetailResponseData? { get set }
 
     init(view: MapViewProtocol)
     
@@ -72,7 +75,11 @@ protocol MapInteractorProtocol: class {
     
     func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool
     
+    // Get List of shops
     func getShopList()
+    
+    //Get Food Categories for shops
+    func makeRequest(for shopId: Int)
 }
 
 
@@ -101,4 +108,6 @@ protocol MapViewProtocol: class {
     func updateData()
 
     func updateShopList(_ list: [ShopResponseData])
+    
+    func showFoodCategoriesForShop(_ shopDetailData: ShopDetailResponseData? )
 }

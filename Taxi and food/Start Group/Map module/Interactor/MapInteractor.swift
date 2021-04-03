@@ -71,6 +71,14 @@ class MapInteractor: MapInteractorProtocol {
         }
     }
     
+    //Shop detail
+    var shopDetail: ShopDetailResponseData? {
+        didSet {
+            self.view.showFoodCategoriesForShop(shopDetail)
+        }
+    }
+
+    
     var promos: [PromoShortData]?
     
     //MARK: - Initializer
@@ -305,3 +313,19 @@ extension MapInteractor {
     }
     
 }
+
+// MARK: - Get Food Categories for shops
+
+extension MapInteractor {
+    
+    func makeRequest(for shopId: Int) {
+        
+        guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
+        let path = FoodCategoriesNetworkPaths.shopDetails.rawValue.getServerPath(for: Int(user.id), and: shopId)
+        
+        let resource = Resource<ShopDetailResponse>(path: path, requestType: .GET)
+        
+        
+    }
+}
+

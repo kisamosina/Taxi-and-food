@@ -32,6 +32,11 @@ class MapViewController: UIViewController {
     private var shopsListView: ShopsView!
     private var shopsListViewBottomConstraint: NSLayoutConstraint!
     
+    //Food category (shop detail) view
+    private var foodCategoryView: FoodCategoriesView!
+    private var foodCategoryTopConstraint: NSLayoutConstraint!
+    private var foodCategoryViewBottomConstraint: NSLayoutConstraint!
+    
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var menuButton: MapRoundButton!
@@ -53,7 +58,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         self.interactor = MapInteractor(view: self)
         self.initViewSetup()
-        //        self.minimizeMenuView()
         self.removeMenuView()
         self.minimizePromoDestinationView()
         self.addSwipes()
@@ -371,6 +375,11 @@ extension MapViewController: MapViewProtocol {
         }
         
     }
+    
+    func showFoodCategoriesForShop(_ shopDetailData: ShopDetailResponseData?) {
+        
+    }
+
 }
 
 //MARK: - Menu View Methods
@@ -687,12 +696,31 @@ extension MapViewController {
     }
 }
 
+// MARK: - ShopsViewDelegate
+
 extension MapViewController: ShopsViewDelegate {
+    
+    func goToShop(_ shopId: Int) {
+        self.interactor.makeRequest(for: shopId)
+    }
+    
    
     func userHasSwipedDownView() {
         self.interactor.setViewControllerState(.start)
     }
 }
+
+//MARK: - Food categories (shop details) methods
+
+extension MapViewController {
+    
+    private func showFoodCategoryView(_ shopDetailData: ShopDetailResponseData) {
+        
+        
+        
+    }
+}
+
 
 // MARK: - Work with Promos
 extension MapViewController {

@@ -241,23 +241,28 @@ struct ShopResponseData: Decodable {
     var icon: String
 }
 
+struct ShopDetailResponse: Decodable {
+    var data: ShopDetailResponseData
+}
 
-//MARK: - This section is temporary after merge with Dasha branch need it to delete
-//
-//struct AddressResponse: Decodable {
-//    var data: [AddressResponseData]
-//}
-//
-//struct AddressResponseData: Decodable {
-//    
-//    var id: Int
-//    var name: String
-//    var address: String
-//    var commentDriver: String?
-//    var commentCourier: String?
-//    var flat: Int?
-//    var intercom: Int?
-//    var floor: Int?
-//    var destination: Bool
-//    
-//}
+struct ShopDetailResponseData: Decodable {
+    var id: Int
+    var name: String
+    var categories: [ShopDetailResponseData.FoodCategory]
+    var schedule: String
+    var description: String
+    var address: String
+    var icon: String
+}
+
+
+extension ShopDetailResponseData {
+    
+    struct FoodCategory: Decodable {
+        var id: Int
+        var name: String
+        var icon: String
+        var isCategory: Bool
+    }
+    
+}

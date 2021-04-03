@@ -116,4 +116,10 @@ extension ShopsView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
         
         return CGSize(width: workSpace, height: ShopsViewUIData.cellHeight.rawValue)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shopId = self.shopList[indexPath.row].id
+        self.delegate?.goToShop(shopId)
+    }
 }

@@ -11,4 +11,5 @@ import Foundation
 protocol ShopsViewDelegate: class {
     
     func userHasSwipedDownView()
+    func goToShop(_ shopId: Int)
 }
