@@ -157,7 +157,7 @@ fileprivate class CategoriesViewAnimation {
         DispatchQueue.main.async {
             
             bottomConstraint.constant = bottomPadding
-            topConstraint.constant = ShopDetailSizeData.topConstraintConstant.rawValue
+            topConstraint.constant = FoodCategoriesViewSizeData.topConstraintConstant.rawValue
                         
             UIView.animate(withDuration: 0.5,
                            delay: 0,
@@ -178,7 +178,7 @@ fileprivate class CategoriesViewAnimation {
         DispatchQueue.main.async {
             
             topConstraint.constant = UIScreen.main.bounds.height
-            bottomConstraint.constant = UIScreen.main.bounds.height + ShopDetailSizeData.topConstraintConstant.rawValue
+            bottomConstraint.constant = UIScreen.main.bounds.height + FoodCategoriesViewSizeData.topConstraintConstant.rawValue
             
                         
             UIView.animate(withDuration: 0.5,

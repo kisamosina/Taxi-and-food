@@ -35,6 +35,7 @@ class PaymentWayViewController: UIViewController {
         super.viewWillAppear(animated)
         self.interactor.getPaymentData()
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     //MARK: - IBActions

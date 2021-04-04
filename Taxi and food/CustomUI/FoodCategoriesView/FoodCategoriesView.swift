@@ -13,9 +13,9 @@ import UIKit
     
     //MARK: - Properties
     
-    private var shopDetailData: ShopDetailResponseData? {
+    private var foodCategoryData: FoodCategoriesResponseData? {
         didSet {
-            self.shopTitleLabel.text = ShopDetailTexts.shopTitle + " \(shopDetailData?.name ?? "")"
+            self.shopTitleLabel.text = FoodCategoriesViewTexts.shopTitle + " \(foodCategoryData?.name ?? "")"
             self.collectionView.reloadData()
         }
     }
@@ -36,12 +36,12 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initSubviews()
+        self.initSubViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.initSubviews()
+        self.initSubViews()
     }
     
     
@@ -66,15 +66,16 @@ import UIKit
     
     // MARK: - Methods
     
-    private func initSubviews() {
-        
-        self.loadFromNib(nibName: ShopDetailStringData.nibFileName.rawValue)
+    override func initSubViews() {
+        super.initSubViews()
+        self.loadFromNib(nibName: FoodCategoriesViewStringData.nibFileName.rawValue)
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.containerView.backgroundColor = .clear
+        super.anchorView.backgroundColor = Colors.whiteTransparent.getColor()
         self.setupConstraints()
-        let nib = UINib(nibName: ShopDetailStringData.collectioViewCellReuseId.rawValue, bundle: nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: ShopDetailStringData.collectioViewCellReuseId.rawValue)
+        let nib = UINib(nibName: FoodCategoriesViewStringData.collectioViewCellReuseId.rawValue, bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: FoodCategoriesViewStringData.collectioViewCellReuseId.rawValue)
     }
     
     private func setupConstraints() {
@@ -86,8 +87,8 @@ import UIKit
         ])
     }
     
-    public func setFoodData(_ data: ShopDetailResponseData) {
-        self.shopDetailData = data
+    public func setFoodData(_ data: FoodCategoriesResponseData) {
+        self.foodCategoryData = data
     }
     
     override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
@@ -103,13 +104,13 @@ import UIKit
 extension FoodCategoriesView: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.shopDetailData?.categories.count ?? 0
+        return self.foodCategoryData?.categories.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopDetailStringData.collectioViewCellReuseId.rawValue,
+       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCategoriesViewStringData.collectioViewCellReuseId.rawValue,
                                                            for: indexPath) as! FoodCategoryCollectionViewCell
-        guard let category = self.shopDetailData?.categories[indexPath.row] else { return UICollectionViewCell() }
+        guard let category = self.foodCategoryData?.categories[indexPath.row] else { return UICollectionViewCell() }
         cell.bindCell(by: category)
         return cell
     }
@@ -118,9 +119,9 @@ extension FoodCategoriesView: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         let screenWidth = UIScreen.main.bounds.width
         let cellnumbersOnScreen: CGFloat = 2
-        let workSpace = (screenWidth - ShopDetailSizeData.collectionViewSummInsets.rawValue)/cellnumbersOnScreen
+        let workSpace = (screenWidth - FoodCategoriesViewSizeData.collectionViewSummInsets.rawValue)/cellnumbersOnScreen
         
-        return CGSize(width: workSpace, height: ShopDetailSizeData.collectionViewCellHeight.rawValue)
+        return CGSize(width: workSpace, height: FoodCategoriesViewSizeData.collectionViewCellHeight.rawValue)
     }
     
 }

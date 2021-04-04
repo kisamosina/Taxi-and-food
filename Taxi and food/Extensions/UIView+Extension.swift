@@ -64,7 +64,7 @@ extension UIView {
         
         let topConstraint = self.topAnchor.constraint(equalTo: superView.topAnchor, constant: UIScreen.main.bounds.height)
         
-        let bottomConstraint = self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: UIScreen.main.bounds.height + ShopDetailSizeData.topConstraintConstant.rawValue)
+        let bottomConstraint = self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: UIScreen.main.bounds.height + FoodCategoriesViewSizeData.topConstraintConstant.rawValue)
         
         bottomConstraint.isActive = true
         topConstraint.isActive = true

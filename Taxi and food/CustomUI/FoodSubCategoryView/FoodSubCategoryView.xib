@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodSubCategoryView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="categoryTitleLabel" destination="rnt-6u-gvW" id="HS9-sC-92U"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="2F2-6E-of6"/>
+                <outlet property="shopTitleLabel" destination="QxD-ZF-oOB" id="vYl-6g-NWu"/>
+                <outlet property="tableView" destination="7Ey-wf-EX4" id="Bkz-Ql-ufy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOw-NY-Nli">
+                    <rect key="frame" x="25" y="40" width="10" height="22"/>
+                    <state key="normal" image="backButton"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продукт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-6u-gvW">
+                    <rect key="frame" x="25" y="79" width="106.5" height="32"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Ey-wf-EX4">
+                    <rect key="frame" x="0.0" y="131" width="414" height="629"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ldb-y8-iq8"/>
+                        <outlet property="delegate" destination="-1" id="uLt-mt-Zj5"/>
+                    </connections>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Магазин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxD-ZF-oOB">
+                    <rect key="frame" x="175" y="41" width="64" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7Ey-wf-EX4" secondAttribute="bottom" id="01x-eE-GWc"/>
+                <constraint firstItem="rnt-6u-gvW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="3vl-mL-pdQ"/>
+                <constraint firstItem="7Ey-wf-EX4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7gC-x1-wiO"/>
+                <constraint firstItem="hOw-NY-Nli" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="LNa-V0-s3a"/>
+                <constraint firstItem="7Ey-wf-EX4" firstAttribute="top" secondItem="rnt-6u-gvW" secondAttribute="bottom" constant="20" id="TKA-YA-bwY"/>
+                <constraint firstItem="rnt-6u-gvW" firstAttribute="top" secondItem="hOw-NY-Nli" secondAttribute="bottom" constant="17" id="TtT-EE-27a"/>
+                <constraint firstItem="hOw-NY-Nli" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="fnC-Ya-T5v"/>
+                <constraint firstItem="QxD-ZF-oOB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="41" id="kZU-O7-M15"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Ey-wf-EX4" secondAttribute="trailing" id="txI-cW-lqB"/>
+                <constraint firstItem="QxD-ZF-oOB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yxo-DA-H5I"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="100.00000000000001" y="100.44642857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backButton" width="10" height="17"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

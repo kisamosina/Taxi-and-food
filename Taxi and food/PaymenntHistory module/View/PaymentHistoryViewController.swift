@@ -43,7 +43,7 @@ class PaymentHistoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     //MARK: - IBActions

@@ -231,38 +231,3 @@ struct MapMenuData {
     }
 }
 
-struct ShopsResponse: Decodable {
-    var data: [ShopResponseData]
-}
-
-struct ShopResponseData: Decodable {
-    var id: Int
-    var name: String
-    var icon: String
-}
-
-struct ShopDetailResponse: Decodable {
-    var data: ShopDetailResponseData
-}
-
-struct ShopDetailResponseData: Decodable {
-    var id: Int
-    var name: String
-    var categories: [ShopDetailResponseData.FoodCategory]
-    var schedule: String
-    var description: String
-    var address: String
-    var icon: String
-}
-
-
-extension ShopDetailResponseData {
-    
-    struct FoodCategory: Decodable {
-        var id: Int
-        var name: String
-        var icon: String
-        var isCategory: Bool
-    }
-    
-}

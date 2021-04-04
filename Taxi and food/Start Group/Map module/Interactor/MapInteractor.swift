@@ -72,7 +72,7 @@ class MapInteractor: MapInteractorProtocol {
     }
     
     //Shop detail
-    var shopDetail: ShopDetailResponseData? {
+    var shopDetail: FoodCategoriesResponseData? {
         didSet {
             self.view.showFoodCategoriesForShop(shopDetail)
         }
@@ -323,7 +323,7 @@ extension MapInteractor {
         guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
         let path = FoodCategoriesNetworkPaths.shopDetails.rawValue.getServerPath(userId: Int(user.id), shopId: shopId)
         
-        let resource = Resource<ShopDetailResponse>(path: path, requestType: .GET)
+        let resource = Resource<FoodCategoriesResponse>(path: path, requestType: .GET)
         
         NetworkService.shared.makeRequest(for: resource) { result in
             switch result {

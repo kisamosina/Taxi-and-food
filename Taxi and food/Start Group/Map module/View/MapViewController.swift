@@ -77,6 +77,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.inactiveView.alpha = 0
     }
     
@@ -123,8 +124,6 @@ class MapViewController: UIViewController {
     @IBAction func closeMenuButtonTapped(_ sender: UIButton) {
         self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
         self.animateMenuViewMinimizing()
-        
-        
     }
     
     @IBAction func closePromoDescriptionViewTapped(_ sender: Any) {
@@ -359,7 +358,7 @@ extension MapViewController: MapViewProtocol {
         
     }
     
-    func showFoodCategoriesForShop(_ shopDetailData: ShopDetailResponseData?) {
+    func showFoodCategoriesForShop(_ shopDetailData: FoodCategoriesResponseData?) {
         guard let shopDetailData = shopDetailData else { return }
         
         DispatchQueue.main.async {
@@ -701,11 +700,11 @@ extension MapViewController: ShopsViewDelegate {
 extension MapViewController {
     
     //Show Food Category view
-    private func showFoodCategoryView(_ shopDetailData: ShopDetailResponseData) {
+    private func showFoodCategoryView(_ shopDetailData: FoodCategoriesResponseData) {
         
         self.foodCategoryView = FoodCategoriesView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height,
                                                                  width: UIScreen.main.bounds.width,
-                                                                 height: UIScreen.main.bounds.height - ShopDetailSizeData.topConstraintConstant.rawValue))
+                                                                 height: UIScreen.main.bounds.height - FoodCategoriesViewSizeData.topConstraintConstant.rawValue))
         
         self.view.addSubview(foodCategoryView)
         
@@ -715,7 +714,7 @@ extension MapViewController {
         
         self.foodCategoryView.setupConstraints(for: self.view,
                                                topConstraint: UIScreen.main.bounds.height,
-                                               bottomConstraint: UIScreen.main.bounds.height - ShopDetailSizeData.topConstraintConstant.rawValue)
+                                               bottomConstraint: UIScreen.main.bounds.height - FoodCategoriesViewSizeData.topConstraintConstant.rawValue)
         {[weak self] (topConstraint, bottomConstraint) in
             guard let self = self else { return }
             self.foodCategoryTopConstraint = topConstraint
@@ -740,6 +739,7 @@ extension MapViewController {
         }
     }
 }
+// MARK: - FoodViewCategoryViewDelegate
 
 extension MapViewController: FoodViewCategoryViewDelegate {
     
@@ -754,6 +754,7 @@ extension MapViewController: FoodViewCategoryViewDelegate {
 }
 
 // MARK: - Work with Promos
+
 extension MapViewController {
     
     

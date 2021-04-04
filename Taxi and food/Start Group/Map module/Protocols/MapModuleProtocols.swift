@@ -55,7 +55,7 @@ protocol MapInteractorProtocol: class {
     var shopsList:[ShopResponseData] { get set }
     
     //FoodCategories list
-    var shopDetail: ShopDetailResponseData? { get set }
+    var shopDetail: FoodCategoriesResponseData? { get set }
 
     init(view: MapViewProtocol)
     
@@ -109,5 +109,5 @@ protocol MapViewProtocol: class {
 
     func updateShopList(_ list: [ShopResponseData])
     
-    func showFoodCategoriesForShop(_ shopDetailData: ShopDetailResponseData? )
+    func showFoodCategoriesForShop(_ shopDetailData: FoodCategoriesResponseData? )
 }

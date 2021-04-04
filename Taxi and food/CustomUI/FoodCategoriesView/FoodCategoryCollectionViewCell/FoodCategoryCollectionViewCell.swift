@@ -24,10 +24,10 @@ class FoodCategoryCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = ShopDetailSizeData.collectionViewCellCornerRadius.rawValue
+        self.layer.cornerRadius = FoodCategoriesViewSizeData.collectionViewCellCornerRadius.rawValue
     }
     
-    public func bindCell(by category: ShopDetailResponseData.FoodCategory) {
+    public func bindCell(by category: FoodCategoriesResponseData.FoodCategory) {
         self.productCategoryLabel.text = category.name
         self.productCategoryImageView.webImage(category.icon)
     }
