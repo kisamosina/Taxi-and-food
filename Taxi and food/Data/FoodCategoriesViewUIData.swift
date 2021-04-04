@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-enum ShopDetailStringData: String {
+enum FoodCategoriesViewStringData: String {
     case nibFileName = "FoodCategoriesView"
     case collectioViewCellReuseId = "FoodCategoryCollectionViewCell"
 }
 
-enum ShopDetailSizeData: CGFloat {
+enum FoodCategoriesViewSizeData: CGFloat {
     case collectionViewSummInsets = 60
     case collectionViewCellHeight = 120
     case collectionViewCellCornerRadius = 15
@@ -22,7 +22,7 @@ enum ShopDetailSizeData: CGFloat {
 }
 
 
-struct ShopDetailTexts {
+struct FoodCategoriesViewTexts {
     private enum RusTexts: String {
         case shop = "Магазин"
     }

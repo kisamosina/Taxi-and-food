@@ -41,16 +41,12 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .clear
-        self.setupSkeletonConstraints()
-        self.setupSwipeDownGestureRecognizer()
+        self.initSubViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.backgroundColor = .clear
-        self.setupSkeletonConstraints()
-        self.setupSwipeDownGestureRecognizer()
+        self.initSubViews()
     }
     
     private func setupSkeletonConstraints() {
@@ -68,6 +64,12 @@ import UIKit
             contentView.topAnchor.constraint(equalTo: anchorView.bottomAnchor, constant: 10),
             contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+    }
+    
+   internal func initSubViews() {
+        self.backgroundColor = .clear
+        self.setupSkeletonConstraints()
+        self.setupSwipeDownGestureRecognizer()
     }
     
     func setupAnchorViewColor(color: UIColor) {

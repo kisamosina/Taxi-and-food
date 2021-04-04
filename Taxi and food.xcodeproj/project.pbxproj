@@ -196,11 +196,17 @@
 		7D49159926189F3000EBD03A /* CustomBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49159826189F3000EBD03A /* CustomBottomView.swift */; };
 		7D49159E2618A51200EBD03A /* FoodCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49159D2618A51200EBD03A /* FoodCategoriesView.swift */; };
 		7D4915A32618A57400EBD03A /* FoodCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915A22618A57400EBD03A /* FoodCategoriesView.xib */; };
-		7D4915AC2618C37300EBD03A /* ShopDetailViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915AB2618C37300EBD03A /* ShopDetailViewUIData.swift */; };
+		7D4915AC2618C37300EBD03A /* FoodCategoriesViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915AB2618C37300EBD03A /* FoodCategoriesViewUIData.swift */; };
 		7D4915BA2618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915B82618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift */; };
 		7D4915BB2618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915B92618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib */; };
 		7D4915CD2619057B00EBD03A /* Paddings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915CC2619057B00EBD03A /* Paddings.swift */; };
 		7D4915D526190EC400EBD03A /* FoodCategoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915D426190EC400EBD03A /* FoodCategoryViewDelegate.swift */; };
+		7D4915E02619C65D00EBD03A /* FoodSubCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915DF2619C65D00EBD03A /* FoodSubCategoryView.swift */; };
+		7D4915E52619D40F00EBD03A /* FoodSubCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915E42619D40F00EBD03A /* FoodSubCategoryView.xib */; };
+		7D4915F42619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915F32619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift */; };
+		7D4915FA2619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915F82619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift */; };
+		7D4915FB2619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915F92619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib */; };
+		7D4916072619ECF700EBD03A /* MapModuleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4916062619ECF700EBD03A /* MapModuleModels.swift */; };
 		7D542B84260116520030FC2D /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B82260116520030FC2D /* AddressTableViewCell.swift */; };
 		7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D542B83260116520030FC2D /* AddressTableViewCell.xib */; };
 		7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */; };
@@ -445,11 +451,17 @@
 		7D49159826189F3000EBD03A /* CustomBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomView.swift; sourceTree = "<group>"; };
 		7D49159D2618A51200EBD03A /* FoodCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoriesView.swift; sourceTree = "<group>"; };
 		7D4915A22618A57400EBD03A /* FoodCategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCategoriesView.xib; sourceTree = "<group>"; };
-		7D4915AB2618C37300EBD03A /* ShopDetailViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewUIData.swift; sourceTree = "<group>"; };
+		7D4915AB2618C37300EBD03A /* FoodCategoriesViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoriesViewUIData.swift; sourceTree = "<group>"; };
 		7D4915B82618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D4915B92618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7D4915CC2619057B00EBD03A /* Paddings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paddings.swift; sourceTree = "<group>"; };
 		7D4915D426190EC400EBD03A /* FoodCategoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryViewDelegate.swift; sourceTree = "<group>"; };
+		7D4915DF2619C65D00EBD03A /* FoodSubCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryView.swift; sourceTree = "<group>"; };
+		7D4915E42619D40F00EBD03A /* FoodSubCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSubCategoryView.xib; sourceTree = "<group>"; };
+		7D4915F32619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoriesViewUIData.swift; sourceTree = "<group>"; };
+		7D4915F82619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryCellTableViewCell.swift; sourceTree = "<group>"; };
+		7D4915F92619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSubCategoryCellTableViewCell.xib; sourceTree = "<group>"; };
+		7D4916062619ECF700EBD03A /* MapModuleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModuleModels.swift; sourceTree = "<group>"; };
 		7D542B82260116520030FC2D /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		7D542B83260116520030FC2D /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterViewUIData.swift; sourceTree = "<group>"; };
@@ -936,7 +948,8 @@
 				0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */,
 				0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */,
 				041E298525DE226400CA9F56 /* SettingsModuleUIData.swift */,
-				7D4915AB2618C37300EBD03A /* ShopDetailViewUIData.swift */,
+				7D4915AB2618C37300EBD03A /* FoodCategoriesViewUIData.swift */,
+				7D4915F32619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift */,
 				7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
 				7B75CFDE25E3CBEC001981CA /* Taxi_and_food.xcdatamodeld */,
@@ -1056,7 +1069,10 @@
 				7D47491125F8028C00F744F7 /* AuxiliaryButton.swift */,
 				7D4748E025F7D89100F744F7 /* CardEnterView */,
 				7B47C87B25E147E700F366FE /* CloseMenuButton.swift */,
+				7D49159826189F3000EBD03A /* CustomBottomView.swift */,
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
+				7D4915A72618C34000EBD03A /* FoodCategoriesView */,
+				7D4915E92619D41500EBD03A /* FoodSubCategoryView */,
 				7D33FAAC260BB34F00DA5D0C /* InactiveView */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
@@ -1072,8 +1088,6 @@
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
-				7D49159826189F3000EBD03A /* CustomBottomView.swift */,
-				7D4915A72618C34000EBD03A /* FoodCategoriesView */,
 				7D868D49260E794E00D3A91E /* TipAddressView */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
 				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
@@ -1111,6 +1125,7 @@
 			isa = PBXGroup;
 			children = (
 				7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */,
+				7D4916062619ECF700EBD03A /* MapModuleModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1387,6 +1402,25 @@
 			path = FoodCategoryCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		7D4915E92619D41500EBD03A /* FoodSubCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				7D4915DF2619C65D00EBD03A /* FoodSubCategoryView.swift */,
+				7D4915E42619D40F00EBD03A /* FoodSubCategoryView.xib */,
+				7D4915FF2619EBB200EBD03A /* Table View Cell */,
+			);
+			path = FoodSubCategoryView;
+			sourceTree = "<group>";
+		};
+		7D4915FF2619EBB200EBD03A /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D4915F82619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift */,
+				7D4915F92619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib */,
+			);
+			path = "Table View Cell";
+			sourceTree = "<group>";
+		};
 		7D542B892601165B0030FC2D /* AddressTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1616,6 +1650,7 @@
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */,
 				041E29CB25E769C700CA9F56 /* Promo.storyboard in Resources */,
+				7D4915FB2619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib in Resources */,
 				7B47C88E25E6771400F366FE /* PromocodeHistoryTableViewCell.xib in Resources */,
 				7B3A902025ED60F5008CA13E /* PaymentHistoryDetailView.xib in Resources */,
 				7DD93B612614FE1900AC3990 /* ShopsCollectionViewCell.xib in Resources */,
@@ -1629,6 +1664,7 @@
 				7D868D45260E794200D3A91E /* TipAddressView.xib in Resources */,
 				7D4915A32618A57400EBD03A /* FoodCategoriesView.xib in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
+				7D4915E52619D40F00EBD03A /* FoodSubCategoryView.xib in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				7D4915BB2618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
@@ -1742,7 +1778,7 @@
 				041E29AF25E26B5300CA9F56 /* PPViewController.swift in Sources */,
 				7D1F5EE125F3D01C00892B6F /* PaymentWayViewController.swift in Sources */,
 				0465F51625DA39BA008CA6D0 /* PhotosInteractor.swift in Sources */,
-				7D4915AC2618C37300EBD03A /* ShopDetailViewUIData.swift in Sources */,
+				7D4915AC2618C37300EBD03A /* FoodCategoriesViewUIData.swift in Sources */,
 				041E29C125E766D900CA9F56 /* PromoViewController.swift in Sources */,
 				7D1F5EF725F3D2FF00892B6F /* PaymentWayProtocols.swift in Sources */,
 				7D33FA63260A561B00DA5D0C /* AddressEnterDetailView.swift in Sources */,
@@ -1757,6 +1793,7 @@
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
 				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
+				7D4915F42619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift in Sources */,
 				7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
 				7D542B96260122320030FC2D /* LocationManager.swift in Sources */,
@@ -1797,6 +1834,7 @@
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
 				7D06D66126012CE400219F02 /* LoacationAuthStatus.swift in Sources */,
 				7DD6B17525F01A8B00445407 /* PersonalAccountUIData.swift in Sources */,
+				7D4915E02619C65D00EBD03A /* FoodSubCategoryView.swift in Sources */,
 				7D0E782125F6ADE7005EF370 /* ExpirationDateFormatter.swift in Sources */,
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
@@ -1816,7 +1854,9 @@
 				041E29A125E2175800CA9F56 /* PersonalDataModuleUIData.swift in Sources */,
 				7D47490125F7FC3E00F744F7 /* TransitionBottomViewUIData.swift in Sources */,
 				7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */,
+				7D4915FA2619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift in Sources */,
 				7D823EDF25F2BBEC006B174B /* UIView+Extension.swift in Sources */,
+				7D4916072619ECF700EBD03A /* MapModuleModels.swift in Sources */,
 				7B75CF5125DD71E1001981CA /* TarifResponse.swift in Sources */,
 				0414314425F870680074D86C /* AddressModel.swift in Sources */,
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,

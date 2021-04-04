@@ -22,7 +22,7 @@ enum AppLanguages: String {
     func getLocaleID() -> String {
         
         switch self {
-            
+        
         case .rus:
             return "ru_RU"
         case .eng:
@@ -56,6 +56,7 @@ enum Colors {
     case logOutButtonBorderColor
     case bouncesPointsTextColor
     case taxiOrange
+    case whiteTransparent
     
     
     func getColor() -> UIColor {
@@ -97,6 +98,8 @@ enum Colors {
             return UIColor(hexString: "#FACA50")
         case .taxiOrange:
             return UIColor(hexString: "FB8E50")
+        case .whiteTransparent:
+        return UIColor(hexString: "#FFFFFF", alpha: 0.5)
         }
     }
 }
@@ -147,7 +150,7 @@ enum StoryBoards: String {
     case PaymentWay
     case PersonalData
     case Promo
-  
+    
 }
 
 enum ViewControllers: String {
