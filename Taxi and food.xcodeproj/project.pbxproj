@@ -207,6 +207,8 @@
 		7D4915FA2619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4915F82619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift */; };
 		7D4915FB2619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915F92619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib */; };
 		7D4916072619ECF700EBD03A /* MapModuleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4916062619ECF700EBD03A /* MapModuleModels.swift */; };
+		7D49160F261B6FDA00EBD03A /* ShopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D49160E261B6FDA00EBD03A /* ShopDetailView.swift */; };
+		7D491614261B705500EBD03A /* ShopDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D491613261B705500EBD03A /* ShopDetailView.xib */; };
 		7D542B84260116520030FC2D /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B82260116520030FC2D /* AddressTableViewCell.swift */; };
 		7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D542B83260116520030FC2D /* AddressTableViewCell.xib */; };
 		7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */; };
@@ -236,6 +238,8 @@
 		7DD93B5A2614F90000AC3990 /* ShopsViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */; };
 		7DD93B602614FE1900AC3990 /* ShopsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD93B5E2614FE1900AC3990 /* ShopsCollectionViewCell.swift */; };
 		7DD93B612614FE1900AC3990 /* ShopsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD93B5F2614FE1900AC3990 /* ShopsCollectionViewCell.xib */; };
+		7DE338A6261B902E006EA531 /* ShopDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE338A5261B902E006EA531 /* ShopDetailViewDelegate.swift */; };
+		7DE338AB261B9106006EA531 /* ShopDetailViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE338AA261B9106006EA531 /* ShopDetailViewUIData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -462,6 +466,8 @@
 		7D4915F82619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		7D4915F92619EBAA00EBD03A /* FoodSubCategoryCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSubCategoryCellTableViewCell.xib; sourceTree = "<group>"; };
 		7D4916062619ECF700EBD03A /* MapModuleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModuleModels.swift; sourceTree = "<group>"; };
+		7D49160E261B6FDA00EBD03A /* ShopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailView.swift; sourceTree = "<group>"; };
+		7D491613261B705500EBD03A /* ShopDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailView.xib; sourceTree = "<group>"; };
 		7D542B82260116520030FC2D /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		7D542B83260116520030FC2D /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterViewUIData.swift; sourceTree = "<group>"; };
@@ -491,6 +497,8 @@
 		7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsViewUIData.swift; sourceTree = "<group>"; };
 		7DD93B5E2614FE1900AC3990 /* ShopsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DD93B5F2614FE1900AC3990 /* ShopsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopsCollectionViewCell.xib; sourceTree = "<group>"; };
+		7DE338A5261B902E006EA531 /* ShopDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewDelegate.swift; sourceTree = "<group>"; };
+		7DE338AA261B9106006EA531 /* ShopDetailViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewUIData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -951,6 +959,7 @@
 				7D4915AB2618C37300EBD03A /* FoodCategoriesViewUIData.swift */,
 				7D4915F32619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift */,
 				7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */,
+				7DE338AA261B9106006EA531 /* ShopDetailViewUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
 				7B75CFDE25E3CBEC001981CA /* Taxi_and_food.xcdatamodeld */,
 				7B75D04625E52979001981CA /* TextEnterViewUIData.swift */,
@@ -1085,6 +1094,7 @@
 				043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
 				7D9067D42614F06B00B06BAB /* ShopsView */,
+				7D491618261B706200EBD03A /* ShopDetailView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
@@ -1421,6 +1431,16 @@
 			path = "Table View Cell";
 			sourceTree = "<group>";
 		};
+		7D491618261B706200EBD03A /* ShopDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				7D49160E261B6FDA00EBD03A /* ShopDetailView.swift */,
+				7DE338A5261B902E006EA531 /* ShopDetailViewDelegate.swift */,
+				7D491613261B705500EBD03A /* ShopDetailView.xib */,
+			);
+			path = ShopDetailView;
+			sourceTree = "<group>";
+		};
 		7D542B892601165B0030FC2D /* AddressTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1644,6 +1664,7 @@
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
+				7D491614261B705500EBD03A /* ShopDetailView.xib in Resources */,
 				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
 				7D33FA68260A56B600DA5D0C /* AddressEnterDetailView.xib in Resources */,
 				7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */,
@@ -1787,12 +1808,14 @@
 				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,
+				7DE338AB261B9106006EA531 /* ShopDetailViewUIData.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,
 				7B3A901B25ED60CE008CA13E /* PaymentHistoryDetailView.swift in Sources */,
 				7D868D3D260E78EC00D3A91E /* TipAddressView.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
 				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
+				7D49160F261B6FDA00EBD03A /* ShopDetailView.swift in Sources */,
 				7D4915F42619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift in Sources */,
 				7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
@@ -1889,6 +1912,7 @@
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,
 				7D851C5525F687C7000E20DB /* EnterCardUIData.swift in Sources */,
 				7D823E9F25F158CF006B174B /* PersonalAccountCell.swift in Sources */,
+				7DE338A6261B902E006EA531 /* ShopDetailViewDelegate.swift in Sources */,
 				7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */,
 				04B5656B25D6824400E0EC25 /* ServiceViewController.swift in Sources */,
 			);

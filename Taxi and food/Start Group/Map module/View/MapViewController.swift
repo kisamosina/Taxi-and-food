@@ -46,7 +46,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var bottomView: MapBottomView!
     @IBOutlet weak var menuView: MenuView!
-    @IBOutlet var promoDestinationView: PromoDestinationView!
+    @IBOutlet weak var promoDestinationView: PromoDestinationView!
     @IBOutlet weak var inactiveView: UIView!
     @IBOutlet weak var leadingLeftSideViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingLeftSideViewConstraint: NSLayoutConstraint!
@@ -65,11 +65,7 @@ class MapViewController: UIViewController {
         
         DispatchQueue.global(qos: .background).async {
             
-            self.interactor.getAllPromos()
-            
-            
-            //            self.showPromos()
-            
+            self.interactor.getAllPromos()            
         }
         
     }
