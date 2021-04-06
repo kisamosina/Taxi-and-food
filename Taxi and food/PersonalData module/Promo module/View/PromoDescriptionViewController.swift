@@ -23,8 +23,8 @@ class PromoDescriptionViewController: UIViewController {
     
     
     @IBOutlet var unavailableLabel: UILabel!
-    @IBOutlet weak var buyButton: MainBottomButton!
     
+    @IBOutlet var buyButton: UIButton!
     @IBOutlet var nameLabel: UILabel!
     
     @IBOutlet var descriptionLabel: UILabel!
@@ -48,28 +48,21 @@ class PromoDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("id")
-        print(id)
-        print(data)
-        
+      
         self.interactor = PromoDescriptionInteractor(view: self)
         
         interactor.getPromosDescription(for: id!)
-       
-        
-        print("description")
-        print(interactor.promo)
-        
+
         setUp()
  
     }
-    @IBAction func buyButtonTapped(_ sender: Any) {
-        
-        if availableByTime == true { performSegue() } else {
-             self.unavailableLabel.text = PromoViewControllerText.unavailableLabelTitleText
-        }
-        
-    }
+//    @IBAction func buyButtonTapped(_ sender: Any) {
+//
+//        if availableByTime == true { performSegue() } else {
+//             self.unavailableLabel.text = PromoViewControllerText.unavailableLabelTitleText
+//        }
+//
+//    }
     
 
 
@@ -93,6 +86,11 @@ class PromoDescriptionViewController: UIViewController {
         unavailableLabel.text = ""
         unavailableLabel.numberOfLines = 2
         unavailableLabel.textColor = .white
+        
+        self.buyButton.backgroundColor = .white
+        self.buyButton.setTitleColor(Colors.buttonBlue.getColor(), for: .normal)
+        self.buyButton.setTitle("За покупками!", for: .normal)
+        
        
     
     }
@@ -106,7 +104,6 @@ extension PromoDescriptionViewController: PromoDescriptionViewProtocol {
             
             self.nameLabel.text = self.interactor.promo?.title
             self.descriptionLabel.text = self.interactor.promo?.description
-            self.buyButton.setupAs(.goBuy)
             
             self.imageView.webImage(self.interactor.promo?.media[0].url ?? "")
             
@@ -119,14 +116,14 @@ extension PromoDescriptionViewController: PromoDescriptionViewProtocol {
     
 }
 
-extension PromoDescriptionViewController {
-    
-    func performSegue() {
-        let storyboard = UIStoryboard(name: StoryBoards.AuthAndMap.rawValue, bundle: nil)
-
-        let vc = storyboard.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue)
-        self.navigationController?.pushViewController(vc, animated: true)
-}
-    
-
-}
+//extension PromoDescriptionViewController {
+//
+//    func performSegue() {
+//        let storyboard = UIStoryboard(name: StoryBoards.AuthAndMap.rawValue, bundle: nil)
+//
+//        let vc = storyboard.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//}
+//
+//
+//}

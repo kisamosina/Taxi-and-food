@@ -241,8 +241,7 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     @objc private func textDidChange(textField: UITextField) {
         
         let text = textField.text
-        print("text")
-        print(text)
+
         
         
     }
