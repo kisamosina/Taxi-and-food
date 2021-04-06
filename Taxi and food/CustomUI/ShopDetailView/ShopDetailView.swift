@@ -30,10 +30,12 @@ class ShopDetailView: CustomBottomView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.initSubViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.initSubViews()
     }
     
     
@@ -56,10 +58,9 @@ class ShopDetailView: CustomBottomView {
     
     public func bindView(for data: FoodCategoriesResponseData) {
         self.shopTitleLabel.text = data.name
-        self.shopTitleLabel.text = data.address
+        self.shopAddressLabel.text = data.address
         self.shopWorkTimeLabel.text = data.schedule
         self.productsShopLabel.text = data.categories.map { $0.name }.joined(separator: " • ")
-        self.productsShopLabel.setGreyRoundSeparator("•")
         self.shopDescriptionLabel.text = data.description
         
     }
@@ -69,6 +70,8 @@ class ShopDetailView: CustomBottomView {
         self.loadFromNib(nibName: ShopDetailViewStringData.nibFileName.rawValue)
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
+        self.setupConstraints()
         self.containerView.backgroundColor = .clear
+        super.anchorView.backgroundColor = .clear
     }
 }

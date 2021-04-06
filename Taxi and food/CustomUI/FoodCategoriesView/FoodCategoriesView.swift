@@ -57,6 +57,7 @@ import UIKit
     // MARK: - IBActions
 
     @IBAction func infoButtonTapped(_ sender: UIButton) {
+        self.delegate?.infoButtonTapped()
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {

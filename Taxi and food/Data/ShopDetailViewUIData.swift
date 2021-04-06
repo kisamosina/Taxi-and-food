@@ -6,9 +6,12 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum ShopDetailViewStringData: String {
     case nibFileName = "ShopDetailView"
 }
 
+enum ShopDetailViewSizes: CGFloat {
+    case viewHeight = 380
+}

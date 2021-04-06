@@ -230,6 +230,9 @@
 		7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9067CA2614F02500B06BAB /* ShopsView.swift */; };
 		7D9067D02614F06400B06BAB /* ShopsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9067CF2614F06400B06BAB /* ShopsView.xib */; };
 		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
+		7DC63554261CC57D00EC4F3D /* ChooseFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63553261CC57D00EC4F3D /* ChooseFoodViewController.swift */; };
+		7DC63559261CC66500EC4F3D /* ChooseFoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */; };
+		7DC6355E261CC7E600EC4F3D /* ChooseFoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
 		7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */; };
@@ -240,6 +243,7 @@
 		7DD93B612614FE1900AC3990 /* ShopsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD93B5F2614FE1900AC3990 /* ShopsCollectionViewCell.xib */; };
 		7DE338A6261B902E006EA531 /* ShopDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE338A5261B902E006EA531 /* ShopDetailViewDelegate.swift */; };
 		7DE338AB261B9106006EA531 /* ShopDetailViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE338AA261B9106006EA531 /* ShopDetailViewUIData.swift */; };
+		7DE338B0261CC230006EA531 /* SubstrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE338AF261CC230006EA531 /* SubstrateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -489,6 +493,9 @@
 		7D9067CA2614F02500B06BAB /* ShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsView.swift; sourceTree = "<group>"; };
 		7D9067CF2614F06400B06BAB /* ShopsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopsView.xib; sourceTree = "<group>"; };
 		7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveVIewControllerDelegate.swift; sourceTree = "<group>"; };
+		7DC63553261CC57D00EC4F3D /* ChooseFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodViewController.swift; sourceTree = "<group>"; };
+		7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodProtocols.swift; sourceTree = "<group>"; };
+		7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodInteractor.swift; sourceTree = "<group>"; };
 		7DD6B16125EFF8A600445407 /* InactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveViewController.swift; sourceTree = "<group>"; };
 		7DD6B16625F012B900445407 /* PersonalAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalAccount.storyboard; sourceTree = "<group>"; };
 		7DD6B16F25F0197900445407 /* PersonalAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountViewController.swift; sourceTree = "<group>"; };
@@ -499,6 +506,7 @@
 		7DD93B5F2614FE1900AC3990 /* ShopsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopsCollectionViewCell.xib; sourceTree = "<group>"; };
 		7DE338A5261B902E006EA531 /* ShopDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewDelegate.swift; sourceTree = "<group>"; };
 		7DE338AA261B9106006EA531 /* ShopDetailViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewUIData.swift; sourceTree = "<group>"; };
+		7DE338AF261CC230006EA531 /* SubstrateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstrateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -742,6 +750,7 @@
 				041E299425E20D4D00CA9F56 /* PersonalData module */,
 				041E297E25DE1DBE00CA9F56 /* Settings module */,
 				04B5656725D681BC00E0EC25 /* Service module */,
+				7DC63552261CC53000EC4F3D /* Food module */,
 				7DD6B16B25F012C000445407 /* PersonalAccount module */,
 				7B3A8FD325EA8BF6008CA13E /* PaymenntHistory module */,
 				7D823EB925F2A995006B174B /* InactivewView module */,
@@ -1072,6 +1081,7 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				7DE338AF261CC230006EA531 /* SubstrateViewController.swift */,
 				7BD7CB8726036AAA0099C9B7 /* AboutPointsView */,
 				7D33FA6C260A56C600DA5D0C /* AddressEnterDetailView */,
 				7BEA203B26008536007DD69A /* AddressEnterView */,
@@ -1535,6 +1545,16 @@
 			path = ShopsView;
 			sourceTree = "<group>";
 		};
+		7DC63552261CC53000EC4F3D /* Food module */ = {
+			isa = PBXGroup;
+			children = (
+				7DC63553261CC57D00EC4F3D /* ChooseFoodViewController.swift */,
+				7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */,
+				7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */,
+			);
+			path = "Food module";
+			sourceTree = "<group>";
+		};
 		7DD6B16B25F012C000445407 /* PersonalAccount module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1722,6 +1742,7 @@
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
 				04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */,
 				7B3A8FF525EA9C09008CA13E /* PaymentsHistoryModels.swift in Sources */,
+				7DC63554261CC57D00EC4F3D /* ChooseFoodViewController.swift in Sources */,
 				04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */,
 				7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */,
 				7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */,
@@ -1744,6 +1765,7 @@
 				7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
+				7DE338B0261CC230006EA531 /* SubstrateViewController.swift in Sources */,
 				04EFB7CE25EB887F00787C68 /* PromoDescriptionInteractor.swift in Sources */,
 				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
@@ -1885,6 +1907,8 @@
 				7B75CF3D25DD6CFE001981CA /* TopAlignLabel.swift in Sources */,
 				7D06D666260134DF00219F02 /* UIAlertController+Extension.swift in Sources */,
 				7B47C89C25E6820100F366FE /* PromocodeHistoryInteractor.swift in Sources */,
+				7DC63559261CC66500EC4F3D /* ChooseFoodProtocols.swift in Sources */,
+				7DC6355E261CC7E600EC4F3D /* ChooseFoodInteractor.swift in Sources */,
 				7D851C5025F68475000E20DB /* CardEnterView.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */,

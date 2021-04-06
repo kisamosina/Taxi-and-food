@@ -13,6 +13,7 @@ import UIKit
 
 class MapInteractor: MapInteractorProtocol {
     
+    
     //MARK: - Properties
     
     internal weak var view: MapViewProtocol!
@@ -72,11 +73,11 @@ class MapInteractor: MapInteractorProtocol {
     }
     
     //Shop detail
-    var shopDetail: FoodCategoriesResponseData? {
-        didSet {
-            self.view.showFoodCategoriesForShop(shopDetail)
-        }
-    }
+//    var foodCategories: FoodCategoriesResponseData? {
+//        didSet {
+//            self.view.showFoodCategoriesForShop(foodCategories)
+//        }
+//    }
 
     
     var promos: [PromoShortData]?
@@ -329,7 +330,7 @@ extension MapInteractor {
             switch result {
             
             case .success(let response):
-                self.shopDetail = response.data
+                self.view.showFoodCategoriesForShop(response.data)
             case .failure(let error):
                 print(error.localizedDescription)
             }

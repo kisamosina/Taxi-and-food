@@ -15,11 +15,13 @@ class InactiveView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addTapGestureRecognizer()
+        self.backgroundColor = Colors.InactiveViewColor.getColor()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.addTapGestureRecognizer()
+        self.backgroundColor = Colors.InactiveViewColor.getColor()
     }
     
     private func addTapGestureRecognizer() {

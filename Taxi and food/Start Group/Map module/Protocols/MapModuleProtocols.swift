@@ -54,8 +54,8 @@ protocol MapInteractorProtocol: class {
     //Shops list
     var shopsList:[ShopResponseData] { get set }
     
-    //FoodCategories list
-    var shopDetail: FoodCategoriesResponseData? { get set }
+//    //FoodCategories list
+//    var foodCategories: FoodCategoriesResponseData? { get set }
 
     init(view: MapViewProtocol)
     
