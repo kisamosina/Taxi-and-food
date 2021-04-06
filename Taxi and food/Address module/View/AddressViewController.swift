@@ -60,15 +60,11 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self)
-        
-        
+
         chooseDestinationButton.isHidden = true
         deleteButton.isHidden = true
         
         addressNameTextField.isHidden = false
-        
-       
-        
 
     }
     
@@ -172,9 +168,8 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         arrayOfTextFields = [addressNameTextField,addressTextField, commentDriverTextField, officeTextField, officeTextField, entranceTextField, intercomTextField, floorTextField, commenCourierTextField]
  
-        arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
-        arrayOfTextFields.map { $0.delegate = self }
-        
+        _ =  arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
+        _ = arrayOfTextFields.map { $0.delegate = self }
     }
     
     private func addTextFieldsTargets() {

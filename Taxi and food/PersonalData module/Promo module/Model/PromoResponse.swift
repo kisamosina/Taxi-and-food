@@ -18,7 +18,7 @@ struct PromoResponseFull: Decodable {
 
 struct PromoShortData: Decodable {
 
-    var id: Int
+    var id: Int?
     var dateFrom: String?
     var dateTo: String?
     var timeFrom: String?

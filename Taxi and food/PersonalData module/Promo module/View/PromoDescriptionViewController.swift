@@ -114,7 +114,6 @@ extension PromoDescriptionViewController: PromoDescriptionViewProtocol {
             self.availableByTime = self.interactor.isPromoAvailableByTime(timeFrom:
                 self.interactor.promo?.timeFrom ?? "", timeTo: self.interactor.promo?.timeFrom ?? "")
 
-   
         }
     }
     

@@ -12,7 +12,8 @@ class PromoShortTableViewCell: UITableViewCell {
 
     
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var moreButton: UIButton!
+    
+    @IBOutlet var buttonImage: UIImageView!
     
     var myimageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -22,10 +23,10 @@ class PromoShortTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    
 
     
-    func setup() {
-        
+    func setupWith(url: String, title: String) {
         self.insertSubview(myimageView, at: 0)
         NSLayoutConstraint.activate([
             myimageView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -38,17 +39,17 @@ class PromoShortTableViewCell: UITableViewCell {
         self.layer.cornerRadius = ViewsCornerRadiuses.medium.rawValue
        
         self.contentView.contentMode = .scaleAspectFit
-        
-        self.moreButton.setImage(UIImage(named: "moreButton"), for: .normal)
+        self.myimageView.webImage(url)
+        self.nameLabel.text = title
+        self.buttonImage.image = UIImage(named: "moreButton")
 
         self.layer.masksToBounds = false
         
         
+        
     }
     
-    func setImage(url: String) {
-        self.imageView?.webImage(url)
-    }
+
 
 }
 
