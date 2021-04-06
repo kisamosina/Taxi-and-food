@@ -18,6 +18,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eF7-go-ZjK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonalDataViewController" rowHeight="44" id="1NL-tW-F16" customClass="PersonalDataTableViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1NL-tW-F16" id="ucF-Vb-URM">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87Z-E4-vh1">
+                                                    <rect key="frame" x="20" y="13" width="180" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="87Z-E4-vh1" secondAttribute="bottom" constant="2" id="0oV-ZZ-Cpa"/>
+                                                <constraint firstItem="87Z-E4-vh1" firstAttribute="top" secondItem="ucF-Vb-URM" secondAttribute="topMargin" constant="2" id="HK1-EZ-xag"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="87Z-E4-vh1" secondAttribute="trailing" constant="194" id="TnO-9g-GuH"/>
+                                                <constraint firstItem="87Z-E4-vh1" firstAttribute="leading" secondItem="ucF-Vb-URM" secondAttribute="leadingMargin" id="gzu-gh-Umy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="87Z-E4-vh1" id="3dM-LU-ZlM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="80O-is-3Cm" id="d6J-0Y-fbh"/>
                                     <outlet property="delegate" destination="80O-is-3Cm" id="eVQ-gN-ub7"/>
@@ -30,24 +57,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhT-Oc-X2v" customClass="PersonalDataBottomView" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="896" width="414" height="167"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="167" id="bgQ-j0-Scq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uhT-Oc-X2v" secondAttribute="trailing" id="0qK-ae-fPg"/>
                             <constraint firstItem="t9M-GI-hdR" firstAttribute="bottom" secondItem="eF7-go-ZjK" secondAttribute="bottom" constant="45" id="Koi-ne-UCs"/>
                             <constraint firstItem="eF7-go-ZjK" firstAttribute="leading" secondItem="t9M-GI-hdR" secondAttribute="leading" id="OBs-fO-uRz"/>
                             <constraint firstItem="Jye-gK-lZz" firstAttribute="leading" secondItem="t9M-GI-hdR" secondAttribute="leading" constant="20" id="OUb-Kc-PIf"/>
+                            <constraint firstItem="t9M-GI-hdR" firstAttribute="trailing" secondItem="uhT-Oc-X2v" secondAttribute="trailing" id="Ok8-yR-lXh"/>
                             <constraint firstItem="t9M-GI-hdR" firstAttribute="trailing" secondItem="eF7-go-ZjK" secondAttribute="trailing" id="QRx-Je-GO4"/>
                             <constraint firstItem="Jye-gK-lZz" firstAttribute="bottom" secondItem="t9M-GI-hdR" secondAttribute="bottom" id="ZCh-B2-UBE"/>
                             <constraint firstItem="t9M-GI-hdR" firstAttribute="trailing" secondItem="Jye-gK-lZz" secondAttribute="trailing" constant="20" id="eGN-SW-AO5"/>
+                            <constraint firstItem="uhT-Oc-X2v" firstAttribute="bottom" secondItem="JBX-SP-Tb2" secondAttribute="bottom" constant="167" id="kPF-VU-8MH"/>
                             <constraint firstItem="Jye-gK-lZz" firstAttribute="top" secondItem="eF7-go-ZjK" secondAttribute="bottom" id="q73-Tu-7Eh"/>
+                            <constraint firstItem="uhT-Oc-X2v" firstAttribute="leading" secondItem="JBX-SP-Tb2" secondAttribute="leading" id="u58-Zb-ylk"/>
                             <constraint firstItem="eF7-go-ZjK" firstAttribute="top" secondItem="t9M-GI-hdR" secondAttribute="top" id="ve3-Xl-rNd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t9M-GI-hdR"/>
                     </view>
                     <navigationItem key="navigationItem" id="bMh-gO-utj"/>
                     <connections>
+                        <outlet property="personalDataViewBottomConstraint" destination="kPF-VU-8MH" id="8gt-Ls-tNt"/>
                         <outlet property="policyLabel" destination="Jye-gK-lZz" id="I8t-OM-ixT"/>
                         <outlet property="tableView" destination="eF7-go-ZjK" id="xFe-Al-cFf"/>
+                        <outlet property="transitionView" destination="uhT-Oc-X2v" id="PQF-mn-Foy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiw-Ss-TKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

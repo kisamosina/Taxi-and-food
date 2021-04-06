@@ -49,13 +49,11 @@ extension PromoShortViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.nameLabel.text = interactor.promos[indexPath.row].title
-        
-        
+        let title = interactor.promos[indexPath.row].title ?? ""
         let media = interactor.promos[indexPath.row].media[1].url ?? ""
         
-        cell.setup()
-        cell.setImage(url: media)
+        cell.setupWith(url: media, title: title)
+       
 
         return cell
     }

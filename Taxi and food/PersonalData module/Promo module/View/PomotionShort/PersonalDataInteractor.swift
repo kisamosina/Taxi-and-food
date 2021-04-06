@@ -10,30 +10,37 @@ import Foundation
 
 protocol PersonalDataInteractorProtocol {
     var view: PersonalDataViewProtocol! { get }
-    var models: [PersonalDataSection] { get set }
-    
+    var models: [PersonalDataUISection] { get set }
+    var personalDataTableViewData: PersonalDataData! { get set }
     init(view: PersonalDataViewProtocol)
     
     func configure()
 }
 
 class PersonalDataInteractor: PersonalDataInteractorProtocol {
+    
+    var personalDataTableViewData: PersonalDataData!
 
-    var models: [PersonalDataSection] = [PersonalDataSection]()
+    var models: [PersonalDataUISection] = [PersonalDataUISection]()
     
     internal weak var view: PersonalDataViewProtocol!
     
     required init(view: PersonalDataViewProtocol) {
         self.view = view
+
     }
     
     func configure() {
-        models.append(PersonalDataSection(tittle: "", options: [PersonalDataOption(title: "")]))
         
-        models.append(PersonalDataSection(tittle: PersonalDataViewControllerText.nameHeaderText, options: [PersonalDataOption(title: PersonalDataViewControllerText.nameTextFieldText)]))
+        guard let userData = PersistanceStoreManager.shared.getUserData(), let phoneNumber = userData[0].phoneNumber else { return }
+    
+        models.append(PersonalDataUISection(placeholder: " ", options: [PersonalDataUIOption(title: PhoneFormatter().format(phone: phoneNumber), text: "", accessoryType: false, color: .black)]))
         
-        models.append(PersonalDataSection(tittle: PersonalDataViewControllerText.emailHeaderText, options: [PersonalDataOption(title: PersonalDataViewControllerText.emailTextFieldText)]))
+        models.append(PersonalDataUISection(placeholder: PersonalDataViewControllerText.nameHeaderText, options: [PersonalDataUIOption(title: PersonalDataViewControllerText.nameTextFieldText, text: "", accessoryType: true, color: Colors.fontGrey.getColor())]))
+        
+        models.append(PersonalDataUISection(placeholder: PersonalDataViewControllerText.emailHeaderText, options: [PersonalDataUIOption(title: PersonalDataViewControllerText.emailTextFieldText, text: "", accessoryType: true, color: Colors.fontGrey.getColor())]))
         
     }
+
    
 }

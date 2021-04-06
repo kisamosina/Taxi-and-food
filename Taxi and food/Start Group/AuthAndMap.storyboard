@@ -459,7 +459,6 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="29G-aM-h3H" secondAttribute="bottom" constant="8" id="3BB-BJ-7WQ"/>
                                     <constraint firstItem="29G-aM-h3H" firstAttribute="top" secondItem="bal-4K-gGK" secondAttribute="top" constant="7" id="Mez-PA-FI1"/>
-                                    <constraint firstAttribute="trailing" secondItem="29G-aM-h3H" secondAttribute="trailing" constant="12" id="QgX-gh-XYt"/>
                                     <constraint firstItem="29G-aM-h3H" firstAttribute="leading" secondItem="kMF-At-1DK" secondAttribute="trailing" constant="19" id="hk5-8k-bIZ"/>
                                 </constraints>
                                 <connections>
@@ -558,6 +557,7 @@
                             <constraint firstItem="WpO-6M-tnc" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="D1l-jC-PDL"/>
                             <constraint firstAttribute="bottom" secondItem="WpO-6M-tnc" secondAttribute="bottom" id="Fxl-Q1-RNZ"/>
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="GsQ-Mk-LhJ"/>
+                            <constraint firstItem="bal-4K-gGK" firstAttribute="centerX" secondItem="nZs-BQ-jU1" secondAttribute="centerX" id="Jgv-W8-6sp"/>
                             <constraint firstItem="am8-7N-f7B" firstAttribute="trailing" secondItem="yKH-JN-0i3" secondAttribute="trailing" constant="45" id="MJd-Uj-RPi"/>
                             <constraint firstItem="hbh-4U-WAf" firstAttribute="top" secondItem="am8-7N-f7B" secondAttribute="top" constant="24" id="N70-oO-QeA"/>
                             <constraint firstItem="bal-4K-gGK" firstAttribute="top" secondItem="WpO-6M-tnc" secondAttribute="bottom" constant="-265" id="Q5U-vM-g8M"/>

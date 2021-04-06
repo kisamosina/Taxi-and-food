@@ -14,4 +14,9 @@ extension DateFormatter {
         self.dateFormat = "dd.MM.yy"
         return self.string(from: date)
     }
+    
+    func getDateByDay(date: Date) -> String {
+        self.dateFormat = "d MMMM, HH:mm"
+        return self.string(from: date)
+    }
 }

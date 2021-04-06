@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,7 +37,7 @@
                     <rect key="frame" x="25" y="58" width="364" height="69.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80N-mT-ygV">
-                            <rect key="frame" x="0.0" y="0.0" width="64.5" height="31.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="65" height="31.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -58,7 +56,7 @@
                         <constraint firstAttribute="height" constant="28" id="hi1-X9-63n"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12g-HZ-Xss" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12g-HZ-Xss" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                     <rect key="frame" x="25" y="195.5" width="364" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="JPL-m5-12g"/>
@@ -69,8 +67,7 @@
                     </connections>
                 </button>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="LbZ-ZY-9TN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2ZT-hV-8NR"/>
@@ -87,6 +84,7 @@
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="G2z-WG-ZhN" appends="YES" id="PY5-iP-NyR"/>
             </connections>
@@ -101,8 +99,5 @@
     <resources>
         <image name="X" width="18.5" height="18.5"/>
         <image name="paymentPoints" width="315" height="28"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

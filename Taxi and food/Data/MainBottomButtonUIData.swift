@@ -299,6 +299,7 @@ struct MainButtonTitles {
             return deleteButtonTitle
         case .cancel:
             return cancelButtonTitle
+
         }
     }
 }

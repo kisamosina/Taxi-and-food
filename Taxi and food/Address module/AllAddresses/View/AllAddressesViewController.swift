@@ -61,8 +61,8 @@ class AllAddressesViewController: UIViewController {
 extension AllAddressesViewController: AllAddressesViewProtocol {
     func updateTableViewData() {
         DispatchQueue.main.async {
-        self.tableView.reloadData()
-
+            
+            self.tableView.reloadData()
             var heightOfTableView: CGFloat = 0.0
 
             let cells = self.tableView.visibleCells

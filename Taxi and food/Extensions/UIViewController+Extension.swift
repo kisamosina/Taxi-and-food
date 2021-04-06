@@ -18,6 +18,16 @@ extension UIViewController {
         }
     }
     
+    func keyboardWillShowHeight(notification: NSNotification) -> CGFloat {
+        var height: CGFloat = 0
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            height = keyboardSize.height
+
+        }
+        return height
+    }
+    
     func keyboardWillHide(constraint:NSLayoutConstraint, notification: NSNotification) {
         constraint.constant = 0
     }

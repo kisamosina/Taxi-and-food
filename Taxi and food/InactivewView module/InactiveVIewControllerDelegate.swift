@@ -13,10 +13,12 @@ protocol InactiveViewControllerDelegate: class {
     func logOutButtonTapped()
     func beginSavePointsButtonTapped()
     func deleteButtonTapped()
+    func approveButtonTapped()
 }
 
 extension InactiveViewControllerDelegate {
     func logOutButtonTapped() { }
     func beginSavePointsButtonTapped() { }
     func deleteButtonTapped() {}
+    func approveButtonTapped() {}
 }
