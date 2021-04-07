@@ -13,4 +13,5 @@ protocol FoodViewCategoryViewDelegate: class {
     func backButtonTapped()
     func userHasSwipedDown()
     func infoButtonTapped()
+    func shopSelected(shopId: Int, with categoryId: Int)
 }

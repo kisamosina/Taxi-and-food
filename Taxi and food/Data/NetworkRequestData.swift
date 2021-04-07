@@ -79,3 +79,7 @@ enum ShopsRequestPaths: String {
 enum FoodCategoriesNetworkPaths: String {
     case shopDetails = "user/$/shop/@"
 }
+
+enum ProductsRequestNetworkPaths: String {
+    case productsAndSubCategories = "user/$/shop/@/products/&"
+}

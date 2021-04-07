@@ -355,7 +355,7 @@ extension MapViewController: MapViewProtocol {
         
         DispatchQueue.main.async {
             
-            let chooseFoodViewController = ChooseFoodViewController()
+            let chooseFoodViewController = ChooseFoodCategoryViewController()
             
             chooseFoodViewController.delegate = self
             
@@ -749,7 +749,7 @@ extension MapViewController {
 
 // MARK: - Choose food view controller delegate
 
-extension MapViewController: ChooseFoodViewControllerDelegate {
+extension MapViewController: ChooseFoodCategoryViewControllerDelegate {
     
     func userHasSwiped() {
         self.interactor.setViewControllerState(.start)

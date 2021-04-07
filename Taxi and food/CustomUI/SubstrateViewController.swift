@@ -9,10 +9,15 @@
 import UIKit
 
 class SubstrateViewController: UIViewController {
+    
+    var isTapGestureEnabled = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addGestureRecognizer()
+        
+        if self.isTapGestureEnabled {
+            self.addGestureRecognizer()
+        }
         self.view.backgroundColor = Colors.InactiveViewColor.getColor()
         
     }

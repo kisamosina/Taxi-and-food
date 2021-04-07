@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductCollectionViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="158" height="210"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="158" height="210"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzj-VW-4Va">
+                        <rect key="frame" x="0.0" y="0.0" width="158" height="210"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ixo-Uh-R3T">
+                                <rect key="frame" x="24" y="15" width="110" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Kps-H4-h5r"/>
+                                    <constraint firstAttribute="height" constant="110" id="VsD-a1-Jnd"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jln-XQ-xGO">
+                                <rect key="frame" x="15" y="132" width="128" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Молоко Aroy-D кокосовое 17-19%" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-6W-bmt">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="51.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-wW-IPc">
+                                        <rect key="frame" x="0.0" y="51.5" width="128" height="14.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="199 руб" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqe-DN-txW">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 г" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmI-Zn-Ehr">
+                                                <rect key="frame" x="64" y="0.0" width="64" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ixo-Uh-R3T" firstAttribute="top" secondItem="Xzj-VW-4Va" secondAttribute="top" constant="15" id="J4H-5S-KpU"/>
+                            <constraint firstItem="Jln-XQ-xGO" firstAttribute="top" secondItem="Ixo-Uh-R3T" secondAttribute="bottom" constant="7" id="Qq2-K8-afR"/>
+                            <constraint firstAttribute="trailing" secondItem="Jln-XQ-xGO" secondAttribute="trailing" constant="15" id="SnB-7Y-DIw"/>
+                            <constraint firstAttribute="bottom" secondItem="Jln-XQ-xGO" secondAttribute="bottom" constant="12" id="hV0-df-QwT"/>
+                            <constraint firstItem="Ixo-Uh-R3T" firstAttribute="centerX" secondItem="Xzj-VW-4Va" secondAttribute="centerX" id="pdx-2K-qbm"/>
+                            <constraint firstItem="Jln-XQ-xGO" firstAttribute="leading" secondItem="Xzj-VW-4Va" secondAttribute="leading" constant="15" id="qcM-Bl-pnb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Xzj-VW-4Va" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jxc-7L-0lb"/>
+                <constraint firstItem="Xzj-VW-4Va" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lTd-4q-Oog"/>
+                <constraint firstAttribute="trailing" secondItem="Xzj-VW-4Va" secondAttribute="trailing" id="pCu-n1-3d9"/>
+                <constraint firstAttribute="bottom" secondItem="Xzj-VW-4Va" secondAttribute="bottom" id="tfM-3z-e0e"/>
+            </constraints>
+            <connections>
+                <outlet property="containerView" destination="Xzj-VW-4Va" id="OVQ-Cq-FeM"/>
+                <outlet property="priceLabel" destination="Xqe-DN-txW" id="ply-Z3-jFq"/>
+                <outlet property="productImageView" destination="Ixo-Uh-R3T" id="lro-19-kpm"/>
+                <outlet property="productTitleLabel" destination="dKO-6W-bmt" id="fKj-lu-Og5"/>
+                <outlet property="quantityLabel" destination="qmI-Zn-Ehr" id="sgt-cD-0Ip"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

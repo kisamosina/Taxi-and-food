@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ChooseFoodViewController: SubstrateViewController, ChooseFoodViewProtocol {
+class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCategoryViewProtocol {
     
-    var interactor: ChooseFoodInteractorProtocol!
+    var interactor: ChooseFoodCategoryInteractorProtocol!
     
-    weak var delegate: ChooseFoodViewControllerDelegate!
+    weak var delegate: ChooseFoodCategoryViewControllerDelegate!
     
     var inactiveView: InactiveView = InactiveView()
     
@@ -33,7 +33,7 @@ class ChooseFoodViewController: SubstrateViewController, ChooseFoodViewProtocol 
         self.showFoodCategoryView(interactor.foodCategories)
     }
     
-    func setInteractor(interactor: ChooseFoodInteractorProtocol) {
+    func setInteractor(interactor: ChooseFoodCategoryInteractorProtocol) {
         self.interactor = interactor
     }
     
@@ -41,7 +41,7 @@ class ChooseFoodViewController: SubstrateViewController, ChooseFoodViewProtocol 
 
 //MARK: - Food categories methods
 
-extension ChooseFoodViewController {
+extension ChooseFoodCategoryViewController {
     
     //Show Food Category view
     private func showFoodCategoryView(_ shopDetailData: FoodCategoriesResponseData) {
@@ -85,7 +85,12 @@ extension ChooseFoodViewController {
 
 //MARK: - FoodViewCategoryViewDelegate
 
-extension ChooseFoodViewController: FoodViewCategoryViewDelegate {
+extension ChooseFoodCategoryViewController: FoodViewCategoryViewDelegate {
+    
+    func shopSelected(shopId: Int, with categoryId: Int) {
+        self.interactor.makeSubCategoryRequest(for: shopId, and: categoryId)
+    }
+    
     
     func infoButtonTapped() {
         self.showShopDetailView(interactor.foodCategories)
@@ -103,7 +108,8 @@ extension ChooseFoodViewController: FoodViewCategoryViewDelegate {
 
 // MARK: - InactiveViewDelegate
 
-extension ChooseFoodViewController: InactiveViewDelegate {
+extension ChooseFoodCategoryViewController: InactiveViewDelegate {
+    
     func userHasTapped() {
         self.hideShopDetailView()
     }
@@ -112,7 +118,7 @@ extension ChooseFoodViewController: InactiveViewDelegate {
 
 //MARK: - Food categories methods
 
-extension ChooseFoodViewController {
+extension ChooseFoodCategoryViewController {
 
     private func showShopDetailView(_ shopData: FoodCategoriesResponseData) {
         
@@ -149,7 +155,7 @@ extension ChooseFoodViewController {
 
 // MARK: - ShopDetailViewDelegate
 
-extension ChooseFoodViewController: ShopDetailViewDelegate {
+extension ChooseFoodCategoryViewController: ShopDetailViewDelegate {
    
     func closeButtonTapped() {
         self.hideShopDetailView()

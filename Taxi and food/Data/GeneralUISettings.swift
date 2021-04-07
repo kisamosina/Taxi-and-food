@@ -183,6 +183,7 @@ enum ViewControllers: String {
 
 
 enum ViewsCornerRadiuses: CGFloat {
+    case small = 10
     case medium = 15
 }
 
