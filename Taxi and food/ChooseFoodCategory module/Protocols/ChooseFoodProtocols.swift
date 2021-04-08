@@ -25,6 +25,8 @@ protocol ChooseFoodCategoryViewProtocol: class {
     var interactor: ChooseFoodCategoryInteractorProtocol! { get  set }
     
     func setInteractor(interactor: ChooseFoodCategoryInteractorProtocol)
+    
+    func show(subcategoriesAndProduct: ChooseFoodSubCategoriesViewControllerMode)
 }
 
 

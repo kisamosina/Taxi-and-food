@@ -26,7 +26,7 @@ class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCateg
     
     private var shopDetailView: ShopDetailView!
     private var shopDetailViewBottomConstraint: NSLayoutConstraint!
-            
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -35,6 +35,17 @@ class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCateg
     
     func setInteractor(interactor: ChooseFoodCategoryInteractorProtocol) {
         self.interactor = interactor
+    }
+    
+    func show(subcategoriesAndProduct: ChooseFoodSubCategoriesViewControllerMode) {
+        DispatchQueue.main.async {
+            let chooseFoodSubCategoriesVC = ChooseFoodSubCategoriesViewController()
+            let chooseFoodSubCategoriesInteractor = ChooseFoodSubCategoriesInteractor(view: chooseFoodSubCategoriesVC, mode: subcategoriesAndProduct)
+            chooseFoodSubCategoriesVC.interactor = chooseFoodSubCategoriesInteractor
+            let navigationController = UINavigationController(rootViewController: chooseFoodSubCategoriesVC)
+            navigationController.modalPresentationStyle = .overCurrentContext
+            self.present(navigationController, animated: false)
+        }
     }
     
 }
@@ -119,7 +130,7 @@ extension ChooseFoodCategoryViewController: InactiveViewDelegate {
 //MARK: - Food categories methods
 
 extension ChooseFoodCategoryViewController {
-
+    
     private func showShopDetailView(_ shopData: FoodCategoriesResponseData) {
         
         inactiveView.frame = self.view.bounds
@@ -156,7 +167,7 @@ extension ChooseFoodCategoryViewController {
 // MARK: - ShopDetailViewDelegate
 
 extension ChooseFoodCategoryViewController: ShopDetailViewDelegate {
-   
+    
     func closeButtonTapped() {
         self.hideShopDetailView()
     }

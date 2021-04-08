@@ -9,14 +9,30 @@
 import UIKit
 
 class FoodSubCategoryAndProductView: CustomBottomView {
+    
+    //MARK: - Properties
+    
+    private var subategoryCollectionViewData: [ProductsResponseData] = [] {
+        didSet {
+            self.subCategoryCollectionView.reloadData()
+        }
+    }
+    
+    private var productsCollectionViewData: [ProductsResponseData] = [] {
+        didSet {
+            self.productsCollectionView.reloadData()
+        }
+    }
 
+    weak var delegate: FoodSubcategoryAndProductViewDelegate?
+    
     //MARK: - IBOutlets
     
     @IBOutlet var containerView: UIView!
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var shopTitleLabel: UILabel!
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var categoryTitleLabel: UILabel!
     
     @IBOutlet weak var subCategoryCollectionView: UICollectionView!
     
@@ -33,6 +49,9 @@ class FoodSubCategoryAndProductView: CustomBottomView {
         super.init(coder: coder)
         self.initSubViews()
     }
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.delegate?.backButtonTapped()
+    }
     
     // MARK: - Methods
     
@@ -43,10 +62,10 @@ class FoodSubCategoryAndProductView: CustomBottomView {
         self.addSubview(containerView)
         self.containerView.backgroundColor = .clear
         self.setupConstraints()
-        let cellSubCategoryNib = UINib(nibName: FoodCategoryAndSubCategoryViewStringData.subCategoryNibFileName.rawValue, bundle: nil)
-        let cellProductNib = UINib(nibName: FoodCategoryAndSubCategoryViewStringData.productsNibFileName.rawValue, bundle: nil)
-        subCategoryCollectionView.register(cellSubCategoryNib, forCellWithReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.subCategoryNibFileName.rawValue)
-        productsCollectionView.register(cellProductNib, forCellWithReuseIdentifier:  FoodCategoryAndSubCategoryViewStringData.productsNibFileName.rawValue)
+        let cellSubCategoryNib = UINib(nibName: FoodCategoryAndSubCategoryViewStringData.subCategoryCollectionViewCellReuseId.rawValue, bundle: nil)
+        let cellProductNib = UINib(nibName: FoodCategoryAndSubCategoryViewStringData.productsCollectionViewReuseId.rawValue, bundle: nil)
+        subCategoryCollectionView.register(cellSubCategoryNib, forCellWithReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.subCategoryCollectionViewCellReuseId.rawValue)
+        productsCollectionView.register(cellProductNib, forCellWithReuseIdentifier:  FoodCategoryAndSubCategoryViewStringData.productsCollectionViewReuseId.rawValue)
     }
     
     private func setupConstraints() {
@@ -56,6 +75,13 @@ class FoodSubCategoryAndProductView: CustomBottomView {
             self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+    }
+    
+    public func bind(shopTitle: String, categoryTitle: String, subcategoryCollectionViewData: [ProductsResponseData], productsCollectionViewData: [ProductsResponseData]) {
+        self.categoryTitleLabel.text = categoryTitle
+        self.shopTitleLabel.text = shopTitle
+        self.subategoryCollectionViewData = subcategoryCollectionViewData
+        self.productsCollectionViewData = productsCollectionViewData
     }
 
 }
@@ -67,10 +93,10 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
         switch collectionView {
                 
         case subCategoryCollectionView:
-            return 0
+            return self.subategoryCollectionViewData.count
             
         case productsCollectionView:
-            return 0
+            return self.productsCollectionViewData.count
         
         default:
             return 0
@@ -82,14 +108,35 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
         switch collectionView {
                 
         case subCategoryCollectionView:
-            return SubCategoryCollectionViewCell()
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.subCategoryCollectionViewCellReuseId.rawValue, for: indexPath) as! SubCategoryCollectionViewCell
+            let cellData = subategoryCollectionViewData[indexPath.row]
+            cell.bind(subcategoryData: cellData)
+            return cell
         case productsCollectionView:
-            return ProductCollectionViewCell()
-        
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.productsCollectionViewReuseId.rawValue, for: indexPath) as! ProductCollectionViewCell
+            let cellData = productsCollectionViewData[indexPath.row]
+            cell.bind(cellData: cellData)
+            return cell
+            
         default:
             return UICollectionViewCell()
         }
     }
-      
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+     
+        switch collectionView {
+        
+        case productsCollectionView:
+            let width = productsCollectionView.bounds.width
+            let insetsSum: CGFloat = 60
+            let cellHeight: CGFloat = 210
+            let cellWidth = (width - insetsSum) / 2
+            return CGSize (width: cellWidth, height: cellHeight)
+            
+        default:
+            return CGSize.zero
+        }
+        
+    }
 }

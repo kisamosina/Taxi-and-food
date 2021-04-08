@@ -26,11 +26,25 @@ class ChooseFoodInteractor: ChooseFoodCategoryInteractorProtocol {
         
         let resource = Resource<ProductsResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) { result in
+        NetworkService.shared.makeRequest(for: resource) {[ weak self ] result in
+            
+            guard let self  = self else  { return }
+            
             switch result {
             
             case .success(let response):
-                print(response)
+                
+                let data = response.data
+                
+                let products = data.filter { products -> Bool in return !products.isCategory}
+                let categoryName = self.foodCategories.categories.first { $0.id == categoryId }?.name
+                
+                if products.isEmpty {
+                    self.view.show(subcategoriesAndProduct: .subcategoryOnly(self.foodCategories.name, categoryName ?? "No category", data))
+                } else {
+                    self.view.show(subcategoriesAndProduct: .subcategoriesWithProducts(self.foodCategories.name, categoryName ?? "No category", data))
+                }
+                                
             case .failure(let error):
                 print(error.localizedDescription)
             }

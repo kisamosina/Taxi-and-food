@@ -6,10 +6,14 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum FoodCategoryAndSubCategoryViewStringData: String {
     case nibFileName = "FoodSubCategoryAndProductView"
-    case subCategoryNibFileName = "SubCategoryCollectionViewCell"
-    case productsNibFileName = "ProductCollectionViewCell"
+    case subCategoryCollectionViewCellReuseId = "SubCategoryCollectionViewCell"
+    case productsCollectionViewReuseId = "ProductCollectionViewCell"
+}
+
+enum FoodCategoryAndSubCategoryViewSizes: CGFloat {
+    case productCollectionViewCornerRadius = 15
 }

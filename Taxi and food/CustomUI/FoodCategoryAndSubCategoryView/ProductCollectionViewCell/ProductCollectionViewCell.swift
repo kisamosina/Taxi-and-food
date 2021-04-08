@@ -9,6 +9,8 @@
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
+    
+    var cellData: ProductsResponseData!
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
@@ -18,6 +20,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.containerView.clipsToBounds = true
+        self.containerView.layer.cornerRadius = FoodCategoryAndSubCategoryViewSizes.productCollectionViewCornerRadius.rawValue
         self.layer.cornerRadius = ViewsCornerRadiuses.small.rawValue
         self.layer.backgroundColor = UIColor.systemBackground.cgColor
         self.layer.shadowColor = Colors.shadowColor.getColor().cgColor
@@ -26,6 +30,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.layer.masksToBounds = false
+    }
+    
+    public func bind(cellData: ProductsResponseData) {
+        self.cellData = cellData
+        self.productImageView.webImage(cellData.icon)
+        self.productTitleLabel.text = cellData.name
+        self.priceLabel.text = "\(cellData.price ?? 0) ₽"
+        self.quantityLabel.text = "\(cellData.weight ?? 0) \(cellData.unit ?? "")"
     }
     
 }

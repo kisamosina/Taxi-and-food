@@ -9,6 +9,8 @@
 import UIKit
 
 class SubCategoryCollectionViewCell: UICollectionViewCell {
+    
+    var cellData: ProductsResponseData!
 
     @IBOutlet weak var subCategoryNameLabel: UILabel!
     
@@ -21,7 +23,8 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
 
 extension SubCategoryCollectionViewCell {
     
-    func bind(subcategoryName: String) {
-        self.subCategoryNameLabel.text = subcategoryName
+    func bind(subcategoryData: ProductsResponseData) {
+        self.cellData = subcategoryData
+        self.subCategoryNameLabel.text = subcategoryData.name
     }
 }
