@@ -12,8 +12,9 @@ class FoodSubCategoryAndProductView: CustomBottomView {
     
     //MARK: - Properties
     
-    private var subategoryCollectionViewData: [ProductsResponseData] = [] {
+    private var subcategoryCollectionViewData: [ProductsResponseData] = [] {
         didSet {
+            print("SubategoryCollectionViewData count: \(subcategoryCollectionViewData)")
             self.subCategoryCollectionView.reloadData()
         }
     }
@@ -80,7 +81,7 @@ class FoodSubCategoryAndProductView: CustomBottomView {
     public func bind(shopTitle: String, categoryTitle: String, subcategoryCollectionViewData: [ProductsResponseData], productsCollectionViewData: [ProductsResponseData]) {
         self.categoryTitleLabel.text = categoryTitle
         self.shopTitleLabel.text = shopTitle
-        self.subategoryCollectionViewData = subcategoryCollectionViewData
+        self.subcategoryCollectionViewData = subcategoryCollectionViewData
         self.productsCollectionViewData = productsCollectionViewData
     }
 
@@ -93,7 +94,7 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
         switch collectionView {
                 
         case subCategoryCollectionView:
-            return self.subategoryCollectionViewData.count
+            return self.subcategoryCollectionViewData.count
             
         case productsCollectionView:
             return self.productsCollectionViewData.count
@@ -109,7 +110,7 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
                 
         case subCategoryCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.subCategoryCollectionViewCellReuseId.rawValue, for: indexPath) as! SubCategoryCollectionViewCell
-            let cellData = subategoryCollectionViewData[indexPath.row]
+            let cellData = subcategoryCollectionViewData[indexPath.row]
             cell.bind(subcategoryData: cellData)
             return cell
         case productsCollectionView:
@@ -126,6 +127,12 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
      
         switch collectionView {
+        
+        case subCategoryCollectionView:
+            let height: CGFloat = 24
+            let item = subcategoryCollectionViewData[indexPath.row].name
+            let itemSize = item.size(withAttributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)])
+            return CGSize(width: itemSize.width, height: height)
         
         case productsCollectionView:
             let width = productsCollectionView.bounds.width
