@@ -41,6 +41,10 @@
 		041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */; };
 		041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */; };
 		041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */; };
+		04340DA8261DF32E001181B7 /* TimeToDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04340DA7261DF32E001181B7 /* TimeToDestinationView.xib */; };
+		04340DAA261DF693001181B7 /* TimeToDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DA9261DF693001181B7 /* TimeToDestinationView.swift */; };
+		04340DAC261DF7E5001181B7 /* GradientTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DAB261DF7E5001181B7 /* GradientTimeView.swift */; };
+		04340DAE261DFA65001181B7 /* TimeToDestinationUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */; };
 		043C91FE26119ECD00E141BB /* OrderHistoryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C91FD26119ECD00E141BB /* OrderHistoryDetailView.xib */; };
 		043C920026119EE600E141BB /* OrderHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */; };
 		043C92032612059E00E141BB /* OrderFoodHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */; };
@@ -243,7 +247,6 @@
 		7D868D45260E794200D3A91E /* TipAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D868D44260E794200D3A91E /* TipAddressView.xib */; };
 		7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */; };
 		7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9067CA2614F02500B06BAB /* ShopsView.swift */; };
-		7D9067D02614F06400B06BAB /* ShopsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9067CF2614F06400B06BAB /* ShopsView.xib */; };
 		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
 		7DD6B16225EFF8A600445407 /* InactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6B16125EFF8A600445407 /* InactiveViewController.swift */; };
 		7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DD6B16625F012B900445407 /* PersonalAccount.storyboard */; };
@@ -307,6 +310,10 @@
 		041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortTableViewCell.swift; sourceTree = "<group>"; };
 		041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortViewController.swift; sourceTree = "<group>"; };
 		041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
+		04340DA7261DF32E001181B7 /* TimeToDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeToDestinationView.xib; sourceTree = "<group>"; };
+		04340DA9261DF693001181B7 /* TimeToDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToDestinationView.swift; sourceTree = "<group>"; };
+		04340DAB261DF7E5001181B7 /* GradientTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTimeView.swift; sourceTree = "<group>"; };
+		04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToDestinationUIData.swift; sourceTree = "<group>"; };
 		043C91FD26119ECD00E141BB /* OrderHistoryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHistoryDetailView.xib; sourceTree = "<group>"; };
 		043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryDetailView.swift; sourceTree = "<group>"; };
 		043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFoodHistoryDetailView.swift; sourceTree = "<group>"; };
@@ -717,6 +724,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		04340DA6261DF302001181B7 /* TimeToDestinationView */ = {
+			isa = PBXGroup;
+			children = (
+				04340DA9261DF693001181B7 /* TimeToDestinationView.swift */,
+				04340DA7261DF32E001181B7 /* TimeToDestinationView.xib */,
+				04340DAB261DF7E5001181B7 /* GradientTimeView.swift */,
+			);
+			path = TimeToDestinationView;
+			sourceTree = "<group>";
+		};
 		043C91FC26119E8600E141BB /* OrderHistoryDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,7 +766,6 @@
 		049A3F6825F20EF900C31AED /* View */ = {
 			isa = PBXGroup;
 			children = (
-				049A3F6625F1F66400C31AED /* Addresses.storyboard */,
 				049A3F6A25F20F5300C31AED /* AddressViewController.swift */,
 				0414313B25F727C50074D86C /* AppleMapViewController.swift */,
 				049A3F6625F1F66400C31AED /* Addresses.storyboard */,
@@ -1037,7 +1053,6 @@
 			children = (
 				7BD7CB8E26037CC20099C9B7 /* AboutPointsViewUIData.swift */,
 				7D33FA73260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift */,
-				7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */,
 				049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */,
 				04B73F05260D6C66003A9AEE /* OrderHistoryUIData.swift */,
 				04B73EF7260AE6A0003A9AEE /* PersonalDataBottomViewUIData.swift */,
@@ -1076,6 +1091,7 @@
 				7B75D04625E52979001981CA /* TextEnterViewUIData.swift */,
 				7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */,
 				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
+				04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1183,10 +1199,9 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				04340DA6261DF302001181B7 /* TimeToDestinationView */,
 				043C92012612053E00E141BB /* OrderHistoryFoodDetailView */,
 				043C91FC26119E8600E141BB /* OrderHistoryDetailView */,
-				7B3A902425ED6200008CA13E /* PaymentHistoryDetailView */,
-				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
 				7BD7CB8726036AAA0099C9B7 /* AboutPointsView */,
 				7D33FA6C260A56C600DA5D0C /* AddressEnterDetailView */,
 				7BEA203B26008536007DD69A /* AddressEnterView */,
@@ -1767,6 +1782,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04340DA8261DF32E001181B7 /* TimeToDestinationView.xib in Resources */,
 				7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */,
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
@@ -1858,6 +1874,7 @@
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
 				04EFB7CE25EB887F00787C68 /* PromoDescriptionInteractor.swift in Sources */,
 				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,
+				04340DAA261DF693001181B7 /* TimeToDestinationView.swift in Sources */,
 				0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */,
 				7B47C88725E6720000F366FE /* PromocodeHistoryViewController.swift in Sources */,
 				7D33FA99260B9F5200DA5D0C /* ShowLocationInteractor.swift in Sources */,
@@ -1897,6 +1914,7 @@
 				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
+				04340DAC261DF7E5001181B7 /* GradientTimeView.swift in Sources */,
 				7D4748F925F7FC1600F744F7 /* TransitionBottomView.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
 				7BB36F4725E6CC3700649669 /* DateFormatter+Extension.swift in Sources */,
@@ -1967,6 +1985,7 @@
 				7D49159E2618A51200EBD03A /* FoodCategoriesView.swift in Sources */,
 				7D49158426178A1200EBD03A /* CGRect+Extension.swift in Sources */,
 				7B3A8FD825EA918C008CA13E /* PaymentHistoryViewController.swift in Sources */,
+				04340DAE261DFA65001181B7 /* TimeToDestinationUIData.swift in Sources */,
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				7D33FAA8260BB1AA00DA5D0C /* InactiveView.swift in Sources */,

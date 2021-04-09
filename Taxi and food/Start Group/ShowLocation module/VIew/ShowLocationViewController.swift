@@ -68,6 +68,8 @@ class ShowLocationViewController: UIViewController {
             self.interactor.getDestinationAddressText(for: tappedCoordinate)
             self.deleteAnnotation()
             self.addDestinationAnnotation(coordinate: tappedCoordinate)
+            self.interactor.drawPath()
+            
         }
     }
 }

@@ -299,7 +299,7 @@ extension MapInteractor {
         
         let resource = Resource<ShopsResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) { [weak self] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -309,7 +309,7 @@ extension MapInteractor {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
     
 }
@@ -325,7 +325,7 @@ extension MapInteractor {
         
         let resource = Resource<FoodCategoriesResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) { result in
+        NetworkService.shared.makeRequest(for: resource, completion:  { result in
             switch result {
             
             case .success(let response):
@@ -333,7 +333,8 @@ extension MapInteractor {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
 }
+
 

@@ -141,6 +141,7 @@ class MapViewController: UIViewController {
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
         self.mapView.showsUserLocation = true
+        
     }
     
     //Add Swipes
@@ -213,6 +214,10 @@ extension MapViewController {
 //MARK: - MapViewProtocol
 
 extension MapViewController: MapViewProtocol {
+    func drawRoute() {
+        
+    }
+    
     
     func updateShopList(_ list: [ShopResponseData]) {
         guard let shopsView = self.shopsListView else { return }
@@ -525,6 +530,7 @@ extension MapViewController: AddressEnterViewDelegate {
     func addressFromPinButtonTapped() {
         self.interactor.sourceAddress = self.addressEnterView.sourceAddress
         self.showAddressEnterDetailView()
+        self.drawRoute()
     }
     
     
@@ -563,6 +569,7 @@ extension MapViewController: AddressEnterViewDelegate {
         switch type {
         case .taxi:
             self.interactor.sourceAddress = self.addressEnterView.sourceAddress
+            self.drawPath()
             print("Taxi")
         case .food:
             self.hideAddressEnterView {[weak self] _ in
@@ -652,6 +659,19 @@ extension MapViewController {
         }
         
         UserDefaults.standard.storeShowingTipAddressView(true)
+    }
+}
+
+extension MapViewController {
+    func drawPath() {
+        let sourceLocation = self.interactor.sourceAddress
+        let destinationLocation = self.interactor.destinationAddress
+        print("sourceLocation")
+        print(sourceLocation)
+        
+        print("and destination")
+        print(destinationLocation)
+        
     }
 }
 

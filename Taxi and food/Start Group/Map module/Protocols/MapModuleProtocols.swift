@@ -105,6 +105,8 @@ protocol MapViewProtocol: class {
     
     func setDestinationAddressText(for addressText: String?)
     
+    func drawRoute()
+    
     func updateData()
 
     func updateShopList(_ list: [ShopResponseData])
