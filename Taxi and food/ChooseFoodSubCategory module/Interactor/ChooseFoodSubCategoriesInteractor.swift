@@ -6,10 +6,10 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ChooseFoodSubCategoriesInteractor: ChooseFoodSubCategoriesInteractorProtocol {
-   
+    
     internal weak var view: ChooseFoodSubCategoriesViewProtocol!
     
     var mode: ChooseFoodSubCategoriesViewControllerMode
@@ -26,5 +26,14 @@ class ChooseFoodSubCategoriesInteractor: ChooseFoodSubCategoriesInteractorProtoc
     
     func getProducts(from array: [ProductsResponseData]) -> [ProductsResponseData] {
         return array.filter{ !$0.isCategory }
+    }
+    
+    func getSubcategoryViewHeight(cellNumbers: Int) -> CGFloat {
+        
+        let tableViewHeight = CGFloat(cellNumbers) * FoodSubCategoriesViewSizes.cellRowHeight.rawValue
+        
+        let viewHeight = FoodSubCategoriesViewSizes.bottomInset.rawValue + FoodSubCategoriesViewSizes.topHeight.rawValue + tableViewHeight
+        
+        return viewHeight
     }
 }

@@ -16,8 +16,8 @@ class SubCategoryCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentView.clipsToBounds = true
-        self.contentView.layer.cornerRadius = self.contentView.bounds.height / 2
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.contentView.bounds.height / 2
     }
 }
 
@@ -26,5 +26,13 @@ extension SubCategoryCollectionViewCell {
     func bind(subcategoryData: ProductsResponseData) {
         self.cellData = subcategoryData
         self.subCategoryNameLabel.text = subcategoryData.name
+    }
+    
+    func setActive() {
+        self.backgroundColor = Colors.backGroundGreyActive.getColor()
+    }
+    
+    func setInactive() {
+        self.backgroundColor = UIColor.systemBackground
     }
 }

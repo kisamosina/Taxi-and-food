@@ -13,3 +13,10 @@ enum FoodSubCategoriesViewStringData: String {
     case nibFileName = "FoodSubCategoryView"
     case tableViewCellReuseId = "FoodSubCategoryCell"
 }
+
+enum FoodSubCategoriesViewSizes: CGFloat {
+    case cellRowHeight = 44
+    case topHeight = 125
+    case bottomInset = 90
+}
+

@@ -12,7 +12,7 @@ class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCateg
     
     var interactor: ChooseFoodCategoryInteractorProtocol!
     
-    weak var delegate: ChooseFoodCategoryViewControllerDelegate!
+    weak var delegate: ChooseFoodCategoryViewControllerDelegate?
     
     var inactiveView: InactiveView = InactiveView()
     
@@ -42,6 +42,7 @@ class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCateg
             let chooseFoodSubCategoriesVC = ChooseFoodSubCategoriesViewController()
             let chooseFoodSubCategoriesInteractor = ChooseFoodSubCategoriesInteractor(view: chooseFoodSubCategoriesVC, mode: subcategoriesAndProduct)
             chooseFoodSubCategoriesVC.interactor = chooseFoodSubCategoriesInteractor
+            chooseFoodSubCategoriesVC.delegate = self
             let navigationController = UINavigationController(rootViewController: chooseFoodSubCategoriesVC)
             navigationController.modalPresentationStyle = .overCurrentContext
             self.present(navigationController, animated: false)
@@ -89,7 +90,7 @@ extension ChooseFoodCategoryViewController {
             self.foodCategoryTopConstraint = nil
             self.foodCategoryViewBottomConstraint = nil
             self.dismiss(animated: false, completion: nil)
-            if hasSwipedDown { self.delegate.userHasSwiped() }
+            if hasSwipedDown { self.delegate?.userHasSwiped() }
         }
     }
 }
@@ -170,5 +171,13 @@ extension ChooseFoodCategoryViewController: ShopDetailViewDelegate {
     
     func closeButtonTapped() {
         self.hideShopDetailView()
+    }
+}
+
+
+extension ChooseFoodCategoryViewController: ChooseFoodSubCategoriesViewControllerDelegate {
+   
+    func userHasSwipedView() {
+        self.delegate?.userHasSwiped()
     }
 }

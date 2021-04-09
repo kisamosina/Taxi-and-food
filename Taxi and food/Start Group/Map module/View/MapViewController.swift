@@ -277,6 +277,18 @@ extension MapViewController: MapViewProtocol {
         self.hideShopsView(completion: completion)
     }
     
+    private func dismissTaxiViews() {
+        if let addressEnterDetailView = self.addressEnterDetailView {
+            self.hideAddressEnterDetailView {[weak self] _ in
+                guard let self = self else { return }
+                self.bottomView.isHidden = false
+                addressEnterDetailView.removeFromSuperview()
+                self.addressEnterDetailView = nil
+                self.addressEnterViewDetailBottomConstraint = nil
+            }
+        }
+    }
+    
     func setViews(for state: MapViewControllerStates) {
         
         switch state {
@@ -287,6 +299,7 @@ extension MapViewController: MapViewProtocol {
             self.mapCenterButton.isHidden = false
             self.dismissAddressEnterView()
             self.dismissShopsView()
+            self.dismissTaxiViews()
             
         case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
@@ -630,7 +643,10 @@ extension MapViewController: AddressEnterDetailViewDelegate {
         self.interactor.sourceAddressDetails = addressText
         
         self.hideAddressEnterDetailView {[unowned self] _ in
-            self.addressEnterView.alpha = 1
+            
+            if let addressEnterView = self.addressEnterView {
+                    addressEnterView.alpha = 1
+            }
             self.addressEnterDetailView.removeFromSuperview()
             self.addressEnterDetailView = nil
         }

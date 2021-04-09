@@ -9,5 +9,7 @@
 import Foundation
 
 protocol FoodSubCategoryViewDelegate: class {
-    
+   
+    func backButtonHasTapped()
+    func userHasSwipedDown()
 }

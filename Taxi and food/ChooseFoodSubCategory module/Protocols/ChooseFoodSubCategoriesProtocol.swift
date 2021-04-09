@@ -6,7 +6,7 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol  ChooseFoodSubCategoriesViewProtocol: class  {
     
@@ -26,4 +26,10 @@ protocol ChooseFoodSubCategoriesInteractorProtocol: class {
     func getSubcategories(from array: [ProductsResponseData]) -> [ProductsResponseData]
     
     func getProducts(from array: [ProductsResponseData]) -> [ProductsResponseData]
+    
+    func getSubcategoryViewHeight(cellNumbers: Int) -> CGFloat
+}
+
+protocol ChooseFoodSubCategoriesViewControllerDelegate: class {
+    func userHasSwipedView()
 }

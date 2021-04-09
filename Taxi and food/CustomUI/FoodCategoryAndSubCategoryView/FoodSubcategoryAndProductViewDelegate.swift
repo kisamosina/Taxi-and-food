@@ -11,4 +11,5 @@ import Foundation
 protocol FoodSubcategoryAndProductViewDelegate: class {
     
     func backButtonTapped()
+    func userHasSwipedDownFoodSubcategoryAndProductView()
 }

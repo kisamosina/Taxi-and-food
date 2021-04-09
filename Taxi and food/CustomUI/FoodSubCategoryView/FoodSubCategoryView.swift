@@ -16,7 +16,7 @@ class FoodSubCategoryView: CustomBottomView {
         }
     }
 
-    weak var delegate: FoodSubCategoryViewDelegate!
+    weak var delegate: FoodSubCategoryViewDelegate?
     
     // MARK: - IBOutlets
     
@@ -40,6 +40,17 @@ class FoodSubCategoryView: CustomBottomView {
         self.initSubViews()
     }
     
+    // MARK:- IBActions
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.delegate?.backButtonHasTapped()
+    }
+    
+    override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        super.userHasSwipedDown(sender)
+        self.delegate?.userHasSwipedDown()
+    }
+    
     // MARK: - Methods
     
     override func initSubViews() {
@@ -52,6 +63,7 @@ class FoodSubCategoryView: CustomBottomView {
         super.anchorView.backgroundColor = Colors.whiteTransparent.getColor()
         let nib = UINib(nibName: FoodSubCategoriesViewStringData.tableViewCellReuseId.rawValue, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: FoodSubCategoriesViewStringData.tableViewCellReuseId.rawValue)
+        self.tableView.tableFooterView = UIView()
     }
     
     private func setupConstraints() {

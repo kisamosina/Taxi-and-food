@@ -14,8 +14,12 @@ class FoodSubCategoryAndProductView: CustomBottomView {
     
     private var subcategoryCollectionViewData: [ProductsResponseData] = [] {
         didSet {
-            print("SubategoryCollectionViewData count: \(subcategoryCollectionViewData)")
-            self.subCategoryCollectionView.reloadData()
+            if subcategoryCollectionViewData.isEmpty {
+                self.subCategoryCollectionView.isHidden = true
+                self.secondSeparatorView.isHidden = true
+            } else  {
+                self.subCategoryCollectionView.reloadData()
+            }
         }
     }
     
@@ -24,12 +28,20 @@ class FoodSubCategoryAndProductView: CustomBottomView {
             self.productsCollectionView.reloadData()
         }
     }
-
+    
+    private var activeSubcategoryCellIndex = 0 {
+        didSet {
+            self.subCategoryCollectionView.reloadData()
+        }
+    }
+    
     weak var delegate: FoodSubcategoryAndProductViewDelegate?
     
     //MARK: - IBOutlets
     
     @IBOutlet var containerView: UIView!
+    
+    @IBOutlet weak var secondSeparatorView: UIView!
     
     @IBOutlet weak var shopTitleLabel: UILabel!
     
@@ -50,8 +62,15 @@ class FoodSubCategoryAndProductView: CustomBottomView {
         super.init(coder: coder)
         self.initSubViews()
     }
+    
+    //MARK: - IBAction
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.delegate?.backButtonTapped()
+    }
+    
+    override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        super.userHasSwipedDown(sender)
+        self.delegate?.userHasSwipedDownFoodSubcategoryAndProductView()
     }
     
     // MARK: - Methods
@@ -84,7 +103,7 @@ class FoodSubCategoryAndProductView: CustomBottomView {
         self.subcategoryCollectionViewData = subcategoryCollectionViewData
         self.productsCollectionViewData = productsCollectionViewData
     }
-
+    
 }
 
 
@@ -92,13 +111,13 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-                
+        
         case subCategoryCollectionView:
             return self.subcategoryCollectionViewData.count
             
         case productsCollectionView:
             return self.productsCollectionViewData.count
-        
+            
         default:
             return 0
         }
@@ -107,11 +126,18 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch collectionView {
-                
+        
         case subCategoryCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.subCategoryCollectionViewCellReuseId.rawValue, for: indexPath) as! SubCategoryCollectionViewCell
             let cellData = subcategoryCollectionViewData[indexPath.row]
             cell.bind(subcategoryData: cellData)
+            
+            if indexPath.row == self.activeSubcategoryCellIndex {
+                cell.setActive()
+            } else {
+                cell.setInactive()
+            }
+            
             return cell
         case productsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCategoryAndSubCategoryViewStringData.productsCollectionViewReuseId.rawValue, for: indexPath) as! ProductCollectionViewCell
@@ -125,7 +151,7 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-     
+        
         switch collectionView {
         
         case subCategoryCollectionView:
@@ -133,7 +159,7 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
             let item = subcategoryCollectionViewData[indexPath.row].name
             let itemSize = item.size(withAttributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)])
             return CGSize(width: itemSize.width, height: height)
-        
+            
         case productsCollectionView:
             let width = productsCollectionView.bounds.width
             let insetsSum: CGFloat = 60
@@ -145,5 +171,17 @@ extension FoodSubCategoryAndProductView: UICollectionViewDelegate, UICollectionV
             return CGSize.zero
         }
         
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch collectionView {
+        
+        case subCategoryCollectionView:
+            self.activeSubcategoryCellIndex = indexPath.row
+        default:
+            break
+        }
     }
 }
