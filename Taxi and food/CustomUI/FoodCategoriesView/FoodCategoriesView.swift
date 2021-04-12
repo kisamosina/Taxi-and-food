@@ -57,6 +57,7 @@ import UIKit
     // MARK: - IBActions
 
     @IBAction func infoButtonTapped(_ sender: UIButton) {
+        self.delegate?.infoButtonTapped()
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -124,4 +125,8 @@ extension FoodCategoriesView: UICollectionViewDelegateFlowLayout, UICollectionVi
         return CGSize(width: workSpace, height: FoodCategoriesViewSizeData.collectionViewCellHeight.rawValue)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let shopId = foodCategoryData?.id, let categoryId = foodCategoryData?.categories[indexPath.row].id else { return }
+        self.delegate?.shopSelected(shopId: shopId, with: categoryId)
+    }
 }

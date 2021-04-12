@@ -57,6 +57,7 @@ enum Colors {
     case bouncesPointsTextColor
     case taxiOrange
     case whiteTransparent
+    case backGroundGreyActive
     
     
     func getColor() -> UIColor {
@@ -99,7 +100,9 @@ enum Colors {
         case .taxiOrange:
             return UIColor(hexString: "FB8E50")
         case .whiteTransparent:
-        return UIColor(hexString: "#FFFFFF", alpha: 0.5)
+            return UIColor(hexString: "#FFFFFF", alpha: 0.5)
+        case .backGroundGreyActive:
+            return UIColor(hexString: "#F0F0F0")
         }
     }
 }
@@ -183,6 +186,7 @@ enum ViewControllers: String {
 
 
 enum ViewsCornerRadiuses: CGFloat {
+    case small = 10
     case medium = 15
 }
 

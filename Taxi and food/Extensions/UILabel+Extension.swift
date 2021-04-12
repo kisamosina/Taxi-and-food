@@ -57,4 +57,12 @@ extension UILabel {
         attributedText = attribstring
     }
     
+    func setGreyRoundSeparator(_ forText: String) {
+        guard let text = text else { return }
+        let attribstring = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: forText)
+        attribstring.addAttribute(NSAttributedString.Key.foregroundColor, value: Colors.buttonGrey.getColor(), range: range)
+        attributedText = attribstring
+    }
+    
 }

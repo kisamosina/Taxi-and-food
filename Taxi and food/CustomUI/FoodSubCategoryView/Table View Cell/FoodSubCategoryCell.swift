@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoodSubCategoryCellTableViewCell: UITableViewCell {
+class FoodSubCategoryCell: UITableViewCell {
 
     @IBOutlet weak var subcategoryTitleLabel: UILabel!
     

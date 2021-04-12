@@ -9,7 +9,15 @@
 import UIKit
 
 class FoodSubCategoryView: CustomBottomView {
+    
+    private var subCategoryList: [ProductsResponseData] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
+    weak var delegate: FoodSubCategoryViewDelegate?
+    
     // MARK: - IBOutlets
     
     @IBOutlet var containerView: UIView!
@@ -32,12 +40,30 @@ class FoodSubCategoryView: CustomBottomView {
         self.initSubViews()
     }
     
+    // MARK:- IBActions
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.delegate?.backButtonHasTapped()
+    }
+    
+    override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        super.userHasSwipedDown(sender)
+        self.delegate?.userHasSwipedDown()
+    }
+    
     // MARK: - Methods
     
     override func initSubViews() {
         super.initSubViews()
+        self.loadFromNib(nibName: FoodSubCategoriesViewStringData.nibFileName.rawValue)
+        self.containerView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(containerView)
         self.setupConstraints()
+        self.containerView.backgroundColor = .clear
         super.anchorView.backgroundColor = Colors.whiteTransparent.getColor()
+        let nib = UINib(nibName: FoodSubCategoriesViewStringData.tableViewCellReuseId.rawValue, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: FoodSubCategoriesViewStringData.tableViewCellReuseId.rawValue)
+        self.tableView.tableFooterView = UIView()
     }
     
     private func setupConstraints() {
@@ -49,4 +75,24 @@ class FoodSubCategoryView: CustomBottomView {
         ])
     }
     
+    public func bind(shopTitle: String, categoryTitle: String, and data: [ProductsResponseData]) {
+        self.shopTitleLabel.text = shopTitle
+        self.categoryTitleLabel.text = categoryTitle
+        self.subCategoryList = data
+    }
+    
+}
+
+extension FoodSubCategoryView: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.subCategoryList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FoodSubCategoriesViewStringData.tableViewCellReuseId.rawValue, for: indexPath) as! FoodSubCategoryCell
+        let cellTitle = self.subCategoryList[indexPath.row].name
+        cell.bind(subcategoryTitle: cellTitle)
+        return cell
+    }
 }

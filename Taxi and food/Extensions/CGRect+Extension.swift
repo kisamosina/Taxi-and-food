@@ -11,7 +11,10 @@ import UIKit
 extension CGRect {
     
     static func makeRect(height: CGFloat) -> CGRect {
-        return CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: height)
+        return CGRect(x: 0,
+                      y: UIScreen.main.bounds.height,
+                      width: UIScreen.main.bounds.width,
+                      height: height)
     }
     
     static func makeRectWidthAndHeightScreen() -> CGRect {

@@ -25,6 +25,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOw-NY-Nli">
                     <rect key="frame" x="25" y="40" width="10" height="22"/>
                     <state key="normal" image="backButton"/>
+                    <connections>
+                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="hvX-jh-bWB"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продукт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-6u-gvW">
                     <rect key="frame" x="25" y="79" width="106.5" height="32"/>
@@ -32,8 +35,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziv-j7-ZFI">
+                    <rect key="frame" x="0.0" y="129" width="414" height="1"/>
+                    <color key="backgroundColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="AJe-S7-1A7"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Ey-wf-EX4">
-                    <rect key="frame" x="0.0" y="131" width="414" height="629"/>
+                    <rect key="frame" x="0.0" y="130" width="414" height="630"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ldb-y8-iq8"/>
@@ -51,10 +61,13 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="7Ey-wf-EX4" secondAttribute="bottom" id="01x-eE-GWc"/>
+                <constraint firstItem="ziv-j7-ZFI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3JR-Nx-L7w"/>
                 <constraint firstItem="rnt-6u-gvW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="3vl-mL-pdQ"/>
                 <constraint firstItem="7Ey-wf-EX4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7gC-x1-wiO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ziv-j7-ZFI" secondAttribute="trailing" id="H8a-Z3-kzZ"/>
                 <constraint firstItem="hOw-NY-Nli" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="LNa-V0-s3a"/>
-                <constraint firstItem="7Ey-wf-EX4" firstAttribute="top" secondItem="rnt-6u-gvW" secondAttribute="bottom" constant="20" id="TKA-YA-bwY"/>
+                <constraint firstItem="ziv-j7-ZFI" firstAttribute="bottom" secondItem="rnt-6u-gvW" secondAttribute="bottom" constant="19" id="LiO-qP-Zrx"/>
+                <constraint firstItem="7Ey-wf-EX4" firstAttribute="top" secondItem="ziv-j7-ZFI" secondAttribute="bottom" id="N7r-QD-oHy"/>
                 <constraint firstItem="rnt-6u-gvW" firstAttribute="top" secondItem="hOw-NY-Nli" secondAttribute="bottom" constant="17" id="TtT-EE-27a"/>
                 <constraint firstItem="hOw-NY-Nli" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="fnC-Ya-T5v"/>
                 <constraint firstItem="QxD-ZF-oOB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="41" id="kZU-O7-M15"/>

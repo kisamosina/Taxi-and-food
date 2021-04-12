@@ -48,6 +48,15 @@ extension String {
         return "\(temp1[0])\(shopId)"
     }
     
+    func getServerPath( userId: Int, shopId: Int, categoryId: Int) -> String {
+        let temp = self.split(separator: "$")
+        let tempString = "\(temp[0])\(userId)\(temp[1])"
+        let temp1 = tempString.split(separator: "@")
+        let tempString1 = "\(temp1[0])\(shopId)\(temp1[1])"
+        let temp2 = tempString1.split(separator: "&")
+        return "\(temp2[0])\(categoryId))"
+    }
+    
     func getPromo(by type: String) -> String {
         return "\(self)/\(type)"
     }
