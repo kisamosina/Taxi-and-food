@@ -32,4 +32,5 @@ protocol ChooseFoodSubCategoriesInteractorProtocol: class {
 
 protocol ChooseFoodSubCategoriesViewControllerDelegate: class {
     func userHasSwipedView()
+    func backToCategoriesButtonTapped()
 }
