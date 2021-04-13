@@ -28,6 +28,11 @@ class MapViewController: UIViewController {
     private var tipAddressView: TipAddressView!
     private var tipAddressViewBottomAnchor: NSLayoutConstraint!
     
+    //FullPath View
+    private var fullPathView: FullPathView!
+    private var fullPathViewBottomConstraint: NSLayoutConstraint!
+    private var fullPathViewHeightConstraint: NSLayoutConstraint!
+
     //Shops List View
     private var shopsListView: ShopsView!
     private var shopsListViewBottomConstraint: NSLayoutConstraint!
@@ -457,6 +462,37 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+//MARK: - Full path view methods
+
+extension MapViewController {
+
+    private func setupFullPathViewConstraints(viewType: FullPathViewType) {
+        self.fullPathView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
+        NSLayoutConstraint.activate([self.fullPathView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding),
+                                     self.fullPathView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: viewType.viewHeight()),
+                                     self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+        
+        
+    }
+    
+    func showFullPathView(as type: FullPathViewType) {
+        print("tried to show fullPathView but failed")
+        
+        self.fullPathView = FullPathView(frame: CGRect.makeRect(height: type.viewHeight()))
+        self.view.addSubview(fullPathView)
+        self.fullPathView.setView(as: type)
+        self.setupFullPathViewConstraints(viewType: type)
+        self.fullPathView.setView(as: .address)
+        
+    }
+}
+
 //MARK: - Address enter view methods
 
 extension MapViewController {
@@ -569,8 +605,13 @@ extension MapViewController: AddressEnterViewDelegate {
         switch type {
         case .taxi:
             self.interactor.sourceAddress = self.addressEnterView.sourceAddress
-            self.drawPath()
+            self.hideAddressEnterView {[weak self] _ in
+                guard let self = self else { return }
+            }
+            self.showFullPathView(as: .address)
+//            self.drawPath()
             print("Taxi")
+//            self.showFullPathView()
         case .food:
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
@@ -674,6 +715,8 @@ extension MapViewController {
         
     }
 }
+
+
 
 // MARK: - Shops view methods
 

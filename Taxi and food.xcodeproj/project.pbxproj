@@ -45,6 +45,12 @@
 		04340DAA261DF693001181B7 /* TimeToDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DA9261DF693001181B7 /* TimeToDestinationView.swift */; };
 		04340DAC261DF7E5001181B7 /* GradientTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DAB261DF7E5001181B7 /* GradientTimeView.swift */; };
 		04340DAE261DFA65001181B7 /* TimeToDestinationUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */; };
+		04340DB126203FF7001181B7 /* FullPathView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04340DB026203FF7001181B7 /* FullPathView.xib */; };
+		04340DB32620400A001181B7 /* FullPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DB22620400A001181B7 /* FullPathView.swift */; };
+		04340DB62620597F001181B7 /* FullPathCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DB42620597F001181B7 /* FullPathCollectionViewCell.swift */; };
+		04340DB72620597F001181B7 /* FullPathCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04340DB52620597F001181B7 /* FullPathCollectionViewCell.xib */; };
+		04340DBB26241212001181B7 /* FullPathCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DBA26241212001181B7 /* FullPathCellModel.swift */; };
+		04340DBD26243853001181B7 /* FullPathViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DBC26243853001181B7 /* FullPathViewUIData.swift */; };
 		043C91FE26119ECD00E141BB /* OrderHistoryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043C91FD26119ECD00E141BB /* OrderHistoryDetailView.xib */; };
 		043C920026119EE600E141BB /* OrderHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */; };
 		043C92032612059E00E141BB /* OrderFoodHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */; };
@@ -314,6 +320,12 @@
 		04340DA9261DF693001181B7 /* TimeToDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToDestinationView.swift; sourceTree = "<group>"; };
 		04340DAB261DF7E5001181B7 /* GradientTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTimeView.swift; sourceTree = "<group>"; };
 		04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToDestinationUIData.swift; sourceTree = "<group>"; };
+		04340DB026203FF7001181B7 /* FullPathView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullPathView.xib; sourceTree = "<group>"; };
+		04340DB22620400A001181B7 /* FullPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPathView.swift; sourceTree = "<group>"; };
+		04340DB42620597F001181B7 /* FullPathCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPathCollectionViewCell.swift; sourceTree = "<group>"; };
+		04340DB52620597F001181B7 /* FullPathCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullPathCollectionViewCell.xib; sourceTree = "<group>"; };
+		04340DBA26241212001181B7 /* FullPathCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPathCellModel.swift; sourceTree = "<group>"; };
+		04340DBC26243853001181B7 /* FullPathViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPathViewUIData.swift; sourceTree = "<group>"; };
 		043C91FD26119ECD00E141BB /* OrderHistoryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHistoryDetailView.xib; sourceTree = "<group>"; };
 		043C91FF26119EE600E141BB /* OrderHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryDetailView.swift; sourceTree = "<group>"; };
 		043C92022612059E00E141BB /* OrderFoodHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFoodHistoryDetailView.swift; sourceTree = "<group>"; };
@@ -734,6 +746,34 @@
 			path = TimeToDestinationView;
 			sourceTree = "<group>";
 		};
+		04340DAF26203F9F001181B7 /* FullPathView */ = {
+			isa = PBXGroup;
+			children = (
+				04340DB9262411FB001181B7 /* Model */,
+				04340DB8262411EC001181B7 /* View */,
+				04340DB22620400A001181B7 /* FullPathView.swift */,
+				04340DB42620597F001181B7 /* FullPathCollectionViewCell.swift */,
+				04340DB52620597F001181B7 /* FullPathCollectionViewCell.xib */,
+				04340DB026203FF7001181B7 /* FullPathView.xib */,
+			);
+			path = FullPathView;
+			sourceTree = "<group>";
+		};
+		04340DB8262411EC001181B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04340DB9262411FB001181B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04340DBA26241212001181B7 /* FullPathCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		043C91FC26119E8600E141BB /* OrderHistoryDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1052,6 +1092,7 @@
 			isa = PBXGroup;
 			children = (
 				7BD7CB8E26037CC20099C9B7 /* AboutPointsViewUIData.swift */,
+				04340DBC26243853001181B7 /* FullPathViewUIData.swift */,
 				7D33FA73260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift */,
 				049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */,
 				04B73F05260D6C66003A9AEE /* OrderHistoryUIData.swift */,
@@ -1199,6 +1240,7 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				04340DAF26203F9F001181B7 /* FullPathView */,
 				04340DA6261DF302001181B7 /* TimeToDestinationView */,
 				043C92012612053E00E141BB /* OrderHistoryFoodDetailView */,
 				043C91FC26119E8600E141BB /* OrderHistoryDetailView */,
@@ -1813,7 +1855,9 @@
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
 				7D4915BB2618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib in Resources */,
 				04B73EF4260A2CAE003A9AEE /* PersonalDataBottomView.xib in Resources */,
+				04340DB72620597F001181B7 /* FullPathCollectionViewCell.xib in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
+				04340DB126203FF7001181B7 /* FullPathView.xib in Resources */,
 				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
 				04B73EFE260C4146003A9AEE /* OrderHistory.storyboard in Resources */,
 				04B73F0B260D766C003A9AEE /* OrderHistoryTableViewCell.xib in Resources */,
@@ -1854,6 +1898,7 @@
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
 				7D00DDDF26076B4C004D5777 /* MapButtonView.swift in Sources */,
+				04340DBB26241212001181B7 /* FullPathCellModel.swift in Sources */,
 				7B3A900225EAA2FE008CA13E /* PaymentHistoryTableViewCell.swift in Sources */,
 				7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */,
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
@@ -1895,6 +1940,7 @@
 				7DD6B17025F0197900445407 /* PersonalAccountViewController.swift in Sources */,
 				7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */,
 				7B2B99EE25D8419B008B6CD9 /* ConfirmAuthInteractor.swift in Sources */,
+				04340DB62620597F001181B7 /* FullPathCollectionViewCell.swift in Sources */,
 				7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */,
 				7D542B84260116520030FC2D /* AddressTableViewCell.swift in Sources */,
 				7B75CF3025DD661A001981CA /* TarifModuleData.swift in Sources */,
@@ -1909,6 +1955,7 @@
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
+				04340DB32620400A001181B7 /* FullPathView.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
 				7D00DDF82607765E004D5777 /* MapButtonViewDelegate.swift in Sources */,
 				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
@@ -1940,6 +1987,7 @@
 				7B4BA31326053158008119E5 /* AddressEnteViewDelegate.swift in Sources */,
 				7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */,
 				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
+				04340DBD26243853001181B7 /* FullPathViewUIData.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,
 				041E298625DE226400CA9F56 /* SettingsModuleUIData.swift in Sources */,

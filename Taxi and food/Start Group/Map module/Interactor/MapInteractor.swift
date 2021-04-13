@@ -52,6 +52,13 @@ class MapInteractor: MapInteractorProtocol {
         didSet { self.view.setDestinationAnnotation(for: destinationLocationFromMap)}
     }
     
+    //TariffOptions
+    var tariffOptions: [FullPathCellData] = [] {
+        didSet {
+            self.configureTariffOptions()
+        }
+    }
+    
     //Source Address for order
     var sourceAddress: String?
     
@@ -164,6 +171,22 @@ class MapInteractor: MapInteractorProtocol {
     func getUserLoctaionRegion() -> MKCoordinateRegion? {
         guard let userLocation = self.userLocation else { return nil }
         return self.makeRegion(regionRadius: MapViewControllerMapData.regionRadius.rawValue, for: userLocation)
+    }
+}
+
+extension MapInteractor {
+    
+    func configureTariffOptions() {
+        
+        guard let standartIcon = UIImage(named: "iconStandart") else { return }
+        guard let premiumIcon = UIImage(named: "iconPremium") else { return }
+        guard let businessIcon = UIImage(named: "iconBusiness") else { return }
+        
+//        fix title naming and getting data
+        tariffOptions.append(FullPathCellData(title: "Standart", icon: standartIcon, duration: "3 мин", cost: "100 руб"))
+        tariffOptions.append(FullPathCellData(title: "Premium", icon: premiumIcon, duration: "8 мин", cost: "250 руб"))
+        tariffOptions.append(FullPathCellData(title: "Business", icon: businessIcon, duration: "14 мин", cost: "430 руб"))
+ 
     }
 }
 

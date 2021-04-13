@@ -73,13 +73,6 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-o9-KPR">
                                             <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="destinationFull" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-tr-Mcn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="12" id="QSE-4q-9VR"/>
-                                                        <constraint firstAttribute="height" constant="38" id="fsL-7Y-l1y"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPinGrey" translatesAutoresizingMaskIntoConstraints="NO" id="XTw-4V-Pz6">
                                                     <rect key="frame" x="0.0" y="0.0" width="12" height="38"/>
                                                     <constraints>
@@ -89,8 +82,6 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstItem="QQ1-tr-Mcn" firstAttribute="top" secondItem="JfW-o9-KPR" secondAttribute="top" id="3aH-C5-pz7"/>
-                                                <constraint firstItem="QQ1-tr-Mcn" firstAttribute="leading" secondItem="JfW-o9-KPR" secondAttribute="leading" id="FaP-hc-noz"/>
                                                 <constraint firstItem="XTw-4V-Pz6" firstAttribute="leading" secondItem="JfW-o9-KPR" secondAttribute="leading" id="QYj-1s-rBl"/>
                                                 <constraint firstAttribute="width" constant="22" id="TWQ-Zs-UkL"/>
                                                 <constraint firstItem="XTw-4V-Pz6" firstAttribute="top" secondItem="JfW-o9-KPR" secondAttribute="top" id="buY-7d-FFs"/>
@@ -142,10 +133,6 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pathBetween" id="MKZ-bU-tT9">
-                            <rect key="frame" x="8" y="49" width="12" height="51"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
@@ -180,8 +167,6 @@
         </swipeGestureRecognizer>
     </objects>
     <resources>
-        <image name="destinationFull" width="24" height="38"/>
-        <image name="pathBetween" width="24" height="104"/>
         <image name="userPin" width="15.5" height="24"/>
         <image name="userPinGrey" width="24" height="38"/>
     </resources>

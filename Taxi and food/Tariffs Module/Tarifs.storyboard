@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="chk-Nr-TpH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="chk-Nr-TpH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +35,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnN-gl-CP3">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="1"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="MX9-Vp-VUb"/>
                                                         </constraints>
@@ -82,7 +80,7 @@
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="D4h-1H-8Cs" customClass="TopAlignedLabel" customModule="Taxi_and_food" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="34" width="364" height="86"/>
-                                                                <string key="text">Учитывая ключевые сценарии поведения, внедрение современных методик предоставляет широкие возможности для первоочередных требований. А также стремящиеся вытеснить традиционное производство, нанотехнологии формируют глобальную экономическую сеть и при этом -  ассоциативно распределены по отраслям.</string>
+                                                                <mutableString key="text">Учитывая ключевые сценарии поведения, внедрение современных методик предоставляет широкие возможности для первоочередных требований. А также стремящиеся вытеснить традиционное производство, нанотехнологии формируют глобальную экономическую сеть и при этом -  ассоциативно распределены по отраслям.</mutableString>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -115,30 +113,13 @@
                                     <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdavantageCollectionViewCell" id="sZd-l0-h0a" customClass="AdvantageCollectionViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cOb-8B-Rmm">
                                         <rect key="frame" x="25" y="25" width="115" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tTc-Hj-b1h">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Ma-Xj-Fey">
                                             <rect key="frame" x="0.0" y="0.0" width="115" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10U-5S-Pqw">
-                                                    <rect key="frame" x="10" y="10" width="29" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVw-c8-CIT">
-                                                    <rect key="frame" x="9" y="38" width="98" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
+                                            <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="advantageButton" destination="10U-5S-Pqw" id="Z7O-9h-sbV"/>
-                                            <outlet property="advantageLabel" destination="pVw-c8-CIT" id="i07-mI-ntX"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -146,7 +127,7 @@
                                     <outlet property="delegate" destination="Oam-YQ-RGz" id="TvC-zO-Nb4"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-wX-t89" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-wX-t89" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="25" y="787" width="364" height="50"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23137254900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -160,8 +141,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="cp3-1l-U22"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cp3-1l-U22" firstAttribute="trailing" secondItem="QA7-Wu-a1z" secondAttribute="trailing" id="4B3-us-2R6"/>
                             <constraint firstAttribute="trailing" secondItem="f9N-nO-WaH" secondAttribute="trailing" constant="25" id="5j7-po-pVQ"/>
@@ -174,6 +154,7 @@
                             <constraint firstItem="qDW-wX-t89" firstAttribute="leading" secondItem="cp3-1l-U22" secondAttribute="leading" constant="25" id="xu1-K2-fPg"/>
                             <constraint firstItem="qDW-wX-t89" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QA7-Wu-a1z" secondAttribute="bottom" id="yfK-sj-q9Q"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="cp3-1l-U22"/>
                     </view>
                     <connections>
                         <outlet property="aboutTarifLabel" destination="lBy-xb-w6F" id="CW2-Ew-Yvu"/>
@@ -191,12 +172,4 @@
             <point key="canvasLocation" x="-252.17391304347828" y="-372.32142857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
