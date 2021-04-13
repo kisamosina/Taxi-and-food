@@ -470,9 +470,8 @@ extension MapViewController {
         self.fullPathView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        
         NSLayoutConstraint.activate([self.fullPathView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding),
-                                     self.fullPathView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: viewType.viewHeight()),
+                                     self.fullPathView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height - viewType.viewHeight()),
                                      self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
                                      self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
                                                                                     constant: 0)
@@ -482,13 +481,16 @@ extension MapViewController {
     }
     
     func showFullPathView(as type: FullPathViewType) {
-        print("tried to show fullPathView but failed")
+        
+        guard let sourceLocation = self.interactor.sourceAddress else { return }
+        guard let destinationLocation = self.interactor.destinationAddress else { return }
         
         self.fullPathView = FullPathView(frame: CGRect.makeRect(height: type.viewHeight()))
         self.view.addSubview(fullPathView)
         self.fullPathView.setView(as: type)
         self.setupFullPathViewConstraints(viewType: type)
         self.fullPathView.setView(as: .address)
+        self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
         
     }
 }

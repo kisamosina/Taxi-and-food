@@ -72,21 +72,13 @@
                                                         <constraint firstAttribute="width" constant="12" id="OQf-rn-rZY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPinGrey" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-G5-43g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="12" id="lPU-fE-JZ5"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstItem="biM-1u-DpL" firstAttribute="top" secondItem="Egy-Jj-fXa" secondAttribute="top" id="MKC-Ty-E9q"/>
                                                 <constraint firstAttribute="height" constant="34" id="R6b-tc-Wis"/>
-                                                <constraint firstItem="iaH-G5-43g" firstAttribute="leading" secondItem="Egy-Jj-fXa" secondAttribute="leading" id="Y3D-Hk-knJ"/>
                                                 <constraint firstItem="biM-1u-DpL" firstAttribute="leading" secondItem="Egy-Jj-fXa" secondAttribute="leading" id="Yv0-rY-Eye"/>
                                                 <constraint firstAttribute="width" constant="22" id="eeW-tF-nrj"/>
-                                                <constraint firstItem="iaH-G5-43g" firstAttribute="top" secondItem="Egy-Jj-fXa" secondAttribute="top" id="xrt-pJ-Z3m"/>
                                             </constraints>
                                         </view>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2r-O8-TL9">
@@ -183,6 +175,5 @@
         <image name="destinationFull" width="24" height="38"/>
         <image name="pathBetween" width="24" height="104"/>
         <image name="userPin" width="15.5" height="24"/>
-        <image name="userPinGrey" width="24" height="38"/>
     </resources>
 </document>

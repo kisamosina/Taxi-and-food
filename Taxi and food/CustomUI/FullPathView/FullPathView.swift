@@ -25,6 +25,8 @@ class FullPathView: UIView {
                 self.promoAndPointsStackView.isHidden = true
                 self.collectionView.isHidden = true
                 self.mainButton.setupAs(.next)
+                self.mainButton.setActive()
+                
                 
             case .withTariff:
                 
@@ -78,7 +80,7 @@ class FullPathView: UIView {
     
     private func initCollectionView() {
       let nib = UINib(nibName: "FullPath", bundle: nil)
-      collectionView.register(nib, forCellWithReuseIdentifier: "FullPath")
+        collectionView.register(nib, forCellWithReuseIdentifier: "FullPath")
         collectionView.dataSource = self
     }
     
@@ -88,6 +90,9 @@ class FullPathView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
+        
+        self.addressFromTextfield.addBottomBorder(color: Colors.buttonBlue.getColor())
+        self.addressToTextfield.addBottomBorder(color: Colors.taxiOrange.getColor())
 //        self.mainButton.setupAs(.approve)
 //        self.locationTextField.delegate = self
     }
@@ -103,6 +108,12 @@ class FullPathView: UIView {
     
     public func setView(as type: FullPathViewType ) {
         self.type = type
+    }
+    
+    func setupAddress(from: String, to: String) {
+        
+        self.addressFromTextfield.text = from
+        self.addressToTextfield.text = to
     }
     
 }
