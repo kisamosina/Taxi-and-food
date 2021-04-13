@@ -489,7 +489,6 @@ extension MapViewController {
         self.view.addSubview(fullPathView)
         self.fullPathView.setView(as: type)
         self.setupFullPathViewConstraints(viewType: type)
-        self.fullPathView.setView(as: .address)
         self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
         
     }
@@ -610,7 +609,7 @@ extension MapViewController: AddressEnterViewDelegate {
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
             }
-            self.showFullPathView(as: .address)
+            self.showFullPathView(as: .withTariff)
 //            self.drawPath()
             print("Taxi")
 //            self.showFullPathView()

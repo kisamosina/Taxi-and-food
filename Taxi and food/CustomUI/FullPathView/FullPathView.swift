@@ -29,10 +29,9 @@ class FullPathView: UIView {
                 
                 
             case .withTariff:
-                
                 self.promoAndPointsStackView.isHidden = false
                 self.collectionView.isHidden = false
-                self.mainButton.setupAs(.newOrder)
+                self.mainButton.setupAs(.order)
                 
             }
         }
