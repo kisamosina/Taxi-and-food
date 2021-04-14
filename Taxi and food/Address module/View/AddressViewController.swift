@@ -60,15 +60,11 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
 //        addTextFieldsTargets()
         
         self.interactor = AddressInteractor(view: self)
-        
-        
+
         chooseDestinationButton.isHidden = true
-//        deleteButton.isHidden = true
+        deleteButton.isHidden = true
         
         addressNameTextField.isHidden = false
-        
-       
-        
 
     }
     
@@ -111,14 +107,43 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
     func configureUI() {
         self.navigationItem.title = AddressViewControllerText.navigationItemNewTitleText
         self.addressNameTextField.placeholder = TextFieldsPlaceholderText.nameAddressText
+        self.addressNameTextField.adjustsFontSizeToFitWidth = true
+        self.addressNameTextField.minimumFontSize = 9.0
+        
         self.addressTextField.placeholder = TextFieldsPlaceholderText.addressText
+        self.addressTextField.adjustsFontSizeToFitWidth = true
+        self.addressTextField.minimumFontSize = 9.0
+        
+
         self.commentDriverTextField.placeholder = TextFieldsPlaceholderText.commentForDriverText
+        self.commentDriverTextField.adjustsFontSizeToFitWidth = true
+        self.commentDriverTextField.minimumFontSize = 9.0
+        
+        
         self.officeTextField.placeholder = TextFieldsPlaceholderText.officeText
+        self.officeTextField.adjustsFontSizeToFitWidth = true
+        self.officeTextField.minimumFontSize = 9.0
+        
+        
         self.entranceTextField.placeholder = TextFieldsPlaceholderText.entranceText
+        self.entranceTextField.adjustsFontSizeToFitWidth = true
+        self.entranceTextField.minimumFontSize = 9.0
+        
         self.intercomTextField.placeholder = TextFieldsPlaceholderText.intercomText
+        self.intercomTextField.adjustsFontSizeToFitWidth = true
+        self.intercomTextField.minimumFontSize = 9.0
+        
         self.floorTextField.placeholder = TextFieldsPlaceholderText.floorText
+        self.floorTextField.adjustsFontSizeToFitWidth = true
+        self.floorTextField.minimumFontSize = 9.0
+        
         self.commenCourierTextField.placeholder = TextFieldsPlaceholderText.commenForCourierText
+        self.commenCourierTextField.adjustsFontSizeToFitWidth = true
+        self.commenCourierTextField.minimumFontSize = 9.0
+        
         self.deliveryLabel.text = AddressViewControllerText.deliveryLabelText
+        self.deliveryLabel.adjustsFontSizeToFitWidth = true
+       
 
         self.saveButton.setupAs(.save)
         self.saveButton.backgroundColor = Colors.buttonBlue.getColor()
@@ -143,9 +168,8 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         arrayOfTextFields = [addressNameTextField,addressTextField, commentDriverTextField, officeTextField, officeTextField, entranceTextField, intercomTextField, floorTextField, commenCourierTextField]
  
-        arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
-        arrayOfTextFields.map { $0.delegate = self }
-        
+        _ =  arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
+        _ = arrayOfTextFields.map { $0.delegate = self }
     }
     
 //    private func addTextFieldsTargets() {
@@ -213,6 +237,13 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
 
     }
     
+    @objc private func textDidChange(textField: UITextField) {
+        
+        let text = textField.text
+
+        
+        
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let point = CGPoint(x: 0.0, y: commenCourierTextField.frame.origin.y)

@@ -12,34 +12,36 @@ protocol PersonalDataViewProtocol: class {
     var interactor: PersonalDataInteractorProtocol! { get set }
 }
 class PersonalDataViewController: UIViewController {
+
+    @IBOutlet var transitionView: PersonalDataBottomView!
     
     @IBOutlet var policyLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    var containerView = UIView()
-    var slideUpView = UITableView()
-    let slideUpViewHeight: CGFloat = 200
+    @IBOutlet var personalDataViewBottomConstraint: NSLayoutConstraint!
+    
     
     var interactor: PersonalDataInteractorProtocol!
-    var models: [PersonalDataSection]?
+    var models: [PersonalDataUISection]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addPolicyLabelGestureRecognizer()
-        
         self.interactor = PersonalDataInteractor(view: self)
         self.interactor.configure()
-        
-        //FIXME: rename identifier
-        tableView.register(PersonalDataCell.self, forCellReuseIdentifier: "personalData")
-
         confugureLabel()
-        
+  
     }
     
-    //MARK: - Methods
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
 
+    
+    
+    //MARK: - Methods
     func confugureLabel() {
         policyLabel.text = PersonalDataViewControllerText.policyLabelText
         
@@ -47,63 +49,12 @@ class PersonalDataViewController: UIViewController {
         policyLabel.setAttributedText(PersonalDataViewControllerText.userArgeement)
         policyLabel.setAttributedText(PersonalDataViewControllerText.privacyPolicy)
     }
+
     
     private func addPolicyLabelGestureRecognizer() {
         policyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPolicyLabel(gesture:))))
     }
-    
-    @objc func slideUpViewTapped() {
-        let screenSize = UIScreen.main.bounds.size
-        UIView.animate(withDuration: 0.5,
-                       delay: 0, usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 1.0,
-                       options: .curveEaseInOut, animations: {
-          self.containerView.alpha = 0
-          self.slideUpView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: self.slideUpViewHeight)
-        }, completion: nil)
-    }
-    
-    @objc func showSlideUpView() {
-        print("show slide up view")
-        
-        let keyWindow = UIApplication.shared.connectedScenes
-        .filter({$0.activationState == .foregroundActive})
-        .map({$0 as? UIWindowScene})
-        .compactMap({$0})
-        .first?.windows
-        .filter({$0.isKeyWindow}).first
-        
-        
 
-        
-        containerView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        containerView.frame = self.view.frame
-        keyWindow?.addSubview(containerView)
-        
-        
-        
-        
-        let screenSize = UIScreen.main.bounds.size
-        slideUpView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: slideUpViewHeight)
-        slideUpView.separatorStyle = .none
-        keyWindow?.addSubview(slideUpView)
-        
-        
-        let tapGesture = UITapGestureRecognizer(target: self,
-        action: #selector(slideUpViewTapped))
-        containerView.addGestureRecognizer(tapGesture)
-        
-        containerView.alpha = 0
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0, usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 1.0,
-                       options: .curveEaseInOut, animations: {
-          self.containerView.alpha = 0.8
-          self.slideUpView.frame = CGRect(x: 0, y: screenSize.height - self.slideUpViewHeight, width: screenSize.width, height: self.slideUpViewHeight)
-        }, completion: nil)
-    }
-    
     
     @objc func tapPolicyLabel(gesture: UITapGestureRecognizer) {
         guard let text = policyLabel.text else { return }
@@ -127,6 +78,7 @@ class PersonalDataViewController: UIViewController {
         }
         
     }
+
   
 }
 
@@ -138,7 +90,7 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = interactor.models[section]
-        return section.tittle
+        return section.placeholder
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -151,18 +103,58 @@ extension PersonalDataViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = interactor.models[indexPath.section].options[indexPath.row]
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonalDataCell.identifier, for: indexPath) as? PersonalDataCell else {
+   
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewControllers.PersonalDataViewController.rawValue, for: indexPath) as? PersonalDataTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: model)
-        
-        cell.textField.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(showSlideUpView)))
+        cell.configureUI(with: model)
             
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let model = interactor.models[indexPath.section].options[indexPath.row]
+        
+        
+        guard let vc = getViewController(storyboardId: StoryBoards.Inactive.rawValue, viewControllerId: ViewControllers.InactiveViewController.rawValue) as? InactiveViewController else { return }
+        vc.setState(.showEnterPersonalDataView(model.title))
+                vc.delegate = self
+                self.present(vc, animated: false)
+
+    }
     
 }
 
 extension PersonalDataViewController: PersonalDataViewProtocol {}
+extension PersonalDataViewController: InactiveViewControllerDelegate {
+    
+    func approveDataButtonTapped(_ text: String) {
+        
+        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+//        let path = ProfileRequestPath.profile.rawValue.getServerPath(for: Int(user.id))
+//
+//        let profileResource = Resource<ProfileResponseData>(path: path,
+//                                                                 requestType: .PUT,
+//                                                                 requestData: [ProfileRequestKeys.name.rawValue: text,
+//
+//                                                                               ProfileRequestKeys.name.rawValue:text])
+//
+//            NetworkService.shared.makeRequest(for: profileResource, completion: {[unowned self] result in
+//
+//                switch result {
+//
+//                case .success(let response):
+//                    self.regResponse = response
+//                    print("RESPONSE CODE: \(self.regResponse.data.code)")
+//                    self.scheduleNotification(with: self.regResponse.data.code)
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
+//
+//            })
+//        }
+        
+    }
+    
+}

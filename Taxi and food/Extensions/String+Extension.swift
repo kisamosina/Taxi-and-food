@@ -33,12 +33,22 @@ extension String {
         let temp = self.split(separator: "$")
         return "\(temp[0])\(id)\(temp[1])"
     }
+
     
     func getServerPath(for id: Int, and cardId: Int) -> String {
         let temp = self.split(separator: "$")
         let tempString = "\(temp[0])\(id)\(temp[1])"
         let temp1 = tempString.split(separator: "@")
         return "\(temp1[0])\(cardId)\(temp1[1])"
+    }
+    
+    func getServerPath(for id: Int, and orderType: String, and status: String) -> String {
+        let temp = self.split(separator: "$")
+        let tempString = "\(temp[0])\(id)\(temp[1])"
+        let temp1 = tempString.split(separator: "@")
+        let tempString1 = "\(temp1[0])\(orderType)\(temp1[1])"
+        let temp2 = tempString1.split(separator: "&")
+        return "\(temp2[0])\(status)"
     }
 
     func getServerPath( userId: Int, shopId: Int) -> String {

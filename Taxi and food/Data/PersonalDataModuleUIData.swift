@@ -130,3 +130,8 @@ struct PersonalDataViewControllerText {
     
     
 }
+
+struct ProfileResponseData: Decodable {
+    var name: String
+    var email: String
+}

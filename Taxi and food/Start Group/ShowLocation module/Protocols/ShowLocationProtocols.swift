@@ -36,6 +36,8 @@ protocol ShowLocationInteractorProtocol: class {
     func getDestinationAddressText(for loctaion: CLLocationCoordinate2D)
     
     func transmitDestinationAddressToDelegate(_ addressText: String)
+    
+    func drawPath()
 }
 
 

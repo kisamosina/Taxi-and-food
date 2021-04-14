@@ -68,6 +68,14 @@ class ShowLocationInteractor: ShowLocationInteractorProtocol {
         }
         self.view.popViewController()
     }
+    
+    func drawPath() {
+        guard let userLocation = userLocation else { return }
+        
+        print(userLocation)
+        print("user location")
+        
+    }
 }
 
 //MARK: - AddressTranslatable

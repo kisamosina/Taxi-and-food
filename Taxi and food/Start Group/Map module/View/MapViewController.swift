@@ -28,6 +28,11 @@ class MapViewController: UIViewController {
     private var tipAddressView: TipAddressView!
     private var tipAddressViewBottomAnchor: NSLayoutConstraint!
     
+    //FullPath View
+    private var fullPathView: FullPathView!
+    private var fullPathViewBottomConstraint: NSLayoutConstraint!
+    private var fullPathViewHeightConstraint: NSLayoutConstraint!
+
     //Shops List View
     private var shopsListView: ShopsView!
     private var shopsListViewBottomConstraint: NSLayoutConstraint!
@@ -132,6 +137,7 @@ class MapViewController: UIViewController {
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
         self.mapView.showsUserLocation = true
+        
     }
     
     //Add Swipes
@@ -204,6 +210,10 @@ extension MapViewController {
 //MARK: - MapViewProtocol
 
 extension MapViewController: MapViewProtocol {
+    func drawRoute() {
+        
+    }
+    
     
     func updateShopList(_ list: [ShopResponseData]) {
         guard let shopsView = self.shopsListView else { return }
@@ -468,6 +478,38 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+//MARK: - Full path view methods
+
+extension MapViewController {
+
+    private func setupFullPathViewConstraints(viewType: FullPathViewType) {
+        self.fullPathView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        NSLayoutConstraint.activate([self.fullPathView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding),
+                                     self.fullPathView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height - viewType.viewHeight()),
+                                     self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+        
+        
+    }
+    
+    func showFullPathView(as type: FullPathViewType) {
+        
+        guard let sourceLocation = self.interactor.sourceAddress else { return }
+        guard let destinationLocation = self.interactor.destinationAddress else { return }
+        
+        self.fullPathView = FullPathView(frame: CGRect.makeRect(height: type.viewHeight()))
+        self.view.addSubview(fullPathView)
+        self.fullPathView.setView(as: type)
+        self.setupFullPathViewConstraints(viewType: type)
+        self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
+        
+    }
+}
+
 //MARK: - Address enter view methods
 
 extension MapViewController {
@@ -541,6 +583,7 @@ extension MapViewController: AddressEnterViewDelegate {
     func addressFromPinButtonTapped() {
         self.interactor.sourceAddress = self.addressEnterView.sourceAddress
         self.showAddressEnterDetailView()
+        self.drawRoute()
     }
     
     
@@ -579,7 +622,13 @@ extension MapViewController: AddressEnterViewDelegate {
         switch type {
         case .taxi:
             self.interactor.sourceAddress = self.addressEnterView.sourceAddress
+            self.hideAddressEnterView {[weak self] _ in
+                guard let self = self else { return }
+            }
+            self.showFullPathView(as: .withTariff)
+//            self.drawPath()
             print("Taxi")
+//            self.showFullPathView()
         case .food:
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
@@ -673,6 +722,21 @@ extension MapViewController {
         UserDefaults.standard.storeShowingTipAddressView(true)
     }
 }
+
+extension MapViewController {
+    func drawPath() {
+        let sourceLocation = self.interactor.sourceAddress
+        let destinationLocation = self.interactor.destinationAddress
+        print("sourceLocation")
+        print(sourceLocation)
+        
+        print("and destination")
+        print(destinationLocation)
+        
+    }
+}
+
+
 
 // MARK: - Shops view methods
 

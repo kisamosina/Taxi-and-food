@@ -6,14 +6,21 @@
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct PersonalDataSection {
-    let tittle: String
-    let options: [PersonalDataOption]
+struct PersonalDataUISection {
+    let placeholder: String?
+    let options: [PersonalDataUIOption]
 }
 
-struct PersonalDataOption {
+struct PersonalDataUIOption {
     let title: String
+    let text: String?
+    let accessoryType: Bool
+    let color: UIColor
 }
 
+struct PersonalDataData {
+    var imageName: String? = nil
+    var name: String
+}

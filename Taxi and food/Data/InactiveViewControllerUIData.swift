@@ -11,7 +11,11 @@ import Foundation
 enum InactiveViewControllerStates {
     
     case showPaymentHistoryDetailView
+    case showOrderHistoryDetailView
+    case showOrderFoodHistoryDetailView
     case showLogoutView
     case showPointsView(PointsResponseData)
     case showDeleteAddressView
+    case showEnterPersonalDataView(String)
+    
 }

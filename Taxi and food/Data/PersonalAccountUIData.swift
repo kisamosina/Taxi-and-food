@@ -30,6 +30,7 @@ struct PersonalAccountViewControllerTexts {
         case OrderHistory = "История заказов"
         case PaymentWay = "Способ оплаты"
         
+        
     }
     
     private enum EngTableViewTexts: String, CaseIterable {
@@ -47,6 +48,17 @@ struct PersonalAccountViewControllerTexts {
             return RusTableViewTexts.MyAddresses.rawValue
         case .eng:
             return EngTableViewTexts.MyAddresses.rawValue
+        }
+    }
+    
+    static var orderHistory: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusTableViewTexts.OrderHistory.rawValue
+        case .eng:
+            return EngTableViewTexts.OrderHistory.rawValue
         }
     }
     
@@ -110,6 +122,7 @@ struct PersonalAccountViewControllerTexts {
 
 enum PersonalAccountViewControllerSegues {
     case PaymentHistory
+    case OrderHistory
     case PaymentWay
     case MyAddresses
     case unknown
@@ -118,6 +131,8 @@ enum PersonalAccountViewControllerSegues {
         switch text {
         case PersonalAccountViewControllerTexts.paymentHistory:
             return .PaymentHistory
+        case PersonalAccountViewControllerTexts.orderHistory:
+            return .OrderHistory
         case PersonalAccountViewControllerTexts.paymentWay:
             return .PaymentWay
         case PersonalAccountViewControllerTexts.myAddresses:

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -82,7 +80,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstItem="XTw-4V-Pz6" firstAttribute="leading" secondItem="JfW-o9-KPR" secondAttribute="leading" id="QYj-1s-rBl"/>
                                                 <constraint firstAttribute="width" constant="22" id="TWQ-Zs-UkL"/>
@@ -104,7 +102,7 @@
                                         </textField>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-dc-jeG" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
                                             <rect key="frame" x="364" y="0.0" width="65" height="34"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="RJh-iq-SHO"/>
                                                 <constraint firstAttribute="width" constant="65" id="esh-gc-8kt"/>
@@ -114,7 +112,7 @@
                                 </stackView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jCa-5w-xS9">
                                     <rect key="frame" x="0.0" y="108" width="364" height="182"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="182" id="0oY-mD-qgS"/>
                                     </constraints>
@@ -123,7 +121,7 @@
                                         <outlet property="delegate" destination="-1" id="6VY-iK-iMT"/>
                                     </connections>
                                 </tableView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAd-GQ-FlG" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAd-GQ-FlG" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="310" width="364" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Ab7-vs-3hl"/>
@@ -136,7 +134,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="7sT-sb-9kQ" secondAttribute="trailing" constant="25" id="WfW-2o-Ooo"/>
                         <constraint firstItem="7sT-sb-9kQ" firstAttribute="leading" secondItem="JZU-zy-T4U" secondAttribute="leading" constant="25" id="uGr-uY-wwS"/>
@@ -144,7 +142,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
@@ -157,6 +154,7 @@
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="6c5-HB-ZH0" appends="YES" id="Uc3-AY-Ky8"/>
             </connections>
@@ -171,8 +169,5 @@
     <resources>
         <image name="userPin" width="15.5" height="24"/>
         <image name="userPinGrey" width="24" height="38"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

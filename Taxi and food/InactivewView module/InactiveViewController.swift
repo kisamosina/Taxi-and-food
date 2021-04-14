@@ -24,15 +24,22 @@ class InactiveViewController: UIViewController {
     weak var delegate: InactiveViewControllerDelegate?
     
     private var payDetailView: PaymentHistoryDetailView!
+    private var orderDetailView: OrderHistoryDetailView!
+    private var orderFoodDetailView: OrderFoodHistoryDetailView!
     private var rectOfCell: CGRect!
     private var paymentHistoryData: PaymentsHistoryResponseData!
+    private var orderHistoryData: OrderHistoryResponseData!
     private var transitionBottomView: TransitionBottomView!
     private var aboutPointsView: AboutPointsView!
+    private var personalDataTransitionView: PersonalDataBottomView!
+    private var keyboardHeight: CGFloat?
+    private var personalDataViewPadding: CGFloat?
     
     //MARK: -  Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.InactiveViewColor.getColor()
+        addKeyboardWillShowObserver()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,6 +47,28 @@ class InactiveViewController: UIViewController {
         
         self.setView()
     }
+    
+    private func addKeyboardWillShowObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+       
+    }
+
+    @objc private func keyboardWillAppear(notification: NSNotification) {
+        
+        guard let userInfo = notification.userInfo else { return }
+        
+        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        let beginEnd = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        let endFrameY = endFrame?.origin.y ?? 0
+        let beginFrameY = beginEnd?.origin.y ?? 0
+        print("endFrameY")
+        print(endFrameY)
+        
+        keyboardHeight = keyboardWillShowHeight(notification: notification)
+        personalDataViewPadding = endFrameY
+
+    }
+
     
     
     private func setView() {
@@ -49,6 +78,10 @@ class InactiveViewController: UIViewController {
         case .showPaymentHistoryDetailView:
             self.showPaymentHistoryDetailView(for: rectOfCell, and: paymentHistoryData)
             
+        case .showOrderHistoryDetailView:
+            self.showOrderTaxiHistoryDetailView(for: rectOfCell, and: orderHistoryData)
+        case .showOrderFoodHistoryDetailView:
+            self.showOrderFoodHistoryDetailView(for: rectOfCell, and: orderHistoryData)
         case .showLogoutView:
             self.showLogoutView()
             
@@ -57,6 +90,9 @@ class InactiveViewController: UIViewController {
         
         case .showDeleteAddressView:
             self.showDeleteAddressView()
+            
+        case .showEnterPersonalDataView(let placeholder):
+            self.showEnterPersonalDataView(with: placeholder)
             
         default:
             break
@@ -68,13 +104,18 @@ class InactiveViewController: UIViewController {
         
         case .showPaymentHistoryDetailView:
             self.dismiss(animated: false, completion: nil)
+        case .showOrderHistoryDetailView:
+            self.dismiss(animated: false, completion: nil)
+        case .showOrderFoodHistoryDetailView:
+            self.dismiss(animated: false, completion: nil)
         case .showLogoutView:
             self.hideTransitionBottomView(completion: closeCompletion)
         case .showPointsView(_):
             self.dismiss(animated: false, completion: nil)
         case .showDeleteAddressView:
             self.dismiss(animated: false, completion: nil)
-            
+        case .showEnterPersonalDataView:
+            self.dismiss(animated: false, completion: nil)
         default:
             break
         }
@@ -106,6 +147,146 @@ extension InactiveViewController {
         
     }
 }
+
+//MARK: - When enter personal data case
+
+extension InactiveViewController {
+    
+    private func showEnterPersonalDataView(with placeholder: String) {
+        
+        let rect = CGRect(x: 0,
+                          y: UIScreen.main.bounds.height,
+                          width: UIScreen.main.bounds.width,
+                          height: TextEnterViewSize.height.rawValue)
+        
+        self.personalDataTransitionView = PersonalDataBottomView(frame: rect)
+       
+        self.personalDataTransitionView.textfield.placeholder = placeholder
+        self.personalDataTransitionView.delegate = self
+        self.personalDataTransitionView.alpha = 0
+        
+        self.personalDataTransitionView.mainButton.setInActive()
+        self.view.addSubview(self.personalDataTransitionView)
+        
+        //Animation
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {[unowned self] in
+                        self.view.layoutIfNeeded()
+                        self.personalDataTransitionView.alpha = 1
+
+                        let window = UIApplication.shared.windows[0]
+                        let bottomPaddingSafeArea = window.safeAreaInsets.bottom
+                        guard let bottomPadding = self.personalDataViewPadding, let height = self.keyboardHeight else { return }
+                        
+                        
+                        print("bottomPadding")
+                        print(bottomPadding)
+                        print(bottomPaddingSafeArea)
+                        print("keyboardHeight")
+                        print(height)
+                        
+                     
+                        self.personalDataTransitionView.frame.origin.y = height + self.personalDataTransitionView.frame.height - bottomPaddingSafeArea - bottomPaddingSafeArea
+                        print("origin")
+                        print(self.personalDataTransitionView.frame.origin.y)
+                       },
+                       completion: nil)
+    }
+}
+
+//MARK: - When order taxi history detail case
+
+extension InactiveViewController {
+
+// Show Order Taxi History detail view
+   
+   func showOrderTaxiHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
+       
+       let rect = CGRect(x: cell.origin.x,
+                         y: cell.origin.y,
+                         width: PaymentHistoryDetailViewUIData.width.rawValue,
+                         height: PaymentHistoryDetailViewUIData.height.rawValue)
+       
+       self.orderDetailView = OrderHistoryDetailView(frame: rect)
+       self.orderDetailView.alpha = 0
+    self.orderDetailView.setupView(by: data)
+       self.view.addSubview(orderDetailView)
+       
+       //Animation
+       
+       UIView.animate(withDuration: 0.5,
+                      delay: 0,
+                      usingSpringWithDamping: 0.9,
+                      initialSpringVelocity: 1,
+                      options: .curveEaseOut,
+                      animations: {[unowned self] in
+                       self.view.layoutIfNeeded()
+                       self.orderDetailView.alpha = 1
+                       self.orderDetailView.frame = CGRect(x: self.view.bounds.width/2 - PaymentHistoryDetailViewUIData.width.rawValue/2,
+                                                         y: self.view.bounds.height/2 - PaymentHistoryDetailViewUIData.height.rawValue/2,
+                                                         width: PaymentHistoryDetailViewUIData.width.rawValue,
+                                                         height: PaymentHistoryDetailViewUIData.height.rawValue)
+                      },
+                      completion: nil)
+    
+    }
+    
+    func setCellRectAndDetailViewOrderData(rect: CGRect, data: OrderHistoryResponseData) {
+        self.vcState = .showOrderHistoryDetailView
+        self.rectOfCell = rect
+        self.orderHistoryData = data
+    }
+}
+
+//MARK: - When order food history detail case
+
+extension InactiveViewController {
+
+// Show Order Taxi History detail view
+   
+   func showOrderFoodHistoryDetailView(for cell: CGRect, and data: OrderHistoryResponseData) {
+       
+       let rect = CGRect(x: cell.origin.x,
+                         y: cell.origin.y,
+                         width: OrderFoodHistoryDetailViewUIData.width.rawValue,
+                         height: OrderFoodHistoryDetailViewUIData.height.rawValue)
+       
+    self.orderFoodDetailView = OrderFoodHistoryDetailView(frame: rect)
+    self.orderFoodDetailView.alpha = 0
+    self.orderFoodDetailView.setupView(by: data)
+    self.view.addSubview(orderFoodDetailView)
+       
+       //Animation
+       
+       UIView.animate(withDuration: 0.5,
+                      delay: 0,
+                      usingSpringWithDamping: 0.9,
+                      initialSpringVelocity: 1,
+                      options: .curveEaseOut,
+                      animations: {[unowned self] in
+                       self.view.layoutIfNeeded()
+                       self.orderFoodDetailView.alpha = 1
+                       self.orderFoodDetailView.frame = CGRect(x: self.view.bounds.width/2 - OrderFoodHistoryDetailViewUIData.width.rawValue/2,
+                                                         y: self.view.bounds.height/2 - OrderFoodHistoryDetailViewUIData.height.rawValue/2,
+                                                         width: OrderFoodHistoryDetailViewUIData.width.rawValue,
+                                                         height: OrderFoodHistoryDetailViewUIData.height.rawValue)
+                      },
+                      completion: nil)
+    
+    }
+    
+    func setCellRectAndDetailViewOrderFoodData(rect: CGRect, data: OrderHistoryResponseData) {
+        self.vcState = .showOrderFoodHistoryDetailView
+        self.rectOfCell = rect
+        self.orderHistoryData = data
+    }
+}
+
 
 //MARK: - When payment history detail case
 
@@ -142,11 +323,14 @@ extension InactiveViewController {
                        completion: nil)
     }
     
+    
+    
     func setCellRectAndDetailViewData(rect: CGRect, data: PaymentsHistoryResponseData) {
         self.vcState = .showPaymentHistoryDetailView
         self.rectOfCell = rect
         self.paymentHistoryData = data
     }
+    
 }
 
 //MARK: - When LogOut Case
@@ -405,5 +589,15 @@ extension InactiveViewController: AboutPointsViewDelegate {
         let completion: AnimationCompletion = { [weak self] _ in  self?.dismiss(animated: false)}
         self.hideAboutPointsView(completion: completion)
     }
+    
+}
+
+extension InactiveViewController: PersonalDataViewDelegate {
+    func approveDataButtonTapped(_ text: String) {
+        self.delegate?.approveButtonTapped()
+    }
+    
+
+    
     
 }

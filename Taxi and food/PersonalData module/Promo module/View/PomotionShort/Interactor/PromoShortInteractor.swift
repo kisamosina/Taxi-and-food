@@ -13,6 +13,7 @@ protocol PromoShortInteractorProtocol: class {
     
     var promos: [PromoShortData] { get set }
     
+    
     init(view: PromoShortViewProtocol)
     
     func getPromos(type: String)
@@ -32,8 +33,14 @@ class PromoShortInteractor: PromoShortInteractorProtocol {
     
     func getPromos(type: String) {
         
-        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
-        let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id)).getPromo(by: type)
+//        guard let user = PersistanceStoreManager.shared.getUserData()?[0] else { return }
+//        let path = TypePromoSetverPath.path.rawValue.getServerPath(for: Int(user.id)).getPromo(by: type)
+        
+        
+//        let path = TypePromoSetverPath.path.rawValue.getServerPath(for: 3).getPromo(by: type)
+        let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3).getPromo(by: type)
+        print("path")
+        print(path)
 
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
