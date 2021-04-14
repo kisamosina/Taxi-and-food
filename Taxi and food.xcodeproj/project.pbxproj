@@ -64,6 +64,7 @@
 		0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */; };
 		0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */; };
 		0465F54225DBDD67008CA6D0 /* ServiceViewControllerUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */; };
+		046D388226259A330046E662 /* FullPathViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D388126259A330046E662 /* FullPathViewDelegate.swift */; };
 		049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049A3F6625F1F66400C31AED /* Addresses.storyboard */; };
 		049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A3F6A25F20F5300C31AED /* AddressViewController.swift */; };
 		049A3F6D25F2100500C31AED /* AddressModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */; };
@@ -339,6 +340,7 @@
 		0465F53D25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewControllerUIData.swift; sourceTree = "<group>"; };
 		0465F53F25DBDD49008CA6D0 /* SentViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewControllerUIData.swift; sourceTree = "<group>"; };
 		0465F54125DBDD67008CA6D0 /* ServiceViewControllerUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewControllerUIData.swift; sourceTree = "<group>"; };
+		046D388126259A330046E662 /* FullPathViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPathViewDelegate.swift; sourceTree = "<group>"; };
 		049A3F6625F1F66400C31AED /* Addresses.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Addresses.storyboard; sourceTree = "<group>"; };
 		049A3F6A25F20F5300C31AED /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		049A3F6C25F2100500C31AED /* AddressModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModuleUIData.swift; sourceTree = "<group>"; };
@@ -751,10 +753,6 @@
 			children = (
 				04340DB9262411FB001181B7 /* Model */,
 				04340DB8262411EC001181B7 /* View */,
-				04340DB22620400A001181B7 /* FullPathView.swift */,
-				04340DB42620597F001181B7 /* FullPathCollectionViewCell.swift */,
-				04340DB52620597F001181B7 /* FullPathCollectionViewCell.xib */,
-				04340DB026203FF7001181B7 /* FullPathView.xib */,
 			);
 			path = FullPathView;
 			sourceTree = "<group>";
@@ -762,6 +760,11 @@
 		04340DB8262411EC001181B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04340DB22620400A001181B7 /* FullPathView.swift */,
+				046D388126259A330046E662 /* FullPathViewDelegate.swift */,
+				04340DB42620597F001181B7 /* FullPathCollectionViewCell.swift */,
+				04340DB52620597F001181B7 /* FullPathCollectionViewCell.xib */,
+				04340DB026203FF7001181B7 /* FullPathView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2055,6 +2058,7 @@
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
+				046D388226259A330046E662 /* FullPathViewDelegate.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
 				04B73F04260C4D66003A9AEE /* OrderHistoryModels.swift in Sources */,
 				7D4748EF25F7E74600F744F7 /* NewCardEnterProtocols.swift in Sources */,

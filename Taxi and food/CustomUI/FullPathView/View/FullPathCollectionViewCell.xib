@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullPath" id="gTV-IL-0wX" customClass="FullPathCollectionViewCell" customModule="Taxi_and_food" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullPathCollectionViewCell" id="gTV-IL-0wX" customClass="FullPathCollectionViewCell" customModule="Taxi_and_food" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="102" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -87,10 +87,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="costLabel" destination="Lf7-Cx-YPU" id="309-uX-jcC"/>
-                <outlet property="durationLabel" destination="Ine-BQ-IRR" id="wnE-go-D3O"/>
-                <outlet property="iconImage" destination="orG-3J-5b2" id="XWF-YJ-0BK"/>
-                <outlet property="titleLabel" destination="ZWO-rn-1An" id="Bju-Sl-gsh"/>
+                <outlet property="costLabel" destination="Lf7-Cx-YPU" id="SSq-Eq-xjW"/>
+                <outlet property="durationLabel" destination="Ine-BQ-IRR" id="QF6-Na-Ed6"/>
+                <outlet property="iconImage" destination="orG-3J-5b2" id="8ct-Ny-Nsq"/>
+                <outlet property="titleLabel" destination="ZWO-rn-1An" id="BES-qC-2rj"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </collectionViewCell>

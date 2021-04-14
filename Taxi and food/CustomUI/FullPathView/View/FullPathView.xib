@@ -16,6 +16,7 @@
                 <outlet property="containerView" destination="Op4-0h-qEx" id="Xhv-qJ-GEb"/>
                 <outlet property="contentView" destination="cVb-LK-uNm" id="ibW-pK-Lh3"/>
                 <outlet property="mainButton" destination="mky-9V-FYr" id="Zdb-WJ-wga"/>
+                <outlet property="mapButtonView" destination="6h7-dg-WVu" id="gVm-eC-KuD"/>
                 <outlet property="promoAndPointsStackView" destination="dwX-We-vNO" id="13W-cR-Sq9"/>
                 <outlet property="topView" destination="QX5-TS-Zwp" id="waL-kK-ecF"/>
             </connections>
@@ -89,12 +90,12 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" textContentType="location"/>
                                         </textField>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixa-BU-I4s" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-dg-WVu" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
                                             <rect key="frame" x="364" y="0.0" width="65" height="34"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="34" id="Ecg-Z3-5P3"/>
-                                                <constraint firstAttribute="width" constant="65" id="Nhy-Te-ZGD"/>
+                                                <constraint firstAttribute="height" constant="34" id="TdK-lA-Gsp"/>
+                                                <constraint firstAttribute="width" constant="65" id="VOB-dl-XbJ"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -112,6 +113,10 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                     <cells/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="ljQ-Is-d4N"/>
+                                        <outlet property="delegate" destination="-1" id="bOn-6r-n4f"/>
+                                    </connections>
                                 </collectionView>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-We-vNO">
                                     <rect key="frame" x="0.0" y="258" width="364" height="50"/>
@@ -126,6 +131,9 @@
                                         <constraint firstAttribute="height" constant="50" id="WVq-Ho-OYo"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="woz-Wt-vQd"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>

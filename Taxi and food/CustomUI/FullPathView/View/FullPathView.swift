@@ -10,10 +10,11 @@ import UIKit
 
 class FullPathView: UIView {
     
-    
     //MARK: - Properties
     
-//    weak var delegate
+    weak var delegate: FullPathViewDelegate!
+    
+    private var tariffOptions: [FullPathCellData] = []
     
     var type: FullPathViewType! {
         didSet {
@@ -27,12 +28,10 @@ class FullPathView: UIView {
                 self.mainButton.setupAs(.next)
                 self.mainButton.setActive()
                 
-                
             case .withTariff:
                 self.promoAndPointsStackView.isHidden = false
                 self.collectionView.isHidden = false
                 self.mainButton.setupAs(.order)
-                
             }
         }
     }
@@ -47,6 +46,8 @@ class FullPathView: UIView {
     
     @IBOutlet var addressFromTextfield: UITextField!
     @IBOutlet var addressToTextfield: UITextField!
+    @IBOutlet weak var mapButtonView: MapButtonView!
+    
     //MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -78,14 +79,17 @@ class FullPathView: UIView {
     }
     
     private func initCollectionView() {
-      let nib = UINib(nibName: "FullPath", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "FullPath")
+      let nib = UINib(nibName: "FullPathCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         collectionView.dataSource = self
     }
     
     private func initSubviews() {
         
         self.loadFromNib(nibName: FullPathViewStringData.nibName.rawValue)
+        
+        var nib = UINib(nibName: "FullPathCollectionViewCell", bundle:nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
@@ -103,6 +107,18 @@ class FullPathView: UIView {
             self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+    }
+    
+    public func setTariffOptions(_ options: [FullPathCellData]) {
+        self.tariffOptions = options
+        self.collectionView.reloadData()
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        self.delegate.nextButtonDidTapped()
+        
+        
+        
     }
     
     public func setView(as type: FullPathViewType ) {
@@ -125,9 +141,9 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FullPath", for: indexPath) as? FullPathCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FullPathCollectionViewCell", for: indexPath) as? FullPathCollectionViewCell else { return UICollectionViewCell() }
         
-        //        cell.showData(for: <#T##FullPathCellData#>, advantage: <#TariffAdvantage#>)
+//        cell.showData(for: tariffOptions[indexPath.row])
         
         return cell
     }
