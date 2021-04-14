@@ -14,7 +14,9 @@ class FullPathView: UIView {
     
     weak var delegate: FullPathViewDelegate!
     
-    private var tariffOptions: [FullPathCellData] = []
+    var tariffOptions: [FullPathCellData] = []
+    
+    var mytariffOptions: [FullPathCellData] = []
     
     var type: FullPathViewType! {
         didSet {
@@ -93,6 +95,7 @@ class FullPathView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
+        self.configureTariffOptions()
         
         self.addressFromTextfield.addBottomBorder(color: Colors.buttonBlue.getColor())
         self.addressToTextfield.addBottomBorder(color: Colors.taxiOrange.getColor())
@@ -109,10 +112,25 @@ class FullPathView: UIView {
         ])
     }
     
+        private func configureTariffOptions() {
+            
+            guard let standartIcon = UIImage(named: "iconStandart") else { return }
+            guard let premiumIcon = UIImage(named: "iconPremium") else { return }
+            guard let businessIcon = UIImage(named: "iconBusiness") else { return }
+            
+    //        fix title naming and getting data
+            self.mytariffOptions.append(FullPathCellData(title: "Standart", icon: standartIcon, duration: "3 мин", cost: "100 руб"))
+            self.mytariffOptions.append(FullPathCellData(title: "Premium", icon: premiumIcon, duration: "8 мин", cost: "250 руб"))
+            self.mytariffOptions.append(FullPathCellData(title: "Business", icon: businessIcon, duration: "14 мин", cost: "430 руб"))
+
+        }
+    
     public func setTariffOptions(_ options: [FullPathCellData]) {
         self.tariffOptions = options
         self.collectionView.reloadData()
     }
+    
+    
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         self.delegate.nextButtonDidTapped()
@@ -143,7 +161,7 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FullPathCollectionViewCell", for: indexPath) as? FullPathCollectionViewCell else { return UICollectionViewCell() }
         
-//        cell.showData(for: tariffOptions[indexPath.row])
+        cell.showData(for: mytariffOptions[indexPath.row])
         
         return cell
     }

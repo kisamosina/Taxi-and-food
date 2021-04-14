@@ -186,6 +186,7 @@ extension MapInteractor {
         tariffOptions.append(FullPathCellData(title: "Standart", icon: standartIcon, duration: "3 мин", cost: "100 руб"))
         tariffOptions.append(FullPathCellData(title: "Premium", icon: premiumIcon, duration: "8 мин", cost: "250 руб"))
         tariffOptions.append(FullPathCellData(title: "Business", icon: businessIcon, duration: "14 мин", cost: "430 руб"))
+
  
     }
 }
