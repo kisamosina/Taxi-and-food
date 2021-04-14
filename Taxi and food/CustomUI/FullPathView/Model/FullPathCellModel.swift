@@ -13,5 +13,6 @@ struct FullPathCellData {
     let icon: UIImage
     let duration: String
     let cost: String
+    let color: UIColor
 }
 

@@ -14,7 +14,7 @@ enum FullPathViewStringData: String {
 
 enum FullPathViewSizes: CGFloat {
     case heightWhenAddress = 280
-    case heightWhenWithTariff = 445
+    case heightWhenWithTariff = 470
 
 }
 
@@ -39,12 +39,36 @@ struct FullPathViewTexts {
     private enum RusTexts: String {
         case duration = "мин"
         case cost = "руб"
+        case promoLabel = "Промокод"
+        case pointsLabel = "Баллы"
     }
     
     private enum EngTexts: String {
         case duration = "min"
         case cost = "rub"
+        case promoLabel = "Promocode"
+        case pointsLabel = "Points"
+        
     }
+    
+    static var promoLabel: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusTexts.promoLabel.rawValue
+        case .eng:
+            return EngTexts.promoLabel.rawValue
+        }
+    }
+    
+    static var pointsLabel: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusTexts.pointsLabel.rawValue
+        case .eng:
+            return EngTexts.pointsLabel.rawValue
+        }
+    }
+    
     
     static var duration: String {
         switch UserDefaults.standard.getAppLanguage() {

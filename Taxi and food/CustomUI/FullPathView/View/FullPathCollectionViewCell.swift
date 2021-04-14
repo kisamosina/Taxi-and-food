@@ -35,11 +35,11 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
     }
     
-    func showData(for tariff: FullPathCellData, advantage: TariffAdvantage, tariffColor: UIColor) {
-        self.titleLabel.text = advantage.name
+    func showData(for tariff: FullPathCellData) {
+        self.titleLabel.text = tariff.title
         self.iconImage.image = tariff.icon
         self.durationLabel.text = tariff.duration
-        self.durationLabel.textColor = tariffColor
+        self.durationLabel.textColor = tariff.color
         self.costLabel.text = tariff.cost
 
     }

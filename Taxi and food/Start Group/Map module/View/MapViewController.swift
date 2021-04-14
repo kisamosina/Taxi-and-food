@@ -483,11 +483,15 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController {
 
     private func setupFullPathViewConstraints(viewType: FullPathViewType) {
+        
+        fullPathViewBottomConstraint = self.fullPathView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding)
+        
+        fullPathViewHeightConstraint = self.fullPathView.heightAnchor.constraint(equalToConstant: viewType.viewHeight())
         self.fullPathView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        NSLayoutConstraint.activate([self.fullPathView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding),
-                                     self.fullPathView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height - viewType.viewHeight()),
+        NSLayoutConstraint.activate([fullPathViewBottomConstraint,
+                                     fullPathViewHeightConstraint,
                                      self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
                                      self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
                                                                                     constant: 0)
@@ -506,7 +510,20 @@ extension MapViewController {
         self.fullPathView.setView(as: type)
         self.setupFullPathViewConstraints(viewType: type)
         self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
+        self.fullPathView.delegate = self
+//        self.fullPathView.setTariffOptions(interactor.tariffOptions)
         
+        //Animation
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.fullPathView, self.fullPathViewBottomConstraint), from: self.view)
+        
+    }
+    
+    //Setup hide animation for Address enter view
+    func hidefullPathView(completion: AnimationCompletion? = nil) {
+        
+        self.fullPathViewBottomConstraint.constant = self.fullPathView.type.viewHeight() + bottomPadding
+        
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.addressEnterView, self.fullPathViewBottomConstraint), from: self.view, viewHeight: self.fullPathView.type.viewHeight() + bottomPadding, completion: completion)
     }
 }
 
@@ -543,6 +560,7 @@ extension MapViewController {
         self.addressEnterView.setAddressFromTextFieldText(interactor.addressString)
         self.setupAddressEnterViewConstraints(viewType: type)
         
+        
         //Animation
         Animator.shared.showView(animationType: .usualBottomAnimation(self.addressEnterView, self.addressEnterViewBottomConstraint), from: self.view)
     }
@@ -554,6 +572,28 @@ extension MapViewController {
         
         Animator.shared.hideView(animationType: .usualBottomAnimation(self.addressEnterView, self.addressEnterViewBottomConstraint), from: self.view, viewHeight: self.addressEnterView.type.viewHeight() + bottomPadding, completion: completion)
     }
+}
+
+//MARK: - FullPathViewDelegate
+
+extension MapViewController: FullPathViewDelegate {
+    
+    func userHasSwipedFullPathViewDown() {
+        
+    }
+    func mapButtonViewDidTapped(destinationAddress: String?) {
+        
+    }
+    func nextButtonDidTapped() {
+        print("next button tapped")
+        self.hidefullPathView {[weak self] _ in
+            guard let self = self else { return }
+        }
+        
+        self.showFullPathView(as: .withTariff)
+        
+       
+        }
 }
 
 //MARK: - AddressEnterViewDelegate
@@ -625,7 +665,7 @@ extension MapViewController: AddressEnterViewDelegate {
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
             }
-            self.showFullPathView(as: .withTariff)
+            self.showFullPathView(as: .address)
 //            self.drawPath()
             print("Taxi")
 //            self.showFullPathView()
