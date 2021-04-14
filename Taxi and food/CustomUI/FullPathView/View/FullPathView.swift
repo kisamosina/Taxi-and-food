@@ -49,6 +49,8 @@ class FullPathView: UIView {
     @IBOutlet var addressFromTextfield: UITextField!
     @IBOutlet var addressToTextfield: UITextField!
     @IBOutlet weak var mapButtonView: MapButtonView!
+    @IBOutlet var promocodeViewLabel: UILabel!
+    @IBOutlet var pointsViewLabel: UILabel!
     
     //MARK: - Initializers
     
@@ -100,6 +102,8 @@ class FullPathView: UIView {
         
         self.addressFromTextfield.addBottomBorder(color: Colors.buttonBlue.getColor())
         self.addressToTextfield.addBottomBorder(color: Colors.taxiOrange.getColor())
+        self.promocodeViewLabel.text = FullPathViewTexts.promoLabel
+        self.pointsViewLabel.text = FullPathViewTexts.pointsLabel
 //        self.mainButton.setupAs(.approve)
 //        self.locationTextField.delegate = self
     }
