@@ -14,7 +14,7 @@ enum FullPathViewStringData: String {
 
 enum FullPathViewSizes: CGFloat {
     case heightWhenAddress = 280
-    case heightWhenWithTariff = 445
+    case heightWhenWithTariff = 470
 
 }
 

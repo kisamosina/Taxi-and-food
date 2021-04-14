@@ -495,7 +495,7 @@ extension MapViewController {
         self.setupFullPathViewConstraints(viewType: type)
         self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
         self.fullPathView.delegate = self
-        self.fullPathView.setTariffOptions(interactor.tariffOptions)
+//        self.fullPathView.setTariffOptions(interactor.tariffOptions)
         
         //Animation
         Animator.shared.showView(animationType: .usualBottomAnimation(self.fullPathView, self.fullPathViewBottomConstraint), from: self.view)

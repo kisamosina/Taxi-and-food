@@ -36,10 +36,10 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     }
     
     func showData(for tariff: FullPathCellData) {
-//        self.titleLabel.text = advantage.name
+        self.titleLabel.text = tariff.title
         self.iconImage.image = tariff.icon
         self.durationLabel.text = tariff.duration
-//        self.durationLabel.textColor = tariffColor
+        self.durationLabel.textColor = tariff.color
         self.costLabel.text = tariff.cost
 
     }

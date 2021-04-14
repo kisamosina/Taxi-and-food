@@ -92,6 +92,7 @@ class FullPathView: UIView {
         
         var nib = UINib(nibName: "FullPathCollectionViewCell", bundle:nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
+        
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
@@ -119,9 +120,9 @@ class FullPathView: UIView {
             guard let businessIcon = UIImage(named: "iconBusiness") else { return }
             
     //        fix title naming and getting data
-            self.mytariffOptions.append(FullPathCellData(title: "Standart", icon: standartIcon, duration: "3 мин", cost: "100 руб"))
-            self.mytariffOptions.append(FullPathCellData(title: "Premium", icon: premiumIcon, duration: "8 мин", cost: "250 руб"))
-            self.mytariffOptions.append(FullPathCellData(title: "Business", icon: businessIcon, duration: "14 мин", cost: "430 руб"))
+            self.mytariffOptions.append(FullPathCellData(title: "Standart", icon: standartIcon, duration: "3 мин", cost: "100 руб", color: Colors.tariffGreen.getColor()))
+            self.mytariffOptions.append(FullPathCellData(title: "Premium", icon: premiumIcon, duration: "8 мин", cost: "250 руб", color: Colors.tariffPurple.getColor()))
+            self.mytariffOptions.append(FullPathCellData(title: "Business", icon: businessIcon, duration: "14 мин", cost: "430 руб", color: Colors.tariffGold.getColor()))
 
         }
     
@@ -134,8 +135,6 @@ class FullPathView: UIView {
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         self.delegate.nextButtonDidTapped()
-        
-        
         
     }
     

@@ -52,7 +52,7 @@ protocol MapInteractorProtocol: class {
     var sourceAddressDetails: String? { get set }
 
     //Data for full path view cillection view cell
-    var tariffOptions: [FullPathCellData] { get set }
+//    var tariffOptions: [FullPathCellData] { get set }
     
     //Shops list
     var shopsList:[ShopResponseData] { get set }
