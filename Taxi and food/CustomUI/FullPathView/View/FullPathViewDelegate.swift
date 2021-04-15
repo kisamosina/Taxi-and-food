@@ -13,5 +13,6 @@ protocol FullPathViewDelegate: class {
     func userHasSwipedFullPathViewDown()
     func mapButtonViewDidTapped(destinationAddress: String?)
     func nextButtonDidTapped()
+    func promoButtonDidTapped()
 }
 

@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="102" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7C-1r-08L">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7C-1r-08L">
                         <rect key="frame" x="0.0" y="0.0" width="102" height="80"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWO-rn-1An">
@@ -76,6 +76,11 @@
                             <constraint firstItem="Lf7-Cx-YPU" firstAttribute="top" secondItem="sU7-i1-mBW" secondAttribute="bottom" constant="13.5" id="tIY-rV-L9m"/>
                             <constraint firstItem="ZWO-rn-1An" firstAttribute="leading" secondItem="J7C-1r-08L" secondAttribute="leading" constant="12" id="xnZ-3i-2pC"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -86,6 +91,11 @@
                 <constraint firstAttribute="trailing" secondItem="J7C-1r-08L" secondAttribute="trailing" id="mC5-4R-2cB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="costLabel" destination="Lf7-Cx-YPU" id="SSq-Eq-xjW"/>
                 <outlet property="durationLabel" destination="Ine-BQ-IRR" id="QF6-Na-Ed6"/>

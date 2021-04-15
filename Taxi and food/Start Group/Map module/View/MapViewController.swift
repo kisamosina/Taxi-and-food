@@ -32,6 +32,12 @@ class MapViewController: UIViewController {
     private var fullPathView: FullPathView!
     private var fullPathViewBottomConstraint: NSLayoutConstraint!
     private var fullPathViewHeightConstraint: NSLayoutConstraint!
+    
+    //PromocodeEnter View
+    private var promocodeEnterView: PromocodeEnterView!
+    private var promocodeEnterViewBottomConstraint: NSLayoutConstraint!
+    private var promocodeEnterViewHeightConstraint: NSLayoutConstraint!
+    
 
     //Shops List View
     private var shopsListView: ShopsView!
@@ -197,6 +203,12 @@ extension MapViewController {
             
             if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterViewDetailBottomConstraint.constant == bottomPadding {
                 self.addressEnterViewDetailBottomConstraint.constant = -kbHeight + 20
+            }
+            
+            
+            
+            if self.promocodeEnterView != nil {
+                self.promocodeEnterViewBottomConstraint.constant = -kbHeight + 20
             }
         }
         
@@ -511,6 +523,90 @@ extension MapViewController {
     }
 }
 
+//MARK: - FullPathViewDelegate
+
+extension MapViewController: FullPathViewDelegate {
+    func promoButtonDidTapped() {
+        print("want promo")
+        self.hidefullPathView {[weak self] _ in
+            guard let self = self else { return }
+        }
+        self.showPromocodeEnterView()
+    }
+    
+    
+    func userHasSwipedFullPathViewDown() {
+        
+    }
+    func mapButtonViewDidTapped(destinationAddress: String?) {
+        
+    }
+    func nextButtonDidTapped() {
+        print("next button tapped")
+        self.hidefullPathView {[weak self] _ in
+            guard let self = self else { return }
+        }
+        
+        self.showFullPathView(as: .withTariff)
+        
+       
+        }
+    
+
+}
+
+//MARK: - Promocode enter view methods
+
+extension MapViewController {
+    
+    private func setupAddressEnterViewConstraints() {
+        
+        self.promocodeEnterView.translatesAutoresizingMaskIntoConstraints = false
+        
+        promocodeEnterViewBottomConstraint = self.promocodeEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: PromocodeEnterViewSize.height.rawValue + bottomPadding)
+        promocodeEnterViewHeightConstraint = self.promocodeEnterView.heightAnchor.constraint(equalToConstant: PromocodeEnterViewSize.height.rawValue)
+        
+        
+        NSLayoutConstraint.activate([
+            promocodeEnterViewBottomConstraint,
+            promocodeEnterViewHeightConstraint,
+                                     self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+    }
+    
+        //Setup show animation for Promocode enter view
+        private func showPromocodeEnterView() {
+            
+            print("show promocode enter view")
+//            guard let promocodeEnterViewBottomConstraint = self.promocodeEnterViewBottomConstraint else { return }
+
+//
+            self.promocodeEnterView = PromocodeEnterView(frame: CGRect.makeRect(height: PromocodeEnterViewSize.height.rawValue))
+            self.view.addSubview(self.promocodeEnterView)
+            setupAddressEnterViewConstraints()
+//            self.promocodeEnterView.setupConstraints(for: self.view,
+//                                                         viewHeight: PromocodeEnterViewSize.height.rawValue,
+//                                                         bottomContraintConstant: PromocodeEnterViewSize.height.rawValue + bottomPadding) { [weak self] constraint in
+//                guard let self = self else { return }
+//                self.promocodeEnterViewBottomConstraint = constraint
+
+               //Animation
+                Animator.shared.showView(animationType: .usualBottomAnimation(self.promocodeEnterView, self.promocodeEnterViewBottomConstraint), from: self.view)
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
 //MARK: - Address enter view methods
 
 extension MapViewController {
@@ -558,27 +654,7 @@ extension MapViewController {
     }
 }
 
-//MARK: - FullPathViewDelegate
 
-extension MapViewController: FullPathViewDelegate {
-    
-    func userHasSwipedFullPathViewDown() {
-        
-    }
-    func mapButtonViewDidTapped(destinationAddress: String?) {
-        
-    }
-    func nextButtonDidTapped() {
-        print("next button tapped")
-        self.hidefullPathView {[weak self] _ in
-            guard let self = self else { return }
-        }
-        
-        self.showFullPathView(as: .withTariff)
-        
-       
-        }
-}
 
 //MARK: - AddressEnterViewDelegate
 
@@ -672,6 +748,8 @@ extension MapViewController {
     private func setupAddressEnterDetailView() {
         self.addressEnterDetailView.setupAs(.addressFrom(self.interactor.sourceAddress))
     }
+    
+
     
     //Setup show animation for Address enter view
     private func showAddressEnterDetailView() {

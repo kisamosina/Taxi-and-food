@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0413C7FE2627E42000A58960 /* PromocodeEnterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413C7FD2627E42000A58960 /* PromocodeEnterView.xib */; };
+		0413C8002627E43600A58960 /* PromocodeEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C7FF2627E43600A58960 /* PromocodeEnterView.swift */; };
+		0413C8022627E64300A58960 /* PromocodeEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C8012627E64300A58960 /* PromocodeEnterViewUIData.swift */; };
 		0414313C25F727C50074D86C /* AppleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414313B25F727C50074D86C /* AppleMapViewController.swift */; };
 		0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314025F86DF80074D86C /* AddressInteractor.swift */; };
 		0414314425F870680074D86C /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314325F870680074D86C /* AddressModel.swift */; };
@@ -283,6 +286,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0413C7FD2627E42000A58960 /* PromocodeEnterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromocodeEnterView.xib; sourceTree = "<group>"; };
+		0413C7FF2627E43600A58960 /* PromocodeEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterView.swift; sourceTree = "<group>"; };
+		0413C8012627E64300A58960 /* PromocodeEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewUIData.swift; sourceTree = "<group>"; };
 		0414313B25F727C50074D86C /* AppleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapViewController.swift; sourceTree = "<group>"; };
 		0414314025F86DF80074D86C /* AddressInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
 		0414314325F870680074D86C /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
@@ -573,6 +579,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0413C7FC2627E35A00A58960 /* PromocodeEnterView */ = {
+			isa = PBXGroup;
+			children = (
+				0413C7FF2627E43600A58960 /* PromocodeEnterView.swift */,
+				0413C7FD2627E42000A58960 /* PromocodeEnterView.xib */,
+			);
+			path = PromocodeEnterView;
+			sourceTree = "<group>";
+		};
 		0414313F25F86DB70074D86C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1136,6 +1151,7 @@
 				7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */,
 				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
 				04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */,
+				0413C8012627E64300A58960 /* PromocodeEnterViewUIData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1243,6 +1259,7 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				0413C7FC2627E35A00A58960 /* PromocodeEnterView */,
 				04340DAF26203F9F001181B7 /* FullPathView */,
 				04340DA6261DF302001181B7 /* TimeToDestinationView */,
 				043C92012612053E00E141BB /* OrderHistoryFoodDetailView */,
@@ -1833,6 +1850,7 @@
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				043C91FE26119ECD00E141BB /* OrderHistoryDetailView.xib in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
+				0413C7FE2627E42000A58960 /* PromocodeEnterView.xib in Resources */,
 				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
 				7D33FA68260A56B600DA5D0C /* AddressEnterDetailView.xib in Resources */,
 				7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */,
@@ -1898,6 +1916,7 @@
 				04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */,
 				7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */,
 				7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */,
+				0413C8002627E43600A58960 /* PromocodeEnterView.swift in Sources */,
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
 				7D00DDDF26076B4C004D5777 /* MapButtonView.swift in Sources */,
@@ -2058,6 +2077,7 @@
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
+				0413C8022627E64300A58960 /* PromocodeEnterViewUIData.swift in Sources */,
 				046D388226259A330046E662 /* FullPathViewDelegate.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
 				04B73F04260C4D66003A9AEE /* OrderHistoryModels.swift in Sources */,

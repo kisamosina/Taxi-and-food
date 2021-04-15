@@ -17,8 +17,10 @@
                 <outlet property="contentView" destination="cVb-LK-uNm" id="ibW-pK-Lh3"/>
                 <outlet property="mainButton" destination="mky-9V-FYr" id="Zdb-WJ-wga"/>
                 <outlet property="mapButtonView" destination="6h7-dg-WVu" id="gVm-eC-KuD"/>
+                <outlet property="pointsView" destination="1lT-Hw-WWe" id="HbG-ug-YBX"/>
                 <outlet property="pointsViewLabel" destination="iHr-ii-wre" id="sWw-HK-sjM"/>
                 <outlet property="promoAndPointsStackView" destination="dwX-We-vNO" id="13W-cR-Sq9"/>
+                <outlet property="promoView" destination="5KL-Pi-so5" id="URi-GT-IEh"/>
                 <outlet property="promocodeViewLabel" destination="KMg-kg-U3q" id="hMq-lv-Bd1"/>
                 <outlet property="topView" destination="QX5-TS-Zwp" id="waL-kK-ecF"/>
             </connections>
@@ -123,7 +125,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-We-vNO">
                                     <rect key="frame" x="0.0" y="236" width="364" height="50"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KL-Pi-so5">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KL-Pi-so5">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnQ-cE-cdF">
@@ -132,6 +134,9 @@
                                                     <state key="normal">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="promoButtonTapped:" destination="-1" eventType="touchUpInside" id="U8F-rh-ZhO"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promocode" translatesAutoresizingMaskIntoConstraints="NO" id="mbY-Mr-z1b">
                                                     <rect key="frame" x="8" y="17" width="22" height="16"/>
@@ -162,6 +167,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="KMg-kg-U3q" secondAttribute="trailing" constant="25" id="v3a-eO-KaB"/>
                                                 <constraint firstItem="KMg-kg-U3q" firstAttribute="centerY" secondItem="JnQ-cE-cdF" secondAttribute="centerY" constant="1" id="wOk-xf-aKf"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lT-Hw-WWe">
                                             <rect key="frame" x="182" y="0.0" width="182" height="50"/>
@@ -185,6 +195,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -202,6 +217,11 @@
                                                 <constraint firstItem="iHr-ii-wre" firstAttribute="top" secondItem="1lT-Hw-WWe" secondAttribute="top" constant="14" id="nSz-cR-h9j"/>
                                                 <constraint firstItem="TQx-7m-StM" firstAttribute="centerY" secondItem="C0F-tb-IYl" secondAttribute="centerY" id="vUG-mH-gfL"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <constraints>
