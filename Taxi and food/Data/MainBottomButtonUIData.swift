@@ -27,6 +27,8 @@ enum MainButtonTypes {
     case beginSavePoints
     case skip
     case order
+    case spendAllPoints
+    case otherAmount
 }
 
 
@@ -52,6 +54,8 @@ struct MainButtonTitles {
         case cancelTitle = "Отмена"
         case skip = "Пропустить"
         case order = "Заказать"
+        case spendAllPoints = "Потратить все баллы сразу"
+        case otherAmount = "Другое количество"
     }
     
     internal enum EngButtonsTitles: String {
@@ -73,6 +77,8 @@ struct MainButtonTitles {
         case beginSavePoints = "Begin saving points"
         case skip = "Skip"
         case order = "Order"
+        case spendAllPoints = "Spend all points at once"
+        case otherAmount = "Other amount"
     }
     
     static var cancelButtonTitle: String {
@@ -271,7 +277,26 @@ struct MainButtonTitles {
         case .eng:
             return EngButtonsTitles.order.rawValue
         }
-
+    }
+    
+    static var spendAllPointsTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.spendAllPoints.rawValue
+        case .eng:
+            return EngButtonsTitles.spendAllPoints.rawValue
+    }
+}
+    
+        static var otherAmountTitle: String {
+            switch UserDefaults.standard.getAppLanguage() {
+            
+            case .rus:
+                return RusButtonsTitles.otherAmount.rawValue
+            case .eng:
+                return EngButtonsTitles.otherAmount.rawValue
+        }
     }
 
     
@@ -315,6 +340,10 @@ struct MainButtonTitles {
             return cancelButtonTitle
         case .order:
             return orderButtonTitle
+        case .spendAllPoints:
+            return spendAllPointsTitle
+        case .otherAmount:
+            return otherAmountTitle
 
         }
     }

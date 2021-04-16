@@ -16,7 +16,42 @@ enum PromocodeEnterViewSize: CGFloat {
     case height = 260
 }
 
+enum PromocodeEnterViewType {
+    case promo
+    case points
+    
+}
 
+struct PromocodeEnterViewTexts {
+    
+    private enum RusTexts: String {
+        case promoPlaceholder = "Введите промокод"
+        case pointsPlaceholder = "Введите количество баллов"
+    }
+    
+    private enum EngTexts: String {
+        case promoPlaceholder = "Enter promocode"
+        case pointsPlaceholder = "Enter the number of points"
+        
+    }
+    
+    static var promoPlaceholderText: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusTexts.promoPlaceholder.rawValue
+        case .eng:
+            return EngTexts.promoPlaceholder.rawValue
+        }
+    }
+    static var pointsPlaceholderText: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusTexts.pointsPlaceholder.rawValue
+        case .eng:
+            return EngTexts.pointsPlaceholder.rawValue
+        }
+    }
+}
 
 
 

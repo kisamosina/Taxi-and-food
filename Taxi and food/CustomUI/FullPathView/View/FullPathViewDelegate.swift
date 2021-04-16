@@ -14,5 +14,6 @@ protocol FullPathViewDelegate: class {
     func mapButtonViewDidTapped(destinationAddress: String?)
     func nextButtonDidTapped()
     func promoButtonDidTapped()
+    func pointsButtonDidTapped()
 }
 

@@ -10,9 +10,24 @@ import UIKit
 
 class PromocodeEnterView: UIView {
     
+    weak var delegate: PromocodeEnterViewDelegate!
+    
+    var type: PromocodeEnterViewType! {
+        didSet {
+            guard let type = type else { return }
+            
+            switch type {
+            
+            case .promo:
+                self.promoTextField.placeholder = PromocodeEnterViewTexts.promoPlaceholderText
+            case .points:
+                self.promoTextField.placeholder = PromocodeEnterViewTexts.pointsPlaceholderText
+            }
+        }
+    }
+    
     @IBOutlet var containerView: UIView!
     
-    @IBOutlet var topView: UIView!
     @IBOutlet var contentView: UIView!
     @IBOutlet var promoTextField: UITextField!
     @IBOutlet var mainButton: MainBottomButton!
@@ -30,6 +45,9 @@ class PromocodeEnterView: UIView {
         self.initSubviews()
     }
     
+    //MARK: - Properties
+    var interactor: PromocodeEnterInteractorProtocol!
+    
     //MARK: - Methods
     
     override func layoutSubviews() {
@@ -43,8 +61,6 @@ class PromocodeEnterView: UIView {
         self.contentView.layer.shadowOffset = CGSize(width: TransitionBottomViewSizes.shadowOffsetWidth.rawValue,
                                                      height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
         self.contentView.layer.masksToBounds = false
-        self.topView.layer.cornerRadius = self.topView.frame.height/2
-        self.topView.clipsToBounds = true
         
     }
     
@@ -57,6 +73,8 @@ class PromocodeEnterView: UIView {
 //        self.promoTextField.becomeFirstResponder()
         self.mainButton.setupAs(.approve)
         self.setupConstraints()
+        
+        self.interactor = PromocodeEnterInteractor(view: self)
 
 //        self.locationTextField.delegate = self
     }
@@ -70,8 +88,63 @@ class PromocodeEnterView: UIView {
         ])
     }
     
+    public func setView(as type: PromocodeEnterViewType) {
+        self.type = type
+    }
     
+    @IBAction func approveButtonTapped(_ sender: Any) {
+        self.delegate?.approveButtonDidTapped()
+    }
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        self.mainButton.setActive()
+    }
     
+}
+
+extension PromocodeEnterView:PromocodeEnterViewProtocol {
+    func setupLabelError(text: String) {
+        
+    }
+    
+    func showSuccess(data: PromocodeDataResponse) {
+        
+    }
     
     
 }
+
+//extension PromocodeEnterView: PromocodeEnterCustomInteractorProtocol {
+//    func requestPromocodeActivate(code: String) {
+//        guard let id = PersistanceStoreManager.shared.getUserData()?[0].id
+//            else {
+//                print("No user id in storage")
+//                return
+//
+//            }
+//
+//            let promocodeResource = Resource<PromocodeResponse>(path: PromocodesRequestPaths.activate.rawValue.getServerPath(for: Int(id)),
+//                                                              requestType: .POST,
+//                                                              requestData: [PromocodesRequestKeys.code.rawValue: code])
+//
+//            NetworkService.shared.makeRequest(for: promocodeResource, completion:  { result in
+//
+//                switch result {
+//
+//                case .success(let promocodeResponse):
+////                    self.view.showSuccess(data: promocodeResponse.data)
+//                case .failure(let error):
+//                    if let serverError = error as? ServerErrors {
+//                        switch serverError.statusCode {
+//                         case 403:
+////                            self.view.setupLabelError(text: PromocodeEnterViewControllerTexts.promocodeAlreadyHas)
+//
+//                        default:
+////                            self.view.setupLabelError(text: PromocodeEnterViewControllerTexts.invalidPromocode)
+//                        }
+//                    }
+//                }
+//            })
+//
+//        }
+//    }
+//

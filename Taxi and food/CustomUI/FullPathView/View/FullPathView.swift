@@ -161,6 +161,10 @@ class FullPathView: UIView {
         print("promoTapped")
     }
     
+    @IBAction func pointsButtonDidTapped(_ sender: Any) {
+        self.delegate.pointsButtonDidTapped()
+    }
+    
     public func setView(as type: FullPathViewType ) {
         self.type = type
     }

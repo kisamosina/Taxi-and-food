@@ -10,6 +10,11 @@
 		0413C7FE2627E42000A58960 /* PromocodeEnterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413C7FD2627E42000A58960 /* PromocodeEnterView.xib */; };
 		0413C8002627E43600A58960 /* PromocodeEnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C7FF2627E43600A58960 /* PromocodeEnterView.swift */; };
 		0413C8022627E64300A58960 /* PromocodeEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C8012627E64300A58960 /* PromocodeEnterViewUIData.swift */; };
+		0413C8062628238800A58960 /* PromocodeEnterViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C8052628238800A58960 /* PromocodeEnterViewInteractor.swift */; };
+		0413C8092628304700A58960 /* PromocodeActivatedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413C8082628304700A58960 /* PromocodeActivatedView.xib */; };
+		0413C80B2628307300A58960 /* PromocodeActivatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C80A2628307300A58960 /* PromocodeActivatedView.swift */; };
+		0413C80D262830D100A58960 /* PromocodeActivatedUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C80C262830D100A58960 /* PromocodeActivatedUIData.swift */; };
+		0413C80F2628380A00A58960 /* PromocodeEnterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413C80E2628380A00A58960 /* PromocodeEnterViewDelegate.swift */; };
 		0414313C25F727C50074D86C /* AppleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414313B25F727C50074D86C /* AppleMapViewController.swift */; };
 		0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314025F86DF80074D86C /* AddressInteractor.swift */; };
 		0414314425F870680074D86C /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414314325F870680074D86C /* AddressModel.swift */; };
@@ -44,6 +49,9 @@
 		041E29DD25E7D52600CA9F56 /* PromoShortTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */; };
 		041E29DF25E7D54300CA9F56 /* PromoShortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */; };
 		041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */; };
+		04331C68262948CB00F31497 /* PointsSmallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04331C67262948CB00F31497 /* PointsSmallView.xib */; };
+		04331C6A262948EB00F31497 /* PointsSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04331C69262948EB00F31497 /* PointsSmallView.swift */; };
+		04331C6C26294D2200F31497 /* PointsSmallViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04331C6B26294D2200F31497 /* PointsSmallViewUIData.swift */; };
 		04340DA8261DF32E001181B7 /* TimeToDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04340DA7261DF32E001181B7 /* TimeToDestinationView.xib */; };
 		04340DAA261DF693001181B7 /* TimeToDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DA9261DF693001181B7 /* TimeToDestinationView.swift */; };
 		04340DAC261DF7E5001181B7 /* GradientTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04340DAB261DF7E5001181B7 /* GradientTimeView.swift */; };
@@ -289,6 +297,11 @@
 		0413C7FD2627E42000A58960 /* PromocodeEnterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromocodeEnterView.xib; sourceTree = "<group>"; };
 		0413C7FF2627E43600A58960 /* PromocodeEnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterView.swift; sourceTree = "<group>"; };
 		0413C8012627E64300A58960 /* PromocodeEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewUIData.swift; sourceTree = "<group>"; };
+		0413C8052628238800A58960 /* PromocodeEnterViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewInteractor.swift; sourceTree = "<group>"; };
+		0413C8082628304700A58960 /* PromocodeActivatedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromocodeActivatedView.xib; sourceTree = "<group>"; };
+		0413C80A2628307300A58960 /* PromocodeActivatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeActivatedView.swift; sourceTree = "<group>"; };
+		0413C80C262830D100A58960 /* PromocodeActivatedUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeActivatedUIData.swift; sourceTree = "<group>"; };
+		0413C80E2628380A00A58960 /* PromocodeEnterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterViewDelegate.swift; sourceTree = "<group>"; };
 		0414313B25F727C50074D86C /* AppleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapViewController.swift; sourceTree = "<group>"; };
 		0414314025F86DF80074D86C /* AddressInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
 		0414314325F870680074D86C /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
@@ -323,6 +336,9 @@
 		041E29DC25E7D52600CA9F56 /* PromoShortTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortTableViewCell.swift; sourceTree = "<group>"; };
 		041E29DE25E7D54300CA9F56 /* PromoShortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoShortViewController.swift; sourceTree = "<group>"; };
 		041E29E025E7D88B00CA9F56 /* PromoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoInteractor.swift; sourceTree = "<group>"; };
+		04331C67262948CB00F31497 /* PointsSmallView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsSmallView.xib; sourceTree = "<group>"; };
+		04331C69262948EB00F31497 /* PointsSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSmallView.swift; sourceTree = "<group>"; };
+		04331C6B26294D2200F31497 /* PointsSmallViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSmallViewUIData.swift; sourceTree = "<group>"; };
 		04340DA7261DF32E001181B7 /* TimeToDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeToDestinationView.xib; sourceTree = "<group>"; };
 		04340DA9261DF693001181B7 /* TimeToDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToDestinationView.swift; sourceTree = "<group>"; };
 		04340DAB261DF7E5001181B7 /* GradientTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTimeView.swift; sourceTree = "<group>"; };
@@ -583,9 +599,20 @@
 			isa = PBXGroup;
 			children = (
 				0413C7FF2627E43600A58960 /* PromocodeEnterView.swift */,
+				0413C8052628238800A58960 /* PromocodeEnterViewInteractor.swift */,
 				0413C7FD2627E42000A58960 /* PromocodeEnterView.xib */,
+				0413C80E2628380A00A58960 /* PromocodeEnterViewDelegate.swift */,
 			);
 			path = PromocodeEnterView;
+			sourceTree = "<group>";
+		};
+		0413C8072628302100A58960 /* PromocodeAvtivated */ = {
+			isa = PBXGroup;
+			children = (
+				0413C80A2628307300A58960 /* PromocodeActivatedView.swift */,
+				0413C8082628304700A58960 /* PromocodeActivatedView.xib */,
+			);
+			path = PromocodeAvtivated;
 			sourceTree = "<group>";
 		};
 		0414313F25F86DB70074D86C /* Interactor */ = {
@@ -751,6 +778,15 @@
 				041E29DA25E7A54700CA9F56 /* PromoResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04331C662629488200F31497 /* PointsSmallView */ = {
+			isa = PBXGroup;
+			children = (
+				04331C69262948EB00F31497 /* PointsSmallView.swift */,
+				04331C67262948CB00F31497 /* PointsSmallView.xib */,
+			);
+			path = PointsSmallView;
 			sourceTree = "<group>";
 		};
 		04340DA6261DF302001181B7 /* TimeToDestinationView */ = {
@@ -1152,6 +1188,8 @@
 				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
 				04340DAD261DFA64001181B7 /* TimeToDestinationUIData.swift */,
 				0413C8012627E64300A58960 /* PromocodeEnterViewUIData.swift */,
+				0413C80C262830D100A58960 /* PromocodeActivatedUIData.swift */,
+				04331C6B26294D2200F31497 /* PointsSmallViewUIData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1259,6 +1297,8 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				04331C662629488200F31497 /* PointsSmallView */,
+				0413C8072628302100A58960 /* PromocodeAvtivated */,
 				0413C7FC2627E35A00A58960 /* PromocodeEnterView */,
 				04340DAF26203F9F001181B7 /* FullPathView */,
 				04340DA6261DF302001181B7 /* TimeToDestinationView */,
@@ -1849,10 +1889,12 @@
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				043C91FE26119ECD00E141BB /* OrderHistoryDetailView.xib in Resources */,
+				04331C68262948CB00F31497 /* PointsSmallView.xib in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				0413C7FE2627E42000A58960 /* PromocodeEnterView.xib in Resources */,
 				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
 				7D33FA68260A56B600DA5D0C /* AddressEnterDetailView.xib in Resources */,
+				0413C8092628304700A58960 /* PromocodeActivatedView.xib in Resources */,
 				7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */,
@@ -1936,8 +1978,10 @@
 				049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */,
 				043C92032612059E00E141BB /* OrderFoodHistoryDetailView.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
+				0413C80D262830D100A58960 /* PromocodeActivatedUIData.swift in Sources */,
 				7BB36F6825E8167000649669 /* SentVCShowingCases.swift in Sources */,
 				04B5656D25D68EA800E0EC25 /* PhotosViewController.swift in Sources */,
+				04331C6A262948EB00F31497 /* PointsSmallView.swift in Sources */,
 				7B75CF0225DC3B58001981CA /* ServiceRoundAddButton.swift in Sources */,
 				04EFB7CE25EB887F00787C68 /* PromoDescriptionInteractor.swift in Sources */,
 				7B75CFCA25E17AF7001981CA /* MapMenuDataModel.swift in Sources */,
@@ -1983,6 +2027,7 @@
 				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
 				7B75CEEF25DAF622001981CA /* String+Extension.swift in Sources */,
+				0413C8062628238800A58960 /* PromocodeEnterViewInteractor.swift in Sources */,
 				04340DAC261DF7E5001181B7 /* GradientTimeView.swift in Sources */,
 				7D4748F925F7FC1600F744F7 /* TransitionBottomView.swift in Sources */,
 				7B75CF0F25DC3FA6001981CA /* UploadImageView.swift in Sources */,
@@ -1992,6 +2037,7 @@
 				041E298825DE2ADC00CA9F56 /* SettingsStaticCell.swift in Sources */,
 				04B73F09260D763F003A9AEE /* OrderHistoryTableViewCell.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
+				0413C80B2628307300A58960 /* PromocodeActivatedView.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
@@ -2020,6 +2066,7 @@
 				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
 				7D4915F42619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift in Sources */,
 				7D823EDA25F2B9E7006B174B /* LogoutViewUIData.swift in Sources */,
+				04331C6C26294D2200F31497 /* PointsSmallViewUIData.swift in Sources */,
 				7BFFA66125D66F8300C35652 /* PhoneFormatter.swift in Sources */,
 				043C920E26144CEF00E141BB /* PersonalDataViewDelegate.swift in Sources */,
 				7D542B96260122320030FC2D /* LocationManager.swift in Sources */,
@@ -2109,6 +2156,7 @@
 				0414313C25F727C50074D86C /* AppleMapViewController.swift in Sources */,
 				04B73EF6260A2EDB003A9AEE /* PersonalDataBottomView.swift in Sources */,
 				7B47C89725E67DA900F366FE /* PromocodeHistoryCellUIData.swift in Sources */,
+				0413C80F2628380A00A58960 /* PromocodeEnterViewDelegate.swift in Sources */,
 				7D06D65C26012A1B00219F02 /* LocationManagerDelegate.swift in Sources */,
 				7D868D4E260E7A8300D3A91E /* TipAddressViewUIData.swift in Sources */,
 				7B47C87725E1458900F366FE /* MenuView.swift in Sources */,
