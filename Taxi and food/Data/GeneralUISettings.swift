@@ -58,6 +58,7 @@ enum Colors {
     case taxiOrange
     case whiteTransparent
     case backGroundGreyActive
+    case notSelected
     
     
     func getColor() -> UIColor {

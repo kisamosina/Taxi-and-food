@@ -51,6 +51,8 @@ class FullPathView: UIView {
     @IBOutlet weak var mapButtonView: MapButtonView!
     @IBOutlet var promocodeViewLabel: UILabel!
     @IBOutlet var pointsViewLabel: UILabel!
+    @IBOutlet var promoView: UIView!
+    @IBOutlet var pointsView: UIView!
     
     //MARK: - Initializers
     
@@ -80,6 +82,7 @@ class FullPathView: UIView {
         self.topView.layer.cornerRadius = self.topView.frame.height/2
         self.topView.clipsToBounds = true
         
+        self.collectionView.delaysContentTouches = false
     }
     
     private func initCollectionView() {
@@ -104,8 +107,21 @@ class FullPathView: UIView {
         self.addressToTextfield.addBottomBorder(color: Colors.taxiOrange.getColor())
         self.promocodeViewLabel.text = FullPathViewTexts.promoLabel
         self.pointsViewLabel.text = FullPathViewTexts.pointsLabel
-//        self.mainButton.setupAs(.approve)
-//        self.locationTextField.delegate = self
+//        promoView
+        self.promoView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
+        self.promoView.layer.shadowOffset = CGSize(width: AdvantageViewShadowsData.shadowOffsetWidth.rawValue,
+                                         height: AdvantageViewShadowsData.shadowOffsetWidth.rawValue)
+        self.promoView.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
+        self.promoView.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
+        self.promoView.layer.masksToBounds = false
+//        pointsView
+        self.pointsView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
+        self.pointsView.layer.shadowOffset = CGSize(width: AdvantageViewShadowsData.shadowOffsetWidth.rawValue,
+                                         height: AdvantageViewShadowsData.shadowOffsetWidth.rawValue)
+        self.pointsView.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
+        self.pointsView.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
+        self.pointsView.layer.masksToBounds = false
+        
     }
     
     private func setupConstraints() {
@@ -141,6 +157,14 @@ class FullPathView: UIView {
         self.delegate.nextButtonDidTapped()
         
     }
+    @IBAction func promoButtonTapped(_ sender: Any) {
+        self.delegate.promoButtonDidTapped()
+        print("promoTapped")
+    }
+    
+    @IBAction func pointsButtonDidTapped(_ sender: Any) {
+        self.delegate.pointsButtonDidTapped()
+    }
     
     public func setView(as type: FullPathViewType ) {
         self.type = type
@@ -167,6 +191,12 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.showData(for: mytariffOptions[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+        }
     }
     
     

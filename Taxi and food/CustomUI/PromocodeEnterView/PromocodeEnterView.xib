@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromocodeEnterView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="enV-7q-tka" id="BF9-l9-F6u"/>
+                <outlet property="contentView" destination="T8g-0Y-bvf" id="ua7-tZ-UuT"/>
+                <outlet property="mainButton" destination="aX0-7I-2q1" id="rgB-7s-309"/>
+                <outlet property="promoTextField" destination="KKE-zV-t9D" id="8bV-fz-QVj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="enV-7q-tka">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8g-0Y-bvf">
+                    <rect key="frame" x="0.0" y="15" width="414" height="152"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-7I-2q1" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <rect key="frame" x="25" y="77" width="364" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="OSy-ce-r3x"/>
+                                <constraint firstAttribute="width" constant="364" id="wdg-Gv-u5n"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="approveButtonTapped:" destination="-1" eventType="touchUpInside" id="kLl-Jy-qUG"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKE-zV-t9D">
+                            <rect key="frame" x="36" y="25" width="342" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="342" id="jiQ-zY-sp1"/>
+                                <constraint firstAttribute="height" constant="34" id="sZ7-0T-prr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" textContentType="location"/>
+                            <connections>
+                                <action selector="textFieldDidChange:" destination="-1" eventType="editingChanged" id="YtM-Ae-fSq"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="KKE-zV-t9D" secondAttribute="trailing" constant="36" id="19Y-aA-QrI"/>
+                        <constraint firstAttribute="trailing" secondItem="KKE-zV-t9D" secondAttribute="trailing" constant="36" id="1ha-pA-rSB"/>
+                        <constraint firstItem="KKE-zV-t9D" firstAttribute="top" secondItem="T8g-0Y-bvf" secondAttribute="top" constant="25" id="BaC-at-gLU"/>
+                        <constraint firstItem="KKE-zV-t9D" firstAttribute="leading" secondItem="T8g-0Y-bvf" secondAttribute="leading" constant="36" id="MgT-pT-QlO"/>
+                        <constraint firstItem="aX0-7I-2q1" firstAttribute="leading" secondItem="T8g-0Y-bvf" secondAttribute="leading" constant="25" id="Nou-ox-Fi9"/>
+                        <constraint firstItem="KKE-zV-t9D" firstAttribute="leading" secondItem="T8g-0Y-bvf" secondAttribute="leading" constant="36" id="WVD-XX-ZDT"/>
+                        <constraint firstItem="KKE-zV-t9D" firstAttribute="top" secondItem="T8g-0Y-bvf" secondAttribute="top" constant="25" id="kw1-dA-kWm"/>
+                        <constraint firstAttribute="trailing" secondItem="aX0-7I-2q1" secondAttribute="trailing" constant="25" id="lzE-GC-2Fz"/>
+                        <constraint firstItem="aX0-7I-2q1" firstAttribute="top" secondItem="KKE-zV-t9D" secondAttribute="bottom" constant="18" id="tMh-e3-Nv5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="T8g-0Y-bvf" secondAttribute="trailing" id="Pq3-vu-s6A"/>
+                <constraint firstItem="T8g-0Y-bvf" firstAttribute="leading" secondItem="1wr-Yt-0lQ" secondAttribute="leading" id="Rqw-kV-akj"/>
+                <constraint firstItem="T8g-0Y-bvf" firstAttribute="top" secondItem="enV-7q-tka" secondAttribute="top" constant="15" id="gTe-sd-H36"/>
+                <constraint firstItem="T8g-0Y-bvf" firstAttribute="bottom" secondItem="1wr-Yt-0lQ" secondAttribute="bottom" id="k8F-Ok-jiM"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="1wr-Yt-0lQ"/>
+            <point key="canvasLocation" x="-218.11594202898553" y="415.51339285714283"/>
+        </view>
+    </objects>
+</document>

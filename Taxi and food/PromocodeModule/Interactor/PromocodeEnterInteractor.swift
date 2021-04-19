@@ -14,8 +14,9 @@ protocol PromocodeEnterInteractorProtocol: class {
     init(view: PromocodeEnterViewProtocol)
     
     func requestPromocodeActivate(code: String)
-
+    
 }
+
 
 class PromocodeEnterInteractor: PromocodeEnterInteractorProtocol {
     

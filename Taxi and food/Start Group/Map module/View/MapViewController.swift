@@ -32,6 +32,21 @@ class MapViewController: UIViewController {
     private var fullPathView: FullPathView!
     private var fullPathViewBottomConstraint: NSLayoutConstraint!
     private var fullPathViewHeightConstraint: NSLayoutConstraint!
+    
+    //PromocodeEnter View
+    private var promocodeEnterView: PromocodeEnterView!
+    private var promocodeEnterViewBottomConstraint: NSLayoutConstraint!
+    private var promocodeEnterViewHeightConstraint: NSLayoutConstraint!
+    
+    //PromocodeActivated View
+    private var promocodeActivatedView: PromocodeActivatedView!
+    private var promocodeActivatedViewBottomConstraint: NSLayoutConstraint!
+    private var promocodeActivatedViewHeightConstraint: NSLayoutConstraint!
+    
+    //PointsSmall View
+    private var pointsSmallView: PointsSmallView!
+    private var pointsSmallViewBottomConstraint: NSLayoutConstraint!
+    private var pointsSmallViewHeightConstraint: NSLayoutConstraint!
 
     //Shops List View
     private var shopsListView: ShopsView!
@@ -189,6 +204,12 @@ extension MapViewController {
             if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterViewDetailBottomConstraint.constant == bottomPadding {
                 self.addressEnterViewDetailBottomConstraint.constant = -kbHeight + 20
             }
+            
+            
+            
+            if self.promocodeEnterView != nil {
+                self.promocodeEnterViewBottomConstraint.constant = -kbHeight + 20
+            }
         }
         
         self.inactiveView.alpha = 1
@@ -203,6 +224,11 @@ extension MapViewController {
         
         if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterDetailView != nil {
             self.addressEnterViewDetailBottomConstraint.constant = bottomPadding
+        }
+        
+        if self.promocodeEnterView != nil {
+            self.promocodeEnterViewBottomConstraint.constant = bottomPadding
+            self.inactiveView.alpha = 1
         }
     }
 }
@@ -527,6 +553,234 @@ extension MapViewController {
     }
 }
 
+//MARK: - FullPathViewDelegate
+
+extension MapViewController: FullPathViewDelegate {
+    func pointsButtonDidTapped() {
+//        self.showPromocodeEnterView(as: .points)
+        
+        self.showPointsSmallView()
+//        self.showPointsSmallViewOnTop(interactor.getpoints)
+    }
+    
+    func promoButtonDidTapped() {
+        print("want promo")
+//        self.hidefullPathView {[weak self] _ in
+//            guard let self = self else { return }
+//        }
+        self.showPromocodeEnterView(as: .promo)
+    }
+    
+    
+    func userHasSwipedFullPathViewDown() {
+        
+    }
+    func mapButtonViewDidTapped(destinationAddress: String?) {
+        
+    }
+    func nextButtonDidTapped() {
+        print("next button tapped")
+//        self.hidefullPathView {[weak self] _ in
+//            guard let self = self else { return }
+//        }
+        
+        self.showFullPathView(as: .withTariff)
+        
+       
+        }
+    
+
+}
+
+//MARK: - Promocode activated view methods
+
+extension MapViewController {
+    
+    private func setupPromocodeActivatedViewConstraints() {
+        self.promocodeActivatedView.translatesAutoresizingMaskIntoConstraints = false
+        
+        promocodeActivatedViewBottomConstraint = self.promocodeActivatedView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: PromocodeActivatedViewSize.height.rawValue + bottomPadding)
+        promocodeActivatedViewHeightConstraint = self.promocodeActivatedView.heightAnchor.constraint(equalToConstant: PromocodeActivatedViewSize.height.rawValue)
+        
+        NSLayoutConstraint.activate([
+            promocodeActivatedViewBottomConstraint,
+            promocodeActivatedViewHeightConstraint,
+                                     self.promocodeActivatedView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.promocodeActivatedView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+  
+    }
+    
+    private func showPromocodeActivatedView() {
+        self.promocodeActivatedView = PromocodeActivatedView(frame: CGRect.makeRect(height: PromocodeActivatedViewSize.height.rawValue))
+        self.view.addSubview(self.promocodeActivatedView)
+        
+        setupPromocodeActivatedViewConstraints()
+        self.fullPathView.alpha = 0
+        
+        //Animation
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.promocodeActivatedView, self.promocodeActivatedViewBottomConstraint), from: self.view)
+        
+    }
+    
+    func hidePromocodeActivatedView(completion: AnimationCompletion? = nil) {
+        
+        self.promocodeActivatedViewBottomConstraint.constant = PromocodeActivatedViewSize.height.rawValue + bottomPadding
+        
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.promocodeActivatedView, self.promocodeActivatedViewBottomConstraint), from: self.view, viewHeight: PromocodeActivatedViewSize.height.rawValue + bottomPadding, completion: completion)
+    }
+    
+}
+
+//MARK: - Points small view methods
+
+extension MapViewController {
+    
+    func showPointsSmallViewOnTop(_ pointsData: PointsResponseData) {
+        
+        inactiveView.frame = self.view.bounds
+        
+        self.view.addSubview(inactiveView)
+        
+        self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.view.addSubview(pointsSmallView)
+
+        setupPointsSmallViewConstraints()
+
+        //Animation
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view)
+        
+        self.pointsSmallView.setupPoints(pointsData)
+    }
+   
+    private func setupPointsSmallViewConstraints() {
+        self.pointsSmallView.translatesAutoresizingMaskIntoConstraints = false
+
+        pointsSmallViewBottomConstraint = self.pointsSmallView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: PointsSmallViewSize.height.rawValue + bottomPadding)
+        pointsSmallViewHeightConstraint = self.pointsSmallView.heightAnchor.constraint(equalToConstant: PointsSmallViewSize.height.rawValue)
+
+
+        NSLayoutConstraint.activate([
+            pointsSmallViewBottomConstraint,
+            pointsSmallViewHeightConstraint,
+                                     self.pointsSmallView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.pointsSmallView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+    }
+
+    private func showPointsSmallView() {
+        
+        self.inactiveView.alpha = 1
+
+        
+        self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.view.addSubview(pointsSmallView)
+
+        setupPointsSmallViewConstraints()
+
+        //Animation
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view)
+
+
+    }
+
+    func hidePointsSmallView(completion: AnimationCompletion? = nil) {
+
+        self.pointsSmallViewBottomConstraint.constant = PointsSmallViewSize.height.rawValue + bottomPadding
+
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view, viewHeight: PointsSmallViewSize.height.rawValue + bottomPadding, completion: completion)
+    }
+
+}
+
+
+//MARK: - Promocode enter view methods
+
+extension MapViewController {
+    
+    private func setupAddressEnterViewConstraints() {
+        
+        self.promocodeEnterView.translatesAutoresizingMaskIntoConstraints = false
+        
+        promocodeEnterViewBottomConstraint = self.promocodeEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: PromocodeEnterViewSize.height.rawValue + bottomPadding)
+        promocodeEnterViewHeightConstraint = self.promocodeEnterView.heightAnchor.constraint(equalToConstant: PromocodeEnterViewSize.height.rawValue)
+        
+        
+        NSLayoutConstraint.activate([
+            promocodeEnterViewBottomConstraint,
+            promocodeEnterViewHeightConstraint,
+                                     self.addressEnterView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+                                     self.addressEnterView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,
+                                                                                    constant: 0)
+        ])
+    }
+    
+        //Setup show animation for Promocode enter view
+        private func showPromocodeEnterView(as type: PromocodeEnterViewType) {
+            
+            print("show promocode enter view")
+//            guard let promocodeEnterViewBottomConstraint = self.promocodeEnterViewBottomConstraint else { return }
+
+            self.promocodeEnterView = PromocodeEnterView(frame: CGRect.makeRect(height: PromocodeEnterViewSize.height.rawValue))
+            self.view.addSubview(self.promocodeEnterView)
+            self.promocodeEnterView.setView(as: type)
+            setupAddressEnterViewConstraints()
+            self.promocodeEnterView.delegate = self
+//            self.promocodeEnterView.setupConstraints(for: self.view,
+//                                                         viewHeight: PromocodeEnterViewSize.height.rawValue,
+//                                                         bottomContraintConstant: PromocodeEnterViewSize.height.rawValue + bottomPadding) { [weak self] constraint in
+//                guard let self = self else { return }
+//                self.promocodeEnterViewBottomConstraint = constraint
+
+               //Animation
+                Animator.shared.showView(animationType: .usualBottomAnimation(self.promocodeEnterView, self.promocodeEnterViewBottomConstraint), from: self.view)
+
+            }
+    
+    private func hidePromocodeEnterView(completion: AnimationCompletion? = nil) {
+        
+        self.promocodeEnterViewBottomConstraint.constant = PromocodeEnterViewSize.height.rawValue + bottomPadding
+        
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.promocodeEnterView, self.promocodeEnterViewBottomConstraint), from: self.view, viewHeight: PromocodeEnterViewSize.height.rawValue + bottomPadding, completion: completion)
+        
+    }
+}
+
+
+
+//MARK: - Promocode enter view delegate methods
+
+extension MapViewController: PromocodeEnterViewDelegate {
+    func approveButtonDidTapped() {
+        
+//        self.hidePromocodeActivatedView {[weak self] _ in
+//            guard let self = self else { return }
+//        }
+        
+        self.hidePromocodeEnterView {[weak self] _ in
+            guard let self = self else { return }
+        }
+        self.showFullPathView(as: .withTariff)
+        
+        self.inactiveView.alpha = 1
+        
+        
+        print("showing activated view")
+        self.showPromocodeActivatedView()
+        
+    }
+    
+
+    
+}
+
+
+
+
+
+
 //MARK: - Address enter view methods
 
 extension MapViewController {
@@ -574,27 +828,7 @@ extension MapViewController {
     }
 }
 
-//MARK: - FullPathViewDelegate
 
-extension MapViewController: FullPathViewDelegate {
-    
-    func userHasSwipedFullPathViewDown() {
-        
-    }
-    func mapButtonViewDidTapped(destinationAddress: String?) {
-        
-    }
-    func nextButtonDidTapped() {
-        print("next button tapped")
-        self.hidefullPathView {[weak self] _ in
-            guard let self = self else { return }
-        }
-        
-        self.showFullPathView(as: .withTariff)
-        
-       
-        }
-}
 
 //MARK: - AddressEnterViewDelegate
 
@@ -688,6 +922,8 @@ extension MapViewController {
     private func setupAddressEnterDetailView() {
         self.addressEnterDetailView.setupAs(.addressFrom(self.interactor.sourceAddress))
     }
+    
+
     
     //Setup show animation for Address enter view
     private func showAddressEnterDetailView() {
