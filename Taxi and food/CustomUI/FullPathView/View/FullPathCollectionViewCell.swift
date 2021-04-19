@@ -14,6 +14,23 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     @IBOutlet var durationLabel: UILabel!
     @IBOutlet var costLabel: UILabel!
     
+    @IBOutlet var myContentView: UIView!
+    override var isSelected: Bool {
+        didSet {
+            self.myContentView.backgroundColor = isSelected ? UIColor.clear : Colors.notSelected.getColor()
+        }
+    }
+    
+    
+//    override var isHighlighted: Bool {
+//        didSet {
+//            if self.isHighlighted {
+//                backgroundColor = UIColor.white
+//            } else {
+//                backgroundColor = Colors.buttonGrey.getColor()
+//            }        }
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,6 +38,8 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.iconImage.image = nil
+
+        
     }
     
     override func layoutSubviews() {
@@ -33,6 +52,8 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.layer.masksToBounds = false
+        self.myContentView.backgroundColor = Colors.notSelected.getColor()
+        
     }
     
     func showData(for tariff: FullPathCellData) {
@@ -41,6 +62,7 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         self.durationLabel.text = tariff.duration
         self.durationLabel.textColor = tariff.color
         self.costLabel.text = tariff.cost
+      
 
     }
 

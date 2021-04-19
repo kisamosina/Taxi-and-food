@@ -82,6 +82,7 @@ class FullPathView: UIView {
         self.topView.layer.cornerRadius = self.topView.frame.height/2
         self.topView.clipsToBounds = true
         
+        self.collectionView.delaysContentTouches = false
     }
     
     private func initCollectionView() {
@@ -190,6 +191,12 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.showData(for: mytariffOptions[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+        }
     }
     
     

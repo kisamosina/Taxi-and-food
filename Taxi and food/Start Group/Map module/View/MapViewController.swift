@@ -541,9 +541,10 @@ extension MapViewController {
 
 extension MapViewController: FullPathViewDelegate {
     func pointsButtonDidTapped() {
-        self.showPromocodeEnterView(as: .points)
+//        self.showPromocodeEnterView(as: .points)
         
-//        self.showPointsSmallView()
+        self.showPointsSmallView()
+//        self.showPointsSmallViewOnTop(interactor.getpoints)
     }
     
     func promoButtonDidTapped() {
@@ -619,13 +620,31 @@ extension MapViewController {
 //MARK: - Points small view methods
 
 extension MapViewController {
+    
+    func showPointsSmallViewOnTop(_ pointsData: PointsResponseData) {
+        
+        inactiveView.frame = self.view.bounds
+        
+        self.view.addSubview(inactiveView)
+        
+        self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.view.addSubview(pointsSmallView)
+
+        setupPointsSmallViewConstraints()
+
+        //Animation
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view)
+        
+        self.pointsSmallView.setupPoints(pointsData)
+    }
+   
     private func setupPointsSmallViewConstraints() {
         self.pointsSmallView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         pointsSmallViewBottomConstraint = self.pointsSmallView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: PointsSmallViewSize.height.rawValue + bottomPadding)
         pointsSmallViewHeightConstraint = self.pointsSmallView.heightAnchor.constraint(equalToConstant: PointsSmallViewSize.height.rawValue)
-        
-        
+
+
         NSLayoutConstraint.activate([
             pointsSmallViewBottomConstraint,
             pointsSmallViewHeightConstraint,
@@ -634,30 +653,31 @@ extension MapViewController {
                                                                                     constant: 0)
         ])
     }
-    
+
     private func showPointsSmallView() {
+        
+        self.inactiveView.alpha = 1
+
+        
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
         self.view.addSubview(pointsSmallView)
-        
+
         setupPointsSmallViewConstraints()
-        
+
         //Animation
         Animator.shared.showView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view)
-        
-        
+
+
     }
-    
+
     func hidePointsSmallView(completion: AnimationCompletion? = nil) {
-        
+
         self.pointsSmallViewBottomConstraint.constant = PointsSmallViewSize.height.rawValue + bottomPadding
-        
+
         Animator.shared.hideView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view, viewHeight: PointsSmallViewSize.height.rawValue + bottomPadding, completion: completion)
     }
-    
+
 }
-
-
-
 
 
 //MARK: - Promocode enter view methods

@@ -2,7 +2,7 @@
 //  PointsSmallView.swift
 //  Taxi and food
 //
-//  Created by mac on 16/04/2021.
+//  Created by mac on 18/04/2021.
 //  Copyright © 2021 kisamosina. All rights reserved.
 //
 
@@ -38,17 +38,20 @@ class PointsSmallView: UIView {
     }
     
     private func initSubviews() {
-        self.loadFromNib(nibName: PromocodeActivatedViewStringData.nibName.rawValue)
+        self.loadFromNib(nibName: PointsSmallViewStringData.nibName.rawValue)
         
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         
+        self.spendAllButton.setupAs(.spendAllPoints)
+        self.otherAmountButton.setTitle(PointsSmallViewTexts.otherAmountButtonTitle, for: .normal)
+        self.youHaveLabel.text = "У вас баллов"
         self.setupConstraints()
          
     }
     
     //Points show in other times
-    private func setupPoints(_ pointsData: PointsResponseData) {
+    public func setupPoints(_ pointsData: PointsResponseData) {
         
         let pointsString = String(pointsData.credit)
         let text = TransitionBottomViewTexts.youHaveNPointsText.insert(text: pointsString)
@@ -61,3 +64,4 @@ class PointsSmallView: UIView {
 
     }
 }
+
