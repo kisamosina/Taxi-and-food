@@ -42,11 +42,11 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFN-Zu-SmE">
-                            <rect key="frame" x="127" y="18" width="160" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFN-Zu-SmE">
+                            <rect key="frame" x="71" y="18" width="270" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="IAV-Jm-GUy"/>
-                                <constraint firstAttribute="width" constant="160" id="bww-Ff-wHu"/>
+                                <constraint firstAttribute="width" constant="270" id="bww-Ff-wHu"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -56,7 +56,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="bFN-Zu-SmE" firstAttribute="top" secondItem="zIW-zC-f12" secondAttribute="top" constant="18" id="61k-Pg-1ZU"/>
-                        <constraint firstItem="bFN-Zu-SmE" firstAttribute="centerX" secondItem="zIW-zC-f12" secondAttribute="centerX" id="95y-a6-Lm2"/>
+                        <constraint firstItem="bFN-Zu-SmE" firstAttribute="centerX" secondItem="zIW-zC-f12" secondAttribute="centerX" constant="-1" id="95y-a6-Lm2"/>
                         <constraint firstItem="76g-aN-ecr" firstAttribute="top" secondItem="bFN-Zu-SmE" secondAttribute="bottom" constant="21" id="MjA-lW-zmN"/>
                         <constraint firstItem="8d7-Cz-WwB" firstAttribute="top" secondItem="76g-aN-ecr" secondAttribute="bottom" constant="18" id="cMr-9L-zz7"/>
                         <constraint firstItem="76g-aN-ecr" firstAttribute="centerX" secondItem="zIW-zC-f12" secondAttribute="centerX" id="mVX-mm-Fh4"/>
@@ -72,7 +72,12 @@
                 <constraint firstItem="zIW-zC-f12" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ef4-F2-dYQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="325" y="127"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="324.63768115942031" y="126.5625"/>
         </view>
     </objects>
 </document>

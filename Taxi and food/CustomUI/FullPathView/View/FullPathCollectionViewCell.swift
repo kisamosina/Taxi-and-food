@@ -17,7 +17,7 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     @IBOutlet var myContentView: UIView!
     override var isSelected: Bool {
         didSet {
-            self.myContentView.backgroundColor = isSelected ? UIColor.clear : Colors.notSelected.getColor()
+            self.myContentView.backgroundColor = isSelected ? UIColor.white : Colors.backGroundGreyActive.getColor()
         }
     }
     
@@ -52,7 +52,7 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.layer.masksToBounds = false
-        self.myContentView.backgroundColor = Colors.notSelected.getColor()
+        self.myContentView.backgroundColor = Colors.backGroundGreyActive.getColor()
         
     }
     

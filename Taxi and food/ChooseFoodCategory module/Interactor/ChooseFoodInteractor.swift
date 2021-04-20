@@ -26,7 +26,7 @@ class ChooseFoodInteractor: ChooseFoodCategoryInteractorProtocol {
         
         let resource = Resource<ProductsResponse>(path: path, requestType: .GET)
         
-        NetworkService.shared.makeRequest(for: resource) {[ weak self ] result in
+        NetworkService.shared.makeRequest(for: resource, completion:  {[ weak self ] result in
             
             guard let self  = self else  { return }
             
@@ -48,7 +48,7 @@ class ChooseFoodInteractor: ChooseFoodCategoryInteractorProtocol {
             case .failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
 
     }
     

@@ -111,6 +111,7 @@
 		04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */; };
 		04CA5A5325E905EB00EDC886 /* PromoDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */; };
 		04EFB7CE25EB887F00787C68 /* PromoDescriptionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB7CD25EB887E00787C68 /* PromoDescriptionInteractor.swift */; };
+		04F67913262E84C600F27629 /* PointsSmallViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F67912262E84C600F27629 /* PointsSmallViewInteractor.swift */; };
 		7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */; };
 		7B0C991125E55B9000530932 /* PromocodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C991025E55B9000530932 /* PromocodeResponse.swift */; };
 		7B26145425DAD53F00E2B779 /* Userdefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */; };
@@ -428,6 +429,7 @@
 		04CA5A5025E8F2CF00EDC886 /* PersonalDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalDataInteractor.swift; path = "Taxi and food/PersonalData module/Promo module/View/PomotionShort/PersonalDataInteractor.swift"; sourceTree = SOURCE_ROOT; };
 		04CA5A5225E905EB00EDC886 /* PromoDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDescriptionViewController.swift; sourceTree = "<group>"; };
 		04EFB7CD25EB887E00787C68 /* PromoDescriptionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDescriptionInteractor.swift; sourceTree = "<group>"; };
+		04F67912262E84C600F27629 /* PointsSmallViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSmallViewInteractor.swift; sourceTree = "<group>"; };
 		7B0C990725E5595B00530932 /* PromocodeEnterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeEnterInteractor.swift; sourceTree = "<group>"; };
 		7B0C991025E55B9000530932 /* PromocodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeResponse.swift; sourceTree = "<group>"; };
 		7B26145325DAD53F00E2B779 /* Userdefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Userdefaults+Extension.swift"; sourceTree = "<group>"; };
@@ -833,6 +835,7 @@
 			children = (
 				04AEFDF0262BDF65000F9F10 /* PointsSmallView.swift */,
 				04AEFDF2262BDF9B000F9F10 /* PointsSmallView.xib */,
+				04F67912262E84C600F27629 /* PointsSmallViewInteractor.swift */,
 			);
 			path = PointsSmallView;
 			sourceTree = "<group>";
@@ -2238,6 +2241,7 @@
 				04AEFDF8262D3A88000F9F10 /* ShowFullPathViewController.swift in Sources */,
 				7D1F5EF225F3D29400892B6F /* PaymentWayUIData.swift in Sources */,
 				041E298825DE2ADC00CA9F56 /* SettingsStaticCell.swift in Sources */,
+				04F67913262E84C600F27629 /* PointsSmallViewInteractor.swift in Sources */,
 				04B73F09260D763F003A9AEE /* OrderHistoryTableViewCell.swift in Sources */,
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				0413C80B2628307300A58960 /* PromocodeActivatedView.swift in Sources */,

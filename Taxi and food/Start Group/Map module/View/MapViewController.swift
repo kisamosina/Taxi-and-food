@@ -51,6 +51,9 @@ class MapViewController: UIViewController {
     //Shops List View
     private var shopsListView: ShopsView!
     private var shopsListViewBottomConstraint: NSLayoutConstraint!
+    
+    //InactiveTopView
+    var inactiveTopView: InactiveView = InactiveView()
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -76,6 +79,7 @@ class MapViewController: UIViewController {
         self.removeMenuView()
         self.minimizePromoDestinationView()
         self.addSwipes()
+        self.addTapps()
         self.addKeyboardWillShowObserver()
         
         DispatchQueue.global(qos: .background).async {
@@ -167,15 +171,29 @@ class MapViewController: UIViewController {
         self.view.addGestureRecognizer(swipeRight)
     }
     
+    func addTapps() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(userHasTapped(_:)))
+        self.inactiveTopView.addGestureRecognizer(tapRecognizer)
+    }
+    
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         switch gesture.direction {
         case .left:
             self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
             self.animateMenuViewMinimizing()
-            
         default:
             break
         }
+    }
+    
+    @objc func userHasTapped(_ sender: UITapGestureRecognizer) {
+        if self.promocodeActivatedViewBottomConstraint !== nil {
+            self.hidePromocodeActivatedView()
+        }
+        if self.pointsSmallViewBottomConstraint !== nil {
+            self.hidePointsSmallView()
+        }
+        self.inactiveTopView.removeFromSuperview()
     }
     
 }
@@ -236,6 +254,10 @@ extension MapViewController {
 //MARK: - MapViewProtocol
 
 extension MapViewController: MapViewProtocol {
+//    func showPoints(_ pointsData: PointsResponseData) {
+//        
+//    }
+    
     func drawRoute() {
         
     }
@@ -325,6 +347,18 @@ extension MapViewController: MapViewProtocol {
         }
     }
     
+//    private func dismissPromocodeActivatedView() {
+//        if let promoActivatedView = self.promocodeActivatedView {
+//            self.hidePromocodeEnterView {[weak self] _ in
+//                guard let self = self else { return }
+//                self.bottomView.isHidden = false
+//                promoActivatedView.removeFromSuperview()
+//                self.promocodeActivatedView = nil
+//                self.promocodeActivatedViewBottomConstraint = nil
+//            }
+//        }
+//    }
+    
     func setViews(for state: MapViewControllerStates) {
         
         switch state {
@@ -336,6 +370,7 @@ extension MapViewController: MapViewProtocol {
             self.dismissAddressEnterView()
             self.dismissShopsView()
             self.dismissTaxiViews()
+//            self.dismissPromocodeActivatedView()
             
         case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
@@ -417,6 +452,20 @@ extension MapViewController: MapViewProtocol {
             self.present(chooseFoodViewController, animated: false, completion: nil)
         }
     }
+    
+//    func showPoints(_ pointsData: PointsResponseData?) {
+//
+//        guard let pointsData = pointsData else { return }
+//
+//        DispatchQueue.main.async {
+//            let pointsView = self.pointsSmallView
+//            let pointsSmallViewInteractor = PointsSmallViewInteractor(view: pointsView, data: pointsData)
+//
+//
+//        }
+//
+//
+//    }
 
 }
 
@@ -613,6 +662,11 @@ extension MapViewController {
     }
     
     private func showPromocodeActivatedView() {
+        
+        inactiveTopView.frame = self.view.bounds
+//        inactiveTopView.delegate = self
+        self.view.addSubview(inactiveTopView)
+        
         self.promocodeActivatedView = PromocodeActivatedView(frame: CGRect.makeRect(height: PromocodeActivatedViewSize.height.rawValue))
         self.view.addSubview(self.promocodeActivatedView)
         
@@ -633,6 +687,7 @@ extension MapViewController {
     
 }
 
+
 //MARK: - Points small view methods
 
 extension MapViewController {
@@ -645,6 +700,8 @@ extension MapViewController {
         
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
         self.view.addSubview(pointsSmallView)
+        
+        
 
         setupPointsSmallViewConstraints()
 
@@ -672,8 +729,10 @@ extension MapViewController {
 
     private func showPointsSmallView() {
         
-        self.inactiveView.alpha = 1
 
+        inactiveTopView.frame = self.view.bounds
+//        inactiveTopView.delegate = self
+        self.view.addSubview(inactiveTopView)
         
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
         self.view.addSubview(pointsSmallView)
@@ -682,6 +741,13 @@ extension MapViewController {
 
         //Animation
         Animator.shared.showView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view)
+        
+        DispatchQueue.main.async {
+           
+            self.pointsSmallView.initPointsSmallViewInteractor()
+            self.pointsSmallView.interactor.getPoints()
+            
+        }
 
 
     }
@@ -694,6 +760,14 @@ extension MapViewController {
     }
 
 }
+
+//extension MapViewController: InactiveViewDelegate {
+//    func userHasTapped() {
+//
+//    }
+    
+    
+
 
 
 //MARK: - Promocode enter view methods
@@ -884,7 +958,7 @@ extension MapViewController: AddressEnterViewDelegate {
         self.navigationController?.pushViewController(showLocationVC, animated: true)
     }
     
-    //Action when user swipe on address enter view
+    //Action when user swipe on address enter view f
     func userHasSwipedViewDown() {
         self.interactor.setViewControllerState(.start)
     }
@@ -1112,3 +1186,5 @@ extension MapViewController: ChooseFoodCategoryViewControllerDelegate {
     }
     
 }
+
+//extension MapViewController: SubstrateViewController {}
