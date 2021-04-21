@@ -43,6 +43,13 @@ class FullPathView: UIView {
         }
     }
     
+    var pointsSpent: Int! {
+        didSet {
+            guard let points = pointsSpent else { return }
+            self.pointsToUseLabel.text = String(points)
+        }
+    }
+    
     @IBOutlet var containerView: UIView!
     
     @IBOutlet var topView: UIView!
