@@ -22,6 +22,15 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     }
     
     
+    var totalSum: Int! {
+        didSet {
+            guard let sum = totalSum else { return }
+            self.costLabel.text = String(sum)
+            
+        }
+    }
+    
+    
 //    override var isHighlighted: Bool {
 //        didSet {
 //            if self.isHighlighted {

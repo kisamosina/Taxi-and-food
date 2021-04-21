@@ -876,6 +876,10 @@ extension MapViewController: PromoOrPointsEnterViewDelegate {
             
             self.inactiveTopView.removeFromSuperview()
             self.hidefullPathView()
+            self.fullPathView.pointsSpent = text
+//
+//            self.showFullPathView(as: .withTariff)
+            
             self.showFullPathView(as: .whenPoints(text))
    
         }

@@ -34,8 +34,13 @@ class FullPathView: UIView {
                 self.promoAndPointsStackView.isHidden = false
                 self.collectionView.isHidden = false
                 self.mainButton.setupAs(.order)
+                
+
+//
             case .whenPoints(let pointsData):
-                self.setUpWhenPoints(pointsData)
+                
+
+//                self.setUpWhenPoints(pointsData)
                 self.mainButton.setupAs(.order)
                 
                 
@@ -43,13 +48,21 @@ class FullPathView: UIView {
         }
     }
     
-    var pointsSpent: Int! {
+    var pointsSpent: String = FullPathViewTexts.pointsLabel {
         didSet {
-            guard let points = pointsSpent else { return }
-            self.pointsToUseLabel.text = String(points)
+        
+            self.pointsViewLabel.text = pointsSpent
         }
     }
     
+    var promoDiscount: Int? {
+        didSet {
+            guard let discount = promoDiscount else { return }
+            self.promoDiscountLabel.text = String(discount)
+        }
+    }
+
+  
     @IBOutlet var containerView: UIView!
     
     @IBOutlet var topView: UIView!
@@ -120,7 +133,7 @@ class FullPathView: UIView {
         self.addressFromTextfield.addBottomBorder(color: Colors.buttonBlue.getColor())
         self.addressToTextfield.addBottomBorder(color: Colors.taxiOrange.getColor())
         self.promocodeViewLabel.text = FullPathViewTexts.promoLabel
-        self.pointsViewLabel.text = FullPathViewTexts.pointsLabel
+//        self.pointsViewLabel.text = FullPathViewTexts.pointsLabel
 //        promoView
         self.promoView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.promoView.layer.shadowOffset = CGSize(width: AdvantageViewShadowsData.shadowOffsetWidth.rawValue,
