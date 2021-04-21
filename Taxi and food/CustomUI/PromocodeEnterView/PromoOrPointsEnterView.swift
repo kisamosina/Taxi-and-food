@@ -8,9 +8,23 @@
 
 import UIKit
 
-class PromocodeEnterView: UIView {
+protocol PromoOrPointsEnterViewProtocol: class {
     
-    weak var delegate: PromocodeEnterViewDelegate!
+    var interactor: PromoOrPointsEnterViewInteractorProtocol! { get set }
+    
+    func showPromoSuccess(data: PromocodeDataResponse)
+    func setupLabelError(text: String)
+    
+}
+
+//protocol PromoOrPointsViewDelegate: class {
+//    func approveButtonTapped(with text: String)
+//}
+
+class PromoOrPointsEnterView: UIView {
+    
+    var interactor: PromoOrPointsEnterViewInteractorProtocol!
+    weak var delegate: PromoOrPointsEnterViewDelegate!
     
     var type: PromocodeEnterViewType! {
         didSet {
@@ -31,7 +45,7 @@ class PromocodeEnterView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet var promoTextField: UITextField!
     @IBOutlet var mainButton: MainBottomButton!
-    
+    @IBOutlet var errorLabel: UILabel!
     
     //MARK: - Initializers
     
@@ -44,9 +58,6 @@ class PromocodeEnterView: UIView {
         super.init(coder: coder)
         self.initSubviews()
     }
-    
-    //MARK: - Properties
-    var interactor: PromocodeEnterInteractorProtocol!
     
     //MARK: - Methods
     
@@ -72,10 +83,13 @@ class PromocodeEnterView: UIView {
         self.promoTextField.addBottomBorder(color: Colors.buttonBlue.getColor())
 //        self.promoTextField.becomeFirstResponder()
         self.mainButton.setupAs(.approve)
+        self.errorLabel.textColor = Colors.redTextColor.getColor()
+        self.errorLabel.font = .systemFont(ofSize: TextEnterViewFontSizes.labelFontSize.rawValue)
+        self.errorLabel.isHidden = true
         self.setupConstraints()
         
-        self.interactor = PromocodeEnterInteractor(view: self)
-
+        self.interactor = PromoOrPointsEnterViewInteractor(view: self)
+        
 //        self.locationTextField.delegate = self
     }
     
@@ -88,63 +102,62 @@ class PromocodeEnterView: UIView {
         ])
     }
     
+    func initPromoOrPointsEnterViewInteractor() {
+        self.interactor = PromoOrPointsEnterViewInteractor(view: self)
+    }
+    
     public func setView(as type: PromocodeEnterViewType) {
         self.type = type
     }
     
     @IBAction func approveButtonTapped(_ sender: Any) {
-        self.delegate?.approveButtonDidTapped()
+        
+        guard let text = promoTextField.text, text != "" else { return }
+
+        switch self.type {
+        case .promo:
+            self.delegate.approveButtonDidTapped(for: .promo, with: text)
+        case .points:
+            self.delegate.approveButtonDidTapped(for: .points, with: text)
+        case .none:
+            break
+        }
+        
     }
     @IBAction func textFieldDidChange(_ sender: Any) {
+        self.errorLabel.isHidden = true
         self.mainButton.setActive()
     }
     
 }
 
-extension PromocodeEnterView:PromocodeEnterViewProtocol {
-    func setupLabelError(text: String) {
-        
-    }
-    
-    func showSuccess(data: PromocodeDataResponse) {
-        
-    }
-    
-    
-}
+extension PromoOrPointsEnterView: PromoOrPointsEnterViewProtocol {
 
-//extension PromocodeEnterView: PromocodeEnterCustomInteractorProtocol {
-//    func requestPromocodeActivate(code: String) {
-//        guard let id = PersistanceStoreManager.shared.getUserData()?[0].id
-//            else {
-//                print("No user id in storage")
-//                return
-//
-//            }
-//
-//            let promocodeResource = Resource<PromocodeResponse>(path: PromocodesRequestPaths.activate.rawValue.getServerPath(for: Int(id)),
-//                                                              requestType: .POST,
-//                                                              requestData: [PromocodesRequestKeys.code.rawValue: code])
-//
-//            NetworkService.shared.makeRequest(for: promocodeResource, completion:  { result in
-//
-//                switch result {
-//
-//                case .success(let promocodeResponse):
-////                    self.view.showSuccess(data: promocodeResponse.data)
-//                case .failure(let error):
-//                    if let serverError = error as? ServerErrors {
-//                        switch serverError.statusCode {
-//                         case 403:
-////                            self.view.setupLabelError(text: PromocodeEnterViewControllerTexts.promocodeAlreadyHas)
-//
-//                        default:
-////                            self.view.setupLabelError(text: PromocodeEnterViewControllerTexts.invalidPromocode)
-//                        }
-//                    }
-//                }
-//            })
-//
-//        }
-//    }
-//
+    
+    func showPromoSuccess(data: PromocodeDataResponse) {
+        self.delegate.setUpDescription(data: data)
+    }
+    
+    func setupLabelError(text: String) {
+                DispatchQueue.main.async {
+            self.errorLabel.isHidden = false
+            self.promoTextField.text = ""
+            self.promoTextField.placeholder = ""
+            self.errorLabel.text = text
+            print("label is set upped")
+        }
+    }
+    
+    
+    
+
+    }
+    
+
+    
+    
+
+    
+   
+
+

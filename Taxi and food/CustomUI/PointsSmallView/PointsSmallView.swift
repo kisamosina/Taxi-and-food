@@ -22,6 +22,8 @@ class PointsSmallView: UIView {
     //MARK: - Properties
     var interactor: PointsSmallViewInteractorProtocol!
     
+    weak var delegate: PointsSmallViewDelegate?
+    
     //MARK: - IBOutlets
     @IBOutlet var youHaveLabel: UILabel!
     @IBOutlet var contentView: UIView!
@@ -89,12 +91,16 @@ class PointsSmallView: UIView {
     func initPointsSmallViewInteractor() {
         self.interactor = PointsSmallViewInteractor(view: self)
     }
+    @IBAction func otherAmountButtonTapped(_ sender: Any) {
+        print("button on view tapped")
+        self.delegate?.anotherAmountButtonDidTapped()
+    }
+    
+    
 }
     
 extension PointsSmallView: PointsSmallViewProtocol {
-//    func updateData() {
-//        <#code#>
-//    }
+
     
     func setupPoints(_ pointsData: PointsResponseData) {
         DispatchQueue.main.async {
@@ -105,8 +111,7 @@ extension PointsSmallView: PointsSmallViewProtocol {
         }
     }
     
-        
-    }
+}
     
 
 

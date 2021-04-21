@@ -13,7 +13,7 @@ enum PromocodeEnterViewStringData: String {
 }
 
 enum PromocodeEnterViewSize: CGFloat {
-    case height = 260
+    case height = 200
 }
 
 enum PromocodeEnterViewType {

@@ -34,6 +34,11 @@ class FullPathView: UIView {
                 self.promoAndPointsStackView.isHidden = false
                 self.collectionView.isHidden = false
                 self.mainButton.setupAs(.order)
+            case .whenPoints(let pointsData):
+                self.setUpWhenPoints(pointsData)
+                self.mainButton.setupAs(.order)
+                
+                
             }
         }
     }
@@ -53,7 +58,9 @@ class FullPathView: UIView {
     @IBOutlet var pointsViewLabel: UILabel!
     @IBOutlet var promoView: UIView!
     @IBOutlet var pointsView: UIView!
-    
+    @IBOutlet var promoDiscountLabel: UILabel!
+    @IBOutlet var pointsToUseLabel: UILabel!
+    @IBOutlet var pointsIcone: UIImageView!
     //MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -114,6 +121,7 @@ class FullPathView: UIView {
         self.promoView.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.promoView.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.promoView.layer.masksToBounds = false
+        self.promoDiscountLabel.isHidden = true
 //        pointsView
         self.pointsView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.pointsView.layer.shadowOffset = CGSize(width: AdvantageViewShadowsData.shadowOffsetWidth.rawValue,
@@ -121,6 +129,7 @@ class FullPathView: UIView {
         self.pointsView.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.pointsView.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.pointsView.layer.masksToBounds = false
+        self.promoDiscountLabel.isHidden = true
         
     }
     
@@ -149,6 +158,20 @@ class FullPathView: UIView {
     public func setTariffOptions(_ options: [FullPathCellData]) {
         self.tariffOptions = options
         self.collectionView.reloadData()
+    }
+    
+    private func setUpWhenPoints(_ pointsData: String) {
+        self.pointsToUseLabel.isHidden = true
+        self.pointsIcone.isHidden = true
+        
+        let pointsString = String(pointsData)
+        let text = FullPathViewTexts.minusPointsText.insert(text: pointsString)
+        self.pointsViewLabel.text = text
+        self.pointsViewLabel.setBoldAndGreen(forText: pointsString + " " + FullPathViewTexts.minusPointsText.selectedSuffixText())
+        
+//        self.pointsToUseLabel.text = String(pointsData)
+//        self.pointsViewLabel.text = FullPathViewTexts.pointsLabelChanged
+        
     }
     
     

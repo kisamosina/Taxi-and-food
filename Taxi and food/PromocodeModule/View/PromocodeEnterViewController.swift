@@ -89,6 +89,7 @@ extension PromocodeEnterViewController: PromocodeEnterViewProtocol {
         DispatchQueue.main.async {
             self.textEnterView.label.isHidden = false
             self.textEnterView.label.text = text
+            
         }
     }
     

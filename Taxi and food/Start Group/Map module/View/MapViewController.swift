@@ -34,7 +34,7 @@ class MapViewController: UIViewController {
     private var fullPathViewHeightConstraint: NSLayoutConstraint!
     
     //PromocodeEnter View
-    private var promocodeEnterView: PromocodeEnterView!
+    private var promocodeEnterView: PromoOrPointsEnterView!
     private var promocodeEnterViewBottomConstraint: NSLayoutConstraint!
     private var promocodeEnterViewHeightConstraint: NSLayoutConstraint!
     
@@ -174,6 +174,7 @@ class MapViewController: UIViewController {
     func addTapps() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(userHasTapped(_:)))
         self.inactiveTopView.addGestureRecognizer(tapRecognizer)
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
@@ -193,7 +194,18 @@ class MapViewController: UIViewController {
         if self.pointsSmallViewBottomConstraint !== nil {
             self.hidePointsSmallView()
         }
+        
+        if self.promocodeEnterViewBottomConstraint !== nil {
+            self.hidePromocodeEnterView()
+        }
+        
+//        if self.addressEnterViewBottomConstraint !== nil {
+//            self.hideAddressEnterView()
+//        }
+        
+        
         self.inactiveTopView.removeFromSuperview()
+        
     }
     
 }
@@ -593,6 +605,8 @@ extension MapViewController {
         
     }
     
+    
+    
     //Setup hide animation for Address enter view
     func hidefullPathView(completion: AnimationCompletion? = nil) {
         
@@ -617,6 +631,7 @@ extension MapViewController: FullPathViewDelegate {
 //        self.hidefullPathView {[weak self] _ in
 //            guard let self = self else { return }
 //        }
+        self.hidefullPathView()
         self.showPromocodeEnterView(as: .promo)
     }
     
@@ -633,6 +648,8 @@ extension MapViewController: FullPathViewDelegate {
 //            guard let self = self else { return }
 //        }
         
+        self.hideAddressEnterView()
+        self.hidefullPathView()
         self.showFullPathView(as: .withTariff)
         
        
@@ -661,13 +678,14 @@ extension MapViewController {
   
     }
     
-    private func showPromocodeActivatedView() {
+    private func showPromocodeActivatedView(with description: String) {
         
         inactiveTopView.frame = self.view.bounds
 //        inactiveTopView.delegate = self
         self.view.addSubview(inactiveTopView)
         
         self.promocodeActivatedView = PromocodeActivatedView(frame: CGRect.makeRect(height: PromocodeActivatedViewSize.height.rawValue))
+        self.promocodeActivatedView.descriptionLabel.text = description
         self.view.addSubview(self.promocodeActivatedView)
         
         setupPromocodeActivatedViewConstraints()
@@ -683,6 +701,8 @@ extension MapViewController {
         self.promocodeActivatedViewBottomConstraint.constant = PromocodeActivatedViewSize.height.rawValue + bottomPadding
         
         Animator.shared.hideView(animationType: .usualBottomAnimation(self.promocodeActivatedView, self.promocodeActivatedViewBottomConstraint), from: self.view, viewHeight: PromocodeActivatedViewSize.height.rawValue + bottomPadding, completion: completion)
+        
+        self.fullPathView.promoDiscountLabel.text = "-30"
     }
     
 }
@@ -694,11 +714,12 @@ extension MapViewController {
     
     func showPointsSmallViewOnTop(_ pointsData: PointsResponseData) {
         
-        inactiveView.frame = self.view.bounds
+        inactiveTopView.frame = self.view.bounds
         
-        self.view.addSubview(inactiveView)
+        self.view.addSubview(inactiveTopView)
         
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.pointsSmallView.delegate = self
         self.view.addSubview(pointsSmallView)
         
         
@@ -729,12 +750,11 @@ extension MapViewController {
 
     private func showPointsSmallView() {
         
-
         inactiveTopView.frame = self.view.bounds
-//        inactiveTopView.delegate = self
         self.view.addSubview(inactiveTopView)
         
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.pointsSmallView.delegate = self
         self.view.addSubview(pointsSmallView)
 
         setupPointsSmallViewConstraints()
@@ -761,10 +781,18 @@ extension MapViewController {
 
 }
 
-//extension MapViewController: InactiveViewDelegate {
-//    func userHasTapped() {
-//
-//    }
+    //PointsSmallView delegate methods
+
+extension MapViewController: PointsSmallViewDelegate {
+    
+    func anotherAmountButtonDidTapped() {
+        print("anotherAmount button tapped")
+        self.pointsSmallView.removeFromSuperview()
+        self.showPromocodeEnterView(as: .points)
+        
+    }
+
+}
     
     
 
@@ -797,19 +825,23 @@ extension MapViewController {
             print("show promocode enter view")
 //            guard let promocodeEnterViewBottomConstraint = self.promocodeEnterViewBottomConstraint else { return }
 
-            self.promocodeEnterView = PromocodeEnterView(frame: CGRect.makeRect(height: PromocodeEnterViewSize.height.rawValue))
+            self.promocodeEnterView = PromoOrPointsEnterView(frame: CGRect.makeRect(height: PromocodeEnterViewSize.height.rawValue))
             self.view.addSubview(self.promocodeEnterView)
             self.promocodeEnterView.setView(as: type)
             setupAddressEnterViewConstraints()
             self.promocodeEnterView.delegate = self
-//            self.promocodeEnterView.setupConstraints(for: self.view,
-//                                                         viewHeight: PromocodeEnterViewSize.height.rawValue,
-//                                                         bottomContraintConstant: PromocodeEnterViewSize.height.rawValue + bottomPadding) { [weak self] constraint in
-//                guard let self = self else { return }
-//                self.promocodeEnterViewBottomConstraint = constraint
+
 
                //Animation
                 Animator.shared.showView(animationType: .usualBottomAnimation(self.promocodeEnterView, self.promocodeEnterViewBottomConstraint), from: self.view)
+            
+            DispatchQueue.main.async {
+               
+                self.promocodeEnterView.initPromoOrPointsEnterViewInteractor()
+            
+
+                
+            }
 
             }
     
@@ -826,25 +858,55 @@ extension MapViewController {
 
 //MARK: - Promocode enter view delegate methods
 
-extension MapViewController: PromocodeEnterViewDelegate {
-    func approveButtonDidTapped() {
-        
-//        self.hidePromocodeActivatedView {[weak self] _ in
-//            guard let self = self else { return }
-//        }
-        
-        self.hidePromocodeEnterView {[weak self] _ in
+extension MapViewController: PromoOrPointsEnterViewDelegate {
+    func approveButtonDidTapped(for type: PromocodeEnterViewType, with text: String) {
+        switch type {
+        case .promo:
+            self.promocodeEnterView.interactor.requestPromoActivation(code: text)
+            
+//            DispatchQueue.main.async {
+//                self.showPromocodeActivatedView(with: text)
+//                    
+//    }
+//                
+            
+        case .points:
+            self.hidePromocodeEnterView {[weak self] result in
             guard let self = self else { return }
+            
+            self.inactiveTopView.removeFromSuperview()
+            self.hidefullPathView()
+            self.showFullPathView(as: .whenPoints(text))
+   
         }
-        self.showFullPathView(as: .withTariff)
+        }
+    }
+    
+
+    
+    func setUpDescription(data: PromocodeDataResponse) {
+        DispatchQueue.main.async {
+            self.hidePromocodeEnterView {[weak self] _ in
+                    guard let self = self else { return }
+                }
+            self.showFullPathView(as: .withTariff)
+                
+            self.inactiveView.alpha = 1
+                
+                
+            print("showing activated view")
+                
+//            self.promocodeActivatedView.descriptionLabel.text = data.description
+            self.showPromocodeActivatedView(with: data.description)
+        }
+    }
+    
+
+    func showSuccess() {
         
-        self.inactiveView.alpha = 1
-        
-        
-        print("showing activated view")
-        self.showPromocodeActivatedView()
         
     }
+    
     
 
     

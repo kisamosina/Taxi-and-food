@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class SentViewController: UIViewController {
     
     var showingCase: SentViewControllerShowingCases!

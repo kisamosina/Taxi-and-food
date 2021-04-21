@@ -33,6 +33,9 @@
                             <state key="normal">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="otherAmountButtonTapped:" destination="-1" eventType="touchUpInside" id="Rzd-D0-nYX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76g-aN-ecr" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                             <rect key="frame" x="25" y="59" width="364" height="50"/>
