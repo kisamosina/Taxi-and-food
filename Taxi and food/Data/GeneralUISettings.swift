@@ -210,4 +210,17 @@ enum NotificationsIdentifiers: String {
     case confirmtaionCode
 }
 
+class GradientColor {
+    var gl: CAGradientLayer!
+
+    init() {
+        let colorTop = Colors.buttonBlue.getColor().cgColor
+        let colorBottom = Colors.taxiOrange.getColor().cgColor
+
+        self.gl = CAGradientLayer()
+        self.gl.colors = [colorTop, colorBottom]
+        self.gl.locations = [0.0, 1.0]
+    }
+}
+
 

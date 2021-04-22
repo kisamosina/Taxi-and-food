@@ -282,7 +282,7 @@ extension MapViewController: MapViewProtocol {
     
     
     func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?) {
-        if let coordinate =  coordinate {
+        if let coordinate = coordinate {
             DispatchQueue.main.async {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = coordinate
@@ -546,24 +546,7 @@ extension MapViewController: MenuViewDelegate {
     }
 }
 
-//MARK: - MKMapViewDelegate
 
-extension MapViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //Annotation for userLocation
-        if annotation.isEqual(mapView.userLocation) {
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
-            annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
-            return annotationView
-        }
-        
-        //Annotation for destination
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.DestinationLocation.rawValue)
-        annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
-        return annotationView
-    }
-}
 
 //MARK: - Full path view methods
 
@@ -1040,7 +1023,8 @@ extension MapViewController: AddressEnterViewDelegate {
                 guard let self = self else { return }
             }
             self.showFullPathView(as: .address)
-//            self.drawPath()
+           
+            self.drawPath()
             print("Taxi")
 //            self.showFullPathView()
         case .food:
@@ -1139,17 +1123,100 @@ extension MapViewController {
     }
 }
 
-extension MapViewController {
-    func drawPath() {
-        let sourceLocation = self.interactor.sourceAddress
-        let destinationLocation = self.interactor.destinationAddress
-        print("sourceLocation")
-        print(sourceLocation)
+//MARK: - MKMapViewDelegate
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Annotation for userLocation
+        if annotation.isEqual(mapView.userLocation) {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
+            annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
+            return annotationView
+        }
         
-        print("and destination")
-        print(destinationLocation)
+        //Annotation for destination
         
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.DestinationLocation.rawValue)
+        annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
+        return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else { return MKPolylineRenderer() }
+        
+       
+//        let gradientColors = [Colors.buttonBlue.getColor(), Colors.taxiOrange.getColor()]
+//
+        let polylineRenderer = MKPolylineRenderer(overlay: polyline)
+        polylineRenderer.fillColor = Colors.buttonBlue.getColor().withAlphaComponent(0.2)
+        polylineRenderer.strokeColor = Colors.taxiOrange.getColor().withAlphaComponent(0.7)
+        polylineRenderer.lineWidth = 3
+     
+        return polylineRenderer
+    }
+
+    func drawPath() {
+        
+        let sourceCoordLocation = self.mapView.userLocation.coordinate
+       
+
+        guard let destinationCoordLocation = self.interactor.destinationLocationFromMap else { return }
+        
+        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordLocation, addressDictionary: nil)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+      
+        
+        let sourceAnnotation = MKPointAnnotation()
+        sourceAnnotation.coordinate = sourceCoordLocation
+        
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.coordinate = destinationCoordLocation
+                
+        
+        
+//        self.mapView.showAnnotations([sourceAnnotation, destinationAnnotation], animated: false)
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        // 8.
+        directions.calculate {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            
+           
+            let route = response.routes[0]
+            self.mapView.addOverlay((route.polyline), level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        
+        }
+        
+//        let route = [sourceCoordLocation, destinationCoordLocation]
+//        let polyline = MKPolyline(coordinates: route, count: route.count)
+        
+//        self.mapView.addOverlay(polyline, level: .aboveRoads)
+
+    }
+    
 }
 
 
