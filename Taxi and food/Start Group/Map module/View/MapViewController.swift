@@ -54,6 +54,10 @@ class MapViewController: UIViewController {
     
     //InactiveTopView
     var inactiveTopView: InactiveView = InactiveView()
+    
+    //TimeToDestination View
+    var timeToDestinationVew: TimeToDestinationView!
+    
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -390,6 +394,7 @@ extension MapViewController: MapViewProtocol {
             self.bottomView.isHidden = true
             self.mapCenterButton.isHidden = true
             self.showAddressEnterView(as: addresEnterViewType)
+            
         }
     }
     
@@ -687,6 +692,34 @@ extension MapViewController {
         
         self.fullPathView.promoDiscountLabel.text = "-30"
     }
+    
+}
+
+//MARK: - TimeToDestination view methods
+
+extension MapViewController {
+    
+    func showTimeToDestinationView() {
+        
+        
+        self.timeToDestinationVew = TimeToDestinationView(frame: CGRect.makeRect(height: TimeToDestinationViewSizes.height.rawValue))
+        self.view.addSubview(timeToDestinationVew)
+        
+        setupTimeToDestinationViewConstraint()
+    }
+    
+    private func  setupTimeToDestinationViewConstraint() {
+        self.timeToDestinationVew.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let topConstraint = timeToDestinationVew.topAnchor.constraint(equalTo: self.view.topAnchor, constant: topPadding + TimeToDestinationViewSizes.height.rawValue)
+        let horizontalConstraint = timeToDestinationVew.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+//            let verticalConstraint = timeToDestinationVew.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        let widthConstraint = timeToDestinationVew.widthAnchor.constraint(equalToConstant: TimeToDestinationViewSizes.width.rawValue)
+        let heightConstraint = timeToDestinationVew.heightAnchor.constraint(equalToConstant: TimeToDestinationViewSizes.height.rawValue)
+            view.addConstraints([topConstraint, horizontalConstraint, widthConstraint, heightConstraint])
+        }
+    
     
 }
 
@@ -1023,6 +1056,7 @@ extension MapViewController: AddressEnterViewDelegate {
                 guard let self = self else { return }
             }
             self.showFullPathView(as: .address)
+            self.showTimeToDestinationView()
            
             self.drawPath()
             print("Taxi")

@@ -86,11 +86,13 @@ class FullPathView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initSubviews()
+        self.initCollectionView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.initSubviews()
+        self.initCollectionView()
     }
     
     //MARK: - Methods
@@ -110,20 +112,24 @@ class FullPathView: UIView {
         self.topView.clipsToBounds = true
         
         self.collectionView.delaysContentTouches = false
+        self.collectionView.allowsSelection = true
+        self.collectionView.allowsMultipleSelection = true
+
     }
     
     private func initCollectionView() {
       let nib = UINib(nibName: "FullPathCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         collectionView.dataSource = self
+        collectionView.delegate = self
+
+
     }
     
     private func initSubviews() {
         
         self.loadFromNib(nibName: FullPathViewStringData.nibName.rawValue)
         
-        var nib = UINib(nibName: "FullPathCollectionViewCell", bundle:nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
@@ -178,6 +184,8 @@ class FullPathView: UIView {
     public func setTariffOptions(_ options: [FullPathCellData]) {
         self.tariffOptions = options
         self.collectionView.reloadData()
+        collectionView.allowsMultipleSelection = false
+//        collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: false, scrollPosition: .left)
     }
     
     private func setUpWhenPoints(_ pointsData: String) {
@@ -233,13 +241,23 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
         
         cell.showData(for: mytariffOptions[indexPath.row])
         
+//        if(indexPath.row == 0) { //for first cell in the collection
+//            cell.backgroundColor = UIColor.white
+//        } else {
+//            cell.backgroundColor = Colors.backGroundGreyActive.getColor()
+//        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-        }
+//        if indexPath.row == 0 {
+//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+//
+//
+//        }
+        
+        print("select")
     }
     
     

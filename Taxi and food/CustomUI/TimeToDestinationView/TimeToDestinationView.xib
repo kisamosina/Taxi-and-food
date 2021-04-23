@@ -6,25 +6,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeToDestinationView" customModule="Taxi_and_food" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeToDestinationView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="iN0-l3-epB" id="Tb5-gs-GkG"/>
+                <outlet property="contentGradientView" destination="hXR-nr-doc" id="CCX-qi-PhU"/>
+                <outlet property="titleLabel" destination="LPK-K9-Hsk" id="oor-Me-iYX"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-K9-Hsk">
-                    <rect key="frame" x="12.5" y="11" width="100" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="18" id="6K5-X7-t2h"/>
-                        <constraint firstAttribute="width" constant="100" id="XwD-gS-LDh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXR-nr-doc" customClass="GradientView" customModule="Taxi_and_food" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-K9-Hsk">
+                            <rect key="frame" x="12.5" y="11" width="100" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="LcX-1J-KgU"/>
+                                <constraint firstAttribute="height" constant="18" id="gsq-i4-FdD"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="LPK-K9-Hsk" firstAttribute="centerY" secondItem="hXR-nr-doc" secondAttribute="centerY" id="HlT-zQ-tC0"/>
+                        <constraint firstItem="LPK-K9-Hsk" firstAttribute="centerX" secondItem="hXR-nr-doc" secondAttribute="centerX" id="NuF-wh-KjQ"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
                             <color key="value" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -41,8 +53,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hXR-nr-doc" secondAttribute="bottom" id="BSy-Xl-Rni"/>
-                <constraint firstItem="LPK-K9-Hsk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="K4P-ui-0ij"/>
-                <constraint firstItem="LPK-K9-Hsk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="eFo-ZM-r0h"/>
                 <constraint firstAttribute="trailing" secondItem="hXR-nr-doc" secondAttribute="trailing" id="goA-rI-eQR"/>
                 <constraint firstItem="hXR-nr-doc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="icY-47-rpb"/>
                 <constraint firstItem="hXR-nr-doc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="t1x-Tg-4Oz"/>

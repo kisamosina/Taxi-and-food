@@ -30,18 +30,11 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
-//    override var isHighlighted: Bool {
-//        didSet {
-//            if self.isHighlighted {
-//                backgroundColor = UIColor.white
-//            } else {
-//                backgroundColor = Colors.buttonGrey.getColor()
-//            }        }
-//    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       
     }
     
     override func prepareForReuse() {
@@ -62,6 +55,7 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.layer.masksToBounds = false
         self.myContentView.backgroundColor = Colors.backGroundGreyActive.getColor()
+        
         
     }
     
