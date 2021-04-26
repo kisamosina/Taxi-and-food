@@ -37,9 +37,26 @@ class PromocodeActivatedView: UIView {
             self.addSubview(containerView)
             
             self.titleLabel.text = PromocodeActivatedTexts.titleText
+            self.titleLabel.textColor = Colors.successGreen.getColor()
             self.setupConstraints()
              
         }
+    
+    //MARK: - Methods
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        //Layout setup
+        self.contentView.layer.cornerRadius = TransitionBottomViewSizes.cornerRadius.rawValue
+        self.contentView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
+        self.contentView.layer.shadowOpacity = Float(TransitionBottomViewSizes.shadowOpacity.rawValue)
+        self.contentView.layer.shadowRadius = TransitionBottomViewSizes.cornerRadius.rawValue
+        self.contentView.layer.shadowOffset = CGSize(width: TransitionBottomViewSizes.shadowOffsetWidth.rawValue,
+                                                     height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
+        self.contentView.layer.masksToBounds = false
+        
+    }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

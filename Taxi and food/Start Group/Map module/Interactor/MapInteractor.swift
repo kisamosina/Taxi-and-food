@@ -12,6 +12,8 @@ import MapKit
 import UIKit
 
 class MapInteractor: MapInteractorProtocol {
+
+    
     
     
     //MARK: - Properties
@@ -360,6 +362,29 @@ extension MapInteractor {
             }
         })
     }
+}
+
+extension MapInteractor {
+//
+//        func getPoints() {
+//
+//            let userId = 3
+//
+//    //        guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
+//
+//            let resource = Resource<PointsResponse>(path: PaymentRequestPaths.points.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
+//
+//            NetworkService.shared.makeRequest(for: resource, completion:  {  pointsResponse in
+//                switch pointsResponse {
+//
+//                case .success(let points):
+//                    self.view.showPoints(points.data)
+//                    print("success and ready to show points")
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
+//            })
+//        }
 }
 
 

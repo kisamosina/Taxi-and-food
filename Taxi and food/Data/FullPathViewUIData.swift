@@ -21,12 +21,15 @@ enum FullPathViewSizes: CGFloat {
 enum FullPathViewType {
     case address
     case withTariff
+    case whenPoints(String)
     
     func viewHeight() -> CGFloat {
         switch self {
         case .address:
             return FullPathViewSizes.heightWhenAddress.rawValue
         case .withTariff:
+            return FullPathViewSizes.heightWhenWithTariff.rawValue
+        case .whenPoints:
             return FullPathViewSizes.heightWhenWithTariff.rawValue
         }
     }
@@ -41,6 +44,7 @@ struct FullPathViewTexts {
         case cost = "руб"
         case promoLabel = "Промокод"
         case pointsLabel = "Баллы"
+        case pointsLabelChanged = "Баллов"
     }
     
     private enum EngTexts: String {
@@ -49,6 +53,28 @@ struct FullPathViewTexts {
         case promoLabel = "Promocode"
         case pointsLabel = "Points"
         
+        
+    }
+    
+    static var minusPointsText: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "-$ Баллов"
+        case .eng:
+            return "-$ Points"
+        }
+
+    }
+    
+    static var pointsLabelChanged: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        case .rus:
+            return RusTexts.pointsLabelChanged.rawValue
+        case .eng:
+            return EngTexts.pointsLabel.rawValue
+        }
     }
     
     static var promoLabel: String {

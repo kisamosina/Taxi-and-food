@@ -3,14 +3,16 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromocodeEnterView" customModule="Taxi_and_food" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromoOrPointsEnterView" customModule="Taxi_and_food" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="enV-7q-tka" id="BF9-l9-F6u"/>
                 <outlet property="contentView" destination="T8g-0Y-bvf" id="ua7-tZ-UuT"/>
+                <outlet property="errorLabel" destination="qww-4f-1ld" id="OhO-hj-rYW"/>
                 <outlet property="mainButton" destination="aX0-7I-2q1" id="rgB-7s-309"/>
                 <outlet property="promoTextField" destination="KKE-zV-t9D" id="8bV-fz-QVj"/>
             </connections>
@@ -34,6 +36,13 @@
                                 <action selector="approveButtonTapped:" destination="-1" eventType="touchUpInside" id="kLl-Jy-qUG"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qww-4f-1ld">
+                            <rect key="frame" x="36" y="25" width="342" height="34"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKE-zV-t9D">
                             <rect key="frame" x="36" y="25" width="342" height="34"/>
                             <constraints>
@@ -52,12 +61,16 @@
                         <constraint firstAttribute="trailing" secondItem="KKE-zV-t9D" secondAttribute="trailing" constant="36" id="19Y-aA-QrI"/>
                         <constraint firstAttribute="trailing" secondItem="KKE-zV-t9D" secondAttribute="trailing" constant="36" id="1ha-pA-rSB"/>
                         <constraint firstItem="KKE-zV-t9D" firstAttribute="top" secondItem="T8g-0Y-bvf" secondAttribute="top" constant="25" id="BaC-at-gLU"/>
+                        <constraint firstItem="qww-4f-1ld" firstAttribute="top" secondItem="KKE-zV-t9D" secondAttribute="bottom" constant="-34" id="CNw-5r-UUu"/>
+                        <constraint firstItem="qww-4f-1ld" firstAttribute="height" secondItem="KKE-zV-t9D" secondAttribute="height" id="Djg-9O-E5B"/>
                         <constraint firstItem="KKE-zV-t9D" firstAttribute="leading" secondItem="T8g-0Y-bvf" secondAttribute="leading" constant="36" id="MgT-pT-QlO"/>
                         <constraint firstItem="aX0-7I-2q1" firstAttribute="leading" secondItem="T8g-0Y-bvf" secondAttribute="leading" constant="25" id="Nou-ox-Fi9"/>
+                        <constraint firstItem="qww-4f-1ld" firstAttribute="centerX" secondItem="T8g-0Y-bvf" secondAttribute="centerX" id="Ns5-Je-6AY"/>
                         <constraint firstItem="KKE-zV-t9D" firstAttribute="leading" secondItem="T8g-0Y-bvf" secondAttribute="leading" constant="36" id="WVD-XX-ZDT"/>
                         <constraint firstItem="KKE-zV-t9D" firstAttribute="top" secondItem="T8g-0Y-bvf" secondAttribute="top" constant="25" id="kw1-dA-kWm"/>
                         <constraint firstAttribute="trailing" secondItem="aX0-7I-2q1" secondAttribute="trailing" constant="25" id="lzE-GC-2Fz"/>
                         <constraint firstItem="aX0-7I-2q1" firstAttribute="top" secondItem="KKE-zV-t9D" secondAttribute="bottom" constant="18" id="tMh-e3-Nv5"/>
+                        <constraint firstItem="qww-4f-1ld" firstAttribute="width" secondItem="KKE-zV-t9D" secondAttribute="width" id="vVP-oh-60r"/>
                     </constraints>
                 </view>
             </subviews>
@@ -71,7 +84,12 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="1wr-Yt-0lQ"/>
-            <point key="canvasLocation" x="-218.11594202898553" y="415.51339285714283"/>
+            <point key="canvasLocation" x="-218.84057971014494" y="415.51339285714283"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+    </resources>
 </document>

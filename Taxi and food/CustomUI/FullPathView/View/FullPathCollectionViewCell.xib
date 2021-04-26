@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullPathCollectionViewCell" customModule="Taxi_and_food" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FullPathCollectionViewCell" id="gTV-IL-0wX" customClass="FullPathCollectionViewCell" customModule="Taxi_and_food" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="102" height="80"/>
@@ -63,7 +63,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Lf7-Cx-YPU" secondAttribute="trailing" constant="27" id="12r-uE-qcj"/>
                             <constraint firstItem="ZWO-rn-1An" firstAttribute="top" secondItem="J7C-1r-08L" secondAttribute="top" constant="8" id="2AR-GX-gUn"/>
@@ -84,7 +84,11 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="J7C-1r-08L" secondAttribute="trailing" id="6kD-qJ-A5K"/>
+                <constraint firstItem="J7C-1r-08L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9ji-ea-ahc"/>
                 <constraint firstItem="J7C-1r-08L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="B9t-d4-ZZj"/>
+                <constraint firstItem="J7C-1r-08L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PS7-x9-7pO"/>
+                <constraint firstAttribute="bottom" secondItem="J7C-1r-08L" secondAttribute="bottom" id="SbR-sA-uC6"/>
                 <constraint firstItem="J7C-1r-08L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dOe-ck-VD7"/>
                 <constraint firstAttribute="bottom" secondItem="J7C-1r-08L" secondAttribute="bottom" id="lcL-yq-WhB"/>
                 <constraint firstAttribute="trailing" secondItem="J7C-1r-08L" secondAttribute="trailing" id="mC5-4R-2cB"/>

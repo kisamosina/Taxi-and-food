@@ -12,14 +12,20 @@ enum TimeToDestinationViewStringData: String {
     case nibName = "TimeToDestinationView"
 }
 
+enum TimeToDestinationViewSizes: CGFloat {
+    case height = 40
+    case width = 125
+    case cornerRadius = 15
+}
+
 struct TimeToDestinationViewTexts {
     
     static var labelTitle: String {
         switch UserDefaults.standard.getAppLanguage() {
         case .rus:
-            return "мин"
+            return "≈15 мин"
         case .eng:
-            return "min"
+            return "≈15 min"
         }
     }
 }

@@ -34,10 +34,35 @@ class FullPathView: UIView {
                 self.promoAndPointsStackView.isHidden = false
                 self.collectionView.isHidden = false
                 self.mainButton.setupAs(.order)
+                
+
+//
+            case .whenPoints(let pointsData):
+                
+
+//                self.setUpWhenPoints(pointsData)
+                self.mainButton.setupAs(.order)
+                
+                
             }
         }
     }
     
+    var pointsSpent: String = FullPathViewTexts.pointsLabel {
+        didSet {
+        
+            self.pointsViewLabel.text = pointsSpent
+        }
+    }
+    
+    var promoDiscount: Int? {
+        didSet {
+            guard let discount = promoDiscount else { return }
+            self.promoDiscountLabel.text = String(discount)
+        }
+    }
+
+  
     @IBOutlet var containerView: UIView!
     
     @IBOutlet var topView: UIView!
@@ -53,17 +78,21 @@ class FullPathView: UIView {
     @IBOutlet var pointsViewLabel: UILabel!
     @IBOutlet var promoView: UIView!
     @IBOutlet var pointsView: UIView!
-    
+    @IBOutlet var promoDiscountLabel: UILabel!
+    @IBOutlet var pointsToUseLabel: UILabel!
+    @IBOutlet var pointsIcone: UIImageView!
     //MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initSubviews()
+        self.initCollectionView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.initSubviews()
+        self.initCollectionView()
     }
     
     //MARK: - Methods
@@ -83,20 +112,24 @@ class FullPathView: UIView {
         self.topView.clipsToBounds = true
         
         self.collectionView.delaysContentTouches = false
+        self.collectionView.allowsSelection = true
+        self.collectionView.allowsMultipleSelection = true
+
     }
     
     private func initCollectionView() {
       let nib = UINib(nibName: "FullPathCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         collectionView.dataSource = self
+        collectionView.delegate = self
+
+
     }
     
     private func initSubviews() {
         
         self.loadFromNib(nibName: FullPathViewStringData.nibName.rawValue)
         
-        var nib = UINib(nibName: "FullPathCollectionViewCell", bundle:nil)
-        self.collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
@@ -106,7 +139,7 @@ class FullPathView: UIView {
         self.addressFromTextfield.addBottomBorder(color: Colors.buttonBlue.getColor())
         self.addressToTextfield.addBottomBorder(color: Colors.taxiOrange.getColor())
         self.promocodeViewLabel.text = FullPathViewTexts.promoLabel
-        self.pointsViewLabel.text = FullPathViewTexts.pointsLabel
+//        self.pointsViewLabel.text = FullPathViewTexts.pointsLabel
 //        promoView
         self.promoView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.promoView.layer.shadowOffset = CGSize(width: AdvantageViewShadowsData.shadowOffsetWidth.rawValue,
@@ -114,6 +147,7 @@ class FullPathView: UIView {
         self.promoView.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.promoView.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.promoView.layer.masksToBounds = false
+        self.promoDiscountLabel.isHidden = true
 //        pointsView
         self.pointsView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
         self.pointsView.layer.shadowOffset = CGSize(width: AdvantageViewShadowsData.shadowOffsetWidth.rawValue,
@@ -121,6 +155,7 @@ class FullPathView: UIView {
         self.pointsView.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.pointsView.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.pointsView.layer.masksToBounds = false
+        self.promoDiscountLabel.isHidden = true
         
     }
     
@@ -149,6 +184,22 @@ class FullPathView: UIView {
     public func setTariffOptions(_ options: [FullPathCellData]) {
         self.tariffOptions = options
         self.collectionView.reloadData()
+        collectionView.allowsMultipleSelection = false
+//        collectionView.selectItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, animated: false, scrollPosition: .left)
+    }
+    
+    private func setUpWhenPoints(_ pointsData: String) {
+        self.pointsToUseLabel.isHidden = true
+        self.pointsIcone.isHidden = true
+        
+        let pointsString = String(pointsData)
+        let text = FullPathViewTexts.minusPointsText.insert(text: pointsString)
+        self.pointsViewLabel.text = text
+        self.pointsViewLabel.setBoldAndGreen(forText: pointsString + " " + FullPathViewTexts.minusPointsText.selectedSuffixText())
+        
+//        self.pointsToUseLabel.text = String(pointsData)
+//        self.pointsViewLabel.text = FullPathViewTexts.pointsLabelChanged
+        
     }
     
     
@@ -181,6 +232,7 @@ class FullPathView: UIView {
 
 
 extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -190,14 +242,15 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
         
         cell.showData(for: mytariffOptions[indexPath.row])
         
+//        if(indexPath.row == 0) { //for first cell in the collection
+//            cell.backgroundColor = UIColor.white
+//        } else {
+//            cell.backgroundColor = Colors.backGroundGreyActive.getColor()
+//        }
+        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-        }
-    }
     
     
 }

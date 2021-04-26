@@ -17,22 +17,24 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     @IBOutlet var myContentView: UIView!
     override var isSelected: Bool {
         didSet {
-            self.myContentView.backgroundColor = isSelected ? UIColor.clear : Colors.notSelected.getColor()
+            self.myContentView.backgroundColor = isSelected ? UIColor.white : Colors.backGroundGreyActive.getColor()
         }
     }
     
     
-//    override var isHighlighted: Bool {
-//        didSet {
-//            if self.isHighlighted {
-//                backgroundColor = UIColor.white
-//            } else {
-//                backgroundColor = Colors.buttonGrey.getColor()
-//            }        }
-//    }
+    var totalSum: Int! {
+        didSet {
+            guard let sum = totalSum else { return }
+            self.costLabel.text = String(sum)
+            
+        }
+    }
+    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       
     }
     
     override func prepareForReuse() {
@@ -52,7 +54,8 @@ class FullPathCollectionViewCell: UICollectionViewCell {
         self.layer.shadowRadius = AdvantageViewShadowsData.shadowRadius.rawValue
         self.layer.shadowOpacity = Float(AdvantageViewShadowsData.shadowOpacity.rawValue)
         self.layer.masksToBounds = false
-        self.myContentView.backgroundColor = Colors.notSelected.getColor()
+        self.myContentView.backgroundColor = Colors.backGroundGreyActive.getColor()
+        
         
     }
     

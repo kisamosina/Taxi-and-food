@@ -83,6 +83,8 @@ protocol MapInteractorProtocol: class {
     
     //Get Food Categories for shops
     func makeRequest(for shopId: Int)
+//    
+//    func getPoints()
 }
 
 
@@ -115,4 +117,6 @@ protocol MapViewProtocol: class {
     func updateShopList(_ list: [ShopResponseData])
     
     func showFoodCategoriesForShop(_ shopDetailData: FoodCategoriesResponseData? )
+    
+//    func showPoints(_ pointsData: PointsResponseData) 
 }

@@ -34,7 +34,7 @@ class MapViewController: UIViewController {
     private var fullPathViewHeightConstraint: NSLayoutConstraint!
     
     //PromocodeEnter View
-    private var promocodeEnterView: PromocodeEnterView!
+    private var promocodeEnterView: PromoOrPointsEnterView!
     private var promocodeEnterViewBottomConstraint: NSLayoutConstraint!
     private var promocodeEnterViewHeightConstraint: NSLayoutConstraint!
     
@@ -51,6 +51,13 @@ class MapViewController: UIViewController {
     //Shops List View
     private var shopsListView: ShopsView!
     private var shopsListViewBottomConstraint: NSLayoutConstraint!
+    
+    //InactiveTopView
+    var inactiveTopView: InactiveView = InactiveView()
+    
+    //TimeToDestination View
+    var timeToDestinationVew: TimeToDestinationView!
+    
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -76,6 +83,7 @@ class MapViewController: UIViewController {
         self.removeMenuView()
         self.minimizePromoDestinationView()
         self.addSwipes()
+        self.addTapps()
         self.addKeyboardWillShowObserver()
         
         DispatchQueue.global(qos: .background).async {
@@ -167,15 +175,41 @@ class MapViewController: UIViewController {
         self.view.addGestureRecognizer(swipeRight)
     }
     
+    func addTapps() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(userHasTapped(_:)))
+        self.inactiveTopView.addGestureRecognizer(tapRecognizer)
+        self.view.addGestureRecognizer(tapRecognizer)
+    }
+    
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
         switch gesture.direction {
         case .left:
             self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
             self.animateMenuViewMinimizing()
-            
         default:
             break
         }
+    }
+    
+    @objc func userHasTapped(_ sender: UITapGestureRecognizer) {
+        if self.promocodeActivatedViewBottomConstraint !== nil {
+            self.hidePromocodeActivatedView()
+        }
+        if self.pointsSmallViewBottomConstraint !== nil {
+            self.hidePointsSmallView()
+        }
+        
+        if self.promocodeEnterViewBottomConstraint !== nil {
+            self.hidePromocodeEnterView()
+        }
+        
+//        if self.addressEnterViewBottomConstraint !== nil {
+//            self.hideAddressEnterView()
+//        }
+        
+        
+        self.inactiveTopView.removeFromSuperview()
+        
     }
     
 }
@@ -236,6 +270,10 @@ extension MapViewController {
 //MARK: - MapViewProtocol
 
 extension MapViewController: MapViewProtocol {
+//    func showPoints(_ pointsData: PointsResponseData) {
+//        
+//    }
+    
     func drawRoute() {
         
     }
@@ -248,7 +286,7 @@ extension MapViewController: MapViewProtocol {
     
     
     func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?) {
-        if let coordinate =  coordinate {
+        if let coordinate = coordinate {
             DispatchQueue.main.async {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = coordinate
@@ -325,6 +363,18 @@ extension MapViewController: MapViewProtocol {
         }
     }
     
+//    private func dismissPromocodeActivatedView() {
+//        if let promoActivatedView = self.promocodeActivatedView {
+//            self.hidePromocodeEnterView {[weak self] _ in
+//                guard let self = self else { return }
+//                self.bottomView.isHidden = false
+//                promoActivatedView.removeFromSuperview()
+//                self.promocodeActivatedView = nil
+//                self.promocodeActivatedViewBottomConstraint = nil
+//            }
+//        }
+//    }
+    
     func setViews(for state: MapViewControllerStates) {
         
         switch state {
@@ -336,6 +386,7 @@ extension MapViewController: MapViewProtocol {
             self.dismissAddressEnterView()
             self.dismissShopsView()
             self.dismissTaxiViews()
+//            self.dismissPromocodeActivatedView()
             
         case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
@@ -343,6 +394,7 @@ extension MapViewController: MapViewProtocol {
             self.bottomView.isHidden = true
             self.mapCenterButton.isHidden = true
             self.showAddressEnterView(as: addresEnterViewType)
+            
         }
     }
     
@@ -417,6 +469,20 @@ extension MapViewController: MapViewProtocol {
             self.present(chooseFoodViewController, animated: false, completion: nil)
         }
     }
+    
+//    func showPoints(_ pointsData: PointsResponseData?) {
+//
+//        guard let pointsData = pointsData else { return }
+//
+//        DispatchQueue.main.async {
+//            let pointsView = self.pointsSmallView
+//            let pointsSmallViewInteractor = PointsSmallViewInteractor(view: pointsView, data: pointsData)
+//
+//
+//        }
+//
+//
+//    }
 
 }
 
@@ -485,24 +551,7 @@ extension MapViewController: MenuViewDelegate {
     }
 }
 
-//MARK: - MKMapViewDelegate
 
-extension MapViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //Annotation for userLocation
-        if annotation.isEqual(mapView.userLocation) {
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
-            annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
-            return annotationView
-        }
-        
-        //Annotation for destination
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.DestinationLocation.rawValue)
-        annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
-        return annotationView
-    }
-}
 
 //MARK: - Full path view methods
 
@@ -537,12 +586,15 @@ extension MapViewController {
         self.setupFullPathViewConstraints(viewType: type)
         self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
         self.fullPathView.delegate = self
+        self.fullPathView.collectionView.delegate = self
 //        self.fullPathView.setTariffOptions(interactor.tariffOptions)
         
         //Animation
         Animator.shared.showView(animationType: .usualBottomAnimation(self.fullPathView, self.fullPathViewBottomConstraint), from: self.view)
         
     }
+    
+    
     
     //Setup hide animation for Address enter view
     func hidefullPathView(completion: AnimationCompletion? = nil) {
@@ -568,6 +620,7 @@ extension MapViewController: FullPathViewDelegate {
 //        self.hidefullPathView {[weak self] _ in
 //            guard let self = self else { return }
 //        }
+        self.hidefullPathView()
         self.showPromocodeEnterView(as: .promo)
     }
     
@@ -584,12 +637,28 @@ extension MapViewController: FullPathViewDelegate {
 //            guard let self = self else { return }
 //        }
         
+        self.hideAddressEnterView()
+        self.hidefullPathView()
         self.showFullPathView(as: .withTariff)
         
        
         }
     
 
+}
+
+extension MapViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == self.fullPathView.collectionView {
+            
+            
+        }
+        
+        print("select")
+ 
+             
+    }
 }
 
 //MARK: - Promocode activated view methods
@@ -612,8 +681,14 @@ extension MapViewController {
   
     }
     
-    private func showPromocodeActivatedView() {
+    private func showPromocodeActivatedView(with description: String) {
+        
+        inactiveTopView.frame = self.view.bounds
+//        inactiveTopView.delegate = self
+        self.view.addSubview(inactiveTopView)
+        
         self.promocodeActivatedView = PromocodeActivatedView(frame: CGRect.makeRect(height: PromocodeActivatedViewSize.height.rawValue))
+        self.promocodeActivatedView.descriptionLabel.text = description
         self.view.addSubview(self.promocodeActivatedView)
         
         setupPromocodeActivatedViewConstraints()
@@ -629,9 +704,40 @@ extension MapViewController {
         self.promocodeActivatedViewBottomConstraint.constant = PromocodeActivatedViewSize.height.rawValue + bottomPadding
         
         Animator.shared.hideView(animationType: .usualBottomAnimation(self.promocodeActivatedView, self.promocodeActivatedViewBottomConstraint), from: self.view, viewHeight: PromocodeActivatedViewSize.height.rawValue + bottomPadding, completion: completion)
+        
+        self.fullPathView.promoDiscountLabel.text = "-30"
     }
     
 }
+
+//MARK: - TimeToDestination view methods
+
+extension MapViewController {
+    
+    func showTimeToDestinationView() {
+        
+        
+        self.timeToDestinationVew = TimeToDestinationView(frame: CGRect.makeRect(height: TimeToDestinationViewSizes.height.rawValue))
+        self.view.addSubview(timeToDestinationVew)
+        
+        setupTimeToDestinationViewConstraint()
+    }
+    
+    private func  setupTimeToDestinationViewConstraint() {
+        self.timeToDestinationVew.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let topConstraint = timeToDestinationVew.topAnchor.constraint(equalTo: self.view.topAnchor, constant: topPadding + TimeToDestinationViewSizes.height.rawValue)
+        let horizontalConstraint = timeToDestinationVew.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+//            let verticalConstraint = timeToDestinationVew.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        let widthConstraint = timeToDestinationVew.widthAnchor.constraint(equalToConstant: TimeToDestinationViewSizes.width.rawValue)
+        let heightConstraint = timeToDestinationVew.heightAnchor.constraint(equalToConstant: TimeToDestinationViewSizes.height.rawValue)
+            view.addConstraints([topConstraint, horizontalConstraint, widthConstraint, heightConstraint])
+        }
+    
+    
+}
+
 
 //MARK: - Points small view methods
 
@@ -639,12 +745,15 @@ extension MapViewController {
     
     func showPointsSmallViewOnTop(_ pointsData: PointsResponseData) {
         
-        inactiveView.frame = self.view.bounds
+        inactiveTopView.frame = self.view.bounds
         
-        self.view.addSubview(inactiveView)
+        self.view.addSubview(inactiveTopView)
         
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.pointsSmallView.delegate = self
         self.view.addSubview(pointsSmallView)
+        
+        
 
         setupPointsSmallViewConstraints()
 
@@ -672,16 +781,24 @@ extension MapViewController {
 
     private func showPointsSmallView() {
         
-        self.inactiveView.alpha = 1
-
+        inactiveTopView.frame = self.view.bounds
+        self.view.addSubview(inactiveTopView)
         
         self.pointsSmallView = PointsSmallView(frame: CGRect.makeRect(height: PointsSmallViewSize.height.rawValue))
+        self.pointsSmallView.delegate = self
         self.view.addSubview(pointsSmallView)
 
         setupPointsSmallViewConstraints()
 
         //Animation
         Animator.shared.showView(animationType: .usualBottomAnimation(self.pointsSmallView, self.pointsSmallViewBottomConstraint), from: self.view)
+        
+        DispatchQueue.main.async {
+           
+            self.pointsSmallView.initPointsSmallViewInteractor()
+            self.pointsSmallView.interactor.getPoints()
+            
+        }
 
 
     }
@@ -694,6 +811,22 @@ extension MapViewController {
     }
 
 }
+
+    //PointsSmallView delegate methods
+
+extension MapViewController: PointsSmallViewDelegate {
+    
+    func anotherAmountButtonDidTapped() {
+        print("anotherAmount button tapped")
+        self.pointsSmallView.removeFromSuperview()
+        self.showPromocodeEnterView(as: .points)
+        
+    }
+
+}
+    
+    
+
 
 
 //MARK: - Promocode enter view methods
@@ -723,19 +856,23 @@ extension MapViewController {
             print("show promocode enter view")
 //            guard let promocodeEnterViewBottomConstraint = self.promocodeEnterViewBottomConstraint else { return }
 
-            self.promocodeEnterView = PromocodeEnterView(frame: CGRect.makeRect(height: PromocodeEnterViewSize.height.rawValue))
+            self.promocodeEnterView = PromoOrPointsEnterView(frame: CGRect.makeRect(height: PromocodeEnterViewSize.height.rawValue))
             self.view.addSubview(self.promocodeEnterView)
             self.promocodeEnterView.setView(as: type)
             setupAddressEnterViewConstraints()
             self.promocodeEnterView.delegate = self
-//            self.promocodeEnterView.setupConstraints(for: self.view,
-//                                                         viewHeight: PromocodeEnterViewSize.height.rawValue,
-//                                                         bottomContraintConstant: PromocodeEnterViewSize.height.rawValue + bottomPadding) { [weak self] constraint in
-//                guard let self = self else { return }
-//                self.promocodeEnterViewBottomConstraint = constraint
+
 
                //Animation
                 Animator.shared.showView(animationType: .usualBottomAnimation(self.promocodeEnterView, self.promocodeEnterViewBottomConstraint), from: self.view)
+            
+            DispatchQueue.main.async {
+               
+                self.promocodeEnterView.initPromoOrPointsEnterViewInteractor()
+            
+
+                
+            }
 
             }
     
@@ -752,25 +889,59 @@ extension MapViewController {
 
 //MARK: - Promocode enter view delegate methods
 
-extension MapViewController: PromocodeEnterViewDelegate {
-    func approveButtonDidTapped() {
-        
-//        self.hidePromocodeActivatedView {[weak self] _ in
-//            guard let self = self else { return }
-//        }
-        
-        self.hidePromocodeEnterView {[weak self] _ in
+extension MapViewController: PromoOrPointsEnterViewDelegate {
+    func approveButtonDidTapped(for type: PromocodeEnterViewType, with text: String) {
+        switch type {
+        case .promo:
+            self.promocodeEnterView.interactor.requestPromoActivation(code: text)
+            
+//            DispatchQueue.main.async {
+//                self.showPromocodeActivatedView(with: text)
+//                    
+//    }
+//                
+            
+        case .points:
+            self.hidePromocodeEnterView {[weak self] result in
             guard let self = self else { return }
+            
+            self.inactiveTopView.removeFromSuperview()
+            self.hidefullPathView()
+            self.fullPathView.pointsSpent = text
+//
+//            self.showFullPathView(as: .withTariff)
+            
+            self.showFullPathView(as: .whenPoints(text))
+   
         }
-        self.showFullPathView(as: .withTariff)
+        }
+    }
+    
+
+    
+    func setUpDescription(data: PromocodeDataResponse) {
+        DispatchQueue.main.async {
+            self.hidePromocodeEnterView {[weak self] _ in
+                    guard let self = self else { return }
+                }
+            self.showFullPathView(as: .withTariff)
+                
+            self.inactiveView.alpha = 1
+                
+                
+            print("showing activated view")
+                
+//            self.promocodeActivatedView.descriptionLabel.text = data.description
+            self.showPromocodeActivatedView(with: data.description)
+        }
+    }
+    
+
+    func showSuccess() {
         
-        self.inactiveView.alpha = 1
-        
-        
-        print("showing activated view")
-        self.showPromocodeActivatedView()
         
     }
+    
     
 
     
@@ -884,7 +1055,7 @@ extension MapViewController: AddressEnterViewDelegate {
         self.navigationController?.pushViewController(showLocationVC, animated: true)
     }
     
-    //Action when user swipe on address enter view
+    //Action when user swipe on address enter view f
     func userHasSwipedViewDown() {
         self.interactor.setViewControllerState(.start)
     }
@@ -900,7 +1071,9 @@ extension MapViewController: AddressEnterViewDelegate {
                 guard let self = self else { return }
             }
             self.showFullPathView(as: .address)
-//            self.drawPath()
+            self.showTimeToDestinationView()
+           
+            self.drawPath()
             print("Taxi")
 //            self.showFullPathView()
         case .food:
@@ -999,17 +1172,100 @@ extension MapViewController {
     }
 }
 
-extension MapViewController {
-    func drawPath() {
-        let sourceLocation = self.interactor.sourceAddress
-        let destinationLocation = self.interactor.destinationAddress
-        print("sourceLocation")
-        print(sourceLocation)
+//MARK: - MKMapViewDelegate
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Annotation for userLocation
+        if annotation.isEqual(mapView.userLocation) {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.UserLocationReuseId.rawValue)
+            annotationView.image = UIImage(named: CustomImagesNames.userPin.rawValue)
+            return annotationView
+        }
         
-        print("and destination")
-        print(destinationLocation)
+        //Annotation for destination
         
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MapViewControllerStringData.DestinationLocation.rawValue)
+        annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
+        return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else { return MKPolylineRenderer() }
+        
+       
+//        let gradientColors = [Colors.buttonBlue.getColor(), Colors.taxiOrange.getColor()]
+//
+        let polylineRenderer = MKPolylineRenderer(overlay: polyline)
+        polylineRenderer.fillColor = Colors.buttonBlue.getColor().withAlphaComponent(0.2)
+        polylineRenderer.strokeColor = Colors.taxiOrange.getColor().withAlphaComponent(0.7)
+        polylineRenderer.lineWidth = 3
+     
+        return polylineRenderer
+    }
+
+    func drawPath() {
+        
+        let sourceCoordLocation = self.mapView.userLocation.coordinate
+       
+
+        guard let destinationCoordLocation = self.interactor.destinationLocationFromMap else { return }
+        
+        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordLocation, addressDictionary: nil)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+      
+        
+        let sourceAnnotation = MKPointAnnotation()
+        sourceAnnotation.coordinate = sourceCoordLocation
+        
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.coordinate = destinationCoordLocation
+                
+        
+        
+//        self.mapView.showAnnotations([sourceAnnotation, destinationAnnotation], animated: false)
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        // 8.
+        directions.calculate {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            
+           
+            let route = response.routes[0]
+            self.mapView.addOverlay((route.polyline), level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        
+        }
+        
+//        let route = [sourceCoordLocation, destinationCoordLocation]
+//        let polyline = MKPolyline(coordinates: route, count: route.count)
+        
+//        self.mapView.addOverlay(polyline, level: .aboveRoads)
+
+    }
+    
 }
 
 
@@ -1112,3 +1368,5 @@ extension MapViewController: ChooseFoodCategoryViewControllerDelegate {
     }
     
 }
+
+//extension MapViewController: SubstrateViewController {}

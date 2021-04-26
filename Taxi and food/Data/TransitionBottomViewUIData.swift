@@ -88,7 +88,7 @@ struct TransitionBottomViewTexts {
         switch UserDefaults.standard.getAppLanguage() {
         
         case .rus:
-            return "У вас $ бонусных баллов"
+            return "У вас $ баллов"
         case .eng:
             return "You have $ bounucing points"
         }

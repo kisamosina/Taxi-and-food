@@ -8,8 +8,23 @@
 
 import UIKit
 
-class PointsSmallView: UIView {
+protocol PointsSmallViewProtocol: class {
+    
+    var interactor: PointsSmallViewInteractorProtocol! { get set }
+    
+    func setupPoints(_ pointsData: PointsResponseData)
+    
+//    func updateData()
+}
 
+class PointsSmallView: UIView {
+    
+    //MARK: - Properties
+    var interactor: PointsSmallViewInteractorProtocol!
+    
+    weak var delegate: PointsSmallViewDelegate?
+    
+    //MARK: - IBOutlets
     @IBOutlet var youHaveLabel: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet var containerView: UIView!
@@ -28,6 +43,25 @@ class PointsSmallView: UIView {
         self.initSubviews()
     }
     
+    //MARK: - Methods
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        //Layout setup
+        self.contentView.layer.cornerRadius = TransitionBottomViewSizes.cornerRadius.rawValue
+        self.contentView.layer.shadowColor = Colors.shadowColor.getColor().cgColor
+        self.contentView.layer.shadowOpacity = Float(TransitionBottomViewSizes.shadowOpacity.rawValue)
+        self.contentView.layer.shadowRadius = TransitionBottomViewSizes.cornerRadius.rawValue
+        self.contentView.layer.shadowOffset = CGSize(width: TransitionBottomViewSizes.shadowOffsetWidth.rawValue,
+                                                     height: TransitionBottomViewSizes.shadowOffsetWidth.rawValue)
+        self.contentView.layer.masksToBounds = false
+        
+        self.spendAllButton.setupAs(.spendAllPoints)
+        self.otherAmountButton.setTitle(PointsSmallViewTexts.otherAmountButtonTitle, for: .normal)
+        
+    }
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             self.topAnchor.constraint(equalTo: containerView.topAnchor),
@@ -38,30 +72,46 @@ class PointsSmallView: UIView {
     }
     
     private func initSubviews() {
+        
+        
         self.loadFromNib(nibName: PointsSmallViewStringData.nibName.rawValue)
         
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         
+        
+        
         self.spendAllButton.setupAs(.spendAllPoints)
         self.otherAmountButton.setTitle(PointsSmallViewTexts.otherAmountButtonTitle, for: .normal)
-        self.youHaveLabel.text = "У вас баллов"
+//        self.youHaveLabel.text = "У вас баллов"
         self.setupConstraints()
          
     }
     
-    //Points show in other times
-    public func setupPoints(_ pointsData: PointsResponseData) {
-        
-        let pointsString = String(pointsData.credit)
-        let text = TransitionBottomViewTexts.youHaveNPointsText.insert(text: pointsString)
-        self.youHaveLabel.text = text
-        self.youHaveLabel.setBoldAndOrange(pointsString + " " + TransitionBottomViewTexts.youHaveNPointsText.selectedSuffixText())
-        
-        self.spendAllButton.setupAs(.spendAllPoints)
-        self.otherAmountButton.setTitle(PointsSmallViewTexts.otherAmountButtonTitle, for: .normal)
-        
-
+    func initPointsSmallViewInteractor() {
+        self.interactor = PointsSmallViewInteractor(view: self)
     }
+    @IBAction func otherAmountButtonTapped(_ sender: Any) {
+        print("button on view tapped")
+        self.delegate?.anotherAmountButtonDidTapped()
+    }
+    
+    
 }
+    
+extension PointsSmallView: PointsSmallViewProtocol {
+
+    
+    func setupPoints(_ pointsData: PointsResponseData) {
+        DispatchQueue.main.async {
+            let pointsString = String(pointsData.credit)
+            let text = TransitionBottomViewTexts.youHaveNPointsText.insert(text: pointsString)
+            self.youHaveLabel.text = text
+            self.youHaveLabel.setBoldAndOrange(pointsString + " " + TransitionBottomViewTexts.youHaveNPointsText.selectedSuffixText())
+        }
+    }
+    
+}
+    
+
 
