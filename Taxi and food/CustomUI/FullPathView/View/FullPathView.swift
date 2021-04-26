@@ -232,6 +232,7 @@ class FullPathView: UIView {
 
 
 extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -250,15 +251,6 @@ extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if indexPath.row == 0 {
-//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-//
-//
-//        }
-        
-        print("select")
-    }
     
     
 }

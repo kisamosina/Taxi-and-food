@@ -586,6 +586,7 @@ extension MapViewController {
         self.setupFullPathViewConstraints(viewType: type)
         self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
         self.fullPathView.delegate = self
+        self.fullPathView.collectionView.delegate = self
 //        self.fullPathView.setTariffOptions(interactor.tariffOptions)
         
         //Animation
@@ -644,6 +645,20 @@ extension MapViewController: FullPathViewDelegate {
         }
     
 
+}
+
+extension MapViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == self.fullPathView.collectionView {
+            
+            
+        }
+        
+        print("select")
+ 
+             
+    }
 }
 
 //MARK: - Promocode activated view methods
