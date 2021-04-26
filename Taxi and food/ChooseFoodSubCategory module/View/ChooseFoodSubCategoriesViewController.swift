@@ -78,7 +78,7 @@ extension ChooseFoodSubCategoriesViewController {
     }
     
     //Hide view
-    private func hideSubCategoryView(hasSwipedDown: Bool = false) {
+    private func hideSubCategoryView(hasSwipedDown: Bool = false, isBackButtonTapped: Bool = false) {
         
         let viewHeight = self.subcategoryView.bounds.height
         
@@ -87,6 +87,7 @@ extension ChooseFoodSubCategoriesViewController {
             self.subcategoryView.removeFromSuperview()
             self.subcategoryView = nil
             self.subcategoryViewBottomConstraint = nil
+            if isBackButtonTapped { self.delegate?.backToCategoriesButtonTapped()}
             self.dismiss(animated: false, completion: nil)
             if hasSwipedDown { self.delegate?.userHasSwipedView()}
         }
@@ -101,7 +102,7 @@ extension ChooseFoodSubCategoriesViewController: FoodSubCategoryViewDelegate {
     
     
     func backButtonHasTapped() {
-        self.hideSubCategoryView()
+        self.hideSubCategoryView(hasSwipedDown: false, isBackButtonTapped: true)
     }
 }
 
@@ -136,7 +137,7 @@ extension ChooseFoodSubCategoriesViewController {
     }
     
     //Hide view
-    private func hideSubcategoryAndProductsView(hasSwipedDown: Bool = false) {
+    private func hideSubcategoryAndProductsView(hasSwipedDown: Bool = false, isBackButtonTapped: Bool = false) {
         
         Animator.shared.hideView(animationType: .categoriesView(self.subcategoryAndProductView, self.subcategoryAndProductViewTopConstraint, self.subcategoryAndProductViewBottomConstraint), from: self.view) {[weak self] _ in
             guard let self = self else { return }
@@ -145,6 +146,7 @@ extension ChooseFoodSubCategoriesViewController {
             self.subcategoryAndProductViewTopConstraint = nil
             self.subcategoryAndProductViewBottomConstraint = nil
             self.dismiss(animated: false, completion: nil)
+            if isBackButtonTapped { self.delegate?.backToCategoriesButtonTapped() }
             if hasSwipedDown { self.delegate?.userHasSwipedView() }
         }
     }
@@ -160,7 +162,7 @@ extension ChooseFoodSubCategoriesViewController: FoodSubcategoryAndProductViewDe
     }
 
     func backButtonTapped() {
-        self.hideSubcategoryAndProductsView()
+        self.hideSubcategoryAndProductsView(isBackButtonTapped: true)
     }
     
     

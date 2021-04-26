@@ -29,7 +29,6 @@ class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCateg
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         self.showFoodCategoryView(interactor.foodCategories)
     }
     
@@ -45,6 +44,7 @@ class ChooseFoodCategoryViewController: SubstrateViewController, ChooseFoodCateg
             chooseFoodSubCategoriesVC.delegate = self
             let navigationController = UINavigationController(rootViewController: chooseFoodSubCategoriesVC)
             navigationController.modalPresentationStyle = .overCurrentContext
+            self.foodCategoryView.alpha = 0
             self.present(navigationController, animated: false)
         }
     }
@@ -178,6 +178,11 @@ extension ChooseFoodCategoryViewController: ShopDetailViewDelegate {
 extension ChooseFoodCategoryViewController: ChooseFoodSubCategoriesViewControllerDelegate {
    
     func userHasSwipedView() {
+        self.foodCategoryView.alpha = 1
         self.delegate?.userHasSwiped()
+    }
+    
+    func backToCategoriesButtonTapped() {
+        self.foodCategoryView.alpha = 1
     }
 }
