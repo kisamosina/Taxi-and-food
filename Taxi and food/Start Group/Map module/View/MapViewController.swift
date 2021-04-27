@@ -178,7 +178,8 @@ class MapViewController: UIViewController {
     func addTapps() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(userHasTapped(_:)))
         self.inactiveTopView.addGestureRecognizer(tapRecognizer)
-        self.view.addGestureRecognizer(tapRecognizer)
+       
+//        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
@@ -587,6 +588,11 @@ extension MapViewController {
         self.fullPathView.setupAddress(from: sourceLocation, to: destinationLocation)
         self.fullPathView.delegate = self
         self.fullPathView.collectionView.delegate = self
+        self.fullPathView.collectionView.isUserInteractionEnabled = true
+        self.fullPathView.collectionView.allowsMultipleSelection = false
+        
+       
+        
 //        self.fullPathView.setTariffOptions(interactor.tariffOptions)
         
         //Animation
@@ -648,16 +654,22 @@ extension MapViewController: FullPathViewDelegate {
 }
 
 extension MapViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print("deselect")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if collectionView == self.fullPathView.collectionView {
             
-            
         }
-        
-        print("select")
- 
+
              
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        collectionView.indexPathsForSelectedItems?.filter({ $0.section == indexPath.section }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+        return true
     }
 }
 

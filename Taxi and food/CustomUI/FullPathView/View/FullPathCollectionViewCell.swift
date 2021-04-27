@@ -40,6 +40,7 @@ class FullPathCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.iconImage.image = nil
+        self.isSelected = false
 
         
     }

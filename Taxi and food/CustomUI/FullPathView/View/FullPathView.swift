@@ -121,8 +121,6 @@ class FullPathView: UIView {
       let nib = UINib(nibName: "FullPathCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "FullPathCollectionViewCell")
         collectionView.dataSource = self
-        collectionView.delegate = self
-
 
     }
     
@@ -231,7 +229,7 @@ class FullPathView: UIView {
 
 
 
-extension FullPathView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension FullPathView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
