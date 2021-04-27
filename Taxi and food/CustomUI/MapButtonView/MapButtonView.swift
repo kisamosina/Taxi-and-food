@@ -8,17 +8,24 @@
 
 import UIKit
 
-class MapButtonView: UIView {
+@IBDesignable class MapButtonView: UIView {
 
     //MARK: - Properties
     
     weak var delegate: MapButtonViewDelegate?
+    
+    @IBInspectable var underlineViewColor: UIColor? {
+        set { self.underLineView.backgroundColor = newValue }
+        get { return self.underLineView.backgroundColor }
+    }
     
     //MARK: - IBOutlets
     
     @IBOutlet var containerView: UIView!
     
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var underLineView: UIView!
     
     //MARK: - Initializers
     

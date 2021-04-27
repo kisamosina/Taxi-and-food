@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaxiOrderView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="addressFromTextField" destination="nQa-re-h2M" id="yLf-LZ-fVY"/>
+                <outlet property="addressFromUnderLineView" destination="PrE-mS-auR" id="xDc-sf-DTP"/>
+                <outlet property="addressToTextField" destination="kDa-pf-yYH" id="l2c-oE-jdI"/>
+                <outlet property="addressToUnderLineView" destination="UWi-Xs-1Bl" id="jax-Bm-trk"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="3SA-BO-3hi"/>
+                <outlet property="discountStackView" destination="9P3-ZN-Zz7" id="9nN-iu-e1g"/>
+                <outlet property="orderButton" destination="wW0-XQ-7dM" id="F5M-q5-xYc"/>
+                <outlet property="tariffsCollectionView" destination="7qg-fm-Fvp" id="UtU-rD-5hG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="398"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arc" translatesAutoresizingMaskIntoConstraints="NO" id="XA5-pR-9Yw">
+                    <rect key="frame" x="10" y="48" width="12" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="12" id="fNB-lc-c1x"/>
+                        <constraint firstAttribute="height" constant="52" id="jAy-V8-aNc"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-rU-O5R">
+                    <rect key="frame" x="22" y="31" width="367" height="352"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQT-Du-Cdp" userLabel="AddressFrom">
+                            <rect key="frame" x="0.0" y="0.0" width="367" height="34"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-eB-dXq">
+                                    <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPin" translatesAutoresizingMaskIntoConstraints="NO" id="CHF-Ve-opa">
+                                            <rect key="frame" x="5" y="7.5" width="12" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="12" id="2QB-X4-Rpk"/>
+                                                <constraint firstAttribute="height" constant="19" id="phW-pJ-nZc"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="9GI-0d-anH"/>
+                                        <constraint firstItem="CHF-Ve-opa" firstAttribute="centerY" secondItem="R4Q-eB-dXq" secondAttribute="centerY" id="Rvu-sO-JQc"/>
+                                        <constraint firstItem="CHF-Ve-opa" firstAttribute="centerX" secondItem="R4Q-eB-dXq" secondAttribute="centerX" id="g8e-IG-VUE"/>
+                                        <constraint firstAttribute="width" constant="22" id="wCC-9u-OER"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q6Y-A6-RfT">
+                                    <rect key="frame" x="22" y="0.0" width="345" height="34"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-re-h2M" userLabel="AddressFromTextField">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-mS-auR" userLabel="AddressFromUnderLine">
+                                            <rect key="frame" x="0.0" y="33" width="345" height="1"/>
+                                            <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="G1r-DV-mwK"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8D-bp-R6O" userLabel="AddressTo">
+                            <rect key="frame" x="0.0" y="60" width="367" height="34"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS7-iN-ymN">
+                                    <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPinOrange" translatesAutoresizingMaskIntoConstraints="NO" id="ayp-eb-fFF">
+                                            <rect key="frame" x="5" y="7.5" width="12" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="12" id="VT6-nZ-CbJ"/>
+                                                <constraint firstAttribute="height" constant="19" id="umY-De-ik2"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="ayp-eb-fFF" firstAttribute="centerY" secondItem="AS7-iN-ymN" secondAttribute="centerY" id="9a1-U4-LIg"/>
+                                        <constraint firstAttribute="height" constant="34" id="dJU-Q7-Eki"/>
+                                        <constraint firstAttribute="width" constant="22" id="fHA-li-PIM"/>
+                                        <constraint firstItem="ayp-eb-fFF" firstAttribute="centerX" secondItem="AS7-iN-ymN" secondAttribute="centerX" id="tpg-jI-xmV"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sBI-45-HKE">
+                                    <rect key="frame" x="22" y="0.0" width="280" height="34"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-pf-yYH">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWi-Xs-1Bl" userLabel="AddressToAnderLine">
+                                            <rect key="frame" x="0.0" y="33" width="280" height="1"/>
+                                            <color key="backgroundColor" red="0.98431372549019602" green="0.55686274509803924" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="LoO-c8-Ggr"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fk9-HF-37V" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <rect key="frame" x="302" y="0.0" width="65" height="34"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="65" id="Cxo-kL-Ig4"/>
+                                        <constraint firstAttribute="height" constant="34" id="F47-hc-c2g"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="underlineViewColor">
+                                            <color key="value" red="0.98431372549019602" green="0.55686274509803924" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-fm-Fvp">
+                            <rect key="frame" x="0.0" y="120" width="367" height="80"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="ZP3-D4-CHU"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kEU-1X-ZoC">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="ldZ-Fb-yBo"/>
+                                <outlet property="delegate" destination="-1" id="sgg-oS-A0l"/>
+                            </connections>
+                        </collectionView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9P3-ZN-Zz7" userLabel="DiscountsStackView">
+                            <rect key="frame" x="0.0" y="226" width="367" height="50"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgC-aI-IuS" customClass="DiscountsButtonView" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="178.5" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="f5c-Uy-KNs"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Промокод"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNz-YA-AdM" customClass="DiscountsButtonView" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <rect key="frame" x="188.5" y="0.0" width="178.5" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="umu-nn-g1i"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="discountImage" value="icon_points"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Баллы"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wW0-XQ-7dM" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="302" width="367" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="kwf-Qy-HDN"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="XA5-pR-9Yw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="48" id="3f2-qa-ONe"/>
+                <constraint firstItem="DTE-rU-O5R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="FhT-Ns-l16"/>
+                <constraint firstItem="XA5-pR-9Yw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="NhJ-kR-Nfy"/>
+                <constraint firstItem="DTE-rU-O5R" firstAttribute="leading" secondItem="XA5-pR-9Yw" secondAttribute="trailing" id="cyh-tz-G9s"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTE-rU-O5R" secondAttribute="trailing" constant="25" id="mZu-KW-MAT"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="316.74107142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_arc" width="12" height="52"/>
+        <image name="icon_points" width="21" height="16"/>
+        <image name="userPin" width="15.5" height="24"/>
+        <image name="userPinOrange" width="15.5" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

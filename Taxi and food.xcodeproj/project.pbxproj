@@ -240,6 +240,14 @@
 		7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9067CA2614F02500B06BAB /* ShopsView.swift */; };
 		7D9067D02614F06400B06BAB /* ShopsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9067CF2614F06400B06BAB /* ShopsView.xib */; };
 		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
+		7DA996CC26381D8B00BDE0BA /* TaxiOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996CB26381D8B00BDE0BA /* TaxiOrderView.swift */; };
+		7DA996D126381DD400BDE0BA /* TaxiOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA996D026381DD400BDE0BA /* TaxiOrderView.xib */; };
+		7DA996DD2638217400BDE0BA /* TaxiOrderViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996DC2638217400BDE0BA /* TaxiOrderViewUIData.swift */; };
+		7DA996E2263840D200BDE0BA /* DiscountsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996E1263840D200BDE0BA /* DiscountsButtonView.swift */; };
+		7DA996E7263840F300BDE0BA /* DiscountsButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA996E6263840F300BDE0BA /* DiscountsButtonView.xib */; };
+		7DA996F02638411800BDE0BA /* DiscountsButtonViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996EF2638411800BDE0BA /* DiscountsButtonViewUIData.swift */; };
+		7DA996FE263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996FC263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift */; };
+		7DA996FF263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA996FD263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib */; };
 		7DC63554261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */; };
 		7DC63559261CC66500EC4F3D /* ChooseFoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */; };
 		7DC6355E261CC7E600EC4F3D /* ChooseFoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */; };
@@ -518,6 +526,14 @@
 		7D9067CA2614F02500B06BAB /* ShopsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsView.swift; sourceTree = "<group>"; };
 		7D9067CF2614F06400B06BAB /* ShopsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopsView.xib; sourceTree = "<group>"; };
 		7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveVIewControllerDelegate.swift; sourceTree = "<group>"; };
+		7DA996CB26381D8B00BDE0BA /* TaxiOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderView.swift; sourceTree = "<group>"; };
+		7DA996D026381DD400BDE0BA /* TaxiOrderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOrderView.xib; sourceTree = "<group>"; };
+		7DA996DC2638217400BDE0BA /* TaxiOrderViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderViewUIData.swift; sourceTree = "<group>"; };
+		7DA996E1263840D200BDE0BA /* DiscountsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsButtonView.swift; sourceTree = "<group>"; };
+		7DA996E6263840F300BDE0BA /* DiscountsButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscountsButtonView.xib; sourceTree = "<group>"; };
+		7DA996EF2638411800BDE0BA /* DiscountsButtonViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsButtonViewUIData.swift; sourceTree = "<group>"; };
+		7DA996FC263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		7DA996FD263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOrderCollectionViewCell.xib; sourceTree = "<group>"; };
 		7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodCategoryViewController.swift; sourceTree = "<group>"; };
 		7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodProtocols.swift; sourceTree = "<group>"; };
 		7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodInteractor.swift; sourceTree = "<group>"; };
@@ -975,6 +991,7 @@
 				7D47492A25FAADC000F744F7 /* AuxiliaryButtonUIData.swift */,
 				7D5FD984261F6DA2000345BA /* ChooseSubcategoriesAndProductModuleUIData.swift */,
 				7B75CED525DAE065001981CA /* ConfirmAuthModuleUIData.swift */,
+				7DA996EF2638411800BDE0BA /* DiscountsButtonViewUIData.swift */,
 				7D851C5425F687C7000E20DB /* EnterCardUIData.swift */,
 				7D4915AB2618C37300EBD03A /* FoodCategoriesViewUIData.swift */,
 				7D4915F32619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift */,
@@ -1003,6 +1020,7 @@
 				7DE338AA261B9106006EA531 /* ShopDetailViewUIData.swift */,
 				7DD93B592614F90000AC3990 /* ShopsViewUIData.swift */,
 				7B75CF2F25DD661A001981CA /* TarifModuleData.swift */,
+				7DA996DC2638217400BDE0BA /* TaxiOrderViewUIData.swift */,
 				7B75CFDE25E3CBEC001981CA /* Taxi_and_food.xcdatamodeld */,
 				7B75D04625E52979001981CA /* TextEnterViewUIData.swift */,
 				7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */,
@@ -1114,7 +1132,6 @@
 		7B75CEE525DAE6E4001981CA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
-				7DE338AF261CC230006EA531 /* SubstrateViewController.swift */,
 				7BD7CB8726036AAA0099C9B7 /* AboutPointsView */,
 				7D33FA6C260A56C600DA5D0C /* AddressEnterDetailView */,
 				7BEA203B26008536007DD69A /* AddressEnterView */,
@@ -1123,8 +1140,9 @@
 				7B47C87B25E147E700F366FE /* CloseMenuButton.swift */,
 				7D49159826189F3000EBD03A /* CustomBottomView.swift */,
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
-				7DECA8BE261E10AB00E74C84 /* FoodCategoryAndSubCategoryView */,
+				7DA996EB263840F900BDE0BA /* DiscountsButtonView */,
 				7D4915A72618C34000EBD03A /* FoodCategoriesView */,
+				7DECA8BE261E10AB00E74C84 /* FoodCategoryAndSubCategoryView */,
 				7D4915E92619D41500EBD03A /* FoodSubCategoryView */,
 				7D33FAAC260BB34F00DA5D0C /* InactiveView */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
@@ -1137,10 +1155,12 @@
 				7B75CF1325DC4C53001981CA /* ProblemTextView.swift */,
 				043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
-				7D9067D42614F06B00B06BAB /* ShopsView */,
 				7D491618261B706200EBD03A /* ShopDetailView */,
+				7D9067D42614F06B00B06BAB /* ShopsView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
+				7DE338AF261CC230006EA531 /* SubstrateViewController.swift */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
+				7DA996D526381DDF00BDE0BA /* TaxiOrderView */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
 				7D868D49260E794E00D3A91E /* TipAddressView */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
@@ -1664,6 +1684,34 @@
 			path = ShopsView;
 			sourceTree = "<group>";
 		};
+		7DA996D526381DDF00BDE0BA /* TaxiOrderView */ = {
+			isa = PBXGroup;
+			children = (
+				7DA996CB26381D8B00BDE0BA /* TaxiOrderView.swift */,
+				7DA996D026381DD400BDE0BA /* TaxiOrderView.xib */,
+				7DA99703263851B600BDE0BA /* TaxiOrderCollectionViewCell */,
+			);
+			path = TaxiOrderView;
+			sourceTree = "<group>";
+		};
+		7DA996EB263840F900BDE0BA /* DiscountsButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				7DA996E1263840D200BDE0BA /* DiscountsButtonView.swift */,
+				7DA996E6263840F300BDE0BA /* DiscountsButtonView.xib */,
+			);
+			path = DiscountsButtonView;
+			sourceTree = "<group>";
+		};
+		7DA99703263851B600BDE0BA /* TaxiOrderCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DA996FC263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift */,
+				7DA996FD263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib */,
+			);
+			path = TaxiOrderCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		7DC63552261CC53000EC4F3D /* ChooseFoodCategory module */ = {
 			isa = PBXGroup;
 			children = (
@@ -1844,13 +1892,16 @@
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
 				7BEA203726008529007DD69A /* AddressEnterView.xib in Resources */,
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
+				7DA996E7263840F300BDE0BA /* DiscountsButtonView.xib in Resources */,
 				7D00DDE426076B76004D5777 /* MapButtonView.xib in Resources */,
 				7BD7CB8326036AA30099C9B7 /* AboutPointsView.xib in Resources */,
 				7D868D45260E794200D3A91E /* TipAddressView.xib in Resources */,
 				7D4915A32618A57400EBD03A /* FoodCategoriesView.xib in Resources */,
 				7BFFA71025DBCC9200C35652 /* AuthAndMap.storyboard in Resources */,
+				7DA996FF263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib in Resources */,
 				7D4915E52619D40F00EBD03A /* FoodSubCategoryView.xib in Resources */,
 				7B3A8FCF25EA8BCF008CA13E /* PaymentHistory.storyboard in Resources */,
+				7DA996D126381DD400BDE0BA /* TaxiOrderView.xib in Resources */,
 				7D4915BB2618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
 				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
@@ -1885,6 +1936,7 @@
 				0414314925F9D7770074D86C /* AllAddressesViewController.swift in Sources */,
 				7D5FD95D261F62A7000345BA /* ChooseFoodSubCategoriesViewController.swift in Sources */,
 				7B75CFA525E03D5A001981CA /* MapBottomView.swift in Sources */,
+				7DA996FE263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift in Sources */,
 				04CA5A5125E8F2CF00EDC886 /* PersonalDataInteractor.swift in Sources */,
 				7B3A8FF525EA9C09008CA13E /* PaymentsHistoryModels.swift in Sources */,
 				7D5FD97C261F6599000345BA /* ChooseFoodCategoryTypes.swift in Sources */,
@@ -1945,6 +1997,7 @@
 				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
 				7B47C85525DE470500F366FE /* TariffsPageViewController.swift in Sources */,
 				7D4915D526190EC400EBD03A /* FoodCategoryViewDelegate.swift in Sources */,
+				7DA996E2263840D200BDE0BA /* DiscountsButtonView.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
@@ -2002,6 +2055,7 @@
 				7D49157B261776ED00EBD03A /* Animator.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
+				7DA996DD2638217400BDE0BA /* TaxiOrderViewUIData.swift in Sources */,
 				0414314E25FA17C40074D86C /* AddressCellModel.swift in Sources */,
 				7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */,
 				7D47491725F933F400F744F7 /* NewCardViewControllerUIData.swift in Sources */,
@@ -2036,6 +2090,7 @@
 				7B75CF3525DD6628001981CA /* Names.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
+				7DA996CC26381D8B00BDE0BA /* TaxiOrderView.swift in Sources */,
 				7D5FD966261F62F1000345BA /* ChooseFoodSubCategoriesInteractor.swift in Sources */,
 				7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */,
 				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
@@ -2089,6 +2144,7 @@
 				7BD7CB8F26037CC20099C9B7 /* AboutPointsViewUIData.swift in Sources */,
 				7B75CF8B25E00B9B001981CA /* MainBottomButtonUIData.swift in Sources */,
 				7B3A8FF025EA976B008CA13E /* PaymentHistoryUIData.swift in Sources */,
+				7DA996F02638411800BDE0BA /* DiscountsButtonViewUIData.swift in Sources */,
 				0465F54025DBDD49008CA6D0 /* SentViewControllerUIData.swift in Sources */,
 				7D851C5525F687C7000E20DB /* EnterCardUIData.swift in Sources */,
 				7D823E9F25F158CF006B174B /* PersonalAccountCell.swift in Sources */,

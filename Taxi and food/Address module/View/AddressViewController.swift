@@ -143,8 +143,8 @@ class AddressViewController: UIViewController, UIScrollViewDelegate {
         
         arrayOfTextFields = [addressNameTextField,addressTextField, commentDriverTextField, officeTextField, officeTextField, entranceTextField, intercomTextField, floorTextField, commenCourierTextField]
  
-        arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
-        arrayOfTextFields.map { $0.delegate = self }
+//        arrayOfTextFields.map { $0.addBottomBorder(color: Colors.buttonGrey.getColor()) }
+//        arrayOfTextFields.map { $0.delegate = self }
         
     }
     

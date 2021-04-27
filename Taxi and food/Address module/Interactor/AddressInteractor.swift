@@ -55,7 +55,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
         let addressResource = Resource<AddressResponse>(path: path, requestType: .POST, requestData: data)
        
-        NetworkService.shared.makeRequest(for: addressResource, completion:  {[unowned self] result in
+        NetworkService.shared.makeRequest(for: addressResource, completion:  { result in
             
             switch result {
             case .success(let response):
@@ -78,7 +78,7 @@ class AddressInteractor: AddressInteractorProtocol {
         
         let addressResource = Resource<AddressResponse>(path: path, requestType: .DELETE)
         
-        NetworkService.shared.makeRequest(for: addressResource, completion:  {[unowned self] result in
+        NetworkService.shared.makeRequest(for: addressResource, completion:  { result in
             
             switch result {
             case .success:

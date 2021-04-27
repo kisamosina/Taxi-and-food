@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="containerView" destination="iN0-l3-epB" id="mhx-Ld-xH6"/>
                 <outlet property="titleLabel" destination="X6W-lh-SGo" id="m6E-pu-cW9"/>
+                <outlet property="underLineView" destination="NBL-Ct-ogu" id="evo-BC-MsH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

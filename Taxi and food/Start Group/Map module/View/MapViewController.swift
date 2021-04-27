@@ -31,6 +31,10 @@ class MapViewController: UIViewController {
     //Shops List View
     private var shopsListView: ShopsView!
     private var shopsListViewBottomConstraint: NSLayoutConstraint!
+    
+    //Taxi Order View
+    private var taxiOrderView: TaxiOrderView!
+    private var taxiOrderViewBottomConstraint: NSLayoutConstraint!
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -579,7 +583,10 @@ extension MapViewController: AddressEnterViewDelegate {
         switch type {
         case .taxi:
             self.interactor.sourceAddress = self.addressEnterView.sourceAddress
-            print("Taxi")
+            self.hideAddressEnterView {[weak self] _ in
+                guard let self = self else { return }
+                self.showTaxiOrdreView()
+            }
         case .food:
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
@@ -651,6 +658,37 @@ extension MapViewController: AddressEnterDetailViewDelegate {
             self.addressEnterDetailView = nil
         }
     }
+}
+
+//MARK: - TaxiOrderView
+
+extension MapViewController {
+    
+    //Setup show animation for taxi order view
+    private func showTaxiOrdreView() {
+        
+        self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
+        self.view.addSubview(self.taxiOrderView)
+        self.taxiOrderView.setupConstraints(for: self.view,
+                                                     viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
+                                                     bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomPadding) { [weak self] constraint in
+            guard let self = self else { return }
+            self.taxiOrderViewBottomConstraint = constraint
+        }
+        
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
+                                 from: self.view)
+    }
+    
+    //Setup hide animation for Taxi order view
+    private func hideTaxiOrderView(completion: AnimationCompletion? = nil) {
+        
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
+                                 from: self.view,
+                                 viewHeight: AddressEnterDetailViewSizes.height.rawValue,
+                                 completion: completion )
+    }
+    
 }
 
 //MARK: - TipAddres view methods
