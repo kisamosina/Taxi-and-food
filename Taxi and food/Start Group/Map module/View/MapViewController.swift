@@ -35,6 +35,9 @@ class MapViewController: UIViewController {
     //Taxi Order View
     private var taxiOrderView: TaxiOrderView!
     private var taxiOrderViewBottomConstraint: NSLayoutConstraint!
+    
+    //Top Info view
+    private var topInfoView: TopInfoView!
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -189,6 +192,14 @@ extension MapViewController {
             }
         }
         
+        //When taxi order view is active
+        
+        if taxiOrderView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) {
+            if self.taxiOrderViewBottomConstraint.constant == bottomPadding {
+                self.taxiOrderViewBottomConstraint.constant = -kbHeight + 20
+            }
+        }
+        
         self.inactiveView.alpha = 1
     }
     
@@ -202,6 +213,11 @@ extension MapViewController {
         if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterDetailView != nil {
             self.addressEnterViewDetailBottomConstraint.constant = bottomPadding
         }
+        
+        if taxiOrderView != nil {
+            self.taxiOrderViewBottomConstraint.constant = bottomPadding
+            self.inactiveView.alpha = 0
+        }
     }
 }
 
@@ -213,7 +229,6 @@ extension MapViewController: MapViewProtocol {
         guard let shopsView = self.shopsListView else { return }
         shopsView.setShopView(list: list, destinationAddress: self.interactor.destinationAddress, destinationTitle: self.interactor.destinationAddressTitle)
     }
-    
     
     func setDestinationAnnotation(for coordinate: CLLocationCoordinate2D?) {
         if let coordinate =  coordinate {
@@ -239,7 +254,6 @@ extension MapViewController: MapViewProtocol {
         
     }
     
-    
     func showPaymentsViewController(data: [PaymentCardResponseData]) {
         
         DispatchQueue.main.async {
@@ -250,12 +264,9 @@ extension MapViewController: MapViewProtocol {
         }
     }
     
-    
     func setBottomViewAddressLabel(text: String?) {
         self.bottomView.setAddressLabelText(text)
     }
-    
-    
     
     private func dismissAddressEnterView() {
         guard let addressEnterView = self.addressEnterView else {return}
@@ -291,6 +302,18 @@ extension MapViewController: MapViewProtocol {
                 self.addressEnterViewDetailBottomConstraint = nil
             }
         }
+        
+        if let taxiOrderView = self.taxiOrderView {
+            self.hideTaxiOrderView { [weak self] _ in
+                guard let self = self else { return }
+                self.bottomView.isHidden = false
+                taxiOrderView.removeFromSuperview()
+                self.topInfoView.removeFromSuperview()
+                self.topInfoView = nil
+                self.taxiOrderView = nil
+                self.taxiOrderViewBottomConstraint = nil
+            }
+        }
     }
     
     func setViews(for state: MapViewControllerStates) {
@@ -313,13 +336,11 @@ extension MapViewController: MapViewProtocol {
             self.showAddressEnterView(as: addresEnterViewType)
         }
     }
-    
-    
+        
     func showUserLocation(region: MKCoordinateRegion) {
         self.mapView.setRegion(region, animated: true)
     }
-    
-    
+
     func showLocationSettingsAlert(title: String, message: String) {
         
         let ac = UIAlertController.showLocationSettingsAlert(title: title, message: message)
@@ -329,7 +350,6 @@ extension MapViewController: MapViewProtocol {
         }
         
     }
-    
     
     func showTariffPageViewController(_ tariffs: [TariffData]) {
         let storyboard = UIStoryboard(name: StoryBoards.Tarifs.rawValue, bundle: nil)
@@ -547,7 +567,6 @@ extension MapViewController: AddressEnterViewDelegate {
         self.showAddressEnterDetailView()
     }
     
-    
     //Action when table view will disappear
     func tableViewWillDisappear() {
         if addressEnterViewHeightConstraint.constant > self.addressEnterView.type.viewHeight()  {
@@ -675,9 +694,13 @@ extension MapViewController {
             guard let self = self else { return }
             self.taxiOrderViewBottomConstraint = constraint
         }
-        
+        self.taxiOrderView.delegate = self
+        self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
         Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
-                                 from: self.view)
+                                 from: self.view) {[weak self] _ in
+            guard let self =  self else { return }
+            self.showTopInfoView()
+        }
     }
     
     //Setup hide animation for Taxi order view
@@ -689,6 +712,15 @@ extension MapViewController {
                                  completion: completion )
     }
     
+}
+
+//MARK: - TaxiOrderView Delegate
+
+extension MapViewController: TaxiOrderViewDelegate {
+    
+    func viewHasSwipedDown() {
+        self.interactor.setViewControllerState(.start)
+    }
 }
 
 //MARK: - TipAddres view methods
@@ -809,4 +841,17 @@ extension MapViewController: ChooseFoodCategoryViewControllerDelegate {
         self.interactor.setViewControllerState(.start)
     }
     
+}
+
+// MARK: - Top info view
+
+extension MapViewController {
+    
+    private func showTopInfoView() {
+        let rect = CGRect(x: 0, y: 0, width: 125, height: TopInfoViewSizesData.viewHeight.rawValue)
+        self.topInfoView = TopInfoView(frame: rect)
+        self.view.addSubview(topInfoView)
+        self.topInfoView.setupTitle(self.interactor.estimatedTripTime)
+        self.topInfoView.setupConstraints(topConstant: topPadding + TopInfoViewSizesData.topConstraint.rawValue, height: TopInfoViewSizesData.viewHeight.rawValue)
+    }
 }

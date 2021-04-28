@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Shops
 
@@ -48,6 +49,113 @@ extension FoodCategoriesResponseData {
     
 }
 
-// MARK: - Food subcategories
+// MARK: - Tariff
+
+final class Tariff {
+    var isActive: Bool
+    private let type: TariffType
+    private let imageName: String
+    private let feedTimeValue: Int
+    private var priceValue: Double
+    private var priceOldValue: Double?
+    
+    init(isActive: Bool, type: TariffType, imageName: String, feedTimeValue: Int, priceValue: Double, priceOldValue: Double? = nil) {
+        self.isActive = isActive
+        self.type = type
+        self.imageName = imageName
+        self.feedTimeValue = feedTimeValue
+        self.priceValue = priceValue
+        self.priceOldValue = priceOldValue
+    }
+}
 
 
+extension Tariff {
+    
+    enum TariffType: String {
+        case Standart, Premium, Buisness
+    }
+    
+    var name: String {
+        return type.rawValue
+    }
+}
+
+extension Tariff {
+    
+    static func getTariffs() -> [Tariff] {
+        
+        let  standart = Tariff(isActive: true, type: .Standart, imageName: CustomImagesNames.icon_tariff_standart.rawValue, feedTimeValue: 3, priceValue: 200, priceOldValue: nil)
+        let  premium = Tariff(isActive: false, type: .Premium, imageName: CustomImagesNames.icon_tariff_premium.rawValue, feedTimeValue: 6, priceValue: 300, priceOldValue: nil)
+        let  buisness = Tariff(isActive: false, type: .Buisness, imageName: CustomImagesNames.icon_tariff_business.rawValue, feedTimeValue: 9, priceValue: 400, priceOldValue: nil)
+        
+                
+        return [standart, premium, buisness]
+    }
+}
+
+extension Tariff {
+    
+    var tariffColor: UIColor {
+        
+        switch self.type {
+            
+        case .Standart:
+            return Colors.tariffGreen.getColor()
+        case .Premium:
+            return Colors.tariffPurple.getColor()
+        case .Buisness:
+            return Colors.tariffGold.getColor()
+        }
+    }
+    
+    var tariffImage: UIImage? {
+        return UIImage(named: self.imageName)
+    }
+}
+
+extension Tariff {
+    
+    var price: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return "\(self.priceValue) руб"
+        case .eng:
+            return "\(self.priceValue) rub"
+        }
+    }
+    
+    var oldPrice: String? {
+        
+        guard let price = self.priceOldValue else { return nil }
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return "\(price) руб"
+        case .eng:
+            return "\(price) rub"
+        }
+
+    }
+    
+    var feedTime: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "\(feedTimeValue) мин"
+        case .eng:
+            return "\(feedTimeValue) min"
+        }
+    }
+}
+
+extension Tariff {
+    
+    func setActive(_ value: Bool) {
+        self.isActive = value
+    }
+}

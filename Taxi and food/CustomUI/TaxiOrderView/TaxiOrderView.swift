@@ -10,6 +10,11 @@ import UIKit
 
 class TaxiOrderView: CustomBottomView {
     
+    //MARK: - Properties
+    
+    public weak var delegate: TaxiOrderViewDelegate?
+    private var tariffs: [Tariff] = Tariff.getTariffs()
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var containerView: UIView!
@@ -63,17 +68,29 @@ class TaxiOrderView: CustomBottomView {
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
     }
+    
+    public func setupAdresses(from source: String, to destination: String) {
+        self.addressFromTextField.text = source
+        self.addressToTextField.text = destination
+    }
 
+    override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        super.userHasSwipedDown(sender)
+        self.delegate?.viewHasSwipedDown()
+    }
 }
 
 extension TaxiOrderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return tariffs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return TaxiOrderCollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaxiOrderViewStringData.tariffsCollectionViewCellReuseId.rawValue, for: indexPath) as! TaxiOrderCollectionViewCell
+        let tariff = tariffs[indexPath.row]
+        cell.bindCell(for: tariff)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,5 +98,12 @@ extension TaxiOrderView: UICollectionViewDelegate, UICollectionViewDataSource, U
         let screenWidth = UIScreen.main.bounds.width
         let cellWidth = (screenWidth - TaxiOrderViewSizesData.collectionViewSumOffsets.rawValue) / 3
         return CGSize(width: cellWidth, height: TaxiOrderViewSizesData.tariffCellHeight.rawValue)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        for tariff in tariffs { tariff.setActive(false) }
+        self.tariffs[indexPath.row].setActive(true)
+        self.tariffsCollectionView.reloadData()
     }
 }

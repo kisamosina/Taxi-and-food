@@ -223,6 +223,10 @@
 		7D5FD985261F6DA2000345BA /* ChooseSubcategoriesAndProductModuleUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD984261F6DA2000345BA /* ChooseSubcategoriesAndProductModuleUIData.swift */; };
 		7D5FD98A261F712D000345BA /* FoodSubCategoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD989261F712D000345BA /* FoodSubCategoryViewDelegate.swift */; };
 		7D5FD992261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD991261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift */; };
+		7D7F4F4D2639A1060025D423 /* TaxiOrderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F4F4C2639A1060025D423 /* TaxiOrderViewDelegate.swift */; };
+		7D7F4F522639B5D30025D423 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F4F512639B5D30025D423 /* Gradient.swift */; };
+		7D7F4F572639B71A0025D423 /* TopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7F4F562639B71A0025D423 /* TopInfoView.swift */; };
+		7D7F4F5C2639B73F0025D423 /* TopInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D7F4F5B2639B73F0025D423 /* TopInfoView.xib */; };
 		7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */; };
 		7D823E8A25F14A42006B174B /* PersonalAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */; };
 		7D823E9625F14BE3006B174B /* PersonalAccountTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */; };
@@ -267,6 +271,7 @@
 		7DECA8C6261E127500E74C84 /* FoodSubCategoryAndProductViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECA8C5261E127500E74C84 /* FoodSubCategoryAndProductViewUIData.swift */; };
 		7DECA8D2261E179900E74C84 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECA8D0261E179900E74C84 /* SubCategoryCollectionViewCell.swift */; };
 		7DECA8D3261E179900E74C84 /* SubCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DECA8D1261E179900E74C84 /* SubCategoryCollectionViewCell.xib */; };
+		7DFE0A552639C22F005B37D3 /* TopInfoViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE0A542639C22F005B37D3 /* TopInfoViewUIData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,6 +514,10 @@
 		7D5FD984261F6DA2000345BA /* ChooseSubcategoriesAndProductModuleUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSubcategoriesAndProductModuleUIData.swift; sourceTree = "<group>"; };
 		7D5FD989261F712D000345BA /* FoodSubCategoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryViewDelegate.swift; sourceTree = "<group>"; };
 		7D5FD991261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubcategoryAndProductViewDelegate.swift; sourceTree = "<group>"; };
+		7D7F4F4C2639A1060025D423 /* TaxiOrderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderViewDelegate.swift; sourceTree = "<group>"; };
+		7D7F4F512639B5D30025D423 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		7D7F4F562639B71A0025D423 /* TopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoView.swift; sourceTree = "<group>"; };
+		7D7F4F5B2639B73F0025D423 /* TopInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopInfoView.xib; sourceTree = "<group>"; };
 		7D823E8025F149A8006B174B /* PersonalAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountProtocols.swift; sourceTree = "<group>"; };
 		7D823E8925F14A42006B174B /* PersonalAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountInteractor.swift; sourceTree = "<group>"; };
 		7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalAccountTableViewModel.swift; sourceTree = "<group>"; };
@@ -553,6 +562,7 @@
 		7DECA8C5261E127500E74C84 /* FoodSubCategoryAndProductViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryAndProductViewUIData.swift; sourceTree = "<group>"; };
 		7DECA8D0261E179900E74C84 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DECA8D1261E179900E74C84 /* SubCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		7DFE0A542639C22F005B37D3 /* TopInfoViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoViewUIData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1024,6 +1034,7 @@
 				7B75CFDE25E3CBEC001981CA /* Taxi_and_food.xcdatamodeld */,
 				7B75D04625E52979001981CA /* TextEnterViewUIData.swift */,
 				7D868D4D260E7A8300D3A91E /* TipAddressViewUIData.swift */,
+				7DFE0A542639C22F005B37D3 /* TopInfoViewUIData.swift */,
 				7D47490025F7FC3E00F744F7 /* TransitionBottomViewUIData.swift */,
 			);
 			path = Data;
@@ -1144,6 +1155,7 @@
 				7D4915A72618C34000EBD03A /* FoodCategoriesView */,
 				7DECA8BE261E10AB00E74C84 /* FoodCategoryAndSubCategoryView */,
 				7D4915E92619D41500EBD03A /* FoodSubCategoryView */,
+				7D7F4F512639B5D30025D423 /* Gradient.swift */,
 				7D33FAAC260BB34F00DA5D0C /* InactiveView */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
@@ -1164,6 +1176,7 @@
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
 				7D868D49260E794E00D3A91E /* TipAddressView */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
+				7DFE0A502639BB61005B37D3 /* TopInfoView */,
 				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
 			);
@@ -1688,6 +1701,7 @@
 			isa = PBXGroup;
 			children = (
 				7DA996CB26381D8B00BDE0BA /* TaxiOrderView.swift */,
+				7D7F4F4C2639A1060025D423 /* TaxiOrderViewDelegate.swift */,
 				7DA996D026381DD400BDE0BA /* TaxiOrderView.xib */,
 				7DA99703263851B600BDE0BA /* TaxiOrderCollectionViewCell */,
 			);
@@ -1763,6 +1777,15 @@
 				7DECA8D1261E179900E74C84 /* SubCategoryCollectionViewCell.xib */,
 			);
 			path = SubCategoryCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7DFE0A502639BB61005B37D3 /* TopInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				7D7F4F562639B71A0025D423 /* TopInfoView.swift */,
+				7D7F4F5B2639B73F0025D423 /* TopInfoView.xib */,
+			);
+			path = TopInfoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1869,6 +1892,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D7F4F5C2639B73F0025D423 /* TopInfoView.xib in Resources */,
 				7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */,
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
@@ -1951,12 +1975,14 @@
 				7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */,
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
 				041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */,
+				7D7F4F522639B5D30025D423 /* Gradient.swift in Sources */,
 				0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				7D33FAB1260BB38100DA5D0C /* InactiveViewDelegate.swift in Sources */,
 				04B5655825D65B6D00E0EC25 /* UIViewController+Extension.swift in Sources */,
 				7B75D04C25E52EF1001981CA /* UIStackView+Extension.swift in Sources */,
 				7B75CF6325DD7DD3001981CA /* UIImageView+Extension.swift in Sources */,
+				7D7F4F572639B71A0025D423 /* TopInfoView.swift in Sources */,
 				7BD7CB7E26036A4A0099C9B7 /* AboutPointsView.swift in Sources */,
 				049A3F6B25F20F5300C31AED /* AddressViewController.swift in Sources */,
 				7B47C85D25DE478400F366FE /* TariffsPageInteractor.swift in Sources */,
@@ -2016,6 +2042,7 @@
 				7BCBCB8225D9452B00C43CF6 /* AuthInteractor.swift in Sources */,
 				7B2B99DD25D83A39008B6CD9 /* UserAgreementViewController.swift in Sources */,
 				7D9067CB2614F02500B06BAB /* ShopsView.swift in Sources */,
+				7DFE0A552639C22F005B37D3 /* TopInfoViewUIData.swift in Sources */,
 				7B26145F25DAD9BC00E2B779 /* AuthModuleUIData.swift in Sources */,
 				041E299225DF796000CA9F56 /* LanguageOption.swift in Sources */,
 				7BA5138C25FBA4130073AF21 /* TransitionBottomViewDelegate.swift in Sources */,
@@ -2096,6 +2123,7 @@
 				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
+				7D7F4F4D2639A1060025D423 /* TaxiOrderViewDelegate.swift in Sources */,
 				7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */,
 				7D4915CD2619057B00EBD03A /* Paddings.swift in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,

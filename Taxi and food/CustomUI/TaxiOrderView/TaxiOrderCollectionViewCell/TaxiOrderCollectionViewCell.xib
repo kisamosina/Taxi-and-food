@@ -30,7 +30,7 @@
                                         <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Uc-16-hUZ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5Uc-16-hUZ">
                                         <rect key="frame" x="0.0" y="19.5" width="82" height="11"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Py9-bP-hmw">
@@ -41,8 +41,8 @@
                                                 </constraints>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 мин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRm-eW-nYH">
-                                                <rect key="frame" x="15" y="0.0" width="67" height="11"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="19" y="0.0" width="63" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -51,7 +51,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xhh-XK-Yg6">
-                                <rect key="frame" x="15" y="48" width="72" height="30"/>
+                                <rect key="frame" x="15" y="42" width="72" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4D-Yf-Jbc">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="12"/>
@@ -72,7 +72,7 @@
                         <constraints>
                             <constraint firstItem="H5K-hg-8cy" firstAttribute="leading" secondItem="Xe5-Em-pTf" secondAttribute="leading" constant="15" id="R9D-L4-eLf"/>
                             <constraint firstItem="H5K-hg-8cy" firstAttribute="top" secondItem="Xe5-Em-pTf" secondAttribute="top" constant="7" id="WJW-l9-6qN"/>
-                            <constraint firstAttribute="bottom" secondItem="xhh-XK-Yg6" secondAttribute="bottom" constant="2" id="aeI-bz-DMY"/>
+                            <constraint firstAttribute="bottom" secondItem="xhh-XK-Yg6" secondAttribute="bottom" constant="8" id="aeI-bz-DMY"/>
                             <constraint firstItem="xhh-XK-Yg6" firstAttribute="leading" secondItem="Xe5-Em-pTf" secondAttribute="leading" constant="15" id="bb6-hF-SJj"/>
                             <constraint firstAttribute="trailing" secondItem="xhh-XK-Yg6" secondAttribute="trailing" constant="15" id="gBx-UF-6xz"/>
                             <constraint firstAttribute="trailing" secondItem="H5K-hg-8cy" secondAttribute="trailing" constant="5" id="ptL-4U-qaG"/>
@@ -96,7 +96,7 @@
                 <outlet property="tariffImageButton" destination="Py9-bP-hmw" id="S1f-Rq-WY6"/>
                 <outlet property="tariffNameLabel" destination="NDq-RS-Cr3" id="8UR-Ee-p3H"/>
             </connections>
-            <point key="canvasLocation" x="125.36231884057972" y="129.24107142857142"/>
+            <point key="canvasLocation" x="124.6376811594203" y="129.24107142857142"/>
         </collectionViewCell>
     </objects>
     <resources>

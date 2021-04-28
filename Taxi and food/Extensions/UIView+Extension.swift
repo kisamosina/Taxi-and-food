@@ -73,4 +73,13 @@ extension UIView {
         self.leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
     }
+    
+    func setupConstraints(topConstant: CGFloat, height: CGFloat) {
+        guard let superview = self.superview else { return }
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.topAnchor.constraint(equalTo: superview.topAnchor, constant: topConstant).isActive = true
+        self.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
 }

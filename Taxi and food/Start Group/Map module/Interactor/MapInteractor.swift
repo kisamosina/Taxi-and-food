@@ -72,15 +72,18 @@ class MapInteractor: MapInteractorProtocol {
         }
     }
     
-    //Shop detail
-//    var foodCategories: FoodCategoriesResponseData? {
-//        didSet {
-//            self.view.showFoodCategoriesForShop(foodCategories)
-//        }
-//    }
-
-    
     var promos: [PromoShortData]?
+    
+    var estimatedTripTime: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+            
+        case .rus:
+            return "≈15 мин"
+        case .eng:
+            return "≈15 min"
+        }
+    }
     
     //MARK: - Initializer
     

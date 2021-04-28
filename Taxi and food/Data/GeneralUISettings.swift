@@ -138,6 +138,9 @@ enum CustomImagesNames: String {
     case menuButton
     case backButton
     case userPinOrange
+    case icon_tariff_business
+    case icon_tariff_premium
+    case icon_tariff_standart
 }
 
 enum StoryBoards: String {
