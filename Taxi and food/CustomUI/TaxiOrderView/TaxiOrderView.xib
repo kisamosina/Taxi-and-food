@@ -34,10 +34,10 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-rU-O5R">
-                    <rect key="frame" x="22" y="31" width="367" height="352"/>
+                    <rect key="frame" x="22" y="31" width="370" height="352"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQT-Du-Cdp" userLabel="AddressFrom">
-                            <rect key="frame" x="0.0" y="0.0" width="367" height="34"/>
+                            <rect key="frame" x="0.0" y="0.0" width="370" height="34"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-eB-dXq">
                                     <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
@@ -59,15 +59,15 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q6Y-A6-RfT">
-                                    <rect key="frame" x="22" y="0.0" width="345" height="34"/>
+                                    <rect key="frame" x="22" y="0.0" width="348" height="34"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-re-h2M" userLabel="AddressFromTextField">
-                                            <rect key="frame" x="0.0" y="0.0" width="345" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="33"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-mS-auR" userLabel="AddressFromUnderLine">
-                                            <rect key="frame" x="0.0" y="33" width="345" height="1"/>
+                                            <rect key="frame" x="0.0" y="33" width="348" height="1"/>
                                             <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="G1r-DV-mwK"/>
@@ -78,7 +78,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8D-bp-R6O" userLabel="AddressTo">
-                            <rect key="frame" x="0.0" y="60" width="367" height="34"/>
+                            <rect key="frame" x="0.0" y="60" width="370" height="34"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS7-iN-ymN">
                                     <rect key="frame" x="0.0" y="0.0" width="22" height="34"/>
@@ -100,15 +100,15 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sBI-45-HKE">
-                                    <rect key="frame" x="22" y="0.0" width="280" height="34"/>
+                                    <rect key="frame" x="22" y="0.0" width="283" height="34"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-pf-yYH">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="283" height="33"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWi-Xs-1Bl" userLabel="AddressToAnderLine">
-                                            <rect key="frame" x="0.0" y="33" width="280" height="1"/>
+                                            <rect key="frame" x="0.0" y="33" width="283" height="1"/>
                                             <color key="backgroundColor" red="0.98431372549019602" green="0.55686274509803924" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="LoO-c8-Ggr"/>
@@ -117,7 +117,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fk9-HF-37V" customClass="MapButtonView" customModule="Taxi_and_food" customModuleProvider="target">
-                                    <rect key="frame" x="302" y="0.0" width="65" height="34"/>
+                                    <rect key="frame" x="305" y="0.0" width="65" height="34"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="65" id="Cxo-kL-Ig4"/>
@@ -132,7 +132,7 @@
                             </subviews>
                         </stackView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-fm-Fvp">
-                            <rect key="frame" x="0.0" y="120" width="367" height="80"/>
+                            <rect key="frame" x="0.0" y="120" width="370" height="80"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="ZP3-D4-CHU"/>
@@ -149,10 +149,10 @@
                             </connections>
                         </collectionView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9P3-ZN-Zz7" userLabel="DiscountsStackView">
-                            <rect key="frame" x="0.0" y="226" width="367" height="50"/>
+                            <rect key="frame" x="0.0" y="226" width="370" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgC-aI-IuS" customClass="DiscountsButtonView" customModule="Taxi_and_food" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="178.5" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="f5c-Uy-KNs"/>
@@ -162,7 +162,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNz-YA-AdM" customClass="DiscountsButtonView" customModule="Taxi_and_food" customModuleProvider="target">
-                                    <rect key="frame" x="188.5" y="0.0" width="178.5" height="50"/>
+                                    <rect key="frame" x="190" y="0.0" width="180" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="umu-nn-g1i"/>
@@ -175,7 +175,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wW0-XQ-7dM" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="302" width="367" height="50"/>
+                            <rect key="frame" x="0.0" y="302" width="370" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="kwf-Qy-HDN"/>
                             </constraints>
@@ -191,7 +191,7 @@
                 <constraint firstItem="DTE-rU-O5R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="FhT-Ns-l16"/>
                 <constraint firstItem="XA5-pR-9Yw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="NhJ-kR-Nfy"/>
                 <constraint firstItem="DTE-rU-O5R" firstAttribute="leading" secondItem="XA5-pR-9Yw" secondAttribute="trailing" id="cyh-tz-G9s"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTE-rU-O5R" secondAttribute="trailing" constant="25" id="mZu-KW-MAT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTE-rU-O5R" secondAttribute="trailing" constant="22" id="mZu-KW-MAT"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
