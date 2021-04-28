@@ -54,7 +54,6 @@ class MapViewController: UIViewController {
     @IBOutlet weak var trailingLeftSideViewConstraint: NSLayoutConstraint!
     @IBOutlet var topPromoDestinationViewConstraint: NSLayoutConstraint!
     
-    
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,13 +95,11 @@ class MapViewController: UIViewController {
         }
     }
     
-    
     @IBAction func lkButtonTapped(_ sender: UIButton) {
         let vc = self.getViewController(storyboardId: StoryBoards.PersonalAccount.rawValue, viewControllerId: ViewControllers.PersonalAccountViewController.rawValue)
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
-    
     
     @IBAction func mapCenterButtonTapped(_ sender: UIButton) {
         guard let region = self.interactor.getUserLoctaionRegion() else { return }
@@ -117,7 +114,6 @@ class MapViewController: UIViewController {
         self.interactor.setViewControllerState(.enterAddress(.food))
         self.interactor.getShopList()
     }
-    
     
     @IBAction func closeMenuButtonTapped(_ sender: UIButton) {
         self.inactiveView.alpha = MapInactiveViewAlpha.inactive.rawValue
