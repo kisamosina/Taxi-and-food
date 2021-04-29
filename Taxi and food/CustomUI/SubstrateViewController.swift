@@ -16,13 +16,14 @@ class SubstrateViewController: UIViewController {
         super.viewDidLoad()
         
         if self.isTapGestureEnabled {
-            self.addGestureRecognizer()
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(userHasTapped(_:)))
+            self.view.addGestureRecognizer(tapRecognizer)
         }
         self.view.backgroundColor = Colors.InactiveViewColor.getColor()
         
     }
     
-  private  func addGestureRecognizer() {
+    private  func addGestureRecognizer() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(userHasTapped(_:)))
         self.view.addGestureRecognizer(tapRecognizer)
     }

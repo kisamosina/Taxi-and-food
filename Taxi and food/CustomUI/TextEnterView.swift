@@ -16,7 +16,7 @@ class TextEnterView: UIView {
     
     weak var delegate: TextEnterViewDelegate?
     
-    private var upView: UIView = {
+    var upView: UIView = {
         let rect = CGRect(x: 0,
                           y: 0,
                           width: TextEnterViewUpperViewData.width.rawValue,
@@ -46,7 +46,6 @@ class TextEnterView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.redTextColor.getColor()
         label.font = .systemFont(ofSize: TextEnterViewFontSizes.labelFontSize.rawValue)
-        label.isHidden = true
         return label
     }()
     
@@ -86,38 +85,35 @@ class TextEnterView: UIView {
     
     private func setupSubviews() {
         
-        let mainStackView = UIStackView(arrangedSubviews: [upView, mainView], axis: .vertical, spacing: TextEnterViewStackViewData.mainStackSpacing.rawValue)
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.alignment = .center
-        self.addSubview(mainStackView)
+        for view in [upView, mainView] {
+            self.addSubview(view)
+        }
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: 26))
+        view.addSubview(label)
         
+        label.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        let innerStackView = UIStackView(arrangedSubviews: [textField, label, button], axis: .vertical, spacing: TextEnterViewStackViewData.innerStackSpacing.rawValue)
+        let innerStackView = UIStackView(arrangedSubviews: [textField, view, button], axis: .vertical, spacing: 0)
         innerStackView.translatesAutoresizingMaskIntoConstraints = false
         mainView.addSubview(innerStackView)
         
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.upView.topAnchor.constraint(equalTo: self.topAnchor),
             self.upView.heightAnchor.constraint(equalToConstant: TextEnterViewConstraints.upViewHeight.rawValue),
             self.upView.widthAnchor.constraint(equalToConstant: TextEnterViewConstraints.upViewWidth.rawValue),
-            self.mainView.heightAnchor.constraint(equalToConstant: TextEnterViewConstraints.mainViewHeight.rawValue),
-            self.mainView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
-            self.mainView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-            
+            self.upView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.mainView.topAnchor.constraint(equalTo: upView.topAnchor, constant: TextEnterViewStackViewData.mainStackSpacing.rawValue),
+            self.mainView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.mainView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             innerStackView.topAnchor.constraint(equalTo: self.mainView.topAnchor, constant: TextEnterViewConstraints.innerStackViewTopAnchor.rawValue),
-            innerStackView.bottomAnchor.constraint(equalTo: self.mainView.bottomAnchor, constant: TextEnterViewConstraints.innerViewTrailingAndBottomAnchor.rawValue),
             innerStackView.leadingAnchor.constraint(equalTo: self.mainView.leadingAnchor, constant: TextEnterViewConstraints.innerViewLeadingAnchor.rawValue),
             innerStackView.trailingAnchor.constraint(equalTo: self.mainView.trailingAnchor, constant: TextEnterViewConstraints.innerViewTrailingAndBottomAnchor.rawValue),
-            
             textField.leadingAnchor.constraint(equalTo: innerStackView.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: innerStackView.trailingAnchor),
-            
-            label.leadingAnchor.constraint(equalTo: innerStackView.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: innerStackView.trailingAnchor),
-            
+            view.heightAnchor.constraint(equalToConstant: 26),
             button.heightAnchor.constraint(equalToConstant: MainButtonSizes.height.rawValue),
             button.leadingAnchor.constraint(equalTo: innerStackView.leadingAnchor),
             button.trailingAnchor.constraint(equalTo: innerStackView.trailingAnchor)

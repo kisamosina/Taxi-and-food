@@ -17,7 +17,10 @@
                 <outlet property="addressToUnderLineView" destination="UWi-Xs-1Bl" id="jax-Bm-trk"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="3SA-BO-3hi"/>
                 <outlet property="discountStackView" destination="9P3-ZN-Zz7" id="9nN-iu-e1g"/>
+                <outlet property="mapButtonView" destination="Fk9-HF-37V" id="CZd-Q1-Jnm"/>
                 <outlet property="orderButton" destination="wW0-XQ-7dM" id="F5M-q5-xYc"/>
+                <outlet property="pointsButtonView" destination="sNz-YA-AdM" id="XdS-jk-XvW"/>
+                <outlet property="promocodeButtonView" destination="kgC-aI-IuS" id="lHo-H9-eIj"/>
                 <outlet property="tariffsCollectionView" destination="7qg-fm-Fvp" id="UtU-rD-5hG"/>
             </connections>
         </placeholder>

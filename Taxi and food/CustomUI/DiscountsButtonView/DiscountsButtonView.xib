@@ -21,12 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="158" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVc-j0-c53">
-                    <rect key="frame" x="0.0" y="0.0" width="158" height="50"/>
-                    <connections>
-                        <action selector="userDidTapView:" destination="-1" eventType="touchUpInside" id="GKz-9z-Uab"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="KDb-yK-dgf">
                     <rect key="frame" x="0.0" y="0.0" width="158" height="50"/>
                     <subviews>
@@ -60,14 +54,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="UVc-j0-c53" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="H9h-6p-thw"/>
                 <constraint firstItem="KDb-yK-dgf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Omy-fO-4El"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UVc-j0-c53" secondAttribute="trailing" id="ahi-MV-SzC"/>
                 <constraint firstAttribute="trailing" secondItem="KDb-yK-dgf" secondAttribute="trailing" id="fP8-7c-20B"/>
-                <constraint firstItem="UVc-j0-c53" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kCb-cX-oAK"/>
                 <constraint firstAttribute="bottom" secondItem="KDb-yK-dgf" secondAttribute="bottom" id="rCb-5c-1zn"/>
                 <constraint firstItem="KDb-yK-dgf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wka-Ef-qnm"/>
-                <constraint firstItem="UVc-j0-c53" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yFS-re-KfA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="150"/>

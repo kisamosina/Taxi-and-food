@@ -25,11 +25,17 @@ class TaxiOrderView: CustomBottomView {
     
     @IBOutlet weak var addressToTextField: UITextField!
     
+    @IBOutlet weak var mapButtonView: MapButtonView!
+    
     @IBOutlet weak var addressToUnderLineView: UIView!
     
     @IBOutlet weak var tariffsCollectionView: UICollectionView!
     
     @IBOutlet weak var discountStackView: UIStackView!
+    
+    @IBOutlet weak var promocodeButtonView: DiscountsButtonView!
+    
+    @IBOutlet weak var pointsButtonView: DiscountsButtonView!
     
     @IBOutlet weak var orderButton: MainBottomButton!
     
@@ -56,8 +62,12 @@ class TaxiOrderView: CustomBottomView {
         self.containerView.backgroundColor = .clear
         let nib = UINib(nibName: TaxiOrderViewStringData.tariffsCollectionViewCellReuseId.rawValue, bundle: nil)
         self.tariffsCollectionView.register(nib, forCellWithReuseIdentifier: TaxiOrderViewStringData.tariffsCollectionViewCellReuseId.rawValue)
-        self.orderButton.setupAs(.next)
+        self.orderButton.setupAs(.order)
         self.orderButton.setActive()
+        mapButtonView.delegate = self
+        setupTapActions()
+//        promocodeButtonView.delegate = self
+//        pointsButtonView.delegate = self
     }
     
     private func setupConstraints() {
@@ -69,9 +79,29 @@ class TaxiOrderView: CustomBottomView {
         ])
     }
     
+    private func setupTapActions() {
+        let promocodeButtonViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(promocodeEnterViewHasTaped))
+        self.promocodeButtonView.addGestureRecognizer(promocodeButtonViewTapRecognizer)
+        let pointsButtonViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(pointsEnterViewHasTapped))
+        self.pointsButtonView.addGestureRecognizer(pointsButtonViewTapRecognizer)
+    }
+    
+    @objc func promocodeEnterViewHasTaped(_ sender: UITapGestureRecognizer) {
+        delegate?.promocodeButtonTapped()
+    }
+    
+    @objc func pointsEnterViewHasTapped(_ sender: UITapGestureRecognizer) {
+        delegate?.pointsButtonTapped()
+    }
+    
+    
     public func setupAdresses(from source: String, to destination: String) {
         self.addressFromTextField.text = source
         self.addressToTextField.text = destination
+    }
+    
+    public func setDestinationAddress(destinationAddress: String) {
+        self.addressToTextField.text = destinationAddress
     }
 
     override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
@@ -105,5 +135,13 @@ extension TaxiOrderView: UICollectionViewDelegate, UICollectionViewDataSource, U
         for tariff in tariffs { tariff.setActive(false) }
         self.tariffs[indexPath.row].setActive(true)
         self.tariffsCollectionView.reloadData()
+    }
+}
+
+//MARK: - MapButtonViewDelegate
+extension TaxiOrderView: MapButtonViewDelegate {
+    
+    func mapButtonTapped() {
+        self.delegate?.mapButtonViewTapped(destinationAddress: addressToTextField.text)
     }
 }

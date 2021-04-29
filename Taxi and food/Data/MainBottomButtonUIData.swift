@@ -12,6 +12,7 @@ enum MainButtonTypes {
     case next
     case send
     case taxiOrder
+    case order
     case goBuy
     case addAddress
     case save
@@ -36,6 +37,7 @@ struct MainButtonTitles {
         case nextButtonTitle = "Далее"
         case sendButtonTitle = "Отправить"
         case orderTaxiTitle = "Заказать такси"
+        case order = "Заказать"
         case approveButtonTitle = "Подтвердить"
         case perfectButtonTitle = "Отлично!"
         case sendEmail = "Отправить e-mail"
@@ -55,7 +57,8 @@ struct MainButtonTitles {
     internal enum EngButtonsTitles: String {
         case nextButtonTitle = "Next"
         case sendButtonTitle = "Send"
-        case orderTaxiTitle = "Order taxi"
+        case orderTaxiTitle = "Order a taxi"
+        case order = "Make order"
         case goBuyTitle = "Go shopping!"
         case addAddressTitle = "Add address"
         case saveTitle = "Save"
@@ -170,6 +173,18 @@ struct MainButtonTitles {
         }
 
     }
+    
+    static var orderButtonTitle: String {
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return RusButtonsTitles.order.rawValue
+        case .eng:
+            return EngButtonsTitles.order.rawValue
+        }
+
+    }
+
     
     static var approveTitle: String {
         switch UserDefaults.standard.getAppLanguage() {
@@ -299,6 +314,8 @@ struct MainButtonTitles {
             return deleteButtonTitle
         case .cancel:
             return cancelButtonTitle
+        case .order:
+            return orderButtonTitle
         }
     }
 }

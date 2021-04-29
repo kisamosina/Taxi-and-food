@@ -41,12 +41,7 @@ import UIKit
         super.init(coder: coder)
         self.initSubviews()
     }
-    
-    //MARK: - IBAction
-    
-    @IBAction func userDidTapView(_ sender: UIButton) {
-    }
-    
+        
     //MARK: - Methods
     
     override func layoutSubviews() {
@@ -54,13 +49,6 @@ import UIKit
         
         self.containerView.clipsToBounds = true
         self.containerView.layer.cornerRadius = DiscountsButtonViewSizeData.cornerRadius.rawValue
-        
-//        self.layer.shadowColor = Colors.shadowColor.getColor().cgColor
-//        self.layer.shadowOpacity = Float(DiscountsButtonViewSizeData.shadowOpacity.rawValue)
-//        self.layer.shadowRadius = DiscountsButtonViewSizeData.shadowRadius.rawValue
-//        self.layer.shadowOffset = CGSize(width: DiscountsButtonViewSizeData.shadowOffsetWidth.rawValue,
-//                                         height: DiscountsButtonViewSizeData.shadowOffsetHeight.rawValue)
-//        self.layer.masksToBounds = false
         
         if shadowLayer == nil {
                     shadowLayer = CAShapeLayer()

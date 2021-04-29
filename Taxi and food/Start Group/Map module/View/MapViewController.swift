@@ -221,6 +221,21 @@ extension MapViewController {
 
 extension MapViewController: MapViewProtocol {
     
+    func draw(route: MKRoute) {
+        self.removeOldRoutes()
+        DispatchQueue.main.async {
+            self.mapView.addOverlay((route.polyline), level: .aboveRoads)
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        }
+    }
+    
+    private func removeOldRoutes() {
+        DispatchQueue.main.async {
+            self.mapView.removeOverlays(self.mapView.overlays)
+        }
+    }
+    
     func updateShopList(_ list: [ShopResponseData]) {
         guard let shopsView = self.shopsListView else { return }
         shopsView.setShopView(list: list, destinationAddress: self.interactor.destinationAddress, destinationTitle: self.interactor.destinationAddressTitle)
@@ -243,9 +258,16 @@ extension MapViewController: MapViewProtocol {
     }
     
     func setDestinationAddressText(for addressText: String?) {
+        self.interactor.buildARoute()
         guard let addressText = addressText else { return }
         DispatchQueue.main.async {
-            self.addressEnterView.setAddressToTextFieldText(addressText)
+            if let addressEnterView = self.addressEnterView {
+                addressEnterView.setAddressToTextFieldText(addressText)
+            }
+            
+            if let taxiOrderView = self.taxiOrderView {
+                taxiOrderView.setDestinationAddress(destinationAddress: addressText)
+            }
         }
         
     }
@@ -323,6 +345,7 @@ extension MapViewController: MapViewProtocol {
             self.dismissAddressEnterView()
             self.dismissShopsView()
             self.dismissTaxiViews()
+            self.removeOldRoutes()
             
         case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
@@ -486,6 +509,10 @@ extension MapViewController: MKMapViewDelegate {
         annotationView.image = UIImage(named: CustomImagesNames.userPinOrange.rawValue)
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        return interactor.makePolylineRended(from: overlay)
+    }
 }
 
 //MARK: - Address enter view methods
@@ -545,7 +572,6 @@ extension MapViewController: AddressEnterViewDelegate {
     func removeDestinationTitle() {
         self.interactor.destinationAddressTitle = nil
     }
-    
     
     //Action when addressFromTextFieldHasBecomeActive
     func addressFromTextFieldHasBecomeActive() {
@@ -714,9 +740,24 @@ extension MapViewController {
 
 extension MapViewController: TaxiOrderViewDelegate {
     
+    func promocodeButtonTapped() {
+        let promocodeActivatingInteractor = PromocodeActivatingInteractor()
+        let promocodeActivatingViewController = PromocodeActivatingViewController(interactor: promocodeActivatingInteractor)
+        promocodeActivatingViewController.modalPresentationStyle = .overFullScreen
+        promocodeActivatingViewController.isTapGestureEnabled = true
+        present(promocodeActivatingViewController, animated: false, completion: nil)
+    }
+    
+    func pointsButtonTapped() {
+        print(#function)
+    }
+    
+    
     func viewHasSwipedDown() {
         self.interactor.setViewControllerState(.start)
     }
+    
+    
 }
 
 //MARK: - TipAddres view methods
@@ -848,6 +889,6 @@ extension MapViewController {
         self.topInfoView = TopInfoView(frame: rect)
         self.view.addSubview(topInfoView)
         self.topInfoView.setupTitle(self.interactor.estimatedTripTime)
-        self.topInfoView.setupConstraints(topConstant: topPadding + TopInfoViewSizesData.topConstraint.rawValue, height: TopInfoViewSizesData.viewHeight.rawValue)
+        self.topInfoView.setupConstraintXCenterAnd(topConstant: topPadding + TopInfoViewSizesData.topConstraint.rawValue, height: TopInfoViewSizesData.viewHeight.rawValue)
     }
 }

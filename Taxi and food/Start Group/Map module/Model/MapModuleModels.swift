@@ -85,9 +85,9 @@ extension Tariff {
     
     static func getTariffs() -> [Tariff] {
         
-        let  standart = Tariff(isActive: true, type: .Standart, imageName: CustomImagesNames.icon_tariff_standart.rawValue, feedTimeValue: 3, priceValue: 200, priceOldValue: nil)
-        let  premium = Tariff(isActive: false, type: .Premium, imageName: CustomImagesNames.icon_tariff_premium.rawValue, feedTimeValue: 6, priceValue: 300, priceOldValue: nil)
-        let  buisness = Tariff(isActive: false, type: .Buisness, imageName: CustomImagesNames.icon_tariff_business.rawValue, feedTimeValue: 9, priceValue: 400, priceOldValue: nil)
+        let  standart = Tariff(isActive: true, type: .Standart, imageName: CustomImagesNames.iconTariffStandart.rawValue, feedTimeValue: 3, priceValue: 200, priceOldValue: nil)
+        let  premium = Tariff(isActive: false, type: .Premium, imageName: CustomImagesNames.iconTariffPremium.rawValue, feedTimeValue: 6, priceValue: 300, priceOldValue: nil)
+        let  buisness = Tariff(isActive: false, type: .Buisness, imageName: CustomImagesNames.iconTariffBusiness.rawValue, feedTimeValue: 9, priceValue: 400, priceOldValue: nil)
         
                 
         return [standart, premium, buisness]

@@ -80,6 +80,12 @@ protocol MapInteractorProtocol: class {
     
     //Get Food Categories for shops
     func makeRequest(for shopId: Int)
+    
+    // Make Polyline render
+    func makePolylineRended(from overlay: MKOverlay) -> MKOverlayRenderer
+    
+    //Building route
+    func buildARoute()
 }
 
 
@@ -110,4 +116,6 @@ protocol MapViewProtocol: class {
     func updateShopList(_ list: [ShopResponseData])
     
     func showFoodCategoriesForShop(_ shopDetailData: FoodCategoriesResponseData? )
+    
+    func draw(route: MKRoute)
 }

@@ -13,7 +13,6 @@ import UIKit
 
 class MapInteractor: MapInteractorProtocol {
     
-    
     //MARK: - Properties
     
     internal weak var view: MapViewProtocol!
@@ -341,3 +340,63 @@ extension MapInteractor {
     }
 }
 
+// MARK: - Building a route for map
+
+extension MapInteractor {
+    
+    func makePolylineRended(from overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        guard let polyline = overlay as? MKPolyline else { return MKPolylineRenderer() }
+        //        let gradientColors = [Colors.buttonBlue.getColor(), Colors.taxiOrange.getColor()]
+        //
+        let polylineRenderer = MKPolylineRenderer(overlay: polyline)
+        polylineRenderer.fillColor = Colors.buttonBlue.getColor().withAlphaComponent(0.2)
+        polylineRenderer.strokeColor = Colors.taxiOrange.getColor().withAlphaComponent(0.7)
+        polylineRenderer.lineWidth = 3
+        
+        return polylineRenderer
+    }
+    
+    func buildARoute() {
+            
+           guard let sourceCoordLocation = self.userLocation, let destinationCoordLocation = self.destinationLocationFromMap else { return }
+            
+            let sourcePlacemark = MKPlacemark(coordinate: sourceCoordLocation, addressDictionary: nil)
+            let destinationPlacemark = MKPlacemark(coordinate: destinationCoordLocation, addressDictionary: nil)
+            
+            let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+            let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+          
+            
+            let sourceAnnotation = MKPointAnnotation()
+            sourceAnnotation.coordinate = sourceCoordLocation
+            
+            
+            let destinationAnnotation = MKPointAnnotation()
+            destinationAnnotation.coordinate = destinationCoordLocation
+            
+            let directionRequest = MKDirections.Request()
+            directionRequest.source = sourceMapItem
+            directionRequest.destination = destinationMapItem
+            directionRequest.transportType = .automobile
+            
+            // Calculate the direction
+            let directions = MKDirections(request: directionRequest)
+            
+            directions.calculate {
+                (response, error) -> Void in
+                
+                guard let response = response else {
+                    if let error = error {
+                        print("Error: \(error)")
+                    }
+                    
+                    return
+                }
+            
+                let route = response.routes[0]
+                self.view.draw(route: route)
+            }
+        }
+    
+}

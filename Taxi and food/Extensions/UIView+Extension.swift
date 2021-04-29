@@ -30,7 +30,6 @@ extension UIView {
         return window.safeAreaInsets.top
     }
 
-    
     typealias BottomConstraintHanler = (NSLayoutConstraint) -> Void
     typealias VerticalConstraintsHandler = (NSLayoutConstraint, NSLayoutConstraint) -> Void
         
@@ -74,7 +73,7 @@ extension UIView {
         self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
     }
     
-    func setupConstraints(topConstant: CGFloat, height: CGFloat) {
+    func setupConstraintXCenterAnd(topConstant: CGFloat, height: CGFloat) {
         guard let superview = self.superview else { return }
         self.translatesAutoresizingMaskIntoConstraints = false
         
