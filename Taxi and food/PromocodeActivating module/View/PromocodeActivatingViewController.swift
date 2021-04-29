@@ -24,6 +24,7 @@ class PromocodeActivatingViewController: SubstrateViewController {
     private var promocodeEnterViewBottomConstraint: NSLayoutConstraint!
     
     private var  promocodeActivatingResultView: PromocodeActivatingResultView!
+    
     private var promocodeActivatingResultViewBottomConstraint: NSLayoutConstraint!
     
     //MARK: - Initializers
@@ -90,7 +91,7 @@ extension PromocodeActivatingViewController {
     }
 }
 
-// MARK: -
+// MARK: - TextEnterViewDelegate
 
 extension PromocodeActivatingViewController: TextEnterViewDelegate {
     
@@ -100,6 +101,4 @@ extension PromocodeActivatingViewController: TextEnterViewDelegate {
         promocodeEnterViewBottomConstraint = nil
         showPromocodeActivatingResultView()
     }
-    
-    
 }
