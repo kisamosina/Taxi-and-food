@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol InactiveViewDelegate: class {
+protocol InactiveViewDelegate: AnyObject {
     func userHasTapped()
 }

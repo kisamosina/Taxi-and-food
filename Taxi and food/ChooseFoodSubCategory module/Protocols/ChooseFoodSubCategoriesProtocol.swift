@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol  ChooseFoodSubCategoriesViewProtocol: class  {
+protocol  ChooseFoodSubCategoriesViewProtocol: AnyObject  {
     
     var interactor: ChooseFoodSubCategoriesInteractorProtocol! { get set }
     
     func showSubCategories(as mode: ChooseFoodSubCategoriesViewControllerMode)
 }
 
-protocol ChooseFoodSubCategoriesInteractorProtocol: class {
+protocol ChooseFoodSubCategoriesInteractorProtocol: AnyObject {
     
     var view: ChooseFoodSubCategoriesViewProtocol! { get }
     
@@ -30,7 +30,7 @@ protocol ChooseFoodSubCategoriesInteractorProtocol: class {
     func getSubcategoryViewHeight(cellNumbers: Int) -> CGFloat
 }
 
-protocol ChooseFoodSubCategoriesViewControllerDelegate: class {
+protocol ChooseFoodSubCategoriesViewControllerDelegate: AnyObject {
     func userHasSwipedView()
     func backToCategoriesButtonTapped()
 }

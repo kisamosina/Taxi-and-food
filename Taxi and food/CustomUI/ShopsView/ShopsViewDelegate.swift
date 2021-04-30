@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ShopsViewDelegate: class {
+protocol ShopsViewDelegate: AnyObject {
     
     func userHasSwipedDownView()
     func goToShop(_ shopId: Int)

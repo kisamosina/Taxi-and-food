@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PaymentWayViewProtocol: class {
+protocol PaymentWayViewProtocol: AnyObject {
     
     var interactor: PaymentWayInteractorProtocol! { get set }
     
@@ -19,7 +19,7 @@ protocol PaymentWayViewProtocol: class {
     func showPointsData(_ pointsData: PointsResponseData)
 }
 
-protocol PaymentWayInteractorProtocol: class {
+protocol PaymentWayInteractorProtocol: AnyObject {
     
     var view: PaymentWayViewProtocol! { get }
     

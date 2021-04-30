@@ -12,7 +12,7 @@ import UIKit
 import UIKit
 
 
-protocol PromoDescriptionViewProtocol: class {
+protocol PromoDescriptionViewProtocol: AnyObject {
     var interactor: PromoDescriptionIneractorProtocol! { get set }
     
     func refresh()

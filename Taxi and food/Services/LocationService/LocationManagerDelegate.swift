@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-protocol LocationManagerDelegate: class {
+protocol LocationManagerDelegate: AnyObject {
     
     func cantUpdateLocation(_ reason: LocationAuthStatus)
     func getLocation(_ location: CLLocationCoordinate2D)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AddressInteractorProtocol: class {
+protocol AddressInteractorProtocol: AnyObject {
     
     var view: AddressViewProtocol! { get }
     

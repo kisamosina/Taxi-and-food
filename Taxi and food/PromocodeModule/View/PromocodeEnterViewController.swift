@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PromocodeEnterViewProtocol: class {
+protocol PromocodeEnterViewProtocol: AnyObject {
     var interactor: PromocodeEnterInteractorProtocol! { get set }
     func setupLabelError(text: String)
     func showSuccess(data: PromocodeDataResponse)

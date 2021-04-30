@@ -13,6 +13,7 @@ class TaxiOrderView: CustomBottomView {
     //MARK: - Properties
     
     public weak var delegate: TaxiOrderViewDelegate?
+    public weak var mapButtonDelegate: MapButtonDelegate?
     private var tariffs: [Tariff] = Tariff.getTariffs()
     
     //MARK: - IBOutlets
@@ -142,6 +143,6 @@ extension TaxiOrderView: UICollectionViewDelegate, UICollectionViewDataSource, U
 extension TaxiOrderView: MapButtonViewDelegate {
     
     func mapButtonTapped() {
-        self.delegate?.mapButtonViewTapped(destinationAddress: addressToTextField.text)
+        self.mapButtonDelegate?.mapButtonTapped(destinationAddress: addressToTextField.text)
     }
 }

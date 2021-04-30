@@ -9,11 +9,10 @@
 import Foundation
 import UIKit
 
-protocol TaxiOrderViewDelegate: class {
+protocol TaxiOrderViewDelegate: AnyObject {
     
     func viewHasSwipedDown()
-//    func mapButtonTappped(destinationAddress: String?)
-    func mapButtonViewTapped(destinationAddress: String?)
+//    func mapButtonViewTapped(destinationAddress: String?)
     func promocodeButtonTapped()
     func pointsButtonTapped()
 }

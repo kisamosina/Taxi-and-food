@@ -9,14 +9,14 @@
 import Foundation
 
 
-protocol NewCardEnterViewProtocol: class {
+protocol NewCardEnterViewProtocol: AnyObject {
     var interactor: NewCardEnterInteractorProtocol! { get set }
     func callApproveView(cardNumber: String)
     func backToPaymentWayViewController()
 }
 
 
-protocol NewCardEnterInteractorProtocol: class {
+protocol NewCardEnterInteractorProtocol: AnyObject {
     
     var view: NewCardEnterViewProtocol! { get }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PromoInteractorProtocol: class {
+protocol PromoInteractorProtocol: AnyObject {
     var view: PromoViewProtocol! { get }
     
     var models: [PromoOption] { get set }

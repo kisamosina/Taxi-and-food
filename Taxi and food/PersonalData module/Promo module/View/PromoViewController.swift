@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PromoViewProtocol: class {
+protocol PromoViewProtocol: AnyObject {
     var interactor: PromoInteractorProtocol! { get set }
     
     

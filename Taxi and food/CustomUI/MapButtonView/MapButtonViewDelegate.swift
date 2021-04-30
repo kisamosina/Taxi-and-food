@@ -8,6 +8,12 @@
 
 import Foundation
 
-protocol MapButtonViewDelegate: class {
+protocol MapButtonViewDelegate: AnyObject {
     func mapButtonTapped()
+}
+
+protocol MapButtonDelegate: AnyObject {
+    
+    func mapButtonTapped(destinationAddress: String?)
+    
 }

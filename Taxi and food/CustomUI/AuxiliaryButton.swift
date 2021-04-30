@@ -24,6 +24,8 @@ class AuxiliaryButton: UIButton {
             self.setTitle(AuxiliaryButtonTitles.cancelTitle, for: .normal)
         case .about:
             self.setTitle(AuxiliaryButtonTitles.aboutTitle, for: .normal)
+        case .wasteSomePoints:
+            self.setTitle(AuxiliaryButtonTitles.wasteSomePointsTitle, for: .normal)
         }
     }
 }

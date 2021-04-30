@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PaymentHistoryInteractorProtocol: class {
+protocol PaymentHistoryInteractorProtocol: AnyObject {
     
     var view: PaymentHistoryViewProtocol! { get }
     var isPaymentLoad: Bool { get set }

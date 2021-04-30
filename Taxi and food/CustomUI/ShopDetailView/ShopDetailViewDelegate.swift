@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ShopDetailViewDelegate: class {
+protocol ShopDetailViewDelegate: AnyObject {
     
     func closeButtonTapped()
 }

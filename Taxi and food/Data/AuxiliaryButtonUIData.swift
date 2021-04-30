@@ -11,6 +11,7 @@ import Foundation
 enum AuxiliaryButtonTypes {
     case about
     case cancel
+    case wasteSomePoints
 }
 
 struct AuxiliaryButtonTitles {
@@ -32,6 +33,17 @@ struct AuxiliaryButtonTitles {
             return "Подробнее"
         case .eng:
             return "About"
+        }
+    }
+    
+    static var wasteSomePointsTitle: String {
+        
+        switch UserDefaults.standard.getAppLanguage() {
+        
+        case .rus:
+            return "Другое количество"
+        case .eng:
+            return "Waste some points"
         }
     }
 

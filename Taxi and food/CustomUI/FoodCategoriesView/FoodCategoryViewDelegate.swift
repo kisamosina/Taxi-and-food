@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FoodViewCategoryViewDelegate: class {
+protocol FoodViewCategoryViewDelegate: AnyObject {
     
     func backButtonTapped()
     func userHasSwipedDown()

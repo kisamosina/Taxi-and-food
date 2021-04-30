@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PromocodeHistoryViewProtocol: class {
+protocol PromocodeHistoryViewProtocol: AnyObject {
     var interactor: PromocodeHistoryInteractorProtocol! { get set }
     func showData()
 }

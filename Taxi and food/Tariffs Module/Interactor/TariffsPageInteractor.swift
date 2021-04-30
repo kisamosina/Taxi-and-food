@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TariffPageInteractorProtocol: class {
+protocol TariffPageInteractorProtocol: AnyObject {
     
     var view: TariffPageViewProtocol! { get set }
     var tariffs: [TariffData] { get set }

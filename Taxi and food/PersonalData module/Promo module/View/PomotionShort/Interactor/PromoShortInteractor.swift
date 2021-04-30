@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PromoShortInteractorProtocol: class {
+protocol PromoShortInteractorProtocol: AnyObject {
     var view: PromoShortViewProtocol! { get }
     
     var promos: [PromoShortData] { get set }

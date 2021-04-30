@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AboutPointsViewDelegate: class {
+protocol AboutPointsViewDelegate: AnyObject {
     
     func closeButtonTapped()
     func beginSavePointsButtonTapped()

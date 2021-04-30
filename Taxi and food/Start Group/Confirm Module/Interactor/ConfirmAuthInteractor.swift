@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-protocol ConfirmAuthInteractorProtocol: class {
+protocol ConfirmAuthInteractorProtocol: AnyObject {
     var view: ConfirmAuthViewProtocol! { get }
     
     init(view: ConfirmAuthViewProtocol, phoneNumber: String)

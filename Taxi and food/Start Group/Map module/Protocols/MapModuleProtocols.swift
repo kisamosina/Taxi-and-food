@@ -12,7 +12,7 @@ import MapKit
 
 //MARK: - MapInteractorProtocol
 
-protocol MapInteractorProtocol: class {
+protocol MapInteractorProtocol: AnyObject {
     
     var view: MapViewProtocol! { get }
     
@@ -91,7 +91,7 @@ protocol MapInteractorProtocol: class {
 
 //MARK: - MapViewProtocol
 
-protocol MapViewProtocol: class {
+protocol MapViewProtocol: AnyObject {
     
     var interactor: MapInteractorProtocol! { get set }
     

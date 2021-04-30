@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PromoDescriptionIneractorProtocol: class {
+protocol PromoDescriptionIneractorProtocol: AnyObject {
     var view: PromoDescriptionViewProtocol! { get }
     
     var promo: PromoFullData? { get set }

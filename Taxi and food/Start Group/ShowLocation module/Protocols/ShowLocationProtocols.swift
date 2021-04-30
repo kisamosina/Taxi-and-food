@@ -8,7 +8,7 @@
 
 import MapKit
 
-protocol ShowLocationViewProtocol: class {
+protocol ShowLocationViewProtocol: AnyObject {
     
     var interactor: ShowLocationInteractorProtocol! { get set }
     
@@ -21,7 +21,7 @@ protocol ShowLocationViewProtocol: class {
     func popViewController()
 }
 
-protocol ShowLocationInteractorProtocol: class {
+protocol ShowLocationInteractorProtocol: AnyObject {
     
     var view: ShowLocationViewProtocol! { get }
     
@@ -39,6 +39,6 @@ protocol ShowLocationInteractorProtocol: class {
 }
 
 
-protocol ShowLocationInteractorDelegate: class {
+protocol ShowLocationInteractorDelegate: AnyObject {
     func get(location: CLLocationCoordinate2D?, and addressText: String)
 }

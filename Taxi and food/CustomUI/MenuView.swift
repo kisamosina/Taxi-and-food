@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MenuViewDelegate: class {
+protocol MenuViewDelegate: AnyObject {
     func performSegue(_ type: MapViewControllerSegue)
 }
 

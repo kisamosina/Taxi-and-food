@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PromocodeEnterInteractorProtocol: class {
+protocol PromocodeEnterInteractorProtocol: AnyObject {
     var view: PromocodeEnterViewProtocol! { get }
     
     init(view: PromocodeEnterViewProtocol)

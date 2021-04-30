@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol TariffViewProtocol: class {
+protocol TariffViewProtocol: AnyObject {
     var interactor: TariffInteractorProtocol! { get set }
     
     func setViewsData(_ tariffData: TariffData)
 }
 
-protocol TariffPageViewControllerDelegate: class {
+protocol TariffPageViewControllerDelegate: AnyObject {
     func setVC(for tariffName: String)
 }
 

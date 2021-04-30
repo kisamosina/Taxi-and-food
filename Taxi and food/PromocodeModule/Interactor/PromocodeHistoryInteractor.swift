@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PromocodeHistoryInteractorProtocol: class {
+protocol PromocodeHistoryInteractorProtocol: AnyObject {
     
     var view: PromocodeHistoryViewProtocol! { get }
     var vcState: PromocodeHistoryViewControllerStates { get set }

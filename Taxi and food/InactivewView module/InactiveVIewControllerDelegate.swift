@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol InactiveViewControllerDelegate: class {
+protocol InactiveViewControllerDelegate: AnyObject {
     
     func logOutButtonTapped()
     func beginSavePointsButtonTapped()

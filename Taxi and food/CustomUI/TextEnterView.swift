@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TextEnterViewDelegate: class {
+protocol TextEnterViewDelegate: AnyObject {
     func approveButtonTapped(_ text: String)
 }
 

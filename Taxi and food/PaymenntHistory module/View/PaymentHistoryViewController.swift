@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PaymentHistoryViewProtocol: class {
+protocol PaymentHistoryViewProtocol: AnyObject {
     var interactor: PaymentHistoryInteractorProtocol! { get set}
     
     func setupViewElements()

@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol PersonalAccountViewProtocol: class {
+protocol PersonalAccountViewProtocol: AnyObject {
     var interactor: PersonalAccountInteractorProtocol! { get set }
     
     func reloadTableViewData()
 }
 
-protocol PersonalAccountInteractorProtocol: class {
+protocol PersonalAccountInteractorProtocol: AnyObject {
     
     var view: PersonalAccountViewProtocol! { get }
     

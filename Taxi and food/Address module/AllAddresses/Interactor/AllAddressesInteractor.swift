@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AllAddressesInteractorProtocol: class {
+protocol AllAddressesInteractorProtocol: AnyObject {
     var view: AllAddressesViewProtocol! { get }
     
     var arrayOfAddresses: [AddressResponseData]? { get set }

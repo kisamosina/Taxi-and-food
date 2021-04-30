@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TariffPageViewProtocol: class {
+protocol TariffPageViewProtocol: AnyObject {
     var interactor: TariffPageInteractorProtocol! { get set }
     func setViewControllerFor(_ index: Int)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PromoShortViewProtocol: class {
+protocol PromoShortViewProtocol: AnyObject {
     var interactor: PromoShortInteractorProtocol! { get set }
 
     func reload()

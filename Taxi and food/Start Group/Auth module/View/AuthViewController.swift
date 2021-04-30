@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AuthViewProtocol: class {
+protocol AuthViewProtocol: AnyObject {
     var interactor: AuthInteractorProtocol! { get set }
 }
 

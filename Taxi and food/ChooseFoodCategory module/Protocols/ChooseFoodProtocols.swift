@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ChooseFoodCategoryInteractorProtocol: class {
+protocol ChooseFoodCategoryInteractorProtocol: AnyObject {
     
     var view: ChooseFoodCategoryViewProtocol! { get }
     
@@ -20,7 +20,7 @@ protocol ChooseFoodCategoryInteractorProtocol: class {
     
 }
 
-protocol ChooseFoodCategoryViewProtocol: class {
+protocol ChooseFoodCategoryViewProtocol: AnyObject {
     
     var interactor: ChooseFoodCategoryInteractorProtocol! { get  set }
     
@@ -30,7 +30,7 @@ protocol ChooseFoodCategoryViewProtocol: class {
 }
 
 
-protocol ChooseFoodCategoryViewControllerDelegate: class {
+protocol ChooseFoodCategoryViewControllerDelegate: AnyObject {
     
     func userHasSwiped()
 }

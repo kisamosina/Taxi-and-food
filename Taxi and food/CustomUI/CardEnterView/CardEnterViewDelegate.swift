@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CardEnterViewDelegate: class {
+protocol CardEnterViewDelegate: AnyObject {
     
 func catchCardData(cardNumber: String, expirationDate: String, cvv: String)
     

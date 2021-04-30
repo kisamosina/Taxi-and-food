@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TransitionBottomViewDelegate: class {
+protocol TransitionBottomViewDelegate: AnyObject {
     func mainButtonTapped(for viewType: TransitionBottomViewTypes)
     func auxButtonTapped(for viewType: TransitionBottomViewTypes)
     func userHasSwipedDown(for viewType: TransitionBottomViewTypes)

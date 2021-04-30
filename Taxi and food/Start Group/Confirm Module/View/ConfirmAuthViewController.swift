@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ConfirmAuthViewProtocol: class {
+protocol ConfirmAuthViewProtocol: AnyObject {
     var interactor: ConfirmAuthInteractorProtocol! { get set }
     func showMapViewController()
     func setupWhenError()

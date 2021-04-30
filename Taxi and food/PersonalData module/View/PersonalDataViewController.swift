@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PersonalDataViewProtocol: class {
+protocol PersonalDataViewProtocol: AnyObject {
     var interactor: PersonalDataInteractorProtocol! { get set }
 }
 class PersonalDataViewController: UIViewController {

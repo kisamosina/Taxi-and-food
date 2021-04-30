@@ -542,6 +542,7 @@ extension MapViewController {
         self.addressEnterView = AddressEnterView(frame: CGRect.makeRect(height: type.viewHeight()))
         self.addressEnterView.alpha = 0
         self.addressEnterView.delegate = self
+        self.addressEnterView.mapButtonDelegate = self
         self.addressEnterView.setAddresses(self.interactor.addresses)
         self.view.addSubview(self.addressEnterView)
         self.addressEnterView.setView(as: type)
@@ -602,16 +603,7 @@ extension MapViewController: AddressEnterViewDelegate {
             self.addressEnterViewHeightConstraint.constant += AddressEnterViewSizes.tableViewHeight.rawValue
         }
     }
-    
-    //Action when map button has tapped
-    func mapButtonViewTapped(destinationAddress: String?) {
-        guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLocationViewController else { return }
-        let showLocationInteractor = ShowLocationInteractor(view: showLocationVC, userLocation: self.interactor.userLocation, addressEnterDetailViewType: .showDestination(destinationAddress))
-        showLocationInteractor.delegate = self.interactor as! MapInteractor
-        showLocationVC.interactor = showLocationInteractor
-        self.navigationController?.pushViewController(showLocationVC, animated: true)
-    }
-    
+        
     //Action when user swipe on address enter view
     func userHasSwipedViewDown() {
         self.interactor.setViewControllerState(.start)
@@ -636,6 +628,19 @@ extension MapViewController: AddressEnterViewDelegate {
                 self.addressEnterView = nil
             }
         }
+    }
+}
+
+//MARK: - MapButtonDelegate
+
+extension MapViewController: MapButtonDelegate {
+    
+    func mapButtonTapped(destinationAddress: String?) {
+        guard let showLocationVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.ShowLoactionViewController.rawValue) as? ShowLocationViewController else { return }
+        let showLocationInteractor = ShowLocationInteractor(view: showLocationVC, userLocation: self.interactor.userLocation, addressEnterDetailViewType: .showDestination(destinationAddress))
+        showLocationInteractor.delegate = self.interactor as! MapInteractor
+        showLocationVC.interactor = showLocationInteractor
+        self.navigationController?.pushViewController(showLocationVC, animated: true)
     }
 }
 
@@ -717,6 +722,7 @@ extension MapViewController {
             self.taxiOrderViewBottomConstraint = constraint
         }
         self.taxiOrderView.delegate = self
+        self.taxiOrderView.mapButtonDelegate = self
         self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
         Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
                                  from: self.view) {[weak self] _ in
@@ -749,7 +755,11 @@ extension MapViewController: TaxiOrderViewDelegate {
     }
     
     func pointsButtonTapped() {
-        print(#function)
+        let wastePointsInteractor = WastePointsInteractor()
+        let wastePointsViewController = WastePointsViewController(interactor: wastePointsInteractor)
+        wastePointsViewController.modalPresentationStyle = .overFullScreen
+        wastePointsViewController.isTapGestureEnabled = true
+        present(wastePointsViewController, animated: false)
     }
     
     

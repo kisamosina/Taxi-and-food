@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-protocol AddressTranslatable: class {
+protocol AddressTranslatable: AnyObject {
     var userLocation: CLLocationCoordinate2D? { get set }
     var addressString: String? { get set}
     func getAddressFromLocation()

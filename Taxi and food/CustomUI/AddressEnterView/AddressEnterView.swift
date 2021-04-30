@@ -13,6 +13,7 @@ class AddressEnterView: UIView {
     //MARK: - Properties
     
     weak var delegate: AddressEnterViewDelegate?
+    weak var mapButtonDelegate: MapButtonDelegate?
     
     private var addresses: [AddressResponseData] = []
     
@@ -212,7 +213,8 @@ extension AddressEnterView: UITableViewDataSource, UITableViewDelegate {
 extension AddressEnterView: MapButtonViewDelegate {
     
     func mapButtonTapped() {
-        self.delegate?.mapButtonViewTapped(destinationAddress: self.addressToTextField.text)
+//        self.delegate?.mapButtonViewTapped(destinationAddress: self.addressToTextField.text)
+        mapButtonDelegate?.mapButtonTapped(destinationAddress: addressToTextField.text)
         self.endEditing(true)
     }
     

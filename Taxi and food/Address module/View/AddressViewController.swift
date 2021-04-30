@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AddressViewProtocol: class {
+protocol AddressViewProtocol: AnyObject {
     var interactor: AddressInteractorProtocol! { get set }
 }
 

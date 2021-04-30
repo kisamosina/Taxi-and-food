@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PromocodeActivatingViewProtocol: class {
+protocol PromocodeActivatingViewProtocol: AnyObject {
     
     var interactor: PromocodeActivatingInteractorProtocol { get }
     
@@ -16,7 +16,7 @@ protocol PromocodeActivatingViewProtocol: class {
     
 }
 
-protocol PromocodeActivatingInteractorProtocol: class {
+protocol PromocodeActivatingInteractorProtocol: AnyObject {
     
     var view: PromocodeActivatingViewProtocol! { get set }
     

@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol AddressEnterViewDelegate: class {
+protocol AddressEnterViewDelegate: AnyObject {
     
     func userHasSwipedViewDown()
     func nextButtonTapped()
-    func mapButtonViewTapped(destinationAddress: String?)
+//    func mapButtonViewTapped(destinationAddress: String?)
     func tableViewWillAppear()
     func tableViewWillDisappear()
     func addressFromPinButtonTapped()

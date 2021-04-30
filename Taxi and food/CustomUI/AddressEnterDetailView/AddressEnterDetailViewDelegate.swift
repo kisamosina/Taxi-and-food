@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AddressEnterDetailViewDelegate: class {
+protocol AddressEnterDetailViewDelegate: AnyObject {
     func mainButtonTapped(_ addressText: String)
 }

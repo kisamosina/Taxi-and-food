@@ -14,6 +14,7 @@ enum TransitionBottomViewTypes {
     case points(PointsResponseData)
     case logout
     case deleteAddress
+    case wastePoints
 //    case findAddressView
 }
 
@@ -128,5 +129,4 @@ struct TransitionBottomViewTexts {
             return "Delete address?"
         }
     }
-    
 }
