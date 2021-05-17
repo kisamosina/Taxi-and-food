@@ -128,10 +128,7 @@ class MapViewController: UIViewController {
     private func initViewSetup() {
         self.inactiveView.alpha = 0
         self.menuView.alpha = 0
-        
         self.promoDestinationView.alpha = 0
-        
-        
         self.menuView.setupView(with: interactor.mapMenuData)
         self.menuView.delegate = self
         self.mapView.showsUserLocation = true
@@ -220,6 +217,39 @@ extension MapViewController {
 //MARK: - MapViewProtocol
 
 extension MapViewController: MapViewProtocol {
+    
+    func activatePromocodeDiscount(_ discount: String) {
+        guard let taxiOrderView = taxiOrderView else { return }
+        DispatchQueue.main.async {
+            taxiOrderView.promocodeButtonView.activateButton(discount)
+            taxiOrderView.setNewPrice(self.interactor.finalSumOrder)
+        }
+    }
+    
+    
+    func activatePoints(_ pointsText: String) {
+        guard let taxiOrderView = taxiOrderView else { return }
+        DispatchQueue.main.async {
+            taxiOrderView.pointsButtonView.activateButton(pointsText)
+            taxiOrderView.setNewPrice(self.interactor.finalSumOrder)
+        }
+        
+    }
+    
+    
+    func showPoints(_ credit: Int) {
+        
+        DispatchQueue.main.async {
+            let wastePointsInteractor = WastePointsInteractor(credits: credit, orderSum: self.interactor.sumOrder)
+            let wastePointsViewController = WastePointsViewController(interactor: wastePointsInteractor)
+            wastePointsViewController.modalPresentationStyle = .overFullScreen
+            wastePointsViewController.isTapGestureEnabled = true
+            wastePointsInteractor.initView(wastePointsViewController)
+            wastePointsViewController.delegate = self
+            self.present(wastePointsViewController, animated: false)
+        }
+    }
+    
     
     func draw(route: MKRoute) {
         self.removeOldRoutes()
@@ -711,25 +741,25 @@ extension MapViewController: AddressEnterDetailViewDelegate {
 extension MapViewController {
     
     //Setup show animation for taxi order view
-    private func showTaxiOrdreView() {
-        
-        self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
-        self.view.addSubview(self.taxiOrderView)
-        self.taxiOrderView.setupConstraints(for: self.view,
-                                                     viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
-                                                     bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomPadding) { [weak self] constraint in
-            guard let self = self else { return }
-            self.taxiOrderViewBottomConstraint = constraint
-        }
-        self.taxiOrderView.delegate = self
-        self.taxiOrderView.mapButtonDelegate = self
-        self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
-        Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
-                                 from: self.view) {[weak self] _ in
-            guard let self =  self else { return }
-            self.showTopInfoView()
-        }
+private func showTaxiOrdreView() {
+    
+    self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
+    self.view.addSubview(self.taxiOrderView)
+    self.taxiOrderView.setupConstraints(for: self.view,
+                                                    viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
+                                                    bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomPadding) { [weak self] constraint in
+        guard let self = self else { return }
+        self.taxiOrderViewBottomConstraint = constraint
     }
+    self.taxiOrderView.delegate = self
+    self.taxiOrderView.mapButtonDelegate = self
+    self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
+    Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
+                                from: self.view) {[weak self] _ in
+        guard let self =  self else { return }
+        self.showTopInfoView()
+    }
+}
     
     //Setup hide animation for Taxi order view
     private func hideTaxiOrderView(completion: AnimationCompletion? = nil) {
@@ -745,21 +775,27 @@ extension MapViewController {
 //MARK: - TaxiOrderView Delegate
 
 extension MapViewController: TaxiOrderViewDelegate {
+   
+    func tariffSelected(tariffPrice: Double) {
+        interactor.setSumOrder(tariffPrice)
+        interactor.promocodeDiscount = 0
+        interactor.enteredPoints = nil
+        taxiOrderView.promocodeButtonView.returnToInitialView()
+        taxiOrderView.pointsButtonView.returnToInitialView()
+    }
     
     func promocodeButtonTapped() {
         let promocodeActivatingInteractor = PromocodeActivatingInteractor()
         let promocodeActivatingViewController = PromocodeActivatingViewController(interactor: promocodeActivatingInteractor)
+        promocodeActivatingInteractor.initView(promocodeActivatingViewController)
         promocodeActivatingViewController.modalPresentationStyle = .overFullScreen
         promocodeActivatingViewController.isTapGestureEnabled = true
+        promocodeActivatingViewController.delegate = self
         present(promocodeActivatingViewController, animated: false, completion: nil)
     }
     
     func pointsButtonTapped() {
-        let wastePointsInteractor = WastePointsInteractor()
-        let wastePointsViewController = WastePointsViewController(interactor: wastePointsInteractor)
-        wastePointsViewController.modalPresentationStyle = .overFullScreen
-        wastePointsViewController.isTapGestureEnabled = true
-        present(wastePointsViewController, animated: false)
+        interactor.getPoints()
     }
     
     
@@ -900,5 +936,23 @@ extension MapViewController {
         self.view.addSubview(topInfoView)
         self.topInfoView.setupTitle(self.interactor.estimatedTripTime)
         self.topInfoView.setupConstraintXCenterAnd(topConstant: topPadding + TopInfoViewSizesData.topConstraint.rawValue, height: TopInfoViewSizesData.viewHeight.rawValue)
+    }
+}
+
+//MARK: - PromocodeActivatingViewControllerDelegate
+
+extension MapViewController: PromocodeActivatingViewControllerDelegate {
+    
+    func promocodeHasActivated(discount: Int) {
+        interactor.setPromocodeDiscount(discount: discount)
+    }
+}
+
+//MARK: - WastePointsViewControllerDelegate
+
+extension MapViewController: WastePointsViewControllerDelegate {
+    
+    func waste(points: Int) {
+        interactor.saveWastedPoints(points)
     }
 }

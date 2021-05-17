@@ -121,7 +121,7 @@ struct PromocodeEnterViewControllerTexts {
     internal enum RusTexts: String, CaseIterable {
         case vcTitle = "Ввести промокод"
         case invalidPromocode = "Промокод недействителен"
-        case promocodeAlreadyHas = "Промокод уже добавлен"
+        case promocodeAlreadyHas = "Промокод уже активирован"
         case promocodeActivated = "Промокод активирован"
     }
     

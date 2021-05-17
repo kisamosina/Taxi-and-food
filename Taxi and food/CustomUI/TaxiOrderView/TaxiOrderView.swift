@@ -15,6 +15,7 @@ class TaxiOrderView: CustomBottomView {
     public weak var delegate: TaxiOrderViewDelegate?
     public weak var mapButtonDelegate: MapButtonDelegate?
     private var tariffs: [Tariff] = Tariff.getTariffs()
+    private var selectedIndex = 0
     
     //MARK: - IBOutlets
     
@@ -104,10 +105,18 @@ class TaxiOrderView: CustomBottomView {
     public func setDestinationAddress(destinationAddress: String) {
         self.addressToTextField.text = destinationAddress
     }
-
+    
     override func userHasSwipedDown(_ sender: UISwipeGestureRecognizer) {
         super.userHasSwipedDown(sender)
         self.delegate?.viewHasSwipedDown()
+    }
+    
+    public func setNewPrice(_ newPrice: Double) {
+        tariffs = Tariff.getTariffs()
+        for tariff in tariffs { tariff.setActive(false) }
+        self.tariffs[selectedIndex].setActive(true)
+        self.tariffs[selectedIndex].setNewPrice(newPrice: newPrice)
+        self.tariffsCollectionView.reloadData()
     }
 }
 
@@ -132,7 +141,8 @@ extension TaxiOrderView: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        selectedIndex = indexPath.row
+        delegate?.tariffSelected(tariffPrice: tariffs[indexPath.row].getTariffPrice())
         for tariff in tariffs { tariff.setActive(false) }
         self.tariffs[indexPath.row].setActive(true)
         self.tariffsCollectionView.reloadData()

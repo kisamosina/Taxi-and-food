@@ -159,10 +159,10 @@ class TransitionBottomView: UIView {
     
     //Waste points
     
-    private func setupWhenWastePoints() {
+    private func setupWhenWastePoints(points: Int) {
         self.topView.isHidden = true
         self.firstTitleLabel.isHidden = true
-        let pointsString = "\(86)"//String(pointsData.credit)
+        let pointsString = "\(points)"
         let text = TransitionBottomViewTexts.youHaveNPointsText.insert(text: pointsString)
         self.secondTitleLabel.text = text
         self.secondTitleLabel.setBoldAndOrange(pointsString + " " + TransitionBottomViewTexts.youHaveNPointsText.selectedSuffixText())
@@ -187,9 +187,8 @@ class TransitionBottomView: UIView {
             self.setupWhenLogout()
         case .deleteAddress:
             self.setupWhenDeleteAddress()
-        case .wastePoints:
-            self.setupWhenWastePoints()
-            
+        case .wastePoints(let points):
+            self.setupWhenWastePoints(points: points)
         }
     }
     

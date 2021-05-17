@@ -14,7 +14,7 @@ enum TransitionBottomViewTypes {
     case points(PointsResponseData)
     case logout
     case deleteAddress
-    case wastePoints
+    case wastePoints(Int)
 //    case findAddressView
 }
 

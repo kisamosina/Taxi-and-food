@@ -20,5 +20,19 @@ protocol WastePointsInteractorProtocol: AnyObject {
     
     var view: WastePointsViewProtocol! { get set }
     
+    var credits: Int { get set }
+    
+    var orderSum: Double { get }
+    
+    init(credits: Int, orderSum: Double)
+    
     func initView(_ view: WastePointsViewProtocol)
+    
+    func checkEnteredPointsWithCredits(points: Int) -> Bool
+    
+    func checkEnteredPointsWithOrderSum(points: Int) -> Bool
+}
+
+protocol WastePointsViewControllerDelegate: AnyObject {
+    func waste(points: Int)
 }

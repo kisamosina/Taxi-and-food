@@ -129,5 +129,10 @@ class TextEnterView: UIView {
         self.label.isHidden = true
         self.button.setActive()
     }
+    
+    public func setupError(description: String) {
+        self.label.text = description
+        self.label.isHidden = false
+    }
 }
 

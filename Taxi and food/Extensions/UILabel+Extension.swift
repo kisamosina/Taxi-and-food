@@ -65,4 +65,13 @@ extension UILabel {
         attributedText = attribstring
     }
     
+    func setCrossedText(_ forText: String?) {
+        guard text != nil, let forText = forText else {
+            text = ""
+            return
+        }
+        let attribstring = NSMutableAttributedString(string: forText)
+        attribstring.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attribstring.length))
+        attributedText = attribstring
+    }
 }

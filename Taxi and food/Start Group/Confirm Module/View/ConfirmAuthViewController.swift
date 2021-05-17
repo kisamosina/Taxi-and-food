@@ -189,6 +189,7 @@ class ConfirmAuthViewController: UIViewController {
 }
 
 //MARK: - ConfirmAuthViewProtocol
+
 extension ConfirmAuthViewController: ConfirmAuthViewProtocol {
     func setupWhenError() {
         self.stopTimer()
@@ -202,10 +203,9 @@ extension ConfirmAuthViewController: ConfirmAuthViewProtocol {
         }
     }
     
-    
     func showMapViewController() {
         DispatchQueue.main.async {
-            let mapVC = self.storyboard?.instantiateViewController(identifier: ViewControllers.MapViewController.rawValue) as! MapViewController
+            let mapVC = self.getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.MapViewController.rawValue)
             self.navigationController?.pushViewController(mapVC, animated: true)
             
         }

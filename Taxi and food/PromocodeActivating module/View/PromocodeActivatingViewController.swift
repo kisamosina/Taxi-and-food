@@ -13,6 +13,7 @@ class PromocodeActivatingViewController: SubstrateViewController {
     // MARK: - Properties
     
     let interactor: PromocodeActivatingInteractorProtocol
+    weak var delegate: PromocodeActivatingViewControllerDelegate?
     
     private var promocodeEnterView: TextEnterView! = {
         let rect = CGRect.makeRect(height: TextEnterViewSize.height.rawValue)
@@ -70,13 +71,37 @@ class PromocodeActivatingViewController: SubstrateViewController {
     
 }
 
-extension PromocodeActivatingViewController: PromocodeActivatingViewProtocol { }
+extension PromocodeActivatingViewController: PromocodeActivatingViewProtocol {
+    
+    func promocodeActivated(description: String) {
+        let discount = Int.random(in: 3...15)
+        DispatchQueue.main.async {
+            self.promocodeEnterView.removeFromSuperview()
+            self.promocodeEnterView = nil
+            self.promocodeEnterViewBottomConstraint = nil
+            self.showPromocodeActivatingResultView(description: description)
+            self.delegate?.promocodeHasActivated(discount: discount)
+        }
+    }
+    
+    func promocodeAlreadyActivated() {
+        DispatchQueue.main.async {
+            self.promocodeEnterView.setupError(description: PromocodeEnterViewControllerTexts.promocodeAlreadyHas)
+        }
+    }
+    
+    func invalidPromocode() {
+        DispatchQueue.main.async {
+            self.promocodeEnterView.setupError(description: PromocodeEnterViewControllerTexts.invalidPromocode)
+        }
+    }
+}
 
 //MARK: - PromocodeActivatingResultView methods
 
 extension PromocodeActivatingViewController {
     
-    func showPromocodeActivatingResultView() {
+    private func showPromocodeActivatingResultView(description: String) {
         let viewHeight = PromocodeActivatingResultSizesData.viewHeight.rawValue
         let rect =  CGRect(x: 0, y: view.bounds.height, width: view.bounds.width, height: viewHeight)
         promocodeActivatingResultView = PromocodeActivatingResultView(frame: rect)
@@ -87,6 +112,8 @@ extension PromocodeActivatingViewController {
             self.promocodeActivatingResultViewBottomConstraint = bottomconstraint
         }
         
+        promocodeActivatingResultView.setupActivated(description: description)
+        
         Animator.shared.showView(animationType: .usualBottomAnimation(promocodeActivatingResultView, promocodeActivatingResultViewBottomConstraint), from: view)
     }
 }
@@ -96,9 +123,6 @@ extension PromocodeActivatingViewController {
 extension PromocodeActivatingViewController: TextEnterViewDelegate {
     
     func approveButtonTapped(_ text: String) {
-        promocodeEnterView.removeFromSuperview()
-        promocodeEnterView = nil
-        promocodeEnterViewBottomConstraint = nil
-        showPromocodeActivatingResultView()
+        interactor.promocodeActivate(promocode: text)
     }
 }

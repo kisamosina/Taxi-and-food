@@ -16,7 +16,7 @@ class PromocodeActivatingResultView: UIView {
     
     @IBOutlet weak var resultLabel: UILabel!
     
-    @IBOutlet weak var resultDetail: UILabel!
+    @IBOutlet weak var resultDetailLabel: UILabel!
     
     // MARK: - Initializers
     
@@ -52,6 +52,10 @@ class PromocodeActivatingResultView: UIView {
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
+    }
+    
+    public func setupActivated(description: String) {
+        resultDetailLabel.text = description
     }
 
 }

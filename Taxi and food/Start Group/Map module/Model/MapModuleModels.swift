@@ -53,6 +53,7 @@ extension FoodCategoriesResponseData {
 
 final class Tariff {
     var isActive: Bool
+    private let tariffPrice: Double
     private let type: TariffType
     private let imageName: String
     private let feedTimeValue: Int
@@ -61,6 +62,7 @@ final class Tariff {
     
     init(isActive: Bool, type: TariffType, imageName: String, feedTimeValue: Int, priceValue: Double, priceOldValue: Double? = nil) {
         self.isActive = isActive
+        self.tariffPrice = priceValue
         self.type = type
         self.imageName = imageName
         self.feedTimeValue = feedTimeValue
@@ -121,9 +123,9 @@ extension Tariff {
         switch UserDefaults.standard.getAppLanguage() {
             
         case .rus:
-            return "\(self.priceValue) руб"
+            return "\(Int(self.priceValue.rounded())) руб"
         case .eng:
-            return "\(self.priceValue) rub"
+            return "\(Int(self.priceValue.rounded())) rub"
         }
     }
     
@@ -134,9 +136,9 @@ extension Tariff {
         switch UserDefaults.standard.getAppLanguage() {
             
         case .rus:
-            return "\(price) руб"
+            return "\(Int(price.rounded())) руб"
         case .eng:
-            return "\(price) rub"
+            return "\(Int(price.rounded())) rub"
         }
 
     }
@@ -157,5 +159,22 @@ extension Tariff {
     
     func setActive(_ value: Bool) {
         self.isActive = value
+        
+        if !value && priceOldValue != nil {
+            priceValue = priceOldValue!
+            priceOldValue = nil
+        }
+    }
+}
+
+extension Tariff {
+    
+    func setNewPrice(newPrice: Double) {
+        self.priceOldValue = self.priceValue
+        self.priceValue = newPrice
+    }
+    
+    func getTariffPrice() -> Double {
+        return tariffPrice
     }
 }

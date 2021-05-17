@@ -56,7 +56,19 @@ protocol MapInteractorProtocol: AnyObject {
     
     //Estimated trip time
     var estimatedTripTime: String { get }
-
+    
+    //Sum order
+    var sumOrder: Double { get set }
+    
+    //Entered points
+    var enteredPoints: Int? { get set }
+    
+    //Promocode discount
+    var promocodeDiscount: Double { get set }
+    
+    //Final sumOrder
+    var finalSumOrder: Double { get }
+    
     init(view: MapViewProtocol)
     
     //Set VC state
@@ -86,6 +98,18 @@ protocol MapInteractorProtocol: AnyObject {
     
     //Building route
     func buildARoute()
+    
+    //Get points
+    func getPoints()
+    
+    //Set sum order
+    func setSumOrder(_ value: Double)
+    
+    //Save wasted Points
+    func saveWastedPoints(_ points: Int)
+    
+    //Set promocode Discount
+    func setPromocodeDiscount(discount: Int)
 }
 
 
@@ -118,4 +142,11 @@ protocol MapViewProtocol: AnyObject {
     func showFoodCategoriesForShop(_ shopDetailData: FoodCategoriesResponseData? )
     
     func draw(route: MKRoute)
+    
+    func showPoints(_ credit: Int)
+    
+    func activatePoints(_ pointsText: String)
+    
+    func activatePromocodeDiscount(_ discount: String)
+    
 }

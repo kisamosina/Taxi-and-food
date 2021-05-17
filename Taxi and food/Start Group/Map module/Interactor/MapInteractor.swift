@@ -19,6 +19,8 @@ class MapInteractor: MapInteractorProtocol {
     
     private var locationManager: LocationManager
     
+    private var pointsNetworkService = PointsNetworkService.shared
+    
     //Addresses saved by user on server
     var addresses: [AddressResponseData] = []
     
@@ -84,6 +86,37 @@ class MapInteractor: MapInteractorProtocol {
         }
     }
     
+    //Sum order
+    var sumOrder: Double = 200
+    
+    //Entered points
+    var enteredPoints: Int? {
+        didSet {
+            if let enteredPoints = enteredPoints {
+                view.activatePoints("- \(enteredPoints)")
+            }
+        }
+    }
+    
+    
+    //Promocode discount
+    
+    var promocodeDiscount: Double = 0 {
+        didSet {
+            if promocodeDiscount < 1 && promocodeDiscount != 0 {
+                let discount = Int((promocodeDiscount * 100).rounded())
+                view.activatePromocodeDiscount("- \(discount)%")
+            }
+        }
+    }
+    
+    //Final sumOrder
+    var finalSumOrder: Double {
+        let finalSumOrder = (sumOrder - (sumOrder * promocodeDiscount)) - Double(enteredPoints ?? 0)
+        guard finalSumOrder > 0 else { return 0 }
+        return finalSumOrder
+    }
+        
     //MARK: - Initializer
     
     required init(view: MapViewProtocol) {
@@ -398,5 +431,45 @@ extension MapInteractor {
                 self.view.draw(route: route)
             }
         }
+}
+
+//MARK: - Points
+
+extension MapInteractor {
     
+    func getPoints() {
+        pointsNetworkService.getPoints {[weak self] result in
+            
+            guard let self = self else { return }
+            switch result {
+                
+            case .success(let pontsData):
+                self.view.showPoints(pontsData.credit)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func saveWastedPoints(_ points: Int) {
+        enteredPoints = points
+    }
+}
+
+//MARK: - Sum
+
+extension MapInteractor {
+        
+    func setSumOrder(_ value: Double) {
+        self.sumOrder = value
+    }
+}
+
+//MARK: - Promocode discount
+
+extension MapInteractor {
+    func setPromocodeDiscount(discount: Int) {
+        self.promocodeDiscount = 0.01 * Double(discount)
+    }
 }

@@ -58,6 +58,7 @@ enum Colors {
     case taxiOrange
     case whiteTransparent
     case backGroundGreyActive
+    case textColorGreen
     
     
     func getColor() -> UIColor {
@@ -103,6 +104,8 @@ enum Colors {
             return UIColor(hexString: "#FFFFFF", alpha: 0.5)
         case .backGroundGreyActive:
             return UIColor(hexString: "#F0F0F0")
+        case .textColorGreen:
+            return UIColor(hexString: "#34C759")
         }
     }
 }

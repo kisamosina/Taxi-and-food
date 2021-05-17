@@ -26,8 +26,11 @@ import UIKit
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet var containerView: UIView!
+    @IBOutlet weak var viewForImageView: UIView!
     @IBOutlet weak var discountTypeImageView: UIImageView!
+    @IBOutlet weak var discountValueLabel: UILabel!
     @IBOutlet weak var discountTypeLabel: UILabel!
     
     //MARK: - Initializer
@@ -61,7 +64,6 @@ import UIKit
                     shadowLayer.shadowRadius = DiscountsButtonViewSizeData.shadowRadius.rawValue
 
                     layer.insertSublayer(shadowLayer, at: 0)
-                    //layer.insertSublayer(shadowLayer, below: nil) // also works
                 }
         
         
@@ -73,6 +75,8 @@ import UIKit
         self.containerView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(containerView)
         self.setupConstraints()
+        discountValueLabel.textColor = Colors.textColorGreen.getColor()
+        discountValueLabel.isHidden = true
     }
     
     private func setupConstraints() {
@@ -82,5 +86,27 @@ import UIKit
             self.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+    }
+    
+    public func activateButton(_ text: String) {
+        containerView.backgroundColor = Colors.backGroundGreyActive.getColor()
+//        viewForImageView.backgroundColor = Colors.backGroundGreyActive.getColor()
+        discountTypeLabel.textColor = Colors.fontGrey.getColor()
+        viewForImageView.isHidden = true
+        discountValueLabel.text = text
+        discountValueLabel.isHidden = false
+        self.isUserInteractionEnabled = false
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        stackView.isLayoutMarginsRelativeArrangement = true
+    }
+    
+    public func returnToInitialView() {
+        containerView.backgroundColor = .systemBackground
+        discountTypeLabel.textColor = .label
+        discountValueLabel.isHidden = true
+        viewForImageView.isHidden = false
+        self.isUserInteractionEnabled = true
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        stackView.isLayoutMarginsRelativeArrangement = true
     }
 }

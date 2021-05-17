@@ -46,7 +46,7 @@ extension TaxiOrderCollectionViewCell {
         self.tariffImageButton.setImage(tariff.tariffImage, for: .normal)
         self.tariffImageButton.imageView?.contentMode = .scaleAspectFit
         self.feedTimeLabel.text = tariff.feedTime
-        self.priceWithoutDiscountLabel.text = tariff.oldPrice
+        self.priceWithoutDiscountLabel.setCrossedText(tariff.oldPrice)
         self.priceLabel.text = tariff.price
         
         if tariff.isActive {

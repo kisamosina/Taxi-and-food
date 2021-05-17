@@ -15,6 +15,8 @@ class WastePointsViewController: SubstrateViewController {
     
     internal var interactor: WastePointsInteractorProtocol
     
+    weak var delegate: WastePointsViewControllerDelegate?
+    
     private var wastePointsView: TransitionBottomView!
     
     private var wastePointsViewBottomConstraint: NSLayoutConstraint!
@@ -45,7 +47,7 @@ class WastePointsViewController: SubstrateViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showWastePointsView()
+        showWastePointsView(credit: interactor.credits)
     }
     
     //MARK: - Methods
@@ -74,12 +76,12 @@ extension WastePointsViewController: WastePointsViewProtocol { }
 
 extension WastePointsViewController {
     
-    private func showWastePointsView() {
+    private func showWastePointsView(credit: Int) {
         let viewHeight = TransitionBottomViewSizes.whenPointsHeght.rawValue
         let rect = CGRect.makeRect(height: viewHeight)
         wastePointsView = TransitionBottomView(frame: rect)
         view.addSubview(wastePointsView)
-        wastePointsView.setupAs(type: .wastePoints)
+        wastePointsView.setupAs(type: .wastePoints(credit))
         wastePointsView.delegate = self
         wastePointsView.setupConstraints(for: view,
                                          viewHeight: viewHeight,
@@ -102,7 +104,12 @@ extension WastePointsViewController {
 extension WastePointsViewController: TransitionBottomViewDelegate {
     
     func mainButtonTapped(for viewType: TransitionBottomViewTypes) {
-        print(#function)
+        guard interactor.checkEnteredPointsWithOrderSum(points: interactor.credits) else {
+            dismiss(animated: true)
+            return
+        }
+        delegate?.waste(points: interactor.credits)
+        dismiss(animated: true)
     }
     
     func auxButtonTapped(for viewType: TransitionBottomViewTypes) {
@@ -126,6 +133,8 @@ extension WastePointsViewController {
     private func showPointsEnterView() {
         let rect = CGRect.makeRect(height: TextEnterViewSize.height.rawValue)
         pointsEnterView = TextEnterView(frame: rect)
+        pointsEnterView.textField.keyboardType = .numberPad
+        pointsEnterView.delegate = self
         pointsEnterView.upView.alpha = 0
         view.addSubview(pointsEnterView)
         pointsEnterView.translatesAutoresizingMaskIntoConstraints = false
@@ -142,4 +151,29 @@ extension WastePointsViewController {
         pointsEnterView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         pointsEnterView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
+}
+
+//MARK: - PointsEnterViewDelegate
+
+extension WastePointsViewController: TextEnterViewDelegate {
+    
+    func approveButtonTapped(_ text: String) {
+        guard let points = Int(text) else { return }
+        
+        guard interactor.checkEnteredPointsWithCredits(points: points) else {
+            pointsEnterView.setupError(description: WastePointsModuleTexts.errorWhenEnteredPointsMoreCreditsDescription)
+            return
+        }
+        
+        guard interactor.checkEnteredPointsWithOrderSum(points: points) else {
+            pointsEnterView.setupError(description: WastePointsModuleTexts.errorWhenEnteredPointsMoreOrderSumDescription)
+            return
+        }
+        
+        delegate?.waste(points: points)
+        dismiss(animated: true)
+        
+    }
+    
+    
 }

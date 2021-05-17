@@ -15,4 +15,5 @@ protocol TaxiOrderViewDelegate: AnyObject {
 //    func mapButtonViewTapped(destinationAddress: String?)
     func promocodeButtonTapped()
     func pointsButtonTapped()
+    func tariffSelected(tariffPrice: Double)
 }

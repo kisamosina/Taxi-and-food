@@ -112,8 +112,9 @@ extension PersonalAccountViewController: PersonalAccountViewProtocol {
 extension PersonalAccountViewController: InactiveViewControllerDelegate {
     
     func logOutButtonTapped() {
-        
         PersistanceStoreManager.shared.deleteAllData()
-        self.navigationController?.popToRootViewController(animated: true)
+        let authVC = getViewController(storyboardId: StoryBoards.AuthAndMap.rawValue, viewControllerId: ViewControllers.AuthViewController.rawValue)
+        navigationController?.pushViewController(authVC, animated: false)
+//        self.navigationController?.popToRootViewController(animated: true)
     }
 }
