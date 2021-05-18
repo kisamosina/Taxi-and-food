@@ -145,6 +145,9 @@ enum CustomImagesNames: String {
     case iconTariffPremium = "icon_tariff_premium"
     case iconTariffStandart = "icon_tariff_standart"
     case iconPromocodeActivated = "icon_promocode_activated"
+    case iconEmmitterSecionFirst = "icon_emmiter_section_first"
+    case iconEmmitterSecionSecond = "icon_emmiter_section_second"
+    case iconEmmitterSecionThird = "icon_emmiter_section_third"
 }
 
 enum StoryBoards: String {

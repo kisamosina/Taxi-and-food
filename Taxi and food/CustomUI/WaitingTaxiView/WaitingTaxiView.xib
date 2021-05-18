@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WaitingTaxiView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="OZo-pF-wm6" id="hoM-Ov-Je3"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="shP-A9-MuT"/>
+                <outlet property="emmiterView" destination="MpC-ZB-MPp" id="NMa-a4-JPT"/>
+                <outlet property="stateLabel" destination="hmm-vK-cGT" id="nyD-26-rqL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="0qQ-Ds-Pdr">
+                    <rect key="frame" x="65" y="40" width="284" height="77"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sxi-2a-Vuv">
+                            <rect key="frame" x="0.0" y="0.0" width="284" height="22"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpC-ZB-MPp" customClass="EmmiterView" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="31" height="22"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="1jG-Tb-naU"/>
+                                        <constraint firstAttribute="width" constant="31" id="7Ma-dS-CII"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-vK-cGT">
+                                    <rect key="frame" x="39" y="1" width="245" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZo-pF-wm6" customClass="AuxiliaryButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="47" width="284" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="uGr-uv-Fgb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="0qQ-Ds-Pdr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="65" id="MPx-bz-e64"/>
+                <constraint firstItem="0qQ-Ds-Pdr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="PmR-bZ-eW3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0qQ-Ds-Pdr" secondAttribute="trailing" constant="65" id="iJ9-HP-MMb"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="130"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="OZo-pF-wm6">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

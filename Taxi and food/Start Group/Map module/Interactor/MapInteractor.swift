@@ -98,7 +98,6 @@ class MapInteractor: MapInteractorProtocol {
         }
     }
     
-    
     //Promocode discount
     
     var promocodeDiscount: Double = 0 {
@@ -380,8 +379,7 @@ extension MapInteractor {
     func makePolylineRended(from overlay: MKOverlay) -> MKOverlayRenderer {
         
         guard let polyline = overlay as? MKPolyline else { return MKPolylineRenderer() }
-        //        let gradientColors = [Colors.buttonBlue.getColor(), Colors.taxiOrange.getColor()]
-        //
+//                let gradientColors = [Colors.buttonBlue.getColor(), Colors.taxiOrange.getColor()]
         let polylineRenderer = MKPolylineRenderer(overlay: polyline)
         polylineRenderer.fillColor = Colors.buttonBlue.getColor().withAlphaComponent(0.2)
         polylineRenderer.strokeColor = Colors.taxiOrange.getColor().withAlphaComponent(0.7)

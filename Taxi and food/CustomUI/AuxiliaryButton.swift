@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuxiliaryButton: UIButton {
+@IBDesignable class AuxiliaryButton: UIButton {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)

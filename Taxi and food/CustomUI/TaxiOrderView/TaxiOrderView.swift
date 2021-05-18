@@ -68,8 +68,7 @@ class TaxiOrderView: CustomBottomView {
         self.orderButton.setActive()
         mapButtonView.delegate = self
         setupTapActions()
-//        promocodeButtonView.delegate = self
-//        pointsButtonView.delegate = self
+
     }
     
     private func setupConstraints() {
@@ -96,6 +95,9 @@ class TaxiOrderView: CustomBottomView {
         delegate?.pointsButtonTapped()
     }
     
+    @IBAction func orderButtonTapped(_ sender: MainBottomButton) {
+        delegate?.orderButtonTapped()
+    }
     
     public func setupAdresses(from source: String, to destination: String) {
         self.addressFromTextField.text = source

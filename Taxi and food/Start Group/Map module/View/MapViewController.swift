@@ -38,6 +38,11 @@ class MapViewController: UIViewController {
     
     //Top Info view
     private var topInfoView: TopInfoView!
+    
+    //Waiting Taxi view
+    private var waitingTaxiView: WaitingTaxiView!
+    private var waitingTaxiViewBottomConstraint: NSLayoutConstraint!
+
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -775,6 +780,15 @@ private func showTaxiOrdreView() {
 //MARK: - TaxiOrderView Delegate
 
 extension MapViewController: TaxiOrderViewDelegate {
+    func orderButtonTapped() {
+        hideTaxiOrderView { [weak self] _ in
+            guard let self = self else { return }
+            self.showWaitingTaxiView()
+            self.menuButton.isHidden = true
+            self.topInfoView.isHidden = true
+        }
+    }
+    
    
     func tariffSelected(tariffPrice: Double) {
         interactor.setSumOrder(tariffPrice)
@@ -954,5 +968,24 @@ extension MapViewController: WastePointsViewControllerDelegate {
     
     func waste(points: Int) {
         interactor.saveWastedPoints(points)
+    }
+}
+
+//MARK: - Waiting Taxi View
+
+extension MapViewController {
+    
+    //Setup show animation for taxi order view
+    private func showWaitingTaxiView() {
+        
+        waitingTaxiView = WaitingTaxiView(frame: CGRect.makeRect(height: WaitingTaxiViewSizes.viewSize))
+        view.addSubview(waitingTaxiView)
+        self.waitingTaxiView.setupConstraints(for: view,
+                                              viewHeight: WaitingTaxiViewSizes.viewSize,
+                                              bottomContraintConstant: WaitingTaxiViewSizes.viewSize + bottomPadding) { [weak self] constraint in
+            guard let self = self else { return }
+            self.waitingTaxiViewBottomConstraint = constraint
+        }
+        Animator.shared.showView(animationType: .usualBottomAnimation(waitingTaxiView, waitingTaxiViewBottomConstraint),from: view)
     }
 }

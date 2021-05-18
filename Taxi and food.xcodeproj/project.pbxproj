@@ -220,6 +220,13 @@
 		7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D542B83260116520030FC2D /* AddressTableViewCell.xib */; };
 		7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */; };
 		7D542B96260122320030FC2D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D542B95260122320030FC2D /* LocationManager.swift */; };
+		7D54ED8D2653F916007C5DDC /* EmmiterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54ED8C2653F916007C5DDC /* EmmiterView.swift */; };
+		7D54ED8F2653F933007C5DDC /* EmmiterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D54ED8E2653F933007C5DDC /* EmmiterView.xib */; };
+		7D54ED92265415D5007C5DDC /* WaitingTaxiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54ED91265415D5007C5DDC /* WaitingTaxiView.swift */; };
+		7D54ED94265415E8007C5DDC /* WaitingTaxiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D54ED93265415E8007C5DDC /* WaitingTaxiView.xib */; };
+		7D54ED9726541B17007C5DDC /* WaitingTaxiViewTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54ED9626541B17007C5DDC /* WaitingTaxiViewTexts.swift */; };
+		7D54ED9A26541EB3007C5DDC /* WaitingTaxiViewSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54ED9926541EB3007C5DDC /* WaitingTaxiViewSizes.swift */; };
+		7D54ED9C265437E3007C5DDC /* EmmiterViewNumberParametrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54ED9B265437E3007C5DDC /* EmmiterViewNumberParametrs.swift */; };
 		7D5FD925261E1D32000345BA /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD923261E1D32000345BA /* ProductCollectionViewCell.swift */; };
 		7D5FD926261E1D32000345BA /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FD924261E1D32000345BA /* ProductCollectionViewCell.xib */; };
 		7D5FD92F261E267C000345BA /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD92E261E267C000345BA /* ProductsModel.swift */; };
@@ -525,6 +532,13 @@
 		7D542B83260116520030FC2D /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		7D542B8D26011C4B0030FC2D /* AddressEnterViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterViewUIData.swift; sourceTree = "<group>"; };
 		7D542B95260122320030FC2D /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7D54ED8C2653F916007C5DDC /* EmmiterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmmiterView.swift; sourceTree = "<group>"; };
+		7D54ED8E2653F933007C5DDC /* EmmiterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmmiterView.xib; sourceTree = "<group>"; };
+		7D54ED91265415D5007C5DDC /* WaitingTaxiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingTaxiView.swift; sourceTree = "<group>"; };
+		7D54ED93265415E8007C5DDC /* WaitingTaxiView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitingTaxiView.xib; sourceTree = "<group>"; };
+		7D54ED9626541B17007C5DDC /* WaitingTaxiViewTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingTaxiViewTexts.swift; sourceTree = "<group>"; };
+		7D54ED9926541EB3007C5DDC /* WaitingTaxiViewSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingTaxiViewSizes.swift; sourceTree = "<group>"; };
+		7D54ED9B265437E3007C5DDC /* EmmiterViewNumberParametrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmmiterViewNumberParametrs.swift; sourceTree = "<group>"; };
 		7D5FD923261E1D32000345BA /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D5FD924261E1D32000345BA /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		7D5FD92E261E267C000345BA /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
@@ -1186,6 +1200,7 @@
 				7D49159826189F3000EBD03A /* CustomBottomView.swift */,
 				7B75CEF325DB0AC1001981CA /* DigitTextField.swift */,
 				7DA996EB263840F900BDE0BA /* DiscountsButtonView */,
+				7D54ED902653F93A007C5DDC /* EmmiterView */,
 				7D4915A72618C34000EBD03A /* FoodCategoriesView */,
 				7DECA8BE261E10AB00E74C84 /* FoodCategoryAndSubCategoryView */,
 				7D4915E92619D41500EBD03A /* FoodSubCategoryView */,
@@ -1214,6 +1229,7 @@
 				7DFE0A502639BB61005B37D3 /* TopInfoView */,
 				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
+				7D54ED952654160A007C5DDC /* WaitingTaxiView */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -1614,6 +1630,43 @@
 				7D06D66026012CE400219F02 /* LoacationAuthStatus.swift */,
 			);
 			path = LocationService;
+			sourceTree = "<group>";
+		};
+		7D54ED902653F93A007C5DDC /* EmmiterView */ = {
+			isa = PBXGroup;
+			children = (
+				7D54ED8C2653F916007C5DDC /* EmmiterView.swift */,
+				7D54ED8E2653F933007C5DDC /* EmmiterView.xib */,
+				7D54ED9D2654389A007C5DDC /* Data */,
+			);
+			path = EmmiterView;
+			sourceTree = "<group>";
+		};
+		7D54ED952654160A007C5DDC /* WaitingTaxiView */ = {
+			isa = PBXGroup;
+			children = (
+				7D54ED91265415D5007C5DDC /* WaitingTaxiView.swift */,
+				7D54ED93265415E8007C5DDC /* WaitingTaxiView.xib */,
+				7D54ED9826541B1D007C5DDC /* Data */,
+			);
+			path = WaitingTaxiView;
+			sourceTree = "<group>";
+		};
+		7D54ED9826541B1D007C5DDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D54ED9626541B17007C5DDC /* WaitingTaxiViewTexts.swift */,
+				7D54ED9926541EB3007C5DDC /* WaitingTaxiViewSizes.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7D54ED9D2654389A007C5DDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D54ED9B265437E3007C5DDC /* EmmiterViewNumberParametrs.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		7D5FD92A261E1D42000345BA /* ProductCollectionViewCell */ = {
@@ -2044,6 +2097,8 @@
 				7DD93B612614FE1900AC3990 /* ShopsCollectionViewCell.xib in Resources */,
 				04B5651E25D6591700E0EC25 /* Assets.xcassets in Resources */,
 				7B3A900325EAA2FE008CA13E /* PaymentHistoryTableViewCell.xib in Resources */,
+				7D54ED8F2653F933007C5DDC /* EmmiterView.xib in Resources */,
+				7D54ED94265415E8007C5DDC /* WaitingTaxiView.xib in Resources */,
 				041E29A325E21AEA00CA9F56 /* Settings.storyboard in Resources */,
 				7BEA203726008529007DD69A /* AddressEnterView.xib in Resources */,
 				7D823EB525F2A908006B174B /* Inactive.storyboard in Resources */,
@@ -2087,6 +2142,7 @@
 			files = (
 				041E29DB25E7A54700CA9F56 /* PromoResponse.swift in Sources */,
 				7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */,
+				7D54ED9726541B17007C5DDC /* WaitingTaxiViewTexts.swift in Sources */,
 				7BCBCB9625D94F4100C43CF6 /* UIColor+Extension.swift in Sources */,
 				0414314925F9D7770074D86C /* AllAddressesViewController.swift in Sources */,
 				7D5FD95D261F62A7000345BA /* ChooseFoodSubCategoriesViewController.swift in Sources */,
@@ -2107,6 +2163,7 @@
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
 				041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */,
 				7D7F4F522639B5D30025D423 /* Gradient.swift in Sources */,
+				7D54ED9A26541EB3007C5DDC /* WaitingTaxiViewSizes.swift in Sources */,
 				0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */,
 				0465F51425DA30CD008CA6D0 /* AlertController.swift in Sources */,
 				7D33FAB1260BB38100DA5D0C /* InactiveViewDelegate.swift in Sources */,
@@ -2153,6 +2210,7 @@
 				7B75CF9A25E038F4001981CA /* MapViewControllerUIData.swift in Sources */,
 				7B75CEE725DAE72C001981CA /* MainBottomButton.swift in Sources */,
 				7DDD94AC2642CEEB00D8DF5E /* PromocodeNetworkService.swift in Sources */,
+				7D54ED92265415D5007C5DDC /* WaitingTaxiView.swift in Sources */,
 				7D4748F425F7E9AE00F744F7 /* NewCardEnterModel.swift in Sources */,
 				7D4915BA2618D11A00EBD03A /* FoodCategoryCollectionViewCell.swift in Sources */,
 				7D1F5EED25F3D1FD00892B6F /* PaymentWayCell.swift in Sources */,
@@ -2195,6 +2253,7 @@
 				7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */,
 				041E298E25DF6DB900CA9F56 /* LanguageViewController.swift in Sources */,
 				04B5655125D65AF200E0EC25 /* NetworkService.swift in Sources */,
+				7D54ED9C265437E3007C5DDC /* EmmiterViewNumberParametrs.swift in Sources */,
 				7D50F114263AFBF200295571 /* PromocodeActivatingViewController.swift in Sources */,
 				7B75CF9025E01CFD001981CA /* ServerError.swift in Sources */,
 				7DE338AB261B9106006EA531 /* ShopDetailViewUIData.swift in Sources */,
@@ -2245,6 +2304,7 @@
 				7B75CFB725E17219001981CA /* TableViewDataSourceAndDelegate.swift in Sources */,
 				04B5655625D65B4D00E0EC25 /* UITextField+Extension.swift in Sources */,
 				7D33FAA8260BB1AA00DA5D0C /* InactiveView.swift in Sources */,
+				7D54ED8D2653F916007C5DDC /* EmmiterView.swift in Sources */,
 				041E29AD25E2694000CA9F56 /* UAViewController.swift in Sources */,
 				7D5FD92F261E267C000345BA /* ProductsModel.swift in Sources */,
 				7BFFA66625D66F9500C35652 /* UILabel+Extension.swift in Sources */,
