@@ -10,4 +10,6 @@ import Foundation
 
 enum SentViewControllerShowingCases {
     case promocode (PromocodeDataResponse)
+    case continueTaxiSearch
+    case cancelationTaxiOrder
 }

@@ -28,11 +28,12 @@ enum MainButtonTypes {
     case beginSavePoints
     case skip
     case wasteAllPoints
+    case anotherOrder
 }
 
 
 
-struct MainButtonTitles {
+struct MainButtonTitles: TranslatableTexts {
     
     internal enum RusButtonsTitles: String {
         case nextButtonTitle = "Далее"
@@ -54,6 +55,7 @@ struct MainButtonTitles {
         case cancelTitle = "Отмена"
         case skip = "Пропустить"
         case wasteAllPoints = "Потратить все баллы сразу"
+        case anotherOrder = "Другой заказ"
     }
     
     internal enum EngButtonsTitles: String {
@@ -76,10 +78,12 @@ struct MainButtonTitles {
         case beginSavePoints = "Begin saving points"
         case skip = "Пропустить"
         case wasteAllPoints = "Waste all points"
+        case anotherOrder = "Another order"
+
     }
     
     static var cancelButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.cancelTitle.rawValue
@@ -90,7 +94,7 @@ struct MainButtonTitles {
     }
     
     static var deleteButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.deleteTitle.rawValue
@@ -101,7 +105,7 @@ struct MainButtonTitles {
     }
     
     static var chooseDestinationButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.chooseDestinationTitle.rawValue
@@ -112,7 +116,7 @@ struct MainButtonTitles {
     }
     
     static var saveButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.saveTitle.rawValue
@@ -124,7 +128,7 @@ struct MainButtonTitles {
     
     static var addAddresButtonTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.addAddressTitle.rawValue
@@ -135,7 +139,7 @@ struct MainButtonTitles {
     
     static var goBuyButtonTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.goBuyTitle.rawValue
@@ -146,7 +150,7 @@ struct MainButtonTitles {
     
     static var nextButtonTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.nextButtonTitle.rawValue
@@ -156,7 +160,7 @@ struct MainButtonTitles {
     }
     
     static var sendButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.sendButtonTitle.rawValue
@@ -167,7 +171,7 @@ struct MainButtonTitles {
     }
     
     static var orderTaxiButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.orderTaxiTitle.rawValue
@@ -178,7 +182,7 @@ struct MainButtonTitles {
     }
     
     static var orderButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.order.rawValue
@@ -190,7 +194,7 @@ struct MainButtonTitles {
 
     
     static var approveTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.approveButtonTitle.rawValue
@@ -200,7 +204,7 @@ struct MainButtonTitles {
     }
     
     static var perfectButtonTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.perfectButtonTitle.rawValue
@@ -210,7 +214,7 @@ struct MainButtonTitles {
     }
     
     static var sendEmail: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.sendEmail.rawValue
@@ -222,7 +226,7 @@ struct MainButtonTitles {
     
     static var logOut: String {
        
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.logOut.rawValue
@@ -234,7 +238,7 @@ struct MainButtonTitles {
     
     static var linkACard: String {
        
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.linkACard.rawValue
@@ -246,7 +250,7 @@ struct MainButtonTitles {
     
     static var newOrderTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.newOrder.rawValue
@@ -257,7 +261,7 @@ struct MainButtonTitles {
 
     static var beginSavingPointsTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.beginSavePoints.rawValue
@@ -269,7 +273,7 @@ struct MainButtonTitles {
     
     static var skipButtonTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return RusButtonsTitles.skip.rawValue
@@ -280,11 +284,21 @@ struct MainButtonTitles {
     
     static var wasteAllPoints: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         case .rus:
             return RusButtonsTitles.wasteAllPoints.rawValue
         case .eng:
             return EngButtonsTitles.wasteAllPoints.rawValue
+        }
+    }
+    
+    static var anotherOrder: String {
+        switch lang {
+        
+        case .rus:
+            return RusButtonsTitles.anotherOrder.rawValue
+        case .eng:
+            return EngButtonsTitles.anotherOrder.rawValue
         }
     }
 
@@ -331,6 +345,8 @@ struct MainButtonTitles {
             return orderButtonTitle
         case .wasteAllPoints:
             return wasteAllPoints
+        case .anotherOrder:
+            return anotherOrder
         }
     }
 }

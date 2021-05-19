@@ -148,6 +148,7 @@ enum CustomImagesNames: String {
     case iconEmmitterSecionFirst = "icon_emmiter_section_first"
     case iconEmmitterSecionSecond = "icon_emmiter_section_second"
     case iconEmmitterSecionThird = "icon_emmiter_section_third"
+    case iconCancelFace = "icon_cancel_face"
 }
 
 enum StoryBoards: String {

@@ -10,6 +10,7 @@ import UIKit
 
 class WaitingTaxiView: CustomBottomView {
 
+    weak var delegate: WaitingTaxiViewDelegate?
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var stateLabel: UILabel!
@@ -54,5 +55,6 @@ class WaitingTaxiView: CustomBottomView {
     }
     @IBAction func cancelButtonTapped(_ sender: AuxiliaryButton) {
         emmiterView.stopAnimating()
+        delegate?.cancelButtonTapped()
     }
 }

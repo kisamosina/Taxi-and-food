@@ -26,6 +26,9 @@ import UIKit
             self.setTitle(AuxiliaryButtonTitles.aboutTitle, for: .normal)
         case .wasteSomePoints:
             self.setTitle(AuxiliaryButtonTitles.wasteSomePointsTitle, for: .normal)
+        case .tellAboutProblem:
+            titleLabel?.font = .systemFont(ofSize: 17, weight: .light)
+            setTitle(AuxiliaryButtonTitles.tellAboutProblem, for: .normal)
         }
     }
 }

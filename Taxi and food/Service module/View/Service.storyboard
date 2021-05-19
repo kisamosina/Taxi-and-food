@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vks-5T-xcn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vks-5T-xcn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +13,6 @@
         <!--Photos View Controller-->
         <scene sceneID="j74-bl-bsr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gzT-UD-W2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="fII-dd-cgj" customClass="PhotosViewController" customModule="Taxi_and_food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6yZ-3c-6dC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -41,7 +42,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="При необходимости прикрепите изображения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duK-LA-cfh">
                                                         <rect key="frame" x="16" y="52" width="238.5" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                        <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -97,10 +98,10 @@
                                         <string key="text">Вы прикрепили максимальное количество фото (10)
 </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfn-i8-WeP" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfn-i8-WeP" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="701" width="364" height="50"/>
                                         <color key="backgroundColor" red="0.23921568630000001" green="0.23137254900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -117,14 +118,14 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="plW-Dh-1Oy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HD5-DN-Xa6" firstAttribute="leading" secondItem="plW-Dh-1Oy" secondAttribute="leading" constant="25" id="TgO-JI-lwR"/>
                             <constraint firstAttribute="bottom" secondItem="HD5-DN-Xa6" secondAttribute="bottom" constant="25" id="aQf-rS-foX"/>
                             <constraint firstItem="HD5-DN-Xa6" firstAttribute="trailing" secondItem="plW-Dh-1Oy" secondAttribute="trailing" constant="-25" id="inB-3E-jZQ"/>
                             <constraint firstItem="HD5-DN-Xa6" firstAttribute="top" secondItem="plW-Dh-1Oy" secondAttribute="top" constant="32" id="j4X-Zw-Y9m"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="plW-Dh-1Oy"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zbd-gc-Fip">
                         <barButtonItem key="backBarButtonItem" title=" " id="6bc-G2-hjg">
@@ -140,6 +141,7 @@
                         <outlet property="uploadImageView" destination="9DA-Kl-F2K" id="x4t-AJ-ZPV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gzT-UD-W2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7334.7826086956529" y="780.80357142857144"/>
         </scene>
@@ -151,58 +153,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Gmy-4Q-6z0">
-                                <rect key="frame" x="25" y="385" width="364" height="126"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="267" translatesAutoresizingMaskIntoConstraints="NO" id="Fkl-Cr-RAs">
+                                <rect key="frame" x="25" y="327" width="364" height="512"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" image="Group 1221 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-y5-h5V">
-                                        <rect key="frame" x="157" y="0.0" width="50" height="50"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-RS-HFL">
-                                        <rect key="frame" x="96" y="61" width="172.5" height="18"/>
-                                        <color key="tintColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Обращение отправлено
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Gmy-4Q-6z0">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="157"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" image="icon_promocode_activated" translatesAutoresizingMaskIntoConstraints="NO" id="5qz-y5-h5V">
+                                                <rect key="frame" x="157" y="0.0" width="50" height="50"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-RS-HFL">
+                                                <rect key="frame" x="82.5" y="61" width="199.5" height="20.5"/>
+                                                <color key="tintColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                                <string key="text">Обращение отправлено
 </string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalCompressionResistancePriority="751" text="В течении часа с вами свяжется наш менеджер и постарается решить вашу проблему." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rly-EX-IlE">
-                                        <rect key="frame" x="2" y="90" width="360.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalCompressionResistancePriority="751" text="В течении часа с вами свяжется наш менеджер и постарается решить вашу проблему." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rly-EX-IlE">
+                                                <rect key="frame" x="18" y="92.5" width="328.5" height="64.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8vy-mj-MR7">
+                                        <rect key="frame" x="0.0" y="424" width="364" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-2l-wxK" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
+                                                <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="bwF-3a-sKY"/>
+                                                </constraints>
+                                                <state key="normal" title="Отлично!">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="successButtonTapped:" destination="QYw-jR-CMT" eventType="touchUpInside" id="kii-Vt-7gf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mid-MC-CTP" customClass="AuxiliaryButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="58" width="364" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-2l-wxK" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="25" y="753" width="364" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.23921568627450979" green="0.23137254901960785" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Отлично!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="successButtonTapped:" destination="QYw-jR-CMT" eventType="touchUpInside" id="kii-Vt-7gf"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Gmy-4Q-6z0" firstAttribute="centerY" secondItem="RL3-aZ-w7y" secondAttribute="centerY" id="7U0-gb-gDp"/>
-                            <constraint firstAttribute="trailing" secondItem="Gmy-4Q-6z0" secondAttribute="trailing" constant="25" id="Dup-DM-e7p"/>
-                            <constraint firstItem="Gmy-4Q-6z0" firstAttribute="leading" secondItem="RL3-aZ-w7y" secondAttribute="leading" constant="25" id="PXp-ba-ueT"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zkf-cr-WV2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Fkl-Cr-RAs" secondAttribute="bottom" constant="57" id="Hvj-BG-5cc"/>
+                            <constraint firstItem="Fkl-Cr-RAs" firstAttribute="leading" secondItem="RL3-aZ-w7y" secondAttribute="leading" constant="25" id="f2i-pe-hJz"/>
+                            <constraint firstItem="zkf-cr-WV2" firstAttribute="trailing" secondItem="Fkl-Cr-RAs" secondAttribute="trailing" constant="25" id="mxT-Y3-Eb4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Iv-ue-8ML"/>
                     <connections>
                         <outlet property="infoLabel" destination="Rly-EX-IlE" id="YUc-xA-aPD"/>
                         <outlet property="messageSentLabel" destination="dqm-RS-HFL" id="wml-yj-A04"/>
+                        <outlet property="problemButton" destination="mid-MC-CTP" id="qK5-O0-uL9"/>
+                        <outlet property="resultIconImageView" destination="5qz-y5-h5V" id="o9h-Rf-mcH"/>
                         <outlet property="successButton" destination="MY2-2l-wxK" id="Vrp-ZQ-VYu"/>
                     </connections>
                 </viewController>
@@ -220,16 +240,16 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jFF-Jx-Nzm" customClass="ProblemTextView" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="25" y="113" width="364" height="335"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="335" id="XAf-Rh-cM8"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xB-Es-OPW" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xB-Es-OPW" customClass="MainBottomButton" customModule="Taxi_and_food" customModuleProvider="target">
                                 <rect key="frame" x="25" y="812" width="364" height="50"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.23137254900000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -245,7 +265,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="of5-e0-x66"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jFF-Jx-Nzm" firstAttribute="top" secondItem="of5-e0-x66" secondAttribute="top" constant="25" id="2wh-dS-ieU"/>
                             <constraint firstItem="of5-e0-x66" firstAttribute="trailing" secondItem="jFF-Jx-Nzm" secondAttribute="trailing" constant="25" id="6Ig-BC-mvR"/>
@@ -255,7 +276,6 @@
                             <constraint firstItem="6xB-Es-OPW" firstAttribute="leading" secondItem="of5-e0-x66" secondAttribute="leading" constant="25" id="pp8-ZC-WXj"/>
                             <constraint firstItem="jFF-Jx-Nzm" firstAttribute="leading" secondItem="of5-e0-x66" secondAttribute="leading" constant="25" id="vS2-Dt-5zX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="of5-e0-x66"/>
                     </view>
                     <navigationItem key="navigationItem" id="HkX-9i-Rm2">
                         <barButtonItem key="backBarButtonItem" title="  " id="a8X-sO-0vY">
@@ -275,7 +295,6 @@
         <!--Navigation Controller-->
         <scene sceneID="lH9-hS-CyQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lth-Ab-WvE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vks-5T-xcn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SXy-pK-GbE">
@@ -287,12 +306,27 @@
                         <segue destination="cZs-Gr-nk0" kind="relationship" relationship="rootViewController" id="wzp-2R-hdk"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lth-Ab-WvE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5505.7971014492759" y="781.47321428571422"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="mid-MC-CTP">
+            <size key="intrinsicContentSize" width="51" height="33"/>
+        </designable>
+    </designables>
     <resources>
-        <image name="Group 1221 (1)" width="50" height="50"/>
+        <image name="icon_promocode_activated" width="50" height="50"/>
         <image name="plusWhite" width="15" height="15"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

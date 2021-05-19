@@ -12,12 +12,13 @@ enum AuxiliaryButtonTypes {
     case about
     case cancel
     case wasteSomePoints
+    case tellAboutProblem
 }
 
-struct AuxiliaryButtonTitles {
+struct AuxiliaryButtonTitles: TranslatableTexts {
     
     static var cancelTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return "Отмена"
@@ -27,7 +28,7 @@ struct AuxiliaryButtonTitles {
     }
     
     static var aboutTitle: String {
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return "Подробнее"
@@ -38,12 +39,22 @@ struct AuxiliaryButtonTitles {
     
     static var wasteSomePointsTitle: String {
         
-        switch UserDefaults.standard.getAppLanguage() {
+        switch lang {
         
         case .rus:
             return "Другое количество"
         case .eng:
             return "Waste some points"
+        }
+    }
+    
+    static var tellAboutProblem: String {
+        switch lang {
+        
+        case .rus:
+            return "Сообщить о проблеме"
+        case .eng:
+            return "Tell us about problem"
         }
     }
 

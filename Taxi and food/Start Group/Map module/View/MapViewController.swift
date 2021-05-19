@@ -43,6 +43,9 @@ class MapViewController: UIViewController {
     private var waitingTaxiView: WaitingTaxiView!
     private var waitingTaxiViewBottomConstraint: NSLayoutConstraint!
 
+    //Cancelation Order View
+    private var cancelationOrderView: CancelationOrderView!
+    private var cancelationOrderViewBottomConstraint: NSLayoutConstraint!
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -979,6 +982,7 @@ extension MapViewController {
     private func showWaitingTaxiView() {
         
         waitingTaxiView = WaitingTaxiView(frame: CGRect.makeRect(height: WaitingTaxiViewSizes.viewSize))
+        waitingTaxiView.delegate = self
         view.addSubview(waitingTaxiView)
         self.waitingTaxiView.setupConstraints(for: view,
                                               viewHeight: WaitingTaxiViewSizes.viewSize,
@@ -987,5 +991,46 @@ extension MapViewController {
             self.waitingTaxiViewBottomConstraint = constraint
         }
         Animator.shared.showView(animationType: .usualBottomAnimation(waitingTaxiView, waitingTaxiViewBottomConstraint),from: view)
+    }
+    
+    //Setup hide animation for Waiting Taxi view
+    private func hideWaitingTaxiView(completion: AnimationCompletion? = nil) {
+        Animator.shared.hideView(animationType: .usualBottomAnimation(waitingTaxiView, waitingTaxiViewBottomConstraint), from: view, viewHeight: WaitingTaxiViewSizes.viewSize, completion: completion)
+    }
+}
+
+//MARK: - WaitingTaxiViewDelegate
+
+extension MapViewController: WaitingTaxiViewDelegate {
+    
+    func cancelButtonTapped() {
+//        hideWaitingTaxiView { [weak self] _ in
+//            guard let self = self else { return }
+//            self.waitingTaxiView.removeFromSuperview()
+//            self.waitingTaxiView = nil
+//            self.waitingTaxiViewBottomConstraint = nil
+//            self.showCancelationOrderView()
+//        }
+        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
+        sentVC.configAs(.continueTaxiSearch)
+        navigationController?.pushViewController(sentVC, animated: true)
+    }
+    
+}
+
+//MARK: - Cancelation Order View
+
+extension MapViewController {
+    
+    private func showCancelationOrderView() {
+        cancelationOrderView = CancelationOrderView(frame: CGRect.makeRect(height: CancelationOrderViewSizes.viewHeight))
+        view.addSubview(cancelationOrderView)
+        cancelationOrderView.setupConstraints(for: view,
+                                              viewHeight: CancelationOrderViewSizes.viewHeight,
+                                              bottomContraintConstant: CancelationOrderViewSizes.viewHeight + bottomPadding) {[weak self] constraint in
+            guard let self = self else { return }
+            self.cancelationOrderViewBottomConstraint = constraint
+        }
+        Animator.shared.showView(animationType: .usualBottomAnimation(cancelationOrderView, cancelationOrderViewBottomConstraint), from: view)
     }
 }
