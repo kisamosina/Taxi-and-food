@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopInfoView: UIView {
+@IBDesignable class TopInfoView: UIView {
 
     @IBOutlet var containerView: UIView!
     

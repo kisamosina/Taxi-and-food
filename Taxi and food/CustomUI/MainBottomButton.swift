@@ -8,12 +8,13 @@
 
 import UIKit
 
-class MainBottomButton: UIButton {
+@IBDesignable class MainBottomButton: UIButton {
 
     func setupAs(_ type: MainButtonTypes) {
         
         self.setTitle(MainButtonTitles.getTitle(for: type), for: .normal)
         self.setTitleColor(.white, for: .normal)
+        titleLabel?.font = .systemFont(ofSize: 17)
         
         switch type {
             

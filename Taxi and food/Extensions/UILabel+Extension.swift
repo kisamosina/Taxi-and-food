@@ -31,6 +31,23 @@ extension UILabel {
         attributedText = attribstring
     }
     
+    func setGreyColor(_ fortext: String) {
+        guard let text = text else { return }
+        let attribstring = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: fortext)
+        attribstring.addAttribute(NSAttributedString.Key.foregroundColor, value: Colors.fontGrey.getColor(), range: range)
+        attributedText = attribstring
+    }
+
+    
+    func setColorForText(_ coloredText: String, color: UIColor) {
+        guard let text = text else { return }
+        let attribstring = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: coloredText)
+        attribstring.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        attributedText = attribstring
+    }
+    
     func setBold(_ forText: String) {
         guard let text = text else { return }
         let attribstring = NSMutableAttributedString(string: text)
@@ -73,5 +90,29 @@ extension UILabel {
         let attribstring = NSMutableAttributedString(string: forText)
         attribstring.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attribstring.length))
         attributedText = attribstring
+    }
+}
+
+//MARK: - UILabel styles
+
+extension UILabel {
+    
+    func setText(text: String, of style: UILabelStyles = .systemDefault) {
+        self.text = text
+        
+        switch style {
+        case .boldOrange(let fontSize):
+            font = .systemFont(ofSize: fontSize, weight: .bold)
+            textColor = Colors.taxiOrange.getColor()
+        case .lightGrey(let fontSize):
+            font = .systemFont(ofSize: fontSize, weight: .light)
+            textColor = Colors.fontGrey.getColor()
+        case .systemDefault:
+            font = .systemFont(ofSize: 17)
+            textColor = .label
+        case .normalGrey(let fontSize):
+            font = .systemFont(ofSize: fontSize)
+            textColor = Colors.fontGrey.getColor()
+        }
     }
 }

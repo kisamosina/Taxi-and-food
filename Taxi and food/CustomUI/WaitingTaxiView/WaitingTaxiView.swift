@@ -53,6 +53,7 @@ class WaitingTaxiView: CustomBottomView {
             self.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
     }
+    
     @IBAction func cancelButtonTapped(_ sender: AuxiliaryButton) {
         emmiterView.stopAnimating()
         delegate?.cancelButtonTapped()

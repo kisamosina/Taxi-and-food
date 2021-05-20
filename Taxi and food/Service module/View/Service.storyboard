@@ -312,8 +312,17 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6xB-Es-OPW">
+            <size key="intrinsicContentSize" width="45" height="30"/>
+        </designable>
+        <designable name="MY2-2l-wxK">
+            <size key="intrinsicContentSize" width="66" height="30"/>
+        </designable>
+        <designable name="Qfn-i8-WeP">
+            <size key="intrinsicContentSize" width="77" height="30"/>
+        </designable>
         <designable name="mid-MC-CTP">
-            <size key="intrinsicContentSize" width="51" height="33"/>
+            <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
     </designables>
     <resources>

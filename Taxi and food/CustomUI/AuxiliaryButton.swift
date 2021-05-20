@@ -13,7 +13,7 @@ import UIKit
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.setTitleColor(.black, for: .normal)
-        self.titleLabel?.font = .systemFont(ofSize: 17)
+        titleLabel?.font = .systemFont(ofSize: 17, weight: .light)
     }
     
     func setupAs(type: AuxiliaryButtonTypes) {
@@ -27,7 +27,6 @@ import UIKit
         case .wasteSomePoints:
             self.setTitle(AuxiliaryButtonTitles.wasteSomePointsTitle, for: .normal)
         case .tellAboutProblem:
-            titleLabel?.font = .systemFont(ofSize: 17, weight: .light)
             setTitle(AuxiliaryButtonTitles.tellAboutProblem, for: .normal)
         }
     }

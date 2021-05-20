@@ -110,6 +110,12 @@ enum Colors {
     }
 }
 
+enum UILabelStyles {
+    case boldOrange(CGFloat = 17)
+    case lightGrey(CGFloat = 17)
+    case systemDefault
+    case normalGrey(CGFloat = 17)
+}
 
 enum CustomImagesNames: String {
     case CheckMark

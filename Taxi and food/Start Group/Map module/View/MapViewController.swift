@@ -46,6 +46,10 @@ class MapViewController: UIViewController {
     //Cancelation Order View
     private var cancelationOrderView: CancelationOrderView!
     private var cancelationOrderViewBottomConstraint: NSLayoutConstraint!
+    
+    //DriversNotFoundView
+    private var driversNotFoundView: DriversNotFoundView!
+    private var driversNotFoundViewBottomConstraint: NSLayoutConstraint!
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -749,25 +753,25 @@ extension MapViewController: AddressEnterDetailViewDelegate {
 extension MapViewController {
     
     //Setup show animation for taxi order view
-private func showTaxiOrdreView() {
-    
-    self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
-    self.view.addSubview(self.taxiOrderView)
-    self.taxiOrderView.setupConstraints(for: self.view,
-                                                    viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
-                                                    bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomPadding) { [weak self] constraint in
-        guard let self = self else { return }
-        self.taxiOrderViewBottomConstraint = constraint
+    private func showTaxiOrdreView() {
+        
+        self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
+        self.view.addSubview(self.taxiOrderView)
+        self.taxiOrderView.setupConstraints(for: self.view,
+                                            viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
+                                            bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomPadding) { [weak self] constraint in
+            guard let self = self else { return }
+            self.taxiOrderViewBottomConstraint = constraint
+        }
+        self.taxiOrderView.delegate = self
+        self.taxiOrderView.mapButtonDelegate = self
+        self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
+        Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
+                                 from: self.view) {[weak self] _ in
+            guard let self =  self else { return }
+            self.showTopInfoView()
+        }
     }
-    self.taxiOrderView.delegate = self
-    self.taxiOrderView.mapButtonDelegate = self
-    self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
-    Animator.shared.showView(animationType: .usualBottomAnimation(self.taxiOrderView, self.taxiOrderViewBottomConstraint),
-                                from: self.view) {[weak self] _ in
-        guard let self =  self else { return }
-        self.showTopInfoView()
-    }
-}
     
     //Setup hide animation for Taxi order view
     private func hideTaxiOrderView(completion: AnimationCompletion? = nil) {
@@ -1009,11 +1013,18 @@ extension MapViewController: WaitingTaxiViewDelegate {
 //            self.waitingTaxiView.removeFromSuperview()
 //            self.waitingTaxiView = nil
 //            self.waitingTaxiViewBottomConstraint = nil
-//            self.showCancelationOrderView()
+////            self.showCancelationOrderView()
+//            self.showDriversNotFoundView()
 //        }
-        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
-        sentVC.configAs(.continueTaxiSearch)
-        navigationController?.pushViewController(sentVC, animated: true)
+//        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
+//        sentVC.configAs(.continueTaxiSearch)
+//        navigationController?.pushViewController(sentVC, animated: true)
+        
+        let taxiHasFoundInteractor = TaxiHasFoundInteractor()
+        let taxiHasFoundVC = TaxiFoundViewController(interactor: taxiHasFoundInteractor)
+        taxiHasFoundInteractor.initView(taxiHasFoundVC)
+        taxiHasFoundVC.modalPresentationStyle = .overFullScreen
+        present(taxiHasFoundVC, animated: false)
     }
     
 }
@@ -1033,4 +1044,20 @@ extension MapViewController {
         }
         Animator.shared.showView(animationType: .usualBottomAnimation(cancelationOrderView, cancelationOrderViewBottomConstraint), from: view)
     }
+}
+
+//MARK: - DriversNotFoundView
+
+extension MapViewController {
+    
+    func showDriversNotFoundView() {
+        driversNotFoundView = DriversNotFoundView(frame: CGRect.makeRect(height: DriversNotFoundViewSizes.viewHeight))
+        view.addSubview(driversNotFoundView)
+        driversNotFoundView.setupConstraints(for: view, viewHeight: DriversNotFoundViewSizes.viewHeight + bottomPadding, bottomContraintConstant: DriversNotFoundViewSizes.viewHeight) {[weak self] constraint in
+            guard let self = self else  { return }
+            self.driversNotFoundViewBottomConstraint = constraint
+        }
+        Animator.shared.showView(animationType: .usualBottomAnimation(driversNotFoundView, driversNotFoundViewBottomConstraint), from: view)
+    }
+    
 }
