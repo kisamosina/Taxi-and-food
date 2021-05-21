@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaxiOrderStatusView" customModule="Taxi_and_food" customModuleProvider="target">
+            <connections>
+                <outlet property="callButton" destination="jEt-8X-Eiv" id="YF0-GG-fck"/>
+                <outlet property="callLabel" destination="Sge-Xk-YtQ" id="uJl-x5-Fi4"/>
+                <outlet property="carNameLabel" destination="7dw-6E-aZG" id="tzW-Ge-xHr"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="gZR-Md-fqZ"/>
+                <outlet property="stateNumberView" destination="j6S-ee-n4C" id="kjv-08-2ww"/>
+                <outlet property="statusDescriptionLabel" destination="BIJ-gL-i7W" id="cpy-NX-PAY"/>
+                <outlet property="statusLabel" destination="vnn-g6-DiF" id="m92-7v-oE8"/>
+                <outlet property="willBeSoonButton" destination="2cb-7v-Mcu" id="qOe-Sb-8c0"/>
+                <outlet property="willBeSoonStackView" destination="eAE-ha-bYk" id="710-mg-Esf"/>
+                <outlet property="willbeSoonLabel" destination="MP4-0b-HJx" id="kpt-zh-Jwe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="6Va-yV-TjG">
+                    <rect key="frame" x="25" y="35" width="364" height="216"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="NXQ-D4-hc5">
+                            <rect key="frame" x="37" y="0.0" width="290" height="109.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ePt-by-o8L">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="49"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnn-g6-DiF">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="Время бесплатного ожидания согласно тарифу" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-gL-i7W">
+                                            <rect key="frame" x="0.0" y="34.5" width="290" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iE0-LK-XGM">
+                                    <rect key="frame" x="0.0" y="63" width="290" height="46.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Car name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dw-6E-aZG">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g4e-zK-lpf">
+                                            <rect key="frame" x="0.0" y="28.5" width="290" height="18"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="de1-3S-nmO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="18"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-ee-n4C" customClass="StateNumberView" customModule="Taxi_and_food" customModuleProvider="target">
+                                                    <rect key="frame" x="100" y="0.0" width="90" height="18"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="2OI-mx-ObG"/>
+                                                        <constraint firstAttribute="height" constant="18" id="v3X-Cj-vhh"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLr-f1-pcF">
+                                                    <rect key="frame" x="200" y="0.0" width="90" height="18"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTN-u1-VYg">
+                            <rect key="frame" x="8" y="136.5" width="348" height="79.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="QOr-Ps-3Ub">
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="79.5"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jfG-P5-qQZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="174" height="58"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpk-dQ-RWm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-8X-Eiv" customClass="RoundedButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                                    <rect key="frame" x="58" y="0.0" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="Zdn-zN-7Lc"/>
+                                                        <constraint firstAttribute="width" constant="58" id="qI7-ch-sDd"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icon_handset"/>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTR-Wh-R0x">
+                                                    <rect key="frame" x="116" y="0.0" width="58" height="58"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-Xk-YtQ">
+                                            <rect key="frame" x="0.0" y="65" width="174" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-ha-bYk">
+                                    <rect key="frame" x="174" y="0.0" width="174" height="79.5"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Glj-O1-7Ku">
+                                            <rect key="frame" x="0.0" y="0.0" width="174" height="58"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONZ-Ni-1gq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-7v-Mcu" customClass="RoundedButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                                    <rect key="frame" x="58" y="0.0" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="5Bb-Ka-hJU"/>
+                                                        <constraint firstAttribute="width" constant="58" id="C2g-0x-GkA"/>
+                                                    </constraints>
+                                                    <state key="normal" image="icon_ring"/>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3H-ij-I9T">
+                                                    <rect key="frame" x="116" y="0.0" width="58" height="58"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will be soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP4-0b-HJx">
+                                            <rect key="frame" x="0.0" y="65" width="174" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="6Va-yV-TjG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="7Df-7m-xZU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Va-yV-TjG" secondAttribute="trailing" constant="25" id="HS6-eX-792"/>
+                <constraint firstItem="6Va-yV-TjG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="mJz-VS-mG2"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="85.507246376811594" y="63.616071428571423"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="2cb-7v-Mcu">
+            <size key="intrinsicContentSize" width="21" height="22"/>
+        </designable>
+        <designable name="jEt-8X-Eiv">
+            <size key="intrinsicContentSize" width="21" height="22"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="icon_handset" width="21" height="21"/>
+        <image name="icon_ring" width="21" height="21"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

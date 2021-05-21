@@ -33,6 +33,5 @@ import UIKit
         self.setImage(UIImage(named: CustomImagesNames.X.rawValue), for: .normal)
         self.tintColor = Colors.XTintColor.getColor()
         self.backgroundColor = Colors.closeButtonGrey.getColor()
-        
     }
 }

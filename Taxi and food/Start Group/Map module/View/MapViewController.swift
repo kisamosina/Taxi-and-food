@@ -50,6 +50,10 @@ class MapViewController: UIViewController {
     //DriversNotFoundView
     private var driversNotFoundView: DriversNotFoundView!
     private var driversNotFoundViewBottomConstraint: NSLayoutConstraint!
+    
+    //Taxi order status view
+    private var taxiOrderStatusView: TaxiOrderStatusView!
+    private var taxiOrderStatusViewBottomConstraint: NSLayoutConstraint!
         
     //MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
@@ -92,6 +96,7 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
     }
     
     //MARK: - IBActions
@@ -238,7 +243,6 @@ extension MapViewController: MapViewProtocol {
         }
     }
     
-    
     func activatePoints(_ pointsText: String) {
         guard let taxiOrderView = taxiOrderView else { return }
         DispatchQueue.main.async {
@@ -247,7 +251,6 @@ extension MapViewController: MapViewProtocol {
         }
         
     }
-    
     
     func showPoints(_ credit: Int) {
         
@@ -261,7 +264,6 @@ extension MapViewController: MapViewProtocol {
             self.present(wastePointsViewController, animated: false)
         }
     }
-    
     
     func draw(route: MKRoute) {
         self.removeOldRoutes()
@@ -1008,23 +1010,24 @@ extension MapViewController {
 extension MapViewController: WaitingTaxiViewDelegate {
     
     func cancelButtonTapped() {
-//        hideWaitingTaxiView { [weak self] _ in
-//            guard let self = self else { return }
-//            self.waitingTaxiView.removeFromSuperview()
-//            self.waitingTaxiView = nil
-//            self.waitingTaxiViewBottomConstraint = nil
-////            self.showCancelationOrderView()
+        hideWaitingTaxiView { [weak self] _ in
+            guard let self = self else { return }
+            self.waitingTaxiView.removeFromSuperview()
+            self.waitingTaxiView = nil
+            self.waitingTaxiViewBottomConstraint = nil
+//            self.showCancelationOrderView()
 //            self.showDriversNotFoundView()
-//        }
+            self.showTaxiOrderStatusView()
+        }
 //        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
 //        sentVC.configAs(.continueTaxiSearch)
 //        navigationController?.pushViewController(sentVC, animated: true)
         
-        let taxiHasFoundInteractor = TaxiFoundInteractor()
-        let taxiHasFoundVC = TaxiFoundViewController(interactor: taxiHasFoundInteractor)
-        taxiHasFoundInteractor.initView(taxiHasFoundVC)
-        taxiHasFoundVC.modalPresentationStyle = .overFullScreen
-        present(taxiHasFoundVC, animated: false)
+//        let taxiHasFoundInteractor = TaxiFoundInteractor()
+//        let taxiHasFoundVC = TaxiFoundViewController(interactor: taxiHasFoundInteractor)
+//        taxiHasFoundInteractor.initView(taxiHasFoundVC)
+//        taxiHasFoundVC.modalPresentationStyle = .overFullScreen
+//        present(taxiHasFoundVC, animated: false)
     }
     
 }
@@ -1060,4 +1063,19 @@ extension MapViewController {
         Animator.shared.showView(animationType: .usualBottomAnimation(driversNotFoundView, driversNotFoundViewBottomConstraint), from: view)
     }
     
+}
+
+//MARK: - TaxiOrderStatusView
+
+extension MapViewController {
+    
+    func showTaxiOrderStatusView() {
+        taxiOrderStatusView = TaxiOrderStatusView(frame: CGRect.makeRect(height: TaxiOrderStatusViewSizes.viewHeight))
+        view.addSubview(taxiOrderStatusView)
+        taxiOrderStatusView.setupConstraints(for: view, viewHeight: TaxiOrderStatusViewSizes.viewHeight, bottomContraintConstant: TaxiOrderStatusViewSizes.viewHeight + bottomPadding) {[weak self] constraint in
+            guard let self = self else { return }
+            self.taxiOrderStatusViewBottomConstraint = constraint
+        }
+        Animator.shared.showView(animationType: .usualBottomAnimation(taxiOrderStatusView, taxiOrderStatusViewBottomConstraint), from: view)
+    }
 }

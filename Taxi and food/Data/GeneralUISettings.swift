@@ -8,6 +8,9 @@
 
 import UIKit
 
+var screenHieght: CGFloat { UIScreen.main.bounds.height }
+var screenWidth: CGFloat { UIScreen.main.bounds.width }
+
 enum AppLanguages: String {
     case rus
     case eng
@@ -59,6 +62,7 @@ enum Colors {
     case whiteTransparent
     case backGroundGreyActive
     case textColorGreen
+    case dullGrey
     
     
     func getColor() -> UIColor {
@@ -106,6 +110,8 @@ enum Colors {
             return UIColor(hexString: "#F0F0F0")
         case .textColorGreen:
             return UIColor(hexString: "#34C759")
+        case .dullGrey:
+            return UIColor(hexString: "#F3F3F3")
         }
     }
 }
@@ -115,6 +121,8 @@ enum UILabelStyles {
     case lightGrey(CGFloat = 17)
     case systemDefault
     case normalGrey(CGFloat = 17)
+    case headerSemiBold(CGFloat = 26)
+    case normalBlack(CGFloat)
 }
 
 enum CustomImagesNames: String {
@@ -155,6 +163,9 @@ enum CustomImagesNames: String {
     case iconEmmitterSecionSecond = "icon_emmiter_section_second"
     case iconEmmitterSecionThird = "icon_emmiter_section_third"
     case iconCancelFace = "icon_cancel_face"
+    case iconFlagRu = "icon_flag_ru"
+    case iconRing = "icon_ring"
+    
 }
 
 enum StoryBoards: String {

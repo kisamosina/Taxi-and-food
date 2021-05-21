@@ -113,6 +113,10 @@ extension UILabel {
         case .normalGrey(let fontSize):
             font = .systemFont(ofSize: fontSize)
             textColor = Colors.fontGrey.getColor()
+        case .headerSemiBold(let fontSize):
+            font = .systemFont(ofSize: fontSize, weight: .semibold)
+        case .normalBlack(let fontSize):
+            font = .systemFont(ofSize: fontSize)
         }
     }
 }

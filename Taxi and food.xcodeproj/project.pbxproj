@@ -287,6 +287,14 @@
 		7DA996F02638411800BDE0BA /* DiscountsButtonViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996EF2638411800BDE0BA /* DiscountsButtonViewUIData.swift */; };
 		7DA996FE263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996FC263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift */; };
 		7DA996FF263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA996FD263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib */; };
+		7DAFA3922657F79E00F70EEE /* TaxiOrderStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFA3912657F79E00F70EEE /* TaxiOrderStatusView.swift */; };
+		7DAFA3952657F7CE00F70EEE /* TaxiOrderStatusViewSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFA3942657F7CE00F70EEE /* TaxiOrderStatusViewSizes.swift */; };
+		7DAFA3972657F7D900F70EEE /* TaxiOrderStatusViewTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFA3962657F7D900F70EEE /* TaxiOrderStatusViewTexts.swift */; };
+		7DAFA39A2657F8D600F70EEE /* TaxiOrderStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DAFA3992657F8D600F70EEE /* TaxiOrderStatusView.xib */; };
+		7DAFA39C265802CB00F70EEE /* StateNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFA39B265802CB00F70EEE /* StateNumberView.swift */; };
+		7DAFA39F2658037D00F70EEE /* StateNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DAFA39E2658037D00F70EEE /* StateNumberView.xib */; };
+		7DAFA3A126582DE400F70EEE /* TaxiOrdeStatusViewModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFA3A026582DE400F70EEE /* TaxiOrdeStatusViewModes.swift */; };
+		7DAFA3A32658405300F70EEE /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAFA3A22658405300F70EEE /* RoundedButton.swift */; };
 		7DC63554261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */; };
 		7DC63559261CC66500EC4F3D /* ChooseFoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */; };
 		7DC6355E261CC7E600EC4F3D /* ChooseFoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */; };
@@ -619,6 +627,14 @@
 		7DA996EF2638411800BDE0BA /* DiscountsButtonViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsButtonViewUIData.swift; sourceTree = "<group>"; };
 		7DA996FC263851AD00BDE0BA /* TaxiOrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DA996FD263851AD00BDE0BA /* TaxiOrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOrderCollectionViewCell.xib; sourceTree = "<group>"; };
+		7DAFA3912657F79E00F70EEE /* TaxiOrderStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderStatusView.swift; sourceTree = "<group>"; };
+		7DAFA3942657F7CE00F70EEE /* TaxiOrderStatusViewSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderStatusViewSizes.swift; sourceTree = "<group>"; };
+		7DAFA3962657F7D900F70EEE /* TaxiOrderStatusViewTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderStatusViewTexts.swift; sourceTree = "<group>"; };
+		7DAFA3992657F8D600F70EEE /* TaxiOrderStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOrderStatusView.xib; sourceTree = "<group>"; };
+		7DAFA39B265802CB00F70EEE /* StateNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateNumberView.swift; sourceTree = "<group>"; };
+		7DAFA39E2658037D00F70EEE /* StateNumberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StateNumberView.xib; sourceTree = "<group>"; };
+		7DAFA3A026582DE400F70EEE /* TaxiOrdeStatusViewModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrdeStatusViewModes.swift; sourceTree = "<group>"; };
+		7DAFA3A22658405300F70EEE /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodCategoryViewController.swift; sourceTree = "<group>"; };
 		7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodProtocols.swift; sourceTree = "<group>"; };
 		7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodInteractor.swift; sourceTree = "<group>"; };
@@ -1261,22 +1277,25 @@
 				7B75CF1325DC4C53001981CA /* ProblemTextView.swift */,
 				7D50F141263B1F9000295571 /* PromocodeActivatingResultView */,
 				043E67C925EDE50C003E49C9 /* PromoDestinationView.swift */,
+				7DAFA3A22658405300F70EEE /* RoundedButton.swift */,
 				7B75CF0125DC3B58001981CA /* ServiceRoundAddButton.swift */,
 				7D491618261B706200EBD03A /* ShopDetailView */,
 				7D9067D42614F06B00B06BAB /* ShopsView */,
 				041E29B025E6155900CA9F56 /* SlideUpView.swift */,
+				7DAFA39D2658035A00F70EEE /* StateNumberView */,
 				7DE338AF261CC230006EA531 /* SubstrateViewController.swift */,
+				7D7465822656DD2B00C83668 /* TariffNameView */,
 				7B47C86125DE9A0300F366FE /* TariffTitleButton.swift */,
+				7D7465782656CAC300C83668 /* TaxiHasFoundView */,
+				7DAFA3932657F7B100F70EEE /* TaxiOrderStatusView */,
 				7DA996D526381DDF00BDE0BA /* TaxiOrderView */,
 				7B75D02C25E51C18001981CA /* TextEnterView.swift */,
-				7D7465822656DD2B00C83668 /* TariffNameView */,
 				7D868D49260E794E00D3A91E /* TipAddressView */,
 				7B75CF3C25DD6CFE001981CA /* TopAlignLabel.swift */,
 				7DFE0A502639BB61005B37D3 /* TopInfoView */,
 				7D47490A25F7FC7300F744F7 /* TransitionBottomView */,
 				7B75CF0E25DC3FA6001981CA /* UploadImageView.swift */,
 				7D54ED952654160A007C5DDC /* WaitingTaxiView */,
-				7D7465782656CAC300C83668 /* TaxiHasFoundView */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -2037,6 +2056,35 @@
 			path = TaxiOrderCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		7DAFA3932657F7B100F70EEE /* TaxiOrderStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				7DAFA3912657F79E00F70EEE /* TaxiOrderStatusView.swift */,
+				7DAFA3992657F8D600F70EEE /* TaxiOrderStatusView.xib */,
+				7DAFA3982657F7E200F70EEE /* UIData */,
+			);
+			path = TaxiOrderStatusView;
+			sourceTree = "<group>";
+		};
+		7DAFA3982657F7E200F70EEE /* UIData */ = {
+			isa = PBXGroup;
+			children = (
+				7DAFA3942657F7CE00F70EEE /* TaxiOrderStatusViewSizes.swift */,
+				7DAFA3962657F7D900F70EEE /* TaxiOrderStatusViewTexts.swift */,
+				7DAFA3A026582DE400F70EEE /* TaxiOrdeStatusViewModes.swift */,
+			);
+			path = UIData;
+			sourceTree = "<group>";
+		};
+		7DAFA39D2658035A00F70EEE /* StateNumberView */ = {
+			isa = PBXGroup;
+			children = (
+				7DAFA39B265802CB00F70EEE /* StateNumberView.swift */,
+				7DAFA39E2658037D00F70EEE /* StateNumberView.xib */,
+			);
+			path = StateNumberView;
+			sourceTree = "<group>";
+		};
 		7DC63552261CC53000EC4F3D /* ChooseFoodCategory module */ = {
 			isa = PBXGroup;
 			children = (
@@ -2234,11 +2282,13 @@
 				7D7F4F5C2639B73F0025D423 /* TopInfoView.xib in Resources */,
 				7DD6B16725F012B900445407 /* PersonalAccount.storyboard in Resources */,
 				041E29A525E21BF300CA9F56 /* Service.storyboard in Resources */,
+				7DAFA39A2657F8D600F70EEE /* TaxiOrderStatusView.xib in Resources */,
 				041E299925E20E6400CA9F56 /* PersonalData.storyboard in Resources */,
 				04B5652125D6591700E0EC25 /* LaunchScreen.storyboard in Resources */,
 				7D491614261B705500EBD03A /* ShopDetailView.xib in Resources */,
 				7D47490625F7FC6D00F744F7 /* TransitionBottomView.xib in Resources */,
 				7D33FA68260A56B600DA5D0C /* AddressEnterDetailView.xib in Resources */,
+				7DAFA39F2658037D00F70EEE /* StateNumberView.xib in Resources */,
 				7D542B85260116520030FC2D /* AddressTableViewCell.xib in Resources */,
 				7B47C82025DD2A4C00F366FE /* Tarifs.storyboard in Resources */,
 				049A3F6725F1F66400C31AED /* Addresses.storyboard in Resources */,
@@ -2321,6 +2371,7 @@
 				7D542B8E26011C4B0030FC2D /* AddressEnterViewUIData.swift in Sources */,
 				7DD6B17A25F01C9500445407 /* LogOutButton.swift in Sources */,
 				041E29C725E7691C00CA9F56 /* PromoCellModel.swift in Sources */,
+				7DAFA3952657F7CE00F70EEE /* TaxiOrderStatusViewSizes.swift in Sources */,
 				7D7F4F522639B5D30025D423 /* Gradient.swift in Sources */,
 				7D54ED9A26541EB3007C5DDC /* WaitingTaxiViewSizes.swift in Sources */,
 				0414314125F86DF90074D86C /* AddressInteractor.swift in Sources */,
@@ -2442,6 +2493,7 @@
 				7D49157B261776ED00EBD03A /* Animator.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
+				7DAFA3922657F79E00F70EEE /* TaxiOrderStatusView.swift in Sources */,
 				7DA996DD2638217400BDE0BA /* TaxiOrderViewUIData.swift in Sources */,
 				7D45AF6B265036EB003A4544 /* WastePointsModuleUIData.swift in Sources */,
 				7D50F138263B1F7600295571 /* PromocodeActivatingResultView.swift in Sources */,
@@ -2451,6 +2503,7 @@
 				041E298225DE1F8A00CA9F56 /* SettingsViewController.swift in Sources */,
 				7D823E8125F149A8006B174B /* PersonalAccountProtocols.swift in Sources */,
 				7DA6C7842656EC6F009B466E /* TaxiHasFoundViewTexts.swift in Sources */,
+				7DAFA3A126582DE400F70EEE /* TaxiOrdeStatusViewModes.swift in Sources */,
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
 				7D49158E2617C92700EBD03A /* AddressTranslatable.swift in Sources */,
@@ -2486,8 +2539,10 @@
 				7D5FD966261F62F1000345BA /* ChooseFoodSubCategoriesInteractor.swift in Sources */,
 				7DDD94AE2642CF0200D8DF5E /* PromocodeNetworkServiceProtocol.swift in Sources */,
 				7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */,
+				7DAFA39C265802CB00F70EEE /* StateNumberView.swift in Sources */,
 				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
+				7DAFA3A32658405300F70EEE /* RoundedButton.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7D7F4F4D2639A1060025D423 /* TaxiOrderViewDelegate.swift in Sources */,
 				7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */,
@@ -2497,6 +2552,7 @@
 				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
 				7BCBCB9125D94EC200C43CF6 /* GeneralUISettings.swift in Sources */,
 				7B75CEDE25DAE2E3001981CA /* NetworkRequestData.swift in Sources */,
+				7DAFA3972657F7D900F70EEE /* TaxiOrderStatusViewTexts.swift in Sources */,
 				7DDD94B42643123E00D8DF5E /* PointsNetworkServiceProtocol.swift in Sources */,
 				7B2B99E525D83F10008B6CD9 /* AuthModel.swift in Sources */,
 				7D7465722656AC6700C83668 /* DriversNotFoundViewSizes.swift in Sources */,

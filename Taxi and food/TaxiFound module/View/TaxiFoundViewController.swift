@@ -66,5 +66,6 @@ extension TaxiFoundViewController {
         }
         
         Animator.shared.showView(animationType: .usualBottomAnimation(taxiHasFoundView, taxiHasFoundViewBottomConstraint), from: view)
+        Animator.shared.showView(animationType: .usualBottomAnimation(taxiHasFoundView, taxiHasFoundViewBottomConstraint), from: view, for: bottomPadding + 25)
     }
 }

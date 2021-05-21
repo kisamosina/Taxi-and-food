@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapRoundButton: UIButton {
+@IBDesignable class MapRoundButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
