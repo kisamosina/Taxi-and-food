@@ -277,8 +277,8 @@
 		7D9A6E0E2603C92E003099CB /* InactiveVIewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */; };
 		7DA6C7842656EC6F009B466E /* TaxiHasFoundViewTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C7832656EC6F009B466E /* TaxiHasFoundViewTexts.swift */; };
 		7DA6C7862656EF8A009B466E /* TaxiFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C7852656EF8A009B466E /* TaxiFoundViewController.swift */; };
-		7DA6C78A2656EFEC009B466E /* TaxiHasFoundInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C7892656EFEC009B466E /* TaxiHasFoundInteractor.swift */; };
-		7DA6C78D2656F010009B466E /* TaxiHasFoundProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C78C2656F010009B466E /* TaxiHasFoundProtocols.swift */; };
+		7DA6C78A2656EFEC009B466E /* TaxiFoundInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C7892656EFEC009B466E /* TaxiFoundInteractor.swift */; };
+		7DA6C78D2656F010009B466E /* TaxiFoundProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C78C2656F010009B466E /* TaxiFoundProtocols.swift */; };
 		7DA996CC26381D8B00BDE0BA /* TaxiOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996CB26381D8B00BDE0BA /* TaxiOrderView.swift */; };
 		7DA996D126381DD400BDE0BA /* TaxiOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DA996D026381DD400BDE0BA /* TaxiOrderView.xib */; };
 		7DA996DD2638217400BDE0BA /* TaxiOrderViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA996DC2638217400BDE0BA /* TaxiOrderViewUIData.swift */; };
@@ -609,8 +609,8 @@
 		7D9A6E0D2603C92E003099CB /* InactiveVIewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveVIewControllerDelegate.swift; sourceTree = "<group>"; };
 		7DA6C7832656EC6F009B466E /* TaxiHasFoundViewTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiHasFoundViewTexts.swift; sourceTree = "<group>"; };
 		7DA6C7852656EF8A009B466E /* TaxiFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiFoundViewController.swift; sourceTree = "<group>"; };
-		7DA6C7892656EFEC009B466E /* TaxiHasFoundInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiHasFoundInteractor.swift; sourceTree = "<group>"; };
-		7DA6C78C2656F010009B466E /* TaxiHasFoundProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiHasFoundProtocols.swift; sourceTree = "<group>"; };
+		7DA6C7892656EFEC009B466E /* TaxiFoundInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiFoundInteractor.swift; sourceTree = "<group>"; };
+		7DA6C78C2656F010009B466E /* TaxiFoundProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiFoundProtocols.swift; sourceTree = "<group>"; };
 		7DA996CB26381D8B00BDE0BA /* TaxiOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderView.swift; sourceTree = "<group>"; };
 		7DA996D026381DD400BDE0BA /* TaxiOrderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOrderView.xib; sourceTree = "<group>"; };
 		7DA996DC2638217400BDE0BA /* TaxiOrderViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderViewUIData.swift; sourceTree = "<group>"; };
@@ -896,7 +896,7 @@
 				7D823EB925F2A995006B174B /* InactivewView module */,
 				7D823F0B25F3C79E006B174B /* PaymentWay module */,
 				7D6F1933263C442800A4F15D /* WastePoints module */,
-				7DA6C7872656EFC2009B466E /* TaxiHasFound module */,
+				7DA6C7872656EFC2009B466E /* TaxiFound module */,
 				04B5654C25D65A9800E0EC25 /* Services */,
 				7D49157F2617782200EBD03A /* Animations */,
 				7B75CEE525DAE6E4001981CA /* CustomUI */,
@@ -1974,14 +1974,14 @@
 			path = ShopsView;
 			sourceTree = "<group>";
 		};
-		7DA6C7872656EFC2009B466E /* TaxiHasFound module */ = {
+		7DA6C7872656EFC2009B466E /* TaxiFound module */ = {
 			isa = PBXGroup;
 			children = (
 				7DA6C7882656EFD1009B466E /* View */,
 				7DA6C78B2656EFF2009B466E /* Interactor */,
 				7DA6C78E2656F014009B466E /* Protocols */,
 			);
-			path = "TaxiHasFound module";
+			path = "TaxiFound module";
 			sourceTree = "<group>";
 		};
 		7DA6C7882656EFD1009B466E /* View */ = {
@@ -1995,7 +1995,7 @@
 		7DA6C78B2656EFF2009B466E /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				7DA6C7892656EFEC009B466E /* TaxiHasFoundInteractor.swift */,
+				7DA6C7892656EFEC009B466E /* TaxiFoundInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -2003,7 +2003,7 @@
 		7DA6C78E2656F014009B466E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				7DA6C78C2656F010009B466E /* TaxiHasFoundProtocols.swift */,
+				7DA6C78C2656F010009B466E /* TaxiFoundProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -2521,7 +2521,7 @@
 				7D7465752656B9C000C83668 /* DriverNotFoundViewTexts.swift in Sources */,
 				7D851C5025F68475000E20DB /* CardEnterView.swift in Sources */,
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
-				7DA6C78A2656EFEC009B466E /* TaxiHasFoundInteractor.swift in Sources */,
+				7DA6C78A2656EFEC009B466E /* TaxiFoundInteractor.swift in Sources */,
 				041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				7BD7CB9C2604C3E50099C9B7 /* MapModuleProtocols.swift in Sources */,
@@ -2532,7 +2532,7 @@
 				7DECA8B5261E106C00E74C84 /* FoodSubCategoryAndProductView.swift in Sources */,
 				7D33FA74260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift in Sources */,
 				7D7465812656D61900C83668 /* TariffNameView.swift in Sources */,
-				7DA6C78D2656F010009B466E /* TaxiHasFoundProtocols.swift in Sources */,
+				7DA6C78D2656F010009B466E /* TaxiFoundProtocols.swift in Sources */,
 				7B75CF4225DD707B001981CA /* TariffInteractor.swift in Sources */,
 				0465F51A25DA561D008CA6D0 /* SentViewController.swift in Sources */,
 				7D7465772656CAAD00C83668 /* TaxiHasFoundView.swift in Sources */,

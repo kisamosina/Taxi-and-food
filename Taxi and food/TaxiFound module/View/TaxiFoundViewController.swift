@@ -12,14 +12,15 @@ class TaxiFoundViewController: SubstrateViewController {
     
     //MARK: - Properties
     
-    var interactor: TaxiHasFoundInteractorProtocol
+    var interactor: TaxiFoundInteractorProtocol
+    weak var delegate: TaxiFoundViewControllerDelegate?
     
     private var taxiHasFoundView: TaxiHasFoundView!
     private var taxiHasFoundViewBottomConstraint: NSLayoutConstraint!
     
     //MARK: - Initializers
     
-    required init(interactor: TaxiHasFoundInteractorProtocol) {
+    required init(interactor: TaxiFoundInteractorProtocol) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,7 +47,7 @@ class TaxiFoundViewController: SubstrateViewController {
 
 //MARK: - TaxiHasFoundViewProtocol
 
-extension TaxiFoundViewController: TaxiHasFoundViewProtocol {
+extension TaxiFoundViewController: TaxiFoundViewProtocol {
     
 }
 

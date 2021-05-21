@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="enT-OJ-McT">
-                    <rect key="frame" x="0.0" y="40" width="414" height="560"/>
+                    <rect key="frame" x="0.0" y="40" width="414" height="580"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-3J-0Es">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -104,22 +104,22 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1T-un-Ctj">
-                            <rect key="frame" x="0.0" y="173" width="414" height="267"/>
+                            <rect key="frame" x="0.0" y="173" width="414" height="287"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="dUj-Lh-A8g">
-                                    <rect key="frame" x="25" y="14" width="364" height="232"/>
+                                    <rect key="frame" x="25" y="14" width="364" height="252"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TXP-ko-aOq">
-                                            <rect key="frame" x="0.0" y="0.0" width="364" height="21.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="41.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Car Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxz-cv-1Y8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="21.5"/>
+                                                    <rect key="frame" x="0.0" y="5" width="302" height="31.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zU-Vu-cyd" customClass="TariffNameView" customModule="Taxi_and_food" customModuleProvider="target">
-                                                    <rect key="frame" x="302" y="1" width="62" height="20"/>
+                                                    <rect key="frame" x="302" y="11" width="62" height="20"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="pu0-k5-RKy"/>
@@ -131,10 +131,10 @@
                                             </subviews>
                                         </stackView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carSample" translatesAutoresizingMaskIntoConstraints="NO" id="5iA-NL-QxT">
-                                            <rect key="frame" x="0.0" y="38.5" width="364" height="115"/>
+                                            <rect key="frame" x="0.0" y="58.5" width="364" height="115"/>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="KwH-hU-Mtj">
-                                            <rect key="frame" x="0.0" y="170.5" width="364" height="61.5"/>
+                                            <rect key="frame" x="0.0" y="190.5" width="364" height="61.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAE-LZ-hSQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="364" height="14.5"/>
@@ -168,7 +168,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUG-GY-U9R">
-                            <rect key="frame" x="0.0" y="465" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="485" width="414" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DK-ku-DYt">
                                     <rect key="frame" x="0.0" y="0.0" width="25" height="50"/>
@@ -197,7 +197,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3O-Bl-IOI" customClass="AuxiliaryButton" customModule="Taxi_and_food" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="540" width="414" height="20"/>
+                            <rect key="frame" x="0.0" y="560" width="414" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="zUi-wL-3u9"/>
                             </constraints>
@@ -214,7 +214,7 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="enT-OJ-McT" secondAttribute="trailing" id="A9a-b5-CKH"/>
                 <constraint firstItem="enT-OJ-McT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="K1P-gG-Evf"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="enT-OJ-McT" secondAttribute="bottom" constant="60" id="dez-OH-u7i"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="enT-OJ-McT" secondAttribute="bottom" constant="40" id="dez-OH-u7i"/>
                 <constraint firstItem="enT-OJ-McT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="i3P-mz-hnM"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -225,7 +225,7 @@
     </objects>
     <designables>
         <designable name="Z3O-Bl-IOI">
-            <size key="intrinsicContentSize" width="46" height="30"/>
+            <size key="intrinsicContentSize" width="51" height="33"/>
         </designable>
         <designable name="sOs-R8-FR3">
             <size key="intrinsicContentSize" width="46" height="30"/>

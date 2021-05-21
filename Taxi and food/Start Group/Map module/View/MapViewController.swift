@@ -60,11 +60,11 @@ class MapViewController: UIViewController {
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var bottomView: MapBottomView!
     @IBOutlet weak var menuView: MenuView!
+    @IBOutlet weak var promoDestinationStackView: UIStackView!
     @IBOutlet weak var promoDestinationView: PromoDestinationView!
     @IBOutlet weak var inactiveView: UIView!
     @IBOutlet weak var leadingLeftSideViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingLeftSideViewConstraint: NSLayoutConstraint!
-    @IBOutlet var topPromoDestinationViewConstraint: NSLayoutConstraint!
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -431,13 +431,12 @@ extension MapViewController: MapViewProtocol {
             
             for promo in promos {
                 
-                
-                
                 if self.interactor.isPromoAvailableByTime(timeFrom: promo.timeFrom ?? "", timeTo: promo.timeTo ?? "") == true {
                     self.promoDestinationView.alpha = 1
-                    self.promoDestinationView.imageView.webImage(promo.media[1].url ?? "")
+                    if promo.media.count > 2 {
+                        self.promoDestinationView.imageView.webImage(promo.media[1].url ?? "")
+                    }
                     self.promoDestinationView.nameLabel.text = promo.title
-                    
                     
                 }
                 
@@ -466,7 +465,6 @@ extension MapViewController: MapViewProtocol {
             self.present(chooseFoodViewController, animated: false, completion: nil)
         }
     }
-
 }
 
 //MARK: - Menu View Methods
@@ -899,12 +897,14 @@ extension MapViewController {
     }
     
     private func minimizePromoDestinationView() {
-        self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
+//        self.topPromoDestinationViewConstraint.constant = -UIScreen.main.bounds.height
+        promoDestinationStackView.isHidden = true
         
     }
     
     private func maximizePromoDestinationView() {
-        self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
+//        self.topPromoDestinationViewConstraint.constant = MapViewControllerConstraintsData.maximizedTopPromoDestinationViewConstant.rawValue
+        promoDestinationStackView.isHidden = false
     }
     
     private func animatePromoDestinationViewMaximizing() {
@@ -1020,7 +1020,7 @@ extension MapViewController: WaitingTaxiViewDelegate {
 //        sentVC.configAs(.continueTaxiSearch)
 //        navigationController?.pushViewController(sentVC, animated: true)
         
-        let taxiHasFoundInteractor = TaxiHasFoundInteractor()
+        let taxiHasFoundInteractor = TaxiFoundInteractor()
         let taxiHasFoundVC = TaxiFoundViewController(interactor: taxiHasFoundInteractor)
         taxiHasFoundInteractor.initView(taxiHasFoundVC)
         taxiHasFoundVC.modalPresentationStyle = .overFullScreen

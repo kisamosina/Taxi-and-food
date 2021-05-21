@@ -8,11 +8,11 @@
 
 import Foundation
 
-class TaxiHasFoundInteractor: TaxiHasFoundInteractorProtocol {
+class TaxiFoundInteractor: TaxiFoundInteractorProtocol {
     
-    weak var view: TaxiHasFoundViewProtocol!
+    weak var view: TaxiFoundViewProtocol!
     
-    func initView(_ view: TaxiHasFoundViewProtocol) {
+    func initView(_ view: TaxiFoundViewProtocol) {
         self.view = view
     }
 }

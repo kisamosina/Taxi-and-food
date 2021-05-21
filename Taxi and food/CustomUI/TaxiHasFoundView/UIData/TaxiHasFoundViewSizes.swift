@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 struct TaxiHasFoundViewSizes {
-    static var viewHeight: CGFloat = 685
+    static var viewHeight: CGFloat = 660
 }
