@@ -85,35 +85,33 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTN-u1-VYg">
-                            <rect key="frame" x="8" y="136.5" width="348" height="79.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="pTN-u1-VYg">
+                            <rect key="frame" x="67.5" y="136.5" width="229" height="79.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="QOr-Ps-3Ub">
-                                    <rect key="frame" x="0.0" y="0.0" width="174" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="69.5" height="79.5"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jfG-P5-qQZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="174" height="58"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGE-tf-sQe">
+                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="58"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpk-dQ-RWm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-8X-Eiv" customClass="RoundedButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                                    <rect key="frame" x="58" y="0.0" width="58" height="58"/>
+                                                    <rect key="frame" x="6" y="0.0" width="58" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="58" id="Zdn-zN-7Lc"/>
                                                         <constraint firstAttribute="width" constant="58" id="qI7-ch-sDd"/>
                                                     </constraints>
                                                     <state key="normal" image="icon_handset"/>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTR-Wh-R0x">
-                                                    <rect key="frame" x="116" y="0.0" width="58" height="58"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
                                             </subviews>
-                                        </stackView>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="jEt-8X-Eiv" firstAttribute="centerY" secondItem="gGE-tf-sQe" secondAttribute="centerY" id="AgA-py-FMS"/>
+                                                <constraint firstItem="jEt-8X-Eiv" firstAttribute="centerX" secondItem="gGE-tf-sQe" secondAttribute="centerX" id="Twt-IU-0xX"/>
+                                                <constraint firstAttribute="height" constant="58" id="cuP-01-aIb"/>
+                                            </constraints>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-Xk-YtQ">
-                                            <rect key="frame" x="0.0" y="65" width="174" height="14.5"/>
+                                            <rect key="frame" x="0.0" y="65" width="69.5" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -121,31 +119,29 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-ha-bYk">
-                                    <rect key="frame" x="174" y="0.0" width="174" height="79.5"/>
+                                    <rect key="frame" x="159.5" y="0.0" width="69.5" height="79.5"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Glj-O1-7Ku">
-                                            <rect key="frame" x="0.0" y="0.0" width="174" height="58"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3A-cu-Y3f">
+                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="58"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONZ-Ni-1gq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-7v-Mcu" customClass="RoundedButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                                    <rect key="frame" x="58" y="0.0" width="58" height="58"/>
+                                                    <rect key="frame" x="6" y="0.0" width="58" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="58" id="5Bb-Ka-hJU"/>
                                                         <constraint firstAttribute="width" constant="58" id="C2g-0x-GkA"/>
                                                     </constraints>
                                                     <state key="normal" image="icon_ring"/>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3H-ij-I9T">
-                                                    <rect key="frame" x="116" y="0.0" width="58" height="58"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
                                             </subviews>
-                                        </stackView>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="Svw-pZ-5qK"/>
+                                                <constraint firstItem="2cb-7v-Mcu" firstAttribute="centerX" secondItem="M3A-cu-Y3f" secondAttribute="centerX" id="UKV-Nq-qrU"/>
+                                                <constraint firstItem="2cb-7v-Mcu" firstAttribute="centerY" secondItem="M3A-cu-Y3f" secondAttribute="centerY" id="Zl0-wU-1fg"/>
+                                            </constraints>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will be soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP4-0b-HJx">
-                                            <rect key="frame" x="0.0" y="65" width="174" height="14.5"/>
+                                            <rect key="frame" x="0.0" y="65" width="69.5" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

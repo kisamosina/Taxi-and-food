@@ -42,7 +42,7 @@ class TaxiOrderStatusView: CustomBottomView {
         self.containerView.backgroundColor = .clear
         statusDescriptionLabel.isHidden = true
         willBeSoonStackView.isHidden = true
-        bind(mode: .waiting)
+        bind(mode: .almostThere)
         
     }
     
