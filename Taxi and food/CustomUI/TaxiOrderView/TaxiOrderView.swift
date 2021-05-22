@@ -14,7 +14,8 @@ class TaxiOrderView: CustomBottomView {
     
     public weak var delegate: TaxiOrderViewDelegate?
     public weak var mapButtonDelegate: MapButtonDelegate?
-    private var tariffs: [Tariff] = Tariff.getTariffs()
+    private var tariffsData: [TariffData] = []
+    private var tariffs: [Tariff] = []
     private var selectedIndex = 0
     
     //MARK: - IBOutlets
@@ -113,8 +114,13 @@ class TaxiOrderView: CustomBottomView {
         self.delegate?.viewHasSwipedDown()
     }
     
+    public func bind(tariffsData: [TariffData]) {
+        self.tariffsData = tariffsData
+        tariffs = Tariff.getTariffs(from: tariffsData)
+    }
+    
     public func setNewPrice(_ newPrice: Double) {
-        tariffs = Tariff.getTariffs()
+        tariffs = Tariff.getTariffs(from: tariffsData)
         for tariff in tariffs { tariff.setActive(false) }
         self.tariffs[selectedIndex].setActive(true)
         self.tariffs[selectedIndex].setNewPrice(newPrice: newPrice)

@@ -53,17 +53,19 @@ extension FoodCategoriesResponseData {
 
 final class Tariff {
     var isActive: Bool
+    let id: Int
+    let name: String
     private let tariffPrice: Double
-    private let type: TariffType
     private let imageName: String
     private let feedTimeValue: Int
     private var priceValue: Double
     private var priceOldValue: Double?
     
-    init(isActive: Bool, type: TariffType, imageName: String, feedTimeValue: Int, priceValue: Double, priceOldValue: Double? = nil) {
+    init(isActive: Bool, id: Int, name: String, imageName: String, feedTimeValue: Int, priceValue: Double, priceOldValue: Double? = nil) {
         self.isActive = isActive
+        self.id = id
+        self.name = name
         self.tariffPrice = priceValue
-        self.type = type
         self.imageName = imageName
         self.feedTimeValue = feedTimeValue
         self.priceValue = priceValue
@@ -75,24 +77,38 @@ final class Tariff {
 extension Tariff {
     
     enum TariffType: String {
-        case Standart, Premium, Buisness
+        case standart = "Standart"
+        case premium = "Premium"
+        case business = "Business"
+        case unknown
     }
-    
-    var name: String {
-        return type.rawValue
+        
+    private var type: TariffType {
+        guard let tariffType = TariffType(rawValue: name) else { return .unknown }
+        return tariffType
     }
+
 }
 
 extension Tariff {
-    
-    static func getTariffs() -> [Tariff] {
         
-        let  standart = Tariff(isActive: true, type: .Standart, imageName: CustomImagesNames.iconTariffStandart.rawValue, feedTimeValue: 3, priceValue: 200, priceOldValue: nil)
-        let  premium = Tariff(isActive: false, type: .Premium, imageName: CustomImagesNames.iconTariffPremium.rawValue, feedTimeValue: 6, priceValue: 300, priceOldValue: nil)
-        let  buisness = Tariff(isActive: false, type: .Buisness, imageName: CustomImagesNames.iconTariffBusiness.rawValue, feedTimeValue: 9, priceValue: 400, priceOldValue: nil)
+    static func getTariffs(from tariffData: [TariffData]) -> [Tariff] {
         
+        return tariffData.map { data in
+            
+            switch data.name {
+            
+            case TariffType.standart.rawValue:
+                return Tariff(isActive: true, id: data.id, name: data.name, imageName: CustomImagesNames.iconTariffStandart.rawValue, feedTimeValue: 3, priceValue: 200)
+            case TariffType.premium.rawValue:
+                return Tariff(isActive: false, id: data.id, name: data.name, imageName: CustomImagesNames.iconTariffPremium.rawValue, feedTimeValue: 6, priceValue: 300)
+            case TariffType.business.rawValue:
+                return Tariff(isActive: false, id: data.id, name: data.name, imageName: CustomImagesNames.iconTariffBusiness.rawValue, feedTimeValue: 9, priceValue: 400)
+            default:
+                return Tariff(isActive: false, id: data.id, name: data.name, imageName: data.name, feedTimeValue: 0, priceValue: 0)
                 
-        return [standart, premium, buisness]
+            }
+        }
     }
 }
 
@@ -102,12 +118,14 @@ extension Tariff {
         
         switch self.type {
             
-        case .Standart:
+        case .standart:
             return Colors.tariffGreen.getColor()
-        case .Premium:
+        case .premium:
             return Colors.tariffPurple.getColor()
-        case .Buisness:
+        case .business:
             return Colors.tariffGold.getColor()
+        case .unknown:
+            return Colors.lightGrey.getColor()
         }
     }
     

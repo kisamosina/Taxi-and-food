@@ -69,6 +69,9 @@ protocol MapInteractorProtocol: AnyObject {
     //Final sumOrder
     var finalSumOrder: Double { get }
     
+    //Tariffs
+    var tariffsData: [TariffData] { get set }
+    
     init(view: MapViewProtocol)
     
     //Set VC state

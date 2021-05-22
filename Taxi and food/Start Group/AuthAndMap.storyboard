@@ -351,6 +351,19 @@
                                     <action selector="lkButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="90J-I9-hUW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKH-JN-0i3" customClass="MapRoundButton" customModule="Taxi_and_food" customModuleProvider="target">
+                                <rect key="frame" x="329" y="581" width="40" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="g9L-Nx-ftq"/>
+                                    <constraint firstAttribute="height" constant="40" id="pve-9C-V6s"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="centerMapButton"/>
+                                <connections>
+                                    <action selector="mapCenterButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="BFy-BU-JB3"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZNs-OE-x4z">
                                 <rect key="frame" x="0.0" y="631" width="414" height="265"/>
                                 <subviews>
@@ -565,19 +578,6 @@
                                     <outlet property="menuTableView" destination="7CO-61-HFk" id="K75-oe-UV3"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKH-JN-0i3" customClass="MapRoundButton" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="329" y="581" width="40" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="g9L-Nx-ftq"/>
-                                    <constraint firstAttribute="height" constant="40" id="pve-9C-V6s"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="centerMapButton"/>
-                                <connections>
-                                    <action selector="mapCenterButtonTapped:" destination="o8O-ca-Uob" eventType="touchUpInside" id="BFy-BU-JB3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="am8-7N-f7B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -744,8 +744,20 @@
         <designable name="ROV-7W-z48">
             <size key="intrinsicContentSize" width="45" height="30"/>
         </designable>
+        <designable name="b9C-Im-UHs">
+            <size key="intrinsicContentSize" width="15" height="22"/>
+        </designable>
+        <designable name="hbh-4U-WAf">
+            <size key="intrinsicContentSize" width="20" height="22"/>
+        </designable>
         <designable name="vEl-83-JSe">
             <size key="intrinsicContentSize" width="45" height="30"/>
+        </designable>
+        <designable name="wK5-Hg-dV9">
+            <size key="intrinsicContentSize" width="10" height="22"/>
+        </designable>
+        <designable name="yKH-JN-0i3">
+            <size key="intrinsicContentSize" width="15" height="22"/>
         </designable>
     </designables>
     <resources>

@@ -44,8 +44,6 @@ class PromoInteractor: PromoInteractorProtocol {
     func getAllPromos() {
         
         let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3)
-        print("path")
-        print(path)
 
         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
@@ -54,9 +52,7 @@ class PromoInteractor: PromoInteractorProtocol {
             switch result {
 
             case .success(let promoResponse):
-                print(promoResponse.data)
                 self.allPromos = promoResponse.data
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }

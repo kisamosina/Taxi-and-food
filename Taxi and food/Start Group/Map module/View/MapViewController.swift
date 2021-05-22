@@ -79,12 +79,6 @@ class MapViewController: UIViewController {
         self.minimizePromoDestinationView()
         self.addSwipes()
         self.addKeyboardWillShowObserver()
-        
-        DispatchQueue.global(qos: .background).async {
-            
-            self.interactor.getAllPromos()            
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,7 +109,6 @@ class MapViewController: UIViewController {
     @IBAction func lkButtonTapped(_ sender: UIButton) {
         let vc = self.getViewController(storyboardId: StoryBoards.PersonalAccount.rawValue, viewControllerId: ViewControllers.PersonalAccountViewController.rawValue)
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func mapCenterButtonTapped(_ sender: UIButton) {
@@ -505,9 +498,9 @@ extension MapViewController: MenuViewDelegate {
         switch type {
         
         case .Tariffs:
-            
-            self.interactor.getTariffs()
-            
+            guard !interactor.tariffsData.isEmpty else { return }
+            showTariffPageViewController(interactor.tariffsData)
+//            self.interactor.getTariffs()
         case .Settings:
             let vc = self.getViewController(storyboardId: StoryBoards.Settings.rawValue, viewControllerId: ViewControllers.SettingsViewController.rawValue)
             self.navigationController?.pushViewController(vc, animated: true)
@@ -754,8 +747,9 @@ extension MapViewController {
     
     //Setup show animation for taxi order view
     private func showTaxiOrdreView() {
-        
+        guard  !interactor.tariffsData.isEmpty else { return }
         self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
+        taxiOrderView.bind(tariffsData: interactor.tariffsData)
         self.view.addSubview(self.taxiOrderView)
         self.taxiOrderView.setupConstraints(for: self.view,
                                             viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,

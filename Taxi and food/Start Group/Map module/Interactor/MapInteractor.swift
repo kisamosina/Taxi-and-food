@@ -115,6 +115,9 @@ class MapInteractor: MapInteractorProtocol {
         guard finalSumOrder > 0 else { return 0 }
         return finalSumOrder
     }
+    
+    //Tariffs
+    var tariffsData: [TariffData] = []
         
     //MARK: - Initializer
     
@@ -124,6 +127,8 @@ class MapInteractor: MapInteractorProtocol {
         self.locationManager = LocationManager.shared
         self.locationManager.delegate = self
         self.getAddresses()
+        self.getAllPromos()
+        self.getTariffs()
     }
 
     //MARK: - MapInteractorProtocol Methods
@@ -147,9 +152,6 @@ class MapInteractor: MapInteractorProtocol {
              case .success(let promoResponse):
                 self.promos = promoResponse.data
                 self.view.updateData()
-                 print(promoResponse.data)
-
-
              case .failure(let error):
                  print(error.localizedDescription)
              }
@@ -278,7 +280,8 @@ extension MapInteractor {
             switch result {
             
             case .success(let tariffResponse):
-                self.view.showTariffPageViewController(tariffResponse.data)
+//                self.view.showTariffPageViewController(tariffResponse.data)
+                self.tariffsData = tariffResponse.data
             case .failure(let error):
                 print(error.localizedDescription)
             }
