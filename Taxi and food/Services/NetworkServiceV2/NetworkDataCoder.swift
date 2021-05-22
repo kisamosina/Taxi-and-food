@@ -47,8 +47,29 @@ final class NetworkDataCoder {
             let result = try decoder.decode(ResponseModel.self, from: data)
             return result
         } catch {
-            
+            print("***********************************\nERROR: WHILE DECODING DATA:\n\(error.localizedDescription)\n ***********************************")
             return nil
         }
     }
+    
+    //FOR DECODING { data: ResponseModel } FORMAT
+    
+    func decodeFromData<ResponseModel: Decodable>(type: ResponseModel.Type, data: Data?) -> ResponseModel? {
+        guard let data = data else {
+            print("***********************************\nERROR: NO DATA TO DECODE\n***********************************")
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+        do {
+            let decodedData = try decoder.decode([String: ResponseModel].self, from: data)
+            return decodedData["data"]
+        } catch {
+            print("***********************************\nERROR: WHILE DECODING DATA:\n\(error.localizedDescription)\n ***********************************")
+            return nil
+        }
+    }
+
 }
