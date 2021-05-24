@@ -50,10 +50,3 @@ struct PaymentWayTableViewCellModel {
 }
 
 
-struct PointsResponse: Decodable {
-    var data: PointsResponseData
-}
-
-struct PointsResponseData: Decodable {
-    var credit: Int
-}
