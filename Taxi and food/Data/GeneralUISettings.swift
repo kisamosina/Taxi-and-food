@@ -11,6 +11,23 @@ import UIKit
 var screenHieght: CGFloat { UIScreen.main.bounds.height }
 var screenWidth: CGFloat { UIScreen.main.bounds.width }
 
+//Bottom indent
+var bottomPadding: CGFloat {
+    let window = UIApplication.shared.windows[0]
+    return window.safeAreaInsets.bottom
+}
+
+//Top indent
+var topPadding: CGFloat {
+    let window = UIApplication.shared.windows[0]
+    return window.safeAreaInsets.top
+}
+
+//Bottom ident considering views corner radius
+var bottomConstraintConstant: CGFloat {
+    screenHieght > 667 ? bottomPadding : bottomPadding + 20
+}
+
 enum AppLanguages: String {
     case rus
     case eng
