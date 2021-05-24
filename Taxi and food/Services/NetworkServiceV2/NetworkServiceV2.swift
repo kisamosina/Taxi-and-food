@@ -56,12 +56,14 @@ final class NetworkServiceV2 {
                                     requestData: Data,
                                     completion: @escaping FetchResult) {
         
+        guard requestMethod != .get else { return }
+        
         guard let url = resource.urlComponents.url else {
             print("***********************************\n ERROR: Invalid URL\n***********************************" )
             return
         }
         
-        guard requestMethod != .get else { return }
+        if isLoggingOn { print("REQUEST URL: \(url)") }
         
         //Config request
         var request = URLRequest(url: url)
@@ -74,7 +76,7 @@ final class NetworkServiceV2 {
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = requestData
-        if isLoggingOn { print("JSON \(requestMethod.rawValue) REQUEST, REQUEST DATA: ", String(data: request.httpBody!, encoding: .utf8) ?? "No request body data!!!") }
+        if isLoggingOn { print("JSON \(requestMethod.rawValue) REQUEST, REQUEST DATA:\n", String(data: request.httpBody!, encoding: .utf8) ?? "No request body data!!!") }
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -115,6 +117,8 @@ final class NetworkServiceV2 {
             print("***********************************\n ERROR: Invalid URL\n***********************************" )
             return
         }
+        
+        if isLoggingOn { print("REQUEST URL: \(url)") }
         
         //Config request
         var request = URLRequest(url: url)

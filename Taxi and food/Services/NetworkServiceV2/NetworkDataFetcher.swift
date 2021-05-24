@@ -8,17 +8,48 @@
 
 import Foundation
 
-final class NetworkDataCoder {
+final class NetworkDataFetcher {
     
-    static let shared = NetworkDataCoder()
+    static let shared = NetworkDataFetcher()
+    
+    private let networkService = NetworkServiceV2.shared
     
     var isLoggingOn = true
-    
+        
     private init() {}
+    
+    typealias FetchResult<ResponseModel: Decodable> = (Result<ResponseModel?, Error>) -> Void
+    
+    func fetchNetworkData<RequestModel: Codable, ResponseModel: Decodable>(resource: ResourceAPIV2,
+                          requestMethod: RequestMethodV2 = .get,
+                          responseModelType: ResponseModel.Type,
+                          requestData: RequestModel,
+                          completion: @escaping FetchResult<ResponseModel>) {
+        
+        var data: Data?
+        
+        if requestData is EmptyRequestModel {
+            data = nil
+        } else {
+            data = encode(requestData)
+        }
+        
+        networkService.makeRequest(resource: resource, requestMethod: requestMethod, requestData: data) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+                
+            case .success(let data):
+                let decodedData = self.decodeFromData(type: ResponseModel.self, data: data)
+                completion(.success(decodedData))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     //ENCODING DATA
 
-    func encode<RequestModel: Codable>(_ model: RequestModel) -> Data? {
+    private func encode<RequestModel: Codable>(_ model: RequestModel) -> Data? {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
 
@@ -34,7 +65,7 @@ final class NetworkDataCoder {
 
     //DECODING DATA
 
-    func decode<ResponseModel: Decodable>(type: ResponseModel.Type, data: Data?) -> ResponseModel? {
+    private func decode<ResponseModel: Decodable>(type: ResponseModel.Type, data: Data?) -> ResponseModel? {
         guard let data = data else {
             print("***********************************\nERROR: NO DATA TO DECODE\n***********************************")
             return nil
@@ -52,9 +83,7 @@ final class NetworkDataCoder {
         }
     }
     
-    //FOR DECODING { data: ResponseModel } FORMAT
-    
-    func decodeFromData<ResponseModel: Decodable>(type: ResponseModel.Type, data: Data?) -> ResponseModel? {
+    private func decodeFromData<ResponseModel: Decodable>(type: ResponseModel.Type, data: Data?) -> ResponseModel? {
         guard let data = data else {
             print("***********************************\nERROR: NO DATA TO DECODE\n***********************************")
             return nil

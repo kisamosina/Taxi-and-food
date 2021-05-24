@@ -298,8 +298,9 @@
 		7DC5AAE226599BDB00D345E2 /* NetworkServiceV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAE126599BDB00D345E2 /* NetworkServiceV2.swift */; };
 		7DC5AAE426599C3200D345E2 /* ResourceAPIV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAE326599C3200D345E2 /* ResourceAPIV2.swift */; };
 		7DC5AAE626599C7700D345E2 /* RequestMethodV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAE526599C7700D345E2 /* RequestMethodV2.swift */; };
-		7DC5AAE826599D6C00D345E2 /* NetworkDataCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAE726599D6C00D345E2 /* NetworkDataCoder.swift */; };
+		7DC5AAE826599D6C00D345E2 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAE726599D6C00D345E2 /* NetworkDataFetcher.swift */; };
 		7DC5AAEB26599DE300D345E2 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAEA26599DE300D345E2 /* NetworkConfig.swift */; };
+		7DC5AAEE265A770B00D345E2 /* EmptyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAED265A770B00D345E2 /* EmptyModels.swift */; };
 		7DC63554261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */; };
 		7DC63559261CC66500EC4F3D /* ChooseFoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */; };
 		7DC6355E261CC7E600EC4F3D /* ChooseFoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */; };
@@ -643,8 +644,9 @@
 		7DC5AAE126599BDB00D345E2 /* NetworkServiceV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceV2.swift; sourceTree = "<group>"; };
 		7DC5AAE326599C3200D345E2 /* ResourceAPIV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAPIV2.swift; sourceTree = "<group>"; };
 		7DC5AAE526599C7700D345E2 /* RequestMethodV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethodV2.swift; sourceTree = "<group>"; };
-		7DC5AAE726599D6C00D345E2 /* NetworkDataCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCoder.swift; sourceTree = "<group>"; };
+		7DC5AAE726599D6C00D345E2 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		7DC5AAEA26599DE300D345E2 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		7DC5AAED265A770B00D345E2 /* EmptyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModels.swift; sourceTree = "<group>"; };
 		7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodCategoryViewController.swift; sourceTree = "<group>"; };
 		7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodProtocols.swift; sourceTree = "<group>"; };
 		7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodInteractor.swift; sourceTree = "<group>"; };
@@ -907,6 +909,7 @@
 			children = (
 				04B5654425D6596900E0EC25 /* App lifecycle */,
 				7DC5AAEC26599DEB00D345E2 /* Config */,
+				7DC5AAEF265A771200D345E2 /* Models */,
 				7B84660325D839BB00B09D98 /* Start Group */,
 				049A3F6525F1F61900C31AED /* Address module */,
 				7B47C81E25DD299F00F366FE /* Tariffs Module */,
@@ -2101,7 +2104,7 @@
 			isa = PBXGroup;
 			children = (
 				7DC5AAE126599BDB00D345E2 /* NetworkServiceV2.swift */,
-				7DC5AAE726599D6C00D345E2 /* NetworkDataCoder.swift */,
+				7DC5AAE726599D6C00D345E2 /* NetworkDataFetcher.swift */,
 				7DC5AAE326599C3200D345E2 /* ResourceAPIV2.swift */,
 				7DC5AAE526599C7700D345E2 /* RequestMethodV2.swift */,
 			);
@@ -2114,6 +2117,14 @@
 				7DC5AAEA26599DE300D345E2 /* NetworkConfig.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		7DC5AAEF265A771200D345E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7DC5AAED265A770B00D345E2 /* EmptyModels.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		7DC63552261CC53000EC4F3D /* ChooseFoodCategory module */ = {
@@ -2508,7 +2519,7 @@
 				7D868D3D260E78EC00D3A91E /* TipAddressView.swift in Sources */,
 				7BFFA67025D66FAC00C35652 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				7B75D04725E52979001981CA /* TextEnterViewUIData.swift in Sources */,
-				7DC5AAE826599D6C00D345E2 /* NetworkDataCoder.swift in Sources */,
+				7DC5AAE826599D6C00D345E2 /* NetworkDataFetcher.swift in Sources */,
 				7D823EBB25F2AA3F006B174B /* InactiveViewControllerUIData.swift in Sources */,
 				7D49160F261B6FDA00EBD03A /* ShopDetailView.swift in Sources */,
 				7D4915F42619EAF500EBD03A /* FoodSubCategoriesViewUIData.swift in Sources */,
@@ -2539,6 +2550,7 @@
 				7DC5AAEB26599DE300D345E2 /* NetworkConfig.swift in Sources */,
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
+				7DC5AAEE265A770B00D345E2 /* EmptyModels.swift in Sources */,
 				7D49158E2617C92700EBD03A /* AddressTranslatable.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				7D33FA7E260B9EC100DA5D0C /* ShowLocationViewController.swift in Sources */,

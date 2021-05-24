@@ -133,6 +133,7 @@ class MapViewController: UIViewController {
     @IBAction func closePromoDescriptionViewTapped(_ sender: Any) {
         self.animatePromoDestinationViewMinimizing()
     }
+    
     //MARK: - Methods
     
     private func initViewSetup() {
