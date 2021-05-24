@@ -9,5 +9,5 @@
 import UIKit
 
 struct TaxiOrderStatusViewSizes {
-    static var viewHeight: CGFloat = 300
+    static var viewHeight: CGFloat = 480 //300
 }

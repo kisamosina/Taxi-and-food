@@ -301,6 +301,9 @@
 		7DC5AAE826599D6C00D345E2 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAE726599D6C00D345E2 /* NetworkDataFetcher.swift */; };
 		7DC5AAEB26599DE300D345E2 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAEA26599DE300D345E2 /* NetworkConfig.swift */; };
 		7DC5AAEE265A770B00D345E2 /* EmptyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAED265A770B00D345E2 /* EmptyModels.swift */; };
+		7DC5AAF2265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAF0265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.swift */; };
+		7DC5AAF3265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DC5AAF1265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.xib */; };
+		7DC5AAF6265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AAF5265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift */; };
 		7DC63554261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */; };
 		7DC63559261CC66500EC4F3D /* ChooseFoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */; };
 		7DC6355E261CC7E600EC4F3D /* ChooseFoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */; };
@@ -647,6 +650,9 @@
 		7DC5AAE726599D6C00D345E2 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		7DC5AAEA26599DE300D345E2 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		7DC5AAED265A770B00D345E2 /* EmptyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModels.swift; sourceTree = "<group>"; };
+		7DC5AAF0265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderStatusTableViewCell.swift; sourceTree = "<group>"; };
+		7DC5AAF1265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiOrderStatusTableViewCell.xib; sourceTree = "<group>"; };
+		7DC5AAF5265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderStatusTableViewCellModel.swift; sourceTree = "<group>"; };
 		7DC63553261CC57D00EC4F3D /* ChooseFoodCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodCategoryViewController.swift; sourceTree = "<group>"; };
 		7DC63558261CC66500EC4F3D /* ChooseFoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodProtocols.swift; sourceTree = "<group>"; };
 		7DC6355D261CC7E600EC4F3D /* ChooseFoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFoodInteractor.swift; sourceTree = "<group>"; };
@@ -2076,6 +2082,7 @@
 			children = (
 				7DAFA3912657F79E00F70EEE /* TaxiOrderStatusView.swift */,
 				7DAFA3992657F8D600F70EEE /* TaxiOrderStatusView.xib */,
+				7DC5AAF4265BAED600D345E2 /* TaxiOrderStatusTableViewCell */,
 				7DAFA3982657F7E200F70EEE /* UIData */,
 			);
 			path = TaxiOrderStatusView;
@@ -2123,8 +2130,18 @@
 			isa = PBXGroup;
 			children = (
 				7DC5AAED265A770B00D345E2 /* EmptyModels.swift */,
+				7DC5AAF5265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7DC5AAF4265BAED600D345E2 /* TaxiOrderStatusTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7DC5AAF0265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.swift */,
+				7DC5AAF1265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.xib */,
+			);
+			path = TaxiOrderStatusTableViewCell;
 			sourceTree = "<group>";
 		};
 		7DC63552261CC53000EC4F3D /* ChooseFoodCategory module */ = {
@@ -2366,6 +2383,7 @@
 				7D4915BB2618D11A00EBD03A /* FoodCategoryCollectionViewCell.xib in Resources */,
 				7D1F5ED425F3C7F300892B6F /* PaymentWay.storyboard in Resources */,
 				7B75D01625E50B99001981CA /* Promocode.storyboard in Resources */,
+				7DC5AAF3265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.xib in Resources */,
 				7D9067D02614F06400B06BAB /* ShopsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2551,6 +2569,7 @@
 				041E29B125E6155A00CA9F56 /* SlideUpView.swift in Sources */,
 				041E299B25E20ED700CA9F56 /* PersonalDataViewController.swift in Sources */,
 				7DC5AAEE265A770B00D345E2 /* EmptyModels.swift in Sources */,
+				7DC5AAF6265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift in Sources */,
 				7D49158E2617C92700EBD03A /* AddressTranslatable.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
 				7D33FA7E260B9EC100DA5D0C /* ShowLocationViewController.swift in Sources */,
@@ -2625,6 +2644,7 @@
 				04B5651425D6591200E0EC25 /* SceneDelegate.swift in Sources */,
 				7DA6C78A2656EFEC009B466E /* TaxiFoundInteractor.swift in Sources */,
 				041E29E125E7D88B00CA9F56 /* PromoInteractor.swift in Sources */,
+				7DC5AAF2265BA9D500D345E2 /* TaxiOrderStatusTableViewCell.swift in Sources */,
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				7BD7CB9C2604C3E50099C9B7 /* MapModuleProtocols.swift in Sources */,
 				7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */,

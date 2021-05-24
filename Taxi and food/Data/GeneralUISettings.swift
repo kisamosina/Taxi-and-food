@@ -123,6 +123,7 @@ enum UILabelStyles {
     case normalGrey(CGFloat = 17)
     case headerSemiBold(CGFloat = 26)
     case normalBlack(CGFloat)
+    case normal(CGFloat)
 }
 
 enum CustomImagesNames: String {
@@ -165,6 +166,7 @@ enum CustomImagesNames: String {
     case iconCancelFace = "icon_cancel_face"
     case iconFlagRu = "icon_flag_ru"
     case iconRing = "icon_ring"
+    case iconOrderCancelation = "icon_order_cancelation"
     
 }
 

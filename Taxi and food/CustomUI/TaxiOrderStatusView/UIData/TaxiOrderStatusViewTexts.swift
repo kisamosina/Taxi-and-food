@@ -107,3 +107,50 @@ struct TaxiOrderStatusViewTexts: TranslatableTexts {
         }
     }
 }
+
+
+struct TaxiOrderStatusTableViewCellModelTexts: TranslatableTexts {
+    
+    private enum RusTexts: String {
+        case changeAddressTrip = "Изменить адрес поездки"
+        case specifyArrivalPlace = "Уточнить место приезда"
+        case cancelOrder = "Отменить заказ"
+    }
+    
+    private enum EngTexts: String {
+        case changeAddressTrip = "Change trip address"
+        case specifyArrivalPlace = "Spicify arrival place"
+        case cancelOrder = "Cancel the order"
+    }
+    
+    static var changeAddressTrip: String {
+        switch lang {
+            
+        case .rus:
+            return RusTexts.changeAddressTrip.rawValue
+        case .eng:
+            return EngTexts.changeAddressTrip.rawValue
+        }
+    }
+    
+    static var specifyArrivalPlace: String {
+        switch lang {
+            
+        case .rus:
+            return RusTexts.specifyArrivalPlace.rawValue
+        case .eng:
+            return EngTexts.specifyArrivalPlace.rawValue
+        }
+    }
+    
+    static var cancelOrder: String {
+        switch lang {
+            
+        case .rus:
+            return RusTexts.cancelOrder.rawValue
+        case .eng:
+            return EngTexts.cancelOrder.rawValue
+        }
+    }
+    
+}

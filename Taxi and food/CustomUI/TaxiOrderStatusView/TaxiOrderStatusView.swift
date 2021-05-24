@@ -11,6 +11,7 @@ import UIKit
 class TaxiOrderStatusView: CustomBottomView {
     
     var mode: TaxiOrdeStatusViewModes!
+    var tableViewData: [TaxiOrderStatusTableViewCellModel] = TaxiOrderStatusTableViewCellModel.generateTaxiOrderStatusTableViewCellModel()
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -22,6 +23,8 @@ class TaxiOrderStatusView: CustomBottomView {
     @IBOutlet weak var callButton: MapRoundButton!
     @IBOutlet weak var willBeSoonStackView: UIStackView!
     @IBOutlet weak var willBeSoonButton: MapRoundButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var separatorViewHeightConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +43,9 @@ class TaxiOrderStatusView: CustomBottomView {
         self.addSubview(containerView)
         self.setupConstraints()
         self.containerView.backgroundColor = .clear
+        separatorViewHeightConstraint.constant = 0.5
+        let tvCellnib = UINib(nibName: TaxiOrderStatusTableViewCell.reuseId, bundle: nil)
+        tableView.register(tvCellnib, forCellReuseIdentifier: TaxiOrderStatusTableViewCell.reuseId)
         statusDescriptionLabel.isHidden = true
         willBeSoonStackView.isHidden = true
         bind(mode: .almostThere)
@@ -79,4 +85,18 @@ class TaxiOrderStatusView: CustomBottomView {
             
         }
     }
+}
+
+extension TaxiOrderStatusView: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaxiOrderStatusTableViewCell.reuseId, for: indexPath) as? TaxiOrderStatusTableViewCell else { return UITableViewCell() }
+        cell.bind(tableViewData[indexPath.row])
+        return cell
+    }
+        
 }

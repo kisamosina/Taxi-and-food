@@ -117,6 +117,8 @@ extension UILabel {
             font = .systemFont(ofSize: fontSize, weight: .semibold)
         case .normalBlack(let fontSize):
             font = .systemFont(ofSize: fontSize)
+        case .normal(let fontSize):
+            font = .systemFont(ofSize: fontSize)
         }
     }
 }
