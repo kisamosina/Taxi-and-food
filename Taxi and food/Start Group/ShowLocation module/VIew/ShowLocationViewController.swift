@@ -153,13 +153,13 @@ extension ShowLocationViewController  {
     }
     
     @objc private func keyboardWillAppear(notification: NSNotification) {
-        self.keyboardWillShow(constraint: self.addressEnterDetailViewBottomConstraint, notification: notification, padding: 20)
+        self.keyboardWillShow(constraint: self.addressEnterDetailViewBottomConstraint, notification: notification, padding: 20, constraintConstant: 20)
         self.inactiveView.isHidden = false
     }
     
     @objc private func keyboardWillDisappear(notification: NSNotification) {
         
-        self.keyboardWillHide(constraint: self.addressEnterDetailViewBottomConstraint, notification: notification)
+        self.keyboardWillHide(constraint: self.addressEnterDetailViewBottomConstraint, notification: notification, constraintConstant: 20)
         self.inactiveView.isHidden = true
     }
     

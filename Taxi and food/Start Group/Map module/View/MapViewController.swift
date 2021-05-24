@@ -184,14 +184,14 @@ extension MapViewController {
         //When addressEnterView is active
         if addressEnterView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) {
             
-            if self.addressEnterViewBottomConstraint.constant == bottomPadding {
+            if self.addressEnterViewBottomConstraint.constant == bottomConstraintConstant {
                 self.addressEnterViewBottomConstraint.constant = -kbHeight + 20
                 if tipAddressView != nil {
                     self.tipAddressViewBottomAnchor.constant = -kbHeight
                 }
             }
             
-            if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterViewDetailBottomConstraint.constant == bottomPadding {
+            if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterViewDetailBottomConstraint.constant == bottomConstraintConstant {
                 self.addressEnterViewDetailBottomConstraint.constant = -kbHeight + 20
             }
         }
@@ -199,7 +199,7 @@ extension MapViewController {
         //When taxi order view is active
         
         if taxiOrderView != nil, let kbHeight = self.getKeyBoardHeight(notification: notification) {
-            if self.taxiOrderViewBottomConstraint.constant == bottomPadding {
+            if self.taxiOrderViewBottomConstraint.constant == bottomConstraintConstant {
                 self.taxiOrderViewBottomConstraint.constant = -kbHeight + 20
             }
         }
@@ -210,16 +210,16 @@ extension MapViewController {
     @objc private func keyboardWillDisappear(notification: NSNotification) {
         
         if addressEnterView != nil {
-            self.addressEnterViewBottomConstraint.constant = bottomPadding
+            self.addressEnterViewBottomConstraint.constant = bottomConstraintConstant
             self.inactiveView.alpha = 0
         }
         
         if self.addressEnterViewDetailBottomConstraint != nil, self.addressEnterDetailView != nil {
-            self.addressEnterViewDetailBottomConstraint.constant = bottomPadding
+            self.addressEnterViewDetailBottomConstraint.constant = bottomConstraintConstant
         }
         
         if taxiOrderView != nil {
-            self.taxiOrderViewBottomConstraint.constant = bottomPadding
+            self.taxiOrderViewBottomConstraint.constant = bottomConstraintConstant
             self.inactiveView.alpha = 0
         }
     }
@@ -560,7 +560,7 @@ extension MapViewController {
         
         self.addressEnterView.translatesAutoresizingMaskIntoConstraints = false
         
-        addressEnterViewBottomConstraint = self.addressEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomPadding)
+        addressEnterViewBottomConstraint = self.addressEnterView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: viewType.viewHeight() + bottomConstraintConstant)
         
         addressEnterViewHeightConstraint = self.addressEnterView.heightAnchor.constraint(equalToConstant: viewType.viewHeight())
         
@@ -592,9 +592,9 @@ extension MapViewController {
     //Setup hide animation for Address enter view
     func hideAddressEnterView(completion: AnimationCompletion? = nil) {
         
-        self.addressEnterViewBottomConstraint.constant = self.addressEnterView.type.viewHeight() + bottomPadding
+        self.addressEnterViewBottomConstraint.constant = self.addressEnterView.type.viewHeight() + bottomConstraintConstant
         
-        Animator.shared.hideView(animationType: .usualBottomAnimation(self.addressEnterView, self.addressEnterViewBottomConstraint), from: self.view, viewHeight: self.addressEnterView.type.viewHeight() + bottomPadding, completion: completion)
+        Animator.shared.hideView(animationType: .usualBottomAnimation(self.addressEnterView, self.addressEnterViewBottomConstraint), from: self.view, viewHeight: self.addressEnterView.type.viewHeight() + bottomConstraintConstant, completion: completion)
     }
 }
 
@@ -700,7 +700,7 @@ extension MapViewController {
         self.setupAddressEnterDetailView()
         self.addressEnterDetailView.setupConstraints(for: self.view,
                                                      viewHeight: AddressEnterDetailViewSizes.height.rawValue,
-                                                     bottomContraintConstant: AddressEnterDetailViewSizes.height.rawValue + bottomPadding) { [weak self] constraint in
+                                                     bottomContraintConstant: AddressEnterDetailViewSizes.height.rawValue + bottomConstraintConstant) { [weak self] constraint in
             guard let self = self else { return }
             self.addressEnterViewDetailBottomConstraint = constraint
         }
@@ -754,7 +754,7 @@ extension MapViewController {
         self.view.addSubview(self.taxiOrderView)
         self.taxiOrderView.setupConstraints(for: self.view,
                                             viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
-                                            bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomPadding) { [weak self] constraint in
+                                            bottomContraintConstant: TaxiOrderViewSizesData.viewHeight.rawValue + bottomConstraintConstant) { [weak self] constraint in
             guard let self = self else { return }
             self.taxiOrderViewBottomConstraint = constraint
         }
@@ -855,7 +855,7 @@ extension MapViewController {
         
         self.shopsListView.setupConstraints(for: self.view,
                                             viewHeight: ShopsViewUIData.viewHeight.rawValue,
-                                            bottomContraintConstant: ShopsViewUIData.viewHeight.rawValue + bottomPadding,
+                                            bottomContraintConstant: ShopsViewUIData.viewHeight.rawValue + bottomConstraintConstant,
                                             with: {[weak self] bottomConstraint in
                                                 guard let self = self else { return }
                                                 self.shopsListViewBottomConstraint = bottomConstraint})
@@ -987,7 +987,7 @@ extension MapViewController {
         view.addSubview(waitingTaxiView)
         self.waitingTaxiView.setupConstraints(for: view,
                                               viewHeight: WaitingTaxiViewSizes.viewSize,
-                                              bottomContraintConstant: WaitingTaxiViewSizes.viewSize + bottomPadding) { [weak self] constraint in
+                                              bottomContraintConstant: WaitingTaxiViewSizes.viewSize + bottomConstraintConstant) { [weak self] constraint in
             guard let self = self else { return }
             self.waitingTaxiViewBottomConstraint = constraint
         }
@@ -1036,7 +1036,7 @@ extension MapViewController {
         view.addSubview(cancelationOrderView)
         cancelationOrderView.setupConstraints(for: view,
                                               viewHeight: CancelationOrderViewSizes.viewHeight,
-                                              bottomContraintConstant: CancelationOrderViewSizes.viewHeight + bottomPadding) {[weak self] constraint in
+                                              bottomContraintConstant: CancelationOrderViewSizes.viewHeight + bottomConstraintConstant) {[weak self] constraint in
             guard let self = self else { return }
             self.cancelationOrderViewBottomConstraint = constraint
         }
@@ -1051,7 +1051,7 @@ extension MapViewController {
     func showDriversNotFoundView() {
         driversNotFoundView = DriversNotFoundView(frame: CGRect.makeRect(height: DriversNotFoundViewSizes.viewHeight))
         view.addSubview(driversNotFoundView)
-        driversNotFoundView.setupConstraints(for: view, viewHeight: DriversNotFoundViewSizes.viewHeight + bottomPadding, bottomContraintConstant: DriversNotFoundViewSizes.viewHeight) {[weak self] constraint in
+        driversNotFoundView.setupConstraints(for: view, viewHeight: DriversNotFoundViewSizes.viewHeight + bottomConstraintConstant, bottomContraintConstant: DriversNotFoundViewSizes.viewHeight) {[weak self] constraint in
             guard let self = self else  { return }
             self.driversNotFoundViewBottomConstraint = constraint
         }
@@ -1067,7 +1067,7 @@ extension MapViewController {
     func showTaxiOrderStatusView() {
         taxiOrderStatusView = TaxiOrderStatusView(frame: CGRect.makeRect(height: TaxiOrderStatusViewSizes.viewHeight))
         view.addSubview(taxiOrderStatusView)
-        taxiOrderStatusView.setupConstraints(for: view, viewHeight: TaxiOrderStatusViewSizes.viewHeight, bottomContraintConstant: TaxiOrderStatusViewSizes.viewHeight + bottomPadding) {[weak self] constraint in
+        taxiOrderStatusView.setupConstraints(for: view, viewHeight: TaxiOrderStatusViewSizes.viewHeight, bottomContraintConstant: TaxiOrderStatusViewSizes.viewHeight + bottomConstraintConstant) {[weak self] constraint in
             guard let self = self else { return }
             self.taxiOrderStatusViewBottomConstraint = constraint
         }

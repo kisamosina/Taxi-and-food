@@ -19,3 +19,8 @@ var topPadding: CGFloat {
     let window = UIApplication.shared.windows[0]
     return window.safeAreaInsets.top
 }
+
+//Bottom ident considering views corner radius
+var bottomConstraintConstant: CGFloat {
+    bottomPadding + 20
+}

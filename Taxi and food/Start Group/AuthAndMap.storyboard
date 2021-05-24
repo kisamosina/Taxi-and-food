@@ -661,7 +661,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdO-9Z-jc3" customClass="AddressEnterDetailView" customModule="Taxi_and_food" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="666" width="414" height="230"/>
+                                <rect key="frame" x="0.0" y="686" width="414" height="230"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -674,7 +674,7 @@
                         <constraints>
                             <constraint firstItem="5bn-Gn-oBN" firstAttribute="top" secondItem="vhD-RT-Ssj" secondAttribute="top" id="1dD-iF-t1u"/>
                             <constraint firstItem="wK5-Hg-dV9" firstAttribute="leading" secondItem="GxA-Xi-KYF" secondAttribute="leading" constant="45" id="37u-Su-cTl"/>
-                            <constraint firstItem="vdO-9Z-jc3" firstAttribute="bottom" secondItem="vhD-RT-Ssj" secondAttribute="bottom" id="8nj-bH-Kk9"/>
+                            <constraint firstItem="vdO-9Z-jc3" firstAttribute="bottom" secondItem="vhD-RT-Ssj" secondAttribute="bottom" constant="20" id="8nj-bH-Kk9"/>
                             <constraint firstItem="wK5-Hg-dV9" firstAttribute="top" secondItem="GxA-Xi-KYF" secondAttribute="top" constant="24" id="D1L-9H-Q7W"/>
                             <constraint firstItem="GxA-Xi-KYF" firstAttribute="trailing" secondItem="5bn-Gn-oBN" secondAttribute="trailing" id="F19-r2-6OQ"/>
                             <constraint firstItem="lhM-vx-7r5" firstAttribute="top" secondItem="vhD-RT-Ssj" secondAttribute="top" id="JwN-4W-w91"/>

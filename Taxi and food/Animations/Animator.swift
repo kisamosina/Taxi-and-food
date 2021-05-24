@@ -31,7 +31,7 @@ class Animator {
         switch animationType {
         
         case .usualBottomAnimation(let view, let constraint):
-            UsualBotomViewAnimation.showView(superview: superView, view: view, for: distance ?? bottomPadding, bottomConstraint: constraint, completion: completion)
+            UsualBotomViewAnimation.showView(superview: superView, view: view, for: distance ?? bottomConstraintConstant, bottomConstraint: constraint, completion: completion)
         case .menuViewAnimation(let view, let leadingConstraint, let trailingConstraint):
             MenuViewAnimation.showView(superview: superView, view: view, leadingConstraint: leadingConstraint, trailingConstraint: trailingConstraint, completion: completion)
         case .categoriesView(let view, let topConstraint, let bottomConstraint):
