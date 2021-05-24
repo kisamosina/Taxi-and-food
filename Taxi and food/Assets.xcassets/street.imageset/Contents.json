@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "street.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "street.png",
+      "filename" : "street@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "street@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

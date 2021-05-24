@@ -365,7 +365,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZNs-OE-x4z">
-                                <rect key="frame" x="0.0" y="631" width="414" height="265"/>
+                                <rect key="frame" x="0.0" y="631" width="414" height="285"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfL-gy-DhT">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
@@ -432,7 +432,7 @@
                                         </subviews>
                                     </stackView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-SJ-IIw" customClass="MapBottomView" customModule="Taxi_and_food" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="65" width="414" height="220"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Yef-tU-SCu">
                                                 <rect key="frame" x="25" y="23" width="364" height="120"/>
@@ -487,7 +487,7 @@
                                         <constraints>
                                             <constraint firstItem="Yef-tU-SCu" firstAttribute="centerX" secondItem="SGh-SJ-IIw" secondAttribute="centerX" id="ERj-oO-qfn"/>
                                             <constraint firstAttribute="trailing" secondItem="Yef-tU-SCu" secondAttribute="trailing" constant="25" id="Rhm-71-kKP"/>
-                                            <constraint firstAttribute="height" constant="200" id="Tem-DF-umY"/>
+                                            <constraint firstAttribute="height" constant="220" id="Tem-DF-umY"/>
                                             <constraint firstItem="Yef-tU-SCu" firstAttribute="leading" secondItem="SGh-SJ-IIw" secondAttribute="leading" constant="25" id="hcT-X7-spk"/>
                                             <constraint firstItem="Yef-tU-SCu" firstAttribute="top" secondItem="SGh-SJ-IIw" secondAttribute="top" constant="23" id="rOk-1O-Kdm"/>
                                         </constraints>
@@ -599,7 +599,7 @@
                             <constraint firstItem="hbh-4U-WAf" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" constant="45" id="gPH-hV-A5m"/>
                             <constraint firstItem="XCq-re-fWa" firstAttribute="top" secondItem="ON2-d4-7L9" secondAttribute="top" id="giY-GK-dsX"/>
                             <constraint firstAttribute="bottom" secondItem="nZs-BQ-jU1" secondAttribute="bottom" id="gs2-1y-hYj"/>
-                            <constraint firstAttribute="bottom" secondItem="ZNs-OE-x4z" secondAttribute="bottom" id="iO3-AJ-WZZ"/>
+                            <constraint firstAttribute="bottom" secondItem="ZNs-OE-x4z" secondAttribute="bottom" constant="-20" id="iO3-AJ-WZZ"/>
                             <constraint firstItem="WpO-6M-tnc" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" id="lIT-vQ-59m"/>
                             <constraint firstItem="nZs-BQ-jU1" firstAttribute="leading" secondItem="am8-7N-f7B" secondAttribute="leading" id="nhC-u4-cqN"/>
                             <constraint firstAttribute="trailing" secondItem="ZNs-OE-x4z" secondAttribute="trailing" id="vaZ-io-vqW"/>

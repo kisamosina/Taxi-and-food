@@ -15,7 +15,7 @@ enum TaxiOrderViewStringData: String {
 }
 
 enum TaxiOrderViewSizesData: CGFloat {
-    case viewHeight = 450
+    case viewHeight = 470
     case tariffCellShadowOpacity = 1
     case tariffCellShadowRadius = 15
     case tariffCellShadowOffsetWidth = 1.01
