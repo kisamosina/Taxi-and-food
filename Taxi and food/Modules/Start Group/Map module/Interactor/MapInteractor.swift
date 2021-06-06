@@ -19,7 +19,15 @@ class MapInteractor: MapInteractorProtocol {
     
     private var locationManager: LocationManager
     
-    private var pointsNetworkService = PointsNetworkService.shared
+    private let pointsNetworkService: PointsNetworkServiceProtocol
+    
+    private let paymentWayNetworkService: PaymentWayNetworkServiceProtocol
+    
+    private let taxiorderNetworkService: TaxiOrderNetworkServiceProtocol
+    
+    private var timer: Timer?
+    
+    private var isTaxiFound = false
     
     //Addresses saved by user on server
     var addresses: [AddressResponseData] = []
@@ -87,7 +95,7 @@ class MapInteractor: MapInteractorProtocol {
     }
     
     //Sum order
-    var sumOrder: Double = 200
+    var sumOrder: Double = 0
     
     //Entered points
     var enteredPoints: Int? {
@@ -99,7 +107,6 @@ class MapInteractor: MapInteractorProtocol {
     }
     
     //Promocode discount
-    
     var promocodeDiscount: Double = 0 {
         didSet {
             if promocodeDiscount < 1 && promocodeDiscount != 0 {
@@ -116,21 +123,70 @@ class MapInteractor: MapInteractorProtocol {
         return finalSumOrder
     }
     
-    //Tariffs
+    //Taxi prices
+    var taxiPricesData: [TaxiPriceResponseModel] = [] {
+        didSet {
+            selectedTariff = taxiPricesData.first?.tariff.id
+        }
+    }
+    
+    //Selected tariff
+    var selectedTariff: Int?
+   
+    //Entered promocodes
+    var enteredPromocodes: [String] = []
+    
+    //Payment card id
+    var paymentCardId: Int?
+    
+    //Payment way
+    var paymentWay: String
+    
+    //Payment data
+    var paymentsData: [PaymentCardResponseData] = []
+    
+    var taxiNotFoundCount: Int = 0
+    
+    //Tariffs data
     var tariffsData: [TariffData] = []
-        
+    
+    //Taxi order response data
+    var taxiOrderResponseData: TaxiPlaceOrderResponseModel? {
+        didSet {
+            if let taxiOrderResponseData = taxiOrderResponseData {
+                view.taxiHasFound(taxiOrderResponseData)
+            }
+        }
+    }
+
     //MARK: - Initializer
     
     required init(view: MapViewProtocol) {
         self.view = view
         self.mapViewControllerState = .start
         self.locationManager = LocationManager.shared
+        self.paymentWay = PaymentWay.cash.rawValue
+        self.pointsNetworkService = PointsNetworkService.shared
+        self.paymentWayNetworkService = PaymentWayNetworkService.shared
+        self.taxiorderNetworkService = TaxiOrderNetworkService.shared
         self.locationManager.delegate = self
         self.getAddresses()
         self.getAllPromos()
         self.getTariffs()
+        self.getPaymentData()
     }
 
+    //MARK: - Methods
+    
+    private func startTimer(timeInterval: TimeInterval, block: @escaping (Timer) -> ()) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false, block: block)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
     //MARK: - MapInteractorProtocol Methods
     
     //Set Map View controller states
@@ -140,24 +196,24 @@ class MapInteractor: MapInteractorProtocol {
     }
 
     
-     func getAllPromos() {
+    func getAllPromos() {
 
-         let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3)
-         let resource = Resource<PromoResponse>(path: path, requestType: .GET)
+        let path = AllPromoServerPath.path.rawValue.getServerPath(for: 3)
+        let resource = Resource<PromoResponse>(path: path, requestType: .GET)
 
-        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
-             guard let self = self else { return }
-             switch result {
+    NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
+            guard let self = self else { return }
+            switch result {
 
-             case .success(let promoResponse):
-                self.promos = promoResponse.data
-                self.view.updateData()
-             case .failure(let error):
-                 print(error.localizedDescription)
-             }
-         })
+            case .success(let promoResponse):
+            self.promos = promoResponse.data
+            self.view.updateData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
 
-     }
+    }
     
     public func isPromoAvailableByTime(timeFrom: String, timeTo: String) -> Bool {
             
@@ -240,27 +296,31 @@ extension MapInteractor: AddressTranslatable { }
 
 extension MapInteractor {
     
+    private enum PaymentWay: String {
+        case cash, card
+    }
+    
     func getPaymentData() {
-        
-        guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
-        
-        let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
-        
-        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] paymentResponse in
+            
+        paymentWayNetworkService.getPaymentWayData {[weak self] result in
             guard let self = self else { return }
+            switch result {
             
-            switch paymentResponse {
-            
-            case .success(let paymentResponse):
-                
-                self.view.showPaymentsViewController(data: paymentResponse.data)
-                
+            case .success(let paymentsData):
+                self.paymentsData = paymentsData
+                self.setSelectedPaymentWay()
             case .failure(let error):
-                
                 print(error.localizedDescription)
             }
-            
-        })
+        }
+    }
+    
+    private func setSelectedPaymentWay() {
+        guard let savedPaymentWayTitle = PersistanceStoreManager.shared.getSavedPaymentWay()?.first?.title,
+              let paymentCard = paymentsData.first(where: { PaymentWayTexts.cardTitle + $0.hidedNumber == savedPaymentWayTitle })
+        else { return }
+        paymentCardId = paymentCard.id
+        paymentWay = PaymentWay.card.rawValue
     }
 }
 
@@ -269,18 +329,17 @@ extension MapInteractor {
 extension MapInteractor {
     
     func getTariffs() {
-        
+
         guard let user = PersistanceStoreManager.shared.getUserData()?.first else { return }
         let path = TariffServerPath.path.rawValue.getServerPath(for: Int(user.id))
-        
+
         let resource = Resource<TariffResponse>(path: path, requestType: .GET)
-        
+
         NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] result in
             guard let self = self else { return }
             switch result {
-            
+
             case .success(let tariffResponse):
-//                self.view.showTariffPageViewController(tariffResponse.data)
                 self.tariffsData = tariffResponse.data
             case .failure(let error):
                 print(error.localizedDescription)
@@ -434,6 +493,32 @@ extension MapInteractor {
         }
 }
 
+//MARK: - Get Taxi price
+
+extension MapInteractor {
+    
+    
+    func getPrice() {
+        guard let from = sourceAddress, let to = destinationAddress else { return }
+        let requestData = taxiorderNetworkService.makeTaxiPriceRequestModel(from: from, to: to, promoCodes: nil, credit: enteredPoints)
+        
+        taxiorderNetworkService.requestPrice(requestData: requestData) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            
+            case .success(let prices):
+                self.taxiPricesData = prices
+                self.sumOrder = Double(prices.first?.price ?? 0)
+                self.view.orderATaxi()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
 //MARK: - Points
 
 extension MapInteractor {
@@ -472,5 +557,104 @@ extension MapInteractor {
 extension MapInteractor {
     func setPromocodeDiscount(discount: Int) {
         self.promocodeDiscount = 0.01 * Double(discount)
+    }
+}
+
+//MARK: - Set selected tariff id
+
+extension MapInteractor {
+    func setSelectedTariff(id: Int) {
+        selectedTariff = id
+    }
+}
+
+//MARK: - Add enetered promocode
+
+extension MapInteractor {
+    
+    func addEnterPromocode(promocode: String) {
+        enteredPromocodes.append(promocode)
+    }
+}
+
+
+//MARK: - Place Taxi Order
+
+extension MapInteractor {
+    
+    func placeTaxiOrder() {
+        
+//        setSelectedPaymentWay()
+//        print("from: \(sourceAddress)")
+//        print("to: \(destinationAddress)" )
+//        print("Selected tariff id: \(selectedTariff!)")
+//        print("Entered points: \(enteredPoints ?? 0)")
+//        print("Entered promocodes: \(enteredPromocodes)")
+//        print("Payment way: \(paymentWay) card id: \(paymentCardId)")
+        
+        guard let from = sourceAddress, let to = destinationAddress, let tariffId = selectedTariff else { return }
+        
+        let requestedData = taxiorderNetworkService.makePlaceOrderRequestModel(tariff: tariffId,
+                                                                     from: from,
+                                                                     to: to,
+                                                                     paymentCardId: paymentCardId,
+                                                                     paymentMethod: paymentWay,
+                                                                     promoCodes: enteredPromocodes.isEmpty ? nil : enteredPromocodes,
+                                                                     credit: enteredPoints)
+        startTimer(timeInterval: 15) { [weak self] _ in
+            guard let self = self else { return }
+            print("Timer run")
+            if !self.isTaxiFound {
+                self.placeTaxiOrder()
+                self.view.changeWaitingTaxiStateLabelText()
+            } else {
+                self.timer?.invalidate()
+                self.isTaxiFound = false
+                print("Timer has been invalidating")
+                return
+            }
+        }
+        
+        taxiorderNetworkService.placeTaxiOrder(requestData: requestedData) {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            
+            case .success(let taxiOrderResponseData):
+                self.isTaxiFound = true
+                print(taxiOrderResponseData)
+                self.taxiOrderResponseData = taxiOrderResponseData
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+                guard let error = error as? ServerErrors else { return }
+                
+                switch error.statusCode {
+                case 404:
+                    self.taxiNotFoundCount += 1
+                    
+                    if self.taxiNotFoundCount > Int.random(in: 1...10) {
+                        self.isTaxiFound = true
+                        self.taxiOrderResponseData = TaxiPlaceOrderResponseModel.makeTaxiPlaceOrderResponseModel(from: self.sourceAddress ?? "",
+                                                                                                                 to: self.destinationAddress ?? "",
+                                                                                                                 credit: self.enteredPoints ?? 0, price: Int(self.finalSumOrder))
+                    }
+                    
+                    if self.taxiNotFoundCount == 6 {
+                        self.view.driversNotFound()
+                    }
+                    
+                    print("Taxi not found count: \(self.taxiNotFoundCount)")
+                default:
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+}
+
+extension MapInteractor {
+    
+    func cancelAnOrder() {
+        
     }
 }

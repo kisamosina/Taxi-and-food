@@ -55,6 +55,7 @@ enum AppSettingsStorageKeys: String {
     case language
     case pointsIsFirstTimeUsage
     case tipAddressViewShowing
+    case paymentMethodChoosed
 }
 
 enum Colors {
@@ -184,6 +185,7 @@ enum CustomImagesNames: String {
     case iconFlagRu = "icon_flag_ru"
     case iconRing = "icon_ring"
     case iconOrderCancelation = "icon_order_cancelation"
+    case carSample
     
 }
 

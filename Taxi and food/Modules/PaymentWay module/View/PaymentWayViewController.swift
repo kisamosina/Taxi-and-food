@@ -133,7 +133,7 @@ extension PaymentWayViewController: UITableViewDelegate, UITableViewDataSource {
             self.interactor.getPoints()
             
         default:
-            self.interactor.setActiveTableViewModelCell(title)
+            self.interactor.setActiveTableViewModelCell(id: cell.cardId, title: title)
         }
         
     }

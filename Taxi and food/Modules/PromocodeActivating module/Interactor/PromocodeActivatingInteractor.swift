@@ -29,7 +29,7 @@ class PromocodeActivatingInteractor: PromocodeActivatingInteractorProtocol {
             switch result {
             
             case .success(let data):
-                self.view.promocodeActivated(description: data.description)
+                self.view.promocodeActivated(promocode: promocode, description: data.description)
             case .failure(let error):
                 if let serverError = error as? ServerErrors {
                     switch serverError.statusCode {

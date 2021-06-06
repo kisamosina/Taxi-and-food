@@ -58,4 +58,16 @@ class WaitingTaxiView: CustomBottomView {
         emmiterView.stopAnimating()
         delegate?.cancelButtonTapped()
     }
+    
+    public func changeStateLabelText() {
+        guard let text = stateLabel.text, !text.isEmpty else { return }
+        switch text {
+        case WaitingTaxiViewTexts.stateSearchAnOption:
+            stateLabel.text = WaitingTaxiViewTexts.waitAWhile
+        case WaitingTaxiViewTexts.waitAWhile:
+            stateLabel.text = WaitingTaxiViewTexts.stateSearchAnOption
+        default: break
+            
+        }
+    }
 }

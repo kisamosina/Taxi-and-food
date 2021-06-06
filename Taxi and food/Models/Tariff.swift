@@ -52,20 +52,20 @@ extension Tariff {
 
 extension Tariff {
         
-    static func getTariffs(from tariffData: [TariffData]) -> [Tariff] {
+    static func getTariffs(from taxiPricesData: [TaxiPriceResponseModel]) -> [Tariff] {
         
-        return tariffData.map { data in
+        return taxiPricesData.map { data in
             
-            switch data.name {
+            switch data.tariff.name {
             
             case TariffType.standart.rawValue:
-                return Tariff(isActive: true, id: data.id, name: data.name, imageName: CustomImagesNames.iconTariffStandart.rawValue, feedTimeValue: 3, priceValue: 200)
+                return Tariff(isActive: true, id: data.tariff.id, name: data.tariff.name, imageName: CustomImagesNames.iconTariffStandart.rawValue, feedTimeValue: 3, priceValue: Double(data.price))
             case TariffType.premium.rawValue:
-                return Tariff(isActive: false, id: data.id, name: data.name, imageName: CustomImagesNames.iconTariffPremium.rawValue, feedTimeValue: 6, priceValue: 300)
+                return Tariff(isActive: false, id: data.tariff.id, name: data.tariff.name, imageName: CustomImagesNames.iconTariffPremium.rawValue, feedTimeValue: 6, priceValue: Double(data.price))
             case TariffType.business.rawValue:
-                return Tariff(isActive: false, id: data.id, name: data.name, imageName: CustomImagesNames.iconTariffBusiness.rawValue, feedTimeValue: 9, priceValue: 400)
+                return Tariff(isActive: false, id: data.tariff.id, name: data.tariff.name, imageName: CustomImagesNames.iconTariffBusiness.rawValue, feedTimeValue: 9, priceValue: Double(data.price))
             default:
-                return Tariff(isActive: false, id: data.id, name: data.name, imageName: data.name, feedTimeValue: 0, priceValue: 0)
+                return Tariff(isActive: false, id: data.tariff.id, name: data.tariff.name, imageName: data.tariff.name, feedTimeValue: 0, priceValue: 0)
                 
             }
         }

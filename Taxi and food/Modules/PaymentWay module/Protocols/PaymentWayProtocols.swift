@@ -29,7 +29,7 @@ protocol PaymentWayInteractorProtocol: AnyObject {
     
     func getPaymentData()
     
-    func setActiveTableViewModelCell(_ title: String)
+    func setActiveTableViewModelCell(id: Int?, title: String)
     
     func showActiveCell()
     

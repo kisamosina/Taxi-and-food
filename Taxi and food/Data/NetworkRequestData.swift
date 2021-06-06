@@ -33,6 +33,7 @@ enum PaymentRequestPaths: String {
     case history = "user/$/history/payments"
     case paymentCards = "user/$/payment-cards"
     case points = "user/$/credit"
+    case paymentCardsV2 = "/user/$/payment-cards"
 }
 
 enum NewPaymentCardRequestPaths: String {
@@ -82,4 +83,9 @@ enum FoodCategoriesNetworkPaths: String {
 
 enum ProductsRequestNetworkPaths: String {
     case productsAndSubCategories = "user/$/shop/@/products/&"
+}
+
+enum TaxiOrderRequestPaths: String {
+    case requestPrice = "/user/$/order/taxi/price"
+    case placeOrder = "/user/$/order/taxi"
 }

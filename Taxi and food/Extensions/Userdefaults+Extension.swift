@@ -43,4 +43,5 @@ extension UserDefaults {
     func getTipAddressViewIsShowed() -> Bool {
       return bool(forKey: AppSettingsStorageKeys.tipAddressViewShowing.rawValue)
     }
+    
 }

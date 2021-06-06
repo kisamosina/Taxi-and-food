@@ -14,7 +14,7 @@ class TaxiOrderView: CustomBottomView {
     
     public weak var delegate: TaxiOrderViewDelegate?
     public weak var mapButtonDelegate: MapButtonDelegate?
-    private var tariffsData: [TariffData] = []
+    private var taxipricesData: [TaxiPriceResponseModel] = []
     private var tariffs: [Tariff] = []
     private var selectedIndex = 0
     
@@ -114,13 +114,13 @@ class TaxiOrderView: CustomBottomView {
         self.delegate?.viewHasSwipedDown()
     }
     
-    public func bind(tariffsData: [TariffData]) {
-        self.tariffsData = tariffsData
-        tariffs = Tariff.getTariffs(from: tariffsData)
+    public func bind(taxiPrices: [TaxiPriceResponseModel]) {
+        self.taxipricesData = taxiPrices
+        tariffs = Tariff.getTariffs(from: taxiPrices)
     }
     
     public func setNewPrice(_ newPrice: Double) {
-        tariffs = Tariff.getTariffs(from: tariffsData)
+        tariffs = Tariff.getTariffs(from: taxipricesData)
         for tariff in tariffs { tariff.setActive(false) }
         self.tariffs[selectedIndex].setActive(true)
         self.tariffs[selectedIndex].setNewPrice(newPrice: newPrice)
@@ -150,7 +150,7 @@ extension TaxiOrderView: UICollectionViewDelegate, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        delegate?.tariffSelected(tariffPrice: tariffs[indexPath.row].getTariffPrice())
+        delegate?.tariffSelected(tariffId: tariffs[indexPath.row].id, tariffPrice: tariffs[indexPath.row].getTariffPrice())
         for tariff in tariffs { tariff.setActive(false) }
         self.tariffs[indexPath.row].setActive(true)
         self.tariffsCollectionView.reloadData()

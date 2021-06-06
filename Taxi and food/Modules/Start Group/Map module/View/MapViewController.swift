@@ -228,6 +228,52 @@ extension MapViewController {
 //MARK: - MapViewProtocol
 
 extension MapViewController: MapViewProtocol {
+   
+    func driversNotFound() {
+        DispatchQueue.main.async {
+            self.showDriversNotFoundView()
+        }
+    }
+    
+    
+    func taxiHasFound(_ taxiResponse: TaxiPlaceOrderResponseModel) {
+        
+        DispatchQueue.main.async {
+            self.hideWaitingTaxiView { _ in
+                self.waitingTaxiView.removeFromSuperview()
+                self.waitingTaxiView = nil
+                self.waitingTaxiViewBottomConstraint = nil
+                
+                if let driversNotFoundView = self.driversNotFoundView {
+                    driversNotFoundView.removeFromSuperview()
+                    self.driversNotFoundView = nil
+                    self.driversNotFoundViewBottomConstraint = nil
+                }
+                
+                let taxiHasFoundInteractor = TaxiFoundInteractor(taxiPlaceOrderResponse: taxiResponse)
+                let taxiHasFoundVC = TaxiFoundViewController(interactor: taxiHasFoundInteractor)
+                taxiHasFoundInteractor.initView(taxiHasFoundVC)
+                taxiHasFoundVC.modalPresentationStyle = .overFullScreen
+                self.present(taxiHasFoundVC, animated: false)
+            }
+        }
+    }
+    
+    
+    func orderATaxi() {
+        DispatchQueue.main.async {
+            self.showTaxiOrderView()
+        }
+    }
+    
+    func changeWaitingTaxiStateLabelText() {
+        if let waitingTaxiView = waitingTaxiView {
+            DispatchQueue.main.async {
+                waitingTaxiView.changeStateLabelText()
+            }
+        }
+    }
+    
     
     func activatePromocodeDiscount(_ discount: String) {
         guard let taxiOrderView = taxiOrderView else { return }
@@ -377,6 +423,7 @@ extension MapViewController: MapViewProtocol {
         switch state {
         
         case .start:
+            menuButton.isHidden = false
             self.menuButton.setImage(UIImage(named: CustomImagesNames.menuButton.rawValue), for: .normal)
             self.lkButton.isHidden = false
             self.mapCenterButton.isHidden = false
@@ -384,6 +431,7 @@ extension MapViewController: MapViewProtocol {
             self.dismissShopsView()
             self.dismissTaxiViews()
             self.removeOldRoutes()
+            dismissCancelationOrderView()
             
         case .enterAddress(let addresEnterViewType):
             self.menuButton.setImage(UIImage(named: CustomImagesNames.backButton.rawValue), for: .normal)
@@ -511,7 +559,7 @@ extension MapViewController: MenuViewDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             
         case .PaymentWay:
-            self.interactor.getPaymentData()
+            showPaymentsViewController(data: interactor.paymentsData)
             
         case .Service:
             let vc = self.getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.ServiceViewController.rawValue)
@@ -654,7 +702,8 @@ extension MapViewController: AddressEnterViewDelegate {
             self.interactor.sourceAddress = self.addressEnterView.sourceAddress
             self.hideAddressEnterView {[weak self] _ in
                 guard let self = self else { return }
-                self.showTaxiOrdreView()
+//                self.showTaxiOrdreView()
+                self.interactor.getPrice()
             }
         case .food:
             self.hideAddressEnterView {[weak self] _ in
@@ -747,10 +796,10 @@ extension MapViewController: AddressEnterDetailViewDelegate {
 extension MapViewController {
     
     //Setup show animation for taxi order view
-    private func showTaxiOrdreView() {
+    private func showTaxiOrderView() {
         guard  !interactor.tariffsData.isEmpty else { return }
         self.taxiOrderView = TaxiOrderView(frame: CGRect.makeRect(height: TaxiOrderViewSizesData.viewHeight.rawValue))
-        taxiOrderView.bind(tariffsData: interactor.tariffsData)
+        taxiOrderView.bind(taxiPrices: interactor.taxiPricesData)
         self.view.addSubview(self.taxiOrderView)
         self.taxiOrderView.setupConstraints(for: self.view,
                                             viewHeight: TaxiOrderViewSizesData.viewHeight.rawValue,
@@ -758,6 +807,7 @@ extension MapViewController {
             guard let self = self else { return }
             self.taxiOrderViewBottomConstraint = constraint
         }
+        
         self.taxiOrderView.delegate = self
         self.taxiOrderView.mapButtonDelegate = self
         self.taxiOrderView.setupAdresses(from: self.interactor.sourceAddress ?? "", to: self.interactor.destinationAddress ?? "")
@@ -782,22 +832,26 @@ extension MapViewController {
 //MARK: - TaxiOrderView Delegate
 
 extension MapViewController: TaxiOrderViewDelegate {
+    
+    func tariffSelected(tariffId: Int, tariffPrice: Double) {
+        interactor.setSumOrder(tariffPrice)
+        interactor.promocodeDiscount = 0
+        interactor.enteredPoints = nil
+        taxiOrderView.promocodeButtonView.returnToInitialView()
+        taxiOrderView.pointsButtonView.returnToInitialView()
+        interactor.setSelectedTariff(id: tariffId)
+
+    }
+    
+    
     func orderButtonTapped() {
+        interactor.placeTaxiOrder()
         hideTaxiOrderView { [weak self] _ in
             guard let self = self else { return }
             self.showWaitingTaxiView()
             self.menuButton.isHidden = true
             self.topInfoView.isHidden = true
         }
-    }
-    
-   
-    func tariffSelected(tariffPrice: Double) {
-        interactor.setSumOrder(tariffPrice)
-        interactor.promocodeDiscount = 0
-        interactor.enteredPoints = nil
-        taxiOrderView.promocodeButtonView.returnToInitialView()
-        taxiOrderView.pointsButtonView.returnToInitialView()
     }
     
     func promocodeButtonTapped() {
@@ -961,8 +1015,9 @@ extension MapViewController {
 
 extension MapViewController: PromocodeActivatingViewControllerDelegate {
     
-    func promocodeHasActivated(discount: Int) {
+    func promocodeHasActivated(promocode: String, discount: Int) {
         interactor.setPromocodeDiscount(discount: discount)
+        interactor.addEnterPromocode(promocode: promocode)
     }
 }
 
@@ -1010,19 +1065,14 @@ extension MapViewController: WaitingTaxiViewDelegate {
             self.waitingTaxiView.removeFromSuperview()
             self.waitingTaxiView = nil
             self.waitingTaxiViewBottomConstraint = nil
-//            self.showCancelationOrderView()
-//            self.showDriversNotFoundView()
-            self.showTaxiOrderStatusView()
+            self.interactor.stopTimer()
+            self.showCancelationOrderView()
+            //            self.showDriversNotFoundView()
+//            self.showTaxiOrderStatusView()
         }
-//        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
-//        sentVC.configAs(.continueTaxiSearch)
-//        navigationController?.pushViewController(sentVC, animated: true)
-        
-//        let taxiHasFoundInteractor = TaxiFoundInteractor()
-//        let taxiHasFoundVC = TaxiFoundViewController(interactor: taxiHasFoundInteractor)
-//        taxiHasFoundInteractor.initView(taxiHasFoundVC)
-//        taxiHasFoundVC.modalPresentationStyle = .overFullScreen
-//        present(taxiHasFoundVC, animated: false)
+        //        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
+        //        sentVC.configAs(.continueTaxiSearch)
+        //        navigationController?.pushViewController(sentVC, animated: true)
     }
     
 }
@@ -1033,6 +1083,7 @@ extension MapViewController {
     
     private func showCancelationOrderView() {
         cancelationOrderView = CancelationOrderView(frame: CGRect.makeRect(height: CancelationOrderViewSizes.viewHeight))
+        cancelationOrderView.delegate = self
         view.addSubview(cancelationOrderView)
         cancelationOrderView.setupConstraints(for: view,
                                               viewHeight: CancelationOrderViewSizes.viewHeight,
@@ -1041,6 +1092,26 @@ extension MapViewController {
             self.cancelationOrderViewBottomConstraint = constraint
         }
         Animator.shared.showView(animationType: .usualBottomAnimation(cancelationOrderView, cancelationOrderViewBottomConstraint), from: view)
+    }
+    
+    private func dismissCancelationOrderView() {
+        if cancelationOrderView != nil {
+            cancelationOrderView.removeFromSuperview()
+            cancelationOrderView = nil
+            cancelationOrderViewBottomConstraint = nil
+        }
+    }
+}
+
+//MARK: - Cancelation Order View Delegate
+
+extension MapViewController: CancelationOrderViewDelegate {
+    func reasonSelected(reason: String) {
+        print(reason)
+        interactor.setViewControllerState(.start)
+        guard let sentVC = getViewController(storyboardId: StoryBoards.Service.rawValue, viewControllerId: ViewControllers.SentViewController.rawValue) as? SentViewController else { return }
+        sentVC.configAs(.cancelationTaxiOrder)
+        navigationController?.pushViewController(sentVC, animated: true)
     }
 }
 
@@ -1058,6 +1129,10 @@ extension MapViewController {
         Animator.shared.showView(animationType: .usualBottomAnimation(driversNotFoundView, driversNotFoundViewBottomConstraint), from: view)
     }
     
+    //Setup hide animation for Waiting Taxi view
+    private func hideDriversNotFoundView(completion: AnimationCompletion? = nil) {
+        Animator.shared.hideView(animationType: .usualBottomAnimation(driversNotFoundView, driversNotFoundViewBottomConstraint), from: view, viewHeight: DriversNotFoundViewSizes.viewHeight, completion: completion)
+    }
 }
 
 //MARK: - TaxiOrderStatusView

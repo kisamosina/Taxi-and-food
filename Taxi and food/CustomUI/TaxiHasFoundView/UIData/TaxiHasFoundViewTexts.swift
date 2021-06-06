@@ -13,11 +13,13 @@ struct TaxiHasFoundViewTexts: TranslatableTexts {
     private enum RusTaxiHasFoundViewTexts: String {
         case driver = "Водитель:"
         case feedTime = "Время подачи:"
+        case rub = "руб."
     }
     
     private enum EngTaxiHasFoundViewTexts: String {
         case driver = "Driver:"
         case feedTime = "Feed time:"
+        case rub = "rub."
     }
     
     static var driver: String {
@@ -37,6 +39,16 @@ struct TaxiHasFoundViewTexts: TranslatableTexts {
             return RusTaxiHasFoundViewTexts.feedTime.rawValue
         case .eng:
             return EngTaxiHasFoundViewTexts.feedTime.rawValue
+        }
+    }
+    
+    static var rub: String {
+        switch lang {
+            
+        case .rus:
+            return RusTaxiHasFoundViewTexts.rub.rawValue
+        case .eng:
+            return EngTaxiHasFoundViewTexts.rub.rawValue
         }
     }
 }

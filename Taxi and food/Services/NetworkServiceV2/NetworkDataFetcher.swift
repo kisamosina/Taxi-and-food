@@ -39,7 +39,7 @@ final class NetworkDataFetcher {
             switch result {
                 
             case .success(let data):
-                let decodedData = self.decodeFromData(type: ResponseModel.self, data: data)
+                let decodedData = self.decode(type: ResponseModel.self, data: data)
                 completion(.success(decodedData))
             case .failure(let error):
                 completion(.failure(error))

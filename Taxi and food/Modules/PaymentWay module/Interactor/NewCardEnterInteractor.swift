@@ -60,7 +60,7 @@ class NewCardEnterInteractor: NewCardEnterInteractorProtocol {
                 
         NetworkService.shared.makeRequest(for: resource, completion: {_ in }, completionWithNoResponse: { [weak self] in
             guard let self = self else { return }
-            PersistanceStoreManager.shared.savePaymentWay(PaymentWayTexts.cardTitle + self.addedNewCardResponseData.hidedNumber)
+            PersistanceStoreManager.shared.savePaymentWay(id: self.addedNewCardResponseData.id, title: PaymentWayTexts.cardTitle + self.addedNewCardResponseData.hidedNumber)
             self.view.backToPaymentWayViewController()
         })
     }

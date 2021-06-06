@@ -21,6 +21,10 @@ protocol TaxiFoundInteractorProtocol: AnyObject {
     
     var view: TaxiFoundViewProtocol! { get set }
     
+    var taxiPlaceOrderResponse: TaxiPlaceOrderResponseModel { get }
+    
+    init(taxiPlaceOrderResponse: TaxiPlaceOrderResponseModel)
+    
     func initView(_ view: TaxiFoundViewProtocol)
 }
 

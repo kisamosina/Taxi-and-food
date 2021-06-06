@@ -9,14 +9,14 @@
 import Foundation
 
 struct PaymentResponse: Decodable {
-    var data: [PaymentCardResponseData]
+    let data: [PaymentCardResponseData]
 }
 
 struct PaymentCardResponseData: Decodable {
-    var id: Int
-    var number: String
-    var expiryDate: String
-    var status: String
+    let id: Int
+    let number: String
+    let expiryDate: String
+    let status: String
 }
 
 extension PaymentCardResponseData {

@@ -57,7 +57,6 @@ class TaxiHasFoundView: CustomBottomView {
         self.setupConstraints()
         containerView.backgroundColor = .clear
         anchorView.backgroundColor = Colors.whiteTransparent.getColor()
-        bind()
     }
     
     private func setupConstraints() {
@@ -69,17 +68,17 @@ class TaxiHasFoundView: CustomBottomView {
         ])
     }
 
-    public func bind() {
+    public func bind(_ taxiResponse: TaxiPlaceOrderResponseModel) {
         tripTimeView.setupTitle("≈15 мин")
-        addressFromLabel.setText(text: "Садовая-Триумфальная, 24", of: .normalGrey())
-        addressToLabel.setText(text: "Тверская, 13", of: .normalGrey())
-        carNameLabel.setText(text: "Белый Opel Astra")
-        tariffNameView.bindTariff(tariffName: "Standart")
+        addressFromLabel.setText(text: taxiResponse.data.from, of: .normalGrey())
+        addressToLabel.setText(text: taxiResponse.data.to, of: .normalGrey())
+        carNameLabel.setText(text: taxiResponse.taxi.car)
+        tariffNameView.bindTariff(tariffName: taxiResponse.data.tariff.name)
         driverLabel.text = "\(TaxiHasFoundViewTexts.driver) Анатолий (id: 23-87)"
         driverLabel.setColorForText(TaxiHasFoundViewTexts.driver, color: Colors.fontGrey.getColor())
         feedTime.text = "\(TaxiHasFoundViewTexts.feedTime) 3 минуты"
         feedTime.setColorForText(TaxiHasFoundViewTexts.feedTime, color: Colors.fontGrey.getColor())
-        priceLabel.text = "100 руб"
+        priceLabel.text = String(taxiResponse.data.price) + " \(TaxiHasFoundViewTexts.rub)"
         approveButton.setupAs(.approve)
         approveButton.setActive()
         cancelButton.setupAs(type: .cancel)

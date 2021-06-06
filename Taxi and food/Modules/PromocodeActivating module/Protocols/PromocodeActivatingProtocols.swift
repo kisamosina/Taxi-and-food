@@ -14,7 +14,7 @@ protocol PromocodeActivatingViewProtocol: AnyObject {
     
     init(interactor: PromocodeActivatingInteractorProtocol)
     
-    func promocodeActivated(description: String)
+    func promocodeActivated(promocode: String, description: String)
     
     func promocodeAlreadyActivated()
     
@@ -31,5 +31,5 @@ protocol PromocodeActivatingInteractorProtocol: AnyObject {
 }
 
 protocol PromocodeActivatingViewControllerDelegate: AnyObject {
-    func promocodeHasActivated(discount: Int)
+    func promocodeHasActivated(promocode: String, discount: Int)
 }

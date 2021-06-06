@@ -63,6 +63,12 @@ protocol MapInteractorProtocol: AnyObject {
     //Entered points
     var enteredPoints: Int? { get set }
     
+    //EnteredPromocodes
+    var enteredPromocodes: [String] { get set }
+    
+    //Selected Tariff
+    var selectedTariff: Int? { get set }
+    
     //Promocode discount
     var promocodeDiscount: Double { get set }
     
@@ -71,6 +77,21 @@ protocol MapInteractorProtocol: AnyObject {
     
     //Tariffs
     var tariffsData: [TariffData] { get set }
+    
+    //Taxi prices
+    var taxiPricesData: [TaxiPriceResponseModel] { get set }
+    
+    //Payment card id
+    var paymentCardId: Int? { get set }
+    
+    //Payment way
+    var paymentWay: String { get set }
+    
+    //Payment data
+    var paymentsData: [PaymentCardResponseData] { get set }
+    
+    //Taxi order response data
+    var taxiOrderResponseData: TaxiPlaceOrderResponseModel? { get set }
     
     init(view: MapViewProtocol)
     
@@ -113,6 +134,18 @@ protocol MapInteractorProtocol: AnyObject {
     
     //Set promocode Discount
     func setPromocodeDiscount(discount: Int)
+    
+    func setSelectedTariff(id: Int)
+    
+    func addEnterPromocode(promocode: String)
+    
+    func placeTaxiOrder()
+    
+    func getPrice()
+    
+    func stopTimer()
+    
+    func cancelAnOrder()
 }
 
 
@@ -151,5 +184,13 @@ protocol MapViewProtocol: AnyObject {
     func activatePoints(_ pointsText: String)
     
     func activatePromocodeDiscount(_ discount: String)
+    
+    func changeWaitingTaxiStateLabelText()
+    
+    func orderATaxi()
+    
+    func taxiHasFound(_ taxiResponse: TaxiPlaceOrderResponseModel)
+    
+    func driversNotFound()
     
 }

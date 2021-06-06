@@ -57,6 +57,7 @@ extension TaxiFoundViewController {
     
     func showTaxiHasFoundView() {
         taxiHasFoundView = TaxiHasFoundView(frame: CGRect.makeRect(height: TaxiHasFoundViewSizes.viewHeight))
+        taxiHasFoundView.bind(interactor.taxiPlaceOrderResponse)
         view.addSubview(taxiHasFoundView)
         taxiHasFoundView.setupConstraints(for: view,
                                           viewHeight: TaxiHasFoundViewSizes.viewHeight,

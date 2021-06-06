@@ -168,6 +168,10 @@
 		7D1F5EF725F3D2FF00892B6F /* PaymentWayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */; };
 		7D1F5F0625F3D35600892B6F /* PaymentWayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */; };
 		7D1F5F1225F3DD3B00892B6F /* PaymentWayTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */; };
+		7D239621265D41FB007E457F /* TaxiOrderNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D239620265D41FB007E457F /* TaxiOrderNetworkService.swift */; };
+		7D239624265D422A007E457F /* TaxiOrderNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D239623265D422A007E457F /* TaxiOrderNetworkServiceProtocol.swift */; };
+		7D239626265D42B8007E457F /* TaxiPlaceOrderRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D239625265D42B8007E457F /* TaxiPlaceOrderRequestModel.swift */; };
+		7D239628265D4382007E457F /* TaxiPlaceOrderResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D239627265D4382007E457F /* TaxiPlaceOrderResponseModel.swift */; };
 		7D33FA63260A561B00DA5D0C /* AddressEnterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FA62260A561B00DA5D0C /* AddressEnterDetailView.swift */; };
 		7D33FA68260A56B600DA5D0C /* AddressEnterDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D33FA67260A56B600DA5D0C /* AddressEnterDetailView.xib */; };
 		7D33FA74260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33FA73260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift */; };
@@ -240,6 +244,8 @@
 		7D5FD98A261F712D000345BA /* FoodSubCategoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD989261F712D000345BA /* FoodSubCategoryViewDelegate.swift */; };
 		7D5FD992261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FD991261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift */; };
 		7D60ED88265C0A9B001EE7EB /* PersonalDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60ED87265C0A9B001EE7EB /* PersonalDataInteractor.swift */; };
+		7D60ED8A265C3D87001EE7EB /* PaymentWayNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60ED89265C3D87001EE7EB /* PaymentWayNetworkService.swift */; };
+		7D60ED8C265C3E2F001EE7EB /* PaymentWayNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D60ED8B265C3E2F001EE7EB /* PaymentWayNetworkServiceProtocol.swift */; };
 		7D6D90C0265BFB2900A699DC /* RegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D90BF265BFB2900A699DC /* RegistrationResponse.swift */; };
 		7D6D90C2265BFB4700A699DC /* ConfirmResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D90C1265BFB4700A699DC /* ConfirmResponse.swift */; };
 		7D6D90C4265BFB9200A699DC /* ShopsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D90C3265BFB9200A699DC /* ShopsResponse.swift */; };
@@ -333,6 +339,12 @@
 		7DECA8C6261E127500E74C84 /* FoodSubCategoryAndProductViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECA8C5261E127500E74C84 /* FoodSubCategoryAndProductViewUIData.swift */; };
 		7DECA8D2261E179900E74C84 /* SubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DECA8D0261E179900E74C84 /* SubCategoryCollectionViewCell.swift */; };
 		7DECA8D3261E179900E74C84 /* SubCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DECA8D1261E179900E74C84 /* SubCategoryCollectionViewCell.xib */; };
+		7DEE9A472664E3BA00519C30 /* CancelAnOrderNetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE9A462664E3BA00519C30 /* CancelAnOrderNetworkServiceProtocol.swift */; };
+		7DEE9A492664E3DF00519C30 /* CancelAnOrderNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE9A482664E3DF00519C30 /* CancelAnOrderNetworkService.swift */; };
+		7DEE9A4C2664E4E100519C30 /* CancelationOrderRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE9A4B2664E4E100519C30 /* CancelationOrderRequestModel.swift */; };
+		7DEE9A4E2664E68700519C30 /* CancelationOrderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE9A4D2664E68700519C30 /* CancelationOrderViewDelegate.swift */; };
+		7DF7F76E2660CD4600529586 /* TaxiPriceRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7F76D2660CD4600529586 /* TaxiPriceRequestModel.swift */; };
+		7DF7F7702660D04C00529586 /* TaxiPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7F76F2660D04C00529586 /* TaxiPriceResponse.swift */; };
 		7DFE0A552639C22F005B37D3 /* TopInfoViewUIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE0A542639C22F005B37D3 /* TopInfoViewUIData.swift */; };
 /* End PBXBuildFile section */
 
@@ -521,6 +533,10 @@
 		7D1F5EF625F3D2FF00892B6F /* PaymentWayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayProtocols.swift; sourceTree = "<group>"; };
 		7D1F5F0525F3D35600892B6F /* PaymentWayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayInteractor.swift; sourceTree = "<group>"; };
 		7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayTableViewModel.swift; sourceTree = "<group>"; };
+		7D239620265D41FB007E457F /* TaxiOrderNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderNetworkService.swift; sourceTree = "<group>"; };
+		7D239623265D422A007E457F /* TaxiOrderNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiOrderNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		7D239625265D42B8007E457F /* TaxiPlaceOrderRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiPlaceOrderRequestModel.swift; sourceTree = "<group>"; };
+		7D239627265D4382007E457F /* TaxiPlaceOrderResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiPlaceOrderResponseModel.swift; sourceTree = "<group>"; };
 		7D33FA62260A561B00DA5D0C /* AddressEnterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterDetailView.swift; sourceTree = "<group>"; };
 		7D33FA67260A56B600DA5D0C /* AddressEnterDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressEnterDetailView.xib; sourceTree = "<group>"; };
 		7D33FA73260A61F900DA5D0C /* AddressEnterDetailViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEnterDetailViewUIData.swift; sourceTree = "<group>"; };
@@ -593,6 +609,8 @@
 		7D5FD989261F712D000345BA /* FoodSubCategoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryViewDelegate.swift; sourceTree = "<group>"; };
 		7D5FD991261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubcategoryAndProductViewDelegate.swift; sourceTree = "<group>"; };
 		7D60ED87265C0A9B001EE7EB /* PersonalDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDataInteractor.swift; sourceTree = "<group>"; };
+		7D60ED89265C3D87001EE7EB /* PaymentWayNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayNetworkService.swift; sourceTree = "<group>"; };
+		7D60ED8B265C3E2F001EE7EB /* PaymentWayNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWayNetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		7D6D90BF265BFB2900A699DC /* RegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResponse.swift; sourceTree = "<group>"; };
 		7D6D90C1265BFB4700A699DC /* ConfirmResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmResponse.swift; sourceTree = "<group>"; };
 		7D6D90C3265BFB9200A699DC /* ShopsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsResponse.swift; sourceTree = "<group>"; };
@@ -686,6 +704,12 @@
 		7DECA8C5261E127500E74C84 /* FoodSubCategoryAndProductViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSubCategoryAndProductViewUIData.swift; sourceTree = "<group>"; };
 		7DECA8D0261E179900E74C84 /* SubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DECA8D1261E179900E74C84 /* SubCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		7DEE9A462664E3BA00519C30 /* CancelAnOrderNetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAnOrderNetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		7DEE9A482664E3DF00519C30 /* CancelAnOrderNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAnOrderNetworkService.swift; sourceTree = "<group>"; };
+		7DEE9A4B2664E4E100519C30 /* CancelationOrderRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelationOrderRequestModel.swift; sourceTree = "<group>"; };
+		7DEE9A4D2664E68700519C30 /* CancelationOrderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelationOrderViewDelegate.swift; sourceTree = "<group>"; };
+		7DF7F76D2660CD4600529586 /* TaxiPriceRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiPriceRequestModel.swift; sourceTree = "<group>"; };
+		7DF7F76F2660D04C00529586 /* TaxiPriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiPriceResponse.swift; sourceTree = "<group>"; };
 		7DFE0A542639C22F005B37D3 /* TopInfoViewUIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoViewUIData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -951,14 +975,14 @@
 			isa = PBXGroup;
 			children = (
 				7DC5AAE926599D9C00D345E2 /* NetworkServiceV2 */,
-				04B5654D25D65AAC00E0EC25 /* NetworkServie */,
+				04B5654D25D65AAC00E0EC25 /* NetworkService */,
 				7B75CFEC25E3FE88001981CA /* PersistanceService */,
 				7D542B9A260123F40030FC2D /* LocationService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		04B5654D25D65AAC00E0EC25 /* NetworkServie */ = {
+		04B5654D25D65AAC00E0EC25 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
 				7DDD94AF2642D02800D8DF5E /* PromocodeNetworkService */,
@@ -966,7 +990,7 @@
 				04B5655025D65AF200E0EC25 /* NetworkService.swift */,
 				04B5655225D65B1D00E0EC25 /* Resource.swift */,
 			);
-			path = NetworkServie;
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		04B5655425D65B3900E0EC25 /* Extensions */ = {
@@ -1215,7 +1239,6 @@
 				7D4915A72618C34000EBD03A /* FoodCategoriesView */,
 				7DECA8BE261E10AB00E74C84 /* FoodCategoryAndSubCategoryView */,
 				7D4915E92619D41500EBD03A /* FoodSubCategoryView */,
-				7D7F4F512639B5D30025D423 /* Gradient.swift */,
 				7D33FAAC260BB34F00DA5D0C /* InactiveView */,
 				7DD6B17925F01C9500445407 /* LogOutButton.swift */,
 				7B75CEE625DAE72C001981CA /* MainBottomButton.swift */,
@@ -1425,6 +1448,15 @@
 				7D4748E925F7E64A00F744F7 /* NewCardEnterInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7D239622265D4203007E457F /* TaxiOrderNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				7D239620265D41FB007E457F /* TaxiOrderNetworkService.swift */,
+				7D239623265D422A007E457F /* TaxiOrderNetworkServiceProtocol.swift */,
+			);
+			path = TaxiOrderNetworkService;
 			sourceTree = "<group>";
 		};
 		7D33FA6C260A56C600DA5D0C /* AddressEnterDetailView */ = {
@@ -1763,23 +1795,23 @@
 		7D60ED85265C0A46001EE7EB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				7B84660325D839BB00B09D98 /* Start Group */,
 				049A3F6525F1F61900C31AED /* Address module */,
-				7B47C81E25DD299F00F366FE /* Tariffs Module */,
-				7B75D01A25E50BB9001981CA /* PromocodeModule */,
-				7D50F118263AFBF800295571 /* PromocodeActivating module */,
-				041E299425E20D4D00CA9F56 /* PersonalData module */,
-				041E297E25DE1DBE00CA9F56 /* Settings module */,
-				04B5656725D681BC00E0EC25 /* Service module */,
 				7DC63552261CC53000EC4F3D /* ChooseFoodCategory module */,
 				7D5FD961261F62B8000345BA /* ChooseFoodSubCategory module */,
-				7DD6B16B25F012C000445407 /* PersonalAccount module */,
-				7B3A8FD325EA8BF6008CA13E /* PaymenntHistory module */,
 				7D823EB925F2A995006B174B /* InactivewView module */,
+				7B3A8FD325EA8BF6008CA13E /* PaymenntHistory module */,
 				7D823F0B25F3C79E006B174B /* PaymentWay module */,
-				7D6F1933263C442800A4F15D /* WastePoints module */,
-				7DA6C7872656EFC2009B466E /* TaxiFound module */,
+				7DD6B16B25F012C000445407 /* PersonalAccount module */,
+				041E299425E20D4D00CA9F56 /* PersonalData module */,
 				041E29BD25E7662600CA9F56 /* Promo module */,
+				7D50F118263AFBF800295571 /* PromocodeActivating module */,
+				7B75D01A25E50BB9001981CA /* PromocodeModule */,
+				04B5656725D681BC00E0EC25 /* Service module */,
+				041E297E25DE1DBE00CA9F56 /* Settings module */,
+				7B84660325D839BB00B09D98 /* Start Group */,
+				7B47C81E25DD299F00F366FE /* Tariffs Module */,
+				7DA6C7872656EFC2009B466E /* TaxiFound module */,
+				7D6F1933263C442800A4F15D /* WastePoints module */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1790,6 +1822,16 @@
 				7D60ED87265C0A9B001EE7EB /* PersonalDataInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		7D60ED8D265C3E37001EE7EB /* PaymentWayNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				7D7F4F512639B5D30025D423 /* Gradient.swift */,
+				7D60ED8B265C3E2F001EE7EB /* PaymentWayNetworkServiceProtocol.swift */,
+				7D60ED89265C3D87001EE7EB /* PaymentWayNetworkService.swift */,
+			);
+			path = PaymentWayNetworkService;
 			sourceTree = "<group>";
 		};
 		7D6F1933263C442800A4F15D /* WastePoints module */ = {
@@ -2029,6 +2071,9 @@
 				7DC5AAE726599D6C00D345E2 /* NetworkDataFetcher.swift */,
 				7DC5AAE326599C3200D345E2 /* ResourceAPIV2.swift */,
 				7DC5AAE526599C7700D345E2 /* RequestMethodV2.swift */,
+				7DEE9A4A2664E42700519C30 /* CancelAnOrderNetworkService */,
+				7D239622265D4203007E457F /* TaxiOrderNetworkService */,
+				7D60ED8D265C3E37001EE7EB /* PaymentWayNetworkService */,
 			);
 			path = NetworkServiceV2;
 			sourceTree = "<group>";
@@ -2044,26 +2089,31 @@
 		7DC5AAEF265A771200D345E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7DC5AAED265A770B00D345E2 /* EmptyModels.swift */,
-				7DC5AAF5265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift */,
-				7D6D90BF265BFB2900A699DC /* RegistrationResponse.swift */,
-				7D6D90C1265BFB4700A699DC /* ConfirmResponse.swift */,
-				7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */,
-				7D6D90C3265BFB9200A699DC /* ShopsResponse.swift */,
-				7D6D90C5265BFBB400A699DC /* FoodCategoriesResponse.swift */,
-				7D6D90C7265BFBEA00A699DC /* Tariff.swift */,
-				0414314325F870680074D86C /* AddressModel.swift */,
+				7D6D90CD265BFDCA00A699DC /* AddNewCardResponse.swift */,
 				0414314D25FA17C40074D86C /* AddressCellModel.swift */,
-				7B75CF5025DD71E1001981CA /* TariffResponse.swift */,
+				0414314325F870680074D86C /* AddressModel.swift */,
+				7D6D90C1265BFB4700A699DC /* ConfirmResponse.swift */,
+				7DC5AAED265A770B00D345E2 /* EmptyModels.swift */,
+				7D6D90C5265BFBB400A699DC /* FoodCategoriesResponse.swift */,
+				7B75CFC925E17AF7001981CA /* MapMenuDataModel.swift */,
+				7D6D90C9265BFD1600A699DC /* PaymentResponse.swift */,
+				7B3A8FF425EA9C09008CA13E /* PaymentsHistoryResponse.swift */,
+				7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */,
+				7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */,
+				7D6D90CB265BFD9C00A699DC /* PointsResponse.swift */,
+				7D5FD92E261E267C000345BA /* ProductsResponse.swift */,
 				7B0C991025E55B9000530932 /* PromocodeResponse.swift */,
 				041E29DA25E7A54700CA9F56 /* PromoResponse.swift */,
-				7D6D90CD265BFDCA00A699DC /* AddNewCardResponse.swift */,
-				7D5FD92E261E267C000345BA /* ProductsResponse.swift */,
-				7D6D90C9265BFD1600A699DC /* PaymentResponse.swift */,
-				7D823E9525F14BE3006B174B /* PersonalAccountTableViewModel.swift */,
-				7B3A8FF425EA9C09008CA13E /* PaymentsHistoryResponse.swift */,
-				7D6D90CB265BFD9C00A699DC /* PointsResponse.swift */,
-				7D1F5F1125F3DD3B00892B6F /* PaymentWayTableViewModel.swift */,
+				7D6D90BF265BFB2900A699DC /* RegistrationResponse.swift */,
+				7D6D90C3265BFB9200A699DC /* ShopsResponse.swift */,
+				7D6D90C7265BFBEA00A699DC /* Tariff.swift */,
+				7B75CF5025DD71E1001981CA /* TariffResponse.swift */,
+				7DC5AAF5265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift */,
+				7D239625265D42B8007E457F /* TaxiPlaceOrderRequestModel.swift */,
+				7DF7F76D2660CD4600529586 /* TaxiPriceRequestModel.swift */,
+				7DF7F76F2660D04C00529586 /* TaxiPriceResponse.swift */,
+				7D239627265D4382007E457F /* TaxiPlaceOrderResponseModel.swift */,
+				7DEE9A4B2664E4E100519C30 /* CancelationOrderRequestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2129,6 +2179,7 @@
 			isa = PBXGroup;
 			children = (
 				7DEA7FB8265532B80073FE80 /* CancelationOrderView.swift */,
+				7DEE9A4D2664E68700519C30 /* CancelationOrderViewDelegate.swift */,
 				7DEA7FBB265533190073FE80 /* CancelationOrderView.xib */,
 				7D5010A52655387A003F28DA /* Data */,
 			);
@@ -2154,6 +2205,15 @@
 				7DECA8D1261E179900E74C84 /* SubCategoryCollectionViewCell.xib */,
 			);
 			path = SubCategoryCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		7DEE9A4A2664E42700519C30 /* CancelAnOrderNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				7DEE9A462664E3BA00519C30 /* CancelAnOrderNetworkServiceProtocol.swift */,
+				7DEE9A482664E3DF00519C30 /* CancelAnOrderNetworkService.swift */,
+			);
+			path = CancelAnOrderNetworkService;
 			sourceTree = "<group>";
 		};
 		7DFE0A502639BB61005B37D3 /* TopInfoView */ = {
@@ -2354,6 +2414,7 @@
 				04CA5A4D25E89AB300EDC886 /* PromoShortInteractor.swift in Sources */,
 				7B0C990825E5595B00530932 /* PromocodeEnterInteractor.swift in Sources */,
 				7B47C87C25E147E700F366FE /* CloseMenuButton.swift in Sources */,
+				7DEE9A472664E3BA00519C30 /* CancelAnOrderNetworkServiceProtocol.swift in Sources */,
 				7B47C84B25DD478D00F366FE /* TariffViewController.swift in Sources */,
 				041E299025DF6F9900CA9F56 /* LanguageCell.swift in Sources */,
 				7D00DDDF26076B4C004D5777 /* MapButtonView.swift in Sources */,
@@ -2392,6 +2453,7 @@
 				04B5654925D65A2600E0EC25 /* AuthViewController.swift in Sources */,
 				7D33FA8B260B9EE900DA5D0C /* ShowLocationProtocols.swift in Sources */,
 				7D60ED88265C0A9B001EE7EB /* PersonalDataInteractor.swift in Sources */,
+				7DF7F76E2660CD4600529586 /* TaxiPriceRequestModel.swift in Sources */,
 				041E29A925E220BC00CA9F56 /* PersonalDataModel.swift in Sources */,
 				04B5654B25D65A5400E0EC25 /* ConfirmAuthViewController.swift in Sources */,
 				7D47491225F8028C00F744F7 /* AuxiliaryButton.swift in Sources */,
@@ -2425,10 +2487,12 @@
 				7D4915D526190EC400EBD03A /* FoodCategoryViewDelegate.swift in Sources */,
 				7DA996E2263840D200BDE0BA /* DiscountsButtonView.swift in Sources */,
 				041E298C25DF5F5B00CA9F56 /* SettingsSwitchCell.swift in Sources */,
+				7D239628265D4382007E457F /* TaxiPlaceOrderResponseModel.swift in Sources */,
 				7D5010A9265546BA003F28DA /* WaitingTaxiViewDelegate.swift in Sources */,
 				04B5651225D6591200E0EC25 /* AppDelegate.swift in Sources */,
 				7B75D03A25E51D0E001981CA /* PromocodeEnterViewController.swift in Sources */,
 				7B47C84325DD448A00F366FE /* AdvantageCollectionViewCell.swift in Sources */,
+				7D239626265D42B8007E457F /* TaxiPlaceOrderRequestModel.swift in Sources */,
 				7D00DDF82607765E004D5777 /* MapButtonViewDelegate.swift in Sources */,
 				7D4748E525F7D8B900F744F7 /* CardEnterViewDelegate.swift in Sources */,
 				7B47C86225DE9A0300F366FE /* TariffTitleButton.swift in Sources */,
@@ -2487,6 +2551,7 @@
 				7BEA203D26008576007DD69A /* AddressEnterView.swift in Sources */,
 				0465F53E25DBDD22008CA6D0 /* PhotosViewControllerUIData.swift in Sources */,
 				041E298A25DE36B500CA9F56 /* SettingsOption.swift in Sources */,
+				7DF7F7702660D04C00529586 /* TaxiPriceResponse.swift in Sources */,
 				7D49157B261776ED00EBD03A /* Animator.swift in Sources */,
 				7B75CEF425DB0AC1001981CA /* DigitTextField.swift in Sources */,
 				041E298425DE1FA700CA9F56 /* SettingsInteractor.swift in Sources */,
@@ -2508,6 +2573,7 @@
 				7DC5AAF6265BB0A800D345E2 /* TaxiOrderStatusTableViewCellModel.swift in Sources */,
 				7D49158E2617C92700EBD03A /* AddressTranslatable.swift in Sources */,
 				7BFFA68325D67F0300C35652 /* MapViewController.swift in Sources */,
+				7DEE9A492664E3DF00519C30 /* CancelAnOrderNetworkService.swift in Sources */,
 				7D33FA7E260B9EC100DA5D0C /* ShowLocationViewController.swift in Sources */,
 				7B47C88D25E6771400F366FE /* PromocodeHistoryTableViewCell.swift in Sources */,
 				7BB36F3525E6B8CE00649669 /* ISO8601DateFormatter+Extension.swift in Sources */,
@@ -2536,18 +2602,22 @@
 				7D50F122263AFC6500295571 /* PromocodeActivatingInteractor.swift in Sources */,
 				7B75CED625DAE065001981CA /* ConfirmAuthModuleUIData.swift in Sources */,
 				7B75D02D25E51C18001981CA /* TextEnterView.swift in Sources */,
+				7DEE9A4E2664E68700519C30 /* CancelationOrderViewDelegate.swift in Sources */,
 				7DA996CC26381D8B00BDE0BA /* TaxiOrderView.swift in Sources */,
 				7D5FD966261F62F1000345BA /* ChooseFoodSubCategoriesInteractor.swift in Sources */,
+				7D60ED8A265C3D87001EE7EB /* PaymentWayNetworkService.swift in Sources */,
 				7DC5AAE426599C3200D345E2 /* ResourceAPIV2.swift in Sources */,
 				7DDD94AE2642CF0200D8DF5E /* PromocodeNetworkServiceProtocol.swift in Sources */,
 				7D851C4B25F67CD4000E20DB /* NewCardEnterViewController.swift in Sources */,
 				7DAFA39C265802CB00F70EEE /* StateNumberView.swift in Sources */,
 				7D4748EA25F7E64A00F744F7 /* NewCardEnterInteractor.swift in Sources */,
 				7B3A8FE025EA936F008CA13E /* PaymentHistoryInteractor.swift in Sources */,
+				7D60ED8C265C3E2F001EE7EB /* PaymentWayNetworkServiceProtocol.swift in Sources */,
 				7DAFA3A32658405300F70EEE /* RoundedButton.swift in Sources */,
 				7B75CFE025E3CBEC001981CA /* Taxi_and_food.xcdatamodeld in Sources */,
 				7D7F4F4D2639A1060025D423 /* TaxiOrderViewDelegate.swift in Sources */,
 				7BD7CB94260392FD0099C9B7 /* AboutPointsViewDelegate.swift in Sources */,
+				7DEE9A4C2664E4E100519C30 /* CancelationOrderRequestModel.swift in Sources */,
 				7DDD94B1264311EE00D8DF5E /* PointsNetworkService.swift in Sources */,
 				7B75CFC525E175E8001981CA /* MapMenuViewCell.swift in Sources */,
 				041E299F25E210F600CA9F56 /* PersonalDataCell.swift in Sources */,
@@ -2583,7 +2653,9 @@
 				04B5656F25D8D6C700E0EC25 /* PhotosCell.swift in Sources */,
 				7BD7CB9C2604C3E50099C9B7 /* MapModuleProtocols.swift in Sources */,
 				7B75CFAD25E16EA9001981CA /* MapInteractor.swift in Sources */,
+				7D239621265D41FB007E457F /* TaxiOrderNetworkService.swift in Sources */,
 				0414314B25FA15440074D86C /* AllAddressesCell.swift in Sources */,
+				7D239624265D422A007E457F /* TaxiOrderNetworkServiceProtocol.swift in Sources */,
 				7B75CF9525E03861001981CA /* MapRoundButton.swift in Sources */,
 				7DC5AAE626599C7700D345E2 /* RequestMethodV2.swift in Sources */,
 				7D5FD992261F81F8000345BA /* FoodSubcategoryAndProductViewDelegate.swift in Sources */,

@@ -9,6 +9,8 @@
 import UIKit
 
 class PaymentWayCell: UITableViewCell {
+    
+    var cardId: Int?
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,5 +27,6 @@ class PaymentWayCell: UITableViewCell {
         self.checkMarkImageView.image = UIImage(named: model.checkMarkImage)
         guard let iconName = model.iconName else { return }
         self.iconImageView.image = UIImage(named: iconName)
+        cardId = model.id
     }
 }

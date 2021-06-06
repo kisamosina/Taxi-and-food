@@ -73,14 +73,14 @@ class PromocodeActivatingViewController: SubstrateViewController {
 
 extension PromocodeActivatingViewController: PromocodeActivatingViewProtocol {
     
-    func promocodeActivated(description: String) {
+    func promocodeActivated(promocode: String, description: String) {
         let discount = Int.random(in: 3...15)
         DispatchQueue.main.async {
             self.promocodeEnterView.removeFromSuperview()
             self.promocodeEnterView = nil
             self.promocodeEnterViewBottomConstraint = nil
             self.showPromocodeActivatingResultView(description: description)
-            self.delegate?.promocodeHasActivated(discount: discount)
+            self.delegate?.promocodeHasActivated(promocode: promocode, discount: discount)
         }
     }
     

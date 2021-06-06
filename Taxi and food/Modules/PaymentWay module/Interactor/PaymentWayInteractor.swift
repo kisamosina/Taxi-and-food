@@ -20,13 +20,17 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
             
     private var paymentCards: [PaymentCardResponseData]
     
+    private let paymentWayNetworkService: PaymentWayNetworkServiceProtocol
+    
     //MARK: - Initializer
     
     required init(view: PaymentWayViewProtocol, data: [PaymentCardResponseData]) {
         self.view = view
         self.paymentCards = data
+        self.paymentWayNetworkService = PaymentWayNetworkService.shared
         self.setTableViewModel()
         self.showActiveCell()
+        
     }
     
     //MARK: - Methods
@@ -95,7 +99,7 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
             .compactMap {[unowned self] in return self.getInitialPaymentWayTableViewCellModel(for: $0)}
         
         self.paymentCards.forEach {
-            let paymentWayTableViewCellModel = PaymentWayTableViewCellModel(checkMark: .inactive, title: PaymentWayTexts.cardTitle + $0.hidedNumber, iconName: CustomImagesNames.visaIcon.rawValue)
+            let paymentWayTableViewCellModel = PaymentWayTableViewCellModel(checkMark: .inactive, id: $0.id, title: PaymentWayTexts.cardTitle + $0.hidedNumber, iconName: CustomImagesNames.visaIcon.rawValue)
             cellsForFirstSection.insert(paymentWayTableViewCellModel, at: 1)
         }
         
@@ -112,28 +116,25 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
     // Get cards data from server
     
     func getPaymentData() {
-        guard let userData = PersistanceStoreManager.shared.getUserData(), let userId = userData.first?.id else { return }
-        
-        let resource = Resource<PaymentResponse>(path: PaymentRequestPaths.paymentCards.rawValue.getServerPath(for: Int(userId)), requestType: .GET)
-        NetworkService.shared.makeRequest(for: resource, completion:  {[weak self] paymentResponse in
+
+        paymentWayNetworkService.getPaymentWayData { [weak self] result in
             guard let self = self else { return }
             
-            switch paymentResponse {
+            switch result {
             
-            case .success(let paymentResponse):
-                self.paymentCards = paymentResponse.data
+            case .success(let paymentData):
+                self.paymentCards = paymentData
                 self.setTableViewModel()
                 self.showActiveCell()
             case .failure(let error):
-                
                 print(error.localizedDescription)
             }
-        })
+        }
     }
     
     // Set active cells
     
-    func setActiveTableViewModelCell(_ title: String) {
+    func setActiveTableViewModelCell(id: Int?, title: String) {
         
         guard title != PaymentWayTexts.bankCard,
               title != PaymentWayTexts.addCard,
@@ -142,7 +143,7 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
         else { return }
         
         if PersistanceStoreManager.shared.getSavedPaymentWay()?.first?.title != title {
-            self.savePaymentWay(title)
+            self.savePaymentWay(id: id, title: title)
         }
         
         var cells: [PaymentWayTableViewCellModel] = []
@@ -163,14 +164,14 @@ class PaymentWayInteractor: PaymentWayInteractorProtocol {
         self.view.reloadTableView()
     }
     
-    private func savePaymentWay(_ title: String) {
-        PersistanceStoreManager.shared.savePaymentWay(title)
+    private func savePaymentWay(id: Int?, title: String) {
+        PersistanceStoreManager.shared.savePaymentWay(id: id, title: title)
     }
     
     func showActiveCell() {
 
-        if let title = PersistanceStoreManager.shared.getSavedPaymentWay()?.first?.title {
-            self.setActiveTableViewModelCell(title)
+        if let savedPayment = PersistanceStoreManager.shared.getSavedPaymentWay()?.first, let title = savedPayment.title {
+            self.setActiveTableViewModelCell(id: Int(savedPayment.id), title: title)
         }
     }
     

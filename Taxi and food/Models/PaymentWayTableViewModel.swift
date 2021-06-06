@@ -25,6 +25,7 @@ struct PaymentWayTableViewCellModel {
     }
     
     var checkMark: CheckMarkState
+    var id: Int?
     var title: String
     var iconName: String?
     

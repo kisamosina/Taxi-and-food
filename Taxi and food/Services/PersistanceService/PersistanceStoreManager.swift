@@ -76,10 +76,12 @@ final class PersistanceStoreManager {
 
     }
     
-    func savePaymentWay(_ title: String) {
-        
+    func savePaymentWay(id: Int?, title: String) {
         self.deleteSavedPaymentWay()
         let newPaymentWay = SavedPaymentWay(context: self.context)
+        if let id = id {
+            newPaymentWay.id = Int32(id)
+        }
         newPaymentWay.title = title
         self.save()
     }

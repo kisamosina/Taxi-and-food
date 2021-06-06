@@ -12,9 +12,8 @@ import UIKit
 protocol TaxiOrderViewDelegate: AnyObject {
     
     func viewHasSwipedDown()
-//    func mapButtonViewTapped(destinationAddress: String?)
     func promocodeButtonTapped()
     func pointsButtonTapped()
-    func tariffSelected(tariffPrice: Double)
+    func tariffSelected(tariffId: Int, tariffPrice: Double)
     func orderButtonTapped()
 }

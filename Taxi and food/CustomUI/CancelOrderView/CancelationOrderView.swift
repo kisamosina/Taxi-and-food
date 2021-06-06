@@ -14,6 +14,8 @@ class CancelationOrderView: CustomBottomView {
         CancelationOrderViewTexts.cancelationReasons
     }
     
+    weak var delegate: CancelationOrderViewDelegate?
+    
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var cancelationReasonLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -71,4 +73,8 @@ extension CancelationOrderView: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let reason = cancelationReasons[indexPath.row]
+        delegate?.reasonSelected(reason: reason)
+    }
 }
